@@ -2,29 +2,29 @@
 <?xml-model href="https://music-encoding.org/schema/5.1/mei-all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="https://music-encoding.org/schema/5.1/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1">
-    <meiHead xml:id="mfc8305">
-                                            <fileDesc xml:id="f1l1sbp3">
-<titleStmt xml:id="tq1fn51">
-    <title/>
-    <respStmt/>
-</titleStmt>
-<pubStmt xml:id="p1hw2f4t">
-    <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
-</pubStmt>
-                                            </fileDesc>
-                                            <encodingDesc xml:id="eg5qta3">
-<appInfo xml:id="a7g3pxj">
-    <application xml:id="ak6g4k5" isodate="2025-08-29T17:43:43" version="5.5.0-e003172">
-                                            <name xml:id="n497qe7">Verovio</name>
-                                            <p xml:id="p1l2do7h">Transcoded from MusicXML</p>
-    </application>
-    <application xml:id="ap5z0a31" startdate="2026-04-14T12:49:34" version="1.2.9" enddate="2026-04-14T18:30:12">
-                                            <name xml:id="nvovxim2">mei-friend</name>
-                                            <p xml:id="pmhvcu6">First edit by mei-friend 1.2.9.</p>
-    </application>
-</appInfo>
-                                            </encodingDesc>
-    </meiHead>
+   <meiHead xml:id="mfc8305">
+      <fileDesc xml:id="f1l1sbp3">
+         <titleStmt xml:id="tq1fn51">
+            <title/>
+            <respStmt/>
+         </titleStmt>
+         <pubStmt xml:id="p1hw2f4t">
+            <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
+         </pubStmt>
+      </fileDesc>
+      <encodingDesc xml:id="eg5qta3">
+         <appInfo xml:id="a7g3pxj">
+            <application xml:id="ak6g4k5" isodate="2025-08-29T17:43:43" version="5.5.0-e003172">
+               <name xml:id="n497qe7">Verovio</name>
+               <p xml:id="p1l2do7h">Transcoded from MusicXML</p>
+            </application>
+            <application xml:id="ap5z0a31" startdate="2026-04-14T12:49:34" version="1.2.9" enddate="2026-04-15T12:06:38">
+               <name xml:id="nvovxim2">mei-friend</name>
+               <p xml:id="pmhvcu6">First edit by mei-friend 1.2.9.</p>
+            </application>
+         </appInfo>
+      </encodingDesc>
+   </meiHead>
    <music>
       <facsimile>
          <surface xml:id="surface_b5c2092c4294" n="1" ulx="0" uly="0" lrx="4133" lry="5494">
@@ -910,7 +910,10 @@
                               <note xml:id="q1jjfmh1" oct="4" pname="d" />
                               <note xml:id="s155j6xf" oct="4" pname="f" />
                            </chord>
-                           <note xml:id="t1jve51a" dur.ppq="8" dur="4" oct="4" pname="b" stem.dir="up" accid.ges="f" />
+                           <chord xml:id="c0idfly1" dur="4" stem.dir="up">
+                              <note xml:id="t1jve51a" dur.ppq="8" oct="4" pname="b" accid.ges="f"/>
+                              <note xml:id="ncfu0bn2" oct="4" pname="f"/>
+                           </chord>
                            <chord xml:id="x15xv41f" dur.ppq="8" dur="4" stem.dir="up">
                               <note xml:id="vaekz8u" oct="4" pname="e" accid.ges="f" />
                               <note xml:id="yl1xoke" oct="4" pname="g" />
