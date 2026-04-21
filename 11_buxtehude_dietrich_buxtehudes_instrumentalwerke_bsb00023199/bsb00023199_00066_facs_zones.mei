@@ -760,8 +760,10 @@
                                  <note xml:id="cpe8dl2" oct="4" pname="f" />
                               </chord>
                            </beam>
-                           <note xml:id="d1thez7d" dur.ppq="2" dur="8" oct="4" pname="d" stem.dir="up" />
-                           <note xml:id="e1imh71t" dur.ppq="2" dur="8" oct="4" pname="c" stem.dir="down" accid.ges="s" />
+                           <beam>
+                              <note xml:id="d1thez7d" dur.ppq="2" dur="8" oct="4" pname="d" stem.dir="down" />
+                              <note xml:id="e1imh71t" dur.ppq="2" dur="8" oct="4" pname="c" stem.dir="down" accid.ges="s" />
+                           </beam>
                         </layer>
                         <layer xml:id="g10my5mk" n="2">
                            <space xml:id="i1500va5" dur.ppq="8" dur="2" />
@@ -784,7 +786,7 @@
                            </chord>
                         </layer>
                      </staff>
-                     <tie xml:id="b1pk36fh" startid="#zr39ii8" endid="#d1thez7d" />
+                     <tie xml:id="b1pk36fh" startid="#zr39ii8" endid="#d1thez7d" curvedir="below"/>
                   </measure>
                   <measure xml:id="s2tk1xh" n="7" facs="#zone_00c35f3e639644e5b8">
                      <staff xml:id="b1bgurvg" n="1">
