@@ -5,8 +5,8 @@
    <meiHead xml:id="mrehm65">
       <fileDesc xml:id="f16scmkm">
          <titleStmt xml:id="tdw8ukb">
-            <title />
-            <respStmt />
+            <title/>
+            <respStmt/>
          </titleStmt>
          <pubStmt xml:id="p1e8oqgx">
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
@@ -17,6 +17,10 @@
             <application xml:id="absfq1v" isodate="2025-08-29T17:43:41" version="5.5.0-e003172">
                <name xml:id="n1cc979l">Verovio</name>
                <p xml:id="p1rmi773">Transcoded from MusicXML</p>
+            </application>
+            <application xml:id="a9lef6c" startdate="2026-04-24T18:47:44" version="1.2.9" enddate="2026-04-24T18:48:10">
+               <name xml:id="nna0e0a1">mei-friend</name>
+               <p xml:id="pajf51n2">First edit by mei-friend 1.2.9.</p>
             </application>
          </appInfo>
       </encodingDesc>
@@ -161,8 +165,10 @@
                               <note xml:id="j1fje3ux" oct="4" pname="b" accid.ges="f" />
                            </chord>
                            <rest xml:id="ls1k4w4" dur.ppq="4" dur="8" />
-                           <note xml:id="m6r9el3" dur.ppq="2" dur="16" oct="4" pname="b" stem.dir="up" accid.ges="f" />
-                           <note xml:id="o1f781cl" dur.ppq="2" dur="16" oct="4" pname="g" stem.dir="up" />
+                           <beam xml:id="br3sjmp1">
+                              <note xml:id="m6r9el3" dur.ppq="2" dur="16" oct="4" pname="b" stem.dir="up" accid.ges="f"/>
+                              <note xml:id="o1f781cl" dur.ppq="2" dur="16" oct="4" pname="g" stem.dir="up"/>
+                           </beam>
                            <chord xml:id="q47p6mk" dur.ppq="8" dur="4" stem.dir="up">
                               <note xml:id="ped78o3" oct="4" pname="e" />
                               <note xml:id="ro08oee" oct="4" pname="f" />
@@ -392,7 +398,8 @@
                         <layer xml:id="x88phm0" n="1">
                            <beam xml:id="ytngcoe">
                               <note xml:id="z1jwsy4m" dur.ppq="4" dur="8" oct="4" pname="f" stem.dir="up" />
-                              <note xml:id="a11g7vei" dur.ppq="4" dur="8" oct="4" pname="d" stem.dir="up" />
+                              <note xml:id="a11g7vei" dur="16" dur.ppq="4" oct="4" pname="d" stem.dir="up"/>
+                              <note xml:id="n5ir4o01" dur="16" oct="5" pname="d" stem.dir="up"/>
                            </beam>
                            <beam xml:id="b14yqbf5">
                               <note xml:id="ckj7ygk" dur.ppq="2" dur="16" oct="5" pname="c" stem.dir="down" />
