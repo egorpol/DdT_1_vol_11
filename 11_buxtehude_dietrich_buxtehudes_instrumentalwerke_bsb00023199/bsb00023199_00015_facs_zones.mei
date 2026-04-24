@@ -18,7 +18,7 @@
                <name xml:id="n14jooki">Verovio</name>
                <p xml:id="p11ojx78">Transcoded from MusicXML</p>
             </application>
-            <application xml:id="a925uvj2" startdate="2026-04-12T18:16:31" version="1.2.9" enddate="2026-04-24T22:52:39">
+            <application xml:id="a925uvj2" startdate="2026-04-12T18:16:31" version="1.2.9" enddate="2026-04-24T22:56:52">
                <name xml:id="n3ez3yj2">mei-friend</name>
                <p xml:id="phbyyhy2">First edit by mei-friend 1.2.9.</p>
             </application>
@@ -1616,7 +1616,10 @@
                      <staff xml:id="j1mu0fpi" n="4">
                         <layer xml:id="l1uenfmk" n="1">
                            <beam xml:id="br851hu1">
-                              <note xml:id="m16lpi4t" dur.ppq="2" dur="8" oct="5" pname="c" stem.dir="up"/>
+                              <chord xml:id="dhcnez3" dur="8" stem.dir="up">
+                                 <note xml:id="m16lpi4t" dur.ppq="2" oct="5" pname="c"/>
+                                 <note xml:id="fmj45" oct="4" pname="g"/>
+                              </chord>
                               <chord xml:id="og1h7iw" dur.ppq="2" dur="8" stem.dir="up">
                                  <note xml:id="n1o7b8x3" oct="4" pname="g"/>
                                  <note xml:id="qtxp99f" oct="4" pname="b" accid.ges="f"/>
@@ -1640,12 +1643,9 @@
                         </layer>
                         <layer xml:id="g1e50i0l" n="2">
                            <beam xml:id="bz7ews81">
-                              <chord xml:id="dgj8346" dur="8" dots="1" stem.dir="down">
-                                 <note xml:id="hpalovi"  dur.ppq="3" oct="4" pname="e">
+                              <note xml:id="hpalovi"  dur="8" dots="1" dur.ppq="3" oct="4" pname="e">
                                     <accid xml:id="ip58hqg" accid="f"/>
-                                 </note>
-                                 <note xml:id="dfj83" oct="4" pname="g"/>
-                              </chord>
+                              </note>
                               <note xml:id="jeimv76" dur.ppq="1" dur="16" oct="4" pname="d" stem.dir="down"/>
                            </beam>
                            <note xml:id="k146hcz4" dur.ppq="4" dur="4" oct="4" pname="c" stem.dir="down" />
@@ -1686,6 +1686,7 @@
                      <tie xml:id="j1s91i9s" startid="#i1w39qq7" endid="#l51d9sx" />
                      <tie xml:id="s8lhi9l" startid="#qtxp99f" endid="#vl2t5x8" />
                      <tie xml:id="tz0u0y7" endid="#n1o7b8x3" staff="4" startid="#dfj83" curvedir="above"/>
+                     <tie xml:id="tmhq5oa" endid="#n1o7b8x3" staff="4" startid="#fmj45"/>
                   </measure>
                   <measure xml:id="q19dj4de" n="14" facs="#zone_183f72340e3241ceb2">
                      <harm xml:id="dkwu2" staff="3" tstamp="1">
