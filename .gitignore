@@ -1,10 +1,13 @@
-# Ignore everything in the repo by default.
-*
+# Local/generated helper files.
+.codex
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+mei_progress.py
+mei_progress_plots.py
 
-# Keep the tracked corpus material and repo docs.
-!README.md
-!11_buxtehude_dietrich_buxtehudes_instrumentalwerke_bsb00023199/
-!11_buxtehude_dietrich_buxtehudes_instrumentalwerke_bsb00023199/**
-
-# Keep the ignore rules themselves trackable.
-!.gitignore
+# Local progress outputs.
+dokuwiki.txt
+progress.zip
+progress_tracker_with_outputs_local.ipynb
+Arbeitsorga_MEI_Encoding_CAMAT.xlsx
