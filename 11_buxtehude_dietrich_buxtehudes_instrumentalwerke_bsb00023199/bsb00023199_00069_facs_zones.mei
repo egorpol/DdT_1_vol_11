@@ -979,9 +979,7 @@
                      <staff xml:id="p1j42vgr" n="3">
                         <layer xml:id="qnn4sp5" n="1">
                            <note xml:id="r1xp3ksk" dur.ppq="8" dur="2" oct="2" pname="f" stem.dir="up" />
-                           <note xml:id="s1kkvoqh" dur.ppq="8" dur="2" oct="2" pname="g" stem.dir="up">
-                              <artic xml:id="t142wqhd" artic="stacc" />
-                           </note>
+                           <note xml:id="s1kkvoqh" dur.ppq="8" dur="2" oct="2" pname="g" stem.dir="up" />
                            <space xml:id="usazqe6" dur.ppq="8" dur="2" />
                         </layer>
                      </staff>
@@ -993,9 +991,13 @@
                                  <accid xml:id="nbcwy5g" accid="f" />
                               </note>
                            </chord>
-                           <note xml:id="o17ngkjd" dur.ppq="8" dur="2" oct="4" pname="c" stem.dir="down">
-                              <artic xml:id="pad495i" artic="acc" />
-                           </note>
+                           <chord>
+                              <note xml:id="v1elslan" dur.ppq="8" dur="2" oct="4" pname="g" stem.dir="up" />
+                              <note xml:id="v1ellan" dur.ppq="8" dur="2" oct="4" pname="d" stem.dir="up" />
+                           </chord>
+                        </layer>
+                        <layer xml:id="u443grr" n="2">
+                           <note xml:id="o17ngkjd" dur.ppq="8" dur="2" oct="4" pname="c" stem.dir="down" />
                            <note xml:id="qtz48tv" dur.ppq="4" dur="4" oct="4" pname="c" stem.dir="down">
                               <accid xml:id="r193skaz" accid="f" />
                            </note>
@@ -1003,12 +1005,8 @@
                               <accid xml:id="tdf1gix" accid="n" />
                            </note>
                         </layer>
-                        <layer xml:id="u443grr" n="2">
-                           <space xml:id="wrn1s6c" dur.ppq="8" dur="2" />
-                           <space xml:id="x1cpgxrq" dur.ppq="8" dur="2" />
-                           <note xml:id="v1elslan" dur.ppq="8" dur="2" oct="4" pname="g" stem.dir="up" />
-                        </layer>
                      </staff>
+                     <tie xml:id="a9x3k2lm" startid="#o17ngkjd" endid="#qtz48tv"/>
                      <staff xml:id="i7xl817" n="5">
                         <layer xml:id="yjka4qj" n="5">
                            <note xml:id="zrhoo1g" dur.ppq="8" dur="2" oct="2" pname="f" stem.dir="up" />
