@@ -605,6 +605,7 @@
                            </beam>
                            <beam xml:id="y1t8vv3d">
                               <note xml:id="zg0bm41" dur.ppq="1" dur="32" oct="5" pname="a" stem.dir="down" />
+                              <note xml:id="b16jd7wi1" dur.ppq="1" dur="32" oct="5" pname="a" stem.dir="down" />
                               <note xml:id="b16j7wi1" dur.ppq="1" dur="32" oct="5" pname="a" stem.dir="down" />
                               <note xml:id="c1s4s9gj" dur.ppq="1" dur="32" oct="5" pname="a" stem.dir="down" />
                            </beam>
@@ -627,9 +628,7 @@
                               <note xml:id="ud85hwb" dur.ppq="1" dur="32" oct="4" pname="a" stem.dir="down" />
                            </beam>
                            <beam xml:id="v8eok97">
-                              <note xml:id="w1syj4f8" dur.ppq="1" dur="32" oct="5" pname="a" stem.dir="down">
-                                 <artic xml:id="yvzd70q" artic="stacc" />
-                              </note>
+                              <note xml:id="w1syj4f8" dur.ppq="1" dur="32" oct="5" pname="a" stem.dir="down" />
                               <note xml:id="zwlx0ox" dur.ppq="1" dur="32" oct="5" pname="a" stem.dir="down" />
                               <note xml:id="a1bb4i0q" dur.ppq="1" dur="32" oct="5" pname="a" stem.dir="down" />
                               <note xml:id="bjjc1n7" dur.ppq="1" dur="32" oct="5" pname="a" stem.dir="down" />
@@ -702,12 +701,16 @@
                      <staff xml:id="m16o2lf4" n="5">
                         <layer xml:id="eadv6vz" n="5">
                            <rest xml:id="f1yjff11" dur.ppq="8" dur="4" />
-                           <note xml:id="g9uz3tt" dur.ppq="4" dur="8" oct="3" pname="d" stem.dir="up" />
-                           <note xml:id="hsizvb2" dur.ppq="4" dur="8" oct="3" pname="c" stem.dir="down">
-                              <accid xml:id="ia0fxb8" accid="s" />
-                           </note>
-                           <note xml:id="j1hysl4e" dur.ppq="4" dur="8" oct="3" pname="d" stem.dir="up" />
-                           <note xml:id="kgsz692" dur.ppq="4" dur="8" oct="3" pname="c" stem.dir="down" accid.ges="s" />
+                           <beam xml:id="a8m3xq2p">
+                              <note xml:id="g9uz3tt" dur.ppq="4" dur="8" oct="3" pname="d" stem.dir="down" />
+                              <note xml:id="hsizvb2" dur.ppq="4" dur="8" oct="3" pname="c" stem.dir="down">
+                                 <accid xml:id="ia0fxb8" accid="s" />
+                              </note>
+                                 </beam>
+                           <beam xml:id="b7n4vk1r">
+                              <note xml:id="j1hysl4e" dur.ppq="4" dur="8" oct="3" pname="d" stem.dir="down" />
+                              <note xml:id="kgsz692" dur.ppq="4" dur="8" oct="3" pname="c" stem.dir="down" accid.ges="s" />
+                           </beam>
                            <beam xml:id="m9oh31s">
                               <note xml:id="n13514il" dur.ppq="4" dur="8" oct="3" pname="d" stem.dir="down" />
                               <note xml:id="oi4so9r" dur.ppq="4" dur="8" oct="2" pname="a" stem.dir="down" />
@@ -719,10 +722,10 @@
                            <note xml:id="tpwppry" dur.ppq="16" dur="2" oct="3" pname="a" stem.dir="up" />
                         </layer>
                      </staff>
-                     <tie xml:id="opx8jjt" startid="#nj9qkrs" endid="#pn4xoip" />
-                     <tie xml:id="aqzuzr8" startid="#zg0bm41" endid="#b16j7wi1" />
-                     <tie xml:id="l1332l51" startid="#kmo8h0e" endid="#m4sfghw" />
-                     <tie xml:id="x1dpc24r" startid="#w1syj4f8" endid="#zwlx0ox" />
+                     <tie xml:id="opx8jjt" startid="#nj9qkrs" endid="#rsk8pgd" />
+                     <tie xml:id="aqzuzr8" startid="#zg0bm41" endid="#c1s4s9gj" />
+                     <tie xml:id="l1332l51" startid="#kmo8h0e" endid="#ovunb8r" />
+                     <tie xml:id="x1dpc24r" startid="#w1syj4f8" endid="#bjjc1n7" />
                      <tie xml:id="qk6920o" startid="#p15zn6kw" endid="#ru5je39" />
                      <tie xml:id="r1rte85f" startid="#qqzn95o" endid="#tpwppry" />
                   </measure>
