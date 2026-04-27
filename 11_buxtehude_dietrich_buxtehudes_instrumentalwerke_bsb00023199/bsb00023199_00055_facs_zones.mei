@@ -1074,11 +1074,12 @@
                               <note xml:id="vryrjtk" dur.ppq="1" dur="16" oct="3" pname="d" stem.dir="down" />
                            </beam>
                            <note xml:id="wldqndn" dots="1" dur.ppq="6" dur="4" oct="3" pname="c" stem.dir="up" />
-                           <chord xml:id="yprkwnr" dur.ppq="4" dur="4" stem.dir="down">
-                              <note xml:id="x126kbcb" oct="2" pname="e" />
-                              <note xml:id="zp2evda" oct="3" pname="d" />
-                           </chord>
-                           <note xml:id="a5syzdh" dur.ppq="4" dur="4" oct="3" pname="e" stem.dir="down" />
+                           <beam xml:id="tp5hzar">
+                              <chord xml:id="yprkwnr" dur.ppq="4" dur="16" stem.dir="down">
+                                 <note xml:id="zp2evda" oct="3" pname="d" />
+                              </chord>
+                              <note xml:id="a5syzdh" dur.ppq="4" dur="16" oct="3" pname="e" stem.dir="down" />
+                           </beam>
                         </layer>
                      </staff>
                      <staff xml:id="s1u2s400" n="4">
@@ -1134,7 +1135,21 @@
                            <space xml:id="d7bdpmb" dots="2" dur.ppq="7" dur="4" />
                         </layer>
                      </staff>
-                     <dynam xml:id="k1p5t5t3" place="above" staff="1" tstamp="1" val="90" vgrp="704">f</dynam>
+                     <harm startid="#u1se6jl0" place="below">
+                        <fb>
+                           <f>(6)</f>
+                        </fb>
+                     </harm>
+                     <harm startid="#vryrjtk" place="below">
+                        <fb>
+                           <f>(6)</f>
+                        </fb>
+                     </harm>
+                     <harm startid="#zp2evda" place="below">
+                        <fb>
+                           <f>6</f>
+                        </fb>
+                     </harm>
                   </measure>
                   <measure xml:id="b1b6hcnu" n="10" facs="#zone_1c42fe40cf724451a4">
                      <staff xml:id="kz1q7fc" n="1">
