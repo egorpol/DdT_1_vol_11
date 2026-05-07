@@ -18,7 +18,7 @@
                <name xml:id="n4nfc77">Verovio</name>
                <p xml:id="p1sstp9u">Transcoded from MusicXML</p>
             </application>
-            <application xml:id="awbzr3a1" startdate="2026-05-06T16:28:11" version="1.2.9" enddate="2026-05-07T20:33:19">
+            <application xml:id="awbzr3a1" startdate="2026-05-06T16:28:11" version="1.2.9" enddate="2026-05-07T20:35:14">
                <name xml:id="n798wqr1">mei-friend</name>
                <p xml:id="p4foxju1">First edit by mei-friend 1.2.9.</p>
             </application>
@@ -1038,7 +1038,7 @@
                         </harm>
                         <staff xml:id="x1otl9bl" n="1">
                            <layer xml:id="z29ar3t" n="1">
-                              <note xml:id="as25rss" dur.ppq="2" dur="8" oct="5" pname="c" stem.dir="down" />
+                              <note xml:id="as25rss" dur.ppq="2" dur="8" oct="5" pname="c" stem.dir="down" tie="t"/>
                               <note xml:id="b4soe5z" dur.ppq="4" dur="4" oct="4" pname="b" stem.dir="down" accid.ges="f" />
                               <beam xml:id="delpcou">
                                  <note xml:id="e9eyk3g" dur.ppq="2" dur="8" oct="4" pname="a" stem.dir="down" />
@@ -1051,7 +1051,7 @@
                         </staff>
                         <staff xml:id="y1tu4765" n="2">
                            <layer xml:id="zziiof" n="1">
-                              <note xml:id="afep6x2" dur.ppq="2" dur="8" oct="4" pname="a" stem.dir="down" />
+                              <note xml:id="afep6x2" dur.ppq="2" dur="8" oct="4" pname="a" stem.dir="down" tie="t"/>
                               <note xml:id="bwu3h75" dur.ppq="4" dur="4" oct="4" pname="g" stem.dir="down" />
                               <beam xml:id="c12lz3ba">
                                  <note xml:id="dj4sgiw" dur.ppq="2" dur="8" oct="4" pname="f" stem.dir="down" />
@@ -1222,7 +1222,7 @@
                               </beam>
                               <beam xml:id="c1v49psy">
                                  <note xml:id="dv6m3l4" dur.ppq="1" dur="16" oct="3" pname="c" stem.dir="up" />
-                                 <note xml:id="ea6g8rf" dur.ppq="1" dur="16" oct="2" pname="b" stem.dir="up" />
+                                 <note xml:id="ea6g8rf" dur.ppq="1" dur="16" oct="2" pname="b" accid="n" stem.dir="up" />
                                  <note xml:id="f1h20z1n" dur.ppq="1" dur="16" oct="3" pname="c" stem.dir="up" />
                                  <note xml:id="g12e8ly3" dur.ppq="1" dur="16" oct="3" pname="d" stem.dir="up" />
                                  <note xml:id="hrequle" dur.ppq="1" dur="16" oct="3" pname="e" stem.dir="up" />
@@ -1364,6 +1364,7 @@
                               </beam>
                            </layer>
                         </staff>
+                        <tie xml:id="t5j968j1" endid="#lo2dwgu" staff="1" startid="#jc3s0fx"/>
                      </measure>
                      <scoreDef xml:id="y1etx7n6" ppq="2" />
                      <measure xml:id="oeey8xs" n="15" facs="#zone_0315a05f49f949a1a4">
@@ -1388,7 +1389,7 @@
                         <staff xml:id="qfoq9eu" n="2">
                            <layer xml:id="r187fqua" n="1">
                               <note xml:id="s9i7cil" dur.ppq="1" dur="8" oct="2" pname="b" stem.dir="up" accid.ges="f" />
-                              <note xml:id="u47gs4s" dur.ppq="2" dur="4" oct="3" pname="b" stem.dir="down" accid.ges="f" />
+                              <note xml:id="u47gs4s" dur.ppq="2" dur="4" oct="3" pname="c" stem.dir="up" accid.ges="f" />
                               <note xml:id="w1cgxsnb" dots="1" dur.ppq="3" dur="4" oct="2" pname="f" stem.dir="up" />
                            </layer>
                         </staff>
@@ -1416,6 +1417,11 @@
                               <note xml:id="a1ymnmqv" dots="1" dur.ppq="3" dur="4" oct="2" pname="f" stem.dir="up" />
                            </layer>
                         </staff>
+                        <fermata xml:id="flmqnd" staff="1" startid="#c8x8gso"/>
+                        <fermata xml:id="fm4mdpi1" staff="2" startid="#w1cgxsnb"/>
+                        <fermata xml:id="fm4623t2" staff="3" startid="#iqm6mgi"/>
+                        <fermata xml:id="f45lmeu2" staff="4" startid="#v1rdpogo"/>
+                        <fermata xml:id="fnr6h2t1" staff="5" startid="#a1ymnmqv" place="below"/>
                      </measure>
                      <scoreDef xml:id="npngdxi" ppq="4" meter.sym="common" >
                         <meterSig xml:id="o16r9ay3" count="4" unit="4" />
