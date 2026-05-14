@@ -18,7 +18,7 @@
                <name xml:id="nwukqyk">Verovio</name>
                <p xml:id="p1v41faj">Transcoded from MusicXML</p>
             </application>
-            <application xml:id="a251y5j2" startdate="2026-05-14T20:27:09" version="1.2.9" enddate="2026-05-14T20:56:03">
+            <application xml:id="a251y5j2" startdate="2026-05-14T20:27:09" version="1.2.9" enddate="2026-05-14T21:06:01">
                <name xml:id="n1aox0c">mei-friend</name>
                <p xml:id="ph694ba">First edit by mei-friend 1.2.9.</p>
             </application>
@@ -1278,10 +1278,18 @@
                               <note xml:id="e1w5oyqj" oct="4" pname="e" />
                               <note xml:id="fwmaluh" oct="4" pname="g" />
                            </chord>
-                           <note xml:id="g17b7h3s" dur.ppq="4" dur="8" oct="5" pname="e" stem.dir="up" />
-                           <note xml:id="hcw09zj" dur.ppq="4" dur="8" oct="5" pname="d" stem.dir="up">
-                              <accid xml:id="i1rpuueh" accid="s" />
-                           </note>
+                           <beam xml:id="bnjj8q91">
+                              <chord xml:id="js7v" dur="8" stem.dir="up">
+                                 <note xml:id="g17b7h3s" oct="5" pname="e"/>
+                                 <note xml:id="g17b7h3s2" oct="4" pname="g"/>
+                              </chord>
+                              <chord xml:id="ksmcu3" dur="8" stem.dir="up">
+                                 <note xml:id="hcw09zj" dur.ppq="4" dur="8" oct="5" pname="d" stem.dir="up">
+                                    <accid xml:id="i1rpuueh" accid="s"/>
+                                 </note>
+                                 <note xml:id="g17b7h3s3" oct="4" pname="f"/>
+                              </chord>
+                           </beam>
                            <chord xml:id="k1hrxbh0" dur.ppq="8" dur="4" stem.dir="up">
                               <note xml:id="j7bjuee" oct="4" pname="g" />
                               <note xml:id="l16hy6wm" oct="5" pname="e" />
