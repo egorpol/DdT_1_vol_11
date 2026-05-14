@@ -3,28 +3,28 @@
 <?xml-model href="https://music-encoding.org/schema/5.1/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1">
    <meiHead xml:id="mi94crd">
-      <fileDesc xml:id="fq1nseg">
-         <titleStmt xml:id="tucrms3">
-            <title/>
-            <respStmt/>
-         </titleStmt>
-         <pubStmt xml:id="p1q9zeym">
-            <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
-         </pubStmt>
-      </fileDesc>
-      <encodingDesc xml:id="e1cikizn">
-         <appInfo xml:id="afpwu8m">
-            <application xml:id="apdx5ep" isodate="2025-08-29T17:43:46" version="5.5.0-e003172">
-               <name xml:id="nwukqyk">Verovio</name>
-               <p xml:id="p1v41faj">Transcoded from MusicXML</p>
-            </application>
-            <application xml:id="a251y5j2" startdate="2026-05-14T20:27:09" version="1.2.9" enddate="2026-05-14T21:10:26">
-               <name xml:id="n1aox0c">mei-friend</name>
-               <p xml:id="ph694ba">First edit by mei-friend 1.2.9.</p>
-            </application>
-         </appInfo>
-      </encodingDesc>
-   </meiHead>
+<fileDesc xml:id="fq1nseg">
+<titleStmt xml:id="tucrms3">
+<title/>
+<respStmt/>
+</titleStmt>
+<pubStmt xml:id="p1q9zeym">
+<date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
+</pubStmt>
+</fileDesc>
+<encodingDesc xml:id="e1cikizn">
+<appInfo xml:id="afpwu8m">
+<application xml:id="apdx5ep" isodate="2025-08-29T17:43:46" version="5.5.0-e003172">
+<name xml:id="nwukqyk">Verovio</name>
+<p xml:id="p1v41faj">Transcoded from MusicXML</p>
+</application>
+<application xml:id="a251y5j2" startdate="2026-05-14T20:27:09" version="1.2.9" enddate="2026-05-14T21:14:27">
+<name xml:id="n1aox0c">mei-friend</name>
+<p xml:id="ph694ba">First edit by mei-friend 1.2.9.</p>
+</application>
+</appInfo>
+</encodingDesc>
+</meiHead>
    <music>
       <facsimile>
          <surface xml:id="surface_4c5d90a08b5b" n="1" ulx="0" uly="0" lrx="4133" lry="5494">
@@ -1753,10 +1753,10 @@
                            <note xml:id="pmsdxgc" dur.ppq="8" dur="4" oct="3" pname="b" stem.dir="down" />
                         </layer>
                      </staff>
-                     <tie xml:id="n1frsi7x" startid="#m167w7fg" endid="#z1xdie4j" />
                      <tie xml:id="b17fehts" startid="#z4haqi6" endid="#c11uskyn" />
                      <tie xml:id="dc024s8" startid="#c1p33da2" endid="#n1yw77ls" />
                      <tie xml:id="f1rza720" startid="#e1p6kak7" endid="#fqwdiyd" />
+                     <tie xml:id="t1nwtsf1" endid="#hs7v334" staff="2" startid="#m167w7fg"/>
                   </measure>
                   <measure xml:id="l1fv9yby" n="24" facs="#zone_d17e66ff2b524edbad">
                      <harm xml:id="mdfi34" staff="3" tstamp="1">
@@ -1784,24 +1784,16 @@
                      </staff>
                      <staff xml:id="x1qm9d2c" n="2">
                         <layer xml:id="ytbqn49" n="1">
+                           <note xml:id="hs7v334" dur="4" oct="4" pname="g" stem.dir="down"/>
                            <note xml:id="z1xdie4j" dots="1" dur.ppq="12" dur="4" oct="4" pname="g" stem.dir="down" />
-                           <space xml:id="aff56f8" dots="1" dur.ppq="12" dur="4" />
-                        </layer>
-                        <layer xml:id="b1sewk02" n="2">
-                           <note xml:id="chv2dmy" dur.ppq="8" dur="4" oct="4" pname="g" stem.dir="down" />
-                           <space xml:id="d1e2z5rt" dur.ppq="16" dur="2" />
+                           <note xml:id="jw8v" dur="8" oct="4" pname="f" accid="s" stem.dir="down"/>
                         </layer>
                      </staff>
                      <staff xml:id="f1ykxqs2" n="3">
                         <layer xml:id="g598nuu" n="1">
                            <note xml:id="hkxv4x0" dur.ppq="8" dur="4" oct="4" pname="c" stem.dir="down" />
                            <note xml:id="ih9inb6" dur.ppq="8" dur="4" oct="4" pname="d" stem.dir="down" />
-                           <note xml:id="jwz7rii" dur.ppq="8" dur="4" oct="3" pname="d" stem.dir="down" />
-                           <clef xml:id="l1nmrj9" sameas="#xxcybw" />
-                        </layer>
-                        <layer xml:id="k1r7pyru" n="2">
-                           <space xml:id="m1kta6b7" dur.ppq="16" dur="2" />
-                           <note xml:id="l7ywqjz" dur.ppq="8" dur="4" oct="3" pname="d" stem.dir="up" />
+                           <note xml:id="jwz7rii" dur.ppq="8" dur="4" oct="3" pname="d" stem.dir="up" />
                            <clef xml:id="xxcybw" shape="F" line="4" />
                         </layer>
                      </staff>
@@ -1905,9 +1897,7 @@
                      </harm>
                      <staff xml:id="z1xtd8yn" n="1">
                         <layer xml:id="a1sshssi" n="1">
-                           <note xml:id="b1lkt8u9" dur.ppq="8" dur="4" oct="5" pname="f" stem.dir="down" accid.ges="s">
-                              <artic xml:id="d1pe9yyd" artic="stacc" />
-                           </note>
+                           <note xml:id="b1lkt8u9" dur.ppq="8" dur="4" oct="5" pname="f" stem.dir="down" accid.ges="s"/>
                            <beam xml:id="e18hydus">
                               <note xml:id="f8w1jk5" dur.ppq="4" dur="8" oct="5" pname="e" stem.dir="down" />
                               <note xml:id="g1ig3xb4" dur.ppq="4" dur="8" oct="5" pname="f" stem.dir="down" accid.ges="s" />
@@ -1975,7 +1965,7 @@
                      </staff>
                      <staff xml:id="p1hege3l" n="2">
                         <layer xml:id="q9b9kxk" n="1">
-                           <mSpace xml:id="s1gcm32r" />
+                           <mRest xml:id="s1gcm32r" />
                         </layer>
                      </staff>
                      <staff xml:id="zafnpq" n="3">
@@ -2030,7 +2020,7 @@
                      </staff>
                      <staff xml:id="c1eksttq" n="2">
                         <layer xml:id="dz781ig" n="1">
-                           <mSpace xml:id="f1xgsgkd" />
+                           <mRest xml:id="f1xgsgkd" />
                         </layer>
                      </staff>
                      <staff xml:id="nui33bo" n="3">
@@ -2090,7 +2080,7 @@
                               <note xml:id="dsd8gdt" dur.ppq="4" dur="8" oct="5" pname="b" stem.dir="down" />
                               <note xml:id="ej686tm" dur.ppq="4" dur="8" oct="5" pname="a" stem.dir="down" />
                            </beam>
-                           <note xml:id="f2ixpjy" dur.ppq="8" dur="4" oct="5" pname="g" stem.dir="down" />
+                           <note xml:id="f2ixpjy" dur.ppq="8" dur="4" oct="5" pname="g" stem.dir="down" tie="i"/>
                         </layer>
                      </staff>
                      <staff xml:id="pqdorgy" n="2">
