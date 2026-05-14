@@ -18,7 +18,7 @@
                <name xml:id="n1gk7uk4">Verovio</name>
                <p xml:id="pzfumvx">Transcoded from MusicXML</p>
             </application>
-            <application xml:id="agm2rx3" startdate="2026-05-10T10:07:26" version="1.2.9" enddate="2026-05-14T18:49:30">
+            <application xml:id="agm2rx3" startdate="2026-05-10T10:07:26" version="1.2.9" enddate="2026-05-14T18:53:41">
                <name xml:id="n21wa0s2">mei-friend</name>
                <p xml:id="pm1ezvg">First edit by mei-friend 1.2.9.</p>
             </application>
@@ -1442,26 +1442,31 @@
                      </staff>
                      <staff xml:id="e1l2ymf8" n="4">
                         <layer xml:id="gwwgern" n="1">
-                           <note xml:id="h9xey2j" dur.ppq="4" dur="8" oct="5" pname="d" stem.dir="up" />
                            <beam xml:id="i13x3yyz">
+                              <note xml:id="h9xey2j" dur.ppq="4" dur="8" oct="5" pname="d" stem.dir="up" />
                               <note xml:id="jrku9yr" dur.ppq="2" dur="16" oct="4" pname="b" stem.dir="up" />
                               <note xml:id="k1vmnzf0" dur.ppq="2" dur="16" oct="5" pname="c" stem.dir="up">
                                  <accid xml:id="l1r1w6vn" accid="n" />
                               </note>
                            </beam>
-                           <note xml:id="m19wi8i2" dur.ppq="4" dur="8" oct="5" pname="d" stem.dir="up" />
-                           <note xml:id="n10hs2ka" dur.ppq="4" dur="8" oct="4" pname="b" stem.dir="up" />
-                           <space xml:id="o1ckxlm5" dur.ppq="16" dur="2" />
+                           <beam xml:id="b2166k1">
+                              <note xml:id="m19wi8i2" dur.ppq="4" dur="8" oct="5" pname="d" stem.dir="up"/>
+                              <note xml:id="n10hs2ka" dur.ppq="4" dur="8" oct="4" pname="b" stem.dir="up"/>
+                           </beam>
+                           <note xml:id="o1ckxlm5" dur="2"  oct="4" pname="a" stem.dir="up"/>
+                           <note xml:id="o1ckxlm5a" dur="4"  oct="4" pname="a" stem.dir="up"/>
                         </layer>
                         <layer xml:id="p9k7n6h" n="2">
-                           <chord xml:id="rp4tdxi" dur.ppq="4" dur="8" stem.dir="down">
-                              <note xml:id="qpw8vef" oct="4" pname="d" />
-                              <note xml:id="s1tizmj2" oct="4" pname="a" />
-                           </chord>
-                           <chord xml:id="u1ngutr9" dur.ppq="4" dur="8" stem.dir="down">
-                              <note xml:id="t15bfhwl" oct="4" pname="e" />
-                              <note xml:id="vlmlqg9" oct="4" pname="g" />
-                           </chord>
+                           <beam xml:id="biz9nb1">
+                              <chord xml:id="rp4tdxi" dur.ppq="4" dur="8" stem.dir="down">
+                                 <note xml:id="qpw8vef" oct="4" pname="d"/>
+                                 <note xml:id="s1tizmj2" oct="4" pname="a"/>
+                              </chord>
+                              <chord xml:id="u1ngutr9" dur.ppq="4" dur="8" stem.dir="down">
+                                 <note xml:id="t15bfhwl" oct="4" pname="e"/>
+                                 <note xml:id="vlmlqg9" oct="4" pname="g"/>
+                              </chord>
+                           </beam>
                            <chord xml:id="x1gpfkzi" dur.ppq="8" dur="4" stem.dir="down">
                               <note xml:id="w1194tfg" oct="4" pname="d" />
                               <note xml:id="yyb83p1" oct="4" pname="g" />
@@ -1497,7 +1502,7 @@
                            </beam>
                         </layer>
                      </staff>
-                     <tie xml:id="eyjz5cr" startid="#dip3que" endid="#i1veoa9s" />
+                     <tie xml:id="eyjz5cr" startid="#dip3que" endid="#i1veoa9s" curvedir="below"/>
                   </measure>
                   <measure xml:id="q1tq4dbc" n="11" facs="#zone_792bfc82154f4bfe9b">
                      <harm xml:id="nshz23456" staff="3" tstamp="2.5">
