@@ -18,7 +18,7 @@
                <name xml:id="n138kxz1">Verovio</name>
                <p xml:id="p1a995nt">Transcoded from MusicXML</p>
             </application>
-            <application xml:id="ahhdus1" startdate="2026-05-15T14:49:48" version="1.2.9" enddate="2026-05-15T16:08:54">
+            <application xml:id="ahhdus1" startdate="2026-05-15T14:49:48" version="1.2.9" enddate="2026-05-15T16:14:16">
                <name xml:id="n9q2gf91">mei-friend</name>
                <p xml:id="p3hjch">First edit by mei-friend 1.2.9.</p>
             </application>
@@ -1505,8 +1505,8 @@
                            <note xml:id="z1f9bian" dur.ppq="8" dur="4" oct="5" pname="e" stem.dir="up" accid.ges="f" />
                         </layer>
                         <layer xml:id="b1q5uxyo" n="2">
-                           <note xml:id="c1bnb9b4" dur.ppq="16" dur="2" oct="4" pname="f" stem.dir="down" />
-                           <note xml:id="ecseyks" dur.ppq="16" dur="2" oct="4" pname="f" stem.dir="down" />
+                           <note xml:id="c1bnb9b4" dur.ppq="16" dur="2" oct="4" pname="f" stem.dir="down" tie="i"/>
+                           <note xml:id="ecseyks" dur.ppq="16" dur="2" oct="4" pname="f" stem.dir="down" tie="m"/>
                         </layer>
                      </staff>
                      <staff xml:id="t1v9htm8" n="5">
@@ -1522,7 +1522,7 @@
                      <slur xml:id="t13r3izp" startid="#sxer4gs" endid="#w160dkmm" />
                      <slur xml:id="zwh4bn8" startid="#y1o5ckt" endid="#c1uqlgti" />
                      
-                     <tie xml:id="dr7t8mz" startid="#c1bnb9b4" endid="#ecseyks" />
+                    
                      <slur xml:id="sr62s6m2" endid="#k67kxgk" staff="2" startid="#fu9vgk6"/>
                   </measure>
                   <measure xml:id="c1fq6al7" n="15" facs="#zone_a3927b7446f844799a">
@@ -1583,13 +1583,15 @@
                            <note xml:id="a3jzr3a" dur.ppq="16" dur="2" oct="5" pname="c" stem.dir="up" />
                         </layer>
                         <layer xml:id="b1cc1298" n="2">
-                           <note xml:id="c1ey42v1" dur.ppq="8" dur="4" oct="4" pname="f" stem.dir="down" />
+                           <note xml:id="c1ey42v1" dur.ppq="8" dur="4" oct="4" pname="f" stem.dir="down" tie="t"/>
                            <chord xml:id="e1xmmfai" dur.ppq="8" dur="4" stem.dir="down">
                               <note xml:id="dabffqw" oct="4" pname="g" />
-                              <note xml:id="f34qj3b" oct="4" pname="b" accid.ges="f" />
+                              <note xml:id="f34qj3b" oct="4" pname="b" accid.ges="f" tie="i"/>
+                              
                            </chord>
-                           <note xml:id="i1jun9wf" dur.ppq="8" dur="4" oct="4" pname="b" stem.dir="up" accid.ges="f" />
-                           <note xml:id="kk9g05o" dur.ppq="8" dur="4" oct="4" pname="a" stem.dir="up" />
+                           
+                           <note xml:id="kk9g05o" dur.ppq="8" dur="4" oct="4" pname="b" stem.dir="up" accid.ges="f" tie="t"/>
+                           <note xml:id="ns7km0u2" dur="4" oct="4" pname="a" stem.dir="up"/>
                         </layer>
                         <layer xml:id="l15in38i" n="3">
                            <space xml:id="n1orvc6n" dur.ppq="16" dur="2" />
@@ -1606,7 +1608,7 @@
                      </staff>
                      <slur xml:id="qjqgpr6" startid="#p1m31ut" endid="#th17n8w" />
                     
-                     <tie xml:id="havp1i3" startid="#f34qj3b" endid="#i1jun9wf" />
+                     
                      <slur xml:id="spzsktq1" endid="#z1u7itd7" staff="2" startid="#wh1aycb"/>
                   </measure>
                 
