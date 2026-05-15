@@ -18,7 +18,7 @@
                <name xml:id="n138kxz1">Verovio</name>
                <p xml:id="p1a995nt">Transcoded from MusicXML</p>
             </application>
-            <application xml:id="ahhdus1" startdate="2026-05-15T14:49:48" version="1.2.9" enddate="2026-05-15T15:05:10">
+            <application xml:id="ahhdus1" startdate="2026-05-15T14:49:48" version="1.2.9" enddate="2026-05-15T15:09:59">
                <name xml:id="n9q2gf91">mei-friend</name>
                <p xml:id="p3hjch">First edit by mei-friend 1.2.9.</p>
             </application>
@@ -586,7 +586,8 @@
                         <layer xml:id="b1qjgxht" n="1">
                            <beam xml:id="c1nhzrsw">
                               <note xml:id="d12hkk53" dur.ppq="4" dur="8" oct="3" pname="f" stem.dir="down" />
-                              <note xml:id="eb1trru" dur.ppq="2" dur="16" oct="3" pname="d" stem.dir="down" />
+                              <note xml:id="eb1trru" dur.ppq="2" dur="16" oct="3" pname="e" stem.dir="down" accid.ges="f"/>
+                              <note xml:id="nibvuht1" dur="16" oct="3" pname="d" stem.dir="down"/>
                            </beam>
                            <beam xml:id="f1fw6jw">
                               <note xml:id="g10snz9z" dur.ppq="4" dur="8" oct="3" pname="c" stem.dir="down" />
@@ -636,10 +637,12 @@
                            </note>
                            <note xml:id="e18asj9p" dur.ppq="8" dur="4" oct="5" pname="c" stem.dir="up" />
                            <note xml:id="ge5vruy" dur.ppq="8" dur="4" oct="5" pname="c" stem.dir="up" />
-                           <note xml:id="hlzszdl" dur.ppq="4" dur="8" oct="5" pname="c" stem.dir="up" />
-                           <note xml:id="i1qpfqu4" dur.ppq="4" dur="8" oct="4" pname="b" stem.dir="up">
-                              <accid xml:id="j157bhvf" accid="n" />
-                           </note>
+                           <beam xml:id="bfytiw11">
+                              <note xml:id="hlzszdl" dur.ppq="4" dur="8" oct="5" pname="c" stem.dir="up"/>
+                              <note xml:id="i1qpfqu4" dur.ppq="4" dur="8" oct="4" pname="b" stem.dir="up">
+                                 <accid xml:id="j157bhvf" accid="n"/>
+                              </note>
+                           </beam>
                         </layer>
                         <layer xml:id="k1osw8pc" n="2">
                            <note xml:id="l92s82c" dur.ppq="8" dur="4" oct="4" pname="f" stem.dir="down" />
@@ -648,8 +651,10 @@
                               <note xml:id="p5vq3mf" dur.ppq="4" dur="8" oct="4" pname="f" stem.dir="down" />
                               <note xml:id="q4l8p8o" dur.ppq="4" dur="8" oct="4" pname="a" stem.dir="down" accid.ges="f" />
                            </beam>
-                           <note xml:id="s102mzyk" dur.ppq="4" dur="8" oct="4" pname="e" stem.dir="down" accid.ges="f" />
-                           <note xml:id="utgcplo" dur.ppq="4" dur="8" oct="4" pname="d" stem.dir="down" />
+                           <beam xml:id="bt2ooqf">
+                              <note xml:id="s102mzyk" dur.ppq="4" dur="8" oct="4" pname="e" stem.dir="down" accid.ges="f"/>
+                              <note xml:id="utgcplo" dur.ppq="4" dur="8" oct="4" pname="d" stem.dir="down"/>
+                           </beam>
                         </layer>
                         <layer xml:id="v1w41dz8" n="3">
                            <space xml:id="xfqni4c" dur.ppq="16" dur="2" />
@@ -674,7 +679,10 @@
                               </note>
                               <note xml:id="l17lk50f" dur.ppq="4" dur="8" oct="3" pname="f" stem.dir="down" />
                            </beam>
-                           <note xml:id="m1crv7n1" dur.ppq="8" dur="4" oct="2" pname="g" stem.dir="up" />
+                           <beam xml:id="bznrg7y1">
+                              <note xml:id="m1crv7n1" dur.ppq="8" dur="8" oct="3" pname="g" stem.dir="up"/>
+                              <note xml:id="nqh19s6" dur="8" oct="2" pname="g" stem.dir="up"/>
+                           </beam>
                         </layer>
                      </staff>
                      <tie xml:id="fb0ohh3" startid="#e18asj9p" endid="#ge5vruy" />
