@@ -18,7 +18,7 @@
                <name xml:id="n138kxz1">Verovio</name>
                <p xml:id="p1a995nt">Transcoded from MusicXML</p>
             </application>
-            <application xml:id="ahhdus1" startdate="2026-05-15T14:49:48" version="1.2.9" enddate="2026-05-15T15:33:24">
+            <application xml:id="ahhdus1" startdate="2026-05-15T14:49:48" version="1.2.9" enddate="2026-05-15T15:40:17">
                <name xml:id="n9q2gf91">mei-friend</name>
                <p xml:id="p3hjch">First edit by mei-friend 1.2.9.</p>
             </application>
@@ -1157,7 +1157,7 @@
                         </layer>
                         <layer xml:id="rvbamjm" n="2">
                            <note xml:id="s12fwki5" dur.ppq="8" dur="4" oct="4" pname="f" stem.dir="down" />
-                           <note xml:id="t97zakw" dots="1" dur.ppq="24" dur="2" oct="4" pname="f" stem.dir="down" />
+                           <note xml:id="t97zakw" dots="1" dur.ppq="24" dur="2" oct="4" pname="f" stem.dir="down" tie="i"/>
                         </layer>
                      </staff>
                      <staff xml:id="llrxhio" n="5">
@@ -1173,7 +1173,7 @@
                      <slur xml:id="ox5m62i" startid="#n1b9gokr" endid="#q1uo669i" />
                      <slur xml:id="t158ncnn" startid="#s1qycnbf" endid="#w13djrbu" />
                      <slur xml:id="z1t6s6oc" startid="#yqjcnyi" endid="#c1vk1o91" />
-                     <tie xml:id="uyjufho" startid="#t97zakw" endid="#s1rueeyi" />
+                     
                   </measure>
                   <measure xml:id="ew64dum" metcon="false" n="11" facs="#zone_1d0ad2243dd340c3ac">
                      <harm xml:id="öslrktr" staff="3" tstamp="1">
@@ -1244,16 +1244,18 @@
                      <staff xml:id="k3y8eqx" n="4">
                         <layer xml:id="md7fsgd" n="1">
                            <note xml:id="n1dt65fo" dots="1" dur.ppq="24" dur="2" oct="4" pname="b" stem.dir="up" accid.ges="f" />
-                           <note xml:id="p1txar51" dur.ppq="16" dur="2" oct="4" pname="c" stem.dir="down" />
-                           <space xml:id="qpau730" dur.ppq="8" dur="4" />
+                           <note xml:id="xqd8yl9" dur.ppq="8" dur="4" oct="4" pname="a" stem.dir="up" />
+                           
                         </layer>
                         <layer xml:id="r1l5qw6t" n="2">
-                           <note xml:id="s1rueeyi" dur.ppq="16" dur="2" oct="4" pname="f" stem.dir="down" />
-                           <note xml:id="uj8hvnz" dur.ppq="8" dur="4" oct="4" pname="d" stem.dir="down">
-                              <artic xml:id="vxaioty" artic="ten" />
-                           </note>
-                           <note xml:id="w1uhlccc" dur.ppq="16" dur="2" oct="4" pname="f" stem.dir="up" />
-                           <note xml:id="xqd8yl9" dur.ppq="8" dur="4" oct="4" pname="a" stem.dir="up" />
+                           <note xml:id="s1rueeyi" dur.ppq="16" dur="2" oct="4" pname="f" stem.dir="down" tie="m"/>
+                           <note xml:id="w1uhlccc" dur.ppq="16" dur="2" oct="4" pname="f" stem.dir="up" tie="t"/>
+                        </layer>
+                        <layer xml:id="sljghtdklhj" n="3">
+                        	<space xml:id="qpau730" dur.ppq="8" dur="4" />
+                           <note xml:id="uj8hvnz" dur.ppq="8" dur="4" oct="4" pname="d" stem.dir="down"/>
+                           <note xml:id="p1txar51" dur.ppq="16" dur="2" oct="4" pname="c" stem.dir="down" />
+                           
                         </layer>
                      </staff>
                      <staff xml:id="l1m63u60" n="5">
@@ -1267,7 +1269,7 @@
                      </staff>
                      <slur xml:id="rat5mof" startid="#qw99ih9" endid="#u1squ7jt" />
                      <slur xml:id="x1pqy0sn" startid="#wjacsrk" endid="#a1ful816" />
-                     <tie xml:id="txsn2k" startid="#s1rueeyi" endid="#w1uhlccc" />
+                     
                   </measure>
                   <measure xml:id="mmwjhcz" n="12" facs="#zone_0ea31c8f5ff6408eb9">
                      <harm xml:id="iemvzr" staff="3" tstamp="2">
