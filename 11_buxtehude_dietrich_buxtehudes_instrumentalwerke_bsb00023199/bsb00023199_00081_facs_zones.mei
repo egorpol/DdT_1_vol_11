@@ -18,7 +18,7 @@
                <name xml:id="n1jectd0">Verovio</name>
                <p xml:id="pwm6yd2">Transcoded from MusicXML</p>
             </application>
-            <application xml:id="acwy8cq2" startdate="2026-05-16T11:03:28" version="1.2.9" enddate="2026-05-16T11:15:58">
+            <application xml:id="acwy8cq2" startdate="2026-05-16T11:03:28" version="1.2.9" enddate="2026-05-16T11:21:01">
                <name xml:id="n9kxfcc1">mei-friend</name>
                <p xml:id="pdm912h1">First edit by mei-friend 1.2.9.</p>
             </application>
@@ -699,11 +699,13 @@
                                  <note xml:id="bqaakrl" oct="5" pname="e" />
                               </chord>
                            </beam>
-                           <chord xml:id="e17vxwnp" dur.ppq="4" dur="8" stem.dir="up">
-                              <note xml:id="c1y6mf6v" oct="4" pname="f" accid.ges="s" />
-                              <note xml:id="fcwqhch" oct="4" pname="a" />
-                           </chord>
-                           <note xml:id="g1kw9opq" dur.ppq="4" dur="8" oct="4" pname="e" stem.dir="down" />
+                           <beam xml:id="bffdopl1">
+                              <chord xml:id="e17vxwnp" dur.ppq="4" dur="8" stem.dir="down">
+                                 <note xml:id="c1y6mf6v" oct="4" pname="f" accid.ges="s"/>
+                                 <note xml:id="fcwqhch" oct="4" pname="a"/>
+                              </chord>
+                              <note xml:id="g1kw9opq" dur.ppq="4" dur="8" oct="4" pname="e" stem.dir="down"/>
+                           </beam>
                            <beam xml:id="h129qd0y">
                               <chord xml:id="j1tir53" dur.ppq="4" dur="8" stem.dir="down">
                                  <note xml:id="i1hhze8g" oct="4" pname="a" />
@@ -725,6 +727,7 @@
                            <note xml:id="s7tskd9" dur.ppq="8" dur="4" oct="2" pname="f" stem.dir="up" accid.ges="s" />
                         </layer>
                      </staff>
+                     <tie xml:id="th7o3fl2" endid="#aw75xqb" staff="4" startid="#ty3vpcj" curvedir="above"/>
                   </measure>
                   <sb xml:id="j1fik5cy" />
                   <measure xml:id="z74q4la" metcon="false" n="7" facs="#zone_2ddbd0d98bb3498dae">
