@@ -122,7 +122,7 @@ Template for finalized sonata files:
    <fileDesc>
       <titleStmt>
          <title>Sonata I in F major, Op. I: digital MEI edition</title>
-         <composer auth.uri="https://d-nb.info/gnd/" auth="GND" codedval="118665685">Dietrich Buxtehude</composer>
+         <composer authURI="https://d-nb.info/gnd/" authority="GND" dbkey="118665685">Dietrich Buxtehude</composer>
          <respStmt>
             <resp>MEI encoding and sonata-level assembly</resp>
             <corpName role="encoder">CAMAT</corpName>
@@ -165,7 +165,7 @@ Template for finalized sonata files:
    <workList>
       <work>
          <title>Sonata I in F major, Op. I</title>
-         <composer auth.uri="https://d-nb.info/gnd/" auth="GND" codedval="118665685">Dietrich Buxtehude</composer>
+         <composer authURI="https://d-nb.info/gnd/" authority="GND" dbkey="118665685">Dietrich Buxtehude</composer>
       </work>
    </workList>
    <revisionDesc>
