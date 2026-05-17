@@ -18,7 +18,7 @@
                <name xml:id="nuyj0d5">Verovio</name>
                <p xml:id="pkuu3u6">Transcoded from MusicXML</p>
             </application>
-            <application xml:id="a7ptmg61" startdate="2026-05-17T16:08:45" version="1.2.9" enddate="2026-05-17T16:56:49">
+            <application xml:id="a7ptmg61" startdate="2026-05-17T16:08:45" version="1.2.9" enddate="2026-05-17T17:05:16">
                <name xml:id="nd2ewq71">mei-friend</name>
                <p xml:id="pxzx5eg">First edit by mei-friend 1.2.9.</p>
             </application>
@@ -587,8 +587,10 @@
                      </staff>
                      <staff xml:id="hkh7tfn" n="4">
                         <layer xml:id="jvrb5m5" n="1">
-                           <note xml:id="k13omdk9" dur.ppq="4" dur="8" oct="5" pname="d" stem.dir="up" />
-                           <note xml:id="mb3l7j5" dur.ppq="4" dur="8" oct="4" pname="b" stem.dir="up" accid.ges="f" />
+                           <beam xml:id="b4xd10t2">
+                              <note xml:id="k13omdk9" dur.ppq="4" dur="8" oct="5" pname="d" stem.dir="up"/>
+                              <note xml:id="mb3l7j5" dur.ppq="4" dur="8" oct="4" pname="b" stem.dir="up" accid.ges="f"/>
+                           </beam>
                            <note xml:id="ooztpfv" dur.ppq="8" dur="4" oct="4" pname="g" stem.dir="up" />
                            <note xml:id="pi0pj9p" dur.ppq="8" dur="4" oct="4" pname="e" stem.dir="down">
                               <accid xml:id="qik7bqe" accid="n" />
@@ -603,8 +605,10 @@
                         </layer>
                         <layer xml:id="x117q96" n="2">
                            <note xml:id="y13x08zk" dur.ppq="8" dur="4" oct="4" pname="f" stem.dir="down" />
-                           <space xml:id="a1ic5rmj" dur.ppq="16" dur="2" />
-                           <note xml:id="z1vkj2gy" dur.ppq="4" dur="8" oct="4" pname="a" stem.dir="down" />
+                           <beam xml:id="bji6tdr1">
+                              <note xml:id="z1vkj2gy" dur.ppq="4" dur="8" oct="4" pname="f" stem.dir="down"/>
+                              <note xml:id="nuos56r2" dur="8" oct="4" pname="e" stem.dir="down" accid.ges="f"/>
+                           </beam>
                            <note xml:id="bohf1cp" dur.ppq="4" dur="8" oct="5" pname="c" stem.dir="up" />
                            <chord xml:id="d1haudui" dur.ppq="8" dur="4" stem.dir="up">
                               <note xml:id="c7a45ov" oct="4" pname="f" />
@@ -635,7 +639,7 @@
                            <space xml:id="uz85ghb" dur.ppq="8" dur="4" />
                         </layer>
                      </staff>
-                     <slur xml:id="l1jzyn6s" startid="#k13omdk9" endid="#ooztpfv" />
+                     <tie xml:id="tzkdcxc" endid="#z1vkj2gy" staff="4" startid="#y13x08zk"/>
                   </measure>
                   <measure xml:id="g4eotnc" metcon="false" n="6" facs="#zone_a232d8da54e54ab6ab">
                      <staff xml:id="pu1vrt1" n="1">
