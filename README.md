@@ -115,6 +115,8 @@ The structure follows the [MEI Guidelines for metadata](https://music-encoding.o
 
 Modern project responsibility should be separated from historical source responsibility. Carl Stiehl is the editor of the 1903 printed source and should be recorded in `sourceDesc`. The student or researcher who reads and corrects the OMR should be recorded in `titleStmt` using `respStmt`, for example with `persName role="editor"` and a responsibility such as `OMR correction and editorial review`.
 
+The template below follows recurring patterns in the [Digital Mozart Edition/MoVi example](https://dme.mozarteum.at/movi/data/561_6366/dmeref_561-001.mei), the [TROMPA Beethoven Op. 33 encoding](https://github.com/trompamusic-encodings/Beethoven_Op33_BreitkopfHaertel/blob/master/Beethoven_Op33_Nr5-Breitkopf.mei), and the [Freischuetz Digital music data](https://github.com/Freischuetz-Digital/data-music): responsibility statements for modern project work, a separate edition statement for release/draft state, a publication statement for the digital file, structured source metadata, application metadata, work-level metadata, and revision history. Authority identifiers should be attached to `persName`, `corpName`, or `identifier` elements rather than directly to `composer`.
+
 Template for finalized sonata files:
 
 ```xml
@@ -122,7 +124,9 @@ Template for finalized sonata files:
    <fileDesc>
       <titleStmt>
          <title>Sonata I in F major, Op. I: digital MEI edition</title>
-         <composer authURI="https://d-nb.info/gnd/" authority="GND" dbkey="118665685">Dietrich Buxtehude</composer>
+         <composer>
+            <persName auth.uri="https://d-nb.info/gnd/118665685" auth="GND" codedval="118665685" role="composer">Dietrich Buxtehude</persName>
+         </composer>
          <respStmt>
             <resp>MEI encoding and sonata-level assembly</resp>
             <corpName role="encoder">CAMAT</corpName>
@@ -133,19 +137,52 @@ Template for finalized sonata files:
          </respStmt>
          <funder>German Research Foundation (DFG), grant PF 669/18-1</funder>
       </titleStmt>
+      <editionStmt>
+         <edition>
+            <title>Correction draft</title>
+            <date isodate="YYYY-MM-DD" type="revision">YYYY-MM-DD</date>
+         </edition>
+         <respStmt>
+            <resp>OMR correction and editorial review</resp>
+            <persName role="editor">Student Editor Name</persName>
+         </respStmt>
+      </editionStmt>
       <pubStmt>
-         <publisher>CAMAT Corpus Editions</publisher>
+         <publisher>
+            <corpName>CAMAT Corpus Editions</corpName>
+         </publisher>
          <availability>
             <useRestrict>MEI data released under the MIT License.</useRestrict>
          </availability>
       </pubStmt>
+      <seriesStmt>
+         <title>CAMAT Corpus Editions: DdT 1, Vol. 11</title>
+      </seriesStmt>
+      <notesStmt>
+         <annot>This file is a combined sonata-level MEI file derived from page-level OMR data and corrected in mei-friend.</annot>
+      </notesStmt>
       <sourceDesc>
          <source>
             <bibl>
-               Dietrich Buxtehude. <title>Dietrich Buxtehudes Instrumentalwerke: Sonaten fuer Violine, Gambe und Cembalo</title>.
-               Edited by Carl Stiehl. <series>Denkmaeler deutscher Tonkunst, first series, vol. 11</series>.
-               Leipzig: Breitkopf und Haertel, 1903.
-               Digital facsimile: <ref target="https://digitale-sammlungen.de/en/view/bsb00023199">BSB bsb00023199</ref>.
+               <identifier type="BSB-ID">991009385569707356</identifier>
+               <identifier type="BV">BV035347306</identifier>
+               <identifier type="WorldCat">775063768</identifier>
+               <identifier type="URN">urn:nbn:de:bvb:12-bsb00023199-0</identifier>
+               <title>Dietrich Buxtehudes Instrumentalwerke: Sonaten fuer Violine, Gambe und Cembalo</title>
+               <title type="series">Denkmaeler deutscher Tonkunst, first series, vol. 11</title>
+               <composer>Dietrich Buxtehude</composer>
+               <editor>
+                  <persName auth.uri="https://d-nb.info/gnd/117245674" auth="GND" codedval="117245674" role="editor">Carl Stiehl</persName>
+               </editor>
+               <imprint>
+                  <publisher>Breitkopf und Haertel</publisher>
+                  <pubPlace>Leipzig</pubPlace>
+                  <date isodate="1903">1903</date>
+               </imprint>
+               <repository>Hochschule fuer Musik und Theater Muenchen, Bibliothek</repository>
+               <identifier type="shelfmark">N2/X 1 DDT, 11</identifier>
+               <ref target="https://digitale-sammlungen.de/en/view/bsb00023199">Digital facsimile, BSB bsb00023199</ref>
+               <biblScope unit="page" from="3">3ff.</biblScope>
             </bibl>
          </source>
       </sourceDesc>
@@ -164,8 +201,10 @@ Template for finalized sonata files:
    </encodingDesc>
    <workList>
       <work>
+         <identifier type="repository-filename">buxtehude_op1_01_sonata_f_major.mei</identifier>
          <title>Sonata I in F major, Op. I</title>
-         <composer authURI="https://d-nb.info/gnd/" authority="GND" dbkey="118665685">Dietrich Buxtehude</composer>
+         <composer>Dietrich Buxtehude</composer>
+         <key pname="f" mode="major">F major</key>
       </work>
    </workList>
    <revisionDesc>

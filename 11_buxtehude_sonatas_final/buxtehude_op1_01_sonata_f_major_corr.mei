@@ -6,7 +6,9 @@
       <fileDesc xml:id="filedesc_op1_01">
          <titleStmt xml:id="titlestmt_op1_01">
             <title>Sonata I in F major, Op. I: digital MEI edition</title>
-            <composer authURI="https://d-nb.info/gnd/" authority="GND" dbkey="118665685">Dietrich Buxtehude</composer>
+            <composer>
+               <persName auth.uri="https://d-nb.info/gnd/118665685" auth="GND" codedval="118665685" role="composer" xml:id="pers_buxtehude">Dietrich Buxtehude</persName>
+            </composer>
             <respStmt xml:id="resp_camat_op1_01">
                <resp>MEI encoding and sonata-level assembly</resp>
                <corpName role="encoder">CAMAT</corpName>
@@ -18,20 +20,54 @@
             </respStmt>
             <funder>German Research Foundation (DFG), grant PF 669/18-1</funder>
          </titleStmt>
+         <editionStmt xml:id="editionstmt_op1_01">
+            <edition>
+               <title>Correction draft</title>
+               <date isodate="2026-05-17" type="revision">2026-05-17</date>
+            </edition>
+            <respStmt>
+               <resp>OMR correction and editorial review</resp>
+               <persName role="editor">Francy Häring</persName>
+               <persName role="editor">Egor Polyakov</persName>
+            </respStmt>
+         </editionStmt>
          <pubStmt xml:id="pubstmt_op1_01">
-            <publisher>CAMAT Corpus Editions</publisher>
+            <publisher>
+               <corpName>CAMAT Corpus Editions</corpName>
+            </publisher>
             <date isodate="2026-05-17" type="encoding-date">2026-05-17</date>
             <availability>
                <useRestrict>MEI data released under the MIT License.</useRestrict>
             </availability>
          </pubStmt>
+         <seriesStmt xml:id="seriesstmt_op1_01">
+            <title>CAMAT Corpus Editions: DdT 1, Vol. 11</title>
+         </seriesStmt>
+         <notesStmt xml:id="notesstmt_op1_01">
+            <annot>This file is a combined sonata-level MEI file derived from page-level OMR data and corrected in mei-friend.</annot>
+         </notesStmt>
          <sourceDesc xml:id="sourcedesc_op1_01">
             <source xml:id="source_bsb00023199_op1_01">
                <bibl>
-                  Dietrich Buxtehude. <title>Dietrich Buxtehudes Instrumentalwerke: Sonaten fuer Violine, Gambe und Cembalo</title>.
-                  Edited by Carl Stiehl. <series>Denkmaeler deutscher Tonkunst, first series, vol. 11</series>.
-                  Leipzig: Breitkopf und Haertel, 1903.
-                  Digital facsimile: <ref target="https://digitale-sammlungen.de/en/view/bsb00023199">BSB bsb00023199</ref>.
+                  <identifier type="BSB-ID">991009385569707356</identifier>
+                  <identifier type="BV">BV035347306</identifier>
+                  <identifier type="WorldCat">775063768</identifier>
+                  <identifier type="URN">urn:nbn:de:bvb:12-bsb00023199-0</identifier>
+                  <title>Dietrich Buxtehudes Instrumentalwerke: Sonaten fuer Violine, Gambe und Cembalo</title>
+                  <title type="series">Denkmaeler deutscher Tonkunst, first series, vol. 11</title>
+                  <composer analog="#pers_buxtehude">Dietrich Buxtehude</composer>
+                  <editor>
+                     <persName auth.uri="https://d-nb.info/gnd/117245674" auth="GND" codedval="117245674" role="editor" xml:id="pers_stiehl">Carl Stiehl</persName>
+                  </editor>
+                  <imprint>
+                     <publisher>Breitkopf und Haertel</publisher>
+                     <pubPlace>Leipzig</pubPlace>
+                     <date isodate="1903">1903</date>
+                  </imprint>
+                  <repository>Hochschule fuer Musik und Theater Muenchen, Bibliothek</repository>
+                  <identifier type="shelfmark">N2/X 1 DDT, 11</identifier>
+                  <ref target="https://digitale-sammlungen.de/en/view/bsb00023199">Digital facsimile, BSB bsb00023199</ref>
+                  <biblScope unit="page" from="3">3ff.</biblScope>
                </bibl>
             </source>
          </sourceDesc>
@@ -54,8 +90,12 @@
       </encodingDesc>
       <workList xml:id="worklist_op1_01">
          <work xml:id="work_op1_01">
+            <identifier type="repository-filename">buxtehude_op1_01_sonata_f_major.mei</identifier>
             <title>Sonata I in F major, Op. I</title>
-            <composer authURI="https://d-nb.info/gnd/" authority="GND" dbkey="118665685">Dietrich Buxtehude</composer>
+            <composer>
+               <persName analog="#pers_buxtehude">Dietrich Buxtehude</persName>
+            </composer>
+            <key pname="f" mode="major">F major</key>
          </work>
       </workList>
       <revisionDesc xml:id="revisiondesc_op1_01">
