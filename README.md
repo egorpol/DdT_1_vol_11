@@ -87,25 +87,27 @@ Status values for the sonata-level files:
 - `corrected`: musical text and facsimile references have been corrected and local consistency checks have been reviewed.
 - `finalized`: metadata/header, editorial review, validation, and repository naming are complete.
 
-| Work | Key | Printed start page | BSB image start | Final filename | Status |
-|---|---|---:|---:|---|---|
-| Op. I, Sonata I | F major | 3 | 00013 | `buxtehude_op1_01_sonata_f_major.mei` | combined |
-| Op. I, Sonata II | G major | 13 | 00023 | `buxtehude_op1_02_sonata_g_major.mei` | pending |
-| Op. I, Sonata III | A minor | 22 | 00032 | `buxtehude_op1_03_sonata_a_minor.mei` | pending |
-| Op. I, Sonata IV | B-flat major | 33 | 00043 | `buxtehude_op1_04_sonata_b_flat_major.mei` | pending |
-| Op. I, Sonata V | C major | 44 | 00054 | `buxtehude_op1_05_sonata_c_major.mei` | pending |
-| Op. I, Sonata VI | D minor | 55 | 00065 | `buxtehude_op1_06_sonata_d_minor.mei` | pending |
-| Op. I, Sonata VII | E minor | 66 | 00076 | `buxtehude_op1_07_sonata_e_minor.mei` | pending |
-| Op. II, Sonata I | B-flat major | 79 | 00089 | `buxtehude_op2_01_sonata_b_flat_major.mei` | pending |
-| Op. II, Sonata II | D major | 90 | 00100 | `buxtehude_op2_02_sonata_d_major.mei` | pending |
-| Op. II, Sonata III | G minor | 103 | 00113 | `buxtehude_op2_03_sonata_g_minor.mei` | pending |
-| Op. II, Sonata IV | C minor | 116 | 00126 | `buxtehude_op2_04_sonata_c_minor.mei` | pending |
-| Op. II, Sonata V | A major | 126 | 00136 | `buxtehude_op2_05_sonata_a_major.mei` | pending |
-| Op. II, Sonata VI | E major | 139 | 00149 | `buxtehude_op2_06_sonata_e_major.mei` | pending |
-| Op. II, Sonata VII | F major | 150 | 00160 | `buxtehude_op2_07_sonata_f_major.mei` | pending |
-| Appendix I, Suite to Op. I, Sonata IV | not specified | 160 | 00170 | `buxtehude_app_01_suite_to_op1_04.mei` | pending |
-| Appendix II, Sonata for 2 violins, gamba, and cembalo | C major | 164 | 00174 | `buxtehude_app_02_sonata_2violins_gamba_cembalo_c_major.mei` | pending |
-| Appendix III, Sonata for gamba, violin, and cembalo | D major | 176 | 00186 | `buxtehude_app_03_sonata_gamba_violin_cembalo_d_major.mei` | pending |
+Work IDs use `Op. <opus>/<no.>` or `App. <no.>`. MEI files are `buxtehude_<stem>.mei` (see naming rules above).
+
+| Work | Key | Pg. | BSB | MEI stem | Status |
+| --- | --- | ---: | ---: | --- | --- |
+| Op. I/1 | F | 3 | 00013 | op1_01_sonata_f_major | combined |
+| Op. I/2 | G | 13 | 00023 | op1_02_sonata_g_major | pending |
+| Op. I/3 | A min. | 22 | 00032 | op1_03_sonata_a_minor | pending |
+| Op. I/4 | B♭ | 33 | 00043 | op1_04_sonata_b_flat_major | pending |
+| Op. I/5 | C | 44 | 00054 | op1_05_sonata_c_major | pending |
+| Op. I/6 | D min. | 55 | 00065 | op1_06_sonata_d_minor | pending |
+| Op. I/7 | E min. | 66 | 00076 | op1_07_sonata_e_minor | pending |
+| Op. II/1 | B♭ | 79 | 00089 | op2_01_sonata_b_flat_major | pending |
+| Op. II/2 | D | 90 | 00100 | op2_02_sonata_d_major | pending |
+| Op. II/3 | G min. | 103 | 00113 | op2_03_sonata_g_minor | pending |
+| Op. II/4 | C min. | 116 | 00126 | op2_04_sonata_c_minor | pending |
+| Op. II/5 | A | 126 | 00136 | op2_05_sonata_a_major | pending |
+| Op. II/6 | E | 139 | 00149 | op2_06_sonata_e_major | pending |
+| Op. II/7 | F | 150 | 00160 | op2_07_sonata_f_major | pending |
+| App. I | — | 160 | 00170 | app_01_suite_to_op1_04 | pending |
+| App. II | C | 164 | 00174 | app_02_sonata_2violins_gamba_cembalo_c_major | pending |
+| App. III | D | 176 | 00186 | app_03_sonata_gamba_violin_cembalo_d_major | pending |
 
 ## MEI Header Policy
 
