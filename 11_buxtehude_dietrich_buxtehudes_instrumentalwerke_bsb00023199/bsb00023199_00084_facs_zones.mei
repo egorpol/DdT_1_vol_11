@@ -18,7 +18,7 @@
                <name xml:id="n1i2irp2">Verovio</name>
                <p xml:id="p1dk8ixi">Transcoded from MusicXML</p>
             </application>
-            <application xml:id="ac171zj1" startdate="2026-05-11T18:05:09" version="1.3.0" enddate="2026-05-22T22:17:37">
+            <application xml:id="ac171zj1" startdate="2026-05-11T18:05:09" version="1.3.0" enddate="2026-05-22T22:21:38">
                <name xml:id="npyhz54">mei-friend</name>
                <p xml:id="pjwznph">First edit by mei-friend 1.2.9.</p>
             </application>
@@ -1648,9 +1648,6 @@
                      <staff xml:id="v14q0jlt" n="4">
                         <layer xml:id="xp31ln6" n="1">
                            <chord xml:id="z1ahx567" dur.ppq="32" dur="1" stem.visible="false">
-                              <artic xml:id="a1eelcvh" artic="stacc" />
-                              <artic xml:id="b15g60vf" artic="stacc" />
-                              <artic xml:id="cp53mfe" artic="stacc" />
                               <note xml:id="y10h3vlp" oct="3" pname="b" />
                               <note xml:id="dx96khw" oct="4" pname="e" />
                               <note xml:id="e2zeb8p" oct="4" pname="b" />
@@ -1664,7 +1661,9 @@
                            </note>
                         </layer>
                      </staff>
-                     <tie xml:id="czoyonc" startid="#b1ik7nzb" endid="#g9qaay8" />
+                     <tempo xml:id="t4iawls2" staff="1" startid="#l756x6v">Lento.</tempo>
+                     <tempo xml:id="tig7797" staff="4" startid="#z1ahx567">Lento.</tempo>
+                     <slur xml:id="s34elzb" endid="#g9qaay8" staff="2" startid="#b1ik7nzb"/>
                   </measure>
                   <measure xml:id="o13rzwn5" n="12" facs="#zone_b7e07e5bcbf44b8984">
                      <staff xml:id="x1krznqq" n="1">
@@ -1792,9 +1791,7 @@
                               <note xml:id="ag7pvrg" dur.ppq="4" dur="8" oct="4" pname="g" stem.dir="down" />
                               <note xml:id="b1weecm8" dur.ppq="4" dur="8" oct="4" pname="a" stem.dir="down" />
                            </beam>
-                           <note xml:id="c1lpiy7j" dots="1" dur.ppq="12" dur="4" oct="4" pname="b" stem.dir="down">
-                              <artic xml:id="d1k4il7" artic="stacc" />
-                           </note>
+                           <note xml:id="c1lpiy7j" dots="1" dur.ppq="12" dur="4" oct="4" pname="b" stem.dir="down"/>
                            <note xml:id="e1a5pwse" dur.ppq="4" dur="8" oct="4" pname="b" stem.dir="down" />
                         </layer>
                      </staff>
@@ -1862,9 +1859,7 @@
                            <rest xml:id="b158y5ri" dur.ppq="4" dur="8" />
                            <beam xml:id="c1chcl7s">
                               <note xml:id="d5gbz3q" dur.ppq="4" dur="8" oct="5" pname="a" stem.dir="down" />
-                              <note xml:id="e1hzocps" dots="1" dur.ppq="6" dur="8" oct="5" pname="f" stem.dir="down" accid.ges="s">
-                                 <artic xml:id="gxy2o4p" artic="stacc" />
-                              </note>
+                              <note xml:id="e1hzocps" dots="1" dur.ppq="6" dur="8" oct="5" pname="f" stem.dir="down" accid.ges="s"/>
                               <note xml:id="h1w1rgf" dur.ppq="2" dur="16" oct="5" pname="e" stem.dir="down" />
                            </beam>
                            <note xml:id="i1eymxs8" dur.ppq="8" dur="4" oct="5" pname="d" stem.dir="down">
@@ -1873,7 +1868,6 @@
                            <note xml:id="krox5vj" dur.ppq="8" dur="4" oct="5" pname="d" stem.dir="down">
                               <accid xml:id="l180gv9a" accid="n" />
                            </note>
-                           <space xml:id="n188hh06" dur.ppq="16" dur="2" />
                         </layer>
                      </staff>
                      <staff xml:id="o17mzbu1" n="2">
@@ -1887,13 +1881,11 @@
                               <note xml:id="wp5pdfe" dots="1" dur.ppq="6" dur="8" oct="4" pname="b" stem.dir="down" />
                               <note xml:id="xceh3gs" dur.ppq="2" dur="16" oct="4" pname="a" stem.dir="down" />
                            </beam>
-                           <space xml:id="y10dampu" dur.ppq="16" dur="2" />
                         </layer>
                      </staff>
                      <staff xml:id="pw16rbr" n="3">
                         <layer xml:id="qutise6" n="1">
                            <note xml:id="r1kguic0" dur.ppq="32" dur="1" oct="2" pname="f" stem.visible="false" accid.ges="s" />
-                           <space xml:id="t1244hoq" dur.ppq="16" dur="2" />
                         </layer>
                      </staff>
                      <staff xml:id="r13q3s09" n="4">
@@ -1979,9 +1971,7 @@
                            <beam xml:id="ovierwq">
                               <note xml:id="p13jnvpr" dur.ppq="4" dur="8" oct="4" pname="a" stem.dir="down" />
                               <note xml:id="q1grwfa2" dur.ppq="2" dur="16" oct="4" pname="b" stem.dir="down" />
-                              <note xml:id="r17ewhxt" dur.ppq="2" dur="16" oct="4" pname="a" stem.dir="down">
-                                 <artic xml:id="s1cgbm48" artic="stacc" />
-                              </note>
+                              <note xml:id="r17ewhxt" dur.ppq="2" dur="16" oct="4" pname="a" stem.dir="down"/>
                            </beam>
                            <beam xml:id="t16melqa">
                               <note xml:id="ujd2t7" dots="1" dur.ppq="6" dur="8" oct="4" pname="a" stem.dir="down" />
@@ -2014,7 +2004,7 @@
                         </layer>
                      </staff>
                      <slur xml:id="g1uijpzl" startid="#fmdzuq6" endid="#ivehhvu" />
-                     <fermata xml:id="m175se9x" staff="1" startid="#l1fg1icz" form="norm" place="above" />
+                     <slur xml:id="sir1p0d" endid="#n1651ft7" staff="1" startid="#k1l8qc9"/>
                   </measure>
                </section>
             </score>
