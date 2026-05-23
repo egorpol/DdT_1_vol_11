@@ -1353,9 +1353,16 @@
                      <fermata xml:id="f12ibtux" staff="4" startid="#e148s1b0" form="norm" place="above" />
                      <fermata xml:id="jot8hq5" staff="5" startid="#i1fo7pje" form="norm" place="above" />
                   </measure>
-                  <sb xml:id="rwjxtlo" />
+                 <sb xml:id="rwjxtlo" />
                   <scoreDef xml:id="s1g8wjw5">
                      <meterSig xml:id="t1ndzir4" count="3" unit="4" />
+                     <staffGrp>
+                        <staffDef n="1" lines="5"/>
+                        <staffDef n="2" lines="5" visible="true"/>
+                        <staffDef n="3" lines="5"/>
+                        <staffDef n="4" lines="5"/>
+                        <staffDef n="5" lines="5"/>
+                     </staffGrp>
                   </scoreDef>
                   <measure xml:id="h74urgr" n="13" facs="#zone_6eb1ed05cf6f45a09f">
                      <staff xml:id="qdppg0b" n="1">
@@ -1367,9 +1374,22 @@
                      </staff>
                      <staff xml:id="m12v9djb" n="2">
                         <layer xml:id="o1tia7un" n="1">
-                           <rest xml:id="r1" dur="1"/>
+                           <note xml:id="invisible1"
+                                 pname="c"
+                                 oct="4"
+                                 dur="1"
+                                 visible="false"/>
                         </layer>
                      </staff>
+    <staff xml:id="m12v9djg" n="2">
+   <layer xml:id="o1tia7ug" n="1">
+      <rest xml:id="r1"
+            dur="1"
+            tstamp="2"
+            ploc="e"
+            oloc="4"/>
+   </layer>
+</staff>
                      <staff xml:id="s1ngde6b" n="3">
                         <layer xml:id="t149rlqp" n="1">
                            <note xml:id="uzzaert" dur.ppq="4" dur="4" oct="4" pname="c" stem.dir="down" />
@@ -1396,8 +1416,10 @@
                         </layer>
                      </staff>
                      <slur xml:id="x8v8669" startid="#w10znzmr" endid="#yv0qwj2" curvedir="above" />
+
                      <dynam staff="1" place="below" tstamp="1">Forte</dynam>
-                     <harm startid="#vq8gwsh" staff="3"  place="below">
+
+                     <harm startid="#vq8gwsh" staff="3" place="below">
                         <fb>
                            <f>5</f>
                         </fb>
