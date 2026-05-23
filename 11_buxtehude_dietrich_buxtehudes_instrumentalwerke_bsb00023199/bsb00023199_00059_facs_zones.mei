@@ -48,39 +48,42 @@
          </surface>
       </facsimile>
       <body>
-         <mdiv xml:id="yl60pec">
-            <score xml:id="zs23jjp">
-               <scoreDef xml:id="a1lk4035">
-                  <staffGrp xml:id="d1r5hzoz">
-                     <staffDef xml:id="P1" n="1" lines="5" ppq="4">
-                        <instrDef xml:id="iigh2jg" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="r17dq29s" shape="G" line="2" />
-                        <keySig xml:id="s1va2trp" sig="0" />
-                     </staffDef>
-                     <staffDef xml:id="P2" n="2" lines="5" ppq="4">
-                        <instrDef xml:id="clnu9qg" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="lweuec9" shape="C" line="3" />
-                        <keySig xml:id="m190bt75" sig="0" />
-                     </staffDef>
-                     <staffDef xml:id="P3" n="3" lines="5" ppq="4">
-                        <instrDef xml:id="rsj40gl" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="a1dk28em" shape="F" line="4" />
-                        <keySig xml:id="b1aq9csk" sig="0" />
-                     </staffDef>
-                     <staffGrp xml:id="P4" bar.thru="true">
-                        <grpSym xml:id="doqppqb" symbol="brace" />
-                        <instrDef xml:id="hxfdwmp" midi.channel="3" midi.instrnum="0" midi.volume="77%" />
-                        <staffDef xml:id="j4b6sr5" n="4" lines="5" ppq="4">
-                           <clef xml:id="q1gzexyc" shape="G" line="2" />
-                           <keySig xml:id="r1inewoh" sig="0" />
-                        </staffDef>
-                        <staffDef xml:id="t45g8zy" n="5" lines="5" ppq="4">
-                           <clef xml:id="a73q7h3" shape="F" line="4" />
-                           <keySig xml:id="b16giyxl" sig="0" />
-                        </staffDef>
-                     </staffGrp>
-                  </staffGrp>
-               </scoreDef>
+   <mdiv xml:id="yl60pec">
+      <score xml:id="zs23jjp">
+         <scoreDef xml:id="a1lk4035">
+            <staffGrp xml:id="d1r5hzoz">
+               <staffGrp>
+                  <grpSym symbol="bracket" />
+                  <staffDef xml:id="P1" n="1" lines="5" ppq="4">
+                     <instrDef xml:id="iigh2jg" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
+                     <clef xml:id="r17dq29s" shape="G" line="2" />
+                     <keySig xml:id="s1va2trp" sig="0" />
+                  </staffDef>
+                  <staffDef xml:id="P2" n="2" lines="5" ppq="4">
+                     <instrDef xml:id="clnu9qg" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
+                     <clef xml:id="lweuec9" shape="C" line="3" />
+                     <keySig xml:id="m190bt75" sig="0" />
+                  </staffDef>
+                  <staffDef xml:id="P3" n="3" lines="5" ppq="4">
+                     <instrDef xml:id="rsj40gl" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
+                     <clef xml:id="a1dk28em" shape="F" line="4" />
+                     <keySig xml:id="b1aq9csk" sig="0" />
+                  </staffDef>
+               </staffGrp>
+               <staffGrp xml:id="P4" bar.thru="true">
+                  <grpSym xml:id="doqppqb" symbol="brace" />
+                  <instrDef xml:id="hxfdwmp" midi.channel="3" midi.instrnum="0" midi.volume="77%" />
+                  <staffDef xml:id="j4b6sr5" n="4" lines="5" ppq="4">
+                     <clef xml:id="q1gzexyc" shape="G" line="2" />
+                     <keySig xml:id="r1inewoh" sig="0" />
+                  </staffDef>
+                  <staffDef xml:id="t45g8zy" n="5" lines="5" ppq="4">
+                     <clef xml:id="a73q7h3" shape="F" line="4" />
+                     <keySig xml:id="b16giyxl" sig="0" />
+                  </staffDef>
+               </staffGrp>
+            </staffGrp>
+         </scoreDef>
                <section xml:id="b1kh3hn9">
                   <pb xml:id="c1qjyq3n" />
                   <measure xml:id="u1trhpq5" n="1" facs="#zone_1f8fed4744c24d5c9e">
@@ -232,6 +235,8 @@
                            <note xml:id="juftrj1" dots="1" dur.ppq="6" dur="4" oct="3" pname="a" stem.dir="down" />
                         </layer>
                      </staff>
+                     <dynam staff="2" place="below" tstamp="1">Forte</dynam>
+                     <dynam staff="4" place="below" tstamp="1">Forte</dynam>
                      <harm startid="#g18slzzb" staff="3" place="below">
                         <fb>
                            <f>#</f>
@@ -542,6 +547,8 @@
                            <note xml:id="akioiam" dots="1" dur.ppq="6" dur="4" oct="3" pname="g" stem.dir="down" />
                         </layer>
                      </staff>
+                     <dynam staff="2" place="below" tstamp="1">Piano</dynam>
+                     <dynam staff="4" place="below" tstamp="1">Piano</dynam>
                      <harm startid="#sm6prnc" staff="3" place="below">
                         <fb>
                            <f>6</f>
@@ -717,6 +724,8 @@
                            </beam>
                         </layer>
                      </staff>
+                     <dynam staff="2" place="below" tstamp="1">Forte</dynam>
+                     <dynam staff="4" place="below" tstamp="1">Forte</dynam>
                      <harm startid="#a7glq4t" staff="3" place="below">
                         <fb>
                            <f>6</f>
@@ -1446,6 +1455,8 @@
                            </beam>
                         </layer>
                      </staff>
+                     <dynam staff="2" place="below" tstamp="1">Piano</dynam>
+                     <dynam staff="4" place="below" tstamp="1">Pianio</dynam>
                      <harm startid="#pudlr1z" staff="3" place="below">
                         <fb>
                            <f>6</f>
@@ -1621,6 +1632,8 @@
                            <note xml:id="idvvaqi" dots="1" dur.ppq="6" dur="4" oct="3" pname="a" stem.dir="down" />
                         </layer>
                      </staff>
+                     <dynam staff="2" place="below" tstamp="1">Forte</dynam>
+                     <dynam staff="4" place="below" tstamp="1">Forte</dynam>
                      <harm startid="#y144g35o" staff="3" place="below">
                         <fb>
                            <f>#</f>
@@ -1915,6 +1928,8 @@
                      </staff>
                      <slur xml:id="u1vyn01l" startid="#t12wz9f3" endid="#vxx1u91" />
                      <slur xml:id="u1vyn01o" startid="#we8sare" endid="#we8ssre" />
+                     <dynam staff="2" place="below" tstamp="1">Piano</dynam>
+                     <dynam staff="4" place="below" tstamp="1">Piano</dynam>
                      <harm startid="#tvry7bk" staff="3" place="below">
                         <fb>
                            <f>7</f>
