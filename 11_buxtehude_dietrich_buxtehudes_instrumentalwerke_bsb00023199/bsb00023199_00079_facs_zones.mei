@@ -68,7 +68,7 @@
                      <staffDef xml:id="P1" n="1" lines="5" ppq="8">
                         <instrDef xml:id="ogugnuq" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
                         <clef xml:id="x15wbaiv" shape="G" line="2" />
-                        <keySig xml:id="y179aa3g" sig="0" />
+                        <keySig xml:id="y179aa3g" sig="1s" />
                      </staffDef>
                      <staffDef xml:id="P2" n="2" lines="5" ppq="8">
                         <instrDef xml:id="k1ot013s" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
@@ -1104,6 +1104,9 @@
                      </staff>
                   </measure>
                   <sb xml:id="t1iiwga1" />
+                  <scoreDef xml:id="rvc87sq2">
+                     <keySig xml:id="s1t3wov2t" sig="1s" />
+                  </scoreDef>
                   <measure xml:id="j17wrd" n="15" facs="#zone_4c66b625f9c249a99f">
                      <harm xml:id="vbn634" staff="3" tstamp="1">
                         <fb>
@@ -1611,6 +1614,9 @@
                      </staff>
                   </measure>
                   <sb xml:id="s4fnfyf" />
+                  <scoreDef xml:id="rvc87sq3">
+                     <keySig xml:id="s1t3wov3t" sig="1s" />
+                  </scoreDef>
                   <measure xml:id="i1sdmwxu" n="22" facs="#zone_87db7f0f66434ee190">
                      <harm xml:id="mbju3456" staff="3" tstamp="3">
                         <fb>
@@ -1730,6 +1736,7 @@
                               <note xml:id="i126rs2l" oct="5" pname="c" />
                               <note xml:id="k1pbl8bt" oct="5" pname="f" accid.ges="s" />
                            </chord>
+                           <space xml:id="kwjv456" dur="4"/>
                         </layer>
                      </staff>
                      <staff xml:id="tzxhdvb" n="5">
@@ -1905,7 +1912,10 @@
                      </staff>
                      <staff xml:id="kb3n460" n="4">
                         <layer xml:id="m1y7pcx7" n="1">
-                           <note xml:id="n49oq8k" dur.ppq="16" dur="2" oct="5" pname="d" stem.dir="up" />
+                           <chord xml:id="k3vh3" dur="2" stem.dir="up">
+                              <note xml:id="n49oq8k" oct="5" pname="d" />
+                              <note xml:id="n49oq8k2" oct="4" pname="a" />
+                           </chord>
                            <chord xml:id="p1jkln5a" dur.ppq="8" dur="4" stem.dir="up">
                               <note xml:id="o3zcveb" oct="4" pname="g" />
                               <note xml:id="q1xuv7mm" oct="5" pname="d" />
