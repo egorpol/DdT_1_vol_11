@@ -18,7 +18,7 @@
                <name xml:id="nj1wi0s">Verovio</name>
                <p xml:id="pvico45">Transcoded from MusicXML</p>
             </application>
-            <application xml:id="as170d51" startdate="2026-05-24T12:19:33" version="1.3.0" enddate="2026-05-25T19:22:25">
+            <application xml:id="as170d51" startdate="2026-05-24T12:19:33" version="1.3.0" enddate="2026-05-25T19:30:59">
                <name xml:id="nn5duc71">mei-friend</name>
                <p xml:id="pjgdvbl2">First edit by mei-friend 1.3.0.</p>
             </application>
@@ -1495,21 +1495,27 @@
                         <layer xml:id="nw7t08" n="1">
                            <note xml:id="o1rw8vba" dur.ppq="8" dur="4" oct="4" pname="g" stem.dir="up" />
                            <note xml:id="pktzwq5" dur.ppq="8" dur="4" oct="4" pname="b" stem.dir="up" accid.ges="f" />
-                           <note xml:id="r1kxt1e2" dur.ppq="4" dur="8" oct="4" pname="b" stem.dir="up" accid.ges="f" />
-                           <note xml:id="t3c2fuu" dur.ppq="4" dur="8" oct="5" pname="c" stem.dir="up" />
-                           <note xml:id="ujd2lwd" dur.ppq="4" dur="8" oct="4" pname="b" stem.dir="up" accid.ges="f" />
-                           <note xml:id="w1m6osf5" dur.ppq="4" dur="8" oct="4" pname="a" stem.dir="up" />
+                           <beam xml:id="bqpvskv2">
+                              <note xml:id="r1kxt1e2" dur.ppq="4" dur="8" oct="4" pname="b" stem.dir="up" accid.ges="f"/>
+                              <note xml:id="t3c2fuu" dur.ppq="4" dur="8" oct="5" pname="c" stem.dir="up"/>
+                           </beam>
+                           <beam xml:id="byzxvni2">
+                              <note xml:id="ujd2lwd" dur.ppq="4" dur="8" oct="4" pname="b" stem.dir="up" accid.ges="f"/>
+                              <note xml:id="w1m6osf5" dur.ppq="4" dur="8" oct="4" pname="a" stem.dir="up"/>
+                           </beam>
                         </layer>
                         <layer xml:id="xgjn44" n="2">
-                           <note xml:id="y1owod61" dur.ppq="8" dur="4" oct="3" pname="a" stem.dir="down" />
+                           <note xml:id="y1owod61" accid.ges="f" dur="4" dur.ppq="8" oct="3" pname="b" stem.dir="down"/>
                            <beam xml:id="z1romo3o">
                               <note xml:id="a51kmc4" dur.ppq="4" dur="8" oct="4" pname="g" stem.dir="down" />
                               <note xml:id="b6gyuyy" dur.ppq="4" dur="8" oct="4" pname="f" stem.dir="down" />
                            </beam>
-                           <note xml:id="c1jeq5pp" dur.ppq="4" dur="8" oct="4" pname="g" stem.dir="down" />
-                           <note xml:id="d71wr0s" dur.ppq="4" dur="8" oct="4" pname="e" stem.dir="down">
-                              <accid xml:id="eiplsr3" accid="f" />
-                           </note>
+                           <beam xml:id="b043ggb">
+                              <note xml:id="c1jeq5pp" dur.ppq="4" dur="8" oct="4" pname="g" stem.dir="down"/>
+                              <note xml:id="d71wr0s" dur.ppq="4" dur="8" oct="4" pname="e" stem.dir="down">
+                                 <accid xml:id="eiplsr3" accid="f"/>
+                              </note>
+                           </beam>
                            <note xml:id="f17bhpfm" dur.ppq="8" dur="4" oct="4" pname="c" stem.dir="down" />
                         </layer>
                      </staff>
@@ -1629,10 +1635,7 @@
                                  <note xml:id="kqmz3li" oct="4" pname="b" accid.ges="f" />
                               </chord>
                               <chord xml:id="ocunfj9" dur.ppq="4" dur="8" stem.dir="up">
-                                 <artic xml:id="p8tka30" artic="acc" />
-                                 <artic xml:id="q1v2pjrz" artic="marc" />
-                                 <artic xml:id="r1qoyhh3" artic="acc" />
-                                 <artic xml:id="s1szn59g" artic="marc" />
+                                 
                                  <note xml:id="myxrhtn" oct="4" pname="e">
                                     <accid xml:id="nzw1kq2" accid="f" />
                                  </note>
