@@ -1,6 +1,7 @@
 severity,category,check,file,line,element,measure_n,staff_n,layer_n,xml_id,message,expected,actual,context
-warning,verovio,verovio_log,11_buxtehude_sonatas_final/buxtehude_op1_01_sonata_f_major_corr.mei,6954,layer,63,3,,y1umwlbh,"Missing @n on <layer>, filled by order",,,load/render
-warning,verovio,verovio_log,11_buxtehude_sonatas_final/buxtehude_op1_01_sonata_f_major_corr.mei,17120,layer,166,3,,p1j11t4v,"Missing @n on <layer>, filled by order",,,load/render
+warning,cleanup,tie_pitch_mismatch,11_buxtehude_sonatas_final/buxtehude_op1_01_sonata_f_major_corr.mei,4260,tie,42,4,,tl2gt321,Tie endpoints do not have the same written pname/oct; automatic repair skipped.,"('c', '5')","('a', '4')",safe cleanup
+warning,cleanup,tie_pitch_mismatch,11_buxtehude_sonatas_final/buxtehude_op1_01_sonata_f_major_corr.mei,5269,tie,50,4,,tz0u0y7,Tie endpoints do not have the same written pname/oct; automatic repair skipped.,"('c', '4')","('g', '4')",safe cleanup
+warning,cleanup,tie_pitch_mismatch,11_buxtehude_sonatas_final/buxtehude_op1_01_sonata_f_major_corr.mei,11670,tie,112,1,,twajspw2,Tie endpoints do not have the same written pname/oct; automatic repair skipped.,"('d', '5')","('c', '5')",safe cleanup
 warning,verovio,verovio_log,11_buxtehude_sonatas_final/buxtehude_op1_01_sonata_f_major_corr.mei,13256,note,132,2,1,dxv58j9,"Expected @tie median or terminal in note 'dxv58j9', skipping it",,dxv58j9,load/render
 warning,verovio,verovio_log,11_buxtehude_sonatas_final/buxtehude_op1_01_sonata_f_major_corr.mei,17766,note,171,2,1,v18secku,"Expected @tie median or terminal in note 'v18secku', skipping it",,v18secku,load/render
 warning,verovio,verovio_log,11_buxtehude_sonatas_final/buxtehude_op1_01_sonata_f_major_corr.mei,12037,note,116,4,1,hcz3max,"Expected @tie median or terminal in note 'hcz3max', skipping it",,hcz3max,load/render
