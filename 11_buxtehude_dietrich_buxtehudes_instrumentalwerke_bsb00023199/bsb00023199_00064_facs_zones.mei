@@ -47,36 +47,39 @@
          <mdiv xml:id="y6zkcxt">
             <score xml:id="zbjf1yd">
                <scoreDef xml:id="a18w9wag">
-                  <staffGrp xml:id="d1kt1mzu">
-                     <staffDef xml:id="P1" n="1" lines="5" ppq="8">
-                        <instrDef xml:id="isz4r2m" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="rfexvp5" shape="G" line="2" />
-                        <keySig xml:id="s1vaafcg" sig="0" />
-                     </staffDef>
-                     <staffDef xml:id="P2" n="2" lines="5" ppq="8">
-                        <instrDef xml:id="gsof5v1" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="pf9s4l0" shape="F" line="4" />
-                        <keySig xml:id="qroy5ef" sig="0" />
-                     </staffDef>
-                     <staffDef xml:id="P3" n="3" lines="5" ppq="8">
-                        <instrDef xml:id="buyw3h" midi.channel="14" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="k37czcw" shape="F" line="4" />
-                        <keySig xml:id="lictdhl" sig="0" />
-                     </staffDef>
-                     <staffGrp xml:id="P4" bar.thru="true">
-                        <grpSym xml:id="v16nai0p" symbol="brace" />
-                        <instrDef xml:id="z6jzn6y" midi.channel="15" midi.instrnum="0" midi.volume="77%" />
-                        <staffDef xml:id="bv9p2el" n="4" lines="5" ppq="8">
-                           <clef xml:id="i19odwo6" shape="G" line="2" />
-                           <keySig xml:id="j12xtygh" sig="0" />
-                        </staffDef>
-                        <staffDef xml:id="l11h2py9" n="5" lines="5" ppq="8">
-                           <clef xml:id="s1vwfc0y" shape="F" line="4" />
-                           <keySig xml:id="tmlq7fn" sig="0" />
-                        </staffDef>
-                     </staffGrp>
-                  </staffGrp>
-               </scoreDef>
+   <staffGrp xml:id="d1kt1mzu">
+      <staffGrp>
+         <grpSym symbol="bracket" />
+         <staffDef xml:id="P1" n="1" lines="5" ppq="8">
+            <instrDef xml:id="isz4r2m" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
+            <clef xml:id="rfexvp5" shape="G" line="2" />
+            <keySig xml:id="s1vaafcg" sig="0" />
+         </staffDef>
+         <staffDef xml:id="P2" n="2" lines="5" ppq="8">
+            <instrDef xml:id="gsof5v1" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
+            <clef xml:id="pf9s4l0" shape="F" line="4" />
+            <keySig xml:id="qroy5ef" sig="0" />
+         </staffDef>
+         <staffDef xml:id="P3" n="3" lines="5" ppq="8">
+            <instrDef xml:id="buyw3h" midi.channel="14" midi.instrnum="0" midi.volume="77%" />
+            <clef xml:id="k37czcw" shape="F" line="4" />
+            <keySig xml:id="lictdhl" sig="0" />
+         </staffDef>
+      </staffGrp>
+      <staffGrp xml:id="P4" bar.thru="true">
+         <grpSym xml:id="v16nai0p" symbol="brace" />
+         <instrDef xml:id="z6jzn6y" midi.channel="15" midi.instrnum="0" midi.volume="77%" />
+         <staffDef xml:id="bv9p2el" n="4" lines="5" ppq="8">
+            <clef xml:id="i19odwo6" shape="G" line="2" />
+            <keySig xml:id="j12xtygh" sig="0" />
+         </staffDef>
+         <staffDef xml:id="l11h2py9" n="5" lines="5" ppq="8">
+            <clef xml:id="s1vwfc0y" shape="F" line="4" />
+            <keySig xml:id="tmlq7fn" sig="0" />
+         </staffDef>
+      </staffGrp>
+   </staffGrp>
+</scoreDef>
                <section xml:id="bife0vs">
                   <pb xml:id="ckmmwnq" />
                   <measure xml:id="ucjphwn" n="1" facs="#zone_2017a3d9d5a0408db1">
@@ -159,6 +162,16 @@
                         </layer>
                      </staff>
                      <tie xml:id="eesdk2c" startid="#d1u4irb1" endid="#g17h0e16" />
+                     <harm startid="#b1ps3j95" staff="3" place="below">
+                        <fb>
+                           <f>6</f>
+                        </fb>
+                     </harm>
+                     <harm startid="#y13jqsx" staff="3" place="below">
+                        <fb>
+                           <f>5</f>
+                        </fb>
+                     </harm>
                   </measure>
                   <measure xml:id="bxbxavh" metcon="false" n="2" facs="#zone_2e158e9b35954ce580">
                      <staff xml:id="kreb1sr" n="1">
@@ -249,6 +262,21 @@
                            <note xml:id="e5ctdof" dur.ppq="4" dur="8" oct="3" pname="f" stem.dir="down" />
                         </layer>
                      </staff>
+                     <harm startid="#njjfnce" staff="3" place="below">
+                        <fb>
+                           <f>7</f>
+                        </fb>
+                     </harm>
+                     <harm startid="#b5cdtuu" staff="3" place="below">
+                        <fb>
+                           <f>6</f>
+                        </fb>
+                     </harm>
+                     <harm startid="#ozkn9kw" staff="3" place="below">
+                        <fb>
+                           <f>6#</f>
+                        </fb>
+                     </harm>
                   </measure>
                   <measure xml:id="g6mo16q" n="3" facs="#zone_bf0149f1de9e43ceb1">
                      <staff xml:id="pnbxv6e" n="1">
@@ -577,6 +605,21 @@
                         </layer>
                      </staff>
                      <tie xml:id="jb9yn6h" startid="#il3rkg0" endid="#k3dus92" />
+                     <harm startid="#zm7wnoe" staff="3" place="below">
+                        <fb>
+                           <f>(6)</f>
+                        </fb>
+                     </harm>
+                     <harm startid="#e1gctlrb" staff="3" place="below">
+                        <fb>
+                           <f>4</f>
+                        </fb>
+                     </harm>
+                     <harm startid="#b10tij3b" staff="3" place="below">
+                        <fb>
+                           <f>3</f>
+                        </fb>
+                     </harm>
                   </measure>
                   <measure xml:id="erpyobp" n="7" facs="#zone_e45cb5c93f4f4c0fbd">
                      <staff xml:id="n7rl3nn" n="1">
@@ -686,6 +729,21 @@
                            <rest xml:id="ovdoy2w" dur.ppq="4" dur="8" />
                         </layer>
                      </staff>
+                     <harm startid="#smfe2nb" staff="3" place="below">
+                        <fb>
+                           <f>6</f>
+                        </fb>
+                     </harm>
+                     <harm startid="#u1iutw88" staff="3" place="below">
+                        <fb>
+                           <f>5</f>
+                        </fb>
+                     </harm>
+                     <harm startid="#w1iv083b" staff="3" place="below">
+                        <fb>
+                           <f>6♭</f>
+                        </fb>
+                     </harm>
                   </measure>
                   <measure xml:id="kn4em84" n="8" facs="#zone_3e1b3ee31d074af9ac">
                      <staff xml:id="t9ul19u" n="1">
@@ -805,6 +863,23 @@
                            <rest xml:id="f86n6pt" dur.ppq="4" dur="8" />
                         </layer>
                      </staff>
+                     <harm startid="#j1uz1pm5" staff="3" place="below">
+                        <fb>
+                           <f>6</f>
+                           <f>5(♭)</f>
+                        </fb>
+                     </harm>
+                     <harm startid="#lbmo0e3" staff="3" place="below">
+                        <fb>
+                           <f>6</f>
+                           <f>5</f>
+                        </fb>
+                     </harm>
+                     <harm startid="#p1e09v62" staff="3" place="below">
+                        <fb>
+                           <f>6</f>
+                        </fb>
+                     </harm>
                   </measure>
                   <sb xml:id="d1fauf76" />
                   <measure xml:id="tmsbgpk" n="9" facs="#zone_1dc3619624004f8ca8">
