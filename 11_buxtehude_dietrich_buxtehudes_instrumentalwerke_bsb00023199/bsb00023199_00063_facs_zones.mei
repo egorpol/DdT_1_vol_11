@@ -48,21 +48,24 @@
             <score xml:id="b18o02ci">
                <scoreDef xml:id="cfcddbp">
                   <staffGrp xml:id="f1368erp">
-                     <staffDef xml:id="P1" n="1" lines="5" ppq="8">
-                        <instrDef xml:id="kf8o8hd" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="tx95173" shape="G" line="2" />
-                        <keySig xml:id="u5ia60w" sig="0" />
-                     </staffDef>
-                     <staffDef xml:id="P2" n="2" lines="5" ppq="8">
-                        <instrDef xml:id="buk6i0y" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="ka8n5cb" shape="F" line="4" />
-                        <keySig xml:id="l1jcvoev" sig="0" />
-                     </staffDef>
-                     <staffDef xml:id="P3" n="3" lines="5" ppq="8">
-                        <instrDef xml:id="ao6gzlf" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="jori0bo" shape="F" line="4" />
-                        <keySig xml:id="k13elz5j" sig="0" />
-                     </staffDef>
+                     <staffGrp>
+                        <grpSym symbol="bracket" />
+                        <staffDef xml:id="P1" n="1" lines="5" ppq="8">
+                           <instrDef xml:id="kf8o8hd" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="tx95173" shape="G" line="2" />
+                           <keySig xml:id="u5ia60w" sig="0" />
+                        </staffDef>
+                        <staffDef xml:id="P2" n="2" lines="5" ppq="8">
+                           <instrDef xml:id="buk6i0y" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="ka8n5cb" shape="F" line="4" />
+                           <keySig xml:id="l1jcvoev" sig="0" />
+                        </staffDef>
+                        <staffDef xml:id="P3" n="3" lines="5" ppq="8">
+                           <instrDef xml:id="ao6gzlf" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="jori0bo" shape="F" line="4" />
+                           <keySig xml:id="k13elz5j" sig="0" />
+                        </staffDef>
+                     </staffGrp>
                      <staffGrp xml:id="P4" bar.thru="true">
                         <grpSym xml:id="b3xllwm" symbol="brace" />
                         <instrDef xml:id="fz3qjuq" midi.channel="3" midi.instrnum="0" midi.volume="77%" />
@@ -635,8 +638,8 @@
                               </chord>
                               </beam>
                               <beam xml:id="g1or5yep">
-                                 <note xml:id="hk1mbk8" dur.ppq="4" dur="8" staff="4" oct="4" pname="d" stem.dir="down" />
-                                 <note xml:id="i18meh4z" dur.ppq="4" dur="8" staff="4" oct="4" pname="c" stem.dir="down" />
+                                 <note xml:id="t8tqi0q" dur.ppq="8" dur="4" oct="4" pname="d" stem.dir="down" />
+                                 <note xml:id="t7tqi9q" dur.ppq="8" dur="4" oct="4" pname="c" stem.dir="down" />
                               </beam>
                               <beam xml:id="g1or6yep">
                               	<note xml:id="l177qfvb" dur.ppq="4" dur="8" oct="4" pname="c" stem.dir="down" />
@@ -672,8 +675,8 @@
                               <note xml:id="o0radqx" dur.ppq="4" dur="2" oct="3" pname="g" stem.dir="up" />
                            </layer>
                         </staff>
-                        <tie xml:id="ipldtmk" startid="#g19mm8db" endid="#hk1mbk8" />
-                        <tie xml:id="jnxq6o3" startid="#i18meh4z" endid="#l177qfvb" curvedir="below" />
+                        <tie xml:id="x1x2a8vf" startid="#g19mm8db" endid="#t8tqi0q" />
+                        <tie xml:id="x1x2a9vf" startid="#t7tqi9q" endid="#l177qfvb" curvedir="below" />
                      </measure>
                      <measure xml:id="e19ylzm7" n="7" facs="#zone_7d686394625c4a458f">
                         <staff xml:id="nr62l9a" n="1">
