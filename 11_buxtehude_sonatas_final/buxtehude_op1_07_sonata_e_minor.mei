@@ -314,27 +314,30 @@
             <score xml:id="c3eu9vc">
                <scoreDef xml:id="de9tx9g">
                   <staffGrp xml:id="g1hgxa15">
-                     <staffDef xml:id="P1" n="1" lines="5">
-                        <label xml:id="hivmtl5">Violino.</label>
-                        <instrDef xml:id="l1odcxo7" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="um5j38n" shape="G" line="2" />
-                        <keySig xml:id="vkaiuub" sig="1s" />
-                        <meterSig xml:id="w12ko4bs" count="4" sym="common" unit="4" />
-                     </staffDef>
-                     <staffDef xml:id="P2" n="2" lines="5">
-                        <label xml:id="sfjs0h">Violoa da gamba.</label>
-                        <instrDef xml:id="w1h4n8ku" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="ffp6i8b" shape="F" line="4" />
-                        <keySig xml:id="gsuh3xq" sig="1s" />
-                        <meterSig xml:id="hialmup" count="4" sym="common" unit="4" />
-                     </staffDef>
-                     <staffDef xml:id="P3" n="3" lines="5">
-                        <label xml:id="z1opnbk3">Cembalo.</label>
-                        <instrDef xml:id="dqdopug" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="m1tcp1s0" shape="F" line="4" />
-                        <keySig xml:id="n1tf0t2l" sig="1s" />
-                        <meterSig xml:id="o2unu0x" count="4" sym="common" unit="4" />
-                     </staffDef>
+                     <staffGrp xml:id="upper3grp" bar.thru="true">
+                        <grpSym xml:id="upper3bracket" symbol="bracket" />
+                        <staffDef xml:id="P1" n="1" lines="5">
+                           <label xml:id="hivmtl5">Violino.</label>
+                           <instrDef xml:id="l1odcxo7" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="um5j38n" shape="G" line="2" />
+                           <keySig xml:id="vkaiuub" sig="1s" />
+                           <meterSig xml:id="w12ko4bs" count="4" sym="common" unit="4" />
+                        </staffDef>
+                        <staffDef xml:id="P2" n="2" lines="5">
+                           <label xml:id="sfjs0h">Violoa da gamba.</label>
+                           <instrDef xml:id="w1h4n8ku" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="ffp6i8b" shape="F" line="4" />
+                           <keySig xml:id="gsuh3xq" sig="1s" />
+                           <meterSig xml:id="hialmup" count="4" sym="common" unit="4" />
+                        </staffDef>
+                        <staffDef xml:id="P3" n="3" lines="5">
+                           <label xml:id="z1opnbk3">Cembalo.</label>
+                           <instrDef xml:id="dqdopug" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="m1tcp1s0" shape="F" line="4" />
+                           <keySig xml:id="n1tf0t2l" sig="1s" />
+                           <meterSig xml:id="o2unu0x" count="4" sym="common" unit="4" />
+                        </staffDef>
+                     </staffGrp>
                      <staffGrp xml:id="P4" bar.thru="true">
                         <grpSym xml:id="d1xpx101" symbol="brace" />
                         <instrDef xml:id="h1y1uusp" midi.channel="11" midi.instrnum="0" midi.volume="77%" />
