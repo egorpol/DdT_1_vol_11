@@ -92,7 +92,7 @@ Work IDs use `Op. <opus>/<no.>` or `App. <no.>`. MEI files are `buxtehude_<stem>
 
 | Work | Key | Pg. | BSB | MEI stem | Status |
 | --- | --- | ---: | ---: | --- | --- |
-| Op. I/1 | F | 3 | 00013 | op1_01_sonata_f_major | combined |
+| Op. I/1 | F | 3 | 00013 | op1_01_sonata_f_major | corrected |
 | Op. I/2 | G | 13 | 00023 | op1_02_sonata_g_major | pending |
 | Op. I/3 | A min. | 22 | 00032 | op1_03_sonata_a_minor | combined |
 | Op. I/4 | B♭ | 33 | 00043 | op1_04_sonata_b_flat_major | combined |
@@ -112,15 +112,15 @@ Work IDs use `Op. <opus>/<no.>` or `App. <no.>`. MEI files are `buxtehude_<stem>
 
 ## MEI Header Policy
 
-Final sonata-level files should carry a full MEI header rather than the minimal OMR/transcoding header. The header should document the electronic MEI file, the historical source, the encoding process, the encoded work, and the file revision history.
+Final sonata-level files should carry a compact MEI header rather than the minimal OMR/transcoding header. The header should document the electronic MEI file, the historical source, the encoding process, the encoded work, and the meaningful file revision history.
 
-The structure follows the [MEI Guidelines for metadata](https://music-encoding.org/guidelines/v5/content/metadata.html) and the [`meiHead`](https://music-encoding.org/guidelines/v5/elements/meiHead.html) element reference: `meiHead` contains `fileDesc` as required metadata, followed by optional `encodingDesc`, `workList`, and `revisionDesc`. Within `fileDesc`, use `titleStmt`, `pubStmt`, and [`sourceDesc`](https://music-encoding.org/guidelines/v5/elements/sourceDesc.html) for the file title/responsibilities, publication or distribution information for the MEI file, and the historical source from which the MEI file is derived.
+The structure follows the [MEI Guidelines for metadata](https://music-encoding.org/guidelines/v5/content/metadata.html) and the [`meiHead`](https://music-encoding.org/guidelines/v5/elements/meiHead.html) element reference: `meiHead` contains `fileDesc` as required metadata, followed here by `encodingDesc`, `workList`, and `revisionDesc`. Within `fileDesc`, use `titleStmt`, `pubStmt`, and [`sourceDesc`](https://music-encoding.org/guidelines/v5/elements/sourceDesc.html) for the file title/responsibilities, publication or distribution information for the MEI file, and the historical source from which the MEI file is derived.
 
-Modern project responsibility should be separated from historical source responsibility. Carl Stiehl is the editor of the 1903 printed source and should be recorded in `sourceDesc`. The student or researcher who reads and corrects the OMR should be recorded in `titleStmt` using `respStmt`, for example with `persName role="editor"` and a responsibility such as `OMR correction and editorial review`.
+Modern project responsibility should be separated from historical source responsibility. Carl Stiehl is the editor of the 1903 printed source and should be recorded in `sourceDesc`. The student or researcher who reads and corrects the OMR should be recorded in `titleStmt` using `respStmt`, with a responsibility such as `OMR correction and editorial review`.
 
-The template below follows recurring patterns in the [Digital Mozart Edition/MoVi example](https://dme.mozarteum.at/movi/data/561_6366/dmeref_561-001.mei), the [TROMPA Beethoven Op. 33 encoding](https://github.com/trompamusic-encodings/Beethoven_Op33_BreitkopfHaertel/blob/master/Beethoven_Op33_Nr5-Breitkopf.mei), and the [Freischuetz Digital music data](https://github.com/Freischuetz-Digital/data-music): responsibility statements for modern project work, a separate edition statement for release/draft state, a publication statement for the digital file, structured source metadata, application metadata, work-level metadata, and revision history. Authority identifiers should be attached to `persName`, `corpName`, or `identifier` elements rather than directly to `composer`.
+Keep the header intentionally lean. Avoid `xml:id` values in the header unless another element references them. Do not duplicate the same responsibility in both `titleStmt` and `editionStmt`. Keep application metadata concise, and use `revisionDesc` only for meaningful lifecycle events such as assembly, correction, and finalization.
 
-Template for finalized sonata files:
+Template for sonata-level files:
 
 ```xml
 <meiHead xml:lang="en">
@@ -128,64 +128,47 @@ Template for finalized sonata files:
       <titleStmt>
          <title>Sonata I in F major, Op. I: digital MEI edition</title>
          <composer>
-            <persName auth.uri="https://d-nb.info/gnd/118665685" auth="GND" codedval="118665685" role="composer">Dietrich Buxtehude</persName>
+            <persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
          </composer>
          <respStmt>
             <resp>MEI encoding and sonata-level assembly</resp>
-            <corpName role="encoder">CAMAT</corpName>
+            <corpName>CAMAT</corpName>
          </respStmt>
          <respStmt>
             <resp>OMR correction and editorial review</resp>
-            <persName role="editor">Student Editor Name</persName>
+            <persName>Student Editor Name</persName>
          </respStmt>
-         <funder>German Research Foundation (DFG), grant PF 669/18-1</funder>
       </titleStmt>
       <editionStmt>
-         <edition>
-            <title>Correction draft</title>
-            <date isodate="YYYY-MM-DD" type="revision">YYYY-MM-DD</date>
-         </edition>
-         <respStmt>
-            <resp>OMR correction and editorial review</resp>
-            <persName role="editor">Student Editor Name</persName>
-         </respStmt>
+         <edition>Corrected draft</edition>
       </editionStmt>
       <pubStmt>
-         <publisher>
-            <corpName>CAMAT Corpus Editions</corpName>
-         </publisher>
+         <publisher>CAMAT Corpus Editions</publisher>
+         <date isodate="YYYY-MM-DD">YYYY-MM-DD</date>
          <availability>
             <useRestrict>MEI data released under the MIT License.</useRestrict>
          </availability>
       </pubStmt>
-      <seriesStmt>
-         <title>CAMAT Corpus Editions: DdT 1, Vol. 11</title>
-      </seriesStmt>
-      <notesStmt>
-         <annot>This file is a combined sonata-level MEI file derived from page-level OMR data and corrected in mei-friend.</annot>
-      </notesStmt>
       <sourceDesc>
          <source>
             <bibl>
-               <identifier type="BSB-ID">991009385569707356</identifier>
-               <identifier type="BV">BV035347306</identifier>
-               <identifier type="WorldCat">775063768</identifier>
-               <identifier type="URN">urn:nbn:de:bvb:12-bsb00023199-0</identifier>
                <title>Dietrich Buxtehudes Instrumentalwerke: Sonaten fuer Violine, Gambe und Cembalo</title>
                <title type="series">Denkmaeler deutscher Tonkunst, first series, vol. 11</title>
                <composer>Dietrich Buxtehude</composer>
                <editor>
-                  <persName auth.uri="https://d-nb.info/gnd/117245674" auth="GND" codedval="117245674" role="editor">Carl Stiehl</persName>
+                  <persName auth="GND" auth.uri="https://d-nb.info/gnd/117245674" codedval="117245674">Carl Stiehl</persName>
                </editor>
                <imprint>
-                  <publisher>Breitkopf und Haertel</publisher>
                   <pubPlace>Leipzig</pubPlace>
+                  <publisher>Breitkopf und Haertel</publisher>
                   <date isodate="1903">1903</date>
                </imprint>
+               <identifier type="URN">urn:nbn:de:bvb:12-bsb00023199-0</identifier>
+               <identifier type="BSB-ID">991009385569707356</identifier>
                <repository>Hochschule fuer Musik und Theater Muenchen, Bibliothek</repository>
                <identifier type="shelfmark">N2/X 1 DDT, 11</identifier>
-               <ref target="https://digitale-sammlungen.de/en/view/bsb00023199">Digital facsimile, BSB bsb00023199</ref>
-               <biblScope unit="page" from="3">3ff.</biblScope>
+               <ref target="https://digitale-sammlungen.de/en/view/bsb00023199">Digital facsimile</ref>
+               <biblScope unit="page" from="3" to="12">pp. 3-12</biblScope>
             </bibl>
          </source>
       </sourceDesc>
@@ -198,13 +181,13 @@ Template for finalized sonata files:
          </application>
          <application>
             <name>mei-friend</name>
-            <p>Manual editorial correction and MEI cleanup.</p>
+            <p>Manual correction and editorial review.</p>
          </application>
       </appInfo>
    </encodingDesc>
    <workList>
       <work>
-         <identifier type="repository-filename">buxtehude_op1_01_sonata_f_major.mei</identifier>
+         <identifier type="repository-stem">op1_01_sonata_f_major</identifier>
          <title>Sonata I in F major, Op. I</title>
          <composer>Dietrich Buxtehude</composer>
          <key pname="f" mode="major">F major</key>
@@ -212,12 +195,13 @@ Template for finalized sonata files:
    </workList>
    <revisionDesc>
       <change isodate="YYYY-MM-DD">
-         <respStmt>
-            <resp>Sonata-level assembly</resp>
-            <corpName>CAMAT</corpName>
-         </respStmt>
          <changeDesc>
             <p>Combined page-level OMR files into sonata-level MEI.</p>
+         </changeDesc>
+      </change>
+      <change isodate="YYYY-MM-DD">
+         <changeDesc>
+            <p>Completed musical correction and local validation.</p>
          </changeDesc>
       </change>
    </revisionDesc>
