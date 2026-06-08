@@ -49,38 +49,26 @@
                <scoreDef xml:id="g1klqli8">
                   <staffGrp xml:id="j1p4c3xy">
                      <staffDef xml:id="P1" n="1" lines="5" ppq="8">
-                        <label xml:id="k1kg1r1q">System 1</label>
-                        <labelAbbr xml:id="mgtmpah">Prt1</labelAbbr>
                         <instrDef xml:id="o10zplze" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
                         <clef xml:id="xhjmi3q" shape="G" line="2" />
                         <keySig xml:id="y1qoq7ns" sig="4s" />
-                        <meterSig xml:id="z1jyvbj9" count="4" unit="4" />
                      </staffDef>
                      <staffDef xml:id="P2" n="2" lines="5" ppq="8">
-                        <label xml:id="kgqax5f">System 2</label>
-                        <labelAbbr xml:id="moiojv8">Prt2</labelAbbr>
                         <instrDef xml:id="o1s6vg6t" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
                         <clef xml:id="x16c5ymn" shape="C" line="3" />
                         <keySig xml:id="ykg4k4b" sig="4s" />
-                        <meterSig xml:id="zoxjjpq" count="4" unit="4" />
                      </staffDef>
                      <staffDef xml:id="P3" n="3" lines="5" ppq="8">
-                        <label xml:id="e1mveksx">System 3</label>
-                        <labelAbbr xml:id="g1cwisqt">Prt3</labelAbbr>
                         <instrDef xml:id="ieq6eje" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
                         <clef xml:id="r17nktfh" shape="F" line="4" />
                         <keySig xml:id="s1o1h7d7" sig="4s" />
-                        <meterSig xml:id="tnsaig3" count="4" unit="4" />
                      </staffDef>
                      <staffGrp xml:id="P4" bar.thru="true">
                         <grpSym xml:id="c8rn0ri" symbol="brace" />
-                        <label xml:id="c1b6y7yy">System 4</label>
-                        <labelAbbr xml:id="e1xb7bif">Prt4</labelAbbr>
                         <instrDef xml:id="gfczvrs" midi.channel="10" midi.instrnum="0" midi.volume="77%" />
                         <staffDef xml:id="i3uk31n" n="4" lines="5" ppq="8">
                            <clef xml:id="p126mkk9" shape="G" line="2" />
                            <keySig xml:id="q4ngw1r" sig="4s" />
-                           <meterSig xml:id="r1qmwh07" count="4" unit="4" />
                         </staffDef>
                         <staffDef xml:id="s1e68o4d" n="5" lines="5" ppq="8">
                            <clef xml:id="z6zfbkh" shape="F" line="4" />
@@ -93,6 +81,21 @@
                <section xml:id="h1w1ac6j">
                   <pb xml:id="inh7phq" />
                   <measure xml:id="aezey1b" n="1" facs="#zone_4a42b242a6924b9ebb">
+                     <harm xml:id="wkvi34" staff="3" tstamp="1">
+                        <fb>
+                           <f>6</f>
+                        </fb>
+                     </harm>
+                     <harm xml:id="ascew" staff="3" tstamp="3">
+                        <fb>
+                           <f>7</f>
+                        </fb>
+                     </harm>
+                     <harm xml:id="wcvk3" staff="3" tstamp="4">
+                        <fb>
+                           <f>♯</f>
+                        </fb>
+                     </harm>
                      <staff xml:id="jzv28gm" n="1">
                         <layer xml:id="kbnqovo" n="1">
                            <beam xml:id="l12jb8i9">
@@ -450,7 +453,6 @@
                      </staff>
                      <tie xml:id="o1eulh9r" startid="#npbjufy" endid="#pzza9cl" />
                   </measure>
-                  <sb xml:id="g1xhec9b" />
                   <measure xml:id="w1rqm631" n="4" facs="#zone_37e7158dbbdb476193">
                      <staff xml:id="fc4foat" n="1">
                         <layer xml:id="hkhfk8t" n="1">
@@ -845,7 +847,6 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="v1h0tyox" />
                   <measure xml:id="lo6joqu" metcon="false" n="8" facs="#zone_4892a19f26a04b0e88">
                      <staff xml:id="ud3t3ge" n="1">
                         <layer xml:id="w1bro5vq" n="1">
@@ -1273,7 +1274,6 @@
                         </layer>
                      </staff>
                   </measure>
-                  <sb xml:id="tc6mzfl" />
                   <measure xml:id="j14kps0d" metcon="false" n="12" facs="#zone_0c1371193d62403f93">
                      <staff xml:id="s130vso1" n="1">
                         <layer xml:id="uc3yjvj" n="1">
@@ -1766,7 +1766,6 @@
                         </layer>
                      </staff>
                   </measure>
-                  <sb xml:id="d1o7mofq" />
                   <measure xml:id="t1vbrlzo" n="16" facs="#zone_8a4e93cf34f7433bb8">
                      <staff xml:id="c5qt54k" n="1">
                         <layer xml:id="h1r8zcuz" n="1">
