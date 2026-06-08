@@ -1,5 +1,2 @@
 severity,category,check,file,line,element,measure_n,staff_n,layer_n,xml_id,message,expected,actual,context
-warning,rhythm,layer_duration_overfull,11_buxtehude_sonatas_final/buxtehude_op1_07_sonata_e_minor.mei,5378,layer,38,4.0,,gwwgern,Layer is overfull against the active meter.,16,20,
-warning,cleanup,tie_pitch_mismatch,11_buxtehude_sonatas_final/buxtehude_op1_07_sonata_e_minor.mei,9688,tie,95,,,j13nvksl,Tie endpoints do not have the same written pname/oct; automatic repair skipped.,"('b', '4')","('g', '4')",safe cleanup
-warning,cleanup,tie_cross_layer_note_roles,11_buxtehude_sonatas_final/buxtehude_op1_07_sonata_e_minor.mei,2526,note,17,4.0,2.0,g109m96g,Note-level @tie chain crosses layers; Verovio may leave the starting layer unresolved. Prefer an explicit <tie> for cross-layer ties.,same-layer @tie chain or explicit <tie>,"start=j1q3gf5e layer=1; end=g109m96g layer=2; pitch=('a', '4')",safe cleanup
-warning,verovio,verovio_log,11_buxtehude_sonatas_final/buxtehude_op1_07_sonata_e_minor.mei,2519,note,17,4,1,c2u6atp,"Expected @tie median or terminal in note 'c2u6atp', skipping it",,c2u6atp,load/render
+warning,rhythm,layer_duration_underfull,11_buxtehude_sonatas_final/buxtehude_op1_07_sonata_e_minor.mei,5379,layer,38,4,,wkvi38,Layer is underfull against the active meter.,16,14,
