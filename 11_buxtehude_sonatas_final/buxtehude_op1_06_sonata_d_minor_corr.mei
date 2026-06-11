@@ -9090,7 +9090,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="rdevztp" right="end" n="80" facs="#zone_a1e43d5fe85047808b">
+                  <measure xml:id="rdevztp" right="dbl" n="80" facs="#zone_a1e43d5fe85047808b">
                      <harm tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
@@ -9134,6 +9134,9 @@
                      <fermata xml:id="t1oc5r17" staff="5" startid="#sljnf9l" form="inv" place="below" />
                   </measure>
                   <pb xml:id="c1hyydxe" />
+                  <scoreDef xml:id="bg234g">
+                     <meterSig xml:id="gd23f2g" count="3" unit="4" />
+                  </scoreDef>
                   <measure xml:id="u1s2uim9" n="81" facs="#zone_bd34d6dc2d49424d86">
                      <harm tstamp="1" staff="3">
                         <fb>
@@ -9184,7 +9187,6 @@
                            <note xml:id="kvy58on" dur="4" oct="4" pname="c" stem.dir="down">
                               <accid xml:id="l15j4ch" accid="s" />
                            </note>
-                           <space xml:id="m1ythnq" dur="8" />
                         </layer>
                      </staff>
                      <tie xml:id="a49185f" startid="#zrrc0ad" endid="#z1ibnqhw" />
@@ -9202,14 +9204,12 @@
                      </harm>
                      <staff xml:id="qcd218c" n="1">
                         <layer xml:id="regnjwg" n="1">
-                           <space xml:id="a7kf9q2" dur="4" dots="1" />
-                           <rest xml:id="n1sfsm8e" dur="1" />
+                           <mRest xml:id="n1sfsm8e" />
                         </layer>
                      </staff>
                      <staff xml:id="le9z32t" n="2">
                         <layer xml:id="m1ise307" n="1">
-                           <space xml:id="a7efkf9q2" dur="4" dots="1" />
-                           <rest xml:id="n1sadfsm8e" dur="1" />
+                           <mRest xml:id="n1sadfsm8e" />
                         </layer>
                      </staff>
                      <staff xml:id="b1fwgh6t" n="3">
@@ -10709,6 +10709,7 @@
                         </layer>
                         <layer xml:id="fz058s5" n="2">
                            <note xml:id="gub10gz" dur="2" oct="4" pname="f" stem.dir="down" />
+                           <space xml:id="g24fgg" dur="4" />
                         </layer>
                      </staff>
                      <staff xml:id="un61iao" n="5">
