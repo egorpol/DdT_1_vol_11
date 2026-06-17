@@ -98,7 +98,7 @@ Work IDs use `Op. <opus>/<no.>` or `App. <no.>`. MEI files are `buxtehude_<stem>
 | Op. I/4 | B♭ | 33 | 00043 | op1_04_sonata_b_flat_major | corrected |
 | Op. I/5 | C | 44 | 00054 | op1_05_sonata_c_major | pending |
 | Op. I/6 | D min. | 55 | 00065 | op1_06_sonata_d_minor | combined |
-| Op. I/7 | E min. | 66 | 00076 | op1_07_sonata_e_minor | combined |
+| Op. I/7 | E min. | 66 | 00076 | op1_07_sonata_e_minor | corrected |
 | Op. II/1 | B♭ | 79 | 00089 | op2_01_sonata_b_flat_major | pending |
 | Op. II/2 | D | 90 | 00100 | op2_02_sonata_d_major | pending |
 | Op. II/3 | G min. | 103 | 00113 | op2_03_sonata_g_minor | pending |
