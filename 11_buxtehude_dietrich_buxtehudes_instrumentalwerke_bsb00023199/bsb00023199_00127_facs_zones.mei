@@ -54,34 +54,29 @@
             <score xml:id="n1jx0ea9">
                <scoreDef xml:id="o1gj98dj">
                   <staffGrp xml:id="r1rqqrtb">
-                     <staffDef xml:id="P1" n="1" lines="5" ppq="12">
-                        <label xml:id="s16mfl4f">System 1</label>
-                        <labelAbbr xml:id="u1edhgem">Prt1</labelAbbr>
-                        <instrDef xml:id="w1oc4o89" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="f1ahasjn" shape="G" line="2" />
-                        <keySig xml:id="g6bihr9" sig="2f" />
-                        <meterSig xml:id="h1x1reix" count="4" unit="4" />
-                     </staffDef>
-                     <staffDef xml:id="P2" n="2" lines="5" ppq="12">
-                        <label xml:id="s1x1w8uf">System 2</label>
-                        <labelAbbr xml:id="ug1hbtz">Prt2</labelAbbr>
-                        <instrDef xml:id="w1wx35jg" midi.channel="11" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="f10g2qtk" shape="C" line="3" />
-                        <keySig xml:id="ggt6ojt" sig="2f" />
-                        <meterSig xml:id="h1b48x23" count="4" unit="4" />
-                     </staffDef>
-                     <staffDef xml:id="P3" n="3" lines="5" ppq="12">
-                        <label xml:id="b1ikk7fc">System 3</label>
-                        <labelAbbr xml:id="d8d5wlu">Prt3</labelAbbr>
-                        <instrDef xml:id="f19rn053" midi.channel="12" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="o1h65tpf" shape="F" line="4" />
-                        <keySig xml:id="p1supnw8" sig="2f" />
-                        <meterSig xml:id="qcemlv1" count="4" unit="4" />
-                     </staffDef>
+                     <staffGrp xml:id="grp_1_2_3" bar.thru="true">
+                        <grpSym xml:id="sym_bracket_1" symbol="bracket" />
+                        <staffDef xml:id="P1" n="1" lines="5" ppq="12">
+                           <instrDef xml:id="w1oc4o89" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="f1ahasjn" shape="G" line="2" />
+                           <keySig xml:id="g6bihr9" sig="2f" />
+                           <meterSig xml:id="h1x1reix" count="4" unit="4" />
+                        </staffDef>
+                        <staffDef xml:id="P2" n="2" lines="5" ppq="12">
+                           <instrDef xml:id="w1wx35jg" midi.channel="11" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="f10g2qtk" shape="C" line="3" />
+                           <keySig xml:id="ggt6ojt" sig="2f" />
+                           <meterSig xml:id="h1b48x23" count="4" unit="4" />
+                        </staffDef>
+                        <staffDef xml:id="P3" n="3" lines="5" ppq="12">
+                           <instrDef xml:id="f19rn053" midi.channel="12" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="o1h65tpf" shape="F" line="4" />
+                           <keySig xml:id="p1supnw8" sig="2f" />
+                           <meterSig xml:id="qcemlv1" count="4" unit="4" />
+                        </staffDef>
+                     </staffGrp>
                      <staffGrp xml:id="P4" bar.thru="true">
                         <grpSym xml:id="eht6dtb" symbol="brace" />
-                        <label xml:id="e1ccqowb">System 4</label>
-                        <labelAbbr xml:id="gmt61xe">Prt4</labelAbbr>
                         <instrDef xml:id="i1qkh2r4" midi.channel="10" midi.instrnum="0" midi.volume="77%" />
                         <staffDef xml:id="k1hwkmzq" n="4" lines="5" ppq="12">
                            <clef xml:id="r17zvy5d" shape="G" line="2" />
@@ -108,7 +103,6 @@
                               <accid xml:id="w1of9ph8" accid="n" />
                            </note>
                            <note xml:id="x165y0zz" dur.ppq="12" dur="4" oct="5" pname="c" stem.dir="down" />
-                           <space xml:id="y1in9jng" dur.ppq="12" dur="4" />
                         </layer>
                      </staff>
                      <staff xml:id="r1h2zjcb" n="2">
@@ -116,7 +110,6 @@
                            <note xml:id="thjw6zo" dur.ppq="12" dur="4" oct="4" pname="g" stem.dir="down" />
                            <note xml:id="upt5314" dots="1" dur.ppq="18" dur="4" oct="4" pname="f" stem.dir="down" />
                            <note xml:id="v1l7weld" dur.ppq="6" dur="8" oct="4" pname="e" stem.dir="down" accid.ges="f" />
-                           <space xml:id="xnmhh9s" dur.ppq="12" dur="4" />
                         </layer>
                      </staff>
                      <staff xml:id="apoot60" n="3">
@@ -130,8 +123,6 @@
                            <note xml:id="h14vqa7b" dur.ppq="12" dur="4" oct="3" pname="a" stem.dir="down">
                               <accid xml:id="ifjwzs7" accid="f" />
                            </note>
-                           <space xml:id="j6rys4k" dur.ppq="12" dur="4" />
-                           <space xml:id="kxtjy0b" dur.ppq="6" dur="8" />
                         </layer>
                      </staff>
                      <staff xml:id="o8qfvhq" n="4">
@@ -172,7 +163,6 @@
                            <note xml:id="q15o4mdr" dur.ppq="12" dur="4" oct="3" pname="a" stem.dir="down">
                               <accid xml:id="r188j177" accid="f" />
                            </note>
-                           <space xml:id="skxohja" dur.ppq="12" dur="4" />
                         </layer>
                      </staff>
                   </measure>
