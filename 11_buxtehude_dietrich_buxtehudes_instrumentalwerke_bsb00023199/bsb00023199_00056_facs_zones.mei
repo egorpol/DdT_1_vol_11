@@ -1352,7 +1352,9 @@
                      <meterSig xml:id="t1ndzir4" count="3" unit="4" />
                      <staffGrp>
                         <staffDef n="1" lines="5"/>
-                        <staffDef n="2" lines="5" visible="true"/>
+                        <staffDef n="2" lines="5">
+                           <clef shape="C" line="3" />
+                        </staffDef>
                         <staffDef n="3" lines="5"/>
                         <staffDef n="4" lines="5"/>
                         <staffDef n="5" lines="5"/>
@@ -1368,14 +1370,9 @@
                      </staff>
                      <staff xml:id="m12v9djb" n="2">
                         <layer xml:id="o1tia7un" n="1">
-                           <note xml:id="invisible1"
-                                 pname="c"
-                                 oct="4"
-                                 dur="4"
-                                 visible="false"/>
+                           <mRest xml:id="j183xll5" />
                         </layer>
                      </staff>
-
                      <staff xml:id="s1ngde6b" n="3">
                         <layer xml:id="t149rlqp" n="1">
                            <note xml:id="uzzaert" dur.ppq="4" dur="4" oct="4" pname="c" stem.dir="down" />
