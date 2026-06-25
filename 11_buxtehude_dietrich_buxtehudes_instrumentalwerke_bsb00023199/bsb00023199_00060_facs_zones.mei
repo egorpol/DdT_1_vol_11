@@ -52,21 +52,24 @@
             <score xml:id="yk6eys0">
                <scoreDef xml:id="z95hb9w">
                   <staffGrp xml:id="c1raelb2">
-                     <staffDef xml:id="P1" n="1" lines="5" ppq="4">
-                        <instrDef xml:id="h84vz2v" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="q5kw3vg" shape="G" line="2" />
-                        <keySig xml:id="r9cqqzo" sig="0" />
-                     </staffDef>
-                     <staffDef xml:id="P2" n="2" lines="5" ppq="4">
-                        <instrDef xml:id="r2sf3yv" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="aph0ke2" shape="F" line="4" />
-                        <keySig xml:id="bajtkls" sig="0" />
-                     </staffDef>
-                     <staffDef xml:id="P3" n="3" lines="5" ppq="4">
-                        <instrDef xml:id="a1lnhv30" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="j6ci1c4" shape="F" line="4" />
-                        <keySig xml:id="k1hmrvxc" sig="0" />
-                     </staffDef>
+                     <staffGrp xml:id="grp_1_2_3" bar.thru="true">
+                        <grpSym xml:id="sym_bracket_1" symbol="bracket" />
+                        <staffDef xml:id="P1" n="1" lines="5" ppq="4">
+                           <instrDef xml:id="h84vz2v" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="q5kw3vg" shape="G" line="2" />
+                           <keySig xml:id="r9cqqzo" sig="0" />
+                        </staffDef>
+                        <staffDef xml:id="P2" n="2" lines="5" ppq="4">
+                           <instrDef xml:id="r2sf3yv" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="aph0ke2" shape="F" line="4" />
+                           <keySig xml:id="bajtkls" sig="0" />
+                        </staffDef>
+                        <staffDef xml:id="P3" n="3" lines="5" ppq="4">
+                           <instrDef xml:id="a1lnhv30" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="j6ci1c4" shape="F" line="4" />
+                           <keySig xml:id="k1hmrvxc" sig="0" />
+                        </staffDef>
+                     </staffGrp>
                      <staffGrp xml:id="P4" bar.thru="true">
                         <grpSym xml:id="mzrenav" symbol="brace" />
                         <instrDef xml:id="q1d3gayd" midi.channel="3" midi.instrnum="0" midi.volume="77%" />
