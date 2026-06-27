@@ -70,26 +70,23 @@
             <score xml:id="q1jf5cio">
                <scoreDef xml:id="ra75sad">
                   <staffGrp xml:id="u1xpwzq2">
-                     <staffGrp symbol="bracket">
-                        <staffDef n="1" lines="5" />
-                        <staffDef n="2" lines="5" />
-                        <staffDef n="3" lines="5" />
+                     <staffGrp symbol="bracket" bar.thru="true">
+                        <staffDef xml:id="P1" n="1" lines="5" ppq="2">
+                           <instrDef xml:id="zi4pvmj" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="iijlfdg" shape="G" line="2" />
+                           <keySig xml:id="jg6cu98" sig="0" />
+                        </staffDef>
+                        <staffDef xml:id="P2" n="2" lines="5" ppq="2">
+                           <instrDef xml:id="jj0km8y" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="s1u1koig" shape="C" line="3" />
+                           <keySig xml:id="te428it" sig="0" />
+                        </staffDef>
+                        <staffDef xml:id="P3" n="3" lines="5" ppq="2">
+                           <instrDef xml:id="zhw60ef" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="i19e5t27" shape="F" line="4" />
+                           <keySig xml:id="j1bz8af0" sig="0" />
+                        </staffDef>
                      </staffGrp>
-                     <staffDef xml:id="P1" n="1" lines="5" ppq="2">
-                        <instrDef xml:id="zi4pvmj" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="iijlfdg" shape="G" line="2" />
-                        <keySig xml:id="jg6cu98" sig="0" />
-                     </staffDef>
-                     <staffDef xml:id="P2" n="2" lines="5" ppq="2">
-                        <instrDef xml:id="jj0km8y" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="s1u1koig" shape="C" line="3" />
-                        <keySig xml:id="te428it" sig="0" />
-                     </staffDef>
-                     <staffDef xml:id="P3" n="3" lines="5" ppq="2">
-                        <instrDef xml:id="zhw60ef" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="i19e5t27" shape="F" line="4" />
-                        <keySig xml:id="j1bz8af0" sig="0" />
-                     </staffDef>
                      <staffGrp xml:id="P4" bar.thru="true">
                         <grpSym xml:id="p38nkga" symbol="brace" />
                         <instrDef xml:id="t85hpg0" midi.channel="3" midi.instrnum="0" midi.volume="77%" />
@@ -143,12 +140,12 @@
                            <note xml:id="li59ka3" dur.ppq="4" dur="2" oct="3" pname="d" stem.dir="down" />
                         </layer>
                      </staff>
-                     <harm staff="3" tstamp="2">
+                     <harm xml:id="kz0mu3ks" staff="3" tstamp="2">
                         <fb>
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm staff="3"  tstamp="3.5">
+                     <harm xml:id="kz0du3k" staff="3"  tstamp="3.5">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -251,12 +248,12 @@
                            <note xml:id="osc1zxy" dur.ppq="1" dur="8" oct="2" pname="e" stem.dir="up" />
                         </layer>
                      </staff>
-                     <harm staff="3" tstamp="2">
+                     <harm xml:id="kz0mu3kv" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="3.5">
+                     <harm xml:id="kz0mu3kd" staff="3" tstamp="3.5">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -308,7 +305,7 @@
                            <note xml:id="s1ue61mf" dur.ppq="2" dur="4" oct="2" pname="f" stem.dir="up" />
                         </layer>
                      </staff>
-                     <harm staff="3" tstamp="3">
+                     <harm xml:id="kz0mu3kl" staff="3" tstamp="3">
                         <fb>
                            <f>(6)</f>
                         </fb>
@@ -354,13 +351,13 @@
                            <note xml:id="qeiilgm" dots="1" dur.ppq="6" dur="2" oct="2" pname="g" stem.dir="up" />
                         </layer>
                      </staff>
-                     <harm staff="3" tstamp="1">
+                     <harm xml:id="kz0mu3ok" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="2">
+                     <harm xml:id="kzpmu3k" staff="3" tstamp="2">
                         <fb>
                            <f>5</f>
                            <f>3</f>
@@ -447,7 +444,7 @@
                            <note xml:id="o1gkprk5" dur.ppq="1" dur="8" oct="3" pname="a" stem.dir="down" />
                         </layer>
                      </staff>
-                     <harm staff="3" tstamp="2">
+                     <harm xml:id="kz0pu3k" staff="3" tstamp="2">
                         <fb>
                            <f>6#</f>
                         </fb>
@@ -492,12 +489,12 @@
                            </note>
                         </layer>
                      </staff>
-                     <harm staff="3" tstamp="1">
+                     <harm xml:id="kz0mou3k" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="3">
+                     <harm xml:id="kz0muö3k" staff="3" tstamp="3">
                         <fb>
                            <f>5</f>
                         </fb>
@@ -550,12 +547,12 @@
                            </note>
                         </layer>
                      </staff>
-                     <harm staff="3" tstamp="2">
+                     <harm xml:id="kz0miu3k" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                      <harm staff="3" tstamp="3.5">
+                      <harm xml:id="kz0mu30k" staff="3" tstamp="3.5">
                         <fb>
                            <f>5</f>
                         </fb>
@@ -608,7 +605,7 @@
                            <note xml:id="e19p8es1" dots="1" dur.ppq="6" dur="2" oct="3" pname="e" stem.dir="down" />
                         </layer>
                      </staff>
-                     <harm staff="3" tstamp="1">
+                     <harm xml:id="k1z0mu3k" staff="3" tstamp="1">
                         <fb>
                            <f>#</f>
                         </fb>
@@ -659,12 +656,12 @@
                            <note xml:id="iv08k3p" dur.ppq="4" dur="2" oct="2" pname="a" stem.dir="up" />
                         </layer>
                      </staff>
-                     <harm staff="3" tstamp="1">
+                     <harm xml:id="kzß0mu3k" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="2">
+                     <harm xml:id="kz0m6u3k" staff="3" tstamp="2">
                         <fb>
                            <f>6#</f>
                         </fb>
@@ -705,7 +702,7 @@
                            <note xml:id="c9t5hn5" dots="1" dur.ppq="6" dur="2" oct="2" pname="b" stem.dir="up" />
                         </layer>
                      </staff>
-                     <harm staff="3" tstamp="1">
+                     <harm xml:id="kz0imu3k" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -763,22 +760,22 @@
                            </chord>
                         </layer>
                      </staff>
-                     <harm staff="3" tstamp="1">
+                     <harm xml:id="k12z0mu3k" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="1.5">
+                     <harm xml:id="k2z0mu3k" staff="3" tstamp="1.5">
                         <fb>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="2">
+                     <harm xml:id="k3z0mu3k" staff="3" tstamp="2">
                         <fb>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="3.5">
+                     <harm xml:id="kz40mu3k" staff="3" tstamp="3.5">
                         <fb>
                            <f>#</f>
                         </fb>
@@ -874,17 +871,17 @@
                         </layer>
                      </staff>
                      <tie xml:id="y2es09ts" startid="#ziv5bhd" endid="#a170elgw" />
-                     <harm staff="3" tstamp="1">
+                     <harm xml:id="k5z0mu3k" staff="3" tstamp="1">
                         <fb>
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="2">
+                     <harm xml:id="k6z0mu3k" staff="3" tstamp="2">
                         <fb>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="3">
+                     <harm xml:id="k7z0mu3k" staff="3" tstamp="3">
                         <fb>
                            <f>#</f>
                         </fb>
@@ -931,8 +928,7 @@
                            <note xml:id="o23nf2q" dur.ppq="2" dur="4" oct="3" pname="f" stem.dir="down" />
                         </layer>
                      </staff>
-
-                     <harm staff="3" tstamp="3">
+                     <harm xml:id="k8z0mu3k" staff="3" tstamp="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -1057,12 +1053,12 @@
                            <note xml:id="h14fzecd" dur.ppq="4" dur="2" oct="3" pname="d" stem.dir="down" />
                         </layer>
                      </staff>
-                     <harm staff="3" tstamp="2">
+                     <harm xml:id="k9z0mu3k" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="3">
+                     <harm xml:id="k10z0mu3k" staff="3" tstamp="3">
                         <fb>
                            <f>5</f>
                         </fb>
@@ -1102,7 +1098,7 @@
                            <note xml:id="d108jngm" dots="1" dur.ppq="6" dur="2" oct="3" pname="e" stem.dir="down" />
                         </layer>
                      </staff>
-                     <harm startid="#i181stol" staff="3" place="below">
+                     <harm xml:id="k90z0mu3k" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -1157,22 +1153,22 @@
                            <note xml:id="e1svebo2" dur.ppq="4" dur="2" oct="3" pname="g" stem.dir="down" />
                         </layer>
                      </staff>
-                     <harm staff="3" tstamp="1">
+                     <harm xml:id="k11z0mu3k" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="1.5">
+                     <harm xml:id="k120z0mu3k" staff="3" tstamp="1.5">
                         <fb>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="2">
+                     <harm xml:id="kz130mu3k" staff="3" tstamp="2">
                         <fb>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="2.5">
+                     <harm xml:id="k14z0mu3k" staff="3" tstamp="2.5">
                         <fb>
                            <f>3</f>
                         </fb>
@@ -1255,12 +1251,12 @@
                            <note xml:id="t1fjeq63" dur.ppq="4" dur="2" oct="3" pname="a" stem.dir="down" />
                         </layer>
                      </staff>
-                     <harm staff="3" tstamp="2">
+                     <harm xml:id="k15z0mu3k" staff="3" tstamp="2">
                         <fb>
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="3">
+                     <harm xml:id="k91z0mu3k" staff="3" tstamp="3">
                         <fb>
                            <f>6#</f>
                         </fb>
@@ -1346,17 +1342,17 @@
                            <note xml:id="ihkdm7u" dur.ppq="4" dur="2" oct="3" pname="d" stem.dir="down" />
                         </layer>
                      </staff>
-                      <harm staff="3" tstamp="1">
+                      <harm xml:id="k92z0mu3k" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="2">
+                     <harm xml:id="k93z0mu3k" staff="3" tstamp="2">
                         <fb>
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="3">
+                     <harm xml:id="k94z0mu3k" staff="3" tstamp="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -1657,12 +1653,12 @@
                         </layer>
                      </staff>
                      <tie xml:id="x1ml3qwo" startid="#v1etpbu1" endid="#z2fria0" />
-                     <harm staff="3" tstamp="2">
+                     <harm xml:id="k95z0mu3k" staff="3" tstamp="2">
                         <fb>
                            <f>(7</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="3">
+                     <harm xml:id="k96z0mu3k" staff="3" tstamp="3">
                         <fb>
                            <f>6#)</f>
                         </fb>
@@ -1745,17 +1741,17 @@
                            <note xml:id="y15s8xcx" dur.ppq="4" dur="2" oct="3" pname="d" stem.dir="down" />
                         </layer>
                      </staff>
-                     <harm staff="3" tstamp="1">
+                     <harm xml:id="k97z0mu3k" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="2">
+                     <harm xml:id="k98z0mu3k" staff="3" tstamp="2">
                         <fb>
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="3">
+                     <harm xml:id="k99z0mu3k" staff="3" tstamp="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -1919,7 +1915,7 @@
                            <note xml:id="i1r2nvyu" dur.ppq="2" dur="4" oct="3" pname="f" stem.dir="down" />
                         </layer>
                      </staff>
-                     <harm staff="3" tstamp="3">
+                     <harm xml:id="k910z0mu3k" staff="3" tstamp="3">
                         <fb>
                            <f>6</f>
                            <f>5</f>
@@ -1976,19 +1972,19 @@
                            <note xml:id="lbx55ni" dur.ppq="4" dur="2" oct="2" pname="g" stem.dir="up" />
                         </layer>
                      </staff>
-                     <harm staff="3" tstamp="1">
+                     <harm xml:id="k911z0mu3k" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="2">
+                     <harm xml:id="k912z0mu3k" staff="3" tstamp="2">
                         <fb>
                            <f>5</f>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm staff="3" tstamp="3">
+                     <harm xml:id="k913z0mu3k" staff="3" tstamp="3">
                         <fb>
                            <f>3</f>
                         </fb>
