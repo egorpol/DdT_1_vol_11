@@ -47,39 +47,39 @@
          <mdiv xml:id="y6zkcxt">
             <score xml:id="zbjf1yd">
                <scoreDef xml:id="a18w9wag">
-   <staffGrp xml:id="d1kt1mzu">
-      <staffGrp>
-         <grpSym symbol="bracket" />
-         <staffDef xml:id="P1" n="1" lines="5" ppq="8">
-            <instrDef xml:id="isz4r2m" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
-            <clef xml:id="rfexvp5" shape="G" line="2" />
-            <keySig xml:id="s1vaafcg" sig="0" />
-         </staffDef>
-         <staffDef xml:id="P2" n="2" lines="5" ppq="8">
-            <instrDef xml:id="gsof5v1" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
-            <clef xml:id="pf9s4l0" shape="F" line="4" />
-            <keySig xml:id="qroy5ef" sig="0" />
-         </staffDef>
-         <staffDef xml:id="P3" n="3" lines="5" ppq="8">
-            <instrDef xml:id="buyw3h" midi.channel="14" midi.instrnum="0" midi.volume="77%" />
-            <clef xml:id="k37czcw" shape="F" line="4" />
-            <keySig xml:id="lictdhl" sig="0" />
-         </staffDef>
-      </staffGrp>
-      <staffGrp xml:id="P4" bar.thru="true">
-         <grpSym xml:id="v16nai0p" symbol="brace" />
-         <instrDef xml:id="z6jzn6y" midi.channel="15" midi.instrnum="0" midi.volume="77%" />
-         <staffDef xml:id="bv9p2el" n="4" lines="5" ppq="8">
-            <clef xml:id="i19odwo6" shape="G" line="2" />
-            <keySig xml:id="j12xtygh" sig="0" />
-         </staffDef>
-         <staffDef xml:id="l11h2py9" n="5" lines="5" ppq="8">
-            <clef xml:id="s1vwfc0y" shape="F" line="4" />
-            <keySig xml:id="tmlq7fn" sig="0" />
-         </staffDef>
-      </staffGrp>
-   </staffGrp>
-</scoreDef>
+                  <staffGrp xml:id="d1kt1mzu">
+                     <staffGrp bar.thru="true">
+                        <grpSym symbol="bracket" />
+                        <staffDef xml:id="P1" n="1" lines="5" ppq="8">
+                           <instrDef xml:id="isz4r2m" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="rfexvp5" shape="G" line="2" />
+                           <keySig xml:id="s1vaafcg" sig="0" />
+                        </staffDef>
+                        <staffDef xml:id="P2" n="2" lines="5" ppq="8">
+                           <instrDef xml:id="gsof5v1" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="pf9s4l0" shape="F" line="4" />
+                           <keySig xml:id="qroy5ef" sig="0" />
+                        </staffDef>
+                        <staffDef xml:id="P3" n="3" lines="5" ppq="8">
+                           <instrDef xml:id="buyw3h" midi.channel="14" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="k37czcw" shape="F" line="4" />
+                           <keySig xml:id="lictdhl" sig="0" />
+                        </staffDef>
+                     </staffGrp>
+                     <staffGrp xml:id="P4" bar.thru="true">
+                        <grpSym xml:id="v16nai0p" symbol="brace" />
+                        <instrDef xml:id="z6jzn6y" midi.channel="15" midi.instrnum="0" midi.volume="77%" />
+                        <staffDef xml:id="bv9p2el" n="4" lines="5" ppq="8">
+                           <clef xml:id="i19odwo6" shape="G" line="2" />
+                           <keySig xml:id="j12xtygh" sig="0" />
+                        </staffDef>
+                        <staffDef xml:id="l11h2py9" n="5" lines="5" ppq="8">
+                           <clef xml:id="s1vwfc0y" shape="F" line="4" />
+                           <keySig xml:id="tmlq7fn" sig="0" />
+                        </staffDef>
+                     </staffGrp>
+                  </staffGrp>
+               </scoreDef>
                <section xml:id="bife0vs">
                   <pb xml:id="ckmmwnq" />
                   <measure xml:id="ucjphwn" n="1" facs="#zone_2017a3d9d5a0408db1">
@@ -113,9 +113,9 @@
                      </staff>
                      <staff xml:id="b1dxg9nr" n="2">
                         <layer xml:id="cjptzz1" n="1">
-                           <note xml:id="d1u4irb1" dur.ppq="8" dur="4" oct="3" pname="g" stem.dir="down" />
+                           <note xml:id="d1u4irb1" dur.ppq="8" dur="4" oct="3" pname="g" stem.dir="down" tie="i" />
                            <beam xml:id="f181b2vp">
-                              <note xml:id="g17h0e16" dur.ppq="2" dur="16" oct="3" pname="g" stem.dir="down" />
+                              <note xml:id="g17h0e16" dur.ppq="2" dur="16" oct="3" pname="g" stem.dir="down" tie="t" />
                               <note xml:id="h19qm64h" dur.ppq="2" dur="16" oct="3" pname="f" stem.dir="down" />
                               <note xml:id="i98hl14" dur.ppq="2" dur="16" oct="3" pname="e" stem.dir="down" />
                               <note xml:id="j1igrmmk" dur.ppq="2" dur="16" oct="3" pname="d" stem.dir="down" />
@@ -161,13 +161,12 @@
                            <note xml:id="z1lo12d2" dur.ppq="8" dur="4" oct="4" pname="c" stem.dir="down" />
                         </layer>
                      </staff>
-                     <tie xml:id="eesdk2c" startid="#d1u4irb1" endid="#g17h0e16" />
-                     <harm startid="#b1ps3j95" staff="3" place="below">
+                     <harm xml:id="asdfb1ps3j95" staff="3" tstamp="4">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm startid="#y13jqsx" staff="3" place="below">
+                     <harm xml:id="asdfy13jqsx" staff="3" tstamp="4.5">
                         <fb>
                            <f>5</f>
                         </fb>
@@ -262,17 +261,17 @@
                            <note xml:id="e5ctdof" dur.ppq="4" dur="8" oct="3" pname="f" stem.dir="down" />
                         </layer>
                      </staff>
-                     <harm startid="#njjfnce" staff="3" place="below">
+                     <harm xml:id="asdfnjjfnce" staff="3" tstamp="1">
                         <fb>
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm startid="#b5cdtuu" staff="3" place="below">
+                     <harm xml:id="asdfb5cdtuu" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm startid="#ozkn9kw" staff="3" place="below">
+                     <harm xml:id="asdfozkn9kw" staff="3" tstamp="2.5">
                         <fb>
                            <f>6#</f>
                         </fb>
@@ -577,9 +576,9 @@
                               <note xml:id="f8cyuee" oct="4" pname="f" />
                               <note xml:id="h11uond8" oct="4" pname="b" />
                            </chord>
-                           <note xml:id="il3rkg0" dur.ppq="8" dur="4" oct="5" pname="c" stem.dir="up" />
+                           <note xml:id="il3rkg0" dur.ppq="8" dur="4" oct="5" pname="c" stem.dir="up" tie="i" />
                            <beam xml:id="b16r2quw">
-                           	<note xml:id="k3dus92" dur.ppq="4" dur="8" oct="5" pname="c" stem.dir="up" />
+                           	<note xml:id="k3dus92" dur.ppq="4" dur="8" oct="5" pname="c" stem.dir="up" tie="t" />
                            	<note xml:id="l1acek6t" dur.ppq="4" dur="8" oct="4" pname="b" stem.dir="up" />
                            </beam>
                         </layer>
@@ -603,18 +602,17 @@
                            <note xml:id="yy4t6dg" dur.ppq="8" dur="4" oct="2" pname="g" stem.dir="up" />
                         </layer>
                      </staff>
-                     <tie xml:id="jb9yn6h" startid="#il3rkg0" endid="#k3dus92" />
-                     <harm startid="#zm7wnoe" staff="3" place="below">
+                     <harm xml:id="asdfzm7wnoe" staff="3" tstamp="1">
                         <fb>
                            <f>(6)</f>
                         </fb>
                      </harm>
-                     <harm startid="#e1gctlrb" staff="3" place="below">
+                     <harm xml:id="asdfe1gctlrb" staff="3" tstamp="4">
                         <fb>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm startid="#b10tij3b" staff="3" place="below">
+                     <harm xml:id="asdfb10tij3b" staff="3" tstamp="4.25">
                         <fb>
                            <f>3</f>
                         </fb>
@@ -728,17 +726,17 @@
                            <rest xml:id="ovdoy2w" dur.ppq="4" dur="8" />
                         </layer>
                      </staff>
-                     <harm startid="#smfe2nb" staff="3" place="below">
+                     <harm xml:id="asdfsmfe2nb" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm startid="#u1iutw88" staff="3" place="below">
+                     <harm xml:id="asdfu1iutw88" staff="3" tstamp="3">
                         <fb>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm startid="#w1iv083b" staff="3" place="below">
+                     <harm xml:id="asdfw1iv083b" staff="3" tstamp="4">
                         <fb>
                            <f>6♭</f>
                         </fb>
@@ -862,19 +860,19 @@
                            <rest xml:id="f86n6pt" dur.ppq="4" dur="8" />
                         </layer>
                      </staff>
-                     <harm startid="#j1uz1pm5" staff="3" place="below">
+                     <harm xml:id="asdfj1uz1pm5" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
                            <f>5(♭)</f>
                         </fb>
                      </harm>
-                     <harm startid="#lbmo0e3" staff="3" place="below">
+                     <harm xml:id="asdflbmo0e3" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm startid="#p1e09v62" staff="3" place="below">
+                     <harm xml:id="asdfp1e09v62" staff="3" tstamp="4">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -988,12 +986,12 @@
                            <rest xml:id="qd9s3au" dur.ppq="4" dur="8" />
                         </layer>
                      </staff>
-                     <harm startid="#fjoss2y" staff="3" place="below">
+                     <harm xml:id="asdffjoss2y" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm startid="#jtw3dfw" staff="3" place="below">
+                     <harm xml:id="asdfjtw3dfw" staff="3" tstamp="4">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -1106,13 +1104,13 @@
                            <rest xml:id="c1160f7b" dur.ppq="4" dur="8" />
                         </layer>
                      </staff>
-                     <harm startid="#w1kvm7d0" staff="3" place="below">
+                     <harm xml:id="asdfw1kvm7d0" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm startid="#cgnao0z" staff="3" place="below">
+                     <harm xml:id="asdfcgnao0z" staff="3" tstamp="4">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -1225,12 +1223,12 @@
                            <rest xml:id="p1dh7g2k" dur.ppq="4" dur="8" />
                         </layer>
                      </staff>
-                     <harm startid="#r1dppavl" staff="3" place="below">
+                     <harm xml:id="asdfr1dppavl" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm startid="#vsjt1k0" staff="3" place="below">
+                     <harm xml:id="asdfvsjt1k0" staff="3" tstamp="4">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -1239,9 +1237,9 @@
                   <measure xml:id="jivzvhp" n="12" facs="#zone_4a7b40f1607c4de1bf">
                      <staff xml:id="szh5dgx" n="1">
                         <layer xml:id="u1ozpyg4" n="1">
-                           <note xml:id="v1634t22" dur.ppq="8" dur="4" oct="5" pname="e" stem.dir="down" />
+                           <note xml:id="v1634t22" dur.ppq="8" dur="4" oct="5" pname="e" stem.dir="down" tie="i" />
                            <beam xml:id="x94ryw0">
-                              <note xml:id="y1fmz5r7" dur.ppq="2" dur="16" oct="5" pname="e" stem.dir="down" />
+                              <note xml:id="y1fmz5r7" dur.ppq="2" dur="16" oct="5" pname="e" stem.dir="down" tie="t" />
                               <note xml:id="z1h06s60" dur.ppq="2" dur="16" oct="5" pname="g" stem.dir="down" />
                               <note xml:id="a1syna9j" dur.ppq="2" dur="16" oct="5" pname="a" stem.dir="down" />
                               <note xml:id="bkvz0xd" dur.ppq="2" dur="16" oct="5" pname="b" stem.dir="down" />
@@ -1262,9 +1260,9 @@
                      </staff>
                      <staff xml:id="axt65l8" n="2">
                         <layer xml:id="bwi9qzl" n="1">
-                           <note xml:id="c1fx4wzy" dur.ppq="8" dur="4" oct="4" pname="c" stem.dir="down" />
+                           <note xml:id="c1fx4wzy" dur.ppq="8" dur="4" oct="4" pname="c" stem.dir="down" tie="i" />
                            <beam xml:id="e1kurazi">
-                              <note xml:id="fwe9bzj" dur.ppq="2" dur="16" oct="4" pname="c" stem.dir="down" />
+                              <note xml:id="fwe9bzj" dur.ppq="2" dur="16" oct="4" pname="c" stem.dir="down" tie="t" />
                               <note xml:id="g11ztbz2" dur.ppq="2" dur="16" oct="4" pname="d" stem.dir="down" />
                               <note xml:id="h1xoc4vm" dur.ppq="2" dur="16" oct="4" pname="c" stem.dir="down" />
                               <note xml:id="iumeb9a" dur.ppq="2" dur="16" oct="3" pname="b" stem.dir="down" />
@@ -1340,8 +1338,6 @@
                            <note xml:id="d5vr5x3" dur.ppq="8" dur="4" oct="3" pname="d" stem.dir="down" />
                         </layer>
                      </staff>
-                     <tie xml:id="wyrx0a0" startid="#v1634t22" endid="#y1fmz5r7" />
-                     <tie xml:id="dppyuea" startid="#c1fx4wzy" endid="#fwe9bzj" />
                   </measure>
                   <pb xml:id="w8244co" />
                   <measure xml:id="m1ln18z3" metcon="false" n="13" facs="#zone_ecd5819bfb39465784">
@@ -1420,9 +1416,9 @@
                               <note xml:id="s1594vt0" oct="4" pname="g" />
                               <note xml:id="t11tufr8" oct="4" pname="b" />
                            </chord>
-                           <note xml:id="uiisrch" dur.ppq="8" dur="4" oct="5" pname="c" stem.dir="up"/>
+                           <note xml:id="uiisrch" dur.ppq="8" dur="4" oct="5" pname="c" stem.dir="up" tie="i"/>
                            <beam xml:id="x17li2nl">
-                              <note xml:id="a3r113n" dur.ppq="4" dur="8" oct="5" pname="c" stem.dir="up"/>
+                              <note xml:id="a3r113n" dur.ppq="4" dur="8" oct="5" pname="c" stem.dir="up" tie="t"/>
                               <chord xml:id="r4mjaeje" dur.ppq="4" dur="8" stem.dir="up">
                               	<note xml:id="bst3n1e" oct="5" pname="d" />
                                  <note xml:id="nf13qec" oct="4" pname="a" />
@@ -1470,8 +1466,7 @@
                            <note xml:id="f1mvxjgv" dots="1" dur.ppq="12" dur="4" oct="4" pname="c" stem.dir="up" />
                         </layer>
                      </staff>
-                     <tie xml:id="vnv2qo2" startid="#uiisrch" endid="#a3r113n" />
-                     <harm startid="#idld31b" staff="3" place="below">
+                     <harm xml:id="asdfidld31b" staff="3" tstamp="2.5">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -1546,13 +1541,13 @@
                            <note xml:id="vbv0xxq" dur.ppq="4" dur="8" oct="5" pname="c" stem.dir="up" />
                            <chord xml:id="x10xowx1" dur.ppq="8" dur="4" stem.dir="up">
                               <note xml:id="w1u0hyr6" oct="4" pname="a" />
-                              <note xml:id="y8s9t2u" oct="5" pname="c" />
+                              <note xml:id="y8s9t2u" oct="5" pname="c" tie="i" />
                            </chord>
                            <beam xml:id="a1tk07ou">
                               <chord xml:id="c1yy7yu8" dur.ppq="4" dur="8" stem.dir="up">
                                  <note xml:id="b1ogt6nz" oct="4" pname="e" />
                                  <note xml:id="ds2aqk1" oct="4" pname="g" />
-                                 <note xml:id="e11eakph" oct="5" pname="c" />
+                                 <note xml:id="e11eakph" oct="5" pname="c" tie="t" />
                               </chord>
                               <chord xml:id="giz1uk9" dur.ppq="4" dur="8" stem.dir="up">
                                  <note xml:id="f8bx764" oct="4" pname="d" />
@@ -1594,30 +1589,29 @@
                            </beam>
                         </layer>
                      </staff>
-                     <tie xml:id="zqn92vp" startid="#y8s9t2u" endid="#e11eakph" />
-                     <harm startid="#gpkdbsp" staff="3" place="below">
+                     <harm xml:id="asfgpkdbsp" staff="3" tstamp="2.5">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm startid="#iy67toj" staff="3" place="below">
+                     <harm xml:id="asdfiy67toj" staff="3" tstamp="3">
                         <fb>
                            <f>6</f>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm startid="#jcloyfd" staff="3" place="below">
+                     <harm xml:id="asdfjcloyfd" staff="3" tstamp="3.5">
                         <fb>
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm startid="#l1gh1jrx" staff="3" place="below">
+                     <harm xml:id="asdfl1gh1jrx" staff="3" tstamp="4">
                         <fb>
                            <f>6</f>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm startid="#m1gp5d4p" staff="3" place="below">
+                     <harm xml:id="asdfm1gp5d4p" staff="3" tstamp="4.5">
                         <fb>
                            <f>5</f>
                            <f>3</f>
@@ -1680,10 +1674,10 @@
                            </chord>
                            <chord xml:id="uxr6j31" dur.ppq="8" dur="4" stem.dir="up">
                               <note xml:id="tewb171" oct="4" pname="a" />
-                              <note xml:id="v1x431n8" oct="5" pname="c" />
+                              <note xml:id="v1x431n8" oct="5" pname="c" tie="i" />
                            </chord>
                            <beam xml:id="dqs7oyy">
-                           	<note xml:id="w18tzaep" dur.ppq="4" dur="8" oct="5" pname="c" stem.dir="up" />
+                           	<note xml:id="w18tzaep" dur.ppq="4" dur="8" oct="5" pname="c" stem.dir="up" tie="t" />
                            	<note xml:id="x7cebn3" dur.ppq="4" dur="8" oct="4" pname="b" stem.dir="up" />
                            </beam>
                         </layer>
@@ -1723,30 +1717,29 @@
                            <note xml:id="v96n05h" dur.ppq="8" dur="4" oct="2" pname="g" stem.dir="up" />
                         </layer>
                      </staff>
-                     <tie xml:id="zqn93vp" startid="#v1x431n8" endid="#w18tzaep" />
-                     <harm startid="#c1bteuq0" staff="3" place="below">
+                     <harm xml:id="asdfc1bteuq0" staff="3" tstamp="2.5">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm startid="#e7iuc2l" staff="3" place="below">
+                     <harm xml:id="asdfe7iuc2l" staff="3" tstamp="3">
                         <fb>
                            <f>6</f>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm startid="#flgwvk2" staff="3" place="below">
+                     <harm xml:id="asdfflgwvk2" staff="3" tstamp="3.5">
                         <fb>
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm startid="#gj98pgy" staff="3" place="below">
+                     <harm xml:id="asdfgj98pgy" staff="3" tstamp="4">
                         <fb>
                            <f>6</f>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm startid="#mtpk233" staff="3" place="below">
+                     <harm xml:id="asdfmtpk233" staff="3" tstamp="4.5">
                         <fb>
                            <f>5</f>
                            <f>3</f>
