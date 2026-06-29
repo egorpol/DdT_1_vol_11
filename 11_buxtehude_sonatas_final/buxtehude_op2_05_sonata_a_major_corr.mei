@@ -2,6 +2,12 @@
 <?xml-model href="https://music-encoding.org/schema/5.1/mei-all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="https://music-encoding.org/schema/5.1/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1">
+   
+   
+   
+   
+   
+   
    <meiHead xml:id="mz30hhr">
       <fileDesc xml:id="fjkzcxm">
          <titleStmt xml:id="thl0alg">
@@ -3171,7 +3177,7 @@
                      <staff xml:id="a1tswhef" n="2">
                         <layer xml:id="cgvn6s0" n="1">
                            <space dur="2" />
-                           <rest xml:id="e3prezr" dur="1" />
+                           <mRest xml:id="e3prezr" />
                         </layer>
                      </staff>
                      <staff xml:id="zhnuhrd" n="3">
@@ -3195,8 +3201,6 @@
                            </chord>
                         </layer>
                      </staff>
-                     <tie xml:id="zexrop" startid="#s1drvhkz" endid="#b1kw31lq" />
-                     <tie xml:id="effe34f" startid="#x1oaq90v" endid="#b1kw31lq" />
                      <tie xml:id="c4ioz0" startid="#b1s4p21u" endid="#op6zihk" />
                      <tie xml:id="qb45tbg" startid="#o1xx4iek" endid="#m1o5l7a5" />
                      <tie xml:id="s1pu9fsx" startid="#r21tvqd" endid="#p1ipnix4" />
@@ -3235,7 +3239,7 @@
                      <staff xml:id="o10u6ke1" n="2">
                         <layer xml:id="p21aqnc" n="1">
                            <space dur="2" />
-                           <rest xml:id="e3pddrezr" dur="1" />
+                           <mRest xml:id="e3pddrezr" />
                         </layer>
                      </staff>
                      <staff xml:id="m1rrptcl" n="3">
@@ -3259,6 +3263,7 @@
                            </chord>
                         </layer>
                      </staff>
+                     <tie xml:id="zexrop" startid="#s1drvhkz" endid="#b1dxpigl" />
                      <tie xml:id="p497a7p" startid="#op6zihk" endid="#b6oagza" />
                      <tie xml:id="o1be49va" startid="#m1o5l7a5" endid="#s13861sk" />
                      <tie xml:id="qr80ple" startid="#p1ipnix4" endid="#i1djh75y" />
@@ -3318,7 +3323,7 @@
                      <staff xml:id="b1e88gbn" n="2">
                         <layer xml:id="c1povigt" n="1">
                            <space dur="2" />
-                           <rest xml:id="e3ezr" dur="1" />
+                           <mRest xml:id="e3ezr" />
                         </layer>
                      </staff>
                      <staff xml:id="z9en1mx" n="3">
@@ -3354,6 +3359,8 @@
                         </layer>
                      </staff>
                      <tie xml:id="c15ra108" startid="#b6oagza" endid="#dcnfju8" />
+                     <slur xml:id="effe34f" startid="#y1bm1tid" endid="#jqtgmed" curvedir="below" />
+                     <tie xml:id="k8r4n2qx" startid="#b1dxpigl" endid="#t53hunz"/>
                   </measure>
                   <pb xml:id="dtymnal" facs="#surface_33954d882efc" />
                   <measure xml:id="v1asvvoi" n="33" facs="#zone_c56bbee0df8345fc82">
@@ -3414,7 +3421,7 @@
                      </staff>
                      <staff xml:id="l3y2ls1" n="5">
                         <layer xml:id="s1d4kn5x" n="1">
-                           <note xml:id="t53hunz" dur="1" oct="3" pname="a" stem.visible="false" />
+                           <note xml:id="t53hunz" dur="1" oct="3" pname="a"/>
                         </layer>
                      </staff>
                   </measure>
