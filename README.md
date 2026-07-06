@@ -106,7 +106,7 @@ Work IDs use `Op. <opus>/<no.>` or `App. <no.>`. MEI files are `buxtehude_<stem>
 | Op. II/5 | A | 126 | 00136 | op2_05_sonata_a_major | combined |
 | Op. II/6 | E | 139 | 00149 | op2_06_sonata_e_major | corrected |
 | Op. II/7 | F | 150 | 00160 | op2_07_sonata_f_major | pending |
-| App. I | — | 160 | 00170 | app_01_suite_to_op1_04 | pending |
+| App. I | — | 160 | 00170 | app_01_suite_to_op1_04 | combined |
 | App. II | C | 164 | 00174 | app_02_sonata_2violins_gamba_cembalo_c_major | pending |
 | App. III | D | 176 | 00186 | app_03_sonata_gamba_violin_cembalo_d_major | pending |
 
