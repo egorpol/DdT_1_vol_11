@@ -5,8 +5,8 @@
    <meiHead xml:id="mktozj1">
       <fileDesc xml:id="f6q16yx">
          <titleStmt xml:id="t1bx4vru">
-            <title />
-            <respStmt />
+            <title/>
+            <respStmt/>
          </titleStmt>
          <pubStmt xml:id="phq39mx">
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
@@ -18,7 +18,7 @@
                <name xml:id="nj1wi0s">Verovio</name>
                <p xml:id="pvico45">Transcoded from MusicXML</p>
             </application>
-            <application xml:id="as170d51" startdate="2026-05-24T12:19:33" version="1.3.0" enddate="2026-05-25T19:37:27">
+            <application xml:id="as170d51" startdate="2026-05-24T12:19:33" version="1.4.2" enddate="2026-07-16T15:36:13">
                <name xml:id="nn5duc71">mei-friend</name>
                <p xml:id="pjgdvbl2">First edit by mei-friend 1.3.0.</p>
             </application>
@@ -4345,7 +4345,6 @@
                            <space xml:id="ai3g5x" dots="1" dur="4" />
                         </layer>
                      </staff>
-                     <slur xml:id="a1xehf5s" startid="#z135im6a" endid="#c17xyrf8" />
                      <tie xml:id="w1ytt3qb" startid="#v10mboyj" endid="#x3g8epc" />
                      <annot xml:id="consistency_39122b980853" type="mei-consistency-check" plist="#a1xehf5s">
                         <p>error: broken_internal_reference | Reference '#z135im6a' in @startid does not resolve to an xml:id in this file. | actual=#z135im6a</p>
@@ -5437,7 +5436,6 @@
                      <staff xml:id="s1exzefh" n="1">
                         <layer xml:id="uqipme1" n="1">
                            <note xml:id="vmdg2qf" dur="8" oct="4" pname="d" stem.dir="up">
-                              <artic xml:id="w1bnmbhv" artic="stacc" />
                            </note>
                            <rest xml:id="x1i7czrn" dur="8" />
                            <rest xml:id="ydw37br" dur="4" />
@@ -9549,11 +9547,13 @@
                               <note xml:id="kaa41zy" oct="4" pname="a" />
                               <note xml:id="l16rkf0i" oct="5" pname="c" />
                            </chord>
-                           <note xml:id="stb1k2r" dur="8" oct="4" pname="g" stem.dir="up" />
-                           <chord xml:id="cy50ij4" dur="8" stem.dir="up">
-                              <note xml:id="t1uprjrf" oct="4" pname="a" />
-                              <note xml:id="na6a8zk1" oct="4" pname="f" />
-                           </chord>
+                           <beam xml:id="bld9zpj1">
+                              <note xml:id="stb1k2r" dur="8" oct="4" pname="g" stem.dir="up"/>
+                              <chord xml:id="cy50ij4" dur="8" stem.dir="up">
+                                 <note xml:id="t1uprjrf" oct="4" pname="a"/>
+                                 <note xml:id="na6a8zk1" oct="4" pname="f"/>
+                              </chord>
+                           </beam>
                            <beam xml:id="b1a3shy2">
                               <note xml:id="neok3s01" dur="8" oct="4" pname="f" stem.dir="down" />
                               <note xml:id="nw4dipr2" dur="8" oct="4" pname="e" stem.dir="down" />
@@ -9576,7 +9576,6 @@
                            <space xml:id="c1u70rtk" dur="4" />
                         </layer>
                      </staff>
-                     <slur xml:id="p1bqjvo8" startid="#n1b4egqh" endid="#b186k87d" />
                      <tie xml:id="taf4h1r2" endid="#neok3s01" staff="4" startid="#na6a8zk1" />
                      <annot xml:id="consistency_d60e945d444d" type="mei-consistency-check" plist="#p1bqjvo8">
                         <p>error: broken_internal_reference | Reference '#n1b4egqh' in @startid does not resolve to an xml:id in this file. | actual=#n1b4egqh</p>
@@ -21986,10 +21985,10 @@
                         </layer>
                      </staff>
                      <tie xml:id="e122u0tc" startid="#c1ab1vt4" endid="#g1rdue6r" />
-                     <tie xml:id="thh3y131" endid="#g1rdue6r" staff="4" startid="#njxdj7w1" />
                      <annot xml:id="consistency_e5d183bd666c" type="mei-consistency-check" plist="#e122u0tc">
                         <p>error: broken_internal_reference | Reference '#c1ab1vt4' in @startid does not resolve to an xml:id in this file. | actual=#c1ab1vt4</p>
                      </annot>
+                     <tie xml:id="tccdtbm2" endid="#g1rdue6r" staff="4" startid="#njxdj7w1"/>
                   </measure>
                   <measure xml:id="p1dcf04n" right="end" metcon="false" n="217" facs="#zone_5387b52fd3b2400aae">
                      <harm xml:id="dgdf4" staff="3" tstamp="1">
@@ -22122,7 +22121,7 @@
                      <tie xml:id="pn707gk" startid="#o1udhlxf" endid="#q1yxduj7" />
                      <fermata xml:id="r1arhadp" staff="3" startid="#q1yxduj7" form="norm" place="above" />
                      <fermata xml:id="b1yv6yai" staff="5" startid="#a11flr1v" form="norm" place="above" />
-                     <fermata xml:id="bsb00023199_00125_facs_zones_fdhg56" staff="4" startid="#getnr" form="norm" place="above" />
+                     <fermata xml:id="fhfjgk77" staff="4" startid="#getnr" form="norm" place="above" />
                      <fermata xml:id="hjzh56" staff="5" startid="#jtevxyz" form="inv" place="below" />
                      <tie xml:id="g1blrtcy" startid="#f1hupjh4" endid="#h1tqmjop" />
                      <tie xml:id="tidm5991" endid="#icqhsd9" staff="5" startid="#h1tqmjop" curvedir="below" />
