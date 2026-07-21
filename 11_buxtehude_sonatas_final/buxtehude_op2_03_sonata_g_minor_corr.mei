@@ -18,7 +18,7 @@
                <name xml:id="nj1wi0s">Verovio</name>
                <p xml:id="pvico45">Transcoded from MusicXML</p>
             </application>
-            <application xml:id="as170d51" startdate="2026-05-24T12:19:33" version="1.4.2" enddate="2026-07-21T13:31:53">
+            <application xml:id="as170d51" startdate="2026-05-24T12:19:33" version="1.4.2" enddate="2026-07-21T13:50:36">
                <name xml:id="nn5duc71">mei-friend</name>
                <p xml:id="pjgdvbl2">First edit by mei-friend 1.3.0.</p>
             </application>
@@ -19486,6 +19486,9 @@
                      </staff>
                   </measure>
                   <pb xml:id="rcenx5d" facs="#surface_83dff7a5f881" />
+                  <scoreDef>
+    						<meterSig visible="false" count="4" unit="4" />
+  					   </scoreDef>
                   <measure xml:id="j1cjab8v" n="194" facs="#zone_d94a995119124e198b">
                      <tempo xml:id="bsb00023199_00124_facs_zones_t1" staff="1" startid="w16atf61" mm="120" midi.bpm="60">
       						Grave.
@@ -19958,10 +19961,10 @@
                         </layer>
                         <layer xml:id="hcp4d35" n="2">
                            <note xml:id="isfr7bd" dur="4" oct="4" pname="d" stem.dir="down" />
-                           <beam xml:id="bazsqjh">
+                           
                               <note xml:id="j1npupvd" dur="4" oct="4" pname="c" stem.dir="down" />
                               <note xml:id="krpg0in" dur="4" oct="4" pname="c" stem.dir="down" />
-                           </beam>
+                           
                            <beam xml:id="bzkw5nn1">
                               <note xml:id="nlj0c7s1" dur="8" oct="4" pname="d" stem.dir="down" />
                               <note xml:id="nufw3rw1" dur="8" oct="4" pname="e" stem.dir="down" />
@@ -19985,6 +19988,7 @@
                            <note xml:id="nviubur2" dur="4" oct="3" pname="g" stem.dir="up" />
                         </layer>
                      </staff>
+                     <tie xml:id="tazmv7m2" endid="#krpg0in" staff="4" startid="#j1npupvd"/>
                   </measure>
                   <measure xml:id="z1l448j9" metcon="false" n="200" facs="#zone_f1e179431bab450f98">
                      <harm xml:id="dfh24" staff="3" tstamp="1">
@@ -21724,7 +21728,6 @@
                            <note xml:id="y1ragqhn" dur="8" oct="4" pname="b" stem.dir="up" accid.ges="f" />
                            <note xml:id="nb40sjp2" dur="4" oct="4" pname="a" stem.dir="up" />
                            <note xml:id="n3ktuxk2" dur="8" oct="4" pname="f" stem.dir="up" />
-                           <space xml:id="j8htbrv" dur="8" />
                            <note xml:id="m1yyne39" dur="4" oct="4" pname="e" stem.dir="up" />
                            <note xml:id="p1pcib5m" dur="8" oct="4" pname="e" stem.dir="up" />
                         </layer>
@@ -21758,7 +21761,7 @@
                      <annot xml:id="consistency_e5d183bd666c" type="mei-consistency-check" plist="#e122u0tc">
                         <p>error: broken_internal_reference | Reference '#c1ab1vt4' in @startid does not resolve to an xml:id in this file. | actual=#c1ab1vt4</p>
                      </annot>
-                     <tie xml:id="tccdtbm2" endid="#g1rdue6r" staff="4" startid="#njxdj7w1" />
+                     <tie xml:id="t40am2j2" endid="#g1rdue6r" staff="4" startid="#njxdj7w1"/>
                   </measure>
                   <measure xml:id="p1dcf04n" right="end" metcon="false" n="217" facs="#zone_5387b52fd3b2400aae">
                      <harm xml:id="dgdf4" staff="3" tstamp="1">
