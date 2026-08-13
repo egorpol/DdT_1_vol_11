@@ -215,9 +215,9 @@ The following anonymous grid is automatically generated daily from the MEI files
 <!-- progress-grid:start -->
 ![Anonymous page editing status](docs/progress/page_grid.svg)
 
-Updated: 2026-08-12.
+Updated: 2026-08-13.
 
-Current anonymous page status: 102 edited in mei-friend, 74 present but not yet edited, and 7 missing from the 183-page image sequence (176 MEI files currently present).
+Current anonymous page status: 103 edited in mei-friend, 75 present but not yet edited, and 5 missing from the 183-page image sequence (178 MEI files currently present).
 <!-- progress-grid:end -->
 
 ## Funding
