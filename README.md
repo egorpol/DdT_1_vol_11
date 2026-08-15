@@ -112,63 +112,74 @@ Work IDs use `Op. <opus>/<no.>` or `App. <no.>`. MEI files are `buxtehude_<stem>
 
 ## MEI Header Policy
 
-Final sonata-level files should carry a compact MEI header rather than the minimal OMR/transcoding header. The header should document the electronic MEI file, the historical source, the encoding process, the encoded work, and the meaningful file revision history.
+Publication files use the official MEI 5.1 Common Music Notation customization, not the unrestricted `mei-all` schema. The two `xml-model` declarations and `meiversion="5.1+CMN"` identify that profile in each MEI file. The pinned local copy at `schemas/mei-CMN-5.1.rng` lets the full-check notebook validate the same profile reproducibly and without a network connection; it is validation infrastructure, not content required inside an MEI file.
 
-The structure follows the [MEI Guidelines for metadata](https://music-encoding.org/guidelines/v5/content/metadata.html) and the [`meiHead`](https://music-encoding.org/guidelines/v5/elements/meiHead.html) element reference: `meiHead` contains `fileDesc` as required metadata, followed here by `encodingDesc`, `workList`, and `revisionDesc`. Within `fileDesc`, use `titleStmt`, `pubStmt`, and [`sourceDesc`](https://music-encoding.org/guidelines/v5/elements/sourceDesc.html) for the file title/responsibilities, publication or distribution information for the MEI file, and the historical source from which the MEI file is derived.
+The structure follows the [MEI metadata guidelines](https://music-encoding.org/guidelines/v5/content/metadata.html). It distinguishes the digital edition and its contributors (`fileDesc`) from the 1903 printed source (`sourceDesc`), records the transformation and editorial policy (`encodingDesc`), identifies the abstract work (`workList`), and lists meaningful revisions newest-first (`revisionDesc`). Only addressable agents and works need `xml:id`; the score's `mdiv/@decls` must point to the described work.
 
-Modern project responsibility should be separated from historical source responsibility. Carl Stiehl is the editor of the 1903 printed source and should be recorded in `sourceDesc`. The student or researcher who reads and corrects the OMR should be recorded in `titleStmt` using `respStmt`, with a responsibility such as `OMR correction and editorial review`.
+The MEI data and the BSB page images have different licenses and must be stated separately. Use one numbered `pb` for the first encoded content on every facsimile `surface`; use `sb` for all remaining system boundaries. `surface/@n` and `pb/@n` form a work-local sequence beginning with `1`. Record the original printed page range in `sourceDesc/biblScope`; `surface/@corresp` retains the exact IIIF canvas link.
 
-Keep the header intentionally lean. Avoid `xml:id` values in the header unless another element references them. Do not duplicate the same responsibility in both `titleStmt` and `editionStmt`. Keep application metadata concise, and use `revisionDesc` only for meaningful lifecycle events such as assembly, correction, and finalization.
-
-Template for sonata-level files:
+Publication template (replace bracketed values per work):
 
 ```xml
+<?xml-model href="https://music-encoding.org/schema/5.1/mei-CMN.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://music-encoding.org/schema/5.1/mei-CMN.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1+CMN">
 <meiHead xml:lang="en">
+   <altId type="repository-stem">repository_stem</altId>
    <fileDesc>
       <titleStmt>
-         <title>Sonata I in F major, Op. I: digital MEI edition</title>
+         <title>[work title]</title>
          <composer>
             <persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
          </composer>
-         <respStmt>
+         <respStmt xml:id="resp.camat">
             <resp>MEI encoding and sonata-level assembly</resp>
             <corpName>CAMAT</corpName>
          </respStmt>
-         <respStmt>
+         <respStmt xml:id="resp.editor">
             <resp>OMR correction and editorial review</resp>
-            <persName>Student Editor Name</persName>
+            <persName>[editor name]</persName>
          </respStmt>
       </titleStmt>
       <editionStmt>
-         <edition>Corrected draft</edition>
+         <edition n="1.0.0">First digital edition</edition>
       </editionStmt>
       <pubStmt>
          <publisher>CAMAT Corpus Editions</publisher>
          <date isodate="YYYY-MM-DD">YYYY-MM-DD</date>
+         <identifier type="URI">https://example.invalid/canonical-file-url</identifier>
          <availability>
-            <useRestrict>MEI data released under the MIT License.</useRestrict>
+            <useRestrict>MEI data released under the <ref target="https://spdx.org/licenses/MIT.html">MIT License</ref>.</useRestrict>
          </availability>
       </pubStmt>
       <sourceDesc>
-         <source>
+         <source type="printed-edition">
             <bibl>
-               <title>Dietrich Buxtehudes Instrumentalwerke: Sonaten fuer Violine, Gambe und Cembalo</title>
-               <title type="series">Denkmaeler deutscher Tonkunst, first series, vol. 11</title>
+               <title>Dietrich Buxtehudes Instrumentalwerke: Sonaten für Violine, Gambe und Cembalo</title>
+               <title type="series">Denkmäler deutscher Tonkunst, first series, vol. 11</title>
                <composer>Dietrich Buxtehude</composer>
                <editor>
                   <persName auth="GND" auth.uri="https://d-nb.info/gnd/117245674" codedval="117245674">Carl Stiehl</persName>
                </editor>
                <imprint>
                   <pubPlace>Leipzig</pubPlace>
-                  <publisher>Breitkopf und Haertel</publisher>
+                  <publisher>Breitkopf und Härtel</publisher>
                   <date isodate="1903">1903</date>
                </imprint>
                <identifier type="URN">urn:nbn:de:bvb:12-bsb00023199-0</identifier>
                <identifier type="BSB-ID">991009385569707356</identifier>
-               <repository>Hochschule fuer Musik und Theater Muenchen, Bibliothek</repository>
-               <identifier type="shelfmark">N2/X 1 DDT, 11</identifier>
-               <ref target="https://digitale-sammlungen.de/en/view/bsb00023199">Digital facsimile</ref>
-               <biblScope unit="page" from="3" to="12">pp. 3-12</biblScope>
+               <identifier type="BV">BV035347306</identifier>
+               <identifier type="OCLC">775063768</identifier>
+               <physLoc>
+                  <repository>Hochschule für Musik und Theater München, Bibliothek</repository>
+                  <identifier type="shelfmark">N2/X 1 DDT, 11</identifier>
+               </physLoc>
+               <ref type="digital-facsimile" target="https://digitale-sammlungen.de/en/view/bsb00023199">BSB digital facsimile</ref>
+               <ref type="iiif-manifest" target="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/manifest">IIIF Presentation manifest</ref>
+               <biblScope unit="page" from="FIRST" to="LAST">pp. FIRST-LAST</biblScope>
+               <availability>
+                  <useRestrict>Digital facsimile supplied by the Bayerische Staatsbibliothek under <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</ref>.</useRestrict>
+               </availability>
             </bibl>
          </source>
       </sourceDesc>
@@ -179,33 +190,72 @@ Template for sonata-level files:
             <name>musiconn.scoresearch</name>
             <p>Source OMR data.</p>
          </application>
-         <application>
+         <application isodate="YYYY-MM-DDThh:mm:ss" version="VERSION">
+            <name>Verovio</name>
+            <p>Transcoded source data from MusicXML to MEI.</p>
+         </application>
+         <application startdate="YYYY-MM-DDThh:mm:ss" enddate="YYYY-MM-DDThh:mm:ss" version="VERSION">
             <name>mei-friend</name>
             <p>Manual correction and editorial review.</p>
          </application>
       </appInfo>
+      <editorialDecl>
+         <p>OMR and conversion errors were corrected against the source facsimile. The encoding is intended to reproduce the notation of the printed source; explicit editorial comments are recorded in annot elements with @type="editorial".</p>
+         <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
+      </editorialDecl>
+      <projectDesc>
+         <p>This edition was prepared by CAMAT Corpus Editions as part of a DFG-funded corpus for music-analysis technologies (grant PF 669/18-1).</p>
+      </projectDesc>
    </encodingDesc>
    <workList>
-      <work>
-         <identifier type="repository-stem">op1_01_sonata_f_major</identifier>
-         <title>Sonata I in F major, Op. I</title>
-         <composer>Dietrich Buxtehude</composer>
-         <key pname="f" mode="major">F major</key>
+      <work xml:id="work.buxwvNNN">
+         <identifier type="BuxWV">BuxWV NNN</identifier>
+         <title>[work title]</title>
+         <composer>
+            <persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
+         </composer>
+         <key pname="c" mode="major">[key]</key>
+         <perfMedium>
+            <perfResList>
+               <perfRes>Violin</perfRes>
+               <perfRes>Viola da gamba</perfRes>
+               <perfRes>Harpsichord</perfRes>
+            </perfResList>
+         </perfMedium>
       </work>
    </workList>
    <revisionDesc>
-      <change isodate="YYYY-MM-DD">
+      <change isodate="YYYY-MM-DD" resp="#resp.camat #resp.editor">
          <changeDesc>
-            <p>Combined page-level OMR files into sonata-level MEI.</p>
+            <p>Applied the MEI 5.1 CMN publication profile, expanded source and work metadata, and normalized facsimile page boundaries.</p>
          </changeDesc>
       </change>
-      <change isodate="YYYY-MM-DD">
+      <change isodate="YYYY-MM-DD" resp="#resp.editor">
          <changeDesc>
             <p>Completed musical correction and local validation.</p>
          </changeDesc>
       </change>
+      <change isodate="YYYY-MM-DD" resp="#resp.camat">
+         <changeDesc>
+            <p>Combined page-level OMR files into sonata-level MEI.</p>
+         </changeDesc>
+      </change>
    </revisionDesc>
 </meiHead>
+<music>
+   <facsimile>
+      <surface xml:id="surface.PAGE_ID" n="1" corresp="https://example.invalid/iiif/canvas/NNN" ulx="0" uly="0" lrx="0" lry="0">
+         <graphic xml:id="graphic.PAGE_ID" target="https://example.invalid/iiif/image/NNN" width="0" height="0" mimetype="image/jpeg" />
+         <!-- measure zones -->
+      </surface>
+   </facsimile>
+   <body>
+      <mdiv xml:id="mdiv.work" decls="#work.buxwvNNN">
+         <!-- score -->
+      </mdiv>
+   </body>
+</music>
+</mei>
 ```
 
 ## Current Progress
@@ -228,7 +278,7 @@ Work on this corpus is funded by the German Research Foundation (DFG), program L
 
 When citing this corpus, include both the encoded repository and the underlying source:
 
-> Dietrich Buxtehude. *Dietrich Buxtehudes Instrumentalwerke: Sonaten fuer Violine, Gambe und Cembalo*. Edited by Carl Stiehl. Leipzig: Breitkopf und Haertel, 1903. Digitized by Bayerische Staatsbibliothek, `bsb00023199`.
+> Dietrich Buxtehude. *Dietrich Buxtehudes Instrumentalwerke: Sonaten für Violine, Gambe und Cembalo*. Edited by Carl Stiehl. Leipzig: Breitkopf und Härtel, 1903. Digitized by Bayerische Staatsbibliothek, `bsb00023199`.
 
 Digital facsimile: [https://digitale-sammlungen.de/en/view/bsb00023199](https://digitale-sammlungen.de/en/view/bsb00023199)
 
