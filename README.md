@@ -112,7 +112,7 @@ Work IDs use `Op. <opus>/<no.>` or `App. <no.>`. MEI files are `buxtehude_<stem>
 
 ## MEI Header Policy
 
-Publication files use the official MEI 5.1 Common Music Notation customization, not the unrestricted `mei-all` schema. The two `xml-model` declarations and `meiversion="5.1+CMN"` identify that profile in each MEI file. The pinned local copy at `schemas/mei-CMN-5.1.rng` lets the full-check notebook validate the same profile reproducibly and without a network connection; it is validation infrastructure, not content required inside an MEI file.
+Publication files use the official MEI 5.1 Common Music Notation customization, not the unrestricted `mei-all` schema. The two `xml-model` declarations and `meiversion="5.1+CMN"` identify that profile in each MEI file. Local validation may use an ignored copy at `schemas/mei-CMN-5.1.rng`; this is validation infrastructure and is not required as part of the published corpus.
 
 The structure follows the [MEI metadata guidelines](https://music-encoding.org/guidelines/v5/content/metadata.html). It distinguishes the digital edition and its contributors (`fileDesc`) from the 1903 printed source (`sourceDesc`), records the transformation and editorial policy (`encodingDesc`), identifies the abstract work (`workList`), and lists meaningful revisions newest-first (`revisionDesc`). Only addressable agents and works need `xml:id`; the score's `mdiv/@decls` must point to the described work.
 
