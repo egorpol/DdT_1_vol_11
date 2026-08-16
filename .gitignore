@@ -7,16 +7,14 @@ __pycache__/
 mei_progress.py
 mei_progress_plots.py
 dokuwiki.txt
-/schemas/mei-CMN-5.1.rng
 
-# Keep most helper infrastructure local, but publish the README progress updater.
+# Keep helper infrastructure local.
 scripts/*
 !scripts/
-!scripts/update_readme_progress.py
-.github/*
-!.github/
-!.github/workflows/
-!.github/workflows/update-progress-grid.yml
+
+# Preserve retired public automation for project provenance.
+!scripts/archive/
+!scripts/archive/update_readme_progress.py
 
 # Local progress outputs.
 progress_tracker_with_outputs_local.ipynb
