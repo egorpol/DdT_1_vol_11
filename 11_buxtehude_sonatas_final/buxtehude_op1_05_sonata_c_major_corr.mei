@@ -83,6 +83,7 @@
          </appInfo>
          <editorialDecl>
             <p>OMR and conversion errors were corrected against the source facsimile. The encoding is intended to reproduce the notation of the printed source; explicit editorial comments are recorded in annot elements with @type="editorial".</p>
+            <p>Worded dynamics such as Forte and Piano are encoded as dynam, and performance directions such as Violino Solo. as dir, even when the printed source sets them in the same type as tempo markings. That visual identity is recorded in editorial annot elements rather than by encoding the words as tempo.</p>
             <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
          </editorialDecl>
          <projectDesc>
@@ -4770,8 +4771,11 @@
                         </layer>
                      </staff>
                      <slur xml:id="x8v8669" startid="#w10znzmr" endid="#yv0qwj2" curvedir="above" />
-                     <dynam staff="2" place="below" tstamp="1">Forte</dynam>
-                     <dynam staff="4" place="below" tstamp="1">Forte</dynam>
+                     <dynam xml:id="dynam_m40_s2" staff="2" place="below" tstamp="1">Forte</dynam>
+                     <dynam xml:id="dynam_m40_s4" staff="4" place="below" tstamp="1">Forte</dynam>
+                     <annot xml:id="editorial_dynam_worded" type="editorial" plist="#dynam_m40_s2 #dynam_m40_s4">
+                        <p>DdT prints Forte and Piano in the same type as tempo markings. Encoded as dynam because they function as dynamics rather than tempo; the same convention is used for later worded dynamics in this file.</p>
+                     </annot>
                      <harm xml:id="iz4is2io" staff="3" tstamp="2">
                         <fb>
                            <f>5</f>
@@ -4782,7 +4786,10 @@
                            <f>6#</f>
                         </fb>
                      </harm>
-                     <dir staff="1" place="above" tstamp="1">Violino Solo.</dir>
+                     <dir xml:id="dir_m40_violino_solo" staff="1" place="above" tstamp="1">Violino Solo.</dir>
+                     <annot xml:id="editorial_dir_violino_solo" type="editorial" plist="#dir_m40_violino_solo">
+                        <p>DdT prints Violino Solo. in the same type as tempo markings. Encoded as dir because it is a performance direction (solo scoring) rather than a tempo.</p>
+                     </annot>
                   </measure>
                   <measure xml:id="y1bejq9o" n="41" facs="#zone_dddb57acdbc843da85">
                      <staff xml:id="hnfy770" n="1">
@@ -6389,8 +6396,8 @@
                            <f>6#</f>
                         </fb>
                      </harm>
-                     <tempo place="above" staff="1" tstamp="1">Allegro</tempo>
-                     <tempo place="above" staff="4" tstamp="1">Allegro</tempo>
+                     <tempo place="above" staff="1" tstamp="1">Allegro.</tempo>
+                     <tempo place="above" staff="4" tstamp="1">Allegro.</tempo>
                   </measure>
                   <measure xml:id="pvzh29p" n="73" facs="#zone_4f3cfc33e5724ec08d">
                      <staff xml:id="y4vsp6g" n="1">
