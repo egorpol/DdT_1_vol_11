@@ -42,7 +42,7 @@ The status describes the complete work-level file, not the presence or edit hist
 | Op. I/2 | G major | 13 | 00023 | `op1_02_sonata_g_major` | combined |
 | Op. I/3 | A minor | 22 | 00032 | `op1_03_sonata_a_minor` | corrected |
 | Op. I/4 | B-flat major | 33 | 00043 | `op1_04_sonata_b_flat_major` | corrected |
-| Op. I/5 | C major | 44 | 00054 | `op1_05_sonata_c_major` | combined |
+| Op. I/5 | C major | 44 | 00054 | `op1_05_sonata_c_major` | corrected |
 | Op. I/6 | D minor | 55 | 00065 | `op1_06_sonata_d_minor` | corrected |
 | Op. I/7 | E minor | 66 | 00076 | `op1_07_sonata_e_minor` | corrected |
 | Op. II/1 | B-flat major | 79 | 00089 | `op2_01_sonata_b_flat_major` | pending |
