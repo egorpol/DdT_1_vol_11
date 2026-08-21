@@ -1,34 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://music-encoding.org/schema/5.1/mei-all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://music-encoding.org/schema/5.1/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<mei xmlns="http://www.music-encoding.org/ns/mei" xml:id="mqslnkw1" meiversion="5.1">
-   <meiHead xml:id="mx8di1g">
-      <fileDesc xml:id="frj7mws2">
-         <titleStmt xml:id="tol1zpx1">
-            <title xml:id="t14pyko1" />
-            <respStmt xml:id="rl5f8oe1" />
+<?xml-model href="https://music-encoding.org/schema/5.1/mei-CMN.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://music-encoding.org/schema/5.1/mei-CMN.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1+CMN">
+   <meiHead xml:lang="en">
+      <altId type="repository-stem">op1_05_sonata_c_major</altId>
+      <fileDesc>
+         <titleStmt>
+            <title>Sonata V in C major, Op. I</title>
+            <composer>
+               <persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
+            </composer>
+            <respStmt xml:id="resp.camat">
+               <resp>MEI encoding and sonata-level assembly</resp>
+               <corpName>CAMAT</corpName>
+            </respStmt>
+            <respStmt xml:id="resp.conrads">
+               <resp>OMR correction and editorial review</resp>
+               <persName>Ragna Conrads</persName>
+            </respStmt>
+            <respStmt xml:id="resp.polyakov">
+               <resp>OMR correction, editorial review, and metadata</resp>
+               <persName>Egor Polyakov</persName>
+            </respStmt>
          </titleStmt>
-         <pubStmt xml:id="pn0n5f31">
-            <date xml:id="dgd7nsd1" isodate="2019-02-12" type="encoding-date">2019-02-12</date>
+         <editionStmt>
+            <edition n="1.0.0">First digital edition</edition>
+         </editionStmt>
+         <pubStmt>
+            <publisher>CAMAT Corpus Editions</publisher>
+            <date isodate="2026-08-21">2026-08-21</date>
+            <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_05_sonata_c_major_corr.mei</identifier>
+            <availability>
+               <useRestrict>MEI data released under the <ref target="https://spdx.org/licenses/MIT.html">MIT License</ref>.</useRestrict>
+            </availability>
          </pubStmt>
+         <sourceDesc>
+            <source type="printed-edition">
+               <bibl>
+                  <title>Dietrich Buxtehudes Instrumentalwerke: Sonaten für Violine, Gambe und Cembalo</title>
+                  <title type="series">Denkmäler deutscher Tonkunst, first series, vol. 11</title>
+                  <composer>Dietrich Buxtehude</composer>
+                  <editor>
+                     <persName auth="GND" auth.uri="https://d-nb.info/gnd/117245674" codedval="117245674">Carl Stiehl</persName>
+                  </editor>
+                  <imprint>
+                     <pubPlace>Leipzig</pubPlace>
+                     <publisher>Breitkopf und Härtel</publisher>
+                     <date isodate="1903">1903</date>
+                  </imprint>
+                  <identifier type="URN">urn:nbn:de:bvb:12-bsb00023199-0</identifier>
+                  <identifier type="BSB-ID">991009385569707356</identifier>
+                  <identifier type="BV">BV035347306</identifier>
+                  <identifier type="OCLC">775063768</identifier>
+                  <physLoc>
+                     <repository>Hochschule für Musik und Theater München, Bibliothek</repository>
+                     <identifier type="shelfmark">N2/X 1 DDT, 11</identifier>
+                  </physLoc>
+                  <ref type="digital-facsimile" target="https://digitale-sammlungen.de/en/view/bsb00023199">BSB digital facsimile</ref>
+                  <ref type="iiif-manifest" target="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/manifest">IIIF Presentation manifest</ref>
+                  <biblScope unit="page" from="44" to="54">pp. 44-54</biblScope>
+                  <availability>
+                     <useRestrict>Digital facsimile supplied by the Bayerische Staatsbibliothek under <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</ref>.</useRestrict>
+                  </availability>
+               </bibl>
+            </source>
+         </sourceDesc>
       </fileDesc>
-      <encodingDesc xml:id="eqcfc8u2">
-         <appInfo xml:id="a0guznu1">
-            <application xml:id="ab2mviw2" isodate="2025-08-29T17:43:44" version="5.5.0-e003172">
-               <name xml:id="nnv8vmp2">Verovio</name>
-               <p xml:id="pq2p1r9">Transcoded from MusicXML</p>
+      <encodingDesc>
+         <appInfo>
+            <application>
+               <name>musiconn.scoresearch</name>
+               <p>Source OMR data.</p>
             </application>
-            <application xml:id="a5bggp2" enddate="2026-04-16T13:20:58" startdate="2026-04-09T16:29:00" version="1.2.9">
-               <name xml:id="n81insv2">mei-friend</name>
-               <p xml:id="p9fay3i1">First edit by mei-friend 1.2.9.</p>
+            <application isodate="2025-08-29T17:43:44" version="5.5.0-e003172">
+               <name>Verovio</name>
+               <p>Transcoded source data from MusicXML to MEI.</p>
+            </application>
+            <application startdate="2026-04-09T16:29:00" enddate="2026-04-16T13:20:58" version="1.2.9">
+               <name>mei-friend</name>
+               <p>Manual correction and editorial review.</p>
             </application>
          </appInfo>
+         <editorialDecl>
+            <p>OMR and conversion errors were corrected against the source facsimile. The encoding is intended to reproduce the notation of the printed source; explicit editorial comments are recorded in annot elements with @type="editorial".</p>
+            <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
+         </editorialDecl>
+         <projectDesc>
+            <p>This edition was prepared by CAMAT Corpus Editions as part of a DFG-funded corpus for music-analysis technologies (grant PF 669/18-1).</p>
+         </projectDesc>
       </encodingDesc>
+      <workList>
+         <work xml:id="work.buxwv256">
+            <identifier type="BuxWV">BuxWV 256</identifier>
+            <title>Sonata V in C major, Op. I</title>
+            <composer>
+               <persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
+            </composer>
+            <key pname="c" mode="major">C major</key>
+            <perfMedium>
+               <perfResList>
+                  <perfRes>Violin</perfRes>
+                  <perfRes>Viola da gamba</perfRes>
+                  <perfRes>Harpsichord</perfRes>
+               </perfResList>
+            </perfMedium>
+         </work>
+      </workList>
+      <revisionDesc>
+         <change isodate="2026-08-21" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Applied the MEI 5.1 CMN publication profile, expanded source and work metadata, and normalized facsimile page boundaries.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-08-19" resp="#resp.conrads #resp.polyakov">
+            <changeDesc>
+               <p>Completed musical correction and local validation.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-06-30" resp="#resp.camat">
+            <changeDesc>
+               <p>Combined page-level OMR files into sonata-level MEI.</p>
+            </changeDesc>
+         </change>
+      </revisionDesc>
    </meiHead>
-   <music xml:id="m7uj7xs2">
-      <facsimile xml:id="fvdu4xe">
-         <surface xml:id="sxautwy2" lrx="4133" lry="5522" n="1" ulx="0" uly="0">
-            <graphic xml:id="g5hetg8" height="5523" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00054/full/4134,/0/default.jpg" width="4134" />
+   <music>
+      <facsimile>
+         <surface xml:id="sxautwy2" n="1" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/54" lrx="4133" lry="5522" ulx="0" uly="0">
+            <graphic xml:id="g5hetg8" height="5523" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00054/full/4134,/0/default.jpg" width="4134" mimetype="image/jpeg" />
             <zone xml:id="zone_d1af2885af53401a8c" lrx="1861" lry="2341" type="measure" ulx="802" uly="964" n="1" />
             <zone xml:id="zone_8e329facd735435791" lrx="2773" lry="2335" type="measure" ulx="1784" uly="943" n="2" />
             <zone xml:id="zone_4bb775b2922946a8a6" lrx="3806" lry="2344" type="measure" ulx="2690" uly="951" n="3" />
@@ -41,8 +140,8 @@
             <zone xml:id="zone_04c3da939af7457eb0" lrx="2969" lry="5128" type="measure" ulx="2065" uly="3716" n="10" />
             <zone xml:id="zone_ed0cc14d63b34a0289" lrx="3826" lry="5137" type="measure" ulx="2884" uly="3725" n="11" />
          </surface>
-         <surface xml:id="surface_dbc523c525c4" n="2" ulx="0" uly="0" lrx="4133" lry="5494">
-            <graphic xml:id="graphic_dbc523c525c4" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00055/full/4134,/0/default.jpg" width="4134" height="5495" />
+         <surface xml:id="surface_dbc523c525c4" n="2" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/55" ulx="0" uly="0" lrx="4133" lry="5494">
+            <graphic xml:id="graphic_dbc523c525c4" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00055/full/4134,/0/default.jpg" width="4134" height="5495" mimetype="image/jpeg" />
             <zone xml:id="zone_853bfb40cac348b7a3" type="measure" ulx="278" uly="374" lrx="1271" lry="1575" n="12" />
             <zone xml:id="zone_49d3e50c95494642bc" type="measure" ulx="1200" uly="396" lrx="2134" lry="1568" n="13" />
             <zone xml:id="zone_8db8d5b338aa41e7af" type="measure" ulx="2060" uly="393" lrx="3006" lry="1580" n="14" />
@@ -60,8 +159,8 @@
             <zone xml:id="zone_8b0ab392f4fb479db8" type="measure" ulx="2159" uly="3940" lrx="3110" lry="5163" n="26" />
             <zone xml:id="zone_71579ec0753d4ebeb2" type="measure" ulx="3044" uly="3943" lrx="3875" lry="5157" n="27" />
          </surface>
-         <surface xml:id="surface_18972aaa3346" n="3" ulx="0" uly="0" lrx="4133" lry="5522">
-            <graphic xml:id="graphic_18972aaa3346" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00056/full/4134,/0/default.jpg" width="4134" height="5523" />
+         <surface xml:id="surface_18972aaa3346" n="3" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/56" ulx="0" uly="0" lrx="4133" lry="5522">
+            <graphic xml:id="graphic_18972aaa3346" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00056/full/4134,/0/default.jpg" width="4134" height="5523" mimetype="image/jpeg" />
             <zone xml:id="zone_aef57b6f14a94653bc" type="measure" ulx="225" uly="441" lrx="1233" lry="1644" n="28" />
             <zone xml:id="zone_068110a492fa4ff78d" type="measure" ulx="1156" uly="456" lrx="2102" lry="1649" n="29" />
             <zone xml:id="zone_157de25eed93457194" type="measure" ulx="2027" uly="450" lrx="2951" lry="1649" n="30" />
@@ -85,8 +184,8 @@
             <zone xml:id="zone_8e4a1ee2b1ee4b06ab" type="measure" ulx="3118" uly="3986" lrx="3493" lry="5278" n="48" />
             <zone xml:id="zone_2b68bbe16d524b5c99" type="measure" ulx="3427" uly="4004" lrx="3833" lry="5265" n="49" />
          </surface>
-         <surface xml:id="surface_e42bd1bdb246" n="4" ulx="0" uly="0" lrx="4133" lry="5494">
-            <graphic xml:id="graphic_e42bd1bdb246" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00057/full/4134,/0/default.jpg" width="4134" height="5495" />
+         <surface xml:id="surface_e42bd1bdb246" n="4" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/57" ulx="0" uly="0" lrx="4133" lry="5494">
+            <graphic xml:id="graphic_e42bd1bdb246" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00057/full/4134,/0/default.jpg" width="4134" height="5495" mimetype="image/jpeg" />
             <zone xml:id="zone_a61d97a6949d470bbb" type="measure" ulx="219" uly="378" lrx="703" lry="1620" n="50" />
             <zone xml:id="zone_208ae12f961f4d47b4" type="measure" ulx="646" uly="395" lrx="1052" lry="1625" n="51" />
             <zone xml:id="zone_76135f8b1afa45158c" type="measure" ulx="999" uly="403" lrx="1383" lry="1618" n="52" />
@@ -126,8 +225,8 @@
             <zone xml:id="zone_141d7584b97d4c1b91" type="measure" ulx="2881" uly="3936" lrx="3355" lry="5198" n="86" />
             <zone xml:id="zone_d390476a49174d4992" type="measure" ulx="3301" uly="3939" lrx="3783" lry="5195" n="87" />
          </surface>
-         <surface xml:id="surface_f50bce9a62c6" n="5" ulx="0" uly="0" lrx="4133" lry="5522">
-            <graphic xml:id="graphic_f50bce9a62c6" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00058/full/4134,/0/default.jpg" width="4134" height="5523" />
+         <surface xml:id="surface_f50bce9a62c6" n="5" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/58" ulx="0" uly="0" lrx="4133" lry="5522">
+            <graphic xml:id="graphic_f50bce9a62c6" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00058/full/4134,/0/default.jpg" width="4134" height="5523" mimetype="image/jpeg" />
             <zone xml:id="zone_0c3c17f05674439ab2" type="measure" ulx="275" uly="403" lrx="895" lry="1602" n="88" />
             <zone xml:id="zone_f5576bf061c4483d86" type="measure" ulx="822" uly="416" lrx="1314" lry="1606" n="89" />
             <zone xml:id="zone_ac8db7a49a0a4f2a8e" type="measure" ulx="1246" uly="415" lrx="1754" lry="1605" n="90" />
@@ -158,8 +257,8 @@
             <zone xml:id="zone_520d3d18941d4decb7" type="measure" ulx="2499" uly="3955" lrx="3236" lry="5262" n="115" />
             <zone xml:id="zone_fea7dd6337f64dd89a" type="measure" ulx="3160" uly="3958" lrx="3885" lry="5268" n="116" />
          </surface>
-         <surface xml:id="surface_a54b54fa17c3" n="6" ulx="0" uly="0" lrx="4133" lry="5494">
-            <graphic xml:id="graphic_a54b54fa17c3" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00059/full/4134,/0/default.jpg" width="4134" height="5495" />
+         <surface xml:id="surface_a54b54fa17c3" n="6" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/59" ulx="0" uly="0" lrx="4133" lry="5494">
+            <graphic xml:id="graphic_a54b54fa17c3" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00059/full/4134,/0/default.jpg" width="4134" height="5495" mimetype="image/jpeg" />
             <zone xml:id="zone_1f8fed4744c24d5c9e" type="measure" ulx="237" uly="350" lrx="1109" lry="1591" n="117" />
             <zone xml:id="zone_904aa67cf6d0423985" type="measure" ulx="1046" uly="389" lrx="1844" lry="1588" n="118" />
             <zone xml:id="zone_38292e4c7c9041aca9" type="measure" ulx="1778" uly="413" lrx="2601" lry="1601" n="119" />
@@ -181,8 +280,8 @@
             <zone xml:id="zone_f911882e744040739f" type="measure" ulx="2456" uly="3949" lrx="3165" lry="5174" n="135" />
             <zone xml:id="zone_981775efb8774ca3a3" type="measure" ulx="3098" uly="3943" lrx="3826" lry="5181" n="136" />
          </surface>
-         <surface xml:id="surface_23e6f6a52958" n="7" ulx="0" uly="0" lrx="4133" lry="5522">
-            <graphic xml:id="graphic_23e6f6a52958" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00060/full/4134,/0/default.jpg" width="4134" height="5523" />
+         <surface xml:id="surface_23e6f6a52958" n="7" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/60" ulx="0" uly="0" lrx="4133" lry="5522">
+            <graphic xml:id="graphic_23e6f6a52958" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00060/full/4134,/0/default.jpg" width="4134" height="5523" mimetype="image/jpeg" />
             <zone xml:id="zone_7e4ef679c96d4920a6" type="measure" ulx="292" uly="401" lrx="1146" lry="1597" n="137" />
             <zone xml:id="zone_3597773611b14c1aaa" type="measure" ulx="1067" uly="415" lrx="1820" lry="1608" n="138" />
             <zone xml:id="zone_38155511b7db4906b8" type="measure" ulx="1746" uly="422" lrx="2510" lry="1616" n="139" />
@@ -204,8 +303,8 @@
             <zone xml:id="zone_6a5b436d400a4c7384" type="measure" ulx="2359" uly="3936" lrx="3171" lry="5187" n="155" />
             <zone xml:id="zone_b2969e6cb26647729a" type="measure" ulx="3102" uly="3931" lrx="3900" lry="5200" n="156" />
          </surface>
-         <surface xml:id="surface_da5a07207f28" n="8" ulx="0" uly="0" lrx="4133" lry="5494">
-            <graphic xml:id="graphic_da5a07207f28" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00061/full/4134,/0/default.jpg" width="4134" height="5495" />
+         <surface xml:id="surface_da5a07207f28" n="8" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/61" ulx="0" uly="0" lrx="4133" lry="5494">
+            <graphic xml:id="graphic_da5a07207f28" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00061/full/4134,/0/default.jpg" width="4134" height="5495" mimetype="image/jpeg" />
             <zone xml:id="zone_2fbf66b073c34001af" type="measure" ulx="254" uly="325" lrx="1143" lry="1514" n="157" />
             <zone xml:id="zone_76306aa4333d4d6b8f" type="measure" ulx="1070" uly="333" lrx="1688" lry="1507" n="158" />
             <zone xml:id="zone_bb19ed3a599140cba9" type="measure" ulx="1625" uly="338" lrx="2224" lry="1502" n="159" />
@@ -228,8 +327,8 @@
             <zone xml:id="zone_99222290c0bf44068d" type="measure" ulx="1805" uly="3820" lrx="2851" lry="5084" n="176" />
             <zone xml:id="zone_c89de05dc52f4dea99" type="measure" ulx="2783" uly="3812" lrx="3845" lry="5099" n="177" />
          </surface>
-         <surface xml:id="surface_72821ed30d56" n="9" ulx="0" uly="0" lrx="4133" lry="5522">
-            <graphic xml:id="graphic_72821ed30d56" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00062/full/4134,/0/default.jpg" width="4134" height="5523" />
+         <surface xml:id="surface_72821ed30d56" n="9" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/62" ulx="0" uly="0" lrx="4133" lry="5522">
+            <graphic xml:id="graphic_72821ed30d56" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00062/full/4134,/0/default.jpg" width="4134" height="5523" mimetype="image/jpeg" />
             <zone xml:id="zone_8e308d7f82d9424bb9" type="measure" ulx="308" uly="432" lrx="1410" lry="1648" n="178" />
             <zone xml:id="zone_ec4301f8a3104f83bf" type="measure" ulx="1327" uly="439" lrx="2238" lry="1643" n="179" />
             <zone xml:id="zone_2ea94d9ee6584c88ba" type="measure" ulx="2161" uly="422" lrx="3016" lry="1661" n="180" />
@@ -247,8 +346,8 @@
             <zone xml:id="zone_b1767043d9e44d9f97" type="measure" ulx="2249" uly="3979" lrx="3100" lry="5239" n="192" />
             <zone xml:id="zone_6571d2b08d7e44de8f" type="measure" ulx="3026" uly="3984" lrx="3925" lry="5225" n="193" />
          </surface>
-         <surface xml:id="surface_2225fa3d9cdb" n="10" ulx="0" uly="0" lrx="4133" lry="5494">
-            <graphic xml:id="graphic_2225fa3d9cdb" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00063/full/4134,/0/default.jpg" width="4134" height="5495" />
+         <surface xml:id="surface_2225fa3d9cdb" n="10" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/63" ulx="0" uly="0" lrx="4133" lry="5494">
+            <graphic xml:id="graphic_2225fa3d9cdb" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00063/full/4134,/0/default.jpg" width="4134" height="5495" mimetype="image/jpeg" />
             <zone xml:id="zone_17dba0f5213f4f02a4" type="measure" ulx="228" uly="366" lrx="1300" lry="1542" n="194" />
             <zone xml:id="zone_b172b56c289b42e791" type="measure" ulx="1229" uly="376" lrx="2169" lry="1529" n="195" />
             <zone xml:id="zone_54f3674b80ba4885a0" type="measure" ulx="2095" uly="365" lrx="3038" lry="1531" n="196" />
@@ -266,8 +365,8 @@
             <zone xml:id="zone_9ae45acc3b8d41cda7" type="measure" ulx="2121" uly="3935" lrx="3070" lry="5129" n="208" />
             <zone xml:id="zone_ef5b6f140fe04d11a6" type="measure" ulx="3003" uly="3935" lrx="3846" lry="5125" n="209" />
          </surface>
-         <surface xml:id="surface_7316040621d4" n="11" ulx="0" uly="0" lrx="4133" lry="5522">
-            <graphic xml:id="graphic_7316040621d4" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00064/full/4134,/0/default.jpg" width="4134" height="5523" />
+         <surface xml:id="surface_7316040621d4" n="11" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/64" ulx="0" uly="0" lrx="4133" lry="5522">
+            <graphic xml:id="graphic_7316040621d4" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00064/full/4134,/0/default.jpg" width="4134" height="5523" mimetype="image/jpeg" />
             <zone xml:id="zone_2017a3d9d5a0408db1" type="measure" ulx="304" uly="400" lrx="1363" lry="1581" n="210" />
             <zone xml:id="zone_2e158e9b35954ce580" type="measure" ulx="1286" uly="403" lrx="2210" lry="1570" n="211" />
             <zone xml:id="zone_bf0149f1de9e43ceb1" type="measure" ulx="2136" uly="400" lrx="3072" lry="1568" n="212" />
@@ -286,8 +385,8 @@
             <zone xml:id="zone_fe64a63901b145c991" type="measure" ulx="3329" uly="3970" lrx="3926" lry="5259" n="225" />
          </surface>
       </facsimile>
-      <body xml:id="bkxk6ji2">
-         <mdiv xml:id="mvqgxqt1">
+      <body>
+         <mdiv xml:id="mvqgxqt1" decls="#work.buxwv256">
             <score xml:id="sj9heja">
                <scoreDef xml:id="srzaqdl1" optimize="false">
                   <staffGrp xml:id="sunmyum1">
@@ -328,7 +427,7 @@
                   </staffGrp>
                </scoreDef>
                <section xml:id="sz4t07z1">
-                  <pb xml:id="pnqqnuf" facs="#sxautwy2" />
+                  <pb xml:id="pnqqnuf" n="1" facs="#sxautwy2" />
                   <measure xml:id="m7ij5vb" facs="#zone_d1af2885af53401a8c" n="1">
                      <staff xml:id="sydvxcl1" n="1">
                         <layer xml:id="lt3txvh" n="1">
@@ -1060,7 +1159,7 @@
                         </fb>
                      </harm>
                   </measure>
-                  <pb xml:id="pizp91m1" facs="#sxautwy2" />
+                  <sb xml:id="pizp91m1" />
                   <measure xml:id="mxhk12t2" facs="#zone_10e4b87c105b40deb4" n="8">
                      <staff xml:id="sgca37j2" n="1">
                         <layer xml:id="l5klz2c" n="1">
@@ -1517,7 +1616,7 @@
                         </fb>
                      </harm>
                   </measure>
-                  <pb xml:id="f1un6g15" facs="#surface_dbc523c525c4" />
+                  <pb xml:id="f1un6g15" n="2" facs="#surface_dbc523c525c4" />
                   <measure xml:id="xl8l29r" n="12" facs="#zone_853bfb40cac348b7a3">
                      <staff xml:id="ggf0v87" n="1">
                         <layer xml:id="h37adlg" n="1">
@@ -2930,7 +3029,7 @@
                         </fb>
                      </harm>
                   </measure>
-                  <pb xml:id="fciz6dr" facs="#surface_dbc523c525c4" />
+                  <sb xml:id="fciz6dr" />
                   <measure xml:id="vfaxj20" n="24" facs="#zone_241b9d6907d44b4b96">
                      <staff xml:id="e15yssvd" n="1">
                         <layer xml:id="g156qc21" n="1">
@@ -3366,7 +3465,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="daq93pu" facs="#surface_18972aaa3346" />
+                  <pb xml:id="daq93pu" n="3" facs="#surface_18972aaa3346" />
                   <measure xml:id="vgfpmre" metcon="false" n="28" facs="#zone_aef57b6f14a94653bc">
                      <staff xml:id="egico7m" n="1">
                         <layer xml:id="f1xvw45s" n="1">
@@ -5135,7 +5234,7 @@
                      <tie xml:id="vvm6azm" startid="#u1nngqmv" endid="#x4tdkyd" />
                      <tie xml:id="qf16c0u" startid="#p12kah03" endid="#svi6rnq" />
                   </measure>
-                  <pb xml:id="ttf32b8" facs="#surface_e42bd1bdb246" />
+                  <pb xml:id="ttf32b8" n="4" facs="#surface_e42bd1bdb246" />
                   <measure xml:id="lqg2qlk" n="50" facs="#zone_a61d97a6949d470bbb">
                      <staff xml:id="u1xe1o2u" n="1">
                         <layer xml:id="x1358szx" n="1">
@@ -6637,7 +6736,7 @@
                      <tie xml:id="efsefffesiji" staff="5" startid="#z108dih" endid="#y1vmekiz" />
                      <tie xml:id="efs4giji" staff="5" startid="#xi9ezfj" endid="#v1etpbu1" />
                   </measure>
-                  <pb xml:id="jrqm93h" facs="#surface_e42bd1bdb246" />
+                  <sb xml:id="jrqm93h" />
                   <measure xml:id="z1xhimng" metcon="false" n="80" facs="#zone_2cfd1378bbcb49009c">
                      <staff xml:id="i13q99em" n="1">
                         <layer xml:id="m1dgr0wh" n="1">
@@ -7059,7 +7158,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="hunqyp0" facs="#surface_f50bce9a62c6" />
+                  <pb xml:id="hunqyp0" n="5" facs="#surface_f50bce9a62c6" />
                   <measure xml:id="zadurhj" n="88" facs="#zone_0c3c17f05674439ab2">
                      <staff xml:id="iic1n9w" n="1">
                         <layer xml:id="j2ublae" n="1">
@@ -8909,7 +9008,7 @@
                         </fb>
                      </harm>
                   </measure>
-                  <pb xml:id="c1qjyq3n" facs="#surface_a54b54fa17c3" />
+                  <pb xml:id="c1qjyq3n" n="6" facs="#surface_a54b54fa17c3" />
                   <measure xml:id="u1trhpq5" n="117" facs="#zone_1f8fed4744c24d5c9e">
                      <staff xml:id="d1bbgkds" n="1">
                         <layer xml:id="e1xidqxo" n="1">
@@ -9768,7 +9867,7 @@
                         </fb>
                      </harm>
                   </measure>
-                  <pb xml:id="ptcgj4g" facs="#surface_a54b54fa17c3" />
+                  <sb xml:id="ptcgj4g" />
                   <measure xml:id="f1o4dlqq" n="127" facs="#zone_71a16783662d417ba9">
                      <staff xml:id="o1g2uh4m" n="1">
                         <layer xml:id="s1drefuh" n="1">
@@ -10770,7 +10869,7 @@
                         </fb>
                      </harm>
                   </measure>
-                  <pb xml:id="b1dnnilr" facs="#surface_23e6f6a52958" />
+                  <pb xml:id="b1dnnilr" n="7" facs="#surface_23e6f6a52958" />
                   <measure xml:id="t6ocs2l" n="137" facs="#zone_7e4ef679c96d4920a6">
                      <staff xml:id="covkzvl" n="1">
                         <layer xml:id="dx75i5w" n="1">
@@ -12352,7 +12451,7 @@
                         </fb>
                      </harm>
                   </measure>
-                  <pb xml:id="m1r7u260" facs="#surface_23e6f6a52958" />
+                  <sb xml:id="m1r7u260" />
                   <measure xml:id="e1dles58" n="152" facs="#zone_f1de0bbb44d241d9a2">
                      <staff xml:id="n1dfoidv" n="1">
                         <layer xml:id="pynwnw0" n="1">
@@ -12865,7 +12964,7 @@
                         </fb>
                      </harm>
                   </measure>
-                  <pb xml:id="znq1czr" facs="#surface_da5a07207f28" />
+                  <pb xml:id="znq1czr" n="8" facs="#surface_da5a07207f28" />
                   <measure xml:id="rupd9r3" n="157" facs="#zone_2fbf66b073c34001af">
                      <staff xml:id="aw7sus9" n="1">
                         <layer xml:id="b1b6mg2c" n="1">
@@ -14455,7 +14554,7 @@
                         </fb>
                      </harm>
                   </measure>
-                  <pb xml:id="du3l6nf" facs="#surface_da5a07207f28" />
+                  <sb xml:id="du3l6nf" />
                   <measure xml:id="t1fgsrwp" metcon="false" n="174" facs="#zone_34997797271e41f5ba">
                      <staff xml:id="c1krkp0x" n="1">
                         <layer xml:id="g6o6r3h" n="1">
@@ -14826,7 +14925,7 @@
                         </fb>
                      </harm>
                   </measure>
-                  <pb xml:id="xhsqzyr" facs="#surface_72821ed30d56" />
+                  <pb xml:id="xhsqzyr" n="9" facs="#surface_72821ed30d56" />
                   <measure xml:id="pslf70r" n="178" facs="#zone_8e308d7f82d9424bb9">
                      <staff xml:id="y1fkk4it" n="1">
                         <layer xml:id="z11ghpc9" n="1">
@@ -16127,7 +16226,7 @@
                         </fb>
                      </harm>
                   </measure>
-                  <pb xml:id="e1g2csh3" facs="#surface_72821ed30d56" />
+                  <sb xml:id="e1g2csh3" />
                   <measure xml:id="u1qjh9xk" n="190" facs="#zone_8299b31fc5d94bf684">
                      <staff xml:id="d1enl3q0" n="1">
                         <layer xml:id="zjcbdez" n="1">
@@ -16553,7 +16652,7 @@
                         </fb>
                      </harm>
                   </measure>
-                  <pb xml:id="e1qudrp1" facs="#surface_2225fa3d9cdb" />
+                  <pb xml:id="e1qudrp1" n="10" facs="#surface_2225fa3d9cdb" />
                   <measure xml:id="w1btabz0" n="194" facs="#zone_17dba0f5213f4f02a4">
                      <staff xml:id="fehefww" n="1">
                         <layer xml:id="g5eucjd" n="1">
@@ -16928,7 +17027,7 @@
                         </fb>
                      </harm>
                   </measure>
-                  <pb xml:id="n12pkm4p" facs="#surface_2225fa3d9cdb" />
+                  <sb xml:id="n12pkm4p" />
                   <measure xml:id="o1w8fla" metcon="false" n="198" facs="#zone_b4588cbb43704d7f88">
                      <staff xml:id="xit1nsc" n="1">
                         <layer xml:id="b1nz9vtz" n="1">
@@ -17417,7 +17516,7 @@
                         </fb>
                      </harm>
                   </measure>
-                  <pb xml:id="f18h4kur" facs="#surface_2225fa3d9cdb" />
+                  <sb xml:id="f18h4kur" />
                   <measure xml:id="hfgmspd" metcon="false" n="202" facs="#zone_1cc46a80dead4ad9a9">
                      <staff xml:id="qz0j3kw" n="1">
                         <layer xml:id="silgpia" n="1">
@@ -17789,7 +17888,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="f19h4kur" facs="#surface_2225fa3d9cdb" />
+                  <sb xml:id="f19h4kur" />
                   <measure xml:id="vdurem" n="206" facs="#zone_42aa4e2276214b909a">
                      <staff xml:id="e11997a7" n="1">
                         <layer xml:id="g6ny3sb" n="1">
@@ -18189,7 +18288,7 @@
                         </fb>
                      </harm>
                   </measure>
-                  <pb xml:id="ckmmwnq" facs="#surface_7316040621d4" />
+                  <pb xml:id="ckmmwnq" n="11" facs="#surface_7316040621d4" />
                   <measure xml:id="ucjphwn" n="210" facs="#zone_2017a3d9d5a0408db1">
                      <staff xml:id="d17sw31h" n="1">
                         <layer xml:id="gm8stm8" n="1">
@@ -19448,7 +19547,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="w8244co" facs="#surface_7316040621d4" />
+                  <sb xml:id="w8244co" />
                   <measure xml:id="m1ln18z3" metcon="false" n="222" facs="#zone_ecd5819bfb39465784">
                      <staff xml:id="vqcwlmj" n="1">
                         <layer xml:id="x13xirkb" n="1">
