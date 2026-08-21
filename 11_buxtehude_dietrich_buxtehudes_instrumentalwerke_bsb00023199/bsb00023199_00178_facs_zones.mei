@@ -58,32 +58,32 @@
                      <staffGrp xml:id="o13rob5f">
                         <grpSym xml:id="pmr0p9f" symbol="bracket" />
                         <staffDef xml:id="P1" n="1" lines="5" ppq="24">
-                           <label xml:id="q17mp8pm">Violine 1</label>
-                           <labelAbbr xml:id="s4p69mz">Vl. 1</labelAbbr>
+                           <label xml:id="q17mp8pm"></label>
+                           <labelAbbr xml:id="s4p69mz"></labelAbbr>
                            <instrDef xml:id="u1uns6i3" midi.channel="0" midi.instrnum="40" midi.volume="78%" />
                            <clef xml:id="d16t504k" shape="G" line="2" />
                            <keySig xml:id="e1t59nhr" sig="0" />
                            <meterSig xml:id="f17dj4vz" count="4" unit="4" />
                         </staffDef>
                         <staffDef xml:id="P2" n="2" lines="5" ppq="24">
-                           <label xml:id="if4obhz">Violine 2</label>
-                           <labelAbbr xml:id="k1cuv7f">Vl. 2</labelAbbr>
+                           <label xml:id="if4obhz"></label>
+                           <labelAbbr xml:id="k1cuv7f"></labelAbbr>
                            <instrDef xml:id="m110z5ku" midi.channel="3" midi.instrnum="40" midi.volume="78%" />
                            <clef xml:id="v1tslwg8" shape="G" line="2" />
                            <keySig xml:id="w10pyswm" sig="0" />
                            <meterSig xml:id="xql9d40" count="4" unit="4" />
                         </staffDef>
                         <staffDef xml:id="P3" n="3" lines="5" ppq="24">
-                           <label xml:id="e1k70z3e">Bassgambe 1</label>
-                           <labelAbbr xml:id="gju801z">Bgb. 1</labelAbbr>
+                           <label xml:id="e1k70z3e"></label>
+                           <labelAbbr xml:id="gju801z"></labelAbbr>
                            <instrDef xml:id="i1llzurr" midi.channel="6" midi.instrnum="42" midi.volume="78%" />
                            <clef xml:id="roqgtad" shape="F" line="4" />
                            <keySig xml:id="shmeky4" sig="0" />
                            <meterSig xml:id="tfpgjrg" count="4" unit="4" />
                         </staffDef>
                         <staffDef xml:id="P4" n="4" lines="5" ppq="24">
-                           <label xml:id="xevdp5">Bassgambe 2</label>
-                           <labelAbbr xml:id="zrjdocj">Bgb. 2</labelAbbr>
+                           <label xml:id="xevdp5"></label>
+                           <labelAbbr xml:id="zrjdocj"></labelAbbr>
                            <instrDef xml:id="b1rfkruc" midi.channel="10" midi.instrnum="42" midi.volume="78%" />
                            <clef xml:id="kz1fzj5" shape="F" line="4" />
                            <keySig xml:id="l9ez1k6" sig="0" />
@@ -92,8 +92,8 @@
                      </staffGrp>
                      <staffGrp xml:id="P5" bar.thru="true">
                         <grpSym xml:id="z1e26gt3" symbol="brace" />
-                        <label xml:id="zclkwch">Cembalo</label>
-                        <labelAbbr xml:id="b9zuawz">Cemb.</labelAbbr>
+                        <label xml:id="zclkwch"></label>
+                        <labelAbbr xml:id="b9zuawz"></labelAbbr>
                         <instrDef xml:id="d1emkah8" midi.channel="13" midi.instrnum="6" midi.volume="78%" />
                         <staffDef xml:id="f9xajwo" n="5" lines="5" ppq="24">
                            <clef xml:id="myzzs2n" shape="G" line="2" />
@@ -1003,10 +1003,8 @@
                         </staff>
                         <staff xml:id="ozy6uei" n="2">
                            <layer xml:id="p6hwmuj" n="1">
-                              <rest xml:id="q15yah1p" dur.ppq="96" dur="1" />
-                              <rest xml:id="rnivzxq" dur.ppq="12" dur="8" />
-                              <rest xml:id="sgsse6" dur.ppq="24" dur="4" />
-                              <rest xml:id="t1jq3em6" dur.ppq="12" dur="8" />
+                              <mRest xml:id="q15yah1p"  />
+                              
                            </layer>
                         </staff>
                         <staff xml:id="kazm8rf" n="3">
@@ -1063,7 +1061,7 @@
                               <note xml:id="j1og157a" dur.ppq="24" dur="4" oct="4" pname="c" stem.dir="down">
                                  <accid xml:id="k12yvznl" />
                               </note>
-                              <rest xml:id="lfyh4w3" dur.ppq="12" dur="8" />
+                              <space xml:id="lfyh4w3" dur.ppq="12" dur="8" />
                               <note xml:id="m1i7jfm1" dots="1" dur.ppq="36" dur="4" oct="3" pname="b" stem.dir="down">
                                  <accid xml:id="n1m1xtpl" />
                               </note>
@@ -1412,9 +1410,9 @@
                               </note>
                            </layer>
                            <layer xml:id="uyv0ryt" n="2">
-                              <rest xml:id="v10pio1h" dots="1" dur.ppq="36" dur="4" />
-                              <rest xml:id="w1sithl0" dur.ppq="24" dur="4" />
-                              <rest xml:id="xsneb58" dur.ppq="12" dur="8" />
+                              <space xml:id="v10pio1h" dots="1" dur.ppq="36" dur="4" />
+                              <space xml:id="w1sithl0" dur.ppq="24" dur="4" />
+                              <space xml:id="xsneb58" dur.ppq="12" dur="8" />
                               <rest xml:id="y1a8hs46" dur.ppq="12" dur="8" />
                               <beam xml:id="zvxhz9e">
                                  <note xml:id="atgp05l" dur.ppq="12" dur="8" oct="4" pname="f" stem.dir="down">
@@ -1503,11 +1501,11 @@
                               </chord>
                            </layer>
                            <layer xml:id="bm2uzmv" n="2">
-                              <rest xml:id="c819qty" dots="1" dur.ppq="36" dur="4" />
-                              <rest xml:id="dbkqsty" dur.ppq="24" dur="4" />
-                              <rest xml:id="e6t6ney" dur.ppq="12" dur="8" />
-                              <rest xml:id="f12kv5yk" dur.ppq="24" dur="4" />
-                              <rest xml:id="guxqjkc" dur.ppq="12" dur="8" />
+                              <space xml:id="c819qty" dots="1" dur.ppq="36" dur="4" />
+                              <space xml:id="dbkqsty" dur.ppq="24" dur="4" />
+                              <space xml:id="e6t6ney" dur.ppq="12" dur="8" />
+                              <space xml:id="f12kv5yk" dur.ppq="24" dur="4" />
+                              <space xml:id="guxqjkc" dur.ppq="12" dur="8" />
                               <note xml:id="htbqmqd" dur.ppq="24" dur="4" oct="4" pname="g" stem.dir="down">
                                  <accid xml:id="i1kzpjl0" />
                               </note>
