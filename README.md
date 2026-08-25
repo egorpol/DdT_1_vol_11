@@ -48,7 +48,7 @@ The status describes the complete work-level file, not the presence or edit hist
 | Op. II/1 | B-flat major | 79 | 00089 | `op2_01_sonata_b_flat_major` | pending |
 | Op. II/2 | D major | 90 | 00100 | `op2_02_sonata_d_major` | corrected |
 | Op. II/3 | G minor | 103 | 00113 | `op2_03_sonata_g_minor` | combined |
-| Op. II/4 | C minor | 116 | 00126 | `op2_04_sonata_c_minor` | pending |
+| Op. II/4 | C minor | 116 | 00126 | `op2_04_sonata_c_minor` | combined |
 | Op. II/5 | A major | 126 | 00136 | `op2_05_sonata_a_major` | combined |
 | Op. II/6 | E major | 139 | 00149 | `op2_06_sonata_e_major` | corrected |
 | Op. II/7 | F major | 150 | 00160 | `op2_07_sonata_f_major` | pending |
