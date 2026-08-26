@@ -5,9 +5,9 @@
    <meiHead xml:id="m181jia5">
       <fileDesc xml:id="feumuhr">
          <titleStmt xml:id="t1va6h9n">
-            <title>未命名乐谱</title>
+            <title/>
             <respStmt>
-               <persName role="composer">作曲 / 编排</persName>
+               <persName role="composer"/>
             </respStmt>
          </titleStmt>
          <pubStmt xml:id="p1fzvina">
@@ -19,6 +19,10 @@
             <application xml:id="a1jz5ex2" isodate="2026-08-26T20:37:40" version="6.3.0-425dd7b">
                <name xml:id="nn6zzfr">Verovio</name>
                <p xml:id="p1ororir">Transcoded from MusicXML</p>
+            </application>
+            <application xml:id="af8j9b1" startdate="2026-08-26T21:01:02" version="1.4.2" enddate="2026-08-26T21:01:02">
+               <name xml:id="n720sa1">mei-friend</name>
+               <p xml:id="pykgr6m2">First edit by mei-friend 1.4.2.</p>
             </application>
          </appInfo>
       </encodingDesc>
@@ -35,19 +39,19 @@
                            <instrDef xml:id="fw65g3e" midi.channel="0" midi.instrnum="40" midi.volume="78%" />
                            <clef xml:id="odxnq52" shape="G" line="2" />
                            <keySig xml:id="pw6muen" sig="1f" />
-                           <meterSig xml:id="qigwyow" count="4" unit="4" />
+                           <meterSig xml:id="qigwyow" count="4" unit="4" visible="false" />
                         </staffDef>
                         <staffDef xml:id="P2" n="2" lines="5" ppq="4">
                            <instrDef xml:id="gnn5u7k" midi.channel="3" midi.instrnum="41" midi.volume="78%" />
                            <clef xml:id="pnu20qq" shape="C" line="3" />
                            <keySig xml:id="qv8unum" sig="1f" />
-                           <meterSig xml:id="rlktxpd" count="4" unit="4" />
+                           <meterSig xml:id="rlktxpd" count="4" unit="4" visible="false" />
                         </staffDef>
                         <staffDef xml:id="P3" n="3" lines="5" ppq="4">
                            <instrDef xml:id="d1ctpx7s" midi.channel="6" midi.instrnum="42" midi.volume="78%" />
                            <clef xml:id="mge92ap" shape="F" line="4" />
                            <keySig xml:id="n1fhbdld" sig="1f" />
-                           <meterSig xml:id="opxn4pr" count="4" unit="4" />
+                           <meterSig xml:id="opxn4pr" count="4" unit="4" visible="false" />
                         </staffDef>
                      </staffGrp>
                      <staffGrp xml:id="P4" bar.thru="true">
@@ -56,12 +60,12 @@
                         <staffDef xml:id="v17sxwpu" n="4" lines="5" ppq="4">
                            <clef xml:id="c4a5twc" shape="G" line="2" />
                            <keySig xml:id="d148mlzs" sig="1f" />
-                           <meterSig xml:id="e115143q" count="4" unit="4" />
+                           <meterSig xml:id="e115143q" count="4" unit="4" visible="false" />
                         </staffDef>
                         <staffDef xml:id="f1xtw02z" n="5" lines="5" ppq="4">
                            <clef xml:id="m1tn3fhc" shape="F" line="4" />
                            <keySig xml:id="n1ebcgo6" sig="1f" />
-                           <meterSig xml:id="okbuurm" count="4" unit="4" />
+                           <meterSig xml:id="okbuurm" count="4" unit="4" visible="false" />
                         </staffDef>
                      </staffGrp>
                   </staffGrp>
@@ -498,8 +502,10 @@
                               <note xml:id="ygnl9pn" dur.ppq="4" dur="4" oct="3" pname="c" stem.dir="up" />
                            </layer>
                         </staff>
-                        <tie xml:id="i1gpvwwa" startid="#g1j88zcp" endid="#v3sv6n4" />
+                        <tie xml:id="i1gpvwwa" startid="#g1j88zcp" endid="#v3sv6n4" curvedir="above" />
+                        <tie xml:id="t8yf83b1" startid="#z1t360sn" endid="#m1xkgus2" />
                      </measure>
+                     <pb xml:id="c1jilbbd" />
                      <measure xml:id="j1on8v9h" n="5">
                         <staff xml:id="sf0qaxp" n="1">
                            <layer xml:id="t16pfa0d" n="1">
@@ -918,6 +924,7 @@
                            </layer>
                         </staff>
                      </measure>
+                     <pb xml:id="brfgyhyt" />
                      <measure xml:id="g1i6ri8f" n="9">
                         <staff xml:id="przzn6n" n="1">
                            <layer xml:id="qg8s28i" n="1">
@@ -1111,7 +1118,7 @@
                         <staff xml:id="m41kuf6" n="4">
                            <layer xml:id="o1rkv3bq" n="1">
                               <chord xml:id="qlwlzc7" dur.ppq="4" dur="4" stem.dir="up">
-                                 <note xml:id="pr12m5l" oct="3" pname="a" />
+                                 <note xml:id="pr12m5l" oct="3" pname="a" staff="5" />
                                  <note xml:id="r6nl9pt" oct="4" pname="f" />
                               </chord>
                               <rest xml:id="s2iboqn" dur.ppq="2" dur="8" />
@@ -1137,7 +1144,7 @@
                         </staff>
                         <staff xml:id="n1c7z3z" n="5">
                            <layer xml:id="i1501mme" n="5">
-                              <note xml:id="juypg48" dur.ppq="4" dur="4" oct="2" pname="f" stem.dir="up" />
+                              <note xml:id="juypg48" dur.ppq="4" dur="4" oct="2" pname="f" stem.dir="down" />
                               <rest xml:id="kefbasr" dur.ppq="2" dur="8" />
                               <note xml:id="l3zbmda" dur.ppq="2" dur="8" oct="3" pname="f" stem.dir="down" />
                               <beam xml:id="m2d0l4a">
@@ -1398,10 +1405,13 @@
                            </layer>
                         </staff>
                      </measure>
+                     <pb xml:id="vdeger" />
                      <scoreDef xml:id="x19urzlm">
                         <meterSig xml:id="y9fqiid" count="3" unit="2" />
                      </scoreDef>
                      <measure xml:id="nvhyuxf" n="14">
+                        <tempo xml:id="fdsgagdg" staff="1" tstamp="1">Lento.</tempo>
+                        <tempo xml:id="htrehhj" staff="4" tstamp="1">Lento.</tempo>
                         <staff xml:id="wiwh4l3" n="1">
                            <layer xml:id="cxsju1e" n="1">
                               <mRest xml:id="d3bx856" />
@@ -1433,9 +1443,6 @@
                               <note xml:id="rgmh51b" dots="1" dur.ppq="24" dur="1" oct="2" pname="a" />
                            </layer>
                         </staff>
-                        <tempo xml:id="z1jdt16j" place="above" staff="1" tstamp="1" xml:lang="it" midi.bpm="52.5">
-                           <rend xml:id="a17bx6h8" fontweight="bold">Lento</rend>
-                        </tempo>
                      </measure>
                      <measure xml:id="e1dyg537" n="15">
                         <staff xml:id="nji4lcx" n="1">
@@ -1607,7 +1614,7 @@
                                  <accid xml:id="gpcxdho" accid="s" />
                               </note>
                               <note xml:id="hx2k9pi" dur.ppq="4" dur="4" oct="3" pname="a" stem.dir="up" />
-                              <rest xml:id="i1uh1nmq" dur.ppq="4" dur="4" />
+                              <space xml:id="i1uh1nmq" dur.ppq="4" dur="4" />
                            </layer>
                            <layer xml:id="j1notsoh" n="6">
                               <note xml:id="k1ar6fkc" dur.ppq="16" dur="1" oct="2" pname="b">
@@ -1672,7 +1679,7 @@
                         </staff>
                         <tie xml:id="ijp9c3m" startid="#h1iz431q" endid="#j6vg7zr" />
                      </measure>
-                     <measure xml:id="urnnrf3" right="end" n="20">
+                     <measure xml:id="urnnrf3" right="single" n="20">
                         <staff xml:id="dx7yezj" n="1">
                            <layer xml:id="e15sovdp" n="1">
                               <note xml:id="fm1ilgx" dots="1" dur.ppq="24" dur="1" oct="5" pname="c" />
