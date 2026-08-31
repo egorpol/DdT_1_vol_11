@@ -1,43 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://music-encoding.org/schema/5.1/mei-all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://music-encoding.org/schema/5.1/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1">
-   <meiHead xml:id="mrrmbfu">
-      <fileDesc xml:id="f16gg4vp">
-         <titleStmt xml:id="tk385q0">
-            <title></title>
-            <respStmt>
-               <persName role="composer">Name des Komponisten</persName>
-               <persName role="encoder">Ragna Conrads</persName>
+<?xml-model href="https://music-encoding.org/schema/5.1/mei-CMN.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://music-encoding.org/schema/5.1/mei-CMN.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1+CMN">
+   <meiHead xml:lang="en">
+      <altId type="repository-stem">op2_04_sonata_c_minor</altId>
+      <fileDesc>
+         <titleStmt>
+            <title>Sonata IV in C minor, Op. II</title>
+            <composer>
+               <persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
+            </composer>
+            <respStmt xml:id="resp.camat">
+               <resp>MEI encoding and sonata-level assembly</resp>
+               <corpName>CAMAT</corpName>
+            </respStmt>
+            <respStmt xml:id="resp.conrads">
+               <resp>OMR correction and editorial review</resp>
+               <persName>Ragna Conrads</persName>
+            </respStmt>
+            <respStmt xml:id="resp.polyakov">
+               <resp>OMR correction, editorial review, and metadata</resp>
+               <persName>Egor Polyakov</persName>
             </respStmt>
          </titleStmt>
-         <pubStmt xml:id="pv7y97h">
+         <editionStmt>
+            <edition n="1.0.0">First digital edition</edition>
+         </editionStmt>
+         <pubStmt>
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-08-29">2026</date>
+            <date isodate="2026-08-31">2026-08-31</date>
+            <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op2_04_sonata_c_minor_corr.mei</identifier>
             <availability>
-               <useRestrict>CC BY 4.0</useRestrict>
+               <useRestrict>MEI data released under the <ref target="https://spdx.org/licenses/MIT.html">MIT License</ref>.</useRestrict>
             </availability>
          </pubStmt>
          <sourceDesc>
-            <source>
-               <bibl>Beschreibung der Quelle (z.B. Handschrift oder Erstdruck)</bibl>
+            <source type="printed-edition">
+               <bibl>
+                  <title>Dietrich Buxtehudes Instrumentalwerke: Sonaten für Violine, Gambe und Cembalo</title>
+                  <title type="series">Denkmäler deutscher Tonkunst, first series, vol. 11</title>
+                  <composer>Dietrich Buxtehude</composer>
+                  <editor>
+                     <persName auth="GND" auth.uri="https://d-nb.info/gnd/117245674" codedval="117245674">Carl Stiehl</persName>
+                  </editor>
+                  <imprint>
+                     <pubPlace>Leipzig</pubPlace>
+                     <publisher>Breitkopf und Härtel</publisher>
+                     <date isodate="1903">1903</date>
+                  </imprint>
+                  <identifier type="URN">urn:nbn:de:bvb:12-bsb00023199-0</identifier>
+                  <identifier type="BSB-ID">991009385569707356</identifier>
+                  <identifier type="BV">BV035347306</identifier>
+                  <identifier type="OCLC">775063768</identifier>
+                  <physLoc>
+                     <repository>Hochschule für Musik und Theater München, Bibliothek</repository>
+                     <identifier type="shelfmark">N2/X 1 DDT, 11</identifier>
+                  </physLoc>
+                  <ref type="digital-facsimile" target="https://digitale-sammlungen.de/en/view/bsb00023199">BSB digital facsimile</ref>
+                  <ref type="iiif-manifest" target="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/manifest">IIIF Presentation manifest</ref>
+                  <biblScope unit="page" from="116" to="125">pp. 116-125</biblScope>
+                  <availability>
+                     <useRestrict>Digital facsimile supplied by the Bayerische Staatsbibliothek under <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</ref>.</useRestrict>
+                  </availability>
+               </bibl>
             </source>
          </sourceDesc>
       </fileDesc>
-      <encodingDesc xml:id="efcgdzy">
+      <encodingDesc>
+         <appInfo>
+            <application>
+               <name>musiconn.scoresearch</name>
+               <p>Source OMR data.</p>
+            </application>
+            <application isodate="2025-08-29T17:43:50" version="5.5.0-e003172">
+               <name>Verovio</name>
+               <p>Transcoded source data from MusicXML to MEI.</p>
+            </application>
+            <application startdate="2026-08-26" enddate="2026-08-27" version="1.4.2">
+               <name>mei-friend</name>
+               <p>Manual correction and editorial review.</p>
+            </application>
+         </appInfo>
          <editorialDecl>
-            <p>Beschreibung der Editionsrichtlinien (z.B. modernisierte Schlüssel).</p>
+            <p>OMR and conversion errors were corrected against the source facsimile. The encoding is intended to reproduce the notation of the printed source; explicit editorial comments are recorded in annot elements with @type="editorial".</p>
+            <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
          </editorialDecl>
          <projectDesc>
-            <p>Kontext der Kodierung (z.B. Übung oder Forschungsprojekt).</p>
+            <p>This edition was prepared by CAMAT Corpus Editions as part of a DFG-funded corpus for music-analysis technologies (grant PF 669/18-1).</p>
          </projectDesc>
       </encodingDesc>
+      <workList>
+         <work xml:id="work.buxwv262">
+            <identifier type="BuxWV">BuxWV 262</identifier>
+            <title>Sonata IV in C minor, Op. II</title>
+            <composer>
+               <persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
+            </composer>
+            <key pname="c" mode="minor">C minor</key>
+            <perfMedium>
+               <perfResList>
+                  <perfRes>Violin</perfRes>
+                  <perfRes>Viola da gamba</perfRes>
+                  <perfRes>Harpsichord</perfRes>
+               </perfResList>
+            </perfMedium>
+         </work>
+      </workList>
       <revisionDesc>
-         <change n="1">
+         <change isodate="2026-08-31" resp="#resp.camat #resp.polyakov">
             <changeDesc>
-               <p>Initial encoding</p>
+               <p>Applied the MEI 5.1 CMN publication profile, expanded source and work metadata, and normalized facsimile page boundaries.</p>
             </changeDesc>
-            <date isodate="2025-08-29">2025-08-29</date>
+         </change>
+         <change isodate="2026-08-27" resp="#resp.conrads #resp.polyakov">
+            <changeDesc>
+               <p>Completed musical correction and local validation.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-08-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Combined page-level OMR files into sonata-level MEI.</p>
+            </changeDesc>
          </change>
       </revisionDesc>
    </meiHead>
@@ -302,25 +385,28 @@
          </surface>
       </facsimile>
       <body>
-         <mdiv xml:id="c12z5iz3">
+         <mdiv xml:id="c12z5iz3" decls="#work.buxwv262">
             <score xml:id="d1qnj0af">
                <scoreDef xml:id="ecdtjnc" optimize="false">
                   <staffGrp xml:id="h3u3q4n">
                      <staffGrp xml:id="grp_1_2_3" bar.thru="true">
                         <grpSym xml:id="sym_bracket_1" symbol="bracket" />
                         <staffDef xml:id="P1" n="1" lines="5">
+                           <label>Violino.</label>
                            <instrDef xml:id="m1ynhuzt" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
                            <clef xml:id="vtk9wu1" shape="G" line="2" />
                            <keySig xml:id="wjqapxq" sig="2f" />
                            <meterSig xml:id="xfuo0sr" count="3" unit="4" />
                         </staffDef>
                         <staffDef xml:id="P2" n="2" lines="5">
+                           <label>Viola da gamba.</label>
                            <instrDef xml:id="mfeyzmi" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
                            <clef xml:id="v1hxah81" shape="C" line="3" />
                            <keySig xml:id="w15o0qx8" sig="2f" />
                            <meterSig xml:id="x14sq87w" count="3" unit="4" />
                         </staffDef>
                         <staffDef xml:id="P3" n="3" lines="5">
+                           <label>Cembalo.</label>
                            <instrDef xml:id="dwak9mc" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
                            <clef xml:id="m1su3fl0" shape="F" line="4" />
                            <keySig xml:id="n1r2ax2x" sig="2f" />
@@ -2072,7 +2158,7 @@
                         </layer>
                      </staff>
                      <staff xml:id="l14x07d0" n="5">
-                        <layer xml:id="torlbvy" n="5">
+                        <layer xml:id="torlbvy" n="1">
                            <note xml:id="uph81hs" dur="2" oct="3" pname="f" stem.dir="down" />
                            <note xml:id="v1saf18h" dur="4" oct="3" pname="e" stem.dir="down" />
                         </layer>
@@ -6652,7 +6738,7 @@
                            <note xml:id="s1i9rgmh" dur="2" oct="4" pname="a" stem.dir="up">
                               <accid xml:id="t12embzf" accid="f" />
                            </note>
-                           <space xml:id="s14boftrfzk" dur="2" />
+                           <space xml:id="s14boftrfzk" dur="4" />
                         </layer>
                         <layer xml:id="uzf6s4u" n="3">
                            <note xml:id="vn50031" dur="2" oct="4" pname="f" stem.dir="down" />
@@ -6869,8 +6955,7 @@
                      </staff>
                      <staff xml:id="jaxfn4u" n="5">
                         <layer xml:id="u1ezkyh1" n="1">
-                           <note xml:id="vllsueo" dur="2" oct="3" pname="d" stem.dir="down" />
-                           <space xml:id="s14b8d3fzk" dur="2" />
+                           <note xml:id="vllsueo" dots="1" dur="2" oct="3" pname="d" stem.dir="down" />
                         </layer>
                      </staff>
                      <harm xml:id="h23dgddjkrhu" staff="3" tstamp="1">
