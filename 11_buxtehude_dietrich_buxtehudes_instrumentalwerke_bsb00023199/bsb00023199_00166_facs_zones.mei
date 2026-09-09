@@ -35,19 +35,19 @@
                            <instrDef xml:id="r1mo05if" midi.channel="0" midi.instrnum="40" midi.volume="78%" />
                            <clef xml:id="a1buizp0" shape="G" line="2" />
                            <keySig xml:id="b15ko931" sig="1f" />
-                           <meterSig xml:id="c1bucmux" count="3" unit="8" />
+                           <meterSig xml:id="c1bucmux" count="3" unit="8" visible="false" />
                         </staffDef>
                         <staffDef xml:id="P2" n="2" lines="5" ppq="4">
                            <instrDef xml:id="x1p2d93v" midi.channel="3" midi.instrnum="41" midi.volume="78%" />
                            <clef xml:id="g17cz4tl" shape="C" line="3" />
                            <keySig xml:id="h1vp3d2i" sig="1f" />
-                           <meterSig xml:id="i1q9a28g" count="3" unit="8" />
+                           <meterSig xml:id="i1q9a28g" count="3" unit="8" visible="false" />
                         </staffDef>
                         <staffDef xml:id="P3" n="3" lines="5" ppq="4">
                            <instrDef xml:id="adu2fao" midi.channel="6" midi.instrnum="42" midi.volume="78%" />
                            <clef xml:id="j1c10opy" shape="F" line="4" />
                            <keySig xml:id="kpkfgjg" sig="1f" />
-                           <meterSig xml:id="ln45n4l" count="3" unit="8" />
+                           <meterSig xml:id="ln45n4l" count="3" unit="8" visible="false" />
                         </staffDef>
                      </staffGrp>
                      <staffGrp xml:id="P4" bar.thru="true">
@@ -56,12 +56,12 @@
                         <staffDef xml:id="iemrsr1" n="4" lines="5" ppq="4">
                            <clef xml:id="pafhj1w" shape="G" line="2" />
                            <keySig xml:id="q1421oqh" sig="1f" />
-                           <meterSig xml:id="r10nsqba" count="3" unit="8" />
+                           <meterSig xml:id="r10nsqba" count="3" unit="8" visible="false" />
                         </staffDef>
                         <staffDef xml:id="sffqllf" n="5" lines="5" ppq="4">
                            <clef xml:id="z1o6kp9x" shape="F" line="4" />
                            <keySig xml:id="av5gy4a" sig="1f" />
-                           <meterSig xml:id="bwfu5bd" count="3" unit="8" />
+                           <meterSig xml:id="bwfu5bd" count="3" unit="8" visible="false" />
                         </staffDef>
                      </staffGrp>
                   </staffGrp>
@@ -70,6 +70,11 @@
                   <expansion plist="#l1k19apz" xml:id="mssly1f" />
                   <section xml:id="l1k19apz">
                      <measure xml:id="dgx9kg5" n="1">
+                        <harm xml:id="fb_1" staff="3" tstamp="2">
+                           <fb>
+                             <f>6</f>
+                           </fb>
+                         </harm>
                         <staff xml:id="m19uipcm" n="1">
                            <layer xml:id="n1r91i7x" n="1">
                               <beam xml:id="o51s38u">
@@ -136,6 +141,16 @@
                         </staff>
                      </measure>
                      <measure xml:id="s1thcni5" n="2">
+                        <harm xml:id="fb_2" staff="3" tstamp="1">
+                           <fb>
+                             <f>♯</f>
+                           </fb>
+                         </harm>
+                        <harm xml:id="fb_3" staff="3" tstamp="3">
+                           <fb>
+                             <f>6</f>
+                           </fb>
+                         </harm>
                         <staff xml:id="b14irf2w" n="1">
                            <layer xml:id="c1vsfd9g" n="1">
                               <beam xml:id="d1rq8wlu">
@@ -204,6 +219,21 @@
                         <tie xml:id="m13m5ozt" startid="#l18q5wqx" endid="#j1fhzla0" />
                      </measure>
                      <measure xml:id="jog3onf" n="3">
+                        <harm xml:id="fb_4" staff="3" tstamp="1">
+                           <fb>
+                             <f>7</f>
+                           </fb>
+                         </harm>
+                        <harm xml:id="fb_5" staff="3" tstamp="2">
+                           <fb>
+                             <f>6♭</f>
+                           </fb>
+                         </harm>
+                        <harm xml:id="fb_6" staff="3" tstamp="3">
+                           <fb>
+                             <f>6</f>
+                           </fb>
+                         </harm>
                         <staff xml:id="sjdhg2c" n="1">
                            <layer xml:id="t1pedq2e" n="1">
                               <beam xml:id="u1ge2bmx">
@@ -262,6 +292,28 @@
                         </staff>
                      </measure>
                      <measure xml:id="a1gr2fxp" n="4">
+                        <harm xml:id="fb_7" staff="3" tstamp="1">
+                           <fb>
+                             <f>7</f>
+                             <f>♯</f>
+                           </fb>
+                         </harm>
+                        <harm xml:id="fb_8" staff="3" tstamp="1.5">
+                           <fb>
+                             <f>7</f>
+                             <f>5</f>
+                           </fb>
+                         </harm>
+                        <harm xml:id="fb_9" staff="3" tstamp="2">
+                           <fb>
+                             <f>4</f>
+                           </fb>
+                         </harm>
+                        <harm xml:id="fb_10" staff="3" tstamp="3">
+                           <fb>
+                             <f>♯</f>
+                           </fb>
+                         </harm>
                         <staff xml:id="j5ov61u" n="1">
                            <layer xml:id="k1a69h9b" n="1">
                               <beam xml:id="l1ssnvdv">
@@ -389,6 +441,16 @@
                         <tie xml:id="w4zxmqv" startid="#vz78m4f" endid="#w1k575gm" />
                      </measure>
                      <measure xml:id="g148xf8g" n="6">
+                        <harm xml:id="fb_11" staff="3" tstamp="1">
+                           <fb>
+                             <f>6</f>
+                           </fb>
+                         </harm>
+                        <harm xml:id="fb_12" staff="3" tstamp="3">
+                           <fb>
+                             <f>5♭</f>
+                           </fb>
+                         </harm>
                         <staff xml:id="p191wvaj" n="1">
                            <layer xml:id="q1h540tw" n="1">
                               <beam xml:id="rtmg1zf">
@@ -452,6 +514,11 @@
                         </staff>
                      </measure>
                      <measure xml:id="v5yaxtn" n="7">
+                        <harm xml:id="fb_13" staff="3" tstamp="3">
+                           <fb>
+                             <f>6</f>
+                           </fb>
+                         </harm>
                         <staff xml:id="en6rodp" n="1">
                            <layer xml:id="f125831o" n="1">
                               <beam xml:id="gzli7uz">
@@ -504,6 +571,16 @@
                         </staff>
                      </measure>
                      <measure xml:id="lnsl6q1" n="8">
+                        <harm xml:id="fb_14" staff="3" tstamp="2">
+                           <fb>
+                             <f>6</f>
+                           </fb>
+                         </harm>
+                        <harm xml:id="fb_15" staff="3" tstamp="3.5">
+                           <fb>
+                             <f>6</f>
+                           </fb>
+                         </harm>
                         <staff xml:id="uesrriw" n="1">
                            <layer xml:id="vqab13z" n="1">
                               <beam xml:id="wycadyj">
