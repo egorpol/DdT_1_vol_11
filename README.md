@@ -51,7 +51,7 @@ The status describes the complete work-level file, not the presence or edit hist
 | Op. II/4 | C minor      |                116 |           00126 | `op2_04_sonata_c_minor`                        | combined  |
 | Op. II/5 | A major      |                126 |           00136 | `op2_05_sonata_a_major`                        | combined  |
 | Op. II/6 | E major      |                139 |           00149 | `op2_06_sonata_e_major`                        | corrected |
-| Op. II/7 | F major      |                150 |           00160 | `op2_07_sonata_f_major`                        | pending   |
+| Op. II/7 | F major      |                150 |           00160 | `op2_07_sonata_f_major`                        | combined  |
 | App. I   | —           |                160 |           00170 | `app_01_suite_to_op1_04`                       | combined  |
 | App. II  | C major      |                164 |           00174 | `app_02_sonata_2violins_gamba_cembalo_c_major` | combined  |
 | App. III | D major      |                176 |           00186 | `app_03_sonata_gamba_violin_cembalo_d_major`   | combined  |
