@@ -35,7 +35,7 @@
             </availability>
          </pubStmt>
          <sourceDesc>
-            <source type="printed-edition">
+            <source xml:id="src.ddt1903" type="printed-edition">
                <bibl>
                   <title>Dietrich Buxtehudes Instrumentalwerke: Sonaten für Violine, Gambe und Cembalo</title>
                   <title type="series">Denkmäler deutscher Tonkunst, first series, vol. 11</title>
@@ -64,6 +64,41 @@
                   </availability>
                </bibl>
             </source>
+            <source xml:id="src.uppsala.op1" type="historical-print">
+               <bibl>
+                  <title>VII. Suonate a doi, violino &amp; viola da gamba, con cembalo ... opera prima</title>
+                  <composer>Dieterich Buxtehude</composer>
+                  <imprint>
+                     <pubPlace>Lübeck</pubPlace>
+                     <date isodate="1696" type="catalogue-supplied">[1696]</date>
+                  </imprint>
+                  <identifier type="RISM-A-I">B5204</identifier>
+                  <physLoc>
+                     <repository>Uppsala University Library, Düben Collection</repository>
+                     <identifier type="RISM-siglum">S-Uu</identifier>
+                     <identifier type="shelfmark">Uimtr 52:1–4</identifier>
+                  </physLoc>
+                  <ref type="catalogue" target="https://www2.musik.uu.se/duben/Printed%20music%20in%20the%20Duben%20Collection2024.pdf">Printed Music in the Düben Collection, p. 2</ref>
+                  <availability>
+                     <useRestrict>This witness was consulted through the <ref target="#src.stimu1991.op1">STIMU facsimile edition (Utrecht, 1991, introduction by Kerala J. Snyder)</ref>. TIFFs were made by the editor’s university library; public redistribution terms for the images remain unconfirmed.</useRestrict>
+                  </availability>
+               </bibl>
+            </source>
+            <source xml:id="src.stimu1991.op1" type="facsimile-edition">
+               <bibl>
+                  <title>VII. Suonate à doi, Violino &amp; Violadagamba, con Cembalo</title>
+                  <composer>Dieterich Buxtehude</composer>
+                  <imprint>
+                     <pubPlace>Utrecht</pubPlace>
+                     <publisher>STIMU (Stichting voor Muziekhistorische Uitvoeringspraktijk)</publisher>
+                     <date isodate="1991">1991</date>
+                  </imprint>
+                  <ref type="reproduced-witness" target="#src.uppsala.op1">Facsimile reproduction of the Uppsala Op. I witness, with an introduction by Kerala J. Snyder.</ref>
+                  <availability>
+                     <useRestrict>Consulted through locally held university-library scans. Public redistribution terms for these scans remain unconfirmed.</useRestrict>
+                  </availability>
+               </bibl>
+            </source>
          </sourceDesc>
       </fileDesc>
       <encodingDesc>
@@ -82,7 +117,7 @@
             </application>
          </appInfo>
          <editorialDecl>
-            <p>OMR and conversion errors were corrected against the source facsimile. The encoding is intended to reproduce the notation of the printed source; explicit editorial comments are recorded in annot elements with @type="editorial".</p>
+            <p>OMR and conversion errors were corrected against the DdT facsimile. This is a corrected edition based on DdT 1903, preserving its staff arrangement and printed keyboard realization. Selected readings were compared with the Op. I historical witness through the STIMU 1991 reproduction. Departures from DdT are documented as source-supported or conjectural emendations in annot elements with @type="editorial"; technical encoding notes are distinguished separately. The recorded comparison does not assert complete collation of the historical witness.</p>
             <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
          </editorialDecl>
          <projectDesc>
@@ -107,6 +142,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-01" resp="#resp.camat #resp.polyakov #resp.haering">
+            <changeDesc>
+               <p>Added persistent source and fermata IDs, described the Op. I historical witness and the STIMU facsimile used for comparison, and completed editorial categories, affected-event pointers, and joint responsibility for the annotations in measures 11, 79, and 97. Recorded the measure-11 witness locator and the measure-97 rhythmic rationale. Pitches and durations were not changed; publication review remains pending.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-08-15" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Applied the MEI 5.1 CMN publication profile, expanded source and work metadata, and normalized facsimile page boundaries.</p>
@@ -1021,9 +1061,9 @@
                         </layer>
                         <layer xml:id="zzg3q7y" n="2">
                            <beam xml:id="a1sk6ufh">
-                              <chord dur="8" stem.dir="down">
+                              <chord xml:id="y1uapgx7" dur="8" stem.dir="down">
                                  <note xml:id="bi2i7ed" oct="4" pname="g" />
-                                 <note pname="b" oct="4" />
+                                 <note xml:id="f79k7lyf" oct="4" pname="b" />
                               </chord>
                               <chord xml:id="d10e4bfj" dur="16" stem.dir="down">
                                  <note xml:id="c6y4un" oct="4" pname="e" />
@@ -1246,8 +1286,8 @@
                         <layer xml:id="y1lnef0f" n="1">
                            <beam xml:id="zapj0lc">
                               <chord xml:id="a1wnqgd9" dur="8" stem.dir="up">
-                                 <note pname="b" oct="4" accid.ges="f" />
-                                 <note pname="f" oct="4" />
+                                 <note xml:id="csdchbig" oct="4" pname="b" accid.ges="f" />
+                                 <note xml:id="g9fot2u6" oct="4" pname="f" />
                               </chord>
                               <chord xml:id="exr57kj" dur="8" stem.dir="up">
                                  <note xml:id="czu2gaf" oct="4" pname="e">
@@ -1469,8 +1509,8 @@
                               <note xml:id="nccajsp" dur="32" oct="4" pname="e" stem.dir="up" />
                               <note xml:id="ok4ltql" dur="16" oct="4" pname="f" stem.dir="up" />
                            </beam>
-                           <annot xml:id="editorial_00dbfb1e88e5" type="editorial" plist="#jov0yhc">
-                              <p>DdT prints this note as 1/16; encoded as 1/8 following the 1696 print.</p>
+                           <annot xml:id="editorial_00dbfb1e88e5" type="editorial" label="source-supported-emendation" plist="#jov0yhc" source="#src.uppsala.op1" resp="#resp.polyakov #resp.haering">
+                              <p>DdT prints the C-sharp4 at this location as a sixteenth note; it is encoded as an eighth note, following the <ref target="#src.uppsala.op1">Op. I historical witness</ref> consulted through the <ref target="#src.stimu1991.op1">STIMU 1991 facsimile</ref>. Witness locator: Violino partbook, Sonata I, opening music page (signature A), third system, first bar (measure 11); local scan-0006.jpg, right-hand page. The witness joins this C-sharp to the following notes with a single primary beam, while the following D and E have additional beams.</p>
                            </annot>
                            <beam xml:id="p1csnii3">
                               <note xml:id="qridqyf" dots="1" dur="8" oct="4" pname="e" stem.dir="up" />
@@ -3019,11 +3059,11 @@
                            <note xml:id="q1wb50nr" dur="1" oct="2" pname="c" stem.visible="false" />
                         </layer>
                      </staff>
-                     <fermata startid="#crknox8" staff="1" place="above" />
-                     <fermata startid="#psvelzb" staff="2" place="above" />
-                     <fermata startid="#b17g3b67" staff="3" place="above" />
-                     <fermata startid="#l1w0zvev" staff="4" place="above" />
-                     <fermata startid="#q1wb50nr" staff="5" place="above" />
+                     <fermata xml:id="fermata.m27.s1" startid="#crknox8" staff="1" place="above" />
+                     <fermata xml:id="fermata.m27.s2" startid="#psvelzb" staff="2" place="above" />
+                     <fermata xml:id="fermata.m27.s3" startid="#b17g3b67" staff="3" place="above" />
+                     <fermata xml:id="fermata.m27.s4" startid="#l1w0zvev" staff="4" place="above" />
+                     <fermata xml:id="fermata.m27.s5" startid="#q1wb50nr" staff="5" place="above" />
                   </measure>
                   <sb xml:id="oh5w3fm" />
                   <measure xml:id="e60jikg" n="28" facs="#zone_9894322ff30b45e38e">
@@ -8669,7 +8709,7 @@
                            <note xml:id="dfki23" dur="4" oct="3" pname="c" stem.dir="down" />
                         </layer>
                         <layer xml:id="q60swhj" n="6">
-                           <annot xml:id="auuodbp2" type="editorial" plist="#x16e602i #aetcew1 #v7gyk71">
+                           <annot xml:id="auuodbp2" type="editorial" label="encoding-note" plist="#x16e602i #aetcew1 #v7gyk71" resp="#resp.polyakov #resp.haering">
                               <p>DdT marks an A3 tie across the page break, spanning over the intervening cross-staff eighth note E4; encoded as an explicit tie, Verovio/mei rendering may be limited.</p>
                            </annot>
                            <space xml:id="u1u1py72" dur="2" />
@@ -8686,7 +8726,7 @@
                         </layer>
                      </staff>
                      <tie xml:id="y70ic2z" startid="#xw83idj" endid="#n1az8an8" />
-                     <tie startid="#x16e602i" endid="#v7gyk71" />
+                     <tie xml:id="b0jicrg2" startid="#x16e602i" endid="#v7gyk71" />
                      <beamSpan xml:id="y13gmn1x" startid="#x16e602i" endid="#aetcew1" />
                   </measure>
                   <sb xml:id="k1x2t3it" />
@@ -10174,8 +10214,8 @@
                               <note xml:id="n1tfpx3m" dur="16" oct="4" pname="f" stem.dir="up" />
                               <note xml:id="o15osbm4" dur="16" oct="4" pname="g" stem.dir="up" />
                            </beam>
-                           <annot xml:id="editorial_bsb00023199_00018_dfki3" type="editorial" plist="#bsb00023199_00018_facs_zones_dfki3">
-                              <p>DdT prints this chord as dotted 1/8; dot omitted for rhythmic consistency because the 1696 print has continuo only here.</p>
+                           <annot xml:id="editorial_bsb00023199_00018_dfki3" type="editorial" label="conjectural-emendation" plist="#ncvbh6" resp="#resp.polyakov #resp.haering">
+                              <p>DdT prints this chord as a dotted eighth note; the dot is omitted in the encoding so that staff 4, layer 1 totals 6/8. The encoded durations are 1/4 + 1/8 + 1/8 + 1/8 + 1/16 + 1/16 = 6/8; retaining the dot would produce 13/16, exceeding the measure by a sixteenth note. This is a conjectural emendation of DdT's keyboard realization. The <ref target="#src.uppsala.op1">Op. I historical witness</ref> contains continuo but no keyboard realization and therefore does not attest the replacement rhythm.</p>
                            </annot>
                         </layer>
                         <layer xml:id="q172upie" n="2">
