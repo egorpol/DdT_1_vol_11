@@ -1,16 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://music-encoding.org/schema/5.1/mei-all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://music-encoding.org/schema/5.1/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1">
-   <meiHead xml:id="m1uqq07k">
+<?xml-model href="https://music-encoding.org/schema/5.1/mei-CMN.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://music-encoding.org/schema/5.1/mei-CMN.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1+CMN">
+   <meiHead xml:lang="en" xml:id="m1uqq07k">
+      <altId type="repository-stem">op1_03_sonata_a_minor</altId>
       <fileDesc xml:id="ff1va5u">
          <titleStmt xml:id="t1pud84p">
-            <title >Sonata III.</title>
-            <respStmt />
+            <title>Sonata III in A minor, Op. I</title>
+            <composer>
+               <persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
+            </composer>
+            <respStmt xml:id="resp.camat">
+               <resp>MEI encoding and sonata-level assembly</resp>
+               <corpName>CAMAT</corpName>
+            </respStmt>
+            <respStmt xml:id="resp.tu">
+               <resp>OMR correction and editorial review</resp>
+               <persName>Jingyu Tu</persName>
+            </respStmt>
+            <respStmt xml:id="resp.polyakov">
+               <resp>OMR correction, editorial review, and metadata</resp>
+               <persName>Egor Polyakov</persName>
+            </respStmt>
          </titleStmt>
+         <editionStmt>
+            <edition n="0.1.0">Working digital edition</edition>
+         </editionStmt>
          <pubStmt xml:id="pn5ijuo">
+            <publisher>CAMAT Corpus Editions</publisher>
+            <date isodate="2026-10-19" type="last-updated">2026-10-19</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
+            <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_03_sonata_a_minor_corr.mei</identifier>
+            <availability>
+               <useRestrict>MEI data released under the <ref target="https://spdx.org/licenses/MIT.html">MIT License</ref>.</useRestrict>
+            </availability>
          </pubStmt>
+         <sourceDesc>
+            <source xml:id="src.ddt1903" type="printed-edition">
+               <bibl>
+                  <title>Dietrich Buxtehudes Instrumentalwerke: Sonaten für Violine, Gambe und Cembalo</title>
+                  <title type="series">Denkmäler deutscher Tonkunst, first series, vol. 11</title>
+                  <composer>Dietrich Buxtehude</composer>
+                  <editor>
+                     <persName auth="GND" auth.uri="https://d-nb.info/gnd/117245674" codedval="117245674">Carl Stiehl</persName>
+                  </editor>
+                  <imprint>
+                     <pubPlace>Leipzig</pubPlace>
+                     <publisher>Breitkopf und Härtel</publisher>
+                     <date isodate="1903">1903</date>
+                  </imprint>
+                  <identifier type="URN">urn:nbn:de:bvb:12-bsb00023199-0</identifier>
+                  <identifier type="BSB-ID">991009385569707356</identifier>
+                  <identifier type="BV">BV035347306</identifier>
+                  <identifier type="OCLC">775063768</identifier>
+                  <physLoc>
+                     <repository>Hochschule für Musik und Theater München, Bibliothek</repository>
+                     <identifier type="shelfmark">N2/X 1 DDT, 11</identifier>
+                  </physLoc>
+                  <ref type="digital-facsimile" target="https://digitale-sammlungen.de/en/view/bsb00023199">BSB digital facsimile</ref>
+                  <ref type="iiif-manifest" target="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/manifest">IIIF Presentation manifest</ref>
+                  <biblScope unit="page" from="22" to="32">pp. 22-32</biblScope>
+                  <availability>
+                     <useRestrict>Digital facsimile supplied by the Bayerische Staatsbibliothek under <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</ref>.</useRestrict>
+                  </availability>
+               </bibl>
+            </source>
+         </sourceDesc>
       </fileDesc>
       <encodingDesc xml:id="ey0cxiu">
          <appInfo xml:id="a1g1lgha">
@@ -23,11 +78,53 @@
                <p xml:id="p35lkxf">First edit by mei-friend 1.2.9.</p>
             </application>
          </appInfo>
+         <editorialDecl>
+            <p>This is a working corrected digital edition based on DdT 1903. Only DdT 1903 was consulted for this sonata; no comparison with the Uppsala Op. I witness through the STIMU 1991 facsimile is claimed. OMR and conversion errors are corrected against the DdT facsimile. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
+            <p>The staff arrangement and keyboard realization printed in DdT are retained. Staff 1 is violin; staff 2 is viola da gamba; staff 3 is the figured continuo bass; staves 4 and 5 are the upper and lower staves of the printed keyboard realization. The realization is distinguished from the figured continuo bass when defining an analytical view.</p>
+            <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
+         </editorialDecl>
+         <projectDesc>
+            <p>This edition was prepared by CAMAT Corpus Editions as part of a DFG-funded corpus for music-analysis technologies (grant PF 669/18-1).</p>
+         </projectDesc>
       </encodingDesc>
+      <workList>
+         <work xml:id="work.buxwv254">
+            <identifier type="BuxWV">BuxWV 254</identifier>
+            <title>Sonata III in A minor, Op. I</title>
+            <composer>
+               <persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
+            </composer>
+            <key pname="a" mode="minor">A minor</key>
+            <perfMedium>
+               <perfResList>
+                  <perfRes>Violin</perfRes>
+                  <perfRes>Viola da gamba</perfRes>
+                  <perfRes>Harpsichord</perfRes>
+               </perfResList>
+            </perfMedium>
+         </work>
+      </workList>
+      <revisionDesc>
+         <change isodate="2026-10-19" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Documented the editor-confirmed shared C4 notehead with independent stems in measure 17 as an encoding note. Retained both voice entries and the source's pitches and durations; recorded the engraving limitation observed with Verovio 6.3.0.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-03" resp="#resp.polyakov">
+            <changeDesc>
+               <p>Confirmed DdT 1903 as the sole consulted source for this sonata. Removed redundant note-level tie markings on the Cembalo B2 in measures 12-13, the gamba E4 in measures 115-116, and the keyboard-realization F-sharp4 in measures 191-192. Preserved the explicit ties and their persistent IDs, with the downward, upward, and downward curves respectively shown in DdT. The preceding tie within measure 191 was retained. No pitches or durations were changed.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-02" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Added the work and DdT source descriptions, working-edition identity, licensing, and staff-role mapping. Repaired local link syntax, removed redundant gestural accidental values, and added missing event IDs. Removed an incorrect shared-stem association and corrected page/system boundaries following facsimile review. Pitches, durations, ties, slurs, and fermatas were retained. Validation was rerun with CAMAT 0.2.5.</p>
+            </changeDesc>
+         </change>
+      </revisionDesc>
    </meiHead>
    <music>
       <facsimile>
-         <surface xml:id="surface_057050584175" n="1" ulx="0" uly="0" lrx="4133" lry="5522">
+         <surface xml:id="surface_057050584175" n="1" ulx="0" uly="0" lrx="4133" lry="5522" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/32">
             <graphic xml:id="graphic_057050584175" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00032/full/4134,/0/default.jpg" width="4134" height="5523" />
             <zone xml:id="zone_d34d76b47b9e427380" type="measure" ulx="736" uly="933" lrx="1331" lry="2324" n="1" />
             <zone xml:id="zone_98b7a00965e94b6184" type="measure" ulx="1255" uly="939" lrx="1805" lry="2305" n="2" />
@@ -51,7 +148,7 @@
             <zone xml:id="zone_8424ff31f46e4cc5a0" type="measure" ulx="2832" uly="3697" lrx="3350" lry="5164" n="20" />
             <zone xml:id="zone_c44204ff23714b739a" type="measure" ulx="3275" uly="3716" lrx="3777" lry="5162" n="21" />
          </surface>
-         <surface xml:id="surface_cfdbe1eef296" n="2" ulx="0" uly="0" lrx="4133" lry="5494">
+         <surface xml:id="surface_cfdbe1eef296" n="2" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/33">
             <graphic xml:id="graphic_cfdbe1eef296" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00033/full/4134,/0/default.jpg" width="4134" height="5495" />
             <zone xml:id="zone_df879a02519c423cb8" type="measure" ulx="227" uly="338" lrx="1226" lry="1583" n="22" />
             <zone xml:id="zone_108965aad49646beba" type="measure" ulx="1150" uly="375" lrx="2083" lry="1581" n="23" />
@@ -70,7 +167,7 @@
             <zone xml:id="zone_e11564926a9e4e1588" lrx="3811" lry="5179" n="37" type="measure" ulx="2911" uly="3959" />
             <zone xml:id="zone_be7725b9042c4ecfb9" lrx="3016" lry="5178" n="36" type="measure" ulx="2088" uly="3958" />
          </surface>
-         <surface xml:id="surface_ec4e7cadd849" n="3" ulx="0" uly="0" lrx="4133" lry="5522">
+         <surface xml:id="surface_ec4e7cadd849" n="3" ulx="0" uly="0" lrx="4133" lry="5522" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/34">
             <graphic xml:id="graphic_ec4e7cadd849" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00034/full/4134,/0/default.jpg" width="4134" height="5523" />
             <zone xml:id="zone_804a6906e83049b998" type="measure" ulx="190" uly="386" lrx="1218" lry="1599" n="38" />
             <zone xml:id="zone_cee4cb947569469588" type="measure" ulx="1147" uly="409" lrx="2080" lry="1585" n="39" />
@@ -89,7 +186,7 @@
             <zone xml:id="zone_c075daf7e0a949179d" type="measure" ulx="2084" uly="3977" lrx="2971" lry="5218" n="52" />
             <zone xml:id="zone_c3556fd598d84bba99" type="measure" ulx="2896" uly="3975" lrx="3821" lry="5214" n="53" />
          </surface>
-         <surface xml:id="surface_97ed4abaf58c" n="4" ulx="0" uly="0" lrx="4133" lry="5494">
+         <surface xml:id="surface_97ed4abaf58c" n="4" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/35">
             <graphic xml:id="graphic_97ed4abaf58c" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00035/full/4134,/0/default.jpg" width="4134" height="5495" />
             <zone xml:id="zone_6cb1e54620794d13bc" type="measure" ulx="237" uly="338" lrx="1255" lry="1584" n="54" />
             <zone xml:id="zone_405a8be5d6b142dbbb" type="measure" ulx="1185" uly="354" lrx="2185" lry="1576" n="55" />
@@ -108,7 +205,7 @@
             <zone xml:id="zone_996fd275fb7a46d3b1" type="measure" ulx="2323" uly="3966" lrx="3078" lry="5177" n="68" />
             <zone xml:id="zone_61a322109a2d4c379c" type="measure" ulx="3009" uly="3967" lrx="3820" lry="5190" n="69" />
          </surface>
-         <surface xml:id="surface_b8c36e4f2a91" n="5" ulx="0" uly="0" lrx="4133" lry="5494">
+         <surface xml:id="surface_b8c36e4f2a91" n="5" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/36">
             <graphic xml:id="graphic_b8c36e4f2a91" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00036/full/4134,/0/default.jpg" width="4134" height="5495" />
             <zone xml:id="zone_b8c36e4f2a91_m70" lrx="970" lry="1543" n="70" type="measure" ulx="233" uly="313" />
             <zone xml:id="zone_b8c36e4f2a91_m71" lrx="1526" lry="1527" n="71" type="measure" ulx="937" uly="337" />
@@ -141,7 +238,7 @@
             <zone xml:id="zone_b8c36e4f2a91_m98" lrx="3436" lry="5180" n="98" type="measure" ulx="3024" uly="4067" />
             <zone xml:id="zone_b8c36e4f2a91_m99" lrx="3844" lry="5174" n="99" type="measure" ulx="3403" uly="4067" />
          </surface>
-         <surface xml:id="surface_cd3e37a6c365" n="6" ulx="0" uly="0" lrx="4133" lry="5494">
+         <surface xml:id="surface_cd3e37a6c365" n="6" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/37">
             <graphic xml:id="graphic_cd3e37a6c365" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00037/full/4134,/0/default.jpg" width="4134" height="5495" />
             <zone xml:id="zone_8066882bb06643b1b1" type="measure" ulx="262" uly="347" lrx="904" lry="1568" n="100" />
             <zone xml:id="zone_3581ea75a5c14b4c97" type="measure" ulx="843" uly="358" lrx="1308" lry="1571" n="101" />
@@ -176,7 +273,7 @@
             <zone xml:id="zone_3e9a3ebe306c426eb7" type="measure" ulx="3031" uly="3918" lrx="3418" lry="5170" n="130" />
             <zone xml:id="zone_2577d8f3a66748dc80" type="measure" ulx="3360" uly="3926" lrx="3859" lry="5167" n="131" />
          </surface>
-         <surface xml:id="surface_6775412fae96" n="7" ulx="0" uly="0" lrx="4133" lry="5522">
+         <surface xml:id="surface_6775412fae96" n="7" ulx="0" uly="0" lrx="4133" lry="5522" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/38">
             <graphic xml:id="graphic_6775412fae96" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00038/full/4134,/0/default.jpg" width="4134" height="5523" />
             <zone xml:id="zone_43d59fde78274afdb4" type="measure" ulx="223" uly="379" lrx="865" lry="1649" n="132" />
             <zone xml:id="zone_3434c33705694ecc81" type="measure" ulx="789" uly="408" lrx="1291" lry="1645" n="133" />
@@ -211,7 +308,7 @@
             <zone xml:id="zone_8652d705ad9b46cebb" type="measure" ulx="2922" uly="4017" lrx="3401" lry="5239" n="162" />
             <zone xml:id="zone_114904e4341e4fa49c" type="measure" ulx="3344" uly="4024" lrx="3827" lry="5241" n="163" />
          </surface>
-         <surface xml:id="surface_a73bc2a5ac12" n="8" ulx="0" uly="0" lrx="4133" lry="5494">
+         <surface xml:id="surface_a73bc2a5ac12" n="8" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/39">
             <graphic xml:id="graphic_a73bc2a5ac12" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00039/full/4134,/0/default.jpg" width="4134" height="5495" />
             <zone xml:id="zone_f0f1c040e4f54d1d80" type="measure" ulx="310" uly="375" lrx="944" lry="1577" n="164" />
             <zone xml:id="zone_a66353e40ab9428eb6" type="measure" ulx="882" uly="387" lrx="1355" lry="1576" n="165" />
@@ -244,7 +341,7 @@
             <zone xml:id="zone_e96cee1edf0242118d" type="measure" ulx="2418" uly="3942" lrx="3198" lry="5177" n="192" />
             <zone xml:id="zone_342b1e13e1784c4d87" type="measure" ulx="3125" uly="3947" lrx="3888" lry="5193" n="193" />
          </surface>
-         <surface xml:id="surface_cba3a620fff5" n="9" ulx="0" uly="0" lrx="4133" lry="5522">
+         <surface xml:id="surface_cba3a620fff5" n="9" ulx="0" uly="0" lrx="4133" lry="5522" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/40">
             <graphic xml:id="graphic_cba3a620fff5" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00040/full/4134,/0/default.jpg" width="4134" height="5523" />
             <zone xml:id="zone_d605dd286e8845b0ae" type="measure" ulx="196" uly="371" lrx="1176" lry="1639" n="194" />
             <zone xml:id="zone_92ee3995735746338f" type="measure" ulx="1100" uly="411" lrx="1963" lry="1629" n="195" />
@@ -266,7 +363,7 @@
             <zone xml:id="zone_17a66075ce8c480c86" type="measure" ulx="2162" uly="4054" lrx="3060" lry="5269" n="211" />
             <zone xml:id="zone_2a314c0663fc4044a2" type="measure" ulx="2989" uly="4055" lrx="3821" lry="5282" n="212" />
          </surface>
-         <surface xml:id="surface_ccf4b65a0e4f" n="10" ulx="0" uly="0" lrx="4133" lry="5494">
+         <surface xml:id="surface_ccf4b65a0e4f" n="10" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/41">
             <graphic xml:id="graphic_ccf4b65a0e4f" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00041/full/4134,/0/default.jpg" width="4134" height="5495" />
             <zone xml:id="zone_b9f0d6d69a714ca6b6" type="measure" ulx="283" uly="383" lrx="1288" lry="1587" n="213" />
             <zone xml:id="zone_647183efa1f14b47a8" type="measure" ulx="1226" uly="395" lrx="2219" lry="1593" n="214" />
@@ -285,7 +382,7 @@
             <zone xml:id="zone_85b6747867e643b48e" type="measure" ulx="1917" uly="3958" lrx="2768" lry="5198" n="227" />
             <zone xml:id="zone_8162dd8d647447f198" type="measure" ulx="2706" uly="3958" lrx="3871" lry="5203" n="228" />
          </surface>
-         <surface xml:id="surface_fdfbac86dafd" n="11" ulx="0" uly="0" lrx="4133" lry="5522">
+         <surface xml:id="surface_fdfbac86dafd" n="11" ulx="0" uly="0" lrx="4133" lry="5522" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/42">
             <graphic xml:id="graphic_fdfbac86dafd" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00042/full/4134,/0/default.jpg" width="4134" height="5523" />
             <zone xml:id="zone_323bef209e094928b9" type="measure" ulx="172" uly="409" lrx="1422" lry="1632" n="229" />
             <zone xml:id="zone_27058e2dac744906bd" type="measure" ulx="1345" uly="437" lrx="2200" lry="1627" n="230" />
@@ -308,7 +405,7 @@
          </surface>
       </facsimile>
       <body>
-         <mdiv xml:id="h1wr690d">
+         <mdiv xml:id="h1wr690d" decls="#work.buxwv254">
             <score xml:id="icjva5h">
                <scoreDef xml:id="j8durl3">
                   <staffGrp xml:id="mggfgdc">
@@ -353,7 +450,7 @@
                   </staffGrp>
                </scoreDef>
                <section xml:id="k1qi2q9l">
-                  <pb xml:id="lfmz0pl" facs="#surface_057050584175" />
+                  <pb xml:id="lfmz0pl" facs="#surface_057050584175" n="1" />
                   <measure xml:id="dh34ym5" metcon="false" n="1" facs="#zone_d34d76b47b9e427380">
                      <tempo xml:id="tempo1" staff="1" tstamp="1" place="above">Adagio.</tempo>
                      <tempo xml:id="tempo4" staff="4" tstamp="1" place="above">Adagio.</tempo>
@@ -1325,7 +1422,7 @@
                      </staff>
                      <staff xml:id="h10nqwy0" n="3">
                         <layer xml:id="i10vswuu" n="1">
-                           <note xml:id="jdpctg4" dur="1" oct="2" pname="b" stem.visible="false" tie="i" />
+                           <note xml:id="jdpctg4" dur="1" oct="2" pname="b" stem.visible="false" />
                         </layer>
                      </staff>
                      <staff xml:id="c1e3xk5o" n="4">
@@ -1428,7 +1525,7 @@
                      </staff>
                      <staff xml:id="t1isiijq" n="3">
                         <layer xml:id="u2bvpzh" n="1">
-                           <note xml:id="v12b1fa7" dots="1" dur="2" oct="2" pname="b" stem.dir="up" tie="t" />
+                           <note xml:id="v12b1fa7" dots="1" dur="2" oct="2" pname="b" stem.dir="up" />
                            <note xml:id="w18jieu7" dur="4" oct="2" pname="a" stem.dir="up" />
                         </layer>
                      </staff>
@@ -1616,7 +1713,7 @@
                      </staff>
                      <tie xml:id="m1hw3z5" startid="#lvfd15k" endid="#ztngb3d" />
                      <tie xml:id="c1s0c5ej" startid="#b4sgftb" endid="#p1hu5ue" />
-                     <slur startid="#x1b6wsmv" endid="#z96vzdn" />
+                     <slur xml:id="slur.op1_03.m15" startid="#x1b6wsmv" endid="#z96vzdn" />
                   </measure>
                   <measure xml:id="c1lxd4lw" n="16" facs="#zone_c954dc19ab1c4fcca0">
                      <harm xml:id="fb_m57" staff="3" tstamp="1">
@@ -1824,7 +1921,7 @@
                               <note xml:id="z5r0y5h" oct="3" pname="b" />
                               <note xml:id="b1y0gm7m" oct="4" pname="e" />
                            </chord>
-                           <note xml:id="q15fei1p" dots="1" dur="4" oct="4" pname="c" stem.dir="down" stem.sameas="o1c1gbyi" />
+                           <note xml:id="q15fei1p" dots="1" dur="4" oct="4" pname="c" stem.dir="down" />
                         </layer>
                      </staff>
                      <staff xml:id="l138zq0d" n="5">
@@ -1840,6 +1937,9 @@
                      </staff>
                      <tie xml:id="petlvyb" startid="#ocayepv" endid="#evzpnro" />
                      <tie xml:id="utosfud" startid="#t1lxivqs" endid="#y5dlt9e" />
+                     <annot xml:id="editorial.op1_03.m17.shared-notehead" type="editorial" label="encoding-note" plist="#gdetgt #q15fei1p #p1fgsraz" source="#src.ddt1903" resp="#resp.polyakov #resp.camat">
+                        <p>DdT, printed page 22, measure 17, upper staff of the keyboard realization: the two voices share one C4 notehead with independent upward and downward stems. Both dotted-quarter C4 voice entries are retained deliberately. Verovio 6.3.0 separates the noteheads and their augmentation dots in the present chord-and-note encoding; this is an engraving limitation, not a correction to the source reading. Related dotted-unison reports are <ref target="https://github.com/rism-digital/verovio/issues/746">Verovio issue 746</ref> and <ref target="https://github.com/rism-digital/verovio/issues/3705">issue 3705</ref>; their earlier fixes do not establish the cause of this chord-specific case.</p>
+                     </annot>
                   </measure>
                   <measure xml:id="rkahaw7" metcon="false" n="18" facs="#zone_0e84f84842564985aa">
                      <harm xml:id="fb_m67" staff="3" tstamp="1">
@@ -2191,12 +2291,12 @@
                         </layer>
                      </staff>
                      <fermata xml:id="si4xihh" staff="1" startid="#r2bwako" form="norm" place="above" />
-                     <fermata xml:id="g15sfkwj" staff="2" startid="r2fsfo" form="norm" place="above" />
+                     <fermata xml:id="g15sfkwj" staff="2" startid="#r2fsfo" form="norm" place="above" />
                      <fermata xml:id="z1a3z1bz" staff="3" startid="#ystea43" form="norm" place="above" />
                      <fermata xml:id="a1gyloku" staff="4" startid="#z1ta542m" form="norm" place="above" />
                      <fermata xml:id="jp4t0yq" staff="5" startid="#i8x92zg" form="inv" place="below" />
                   </measure>
-                  <pb xml:id="zkr1gwr" facs="#surface_cfdbe1eef296" />
+                  <pb xml:id="zkr1gwr" facs="#surface_cfdbe1eef296" n="2" />
                   <measure xml:id="rrsbobf" n="22" facs="#zone_df879a02519c423cb8">
                      <tempo xml:id="tempo3" staff="1" tstamp="1" place="above">Allegro.</tempo>
                      <tempo xml:id="tempo5" staff="4" tstamp="1" place="above">Allegro.</tempo>
@@ -3848,8 +3948,8 @@
                            <f>5♭</f>
                         </fb>
                      </harm>
-                     <staff xml:id="bfdgbg" n="1">
-                        <layer xml:id="njghyuju" n="1">
+                     <staff xml:id="staff.op1_03.m36.s1" n="1">
+                        <layer xml:id="layer.op1_03.m36.s1.l1" n="1">
                            <beam xml:id="j1kplv5h">
                               <note xml:id="k18rzsy" dur="16" oct="5" pname="d" stem.dir="down" />
                               <note xml:id="l1nb9def" dur="16" oct="5" pname="c" stem.dir="down" />
@@ -3877,8 +3977,8 @@
                            </beam>
                         </layer>
                      </staff>
-                     <staff xml:id="njguyju" n="2">
-                        <layer xml:id="fsergt" n="1">
+                     <staff xml:id="staff.op1_03.m36.s2" n="2">
+                        <layer xml:id="layer.op1_03.m36.s2.l1" n="1">
                            <beam xml:id="i1i69lle">
                               <note xml:id="jlqbzn1" dur="8" oct="4" pname="f" stem.dir="down">
                                  <accid xml:id="k18qh3a1" accid="s" />
@@ -3905,8 +4005,8 @@
                            </beam>
                         </layer>
                      </staff>
-                     <staff xml:id="mkuikid" n="3">
-                        <layer xml:id="fserfr" n="1">
+                     <staff xml:id="staff.op1_03.m36.s3" n="3">
+                        <layer xml:id="layer.op1_03.m36.s3.l1" n="1">
                            <note xml:id="m1v46hty" dur="8" oct="2" pname="b" stem.dir="up" />
                            <rest xml:id="n10lc83o" dur="8" />
                            <note xml:id="ojujgk5" dur="8" oct="2" pname="g" stem.dir="up" />
@@ -3919,8 +4019,8 @@
                            <rest xml:id="u1oosf9c" dur="8" />
                         </layer>
                      </staff>
-                     <staff xml:id="daewde" n="4">
-                        <layer xml:id="kiolls" n="1">
+                     <staff xml:id="staff.op1_03.m36.s4" n="4">
+                        <layer xml:id="layer.op1_03.m36.s4.l1" n="1">
                            <chord xml:id="se195tc" dur="8" stem.dir="up">
                               <note xml:id="r1244ks3" oct="4" pname="d" />
                               <note xml:id="t1p9jc96" oct="4" pname="f">
@@ -3949,8 +4049,8 @@
                            <rest xml:id="k1dbctde" dur="8" />
                         </layer>
                      </staff>
-                     <staff xml:id="hrytwr" n="5">
-                        <layer xml:id="csdfrsa" n="1">
+                     <staff xml:id="staff.op1_03.m36.s5" n="5">
+                        <layer xml:id="layer.op1_03.m36.s5.l1" n="1">
                            <note xml:id="a1ora3n1" dur="8" oct="2" pname="b" stem.dir="up" />
                            <rest xml:id="c14quamd" dur="8" />
                            <note xml:id="dhfwryw" dur="8" oct="2" pname="g" stem.dir="up" />
@@ -4055,7 +4155,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="p18xvf19" />
+                  <pb xml:id="p18xvf19" facs="#surface_ec4e7cadd849" n="3" />
                   <measure xml:id="t8ygyuz" n="38" facs="#zone_804a6906e83049b998">
                      <staff xml:id="c1w3sbg7" n="1">
                         <layer xml:id="d6c33qc" n="1">
@@ -5280,7 +5380,8 @@
                               <note xml:id="a54b2l1" dur="8" oct="4" pname="c" stem.dir="down" />
                               <note xml:id="b3taxkz" dur="8" oct="4" pname="d" stem.dir="down" />
                            </beam>
-                           <space xml:id="grthgtyr" dur="4" />
+                           <space xml:id="space.op1_03.m47.s4.l2" dur="4">
+                           </space>
                            <note xml:id="a54d2l1" dur="4" oct="4" pname="c" stem.dir="down" />
                         </layer>
                      </staff>
@@ -5987,7 +6088,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="jji8wqq" facs="#surface_97ed4abaf58c" />
+                  <pb xml:id="jji8wqq" facs="#surface_97ed4abaf58c" n="4" />
                   <measure xml:id="bd7vwez" n="54" facs="#zone_6cb1e54620794d13bc">
                      <harm xml:id="bsb00023199_00035_facs_zones_fb_1" staff="3" tstamp="4.5">
                         <fb>
@@ -7827,7 +7928,7 @@
                      </staff>
                      <trill xml:id="bsb00023199_00035_facs_zones_lz17ioj" staff="1" startid="#bsb00023199_00035_facs_zones_kcjbdyb" />
                   </measure>
-                  <pb xml:id="dzs6mdz1" />
+                  <pb xml:id="dzs6mdz1" facs="#surface_b8c36e4f2a91" n="5" />
                   <measure xml:id="o1gyp9vy" n="70" facs="#zone_b8c36e4f2a91_m70">
                      <harm xml:id="bsb00023199_00036_facs_zones_fb_1" staff="3" tstamp="3.5">
                         <fb>
@@ -7935,7 +8036,7 @@
                               </chord>
                               <chord xml:id="p1u9uvb" dur="8" stem.dir="up">
                                  <note xml:id="n1c0o820" oct="4" pname="f">
-                                    <accid xml:id="o3pgxd3" accid="s" accid.ges="s" />
+                                    <accid xml:id="o3pgxd3" accid="s" />
                                  </note>
                                  <note xml:id="q16gvwtu" oct="5" pname="c">
                                     <accid xml:id="rnq018g" />
@@ -8162,7 +8263,7 @@
                                  <accid xml:id="zz8che7" />
                               </note>
                               <note xml:id="athk3zv" dur="8" oct="3" pname="b" stem.dir="down">
-                                 <accid xml:id="b1c00qf2" accid="f" accid.ges="f" />
+                                 <accid xml:id="b1c00qf2" accid="f" />
                               </note>
                               <note xml:id="chwbzog" dur="8" oct="3" pname="a" stem.dir="down">
                                  <accid xml:id="dpf73po" />
@@ -8209,7 +8310,7 @@
                                  <accid xml:id="dn11fdd" />
                               </note>
                               <note xml:id="e1930tqd" dur="8" oct="3" pname="b" stem.dir="down">
-                                 <accid xml:id="farandq" accid="f" accid.ges="f" />
+                                 <accid xml:id="farandq" accid="f" />
                               </note>
                               <note xml:id="gdrgfku" dur="8" oct="3" pname="a" stem.dir="down">
                                  <accid xml:id="h15nbmlf" />
@@ -8344,7 +8445,7 @@
                                  <accid xml:id="h16p0rf5" />
                               </note>
                               <note xml:id="iqlj4ed" oct="4" pname="b">
-                                 <accid xml:id="j160m8kc" accid="n" accid.ges="n" func="caution" />
+                                 <accid xml:id="j160m8kc" accid="n" func="caution" />
                               </note>
                            </chord>
                            <rest xml:id="kcbg2a8" dur="8" />
@@ -8745,7 +8846,7 @@
                            </note>
                            <beam xml:id="q1gn0dno">
                               <note xml:id="r1ssod22" dur="8" oct="4" pname="b" stem.dir="up">
-                                 <accid xml:id="shfk8ye" accid="f" accid.ges="f" />
+                                 <accid xml:id="shfk8ye" accid="f" />
                               </note>
                               <note xml:id="u14ysdp9" dur="8" oct="4" pname="a" stem.dir="up">
                                  <accid xml:id="vum250z" />
@@ -8774,7 +8875,7 @@
                                  <accid xml:id="i1gnbkrr" />
                               </note>
                               <note xml:id="j1xyzpyw" dur="8" oct="4" pname="b" stem.dir="down">
-                                 <accid xml:id="k1nee1m" accid="f" accid.ges="f" />
+                                 <accid xml:id="k1nee1m" accid="f" />
                               </note>
                            </beam>
                            <beam xml:id="l161upy6">
@@ -8820,7 +8921,7 @@
                               <accid xml:id="k1cr5btm" />
                            </note>
                            <note xml:id="l118rp9q" dur="2" oct="4" pname="b" stem.dir="up">
-                              <accid xml:id="mmm6xix" accid="f" accid.ges="f" func="caution" />
+                              <accid xml:id="mmm6xix" accid="f" func="caution" />
                            </note>
                         </layer>
                         <layer xml:id="n1ecf312" n="2">
@@ -8837,7 +8938,7 @@
                                  <accid xml:id="uf90wks" />
                               </note>
                               <note xml:id="volcdvv" dur="8" oct="4" pname="b" stem.dir="down">
-                                 <accid xml:id="w1nbvw6l" accid="f" accid.ges="f" />
+                                 <accid xml:id="w1nbvw6l" accid="f" />
                               </note>
                            </beam>
                            <note xml:id="x7433r9" dur="2" oct="4" pname="g" stem.dir="down">
@@ -8931,7 +9032,7 @@
                            </beam>
                            <beam xml:id="n1zc1br">
                               <note xml:id="o1c24tw1" dur="8" oct="3" pname="b" stem.dir="down">
-                                 <accid xml:id="p1lu3jvh" accid="f" accid.ges="f" />
+                                 <accid xml:id="p1lu3jvh" accid="f" />
                               </note>
                               <note xml:id="qko247y" dur="8" oct="3" pname="a" stem.dir="down">
                                  <accid xml:id="r1rpeulh" />
@@ -8949,7 +9050,7 @@
                            </note>
                            <chord xml:id="f1evhy6m" dur="4" stem.dir="up">
                               <note xml:id="dop89uv" oct="4" pname="b" tie="i">
-                                 <accid xml:id="e1ob9t33" accid="f" accid.ges="f" />
+                                 <accid xml:id="e1ob9t33" accid="f" />
                               </note>
                               <note xml:id="hb1w8an" oct="5" pname="d">
                                  <accid xml:id="i1plqqhn" />
@@ -8989,7 +9090,7 @@
                                  <accid xml:id="d1su7fqz" />
                               </note>
                               <note xml:id="f1797zw0" dur="8" oct="3" pname="b" stem.dir="down">
-                                 <accid xml:id="g11uiwga" accid="f" accid.ges="f" />
+                                 <accid xml:id="g11uiwga" accid="f" />
                               </note>
                               <note xml:id="h13rvyrc" dur="8" oct="3" pname="a" stem.dir="down">
                                  <accid xml:id="igwnmcp" />
@@ -9032,7 +9133,7 @@
                               <accid xml:id="g1woc8yn" />
                            </note>
                            <note xml:id="h1gyzbrx" dur="4" oct="4" pname="b" stem.dir="down">
-                              <accid xml:id="i14arcom" accid="f" accid.ges="f" />
+                              <accid xml:id="i14arcom" accid="f" />
                            </note>
                         </layer>
                      </staff>
@@ -9042,7 +9143,7 @@
                               <accid xml:id="d15uefaq" />
                            </note>
                            <note xml:id="e1uz0jy" dur="4" oct="4" pname="e" stem.dir="down">
-                              <accid xml:id="f1a3sbxf" accid="f" accid.ges="f" />
+                              <accid xml:id="f1a3sbxf" accid="f" />
                            </note>
                            <note xml:id="g16g3gsl" dots="1" dur="4" oct="4" pname="d" stem.dir="down">
                               <accid xml:id="hr9c87s" />
@@ -9062,7 +9163,7 @@
                            </note>
                            <beam xml:id="h6i2qk5">
                               <note xml:id="i42qyvw" dur="8" oct="3" pname="b" stem.dir="down">
-                                 <accid xml:id="j9i5ma6" accid="f" accid.ges="f" />
+                                 <accid xml:id="j9i5ma6" accid="f" />
                               </note>
                               <note xml:id="k1o82mla" dur="8" oct="3" pname="a" stem.dir="down">
                                  <accid xml:id="l1bt4iyk" />
@@ -9090,7 +9191,7 @@
                               <accid xml:id="b30i6cy" />
                            </note>
                            <note xml:id="c44sr99" dur="4" oct="4" pname="b" stem.dir="up">
-                              <accid xml:id="d1w9u8kv" accid="f" accid.ges="f" />
+                              <accid xml:id="d1w9u8kv" accid="f" />
                            </note>
                         </layer>
                         <layer xml:id="f1awp2bj" n="2">
@@ -9107,7 +9208,7 @@
                               <accid xml:id="ocrsw16" />
                            </note>
                            <note xml:id="pacxi0v" dur="4" oct="4" pname="e" stem.dir="down">
-                              <accid xml:id="qq04pk0" accid="f" accid.ges="f" />
+                              <accid xml:id="qq04pk0" accid="f" />
                            </note>
                            <note xml:id="rcykee1" dur="2" oct="4" pname="d" stem.dir="down">
                               <accid xml:id="snpcew4" />
@@ -9124,7 +9225,7 @@
                            </note>
                            <beam xml:id="y1065zb6">
                               <note xml:id="z1w7zhax" dur="8" oct="3" pname="b" stem.dir="down">
-                                 <accid xml:id="a12ymtte" accid="f" accid.ges="f" />
+                                 <accid xml:id="a12ymtte" accid="f" />
                               </note>
                               <note xml:id="b16k0jus" dur="8" oct="3" pname="a" stem.dir="down">
                                  <accid xml:id="cxur8a7" />
@@ -9179,16 +9280,16 @@
                      <staff xml:id="t101fs4" n="2">
                         <layer xml:id="u3e7cm3" n="1">
                            <note xml:id="v1xcm4la" dur="4" oct="4" pname="c" stem.dir="down">
-                              <accid xml:id="w1lipc8t" accid="s" accid.ges="s" />
+                              <accid xml:id="w1lipc8t" accid="s" />
                            </note>
                            <note xml:id="xismzs5" dur="4" oct="4" pname="c" stem.dir="down">
-                              <accid xml:id="yuk11fb" accid="n" accid.ges="n" />
+                              <accid xml:id="yuk11fb" accid="n" />
                            </note>
                            <note xml:id="z12mrx96" dur="4" oct="3" pname="b" stem.dir="up">
                               <accid xml:id="a7qzgam" />
                            </note>
                            <note xml:id="bldv2ju" dur="4" oct="3" pname="b" stem.dir="up">
-                              <accid xml:id="c1q9yvek" accid="f" accid.ges="f" />
+                              <accid xml:id="c1q9yvek" accid="f" />
                            </note>
                         </layer>
                      </staff>
@@ -9198,13 +9299,13 @@
                               <accid xml:id="c1dsmn0w" />
                            </note>
                            <note xml:id="d94w45g" dur="4" oct="3" pname="f" stem.dir="down">
-                              <accid xml:id="e1q6r9ee" accid="s" accid.ges="s" />
+                              <accid xml:id="e1q6r9ee" accid="s" />
                            </note>
                            <note xml:id="fytna3o" dur="4" oct="3" pname="g" stem.dir="down">
                               <accid xml:id="gbjze6v" />
                            </note>
                            <note xml:id="haz5bit" dur="4" oct="3" pname="c" stem.dir="up">
-                              <accid xml:id="iwzva83" accid="s" accid.ges="s" />
+                              <accid xml:id="iwzva83" accid="s" />
                            </note>
                         </layer>
                      </staff>
@@ -9234,7 +9335,7 @@
                            </note>
                            <chord xml:id="kxxuhw2" dur="4" stem.dir="down">
                               <note xml:id="i1qdvhmv" oct="3" pname="b">
-                                 <accid xml:id="jeh3igk" accid="n" accid.ges="n" func="caution" />
+                                 <accid xml:id="jeh3igk" accid="n" func="caution" />
                               </note>
                               <note xml:id="l16abhn3" oct="4" pname="d">
                                  <accid xml:id="mbekjb1" />
@@ -9242,7 +9343,7 @@
                            </chord>
                            <chord xml:id="p1ydbgkd" dur="4" stem.dir="down">
                               <note xml:id="njiu14a" oct="3" pname="b">
-                                 <accid xml:id="o2di9tb" accid="f" accid.ges="f" />
+                                 <accid xml:id="o2di9tb" accid="f" />
                               </note>
                               <note xml:id="qbvbst4" oct="4" pname="e">
                                  <accid xml:id="r1dfpvg4" />
@@ -9256,13 +9357,13 @@
                               <accid xml:id="u1vstrjp" />
                            </note>
                            <note xml:id="v16wgfi5" dur="4" oct="3" pname="f" stem.dir="down">
-                              <accid xml:id="wif73ka" accid="s" accid.ges="s" />
+                              <accid xml:id="wif73ka" accid="s" />
                            </note>
                            <note xml:id="xmk28ow" dur="4" oct="3" pname="g" stem.dir="down">
                               <accid xml:id="y1n02qsr" />
                            </note>
                            <note xml:id="zjwjl9t" dur="4" oct="3" pname="c" stem.dir="up">
-                              <accid xml:id="anduatp" accid="s" accid.ges="s" />
+                              <accid xml:id="anduatp" accid="s" />
                            </note>
                         </layer>
                      </staff>
@@ -9332,7 +9433,7 @@
                               <accid xml:id="r1r5z7ya" />
                            </note>
                            <note xml:id="s165nfde" dur="4" oct="3" pname="g" stem.dir="up">
-                              <accid xml:id="t1jubiv8" accid="s" accid.ges="s" />
+                              <accid xml:id="t1jubiv8" accid="s" />
                            </note>
                            <note xml:id="u3wpmqf" dur="4" oct="3" pname="a" stem.dir="up" tie="i">
                               <accid xml:id="v1697355" />
@@ -9348,7 +9449,7 @@
                               <accid xml:id="y1ygkujr" />
                            </note>
                            <note xml:id="z1fnhtwy" dur="4" oct="3" pname="d" stem.dir="down">
-                              <accid xml:id="a12742ti" accid="s" accid.ges="s" />
+                              <accid xml:id="a12742ti" accid="s" />
                            </note>
                         </layer>
                      </staff>
@@ -9362,7 +9463,7 @@
                            </note>
                            <chord xml:id="t1o6da1f" dur="4" stem.dir="up">
                               <note xml:id="rqc5cfc" oct="3" pname="b">
-                                 <accid xml:id="s9tvzv2" accid="n" accid.ges="n" func="caution" />
+                                 <accid xml:id="s9tvzv2" accid="n" func="caution" />
                               </note>
                               <note xml:id="uz0f7l7" oct="4" pname="e">
                                  <accid xml:id="vd1rpvk" />
@@ -9390,7 +9491,7 @@
                            <space xml:id="f1lm7et2" dur="4" />
                            <space xml:id="gacnm2g" dur="4" />
                            <note xml:id="h16gfo3e" dur="4" oct="3" pname="g" stem.dir="up">
-                              <accid xml:id="i18bgg7c" accid="s" accid.ges="s" />
+                              <accid xml:id="i18bgg7c" accid="s" />
                            </note>
                            <note xml:id="j66cuki" dur="4" oct="3" pname="a" stem.dir="up">
                               <accid xml:id="kl02113" />
@@ -9404,7 +9505,7 @@
                               <accid xml:id="qqfvcmr" />
                            </note>
                            <note xml:id="r14bppqw" dur="4" oct="3" pname="d" stem.dir="down">
-                              <accid xml:id="sa3hnjd" accid="s" accid.ges="s" />
+                              <accid xml:id="sa3hnjd" accid="s" />
                            </note>
                         </layer>
                      </staff>
@@ -9465,7 +9566,7 @@
                                  <accid xml:id="javf1pf" />
                               </note>
                               <note xml:id="klds6gj" dur="8" oct="3" pname="g" stem.dir="up">
-                                 <accid xml:id="l16qa1bx" accid="s" accid.ges="s" />
+                                 <accid xml:id="l16qa1bx" accid="s" />
                               </note>
                               <note xml:id="mma48zb" dur="8" oct="3" pname="a" stem.dir="up">
                                  <accid xml:id="n10zh343" />
@@ -9485,7 +9586,7 @@
                                  <accid xml:id="w1ag1e7n" />
                               </note>
                               <note xml:id="x1ey90nc" dur="16" oct="3" pname="g" stem.dir="up">
-                                 <accid xml:id="y1itwukc" accid="s" accid.ges="s" func="caution" />
+                                 <accid xml:id="y1itwukc" accid="s" func="caution" />
                               </note>
                            </beam>
                         </layer>
@@ -9513,7 +9614,7 @@
                               <accid xml:id="l1a3ymy2" />
                            </note>
                            <note xml:id="mebyj05" dur="2" oct="3" pname="g" stem.dir="up">
-                              <accid xml:id="n1an0s6l" accid="s" accid.ges="s" />
+                              <accid xml:id="n1an0s6l" accid="s" />
                            </note>
                         </layer>
                         <layer xml:id="o1f2y5jr" n="6">
@@ -9737,7 +9838,7 @@
                      <staff xml:id="ias3235" n="1">
                         <layer xml:id="j1yexbg2" n="1">
                            <note xml:id="kt9lmko" dur="4" oct="4" pname="g" stem.dir="up">
-                              <accid xml:id="l1wm0p68" accid="s" accid.ges="s" />
+                              <accid xml:id="l1wm0p68" accid="s" />
                            </note>
                            <note xml:id="m1y4zyuw" dur="4" oct="4" pname="e" stem.dir="up">
                               <accid xml:id="nscdie7" />
@@ -9781,7 +9882,7 @@
                                  <accid xml:id="e13ytpgt" />
                               </note>
                               <note xml:id="f8wack9" oct="4" pname="g">
-                                 <accid xml:id="g6w39fb" accid="s" accid.ges="s" />
+                                 <accid xml:id="g6w39fb" accid="s" />
                               </note>
                            </chord>
                            <rest xml:id="hkpbx7y" dur="4" />
@@ -10334,7 +10435,7 @@
                               <accid xml:id="j185zrcd" />
                            </note>
                            <note xml:id="ky7rjdb" dur="4" oct="3" pname="g" stem.dir="up">
-                              <accid xml:id="l9rewj4" accid="s" accid.ges="s" />
+                              <accid xml:id="l9rewj4" accid="s" />
                            </note>
                         </layer>
                      </staff>
@@ -10356,7 +10457,7 @@
                               <accid xml:id="splaqkz" />
                            </note>
                            <note xml:id="tkibj8h" dur="4" oct="3" pname="g" stem.dir="down">
-                              <accid xml:id="uhpxo4q" accid="s" accid.ges="s" />
+                              <accid xml:id="uhpxo4q" accid="s" />
                            </note>
                         </layer>
                      </staff>
@@ -10661,7 +10762,7 @@
                               <accid xml:id="lj9o8at" />
                            </note>
                            <note xml:id="mgnlqno" dur="4" oct="4" pname="g" stem.dir="up">
-                              <accid xml:id="n1i4fy7r" accid="s" accid.ges="s" />
+                              <accid xml:id="n1i4fy7r" accid="s" />
                            </note>
                            <note xml:id="o1foxmha" dur="4" oct="4" pname="a" stem.dir="up">
                               <accid xml:id="p9dj1p3" />
@@ -10744,7 +10845,7 @@
                               <accid xml:id="k1q4xblg" />
                            </note>
                            <note xml:id="l10yuoo2" dur="4" oct="4" pname="f" stem.dir="up">
-                              <accid xml:id="m10dk8wy" accid="s" accid.ges="s" />
+                              <accid xml:id="m10dk8wy" accid="s" />
                            </note>
                            <note xml:id="n16wd3oc" dur="4" oct="4" pname="g" stem.dir="up">
                               <accid xml:id="oqxheap" />
@@ -10786,7 +10887,7 @@
                               <accid xml:id="gdo69pq" />
                            </note>
                            <note xml:id="hqikzv1" dur="4" oct="5" pname="f" stem.dir="down" tie="i">
-                              <accid xml:id="it80suf" accid="s" accid.ges="s" />
+                              <accid xml:id="it80suf" accid="s" />
                            </note>
                         </layer>
                      </staff>
@@ -10830,7 +10931,7 @@
                               <accid xml:id="l4c4wk" />
                            </note>
                            <note xml:id="mi51l8k" dur="4" oct="4" pname="f" stem.dir="up">
-                              <accid xml:id="n10h5j3" accid="s" accid.ges="s" />
+                              <accid xml:id="n10h5j3" accid="s" />
                            </note>
                         </layer>
                         <layer xml:id="p92o6xu" n="2">
@@ -10863,7 +10964,7 @@
                            <note xml:id="v1ide4ov" dots="1" dur="4" oct="5" pname="f" stem.dir="down" tie="t">
                               </note>
                            <note xml:id="xi69pgf" dur="8" oct="5" pname="f" stem.dir="down">
-                              <accid xml:id="y1hg7ti0" accid="s" accid.ges="s" func="caution" />
+                              <accid xml:id="y1hg7ti0" accid="s" func="caution" />
                            </note>
                            <note xml:id="z1my7qde" dur="4" oct="5" pname="e" stem.dir="down">
                               <accid xml:id="a1b4qfpy" />
@@ -10907,7 +11008,7 @@
                               <accid xml:id="iaf2zz6" />
                            </note>
                            <note xml:id="j1awxlr8" dur="4" oct="4" pname="d" stem.dir="up">
-                              <accid xml:id="kzotc3d" accid="s" accid.ges="s" />
+                              <accid xml:id="kzotc3d" accid="s" />
                            </note>
                            <note xml:id="l1bgb3s" dur="4" oct="4" pname="e" stem.dir="up">
                               <accid xml:id="m186cyx4" />
@@ -10949,7 +11050,7 @@
                               <accid xml:id="q1931y94" />
                            </note>
                            <note xml:id="r1woh4o1" dur="4" oct="5" pname="d" stem.dir="down">
-                              <accid xml:id="s1n8f5nf" accid="s" accid.ges="s" />
+                              <accid xml:id="s1n8f5nf" accid="s" />
                            </note>
                         </layer>
                      </staff>
@@ -10957,7 +11058,7 @@
                         <layer xml:id="spmklwk" n="1">
                            <beam xml:id="t1n1drmf">
                               <note xml:id="u60ojry" dur="8" oct="3" pname="f" stem.dir="up">
-                                 <accid xml:id="vtw40k5" accid="s" accid.ges="s" />
+                                 <accid xml:id="vtw40k5" accid="s" />
                               </note>
                               <note xml:id="w1tjt6av" dur="8" oct="3" pname="e" stem.dir="up">
                                  <accid xml:id="xwpfsjv" />
@@ -10980,7 +11081,7 @@
                      <staff xml:id="odsukfe" n="3">
                         <layer xml:id="pm7vp2s" n="1">
                            <note xml:id="q15zcxvc" dots="1" dur="2" oct="3" pname="f" stem.dir="up">
-                              <accid xml:id="r1joms7t" accid="s" accid.ges="s" />
+                              <accid xml:id="r1joms7t" accid="s" />
                            </note>
                         </layer>
                      </staff>
@@ -10990,10 +11091,10 @@
                               <accid xml:id="h8fp05v" />
                            </note>
                            <note xml:id="ie3pvga" dur="4" oct="4" pname="c" stem.dir="up">
-                              <accid xml:id="j1oidbti" accid="s" accid.ges="s" />
+                              <accid xml:id="j1oidbti" accid="s" />
                            </note>
                            <note xml:id="k1pj8xea" dur="4" oct="4" pname="d" stem.dir="up">
-                              <accid xml:id="l9ic5op" accid="s" accid.ges="s" />
+                              <accid xml:id="l9ic5op" accid="s" />
                            </note>
                         </layer>
                      </staff>
@@ -11001,7 +11102,7 @@
                         <layer xml:id="m9q39un" n="1">
                            <chord xml:id="p13vpdrq" dots="1" dur="2" stem.dir="down">
                               <note xml:id="n1bzmdzd" oct="3" pname="f">
-                                 <accid xml:id="o1sinz59" accid="s" accid.ges="s" />
+                                 <accid xml:id="o1sinz59" accid="s" />
                               </note>
                               <note xml:id="q1ggdxqw" oct="3" pname="a">
                                  <accid xml:id="r1mnq0f1" />
@@ -11010,7 +11111,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="vt9enmx" facs="#surface_cd3e37a6c365" />
+                  <pb xml:id="vt9enmx" facs="#surface_cd3e37a6c365" n="6" />
                   <measure xml:id="n1p54iu2" n="100" facs="#zone_8066882bb06643b1b1">
                      <staff xml:id="wp6fwgj" n="1">
                         <layer xml:id="xxm7ibw" n="1">
@@ -11791,7 +11892,7 @@
                               <note xml:id="u5i6wkl" dur="8" oct="3" pname="b" stem.dir="up" />
                               <note xml:id="vdbfbn2" dur="8" oct="3" pname="g" stem.dir="up" />
                               <note xml:id="w1chlak0" dur="8" oct="3" pname="e" stem.dir="up" />
-                              <note xml:id="x1ixt1ma" dur="8" oct="4" pname="e" stem.dir="up" tie="i" />
+                              <note xml:id="x1ixt1ma" dur="8" oct="4" pname="e" stem.dir="up" />
                            </beam>
                         </layer>
                      </staff>
@@ -11846,7 +11947,7 @@
                      <staff xml:id="i128nyrn" n="2">
                         <layer xml:id="j89r4x8" n="1">
                            <beam xml:id="ehldspm">
-                              <note xml:id="k5d2ru" dur="8" oct="4" pname="e" stem.dir="down" tie="t" />
+                              <note xml:id="k5d2ru" dur="8" oct="4" pname="e" stem.dir="down" />
                               <note xml:id="k5zm2ru" dur="8" oct="4" pname="f" stem.dir="down" />
                            </beam>
                            <note xml:id="l1q5t87v" dur="2" oct="4" pname="d" stem.dir="down" />
@@ -12667,7 +12768,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="h1356nrw" facs="#surface_6775412fae96" />
+                  <pb xml:id="h1356nrw" facs="#surface_6775412fae96" n="7" />
                   <measure xml:id="z1tp892t" n="132" facs="#zone_43d59fde78274afdb4">
                      <staff xml:id="ixutmux" n="1">
                         <layer xml:id="j1gb07aa" n="1">
@@ -14383,7 +14484,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="a1ynlxs0" facs="#surface_a73bc2a5ac12" />
+                  <pb xml:id="a1ynlxs0" facs="#surface_a73bc2a5ac12" n="8" />
                   <measure xml:id="s1mr2b8t" n="164" facs="#zone_f0f1c040e4f54d1d80">
                      <staff xml:id="b1ti3d27" n="1">
                         <layer xml:id="c8213vb" n="1">
@@ -15026,7 +15127,7 @@
                            <rest xml:id="iwnu9sm" dur="4" />
                         </layer>
                      </staff>
-                     <slur xml:id="fdsgeg" startid="angtun4" endid="bm5wgql" />
+                     <slur xml:id="fdsgeg" startid="#angtun4" endid="#bm5wgql" />
                   </measure>
                   <measure xml:id="e1pc9to6" n="177" facs="#zone_ec79455c03184cc0b2">
                      <harm xml:id="bsb00023199_00039_facs_zones_fb_11" staff="3" tstamp="1">
@@ -15192,7 +15293,7 @@
                            <rest xml:id="xzaxq5y" dur="4" />
                         </layer>
                      </staff>
-                     <slur xml:id="fsdgfdgf" startid="q19qghv0" endid="q19qdsv0" />
+                     <slur xml:id="fsdgfdgf" startid="#q19qghv0" endid="#q19qdsv0" />
                   </measure>
                   <sb xml:id="i14l59l2" />
                   <measure xml:id="z1mr1tmt" n="180" facs="#zone_c8804d3319bc430aaf">
@@ -15252,7 +15353,7 @@
                            <rest xml:id="u1oxbsh2" dur="4" />
                         </layer>
                      </staff>
-                     <slur xml:id="fsdggfgf" startid="lo9ri1z" endid="msbumgt" />
+                     <slur xml:id="fsdggfgf" startid="#lo9ri1z" endid="#msbumgt" />
                   </measure>
                   <measure xml:id="qfad5is" n="181" facs="#zone_71a2c15a35aa4512b0">
                      <staff xml:id="z19qittu" n="1">
@@ -15690,7 +15791,7 @@
                      <fermata xml:id="vls7bwk" staff="4" startid="#uagrp86" form="norm" place="above" />
                      <fermata xml:id="bbn15ph" staff="5" startid="#a16ud2lj" form="inv" place="below" />
                   </measure>
-                  <pb xml:id="o1rodtf3" facs="#surface_a73bc2a5ac12" />
+                  <sb xml:id="o1rodtf3" />
                   <scoreDef xml:id="pho73wp">
                      <meterSig xml:id="q15cqol1" count="4" sym="common" unit="4" />
                   </scoreDef>
@@ -15955,7 +16056,7 @@
                            <note xml:id="o1fl9m54" dur="4" oct="4" pname="f" stem.dir="down" tie="i">
                               <accid xml:id="ar8voyb" accid="s" />
                            </note>
-                           <note xml:id="q15krqei" dur="2" oct="4" pname="f" stem.dir="down" accid.ges="s" tie="m" />
+                           <note xml:id="q15krqei" dur="2" oct="4" pname="f" stem.dir="down" accid.ges="s" tie="t" />
                         </layer>
                      </staff>
                      <staff xml:id="bmae17i" n="5">
@@ -15970,10 +16071,10 @@
                            </note>
                         </layer>
                      </staff>
-                     <slur xml:id="a1p8pvzg" startid="yeizi69" endid="f1xokac7" />
-                     <slur xml:id="kvu0iu5" startid="i2lb45q" endid="p92ac0e" />
+                     <slur xml:id="a1p8pvzg" startid="#yeizi69" endid="#f1xokac7" />
+                     <slur xml:id="kvu0iu5" startid="#i2lb45q" endid="#p92ac0e" />
                      <tie xml:id="xkrchfy" startid="#v1ufnabj" endid="#k1iqt627" />
-                     <tie xml:id="t248fdsc" startid="#q15krqei" endid="#blaxr9l" />
+                     <tie xml:id="t248fdsc" startid="#q15krqei" endid="#blaxr9l" curvedir="below" />
                   </measure>
                   <measure xml:id="rgrngha" n="192" facs="#zone_e96cee1edf0242118d">
                      <harm xml:id="bsb00023199_00039_facs_zones_fb_39" staff="3" tstamp="1">
@@ -16066,7 +16167,7 @@
                            </chord>
                         </layer>
                         <layer xml:id="aipznnc" n="2">
-                           <note xml:id="blaxr9l" dur="4" oct="4" pname="f" stem.dir="down" tie="t" />
+                           <note xml:id="blaxr9l" dur="4" oct="4" pname="f" stem.dir="down" />
                            <note xml:id="c4rhv2" dur="4" oct="4" pname="e" stem.dir="down" tie="i" />
                            <note xml:id="dvzjd0k" dur="4" oct="4" pname="e" stem.dir="down" tie="t" />
                            <space xml:id="gjeurhei" dur="4" />
@@ -16087,7 +16188,7 @@
                         </layer>
                      </staff>
                      <slur xml:id="e13pziri" startid="#d151y09b" endid="#h1jtkwl2" />
-                     <slur xml:id="mo02853" startid="#kynjcfx" endid="q127jmlb" />
+                     <slur xml:id="mo02853" startid="#kynjcfx" endid="#q127jmlb" />
                      <slur xml:id="o17h8d9l" startid="#m195are3" endid="#q3b12bi" />
                      <slur xml:id="t248hpc" startid="#s1s23419" endid="#x9z3ms2" />
                   </measure>
@@ -16207,12 +16308,12 @@
                            <note xml:id="q1x6nqu9" dur="4" oct="3" pname="e" stem.dir="down" />
                         </layer>
                      </staff>
-                     <slur xml:id="lryfdsd" startid="d15hgdhb" endid="h1jtdfh2" />
-                     <slur xml:id="lrfds0d" startid="kynhdfghx" endid="q1dghfglb" />
+                     <slur xml:id="lryfdsd" startid="#d15hgdhb" endid="#h1jtdfh2" />
+                     <slur xml:id="lrfds0d" startid="#kynhdfghx" endid="#q1dghfglb" />
                      <slur xml:id="lrycm0d" startid="#k9hubhh" endid="#p13li9dm" />
                      <slur xml:id="u16n16pv" startid="#s4jj46m" endid="#y1hu000r" />
                   </measure>
-                  <pb xml:id="srvy0y8" facs="#surface_cba3a620fff5" />
+                  <pb xml:id="srvy0y8" facs="#surface_cba3a620fff5" n="9" />
                   <measure xml:id="u1x1fifa" metcon="false" n="194" facs="#zone_d605dd286e8845b0ae">
                      <harm xml:id="bsb00023199_00040_facs_zones_fb_1" staff="3" tstamp="1">
                         <fb>
@@ -16322,8 +16423,8 @@
                            <note xml:id="drihoob" dur="4" oct="3" pname="a" stem.dir="down" />
                         </layer>
                      </staff>
-                     <slur xml:id="kwlmxdt" startid="#i1a98u4p" endid="p2zbrpk" />
-                     <slur xml:id="w1wlqnxa" startid="s1c6yof2" endid="#z1ogma96" />
+                     <slur xml:id="kwlmxdt" startid="#i1a98u4p" endid="#p2zbrpk" />
+                     <slur xml:id="w1wlqnxa" startid="#s1c6yof2" endid="#z1ogma96" />
                      <tie xml:id="f16zmqyc" startid="#e1cu5rhb" endid="#s1r8x67p" />
                      <tie xml:id="boy50yv" startid="#ailz9gk" endid="#cdsh4b" />
                      <tie xml:id="e18g9gh8" startid="#drihoob" endid="#i1pktcdc" curvedir="below" />
@@ -16428,8 +16529,8 @@
                      </staff>
                      <slur xml:id="i10w31lk" startid="#g1i9rz76" endid="#m1td3wen" />
                      <slur xml:id="pfcnvg8" startid="#oexrss2" endid="#tjk5r2z" />
-                     <slur xml:id="o1jb02nk" startid="#n16t7u78" endid="r1qyhw6u" />
-                     <slur xml:id="v1mbrgk" startid="t8chxvf" endid="#y65hibj" />
+                     <slur xml:id="o1jb02nk" startid="#n16t7u78" endid="#r1qyhw6u" />
+                     <slur xml:id="v1mbrgk" startid="#t8chxvf" endid="#y65hibj" />
                   </measure>
                   <measure xml:id="wxsau4l" n="196" facs="#zone_fee830d583964ecfab">
                      <harm xml:id="bsb00023199_00040_facs_zones_fb_8" staff="3" tstamp="1">
@@ -16552,10 +16653,10 @@
                            </note>
                         </layer>
                      </staff>
-                     <slur xml:id="j19d6ly0" startid="#ieh4wvw" endid="n7l5exl" />
-                     <slur xml:id="sqkay4d" startid="#q184dnq1" endid="x1n0i65c" />
-                     <slur xml:id="o1ri9eje" startid="#n1vpdnvl" endid="r1d9h7cs" />
-                     <slur xml:id="v3u7edr" startid="#tid74up" endid="a1d7hc01" />
+                     <slur xml:id="j19d6ly0" startid="#ieh4wvw" endid="#n7l5exl" />
+                     <slur xml:id="sqkay4d" startid="#q184dnq1" endid="#x1n0i65c" />
+                     <slur xml:id="o1ri9eje" startid="#n1vpdnvl" endid="#r1d9h7cs" />
+                     <slur xml:id="v3u7edr" startid="#tid74up" endid="#a1d7hc01" />
                   </measure>
                   <measure xml:id="z1xnwpcr" n="197" facs="#zone_f2ae3af30a7d40719b">
                      <harm xml:id="bsb00023199_00040_facs_zones_fb_12" staff="3" tstamp="1">
@@ -16702,7 +16803,7 @@
                      </staff>
                      <fermata xml:id="i1d0ap7c" staff="1" startid="#hahz6mx" form="norm" place="above" />
                      <fermata xml:id="m8wy1tf" staff="2" startid="#l17tzhke" form="norm" place="above" />
-                     <fermata xml:id="m8wfd1tf" staff="3" startid="u1ra9n9r" form="norm" place="above" />
+                     <fermata xml:id="m8wfd1tf" staff="3" startid="#u1ra9n9r" form="norm" place="above" />
                      <fermata xml:id="s9fme8o" staff="4" startid="#r1avi9y6" form="norm" place="above" />
                      <fermata xml:id="y14ln8wl" staff="5" startid="#wbicvqc" form="inv" place="below" />
                   </measure>
@@ -18341,7 +18442,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="t18ww8zr" facs="#surface_ccf4b65a0e4f" />
+                  <pb xml:id="t18ww8zr" facs="#surface_ccf4b65a0e4f" n="10" />
                   <measure xml:id="l1wyxm03" n="213" facs="#zone_b9f0d6d69a714ca6b6">
                      <harm xml:id="bsb00023199_00041_facs_zones_fb_1" staff="3" tstamp="2.5">
                         <fb>
@@ -20329,7 +20430,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="w114k72c" facs="#surface_fdfbac86dafd" />
+                  <pb xml:id="w114k72c" facs="#surface_fdfbac86dafd" n="11" />
                   <measure xml:id="o1b0l915" n="229" facs="#zone_323bef209e094928b9">
                      <harm xml:id="bsb00023199_00042_facs_zones_fb_1" staff="3" tstamp="1.5">
                         <fb>
@@ -21308,7 +21409,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="h1ge49ds" facs="#surface_fdfbac86dafd" />
+                  <sb xml:id="h1ge49ds" />
                   <measure xml:id="xllptwm" n="237" facs="#zone_6abbb262253c4a5585">
                      <harm xml:id="bsb00023199_00042_facs_zones_fb_34" staff="3" tstamp="1">
                         <fb>
@@ -22310,8 +22411,8 @@
                         </layer>
                      </staff>
                      <fermata xml:id="y1esbxy5" staff="1" startid="#xp15vdz" form="norm" place="above" />
-                     <fermata xml:id="y1esgfdg5" staff="2" startid="o6i6zlw" form="norm" place="above" />
-                     <fermata xml:id="yfdfgg5" staff="3" startid="l31eimt" form="norm" place="above" />
+                     <fermata xml:id="y1esgfdg5" staff="2" startid="#o6i6zlw" form="norm" place="above" />
+                     <fermata xml:id="yfdfgg5" staff="3" startid="#l31eimt" form="norm" place="above" />
                      <fermata xml:id="b1u7xp70" staff="4" startid="#afao4g9" form="norm" place="above" />
                      <fermata xml:id="g9raxt3" staff="5" startid="#f1bkhljf" form="inv" place="below" />
                   </measure>
