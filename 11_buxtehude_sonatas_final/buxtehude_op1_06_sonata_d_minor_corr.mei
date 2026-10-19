@@ -1,16 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://music-encoding.org/schema/5.1/mei-all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://music-encoding.org/schema/5.1/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1">
-   <meiHead xml:id="mn34hmm">
+<?xml-model href="https://music-encoding.org/schema/5.1/mei-CMN.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://music-encoding.org/schema/5.1/mei-CMN.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1+CMN">
+   <meiHead xml:lang="en" xml:id="mn34hmm">
+      <altId type="repository-stem">op1_06_sonata_d_minor</altId>
       <fileDesc xml:id="f14ssf46">
          <titleStmt xml:id="t3vr81f">
-            <title />
-            <respStmt />
+            <title>Sonata VI in D minor, Op. I</title>
+            <composer>
+               <persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
+            </composer>
+            <respStmt xml:id="resp.camat">
+               <resp>MEI encoding and sonata-level assembly</resp>
+               <corpName>CAMAT</corpName>
+            </respStmt>
+            <respStmt xml:id="resp.zhou">
+               <resp>OMR correction</resp>
+               <persName>You Zhou</persName>
+            </respStmt>
+            <respStmt xml:id="resp.polyakov">
+               <resp>OMR correction, editorial review, and metadata</resp>
+               <persName>Egor Polyakov</persName>
+            </respStmt>
          </titleStmt>
+         <editionStmt>
+            <edition n="0.1.0">Working digital edition</edition>
+         </editionStmt>
          <pubStmt xml:id="pnn4wro">
+            <publisher>CAMAT Corpus Editions</publisher>
+            <date isodate="2026-10-19" type="last-updated">2026-10-19</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
+            <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_06_sonata_d_minor_corr.mei</identifier>
+            <availability>
+               <useRestrict>MEI data released under the <ref target="https://spdx.org/licenses/MIT.html">MIT License</ref>.</useRestrict>
+            </availability>
          </pubStmt>
+         <sourceDesc>
+            <source xml:id="src.ddt1903" type="printed-edition">
+               <bibl>
+                  <title>Dietrich Buxtehudes Instrumentalwerke: Sonaten für Violine, Gambe und Cembalo</title>
+                  <title type="series">Denkmäler deutscher Tonkunst, first series, vol. 11</title>
+                  <composer>Dietrich Buxtehude</composer>
+                  <editor>
+                     <persName auth="GND" auth.uri="https://d-nb.info/gnd/117245674" codedval="117245674">Carl Stiehl</persName>
+                  </editor>
+                  <imprint>
+                     <pubPlace>Leipzig</pubPlace>
+                     <publisher>Breitkopf und Härtel</publisher>
+                     <date isodate="1903">1903</date>
+                  </imprint>
+                  <identifier type="URN">urn:nbn:de:bvb:12-bsb00023199-0</identifier>
+                  <identifier type="BSB-ID">991009385569707356</identifier>
+                  <identifier type="BV">BV035347306</identifier>
+                  <identifier type="OCLC">775063768</identifier>
+                  <physLoc>
+                     <repository>Hochschule für Musik und Theater München, Bibliothek</repository>
+                     <identifier type="shelfmark">N2/X 1 DDT, 11</identifier>
+                  </physLoc>
+                  <ref type="digital-facsimile" target="https://digitale-sammlungen.de/en/view/bsb00023199">BSB digital facsimile</ref>
+                  <ref type="iiif-manifest" target="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/manifest">IIIF Presentation manifest</ref>
+                  <biblScope unit="page" from="55" to="65">pp. 55-65</biblScope>
+                  <availability>
+                     <useRestrict>Digital facsimile supplied by the Bayerische Staatsbibliothek under <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</ref>.</useRestrict>
+                  </availability>
+               </bibl>
+            </source>
+         </sourceDesc>
       </fileDesc>
       <encodingDesc xml:id="e1ymqyhb">
          <appInfo xml:id="a1f0uche">
@@ -23,11 +78,44 @@
                <p xml:id="pnacv7l2">First edit by mei-friend 1.2.9.</p>
             </application>
          </appInfo>
+         <editorialDecl>
+            <p>This is a working corrected digital edition based on DdT 1903. Only DdT 1903 was consulted for this sonata; no comparison with the Uppsala Op. I witness through the STIMU 1991 facsimile is claimed. OMR and conversion errors are corrected against the DdT facsimile. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
+            <p>The staff arrangement and keyboard realization printed in DdT are retained. Staff 1 is violin; staff 2 is viola da gamba; staff 3 is the figured continuo bass; staves 4 and 5 are the upper and lower staves of the printed keyboard realization. The realization is distinguished from the figured continuo bass when defining an analytical view.</p>
+            <p>Worded dynamics such as Forte and Piano are encoded as dynam, even where DdT uses the bold type of tempo markings. Their source wording and placement are retained. A local encoding note records the classification of these markings.</p>
+            <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
+         </editorialDecl>
+         <projectDesc>
+            <p>This edition was prepared by CAMAT Corpus Editions as part of a DFG-funded corpus for music-analysis technologies (grant PF 669/18-1).</p>
+         </projectDesc>
       </encodingDesc>
+      <workList>
+         <work xml:id="work.buxwv257">
+            <identifier type="BuxWV">BuxWV 257</identifier>
+            <title>Sonata VI in D minor, Op. I</title>
+            <composer>
+               <persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
+            </composer>
+            <key pname="d" mode="minor">D minor</key>
+            <perfMedium>
+               <perfResList>
+                  <perfRes>Violin</perfRes>
+                  <perfRes>Viola da gamba</perfRes>
+                  <perfRes>Harpsichord</perfRes>
+               </perfResList>
+            </perfMedium>
+         </work>
+      </workList>
+      <revisionDesc>
+         <change isodate="2026-10-19" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Completed working-edition, work, source, license, responsibility, and staff-role metadata. The editor confirmed DdT 1903 as the sole consulted source; correction credits follow the repository history. Retained the original encoding date and software history. Added persistent IDs to 285 figured-bass events, three chords, and four layers. Linked the eleven original pages to their BSB IIIF canvases and numbered their page breaks. After facsimile comparison, changed the repeated page breaks before measures 26, 53, 61, 72, 97, and 128 to system breaks, retaining their IDs. Classified 50 existing Forte/Piano markings as dynamics instead of general directions or tempos and documented that convention in an encoding note. Pitches, durations, voices, ties, slurs, source wording, and existing event IDs were retained.</p>
+            </changeDesc>
+         </change>
+      </revisionDesc>
    </meiHead>
    <music>
       <facsimile>
-         <surface xml:id="surface_6643c8493724" n="1" ulx="0" uly="0" lrx="4133" lry="5494">
+         <surface xml:id="surface_6643c8493724" n="1" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/65">
             <graphic xml:id="graphic_6643c8493724" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00065/full/4134,/0/default.jpg" width="4134" height="5495" />
             <zone xml:id="zone_55645c0221264cd4b0" type="measure" ulx="802" uly="879" lrx="1646" lry="2282" n="1" />
             <zone xml:id="zone_2150d6299f3c4a65b5" type="measure" ulx="1563" uly="892" lrx="2104" lry="2270" n="2" />
@@ -43,7 +131,7 @@
             <zone xml:id="zone_219514fa0df44142bb" type="measure" ulx="1992" uly="3679" lrx="2919" lry="5156" n="12" />
             <zone xml:id="zone_0dbedc66d9b946f6a9" type="measure" ulx="2847" uly="3724" lrx="3777" lry="5149" n="13" />
          </surface>
-         <surface xml:id="surface_21c65b861a3e" n="2" ulx="0" uly="0" lrx="4133" lry="5522">
+         <surface xml:id="surface_21c65b861a3e" n="2" ulx="0" uly="0" lrx="4133" lry="5522" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/66">
             <graphic xml:id="graphic_21c65b861a3e" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00066/full/4134,/0/default.jpg" width="4134" height="5523" />
             <zone xml:id="zone_0ea2e40a15814d61a6" type="measure" ulx="297" uly="444" lrx="1376" lry="1646" n="14" />
             <zone xml:id="zone_b7129b1409594e83b8" type="measure" ulx="1297" uly="464" lrx="2264" lry="1638" n="15" />
@@ -62,7 +150,7 @@
             <zone xml:id="zone_3717d7ae25fd408cbd" type="measure" ulx="2215" uly="4043" lrx="3111" lry="5294" n="28" />
             <zone xml:id="zone_449496f847f041a98f" type="measure" ulx="3033" uly="4064" lrx="3913" lry="5300" n="29" />
          </surface>
-         <surface xml:id="surface_4d6de07d31e5" n="3" ulx="0" uly="0" lrx="4133" lry="5494">
+         <surface xml:id="surface_4d6de07d31e5" n="3" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/67">
             <graphic xml:id="graphic_4d6de07d31e5" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00067/full/4134,/0/default.jpg" width="4134" height="5495" />
             <zone xml:id="zone_69b191271e6b492aa0" type="measure" ulx="167" uly="340" lrx="1240" lry="1523" n="30" />
             <zone xml:id="zone_7ea67830b173402588" type="measure" ulx="1174" uly="349" lrx="2055" lry="1501" n="31" />
@@ -81,7 +169,7 @@
             <zone xml:id="zone_e6d4eef49c7f476baa" type="measure" ulx="1472" uly="3905" lrx="2684" lry="5156" n="44" />
             <zone xml:id="zone_bcdab695a8c34a19ba" type="measure" ulx="2605" uly="3905" lrx="3725" lry="5162" n="45" />
          </surface>
-         <surface xml:id="surface_17d7fa7b0178" n="4" ulx="0" uly="0" lrx="4133" lry="5522">
+         <surface xml:id="surface_17d7fa7b0178" n="4" ulx="0" uly="0" lrx="4133" lry="5522" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/68">
             <graphic xml:id="graphic_17d7fa7b0178" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00068/full/4134,/0/default.jpg" width="4134" height="5523" />
             <zone xml:id="zone_42ab176042bd4f46bd" type="measure" ulx="275" uly="398" lrx="1302" lry="1624" n="46" />
             <zone xml:id="zone_6561e88e26234c0080" type="measure" ulx="1228" uly="415" lrx="2076" lry="1601" n="47" />
@@ -95,7 +183,7 @@
             <zone xml:id="zone_560e7ea6991142cb8b" type="measure" ulx="289" uly="4061" lrx="2235" lry="5260" n="55" />
             <zone xml:id="zone_fbcb553413384f50a5" type="measure" ulx="2142" uly="4079" lrx="3906" lry="5256" n="56" />
          </surface>
-         <surface xml:id="surface_2f6e105e46be" n="5" ulx="0" uly="0" lrx="4133" lry="5494">
+         <surface xml:id="surface_2f6e105e46be" n="5" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/69">
             <graphic xml:id="graphic_2f6e105e46be" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00069/full/4134,/0/default.jpg" width="4134" height="5495" />
             <zone xml:id="zone_2c6148ce88ee46e5af" type="measure" ulx="166" uly="370" lrx="2088" lry="1512" n="57" />
             <zone xml:id="zone_ed5e1fa99d1b40e194" type="measure" ulx="2004" uly="369" lrx="3774" lry="1505" n="58" />
@@ -109,7 +197,7 @@
             <zone xml:id="zone_ad52b9a832004fd985" type="measure" ulx="165" uly="3977" lrx="2068" lry="5193" n="66" />
             <zone xml:id="zone_44e82af3f18a4b8ba6" type="measure" ulx="2010" uly="4016" lrx="3729" lry="5201" n="67" />
          </surface>
-         <surface xml:id="surface_3d3470e13dbe" n="6" ulx="0" uly="0" lrx="4133" lry="5522">
+         <surface xml:id="surface_3d3470e13dbe" n="6" ulx="0" uly="0" lrx="4133" lry="5522" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/70">
             <graphic xml:id="graphic_3d3470e13dbe" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00070/full/4134,/0/default.jpg" width="4134" height="5523" />
             <zone xml:id="zone_f8e442015c644c5dbf" type="measure" ulx="324" uly="443" lrx="2271" lry="1622" n="68" />
             <zone xml:id="zone_fd50d44c46494df09b" type="measure" ulx="2198" uly="485" lrx="3936" lry="1613" n="69" />
@@ -125,7 +213,7 @@
             <zone xml:id="zone_bdbf3fd1957b4afbac" type="measure" ulx="2817" uly="3968" lrx="3530" lry="5291" n="79" />
             <zone xml:id="zone_a1e43d5fe85047808b" type="measure" ulx="3463" uly="3972" lrx="3942" lry="5289" n="80" />
          </surface>
-         <surface xml:id="surface_1383e29358c5" n="7" ulx="0" uly="0" lrx="4133" lry="5494">
+         <surface xml:id="surface_1383e29358c5" n="7" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/71">
             <graphic xml:id="graphic_1383e29358c5" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00071/full/4134,/0/default.jpg" width="4134" height="5495" />
             <zone xml:id="zone_bd34d6dc2d49424d86" type="measure" ulx="205" uly="380" lrx="861" lry="1612" n="81" />
             <zone xml:id="zone_8c02f58513614c7892" type="measure" ulx="808" uly="396" lrx="1226" lry="1606" n="82" />
@@ -162,7 +250,7 @@
             <zone xml:id="zone_246af63b9f264e5ca6" type="measure" ulx="3000" uly="3942" lrx="3384" lry="5258" n="113" />
             <zone xml:id="zone_ce8468e5a4b2448793" type="measure" ulx="3327" uly="3959" lrx="3771" lry="5242" n="114" />
          </surface>
-         <surface xml:id="surface_41af6c38ad33" n="8" ulx="0" uly="0" lrx="4133" lry="5522">
+         <surface xml:id="surface_41af6c38ad33" n="8" ulx="0" uly="0" lrx="4133" lry="5522" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/72">
             <graphic xml:id="graphic_41af6c38ad33" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00072/full/4134,/0/default.jpg" width="4134" height="5523" />
             <zone xml:id="zone_cd7bf7749f79408aa3" type="measure" ulx="333" uly="401" lrx="1052" lry="1678" n="115" />
             <zone xml:id="zone_8312728b7ab44e1985" type="measure" ulx="976" uly="434" lrx="1511" lry="1650" n="116" />
@@ -184,7 +272,7 @@
             <zone xml:id="zone_4211d11a081e401db8" type="measure" ulx="2205" uly="4092" lrx="3146" lry="5300" n="132" />
             <zone xml:id="zone_ef49510743364c8ab4" type="measure" ulx="3077" uly="4091" lrx="3935" lry="5309" n="133" />
          </surface>
-         <surface xml:id="surface_a8213523db88" n="9" ulx="0" uly="0" lrx="4133" lry="5494">
+         <surface xml:id="surface_a8213523db88" n="9" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/73">
             <graphic xml:id="graphic_a8213523db88" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00073/full/4134,/0/default.jpg" width="4134" height="5495" />
             <zone xml:id="zone_88ff75c0495a47b1af" type="measure" ulx="224" uly="359" lrx="1306" lry="1556" n="134" />
             <zone xml:id="zone_7da985a5c7d04c4981" type="measure" ulx="1235" uly="362" lrx="2122" lry="1537" n="135" />
@@ -203,7 +291,7 @@
             <zone xml:id="zone_1bc08934985f4e938f" type="measure" ulx="2074" uly="3906" lrx="2929" lry="5208" n="148" />
             <zone xml:id="zone_e4160fb4fd4f4496bb" type="measure" ulx="2866" uly="3940" lrx="3798" lry="5217" n="149" />
          </surface>
-         <surface xml:id="surface_e8bc1d7a6b88" n="10" ulx="0" uly="0" lrx="4133" lry="5522">
+         <surface xml:id="surface_e8bc1d7a6b88" n="10" ulx="0" uly="0" lrx="4133" lry="5522" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/74">
             <graphic xml:id="graphic_e8bc1d7a6b88" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00074/full/4134,/0/default.jpg" width="4134" height="5523" />
             <zone xml:id="zone_e2afd92f510c492996" type="measure" ulx="289" uly="387" lrx="1381" lry="1672" n="150" />
             <zone xml:id="zone_a9f63c5e109c4699a0" type="measure" ulx="1304" uly="416" lrx="2251" lry="1646" n="151" />
@@ -223,7 +311,7 @@
             <zone xml:id="zone_36b1bea2808a4aadaf" type="measure" ulx="2152" uly="4049" lrx="3085" lry="5313" n="165" />
             <zone xml:id="zone_a6cb4ea070ce4e47a1" type="measure" ulx="3009" uly="4047" lrx="3932" lry="5317" n="166" />
          </surface>
-         <surface xml:id="surface_8b6fdb60c013" n="11" ulx="0" uly="0" lrx="4133" lry="5494">
+         <surface xml:id="surface_8b6fdb60c013" n="11" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/75">
             <graphic xml:id="graphic_8b6fdb60c013" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00075/full/4134,/0/default.jpg" width="4134" height="5495" />
             <zone xml:id="zone_e2e7f1382f954e2aa8" type="measure" ulx="302" uly="364" lrx="1364" lry="1525" n="167" />
             <zone xml:id="zone_7355c78d041c4660b9" type="measure" ulx="1299" uly="371" lrx="2192" lry="1513" n="168" />
@@ -247,7 +335,7 @@
          </surface>
       </facsimile>
       <body>
-         <mdiv xml:id="o1fwb6eq">
+         <mdiv xml:id="o1fwb6eq" decls="#work.buxwv257">
             <score xml:id="p5xpski">
                <scoreDef xml:id="q1onmwvo">
                   <staffGrp xml:id="t4gl6ce">
@@ -292,24 +380,24 @@
                   </staffGrp>
                </scoreDef>
                <section xml:id="reo5ve5">
-                  <pb xml:id="sarsb3b" facs="#surface_6643c8493724" />
+                  <pb xml:id="sarsb3b" facs="#surface_6643c8493724" n="1" />
                   <measure xml:id="k1r0i3k" n="1" facs="#zone_55645c0221264cd4b0">
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m1.s3.e1" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m1.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m1.s3.e3" tstamp="4" staff="3">
                         <fb>
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4.5" staff="3">
+                     <harm xml:id="harm.op1_06.m1.s3.e4" tstamp="4.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -414,12 +502,12 @@
                      <tie xml:id="z1n41mg0" startid="#y10u3pzd" endid="#a1rbz5at" />
                   </measure>
                   <measure xml:id="ed5pose" n="2" facs="#zone_2150d6299f3c4a65b5">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m2.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m2.s3.e2" tstamp="2.5" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -570,19 +658,19 @@
                      <tie xml:id="z1n41" startid="#e1g1nojp" endid="#d1ecfa3h" curvedir="above" />
                   </measure>
                   <measure xml:id="o1g5qfm0" n="4" facs="#zone_2195004289ab4cf288">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m4.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm tstamp="1.5" staff="3">
+                     <harm xml:id="harm.op1_06.m4.s3.e2" tstamp="1.5" staff="3">
                         <fb>
                            <f>5</f>
                            <f>3</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m4.s3.e3" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                            <f>5</f>
@@ -677,18 +765,18 @@
                      <tie xml:id="ilzx9vm" startid="#h1tnx7jk" endid="#vyh4oo" />
                   </measure>
                   <measure xml:id="g1k4aqp1" right="dbl" metcon="false" n="5" facs="#zone_1d2807aa8a0b413386">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m5.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m5.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>7</f>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4.5" staff="3">
+                     <harm xml:id="harm.op1_06.m5.s3.e3" tstamp="4.5" staff="3">
                         <fb>
                            <f>7♭</f>
                         </fb>
@@ -793,23 +881,23 @@
                   </measure>
                   <sb xml:id="r1sk3nu9" />
                   <measure xml:id="hsp1o3u" n="6" facs="#zone_26b1998a770541ac83">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m6.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m6.s3.e2" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4.5" staff="3">
+                     <harm xml:id="harm.op1_06.m6.s3.e3" tstamp="4.5" staff="3">
                         <fb>
                            <f>6</f>
                            <f>♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4.75" staff="3">
+                     <harm xml:id="harm.op1_06.m6.s3.e4" tstamp="4.75" staff="3">
                         <fb>
                            <f>5</f>
                         </fb>
@@ -912,17 +1000,17 @@
                      </staff>
                   </measure>
                   <measure xml:id="w15wrma7" n="7" facs="#zone_db4207edc8474a6486">
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m7.s3.e1" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m7.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m7.s3.e3" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -1026,12 +1114,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="j18lc67z" n="8" facs="#zone_291a2425408d492f84">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m8.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m8.s3.e2" tstamp="2.5" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -1125,7 +1213,7 @@
                      <tie xml:id="z1k1xkbf" startid="#x1mkofid" endid="#ihv9g4e" curvedir="below" />
                   </measure>
                   <measure xml:id="f1unuowp" metcon="false" n="9" facs="#zone_4649a88ca05c49309c">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m9.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -1234,28 +1322,28 @@
                   </measure>
                   <sb xml:id="v1uq598c" />
                   <measure xml:id="l13d7is5" n="10" facs="#zone_0a820443bf284a1c8e">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m10.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="1.5" staff="3">
+                     <harm xml:id="harm.op1_06.m10.s3.e2" tstamp="1.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m10.s3.e3" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m10.s3.e4" tstamp="4" staff="3">
                         <fb>
                            <f>6</f>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4.5" staff="3">
+                     <harm xml:id="harm.op1_06.m10.s3.e5" tstamp="4.5" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -1406,12 +1494,12 @@
                      <tie xml:id="tie001" startid="#h19i4vvi" endid="#j1qsdfsdt" />
                   </measure>
                   <measure xml:id="pliizu2" metcon="false" n="11" facs="#zone_ab23e5d8f0ce487f80">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m11.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m11.s3.e2" tstamp="4" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -1638,12 +1726,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="y194yfc9" metcon="false" n="13" facs="#zone_0dbedc66d9b946f6a9">
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m13.s3.e1" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m13.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6♮</f>
                         </fb>
@@ -1784,19 +1872,19 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="p170fsd6" facs="#surface_21c65b861a3e" />
+                  <pb xml:id="p170fsd6" facs="#surface_21c65b861a3e" n="2" />
                   <measure xml:id="h1rijyqg" n="14" facs="#zone_0ea2e40a15814d61a6">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m14.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>5♭</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m14.s3.e2" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m14.s3.e3" tstamp="4" staff="3">
                         <fb>
                            <f>4♯</f>
                         </fb>
@@ -2049,7 +2137,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="gnsjuaf" n="16" facs="#zone_7064045f8e3f49498a">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m16.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>5♭</f>
                         </fb>
@@ -2284,7 +2372,7 @@
                   </measure>
                   <sb xml:id="v3tx61g" />
                   <measure xml:id="l1u6r17o" n="18" facs="#zone_8ba626047f1a4b29a3">
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m18.s3.e1" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -2388,17 +2476,17 @@
                      </staff>
                   </measure>
                   <measure xml:id="q1l8e51o" n="19" facs="#zone_1527e63fd58d4c5da8">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m19.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m19.s3.e2" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m19.s3.e3" tstamp="4" staff="3">
                         <fb>
                            <f>4♯</f>
                         </fb>
@@ -2520,7 +2608,7 @@
                      <tie xml:id="b1pk36fh" startid="#zr39ii8" endid="#d1thez7d" curvedir="below" />
                   </measure>
                   <measure xml:id="s2tk1xh" n="20" facs="#zone_00c35f3e639644e5b8">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m20.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>7</f>
                         </fb>
@@ -2606,17 +2694,17 @@
                      </staff>
                   </measure>
                   <measure xml:id="a1nmbsg2" n="21" facs="#zone_3ba721eb950b47c28e">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m21.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m21.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m21.s3.e3" tstamp="4" staff="3">
                         <fb>
                            <f>♮</f>
                         </fb>
@@ -2703,7 +2791,7 @@
                   </measure>
                   <sb xml:id="s1cb3wxm" />
                   <measure xml:id="i1m2p85v" n="22" facs="#zone_ba888cff1a344aa19a">
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m22.s3.e1" tstamp="4" staff="3">
                         <fb>
                            <f>♮</f>
                         </fb>
@@ -2773,7 +2861,7 @@
                               <note xml:id="k1f6hf32" oct="4" pname="f" />
                               <note xml:id="mhlvwo0" oct="4" pname="a" />
                            </chord>
-                           <chord dur="4" stem.dir="down">
+                           <chord xml:id="chord.op1_06.m22.s4.l2.e1" dur="4" stem.dir="down">
                               <note xml:id="n1agdn8" oct="4" pname="g" />
                               <note xml:id="n1aga8n8" oct="4" pname="d" />
                            </chord>
@@ -2902,12 +2990,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="u2zy6tw" n="24" facs="#zone_aee31bc8ae2f451f89">
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m24.s3.e1" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m24.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -3048,17 +3136,17 @@
                      <tie xml:id="newtie3" startid="#xmta89g" endid="#newA03" />
                   </measure>
                   <measure xml:id="s11wwx7s" n="25" facs="#zone_221fc91747a649b2a9">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m25.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m25.s3.e2" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m25.s3.e3" tstamp="4" staff="3">
                         <fb>
                            <f>4♯</f>
                         </fb>
@@ -3193,9 +3281,9 @@
                      <tie xml:id="b1xbs20s" startid="#a1ljamrp" endid="#c14c1p15" />
                      <tie xml:id="x15eytr8" startid="#wvlaciz" endid="#z1nwtet0" />
                   </measure>
-                  <pb xml:id="dfxg7yu" facs="#surface_21c65b861a3e" />
+                  <sb xml:id="dfxg7yu" />
                   <measure xml:id="t1i8llzd" n="26" facs="#zone_63e716cff575488d8c">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m26.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -3268,7 +3356,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="i1jjk6sd" n="27" facs="#zone_202f06e7a307492aae">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m27.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -3348,12 +3436,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="p1ilbpj5" metcon="false" n="28" facs="#zone_3717d7ae25fd408cbd">
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m28.s3.e1" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m28.s3.e2" tstamp="4" staff="3">
                         <fb>
                            <f>(6)</f>
                         </fb>
@@ -3489,18 +3577,18 @@
                      <tie xml:id="newte4" startid="#keef0fg" endid="#f17zai51" />
                   </measure>
                   <measure xml:id="p1yk6x54" n="29" facs="#zone_449496f847f041a98f">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m29.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m29.s3.e2" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m29.s3.e3" tstamp="4" staff="3">
                         <fb>
                            <f>4 3</f>
                         </fb>
@@ -3642,7 +3730,7 @@
                      <tie xml:id="f1vljvgl" startid="#e1mgl1jt" endid="#hnagatx" />
                      <tie xml:id="o1cediob" startid="#n12bwk0e" endid="#q1w3htez" />
                   </measure>
-                  <pb xml:id="hqi5m6j" facs="#surface_4d6de07d31e5" />
+                  <pb xml:id="hqi5m6j" facs="#surface_4d6de07d31e5" n="3" />
                   <measure xml:id="z11goyof" n="30" facs="#zone_69b191271e6b492aa0">
                      <staff xml:id="izk24iq" n="1">
                         <layer xml:id="jy9od6l" n="1">
@@ -4087,23 +4175,23 @@
                      <keySig xml:id="nax6cfq" sig="1f" />
                   </scoreDef>
                   <measure xml:id="bzn5xq5" n="34" facs="#zone_b6d989ee112d4d0b8c">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m34.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m34.s3.e2" tstamp="2" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m34.s3.e3" tstamp="3.5" staff="3">
                         <fb>
                            <f>(6)</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m34.s3.e4" tstamp="4" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -4522,12 +4610,12 @@
                      <keySig xml:id="nsdfs6cfq" sig="1f" />
                   </scoreDef>
                   <measure xml:id="zeb3n1q" n="38" facs="#zone_a98b7853491e4b37bd">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m38.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m38.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -4600,7 +4688,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="e55p9em" n="39" facs="#zone_7153425eaaae4907b4">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m39.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -4685,7 +4773,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="zcvbbee" n="40" facs="#zone_2383197c9ebd4fb9b3">
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m40.s3.e1" tstamp="4" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -4739,13 +4827,13 @@
                      </staff>
                   </measure>
                   <measure xml:id="ofhhtfd" n="41" facs="#zone_cb9ef7771e9a47138b">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m41.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m41.s3.e2" tstamp="4" staff="3">
                         <fb>
                            <f>5</f>
                            <f>♯</f>
@@ -5036,7 +5124,7 @@
                      <tie xml:id="xcce3fgvr" startid="#fifwp4z" endid="#fe0sxic" curvedir="below" />
                      <tie xml:id="fg3rg3wrg" startid="#m4og672" endid="#atwdfs9" curvedir="below" />
                   </measure>
-                  <pb xml:id="lnrr71i" facs="#surface_17d7fa7b0178" />
+                  <pb xml:id="lnrr71i" facs="#surface_17d7fa7b0178" n="4" />
                   <scoreDef xml:id="scoreDef_m46">
                      <staffGrp xml:id="staffGrp_m46">
                         <grpSym xml:id="grpSym_m46" symbol="bracket" />
@@ -5307,12 +5395,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="h7chs39" n="49" facs="#zone_2c8ab38ac14c427e96">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m49.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♭</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m49.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -5482,13 +5570,13 @@
                      <tie xml:id="p1erbyd" startid="#n974ut4" endid="#ogziawp" />
                   </measure>
                   <measure xml:id="b1hdnk8b" n="51" facs="#zone_412a5ed1040e4dc082">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m51.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>5</f>
                            <f>3</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m51.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>4</f>
                            <f>6</f>
@@ -5589,7 +5677,7 @@
                      <tie xml:id="q1tq7en2" startid="#ogziawp" endid="#klzb11n" />
                   </measure>
                   <measure xml:id="vs4egyh" right="dbl" n="52" facs="#zone_b4500165f811435991">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m52.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>5</f>
                            <f>3</f>
@@ -5630,14 +5718,14 @@
                      <fermata xml:id="fd1olw9" staff="4" startid="#e10w5bit" form="norm" place="above" />
                      <fermata xml:id="matv70r" staff="5" startid="#klzb11n" form="inv" place="below" />
                   </measure>
-                  <pb xml:id="s274y73" facs="#surface_17d7fa7b0178" />
+                  <sb xml:id="s274y73" />
                   <measure xml:id="il5p9vw" metcon="false" n="53" facs="#zone_fedbc9760a254cf5bd">
-                     <harm tstamp="1.5" staff="3">
+                     <harm xml:id="harm.op1_06.m53.s3.e1" tstamp="1.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m53.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -5755,7 +5843,7 @@
                            </tuplet>
                         </layer>
                      </staff>
-                     <dir xml:id="forte7x2" place="above" staff="3" tstamp="1">Forte</dir>
+                     <dynam xml:id="forte7x2" place="above" staff="3" tstamp="1">Forte</dynam>
                      <staff xml:id="y1j585hl" n="3">
                         <layer xml:id="zwt1hws" n="1">
                            <beam xml:id="a1yc17je">
@@ -5802,7 +5890,7 @@
                            <note xml:id="no3p0fs" dur="1" oct="4" pname="f" stem.visible="false" />
                         </layer>
                      </staff>
-                     <dir xml:id="fortsffsx2" place="above" staff="5" tstamp="1">Forte</dir>
+                     <dynam xml:id="fortsffsx2" place="above" staff="5" tstamp="1">Forte</dynam>
                      <staff xml:id="x16rzdpg" n="5">
                         <layer xml:id="owzftyo" n="1">
                            <beam xml:id="p1fc3hgc">
@@ -5824,14 +5912,17 @@
                            <space xml:id="f1d2fpaq" dots="1" dur="2" />
                         </layer>
                      </staff>
+                     <annot xml:id="editorial.op1_06.worded-dynamics" type="editorial" label="encoding-note" resp="#resp.polyakov #resp.camat" source="#src.ddt1903" plist="#forte7x2 #fortsffsx2 #p7xk3mza #p7xmza #bg2gef2we #bv3t4 #bhb243hr #l24ngtg #q8m4zv7p #q8m4v7p #q8m4zgv7p #q8mn4v7p #q8md4zv7p #q8m4zvc7p #q8mv7p #q7p #q8c867p #q8s867p #q8wedc867p #q8s8dwd67p #q1oysdvqq #q1owdvqq #q1dvqq #q1owd #q1oyjmvqq #q1owd45yq #q1o5uvqq #q1o35yqq #g2weg #g234g #x23cfgrw2g #nteh4vgv #v8n3a7 #v8ndd3a7 #v8nrwef3a7 #v8ndzdd3a7 #xren3a7 #olndd3a7 #vf3a7 #v87 #k7m2vx1 #k7vx1 #k7m2vex1 #wrf9wrg #k7m2sdfx1 #k7sdx1 #a7kq9m2x #c9r5wq7z #u7erfg #w5r9k2mn">
+                        <p>DdT uses the worded dynamics Forte and Piano, including the bold markings on printed pages 58-62. All 50 already encoded occurrences are classified as dynam rather than general direction or tempo. Their words, staff assignments, positions, existing text formatting, and persistent IDs are retained. This follows the worded-dynamic convention used in this corpus; no musical reading is emended.</p>
+                     </annot>
                   </measure>
                   <measure xml:id="mjly3fx" metcon="false" n="54" facs="#zone_58a6749a93ee47959f">
-                     <harm tstamp="1.5" staff="3">
+                     <harm xml:id="harm.op1_06.m54.s3.e1" tstamp="1.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m54.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -5948,7 +6039,7 @@
                            </tuplet>
                         </layer>
                      </staff>
-                     <dir xml:id="p7xk3mza" place="above" staff="3" tstamp="1">Piano</dir>
+                     <dynam xml:id="p7xk3mza" place="above" staff="3" tstamp="1">Piano</dynam>
                      <staff xml:id="a939hup" n="3">
                         <layer xml:id="b1murtxb" n="1">
                            <beam xml:id="c8v1owl">
@@ -5994,7 +6085,7 @@
                            <note xml:id="f1b05fqa" dur="1" oct="4" pname="f" stem.visible="false" />
                         </layer>
                      </staff>
-                     <dir xml:id="p7xmza" place="above" staff="5" tstamp="1">Piano</dir>
+                     <dynam xml:id="p7xmza" place="above" staff="5" tstamp="1">Piano</dynam>
                      <staff xml:id="qut6qh7" n="5">
                         <layer xml:id="g6ef14j" n="1">
                            <beam xml:id="h1pwf91t">
@@ -6019,18 +6110,18 @@
                   </measure>
                   <sb xml:id="w1b4y58m" />
                   <measure xml:id="m1riiv3l" metcon="false" n="55" facs="#zone_560e7ea6991142cb8b">
-                     <harm tstamp="1.5" staff="3">
+                     <harm xml:id="harm.op1_06.m55.s3.e1" tstamp="1.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m55.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <dir xml:id="bg2gef2we" place="above" staff="3" tstamp="1">Forte</dir>
-                     <dir xml:id="bv3t4" place="above" staff="5" tstamp="1">Forte</dir>
+                     <dynam xml:id="bg2gef2we" place="above" staff="3" tstamp="1">Forte</dynam>
+                     <dynam xml:id="bv3t4" place="above" staff="5" tstamp="1">Forte</dynam>
                      <staff xml:id="v16ha34y" n="1">
                         <layer xml:id="x1fy05q0" n="1">
                            <rest xml:id="yj0ax6g" dur="8" />
@@ -6205,18 +6296,18 @@
                      </staff>
                   </measure>
                   <measure xml:id="m8xq2vka" metcon="false" n="56" facs="#zone_fbcb553413384f50a5">
-                     <harm tstamp="1.5" staff="3">
+                     <harm xml:id="harm.op1_06.m56.s3.e1" tstamp="1.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m56.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <dir xml:id="bhb243hr" place="above" staff="3" tstamp="1">Piano</dir>
-                     <dir xml:id="l24ngtg" place="above" staff="5" tstamp="1">Piano</dir>
+                     <dynam xml:id="bhb243hr" place="above" staff="3" tstamp="1">Piano</dynam>
+                     <dynam xml:id="l24ngtg" place="above" staff="5" tstamp="1">Piano</dynam>
                      <staff xml:id="s7lp4ncz" n="1">
                         <layer xml:id="l3kf8vma" n="1">
                            <tuplet xml:id="t7hdnqp" num="3" numbase="2" bracket.visible="false" num.visible="false">
@@ -6396,14 +6487,14 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="pyqsq7i" facs="#surface_2f6e105e46be" />
+                  <pb xml:id="pyqsq7i" facs="#surface_2f6e105e46be" n="5" />
                   <measure xml:id="h1d8ofdr" metcon="false" n="57" facs="#zone_2c6148ce88ee46e5af">
-                     <harm tstamp="1.5" staff="3">
+                     <harm xml:id="harm.op1_06.m57.s3.e1" tstamp="1.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m57.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -6515,7 +6606,7 @@
                            </tuplet>
                         </layer>
                      </staff>
-                     <dir xml:id="q8m4zv7p" place="above" staff="3" tstamp="1">Forte</dir>
+                     <dynam xml:id="q8m4zv7p" place="above" staff="3" tstamp="1">Forte</dynam>
                      <staff xml:id="b1iy61ay" n="3">
                         <layer xml:id="cc01p67" n="1">
                            <beam xml:id="faadvler">
@@ -6561,7 +6652,7 @@
                            <note xml:id="f1itr5sv" dur="1" oct="4" pname="f" stem.visible="false" />
                         </layer>
                      </staff>
-                     <dir xml:id="q8m4v7p" place="above" staff="5" tstamp="1">Forte</dir>
+                     <dynam xml:id="q8m4v7p" place="above" staff="5" tstamp="1">Forte</dynam>
                      <staff xml:id="qpwknsv" n="5">
                         <layer xml:id="g1hj3ju4" n="1">
                            <beam xml:id="h16a8qih">
@@ -6585,12 +6676,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="z108mxfn" right="single" metcon="false" n="58" facs="#zone_ed5e1fa99d1b40e194">
-                     <harm tstamp="1.5" staff="3">
+                     <harm xml:id="harm.op1_06.m58.s3.e1" tstamp="1.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m58.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -6707,7 +6798,7 @@
                            </tuplet>
                         </layer>
                      </staff>
-                     <dir xml:id="q8m4zgv7p" place="above" staff="3" tstamp="1">Piano</dir>
+                     <dynam xml:id="q8m4zgv7p" place="above" staff="3" tstamp="1">Piano</dynam>
                      <staff xml:id="b1iyg61ay" n="3">
                         <layer xml:id="ccg01p67" n="1">
                            <beam xml:id="fgdler">
@@ -6753,7 +6844,7 @@
                            <note xml:id="f1intr5sv" dur="1" oct="4" pname="f" stem.visible="false" />
                         </layer>
                      </staff>
-                     <dir xml:id="q8mn4v7p" place="above" staff="5" tstamp="1">Piano</dir>
+                     <dynam xml:id="q8mn4v7p" place="above" staff="5" tstamp="1">Piano</dynam>
                      <staff xml:id="qpwknnsv" n="5">
                         <layer xml:id="g1hnj3ju4" n="1">
                            <beam xml:id="h16an8qih">
@@ -6778,12 +6869,12 @@
                   </measure>
                   <sb xml:id="zi5gvd4" />
                   <measure xml:id="p5uzx0s" metcon="false" n="59" facs="#zone_cc189b1bfb7f4eb7b8">
-                     <harm tstamp="1.5" staff="3">
+                     <harm xml:id="harm.op1_06.m59.s3.e1" tstamp="1.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m59.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -6900,7 +6991,7 @@
                            </tuplet>
                         </layer>
                      </staff>
-                     <dir xml:id="q8md4zv7p" place="above" staff="3" tstamp="1">Forte</dir>
+                     <dynam xml:id="q8md4zv7p" place="above" staff="3" tstamp="1">Forte</dynam>
                      <staff xml:id="a19136xg" n="3">
                         <layer xml:id="b1p5mwb4" n="1">
                            <beam xml:id="d1udpfrw6">
@@ -6948,7 +7039,7 @@
                            <note xml:id="nd2k55e" dur="1" oct="4" pname="f" stem.visible="false" />
                         </layer>
                      </staff>
-                     <dir xml:id="q8m4zvc7p" place="above" staff="5" tstamp="1">Forte</dir>
+                     <dynam xml:id="q8m4zvc7p" place="above" staff="5" tstamp="1">Forte</dynam>
                      <staff xml:id="x1w6cu7h" n="5">
                         <layer xml:id="o10b5iz1" n="1">
                            <beam xml:id="pn3ezx5">
@@ -6972,12 +7063,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="u1xmil36" right="dbl" metcon="false" n="60" facs="#zone_dcd42b3e3be84682b8">
-                     <harm tstamp="1.5" staff="3">
+                     <harm xml:id="harm.op1_06.m60.s3.e1" tstamp="1.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m60.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -7094,7 +7185,7 @@
                            </tuplet>
                         </layer>
                      </staff>
-                     <dir xml:id="q8mv7p" place="above" staff="3" tstamp="1">Piano</dir>
+                     <dynam xml:id="q8mv7p" place="above" staff="3" tstamp="1">Piano</dynam>
                      <staff xml:id="a1913y6xg" n="3">
                         <layer xml:id="b1p5mywby4" n="1">
                            <beam xml:id="d1udpyyfrw6">
@@ -7142,7 +7233,7 @@
                            <note xml:id="nd2yk55e" dur="1" oct="4" pname="f" stem.visible="false" />
                         </layer>
                      </staff>
-                     <dir xml:id="q7p" place="above" staff="5" tstamp="1">Piano</dir>
+                     <dynam xml:id="q7p" place="above" staff="5" tstamp="1">Piano</dynam>
                      <staff xml:id="x1w6ycu7h" n="5">
                         <layer xml:id="o10byy5iz1" n="1">
                            <beam xml:id="pn3ezyx5">
@@ -7165,9 +7256,9 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="m654i8" facs="#surface_2f6e105e46be" />
+                  <sb xml:id="m654i8" />
                   <measure xml:id="cv9apxz" n="61" facs="#zone_87510f951ad5470990">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m61.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>♭</f>
                         </fb>
@@ -7215,7 +7306,7 @@
                      <tie xml:id="eyhn4e0" startid="#d120po9g" endid="#q13polsp" />
                   </measure>
                   <measure xml:id="r1aqxkce" n="62" facs="#zone_362817851da14ca9a5">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m62.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                            <f>5</f>
@@ -7263,7 +7354,7 @@
                      <tie xml:id="db9aypu" startid="#c1ntksza" endid="#p7f0rvt" curvedir="below" />
                   </measure>
                   <measure xml:id="e5gekio" n="63" facs="#zone_d8a5a0aaa6b1462a99">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m63.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♭</f>
                         </fb>
@@ -7323,19 +7414,19 @@
                      <tie xml:id="r1qdp3z8" startid="#qusc2r4" endid="#d1w26r5d" />
                   </measure>
                   <measure xml:id="s6mz7gd" metcon="false" n="64" facs="#zone_ddfa70fb883e45ea99">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m64.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                            <f>5</f>
                            <f>♭</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m64.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m64.s3.e3" tstamp="4" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -7374,7 +7465,7 @@
                                  <accid xml:id="nbcwy5g" accid="f" />
                               </note>
                            </chord>
-                           <chord dur="2" stem.dir="up">
+                           <chord xml:id="chord.op1_06.m64.s4.l1.e1" dur="2" stem.dir="up">
                               <note xml:id="v1elslan" oct="4" pname="g" />
                               <note xml:id="v1ellan" oct="4" pname="d" />
                            </chord>
@@ -7441,12 +7532,12 @@
                   </measure>
                   <sb xml:id="ekellc0" />
                   <measure xml:id="u1hi4i0i" metcon="false" n="66" facs="#zone_ad52b9a832004fd985">
-                     <harm tstamp="1.5" staff="3">
+                     <harm xml:id="harm.op1_06.m66.s3.e1" tstamp="1.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m66.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -7603,14 +7694,14 @@
                               <note xml:id="w1uxndqk" dur="8" oct="4" pname="e" stem.dir="up" />
                            </beam>
                         </layer>
-                        <layer n="2">
+                        <layer xml:id="layer.op1_06.m66.s4.l2" n="2">
                            <note xml:id="l1eoowam" dur="1" oct="4" pname="c" stem.visible="false" />
                         </layer>
                      </staff>
                      <tempo xml:id="q867p" place="above" staff="1" tstamp="1">(Allegro.)</tempo>
-                     <dir xml:id="q8c867p" place="above" staff="3" tstamp="1">Forte</dir>
+                     <dynam xml:id="q8c867p" place="above" staff="3" tstamp="1">Forte</dynam>
                      <tempo xml:id="q8c67p" place="above" staff="4" tstamp="1">(Allegro.)</tempo>
-                     <dir xml:id="q8s867p" place="above" staff="5" tstamp="1">Forte</dir>
+                     <dynam xml:id="q8s867p" place="above" staff="5" tstamp="1">Forte</dynam>
                      <staff xml:id="j1ksc7uh" n="5">
                         <layer xml:id="xc55o9h" n="1">
                            <beam xml:id="y1fmwmug">
@@ -7634,12 +7725,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="u1h4i0i" metcon="false" n="67" facs="#zone_44e82af3f18a4b8ba6">
-                     <harm tstamp="1.5" staff="3">
+                     <harm xml:id="harm.op1_06.m67.s3.e1" tstamp="1.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m67.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -7796,12 +7887,12 @@
                               <note xml:id="w1udxndqk" dur="8" oct="4" pname="e" stem.dir="up" />
                            </beam>
                         </layer>
-                        <layer n="2">
+                        <layer xml:id="layer.op1_06.m67.s4.l2" n="2">
                            <note xml:id="l1eoowdam" dur="1" oct="4" pname="c" stem.visible="false" />
                         </layer>
                      </staff>
-                     <dir xml:id="q8wedc867p" place="above" staff="3" tstamp="1">Piano</dir>
-                     <dir xml:id="q8s8dwd67p" place="above" staff="5" tstamp="1">Piano</dir>
+                     <dynam xml:id="q8wedc867p" place="above" staff="3" tstamp="1">Piano</dynam>
+                     <dynam xml:id="q8s8dwd67p" place="above" staff="5" tstamp="1">Piano</dynam>
                      <staff xml:id="j1ksdc7uh" n="5">
                         <layer xml:id="xc55od9h" n="1">
                            <beam xml:id="y1fmdwmug">
@@ -7824,14 +7915,14 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="s1oec5gs" facs="#surface_3d3470e13dbe" />
+                  <pb xml:id="s1oec5gs" facs="#surface_3d3470e13dbe" n="6" />
                   <measure xml:id="r1uhmqxf" n="68" facs="#zone_f8e442015c644c5dbf">
-                     <harm tstamp="1.5" staff="3">
+                     <harm xml:id="harm.op1_06.m68.s3.e1" tstamp="1.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m68.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -7943,12 +8034,12 @@
                            </tuplet>
                         </layer>
                      </staff>
-                     <tempo xml:id="q1oysdvqq" place="above" staff="3" tstamp="1">
-                        <rend xml:id="febvfjarx" fontweight="bold">Forte</rend>
-                     </tempo>
-                     <tempo xml:id="q1owdvqq" place="above" staff="5" tstamp="1">
-                        <rend xml:id="fehrnjarx" fontweight="bold">Forte</rend>
-                     </tempo>
+                     <dynam xml:id="q1oysdvqq" place="above" staff="3" tstamp="1">
+                        <rend xml:id="febvfjarx" fontweight="bold" fontstyle="normal">Forte</rend>
+                     </dynam>
+                     <dynam xml:id="q1owdvqq" place="above" staff="5" tstamp="1">
+                        <rend xml:id="fehrnjarx" fontweight="bold" fontstyle="normal">Forte</rend>
+                     </dynam>
                      <staff xml:id="kngl4zn" n="3">
                         <layer xml:id="l192a5yg" n="1">
                            <beam xml:id="mlo4run">
@@ -8014,12 +8105,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="f9qhauf" n="69" facs="#zone_fd50d44c46494df09b">
-                     <harm tstamp="1.5" staff="3">
+                     <harm xml:id="harm.op1_06.m69.s3.e1" tstamp="1.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m69.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -8136,12 +8227,12 @@
                            </tuplet>
                         </layer>
                      </staff>
-                     <tempo xml:id="q1dvqq" place="above" staff="3" tstamp="1">
-                        <rend xml:id="fearx" fontweight="bold">Piano</rend>
-                     </tempo>
-                     <tempo xml:id="q1owd" place="above" staff="5" tstamp="1">
-                        <rend xml:id="fehjarx" fontweight="bold">Piano</rend>
-                     </tempo>
+                     <dynam xml:id="q1dvqq" place="above" staff="3" tstamp="1">
+                        <rend xml:id="fearx" fontweight="bold" fontstyle="normal">Piano</rend>
+                     </dynam>
+                     <dynam xml:id="q1owd" place="above" staff="5" tstamp="1">
+                        <rend xml:id="fehjarx" fontweight="bold" fontstyle="normal">Piano</rend>
+                     </dynam>
                      <staff xml:id="hh1lw0t" n="3">
                         <layer xml:id="i4mbfwq" n="1">
                            <beam xml:id="j168h8dc">
@@ -8208,12 +8299,12 @@
                   </measure>
                   <sb xml:id="g1955ugd" />
                   <measure xml:id="w8jh6s6" n="70" facs="#zone_7532ecb4b52b426587">
-                     <harm tstamp="1.5" staff="3">
+                     <harm xml:id="harm.op1_06.m70.s3.e1" tstamp="1.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m70.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -8278,12 +8369,12 @@
                            </tuplet>
                         </layer>
                      </staff>
-                     <tempo xml:id="q1oyjmvqq" place="above" staff="3" tstamp="1">
-                        <rend xml:id="febt54tyjarx" fontweight="bold">Forte</rend>
-                     </tempo>
-                     <tempo xml:id="q1owd45yq" place="above" staff="5" tstamp="1">
-                        <rend xml:id="f4y5njarx" fontweight="bold">Forte</rend>
-                     </tempo>
+                     <dynam xml:id="q1oyjmvqq" place="above" staff="3" tstamp="1">
+                        <rend xml:id="febt54tyjarx" fontweight="bold" fontstyle="normal">Forte</rend>
+                     </dynam>
+                     <dynam xml:id="q1owd45yq" place="above" staff="5" tstamp="1">
+                        <rend xml:id="f4y5njarx" fontweight="bold" fontstyle="normal">Forte</rend>
+                     </dynam>
                      <staff xml:id="c1s8wx88" n="2">
                         <layer xml:id="dbo6kyw" n="1">
                            <rest xml:id="efaoksr" dur="8" />
@@ -8396,12 +8487,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="wl0c86b" n="71" facs="#zone_0cc6dcf3ea6d40c0b4">
-                     <harm tstamp="1.5" staff="3">
+                     <harm xml:id="harm.op1_06.m71.s3.e1" tstamp="1.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m71.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -8518,12 +8609,12 @@
                            </tuplet>
                         </layer>
                      </staff>
-                     <tempo xml:id="q1o5uvqq" place="above" staff="3" tstamp="1">
-                        <rend xml:id="feb3yarx" fontweight="bold">Piano</rend>
-                     </tempo>
-                     <tempo xml:id="q1o35yqq" place="above" staff="5" tstamp="1">
-                        <rend xml:id="fu6jnjarx" fontweight="bold">Piano</rend>
-                     </tempo>
+                     <dynam xml:id="q1o5uvqq" place="above" staff="3" tstamp="1">
+                        <rend xml:id="feb3yarx" fontweight="bold" fontstyle="normal">Piano</rend>
+                     </dynam>
+                     <dynam xml:id="q1o35yqq" place="above" staff="5" tstamp="1">
+                        <rend xml:id="fu6jnjarx" fontweight="bold" fontstyle="normal">Piano</rend>
+                     </dynam>
                      <staff xml:id="b17h3i91" n="3">
                         <layer xml:id="c1vygn1s" n="1">
                            <beam xml:id="dgmcipf">
@@ -8588,14 +8679,14 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="gy4mstd" facs="#surface_3d3470e13dbe" />
+                  <sb xml:id="gy4mstd" />
                   <measure xml:id="w1rdyk6h" n="72" facs="#zone_95724357231e439da5">
-                     <harm tstamp="1.5" staff="3">
+                     <harm xml:id="harm.op1_06.m72.s3.e1" tstamp="1.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m72.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -8778,18 +8869,18 @@
                            </beam>
                         </layer>
                      </staff>
-                     <dir xml:id="g2weg" place="above" staff="3" tstamp="1">Forte</dir>
-                     <dir xml:id="g234g" place="above" staff="5" tstamp="1">Forte</dir>
+                     <dynam xml:id="g2weg" place="above" staff="3" tstamp="1">Forte</dynam>
+                     <dynam xml:id="g234g" place="above" staff="5" tstamp="1">Forte</dynam>
                   </measure>
                   <measure xml:id="ocjnyu" right="dbl" n="73" facs="#zone_1489b8c074984300ac">
-                     <dir xml:id="x23cfgrw2g" place="above" staff="3" tstamp="1">Piano</dir>
-                     <dir xml:id="nteh4vgv" place="above" staff="5" tstamp="1">Piano</dir>
-                     <harm tstamp="1.5" staff="3">
+                     <dynam xml:id="x23cfgrw2g" place="above" staff="3" tstamp="1">Piano</dynam>
+                     <dynam xml:id="nteh4vgv" place="above" staff="5" tstamp="1">Piano</dynam>
+                     <harm xml:id="harm.op1_06.m73.s3.e1" tstamp="1.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m73.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -8975,7 +9066,7 @@
                   </measure>
                   <sb xml:id="p1hxq2c4" />
                   <measure xml:id="f1p8ph8c" n="74" facs="#zone_901204fbe8ec49179b">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m74.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                            <f>5</f>
@@ -9030,12 +9121,12 @@
                      <tie xml:id="k12dyk3c" startid="#jts6bn7" endid="#e1y2z7hh" />
                   </measure>
                   <measure xml:id="xiviuca" n="75" facs="#zone_e63f78be5b6849bd9b">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m75.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>9</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m75.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>8</f>
                         </fb>
@@ -9076,7 +9167,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="j1qn6n9c" n="76" facs="#zone_d178b6d6c25c4656ad">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m76.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                            <f>5♭</f>
@@ -9125,12 +9216,12 @@
                      <tie xml:id="zyir0sf" startid="#x1nz6qv7" endid="#w1kqb93" />
                   </measure>
                   <measure xml:id="y1uc8h6j" n="77" facs="#zone_6a0684d4b55140d3a6">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m77.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>9</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m77.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>8</f>
                         </fb>
@@ -9171,7 +9262,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="kssx16j" n="78" facs="#zone_f7190cb1c64142d3b9">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m78.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                            <f>5</f>
@@ -9218,24 +9309,24 @@
                      <tie xml:id="tiew8r1b" startid="#w8rg8is" endid="#r1bv8bkm" />
                   </measure>
                   <measure xml:id="z14k8yw1" n="79" facs="#zone_bdbf3fd1957b4afbac">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m79.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>3</f>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m79.s3.e2" tstamp="2" staff="3">
                         <fb>
                            <f>8</f>
                            <f>3</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m79.s3.e3" tstamp="3" staff="3">
                         <fb>
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m79.s3.e4" tstamp="4" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -9297,7 +9388,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="rdevztp" right="dbl" n="80" facs="#zone_a1e43d5fe85047808b">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m80.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -9339,12 +9430,12 @@
                      <fermata xml:id="wa6dsfq" staff="4" startid="#vt4u2eq" form="norm" place="above" />
                      <fermata xml:id="t1oc5r17" staff="5" startid="#sljnf9l" form="inv" place="below" />
                   </measure>
-                  <pb xml:id="c1hyydxe" facs="#surface_1383e29358c5" />
+                  <pb xml:id="c1hyydxe" facs="#surface_1383e29358c5" n="7" />
                   <scoreDef xml:id="bg234g">
                      <meterSig xml:id="gd23f2g" count="3" unit="4" />
                   </scoreDef>
                   <measure xml:id="u1s2uim9" n="81" facs="#zone_bd34d6dc2d49424d86">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m81.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -9398,12 +9489,12 @@
                      <tie xml:id="a49185f" startid="#zrrc0ad" endid="#z1ibnqhw" />
                   </measure>
                   <measure xml:id="hh6mh6b" metcon="false" n="82" facs="#zone_8c02f58513614c7892">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m82.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m82.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -9456,12 +9547,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="uhmfwxw" n="83" facs="#zone_8bac134898be4f528e">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m83.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m83.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -9515,7 +9606,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="io0n4ru" n="84" facs="#zone_f9bb9d5ac7a0460bb6">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m84.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -9574,7 +9665,7 @@
                      <slur xml:id="p8z4ka2" startid="#xrfnmte" endid="#j75chv8" />
                   </measure>
                   <measure xml:id="y1lm374x" n="85" facs="#zone_beff84c7180545c4b2">
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m85.s3.e1" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -9646,7 +9737,7 @@
                      <tie xml:id="da2m8n" startid="#cg04mey" endid="#e1l37cyl" />
                   </measure>
                   <measure xml:id="m6r9jlw" n="86" facs="#zone_a620f210cc34419496">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m86.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -9706,7 +9797,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="d13aq9fj" n="87" facs="#zone_5f3006e5cc7d47c189">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m87.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -9769,7 +9860,7 @@
                      <tie xml:id="id7q3l1" startid="#h2xhw2a" endid="#h7b3u8a" curvedir="below" />
                   </measure>
                   <measure xml:id="v1ybknb9" n="88" facs="#zone_6d3cfd7a9f904121b7">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m88.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>(6)</f>
                         </fb>
@@ -9837,7 +9928,7 @@
                   </measure>
                   <sb xml:id="w1rp810n" />
                   <measure xml:id="m6e0p9y" n="89" facs="#zone_aedb93c110cf4f0fa3">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m89.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>7</f>
                            <f>5</f>
@@ -9890,7 +9981,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="d1rxu1zy" n="90" facs="#zone_13020d9e410d457f9f">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m90.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -9968,8 +10059,8 @@
                            <note xml:id="snw6b42" dur="4" oct="4" pname="f" stem.dir="down" />
                         </layer>
                      </staff>
-                     <dir xml:id="v8n3a7" place="above" staff="3" tstamp="1">Piano</dir>
-                     <dir xml:id="v8ndd3a7" place="above" staff="5" tstamp="1">Piano</dir>
+                     <dynam xml:id="v8n3a7" place="above" staff="3" tstamp="1">Piano</dynam>
+                     <dynam xml:id="v8ndd3a7" place="above" staff="5" tstamp="1">Piano</dynam>
                      <staff xml:id="gpjonht" n="3">
                         <layer xml:id="hwye990" n="1">
                            <beam xml:id="iprnw16">
@@ -10076,13 +10167,13 @@
                      </staff>
                   </measure>
                   <measure xml:id="yhcfkii" n="93" facs="#zone_b2a98e99b6d7429c81">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m93.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>7</f>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m93.s3.e2" tstamp="2" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -10134,7 +10225,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="m1ymk6hh" n="94" facs="#zone_7313f68eb262421195">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m94.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -10204,8 +10295,8 @@
                            <note xml:id="b1c01uv" dur="8" oct="4" pname="e" stem.dir="down" />
                         </layer>
                      </staff>
-                     <dir xml:id="v8nrwef3a7" place="above" staff="3" tstamp="1">Forte</dir>
-                     <dir xml:id="v8ndzdd3a7" place="above" staff="5" tstamp="1">Forte</dir>
+                     <dynam xml:id="v8nrwef3a7" place="above" staff="3" tstamp="1">Forte</dynam>
+                     <dynam xml:id="v8ndzdd3a7" place="above" staff="5" tstamp="1">Forte</dynam>
                      <staff xml:id="vhnrso2" n="3">
                         <layer xml:id="wt0eytp" n="1">
                            <note xml:id="gpiv0" dur="4" oct="3" pname="a" stem.dir="down" />
@@ -10239,7 +10330,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="nf2hxj3" n="96" facs="#zone_89d20578d3d1473598">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m96.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                            <f>5</f>
@@ -10312,7 +10403,7 @@
                      </staff>
                      <tie xml:id="z1soyjab" startid="#y1h1hkjw" endid="#bmq4o64" />
                   </measure>
-                  <pb xml:id="n33no3i" facs="#surface_1383e29358c5" />
+                  <sb xml:id="n33no3i" />
                   <measure xml:id="d17g25rf" n="97" facs="#zone_915bd778570d42e28c">
                      <staff xml:id="m1nyj01q" n="1">
                         <layer xml:id="okqibcw" n="1">
@@ -10366,7 +10457,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="v1jjz2br" n="98" facs="#zone_c09538ed073e40ad9b">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m98.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                            <f>5</f>
@@ -10493,12 +10584,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="b9mfqp8" n="100" facs="#zone_50d9028ce73e4c26a6">
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m100.s3.e1" tstamp="2.5" staff="3">
                         <fb>
                            <f>6♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m100.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -10577,7 +10668,7 @@
                      <tie xml:id="ztr7fdi" startid="#y4t5zhl" endid="#x1p0751q" />
                   </measure>
                   <measure xml:id="s98ac04" n="101" facs="#zone_f2c5a121d5604df781">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m101.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>7</f>
                            <f>5</f>
@@ -10684,7 +10775,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="v11gmrom" n="103" facs="#zone_642bc5253b41488c9d">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m103.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -10706,8 +10797,8 @@
                            </note>
                         </layer>
                      </staff>
-                     <dir xml:id="xren3a7" place="above" staff="3" tstamp="1">Piano</dir>
-                     <dir xml:id="olndd3a7" place="above" staff="5" tstamp="1">Piano</dir>
+                     <dynam xml:id="xren3a7" place="above" staff="3" tstamp="1">Piano</dynam>
+                     <dynam xml:id="olndd3a7" place="above" staff="5" tstamp="1">Piano</dynam>
                      <staff xml:id="ooq9vgy" n="3">
                         <layer xml:id="pep07qz" n="1">
                            <note xml:id="q12k6qaw" dots="1" dur="4" oct="3" pname="f" stem.dir="down" />
@@ -10738,12 +10829,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="j42kg88" n="104" facs="#zone_a1dff8bc2f5b4ef991">
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m104.s3.e1" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m104.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -10818,7 +10909,7 @@
                      <tie xml:id="d14suv3u" startid="#c1rhnhnj" endid="#c4jfjjg" />
                   </measure>
                   <measure xml:id="avo6h98" n="105" facs="#zone_b2614bbe8ae842fb9f">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m105.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>7</f>
                            <f>5</f>
@@ -10930,12 +11021,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="gh2u5tk" n="107" facs="#zone_b449691b05944f55ae">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m107.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m107.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -10954,8 +11045,8 @@
                            <note xml:id="j56ylt7" dur="8" oct="4" pname="g" stem.dir="down" />
                         </layer>
                      </staff>
-                     <dir xml:id="vf3a7" place="above" staff="3" tstamp="1">Forte</dir>
-                     <dir xml:id="v87" place="above" staff="5" tstamp="1">Forte</dir>
+                     <dynam xml:id="vf3a7" place="above" staff="3" tstamp="1">Forte</dynam>
+                     <dynam xml:id="v87" place="above" staff="5" tstamp="1">Forte</dynam>
                      <staff xml:id="c1q9pfmw" n="3">
                         <layer xml:id="dzbhn37" n="1">
                            <beam xml:id="e11r1m1c">
@@ -10995,12 +11086,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="ukbzyw2" n="108" facs="#zone_57436803f7fa4d7bb6">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m108.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m108.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -11064,7 +11155,7 @@
                      <slur xml:id="k7n4zc1" startid="#j1rupxez" endid="#v1phjteq" />
                   </measure>
                   <measure xml:id="k46v806" n="109" facs="#zone_fd73b1c5bd2047f8a4">
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m109.s3.e1" tstamp="3.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -11140,7 +11231,7 @@
                      <tie xml:id="v10y0e1s" startid="#t15e26jb" endid="#wspdico" />
                   </measure>
                   <measure xml:id="y1nd84j3" n="110" facs="#zone_8d08b47949264ebea3">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m110.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -11201,7 +11292,7 @@
                      <slur xml:id="k7n4c1" startid="#n1jg1pwc" endid="#a1ttybva" />
                   </measure>
                   <measure xml:id="ps9t6ii" n="111" facs="#zone_87ad7f11566143b094">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m111.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -11325,13 +11416,13 @@
                      </staff>
                   </measure>
                   <measure xml:id="xc0dzmn" n="113" facs="#zone_246af63b9f264e5ca6">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m113.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>7</f>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m113.s3.e2" tstamp="2" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -11384,7 +11475,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="lre4hfc" n="114" facs="#zone_ce8468e5a4b2448793">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m114.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -11443,14 +11534,14 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="n9lx9fz" facs="#surface_41af6c38ad33" />
+                  <pb xml:id="n9lx9fz" facs="#surface_41af6c38ad33" n="8" />
                   <measure xml:id="fwitqs5" n="115" facs="#zone_cd7bf7749f79408aa3">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m115.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>(6)</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m115.s3.e2" tstamp="2" staff="3">
                         <fb>
                            <f>(6)</f>
                         </fb>
@@ -11475,8 +11566,8 @@
                            <note xml:id="ak5s95a" dur="4" oct="4" pname="f" stem.dir="down" />
                         </layer>
                      </staff>
-                     <dir xml:id="k7m2vx1" place="above" staff="3" tstamp="1">Piano</dir>
-                     <dir xml:id="k7vx1" place="above" staff="5" tstamp="1">Piano</dir>
+                     <dynam xml:id="k7m2vx1" place="above" staff="3" tstamp="1">Piano</dynam>
+                     <dynam xml:id="k7vx1" place="above" staff="5" tstamp="1">Piano</dynam>
                      <staff xml:id="b1lz9e9g" n="3">
                         <layer xml:id="c1rp2qx5" n="1">
                            <beam xml:id="q8n2vx4">
@@ -11579,13 +11670,13 @@
                      </staff>
                   </measure>
                   <measure xml:id="s1nei927" n="117" facs="#zone_fa987cc18d6741dfb5">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m117.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>7</f>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m117.s3.e2" tstamp="2" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -11650,7 +11741,7 @@
                            <rest xml:id="yc4k175" dur="4" />
                         </layer>
                      </staff>
-                     <dir xml:id="k7m2vex1" place="below" staff="3" tstamp="1">Forte</dir>
+                     <dynam xml:id="k7m2vex1" place="below" staff="3" tstamp="1">Forte</dynam>
                      <staff xml:id="adwogcq" n="3">
                         <layer xml:id="b6s9ns9" n="1">
                            <note xml:id="c128kc6d" dur="4" oct="3" pname="d" stem.dir="down" />
@@ -11714,7 +11805,7 @@
                            </beam>
                         </layer>
                      </staff>
-                     <dir xml:id="wrf9wrg" place="below" staff="4" tstamp="1">Forte</dir>
+                     <dynam xml:id="wrf9wrg" place="below" staff="4" tstamp="1">Forte</dynam>
                      <staff xml:id="trhydoe" n="4">
                         <layer xml:id="v5jngu0" n="1">
                            <chord xml:id="xjdedzu" dur="4" stem.dir="up">
@@ -11741,7 +11832,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="l1acdzlc" n="120" facs="#zone_e4ef085b60114bcb9a">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m120.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -11786,7 +11877,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="a5qt1dp" n="121" facs="#zone_c27334f0607240ba83">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m121.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -11831,13 +11922,13 @@
                      </staff>
                   </measure>
                   <measure xml:id="o19v7qrt" n="122" facs="#zone_a09a9f480c1d4d89b2">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m122.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <dir xml:id="k7m2sdfx1" place="above" staff="3" tstamp="1">Piano</dir>
-                     <dir xml:id="k7sdx1" place="above" staff="5" tstamp="1">Piano</dir>
+                     <dynam xml:id="k7m2sdfx1" place="above" staff="3" tstamp="1">Piano</dynam>
+                     <dynam xml:id="k7sdx1" place="above" staff="5" tstamp="1">Piano</dynam>
                      <staff xml:id="xemke3y" n="1">
                         <layer xml:id="z7c83df" n="1">
                            <note xml:id="a10lnuqk" dur="4" oct="4" pname="f" stem.dir="up" />
@@ -11922,12 +12013,12 @@
                      <meterSig xml:id="ekmqaeu" count="4" sym="common" unit="4" />
                   </scoreDef>
                   <measure xml:id="s1pgcuqe" n="124" facs="#zone_add1658861dd4dee99">
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m124.s3.e1" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4.5" staff="3">
+                     <harm xml:id="harm.op1_06.m124.s3.e2" tstamp="4.5" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -12078,18 +12169,18 @@
                      <tie xml:id="r1rte85f" startid="#qqzn95o" endid="#tpwppry" />
                   </measure>
                   <measure xml:id="dkhsfg9" metcon="false" n="125" facs="#zone_b6836c05cbfb4f2090">
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m125.s3.e1" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4.5" staff="3">
+                     <harm xml:id="harm.op1_06.m125.s3.e2" tstamp="4.5" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
                      </harm>
-                     <dir xml:id="a7kq9m2x" place="above" staff="3" startid="#b4n8v1tp">Piano</dir>
-                     <dir xml:id="c9r5wq7z" place="above" staff="5" startid="#b4n8v1tp">Piano</dir>
+                     <dynam xml:id="a7kq9m2x" place="above" staff="3" startid="#b4n8v1tp">Piano</dynam>
+                     <dynam xml:id="c9r5wq7z" place="above" staff="5" startid="#b4n8v1tp">Piano</dynam>
                      <staff xml:id="d2xk6p8n" n="1">
                         <layer xml:id="e5m1qz4v" n="1">
                            <beam xml:id="f8t3n6xa">
@@ -12237,12 +12328,12 @@
                   </measure>
                   <sb xml:id="u1jf83bv" />
                   <measure xml:id="k11wx8v7" n="126" facs="#zone_416e1a2a79834e1399">
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m126.s3.e1" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4.5" staff="3">
+                     <harm xml:id="harm.op1_06.m126.s3.e2" tstamp="4.5" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -12316,8 +12407,8 @@
                            </beam>
                         </layer>
                      </staff>
-                     <dir xml:id="u7erfg" place="above" staff="3" startid="#u78io0y">Piano</dir>
-                     <dir xml:id="w5r9k2mn" place="above" staff="5" startid="#u78io0y">Piano</dir>
+                     <dynam xml:id="u7erfg" place="above" staff="3" startid="#u78io0y">Piano</dynam>
+                     <dynam xml:id="w5r9k2mn" place="above" staff="5" startid="#u78io0y">Piano</dynam>
                      <staff xml:id="q12dpr2v" n="3">
                         <layer xml:id="r1nke9og" n="1">
                            <rest xml:id="s1pfw57t" dur="4" />
@@ -12393,12 +12484,12 @@
                      <tie xml:id="a1iwtfev" startid="#z1pbd90e" endid="#c158ebpt" />
                   </measure>
                   <measure xml:id="i1scw43e" metcon="false" n="127" facs="#zone_0e4099c26d424c99b4">
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m127.s3.e1" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4.5" staff="3">
+                     <harm xml:id="harm.op1_06.m127.s3.e2" tstamp="4.5" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -12544,7 +12635,7 @@
                      <tie xml:id="rk9fom1" startid="#q1ursa7o" endid="#s577iul" />
                      <tie xml:id="j1065ib" startid="#is2hbv3" endid="#lr4fujn" />
                   </measure>
-                  <pb xml:id="pycyg8w" facs="#surface_41af6c38ad33" />
+                  <sb xml:id="pycyg8w" />
                   <measure xml:id="ffvlc9q" n="128" facs="#zone_c350fb66dce649dab7">
                      <tempo xml:id="a7m3q9vk" place="above" staff="1" tstamp="1">Adagio.</tempo>
                      <tempo xml:id="a7wvv9vk" place="above" staff="4" tstamp="1">Adagio.</tempo>
@@ -12629,18 +12720,18 @@
                      </staff>
                   </measure>
                   <measure xml:id="ihcj16c" n="130" facs="#zone_fde3b40b7bf640e584">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m130.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m130.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m130.s3.e3" tstamp="4" staff="3">
                         <fb>
                            <f>5</f>
                            <f>3</f>
@@ -12802,12 +12893,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="tj2dt27" metcon="false" n="133" facs="#zone_ef49510743364c8ab4">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m133.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m133.s3.e2" tstamp="4" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -12868,7 +12959,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="tdmi91h" facs="#surface_a8213523db88" />
+                  <pb xml:id="tdmi91h" facs="#surface_a8213523db88" n="9" />
                   <measure xml:id="l7tjj2w" n="134" facs="#zone_88ff75c0495a47b1af">
                      <staff xml:id="u1vazx1m" n="1">
                         <layer xml:id="vbith8s" n="1">
@@ -12936,7 +13027,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="fuur5oz" n="135" facs="#zone_7da985a5c7d04c4981">
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m135.s3.e1" tstamp="4" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -13066,7 +13157,7 @@
                               <note xml:id="t184ichy" oct="4" pname="e" />
                               <note xml:id="v1u3ppln" oct="4" pname="g" />
                            </chord>
-                           <chord dots="1" dur="4" stem.dir="up">
+                           <chord xml:id="chord.op1_06.m136.s4.l1.e1" dots="1" dur="4" stem.dir="up">
                               <note xml:id="wv25tf4" oct="4" pname="a" />
                               <note xml:id="wvsftf4" oct="4" pname="c" />
                            </chord>
@@ -13080,7 +13171,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="eapw6i1" n="137" facs="#zone_7ae94ccb36c14886af">
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m137.s3.e1" tstamp="4" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -13161,7 +13252,7 @@
                   </measure>
                   <sb xml:id="r1jhz3vv" />
                   <measure xml:id="h12xkmbq" n="138" facs="#zone_25da3b36ad0c484896">
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m138.s3.e1" tstamp="4" staff="3">
                         <fb>
                            <f>6♯</f>
                         </fb>
@@ -13241,13 +13332,13 @@
                      </staff>
                   </measure>
                   <measure xml:id="i421wkd" n="139" facs="#zone_f1059ecb595d437490">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m139.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>4</f>
                            <f>(6)</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m139.s3.e2" tstamp="2.5" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -13392,7 +13483,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="c1nahq09" n="141" facs="#zone_3bd31259fbad432cad">
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m141.s3.e1" tstamp="4" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -13603,12 +13694,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="i1h8kebg" n="144" facs="#zone_04b6f5f423654b6bb1">
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m144.s3.e1" tstamp="4" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m144.s3.e2" tstamp="6" staff="3">
                         <fb>
                            <f>5</f>
                         </fb>
@@ -13683,12 +13774,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="h16uuodb" n="145" facs="#zone_cee77da32bdc45fa88">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m145.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m145.s3.e2" tstamp="4" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -13813,23 +13904,23 @@
                      </staff>
                   </measure>
                   <measure xml:id="s1fupc1n" n="147" facs="#zone_8315e992b3d04977b2">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m147.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m147.s3.e2" tstamp="4" staff="3">
                         <fb>
                            <f>(7)</f>
                         </fb>
                      </harm>
-                     <harm tstamp="5" staff="3">
+                     <harm xml:id="harm.op1_06.m147.s3.e3" tstamp="5" staff="3">
                         <fb>
                            <f>6</f>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m147.s3.e4" tstamp="6" staff="3">
                         <fb>
                            <f>5</f>
                            <f>♯</f>
@@ -13908,7 +13999,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="lzdomfo" n="148" facs="#zone_1bc08934985f4e938f">
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m148.s3.e1" tstamp="6" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -14018,29 +14109,29 @@
                      <tie xml:id="sd9fv" startid="#g1yfvgb1" endid="#v188hbq6" />
                   </measure>
                   <measure xml:id="m1r25bmn" n="149" facs="#zone_e4160fb4fd4f4496bb">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m149.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>6♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m149.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m149.s3.e3" tstamp="4" staff="3">
                         <fb>
                            <f>7</f>
                            <f>♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m149.s3.e4" tstamp="6" staff="3">
                         <fb>
                            <f>4</f>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6.5" staff="3">
+                     <harm xml:id="harm.op1_06.m149.s3.e5" tstamp="6.5" staff="3">
                         <fb>
                            <f>5</f>
                            <f>♯</f>
@@ -14162,14 +14253,14 @@
                      </staff>
                      <tie xml:id="sgcg4lw" startid="#q1uywrwu" endid="#xfb36h4" />
                   </measure>
-                  <pb xml:id="y16aoat5" facs="#surface_e8bc1d7a6b88" />
+                  <pb xml:id="y16aoat5" facs="#surface_e8bc1d7a6b88" n="10" />
                   <measure xml:id="q1pt9lbw" n="150" facs="#zone_e2afd92f510c492996">
-                     <harm tstamp="5" staff="3">
+                     <harm xml:id="harm.op1_06.m150.s3.e1" tstamp="5" staff="3">
                         <fb>
                            <f>6♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m150.s3.e2" tstamp="6" staff="3">
                         <fb>
                            <f>♭</f>
                         </fb>
@@ -14288,22 +14379,22 @@
                      <tie xml:id="ullkh6j" startid="#h1mtzqiq" endid="#t1nuf6wo" />
                   </measure>
                   <measure xml:id="prhyd0k" n="151" facs="#zone_a9f63c5e109c4699a0">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m151.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>6♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m151.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>♭</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m151.s3.e3" tstamp="4" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="5.5" staff="3">
+                     <harm xml:id="harm.op1_06.m151.s3.e4" tstamp="5.5" staff="3">
                         <fb>
                            <f>5</f>
                         </fb>
@@ -14405,22 +14496,22 @@
                      </staff>
                   </measure>
                   <measure xml:id="l1usdye6" n="152" facs="#zone_237f6727bb2d4354a8">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m152.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m152.s3.e2" tstamp="4" staff="3">
                         <fb>
                            <f>-</f>
                         </fb>
                      </harm>
-                     <harm tstamp="5" staff="3">
+                     <harm xml:id="harm.op1_06.m152.s3.e3" tstamp="5" staff="3">
                         <fb>
                            <f>7♭</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m152.s3.e4" tstamp="6" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -14531,29 +14622,29 @@
                      <tie xml:id="t5whfo5" endid="#u1bd6wmp" staff="4" startid="#r4nv8tcz" />
                   </measure>
                   <measure xml:id="iop29u2" n="153" facs="#zone_683260f000ea47649c">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m153.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m153.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m153.s3.e3" tstamp="4" staff="3">
                         <fb>
                            <f>7</f>
                            <f>♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m153.s3.e4" tstamp="6" staff="3">
                         <fb>
                            <f>6</f>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6.5" staff="3">
+                     <harm xml:id="harm.op1_06.m153.s3.e5" tstamp="6.5" staff="3">
                         <fb>
                            <f>5</f>
                            <f>♯</f>
@@ -14686,12 +14777,12 @@
                   </measure>
                   <sb xml:id="vot6195" />
                   <measure xml:id="l1b3nqxk" n="154" facs="#zone_2f61ba5c08954c7ca3">
-                     <harm tstamp="5" staff="3">
+                     <harm xml:id="harm.op1_06.m154.s3.e1" tstamp="5" staff="3">
                         <fb>
                            <f>6♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m154.s3.e2" tstamp="6" staff="3">
                         <fb>
                            <f>♭</f>
                         </fb>
@@ -14797,23 +14888,23 @@
                      <tie xml:id="i1bnzdi3" startid="#h141vbx3" endid="#pppkr2l" />
                   </measure>
                   <measure xml:id="m1l0kgh7" n="155" facs="#zone_2980e1feb76d4543b9">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m155.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>6♯</f>
                            <f>(♯)</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m155.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>♭</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m155.s3.e3" tstamp="4" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="5.5" staff="3">
+                     <harm xml:id="harm.op1_06.m155.s3.e4" tstamp="5.5" staff="3">
                         <fb>
                            <f>5</f>
                         </fb>
@@ -14911,17 +15002,17 @@
                      </staff>
                   </measure>
                   <measure xml:id="j170apg3" n="156" facs="#zone_22bd9b3c5b054969ad">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m156.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="5" staff="3">
+                     <harm xml:id="harm.op1_06.m156.s3.e2" tstamp="5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m156.s3.e3" tstamp="6" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -15021,34 +15112,34 @@
                      <slur xml:id="mhlvnbx" startid="#kyrqmrb" endid="#sjox4po" />
                   </measure>
                   <measure xml:id="jhcihku" n="157" facs="#zone_1870609ef5dd4d7489">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m157.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m157.s3.e2" tstamp="2" staff="3">
                         <fb>
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m157.s3.e3" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m157.s3.e4" tstamp="4" staff="3">
                         <fb>
                            <f>7</f>
                            <f>♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m157.s3.e5" tstamp="6" staff="3">
                         <fb>
                            <f>6</f>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6.5" staff="3">
+                     <harm xml:id="harm.op1_06.m157.s3.e6" tstamp="6.5" staff="3">
                         <fb>
                            <f>5</f>
                         </fb>
@@ -15156,13 +15247,13 @@
                      </staff>
                   </measure>
                   <measure xml:id="k17mklcw" right="dbl" n="158" facs="#zone_0930e0d334654219a0">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m158.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>6</f>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3.5" staff="3">
+                     <harm xml:id="harm.op1_06.m158.s3.e2" tstamp="3.5" staff="3">
                         <fb>
                            <f>5</f>
                            <f>♯</f>
@@ -15240,17 +15331,17 @@
                   </measure>
                   <sb xml:id="wqkjzho" />
                   <measure xml:id="m1b5psgg" n="159" facs="#zone_f98218505101425dbb">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m159.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m159.s3.e2" tstamp="4" staff="3">
                         <fb>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm tstamp="5.5" staff="3">
+                     <harm xml:id="harm.op1_06.m159.s3.e3" tstamp="5.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -15295,7 +15386,7 @@
                            <note xml:id="n4tz7wkp" dur="4" oct="4" pname="c" stem.dir="up" />
                            <note xml:id="xvgl98w" dur="8" oct="4" pname="d" stem.dir="up" />
                         </layer>
-                        <layer n="2">
+                        <layer xml:id="layer.op1_06.m159.s4.l2" n="2">
                            <space xml:id="sdfsdgv" dots="1" dur="4" />
                            <note xml:id="c8vq2mra" dur="4" dots="1" oct="3" pname="a" stem.dir="down" />
                         </layer>
@@ -15310,22 +15401,22 @@
                      <tie xml:id="q6mv2kra" startid="#e15rmwff" endid="#n4tz7wkp" />
                   </measure>
                   <measure xml:id="q1mx497g" n="160" facs="#zone_2d160379a8ed419a9b">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m160.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m160.s3.e2" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m160.s3.e3" tstamp="4" staff="3">
                         <fb>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm tstamp="5.5" staff="3">
+                     <harm xml:id="harm.op1_06.m160.s3.e4" tstamp="5.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -15383,24 +15474,24 @@
                      <tie xml:id="ctasb0b" startid="#bxu1asl" endid="#x1gwurbk" />
                   </measure>
                   <measure xml:id="tfvwe09" n="161" facs="#zone_4031c01598864140a6">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m161.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m161.s3.e2" tstamp="4" staff="3">
                         <fb>
                            <f>6</f>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm tstamp="5" staff="3">
+                     <harm xml:id="harm.op1_06.m161.s3.e3" tstamp="5" staff="3">
                         <fb>
                            <f>6</f>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m161.s3.e4" tstamp="6" staff="3">
                         <fb>
                            <f>5</f>
                            <f>3</f>
@@ -15481,7 +15572,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="u14lk086" n="162" facs="#zone_2a8c5421f64e47c58a">
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m162.s3.e1" tstamp="6" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -15557,12 +15648,12 @@
                   </measure>
                   <sb xml:id="a5n0v57" />
                   <measure xml:id="q1cajgnc" n="163" facs="#zone_2a52acb2dfd149cf84">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m163.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>5♭</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m163.s3.e2" tstamp="6" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -15659,7 +15750,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="nan0un" n="164" facs="#zone_3f28e141e5cb47f98e">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m164.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -15730,7 +15821,7 @@
                            </chord>
                            <note xml:id="l1g4byvp" dots="1" dur="4" oct="4" pname="d" stem.dir="down" />
                         </layer>
-                        <layer n="2">
+                        <layer xml:id="layer.op1_06.m164.s4.l2" n="2">
                            <space xml:id="ef7gg8e" dots="1" dur="4" />
                            <beam xml:id="o1ty7jbi">
                               <note xml:id="n1wfjt5a" dur="8" oct="4" pname="f" />
@@ -15755,17 +15846,17 @@
                      </staff>
                   </measure>
                   <measure xml:id="nknyqh5" n="165" facs="#zone_36b1bea2808a4aadaf">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m165.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m165.s3.e2" tstamp="4" staff="3">
                         <fb>
                            <f>6♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="5" staff="3">
+                     <harm xml:id="harm.op1_06.m165.s3.e3" tstamp="5" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -15946,9 +16037,9 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="r1fberjj" facs="#surface_8b6fdb60c013" />
+                  <pb xml:id="r1fberjj" facs="#surface_8b6fdb60c013" n="11" />
                   <measure xml:id="nj2xmpj" n="167" facs="#zone_e2e7f1382f954e2aa8">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m167.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -16041,12 +16132,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="mdp35kt" n="168" facs="#zone_7355c78d041c4660b9">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m168.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="5" staff="3">
+                     <harm xml:id="harm.op1_06.m168.s3.e2" tstamp="5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -16135,7 +16226,7 @@
                      <tie xml:id="i1r31xnc" startid="#g1llsdq" endid="#k9fopgs" />
                   </measure>
                   <measure xml:id="ldw8xo7" n="169" facs="#zone_025e987464e14abe91">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m169.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -16205,7 +16296,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="j1vy1zv5" n="170" facs="#zone_af9337d92d55444986">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m170.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -16287,7 +16378,7 @@
                   </measure>
                   <sb xml:id="t1l9wmfg" />
                   <measure xml:id="i3eorj2" n="171" facs="#zone_40b026b857c64a678b">
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m171.s3.e1" tstamp="4" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -16361,12 +16452,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="a1bwdsp4" n="172" facs="#zone_72b70e8f36464b3ca3">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m172.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m172.s3.e2" tstamp="6" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -16441,22 +16532,22 @@
                      </staff>
                   </measure>
                   <measure xml:id="b1shmaus" n="173" facs="#zone_d173b099a1cf44df9d">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m173.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m173.s3.e2" tstamp="2.5" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m173.s3.e3" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m173.s3.e4" tstamp="6" staff="3">
                         <fb>
                            <f>6</f>
                            <f>4♯</f>
@@ -16537,12 +16628,12 @@
                      </staff>
                   </measure>
                   <measure xml:id="ekqmv9a" n="174" facs="#zone_99f415de6f0d42e2b8">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m174.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m174.s3.e2" tstamp="6" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -16606,12 +16697,12 @@
                      <tie xml:id="v1hi1akp" startid="#unxefyw" endid="#w1a96fao" />
                   </measure>
                   <measure xml:id="u1atiuml" n="175" facs="#zone_a220d95d558a48998d">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m175.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m175.s3.e2" tstamp="4" staff="3">
                         <fb>
                            <f>7</f>
                         </fb>
@@ -16690,17 +16781,17 @@
                   </measure>
                   <sb xml:id="t1l9cwmfg" />
                   <measure xml:id="npfe1p0" n="176" facs="#zone_4df0237edc7d4cff83">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m176.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m176.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>♭</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m176.s3.e3" tstamp="4" staff="3">
                         <fb>
                            <f>7</f>
                         </fb>
@@ -16790,17 +16881,17 @@
                      <tie xml:id="v1bfs4ge" startid="#tnqojss" endid="#r5j7xmw" />
                   </measure>
                   <measure xml:id="nwzs6ru" n="177" facs="#zone_21f08cd8b6524d2ca8">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m177.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m177.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m177.s3.e3" tstamp="4" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -16890,23 +16981,23 @@
                      </staff>
                   </measure>
                   <measure xml:id="hrhba1o" n="178" facs="#zone_92bcf6a3fdb745dab9">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m178.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m178.s3.e2" tstamp="4" staff="3">
                         <fb>
                            <f>6</f>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm tstamp="5.5" staff="3">
+                     <harm xml:id="harm.op1_06.m178.s3.e3" tstamp="5.5" staff="3">
                         <fb>
                            <f>(6)</f>
                         </fb>
                      </harm>
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m178.s3.e4" tstamp="6" staff="3">
                         <fb>
                            <f>5</f>
                            <f>♯</f>
@@ -17004,7 +17095,7 @@
                      </staff>
                   </measure>
                   <measure xml:id="f12yrz2n" n="179" facs="#zone_d87b8d0cf8cc45c082">
-                     <harm tstamp="6" staff="3">
+                     <harm xml:id="harm.op1_06.m179.s3.e1" tstamp="6" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -17090,18 +17181,18 @@
                      <tie xml:id="t1smgedi" startid="#s7aqrzf" endid="#x17zsiot" />
                   </measure>
                   <measure xml:id="b1ta3tx" right="dbl" n="180" facs="#zone_00d713647c154efd96">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m180.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                            <f>4</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2.5" staff="3">
+                     <harm xml:id="harm.op1_06.m180.s3.e2" tstamp="2.5" staff="3">
                         <fb>
                            <f>(6)</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m180.s3.e3" tstamp="3" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -17196,7 +17287,7 @@
                      <meterSig xml:id="f16s3wrh" count="4" sym="common" unit="4" />
                   </scoreDef>
                   <measure xml:id="u1fyrluh" n="181" facs="#zone_331fe24fb4394b8fb1">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m181.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -17267,13 +17358,13 @@
                      </staff>
                   </measure>
                   <measure xml:id="imdc1sw" n="182" facs="#zone_186ff99a38534c2ca2">
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m182.s3.e1" tstamp="3" staff="3">
                         <fb>
                            <f>4♯</f>
                            <f>2</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m182.s3.e2" tstamp="4" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -17334,18 +17425,18 @@
                      <tie xml:id="acqepe1" startid="#z1f3tn6i" endid="#ffvbo58" />
                   </measure>
                   <measure xml:id="zkhjlxx" n="183" facs="#zone_ff48acdab19746c0a6">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m183.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>6</f>
                            <f>4♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m183.s3.e2" tstamp="2" staff="3">
                         <fb>
                            <f>6♯</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m183.s3.e3" tstamp="3" staff="3">
                         <fb>
                            <f>6</f>
                            <f>5</f>
@@ -17418,18 +17509,18 @@
                      <tie xml:id="me0w98n" startid="#l169wgi7" endid="#z1rojuut" />
                   </measure>
                   <measure xml:id="n1unol3d" n="184" facs="#zone_984f95c57af34a619c">
-                     <harm tstamp="2" staff="3">
+                     <harm xml:id="harm.op1_06.m184.s3.e1" tstamp="2" staff="3">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm tstamp="3" staff="3">
+                     <harm xml:id="harm.op1_06.m184.s3.e2" tstamp="3" staff="3">
                         <fb>
                            <f>7</f>
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm tstamp="4" staff="3">
+                     <harm xml:id="harm.op1_06.m184.s3.e3" tstamp="4" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
@@ -17489,7 +17580,7 @@
                      <tie xml:id="c1gw0mmc" startid="#bhvc6mp" endid="#d3p4w7m" />
                   </measure>
                   <measure xml:id="d46k400" right="end" n="185" facs="#zone_9afb6ad32c35493099">
-                     <harm tstamp="1" staff="3">
+                     <harm xml:id="harm.op1_06.m185.s3.e1" tstamp="1" staff="3">
                         <fb>
                            <f>♯</f>
                         </fb>
