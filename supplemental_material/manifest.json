@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "scope": "Selected source excerpts supporting critical annotations; not the complete facsimile collection.",
+  "items": [
+    {
+      "file": "supplemental_material/supplemental_material_op2_02_m189_stimu1991.png",
+      "sha256": "f00244b2106fa5fef7487ef205c77fe644afdc1d8761a61c696660d68594a895",
+      "bytes": 760724,
+      "media_type": "image/png",
+      "width": 1310,
+      "height": 340,
+      "created_date": "2026-10-19",
+      "work_key": "op2_02_sonata_d_major",
+      "measure": 189,
+      "instrument": "viola da gamba",
+      "mei_file": "11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr.mei",
+      "annotation_id": "editorial_y1dubf9q",
+      "event_id": "y1dubf9q",
+      "historical_source": "src.uppsala.op2",
+      "carrier_source": "src.stimu1991.op2",
+      "caption": "Dieterich Buxtehude, Op. II (1696), Viola da gamba part, Sonata II, Parte V, seventh bar; Uppsala partbooks, STIMU facsimile (Utrecht, 1991; introduction by Kerala J. Snyder), supplied library scan-0029, left page, eleventh staff line.",
+      "purpose": "Document the single eighth-note flag on E3 and its musical context, supporting the source-supported emendation from the quarter printed in DdT 1903.",
+      "source_provenance": {
+        "local_file": "facsimiles/uppsala/op2/jpeg/scan-0029.jpg",
+        "included_in_release": false,
+        "sha256": "73b196cbe3f00cfb5904f83b0403fca8ba6e9932cb9d0bc7c54f073109932ce5",
+        "size": [
+          6674,
+          4504
+        ],
+        "inventory": "facsimiles/uppsala/op2/inventory-jpeg.json",
+        "upstream_input": "Polyakov, Buxtehude2/2.29.tif",
+        "upstream_input_sha256": "d121acafd3c50b892188c568072e87cf221b6adf91152d0d46dd2434d108e0bf",
+        "source_level": "JPEG access derivative; TIFF master not newly read for this crop"
+      },
+      "crop": {
+        "box_xyxy": [
+          650,
+          3560,
+          1960,
+          3900
+        ],
+        "pixel_scale": "unchanged",
+        "operations": [
+          "crop",
+          "lossless PNG encoding"
+        ],
+        "software": "Version: ImageMagick 7.1.2-34 Q16-HDRI x86_64 c5d4ca8a0:20261014 https://imagemagick.org",
+        "command": "magick 'facsimiles/uppsala/op2/jpeg/scan-0029.jpg' -crop 1310x340+650+3560 +repage -define png:exclude-chunks=date,time supplemental_material/supplemental_material_op2_02_m189_stimu1991.png"
+      },
+      "rights": {
+        "intended_use": "Documentary image quotation with the linked critical annotation",
+        "jurisdiction_basis": "Germany, UrhG §§ 51 and 63, checked 2026-10-19",
+        "statutory_references": [
+          "https://www.gesetze-im-internet.de/urhg/__51.html",
+          "https://www.gesetze-im-internet.de/urhg/__63.html"
+        ],
+        "image_license": null,
+        "note": "No MIT or BSB image license is assigned to this PNG. This intended quotation basis does not establish general scan-redistribution permission or settle any applicable scan-supply contract. See README.md."
+      }
+    }
+  ]
+}
