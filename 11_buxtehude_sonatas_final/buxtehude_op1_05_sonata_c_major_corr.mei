@@ -3,128 +3,139 @@
 <?xml-model href="https://music-encoding.org/schema/5.1/mei-CMN.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1+CMN">
    <meiHead xml:lang="en">
-<altId type="repository-stem">op1_05_sonata_c_major</altId>
-<fileDesc>
-<titleStmt>
-<title>Sonata V in C major, Op. I</title>
-<composer>
-<persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
-</composer>
-<respStmt xml:id="resp.camat">
-<resp>MEI encoding and sonata-level assembly</resp>
-<corpName>CAMAT</corpName>
-</respStmt>
-<respStmt xml:id="resp.conrads">
-<resp>OMR correction and editorial review</resp>
-<persName>Ragna Conrads</persName>
-</respStmt>
-<respStmt xml:id="resp.polyakov">
-<resp>OMR correction, editorial review, and metadata</resp>
-<persName>Egor Polyakov</persName>
-</respStmt>
-</titleStmt>
-<editionStmt>
-<edition n="1.0.0">First digital edition</edition>
-</editionStmt>
-<pubStmt>
-<publisher>CAMAT Corpus Editions</publisher>
-<date isodate="2026-08-21">2026-08-21</date>
-<identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_05_sonata_c_major_corr.mei</identifier>
-<availability>
-<useRestrict>MEI data released under the <ref target="https://spdx.org/licenses/MIT.html">MIT License</ref>.</useRestrict>
-</availability>
-</pubStmt>
-<sourceDesc>
-<source type="printed-edition">
-<bibl>
-<title>Dietrich Buxtehudes Instrumentalwerke: Sonaten für Violine, Gambe und Cembalo</title>
-<title type="series">Denkmäler deutscher Tonkunst, first series, vol. 11</title>
-<composer>Dietrich Buxtehude</composer>
-<editor>
-<persName auth="GND" auth.uri="https://d-nb.info/gnd/117245674" codedval="117245674">Carl Stiehl</persName>
-</editor>
-<imprint>
-<pubPlace>Leipzig</pubPlace>
-<publisher>Breitkopf und Härtel</publisher>
-<date isodate="1903">1903</date>
-</imprint>
-<identifier type="URN">urn:nbn:de:bvb:12-bsb00023199-0</identifier>
-<identifier type="BSB-ID">991009385569707356</identifier>
-<identifier type="BV">BV035347306</identifier>
-<identifier type="OCLC">775063768</identifier>
-<physLoc>
-<repository>Hochschule für Musik und Theater München, Bibliothek</repository>
-<identifier type="shelfmark">N2/X 1 DDT, 11</identifier>
-</physLoc>
-<ref type="digital-facsimile" target="https://digitale-sammlungen.de/en/view/bsb00023199">BSB digital facsimile</ref>
-<ref type="iiif-manifest" target="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/manifest">IIIF Presentation manifest</ref>
-<biblScope unit="page" from="44" to="54">pp. 44-54</biblScope>
-<availability>
-<useRestrict>Digital facsimile supplied by the Bayerische Staatsbibliothek under <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</ref>.</useRestrict>
-</availability>
-</bibl>
-</source>
-</sourceDesc>
-</fileDesc>
-<encodingDesc>
-<appInfo>
-<application>
-<name>musiconn.scoresearch</name>
-<p>Source OMR data.</p>
-</application>
-<application isodate="2025-08-29T17:43:44" version="5.5.0-e003172">
-<name>Verovio</name>
-<p>Transcoded source data from MusicXML to MEI.</p>
-</application>
-<application startdate="2026-04-09T16:29:00" enddate="2026-08-24T22:07:39" version="1.4.2">
-<name>mei-friend</name>
-<p>Manual correction and editorial review.</p>
-</application>
-</appInfo>
-<editorialDecl>
-<p>OMR and conversion errors were corrected against the source facsimile. The encoding is intended to reproduce the notation of the printed source; explicit editorial comments are recorded in annot elements with @type="editorial".</p>
-<p>Worded dynamics such as Forte and Piano are encoded as dynam, and performance directions such as Violino Solo. as dir, even when the printed source sets them in the same type as tempo markings. That visual identity is recorded in editorial annot elements rather than by encoding the words as tempo.</p>
-<p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
-</editorialDecl>
-<projectDesc>
-<p>This edition was prepared by CAMAT Corpus Editions as part of a DFG-funded corpus for music-analysis technologies (grant PF 669/18-1).</p>
-</projectDesc>
-</encodingDesc>
-<workList>
-<work xml:id="work.buxwv256">
-<identifier type="BuxWV">BuxWV 256</identifier>
-<title>Sonata V in C major, Op. I</title>
-<composer>
-<persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
-</composer>
-<key pname="c" mode="major">C major</key>
-<perfMedium>
-<perfResList>
-<perfRes>Violin</perfRes>
-<perfRes>Viola da gamba</perfRes>
-<perfRes>Harpsichord</perfRes>
-</perfResList>
-</perfMedium>
-</work>
-</workList>
-<revisionDesc>
-<change isodate="2026-08-21" resp="#resp.camat #resp.polyakov">
-<changeDesc>
-<p>Applied the MEI 5.1 CMN publication profile, expanded source and work metadata, and normalized facsimile page boundaries.</p>
-</changeDesc>
-</change>
-<change isodate="2026-08-19" resp="#resp.conrads #resp.polyakov">
-<changeDesc>
-<p>Completed musical correction and local validation.</p>
-</changeDesc>
-</change>
-<change isodate="2026-06-30" resp="#resp.camat">
-<changeDesc>
-<p>Combined page-level OMR files into sonata-level MEI.</p>
-</changeDesc>
-</change>
-</revisionDesc>
-</meiHead>
+      <altId type="repository-stem">op1_05_sonata_c_major</altId>
+      <fileDesc>
+         <titleStmt>
+            <title>Sonata V in C major, Op. I</title>
+            <composer>
+               <persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
+            </composer>
+            <respStmt xml:id="resp.camat">
+               <resp>MEI encoding and sonata-level assembly</resp>
+               <corpName>CAMAT</corpName>
+            </respStmt>
+            <respStmt xml:id="resp.conrads">
+               <resp>OMR correction and editorial review</resp>
+               <persName>Ragna Conrads</persName>
+            </respStmt>
+            <respStmt xml:id="resp.steuck">
+               <resp>OMR correction</resp>
+               <persName>Pia Steuck</persName>
+            </respStmt>
+            <respStmt xml:id="resp.polyakov">
+               <resp>OMR correction, editorial review, and metadata</resp>
+               <persName>Egor Polyakov</persName>
+            </respStmt>
+         </titleStmt>
+         <editionStmt>
+            <edition n="0.1.0">Working digital edition</edition>
+         </editionStmt>
+         <pubStmt>
+            <publisher>CAMAT Corpus Editions</publisher>
+            <date isodate="2026-10-19" type="last-updated">2026-10-19</date>
+            <date isodate="2026-08-21" type="metadata-date">2026-08-21</date>
+            <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_05_sonata_c_major_corr.mei</identifier>
+            <availability>
+               <useRestrict>MEI data released under the <ref target="https://spdx.org/licenses/MIT.html">MIT License</ref>.</useRestrict>
+            </availability>
+         </pubStmt>
+         <sourceDesc>
+            <source type="printed-edition" xml:id="src.ddt1903">
+               <bibl>
+                  <title>Dietrich Buxtehudes Instrumentalwerke: Sonaten für Violine, Gambe und Cembalo</title>
+                  <title type="series">Denkmäler deutscher Tonkunst, first series, vol. 11</title>
+                  <composer>Dietrich Buxtehude</composer>
+                  <editor>
+                     <persName auth="GND" auth.uri="https://d-nb.info/gnd/117245674" codedval="117245674">Carl Stiehl</persName>
+                  </editor>
+                  <imprint>
+                     <pubPlace>Leipzig</pubPlace>
+                     <publisher>Breitkopf und Härtel</publisher>
+                     <date isodate="1903">1903</date>
+                  </imprint>
+                  <identifier type="URN">urn:nbn:de:bvb:12-bsb00023199-0</identifier>
+                  <identifier type="BSB-ID">991009385569707356</identifier>
+                  <identifier type="BV">BV035347306</identifier>
+                  <identifier type="OCLC">775063768</identifier>
+                  <physLoc>
+                     <repository>Hochschule für Musik und Theater München, Bibliothek</repository>
+                     <identifier type="shelfmark">N2/X 1 DDT, 11</identifier>
+                  </physLoc>
+                  <ref type="digital-facsimile" target="https://digitale-sammlungen.de/en/view/bsb00023199">BSB digital facsimile</ref>
+                  <ref type="iiif-manifest" target="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/manifest">IIIF Presentation manifest</ref>
+                  <biblScope unit="page" from="44" to="54">pp. 44-54</biblScope>
+                  <availability>
+                     <useRestrict>Digital facsimile supplied by the Bayerische Staatsbibliothek under <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</ref>.</useRestrict>
+                  </availability>
+               </bibl>
+            </source>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <appInfo>
+            <application>
+               <name>musiconn.scoresearch</name>
+               <p>Source OMR data.</p>
+            </application>
+            <application isodate="2025-08-29T17:43:44" version="5.5.0-e003172">
+               <name>Verovio</name>
+               <p>Transcoded source data from MusicXML to MEI.</p>
+            </application>
+            <application startdate="2026-04-09T16:29:00" enddate="2026-08-24T22:07:39" version="1.4.2">
+               <name>mei-friend</name>
+               <p>Manual correction and editorial review.</p>
+            </application>
+         </appInfo>
+         <editorialDecl>
+            <p>This is a working corrected digital edition based on DdT 1903. The editor confirmed DdT 1903 as the sole consulted source for this sonata; no comparison with the Uppsala Op. I witness through the STIMU 1991 facsimile is claimed. OMR and conversion errors are corrected against the DdT facsimile. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
+            <p>Worded dynamics such as Forte and Piano are encoded as dynam, and performance directions such as Violino Solo. as dir, even when the printed source sets them in the same type as tempo markings. That visual identity is recorded in editorial annot elements rather than by encoding the words as tempo.</p>
+            <p>The staff arrangement and keyboard realization printed in DdT are retained. Staff 1 is violin; staff 2 is viola da gamba; staff 3 is the figured continuo bass; staves 4 and 5 are the upper and lower staves of the printed keyboard realization. The realization is distinguished from the figured continuo bass when defining an analytical view.</p>
+            <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
+         </editorialDecl>
+         <projectDesc>
+            <p>This edition was prepared by CAMAT Corpus Editions as part of a DFG-funded corpus for music-analysis technologies (grant PF 669/18-1).</p>
+         </projectDesc>
+      </encodingDesc>
+      <workList>
+         <work xml:id="work.buxwv256">
+            <identifier type="BuxWV">BuxWV 256</identifier>
+            <title>Sonata V in C major, Op. I</title>
+            <composer>
+               <persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
+            </composer>
+            <key pname="c" mode="major">C major</key>
+            <perfMedium>
+               <perfResList>
+                  <perfRes>Violin</perfRes>
+                  <perfRes>Viola da gamba</perfRes>
+                  <perfRes>Harpsichord</perfRes>
+               </perfResList>
+            </perfMedium>
+         </work>
+      </workList>
+      <revisionDesc>
+         <change isodate="2026-10-19" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Rechecked flagged passages against DdT 1903. In measure 69 (printed page 47), corrected the final violin E5 from an eighth note to a quarter note and the figured-continuo E3 from a dotted quarter to a dotted half. In measure 89 (printed page 48), retained the dotted-half B4 above the half-note E4 and made the B4 duration explicit. Added persistent IDs to the measure-59 keyboard chord and the two measure-72 tempo marks. Completed source identity, staff roles, and category/responsibility links for the existing measure-40 encoding notes; their responsibility follows the edit that introduced them. Confirmed DdT-only consultation and credited Pia Steuck's correction work documented in the repository history. Aligned the working-edition designation with the current corpus policy while retaining the August metadata date and revision history. Pitches, voice assignments, ties, slurs, and source punctuation were retained.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-08-21" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Applied the MEI 5.1 CMN publication profile, expanded source and work metadata, and normalized facsimile page boundaries.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-08-19" resp="#resp.conrads #resp.polyakov">
+            <changeDesc>
+               <p>Completed musical correction and local validation.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-06-30" resp="#resp.camat">
+            <changeDesc>
+               <p>Combined page-level OMR files into sonata-level MEI.</p>
+            </changeDesc>
+         </change>
+      </revisionDesc>
+   </meiHead>
    <music>
       <facsimile>
          <surface xml:id="sxautwy2" n="1" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/54" lrx="4133" lry="5522" ulx="0" uly="0">
@@ -4773,7 +4784,7 @@
                      <slur xml:id="x8v8669" startid="#w10znzmr" endid="#yv0qwj2" curvedir="above" />
                      <dynam xml:id="dynam_m40_s2" staff="2" place="below" tstamp="1">Forte</dynam>
                      <dynam xml:id="dynam_m40_s4" staff="4" place="below" tstamp="1">Forte</dynam>
-                     <annot xml:id="editorial_dynam_worded" type="editorial" plist="#dynam_m40_s2 #dynam_m40_s4">
+                     <annot xml:id="editorial_dynam_worded" type="editorial" label="encoding-note" resp="#resp.polyakov" source="#src.ddt1903" plist="#dynam_m40_s2 #dynam_m40_s4">
                         <p>DdT prints Forte and Piano in the same type as tempo markings. Encoded as dynam because they function as dynamics rather than tempo; the same convention is used for later worded dynamics in this file.</p>
                      </annot>
                      <harm xml:id="iz4is2io" staff="3" tstamp="2">
@@ -4787,7 +4798,7 @@
                         </fb>
                      </harm>
                      <dir xml:id="dir_m40_violino_solo" staff="1" place="above" tstamp="1">Violino Solo.</dir>
-                     <annot xml:id="editorial_dir_violino_solo" type="editorial" plist="#dir_m40_violino_solo">
+                     <annot xml:id="editorial_dir_violino_solo" type="editorial" label="encoding-note" resp="#resp.polyakov" source="#src.ddt1903" plist="#dir_m40_violino_solo">
                         <p>DdT prints Violino Solo. in the same type as tempo markings. Encoded as dir because it is a performance direction (solo scoring) rather than a tempo.</p>
                      </annot>
                   </measure>
@@ -5725,7 +5736,7 @@
                                  <accid xml:id="vgy2ogn" accid="s" />
                               </note>
                            </chord>
-                           <chord dur="8" stem.dir="up">
+                           <chord xml:id="chord.op1_05.m59.s4.l1" dur="8" stem.dir="up">
                               <note xml:id="neues_a" oct="3" pname="a" />
                               <note xml:id="w194bdke" oct="4" pname="f">
                                  <accid xml:id="x12fd7tp" accid="s" />
@@ -6202,7 +6213,7 @@
                         <layer xml:id="ih14522" n="1">
                            <note xml:id="j18qrvkp" dots="1" dur="4" oct="5" pname="g" stem.dir="down"/>
                            <note xml:id="k52fnk7" dur="8" oct="5" pname="f" stem.dir="down"/>
-                           <note xml:id="e1oixzhsdy" dur="8" oct="5" pname="e" stem.dir="down"/>
+                           <note xml:id="e1oixzhsdy" dur="4" oct="5" pname="e" stem.dir="down"/>
                         </layer>
                      </staff>
                      <staff xml:id="r11mvszq" n="2">
@@ -6212,7 +6223,7 @@
                      </staff>
                      <staff xml:id="gqgwwz8" n="3">
                         <layer xml:id="hnajg2p" n="1">
-                           <note xml:id="i181stol" dots="1" dur="4" oct="3" pname="e" stem.dir="down" />
+                           <note xml:id="i181stol" dots="1" dur="2" oct="3" pname="e" stem.dir="down" />
                         </layer>
                      </staff>
                      <staff xml:id="s1r2mcea" n="4">
@@ -6397,8 +6408,8 @@
                            <f>6#</f>
                         </fb>
                      </harm>
-                     <tempo place="above" staff="1" tstamp="1">Allegro.</tempo>
-                     <tempo place="above" staff="4" tstamp="1">Allegro.</tempo>
+                     <tempo xml:id="tempo.op1_05.m72.s1" place="above" staff="1" tstamp="1">Allegro.</tempo>
+                     <tempo xml:id="tempo.op1_05.m72.s4" place="above" staff="4" tstamp="1">Allegro.</tempo>
                   </measure>
                   <measure xml:id="pvzh29p" n="73" facs="#zone_4f3cfc33e5724ec08d">
                      <staff xml:id="y4vsp6g" n="1">
@@ -7253,7 +7264,7 @@
                         <layer xml:id="mwkybni" n="1">
                            <chord xml:id="oylih" dur="2" stem.dir="up">
                               <note xml:id="n1wc57ff" oct="4" pname="e" />
-                              <note xml:id="p86gpo9" dots="1" oct="4" pname="b" />
+                              <note xml:id="p86gpo9" dots="1" dur="2" oct="4" pname="b" />
                            </chord>
                            <space xml:id="e1oixzhxsdy" dur="4" />
                         </layer>
