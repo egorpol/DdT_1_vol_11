@@ -2,15 +2,70 @@
 <?xml-model href="https://music-encoding.org/schema/5.1/mei-CMN.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="https://music-encoding.org/schema/5.1/mei-CMN.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1+CMN">
-   <meiHead xml:id="m1cy7fl7">
+   <meiHead xml:lang="en" xml:id="m1cy7fl7">
+      <altId type="repository-stem">op2_07_sonata_f_major</altId>
       <fileDesc xml:id="ftpylit">
          <titleStmt xml:id="tk8sio8">
-            <title >Sonata VII.</title>
-            <respStmt />
+            <title>Sonata VII in F major, Op. II</title>
+            <composer>
+               <persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
+            </composer>
+            <respStmt xml:id="resp.camat">
+               <resp>MEI encoding and sonata-level assembly</resp>
+               <corpName>CAMAT</corpName>
+            </respStmt>
+            <respStmt xml:id="resp.tu">
+               <resp>OMR correction</resp>
+               <persName>Jingyu Tu</persName>
+            </respStmt>
+            <respStmt xml:id="resp.polyakov">
+               <resp>OMR correction, editorial review, and metadata</resp>
+               <persName>Egor Polyakov</persName>
+            </respStmt>
          </titleStmt>
+         <editionStmt>
+            <edition n="0.1.0">Working digital edition</edition>
+         </editionStmt>
          <pubStmt xml:id="p1kyq0q4">
+            <publisher>CAMAT Corpus Editions</publisher>
+            <date isodate="2026-10-20" type="last-updated">2026-10-20</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
+            <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op2_07_sonata_f_major_corr.mei</identifier>
+            <availability>
+               <useRestrict>MEI data released under the <ref target="https://spdx.org/licenses/MIT.html">MIT License</ref>.</useRestrict>
+            </availability>
          </pubStmt>
+         <sourceDesc>
+            <source type="printed-edition" xml:id="src.ddt1903">
+               <bibl>
+                  <title>Dietrich Buxtehudes Instrumentalwerke: Sonaten für Violine, Gambe und Cembalo</title>
+                  <title type="series">Denkmäler deutscher Tonkunst, first series, vol. 11</title>
+                  <composer>Dietrich Buxtehude</composer>
+                  <editor>
+                     <persName auth="GND" auth.uri="https://d-nb.info/gnd/117245674" codedval="117245674">Carl Stiehl</persName>
+                  </editor>
+                  <imprint>
+                     <pubPlace>Leipzig</pubPlace>
+                     <publisher>Breitkopf und Härtel</publisher>
+                     <date isodate="1903">1903</date>
+                  </imprint>
+                  <identifier type="URN">urn:nbn:de:bvb:12-bsb00023199-0</identifier>
+                  <identifier type="BSB-ID">991009385569707356</identifier>
+                  <identifier type="BV">BV035347306</identifier>
+                  <identifier type="OCLC">775063768</identifier>
+                  <physLoc>
+                     <repository>Hochschule für Musik und Theater München, Bibliothek</repository>
+                     <identifier type="shelfmark">N2/X 1 DDT, 11</identifier>
+                  </physLoc>
+                  <ref type="digital-facsimile" target="https://digitale-sammlungen.de/en/view/bsb00023199">BSB digital facsimile</ref>
+                  <ref type="iiif-manifest" target="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/manifest">IIIF Presentation manifest</ref>
+                  <biblScope unit="page" from="150" to="159">pp. 150-159</biblScope>
+                  <availability>
+                     <useRestrict>Digital facsimile supplied by the Bayerische Staatsbibliothek under <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</ref>.</useRestrict>
+                  </availability>
+               </bibl>
+            </source>
+         </sourceDesc>
       </fileDesc>
       <encodingDesc xml:id="eomicjt">
          <appInfo xml:id="a173ufh1">
@@ -23,7 +78,55 @@
                <p xml:id="pvzkjim1">First edit by mei-friend 1.4.2.</p>
             </application>
          </appInfo>
+         <editorialDecl>
+            <p>This is a working corrected digital edition based on DdT 1903. DdT is the documented source for the encoded readings and the present review. OMR and conversion errors are corrected against the DdT facsimile. No historical-print comparison is attested by an existing annotation or source reference in this work; earlier consultation has not been established with certainty. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
+            <p>The staff arrangement and keyboard realization printed in DdT are retained. Staff 1 is violin; staff 2 is viola da gamba; staff 3 is the figured continuo bass; staves 4 and 5 are the upper and lower staves of the printed keyboard realization. The realization is distinguished from the figured continuo bass when defining an analytical view.</p>
+            <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
+            <p>DdT's parenthesized (Allegro.) at measure 18 and unparenthesized Allegro. at measure 172 are retained, as are the opening gamba direction (eingezeichnet), the printed horizontal figured-bass successions and the closing direction Il tutto ad honor d’Iddio. MIDI instrument-program assignments use the existing default program 0 consistently across page joins; no instrument-specific playback arrangement is prescribed.</p>
+         </editorialDecl>
+         <projectDesc>
+            <p>This edition was prepared by CAMAT Corpus Editions as part of a DFG-funded corpus for music-analysis technologies (grant PF 669/18-1).</p>
+         </projectDesc>
       </encodingDesc>
+      <workList>
+         <work xml:id="work.buxwv265">
+            <identifier type="BuxWV">BuxWV 265</identifier>
+            <title>Sonata VII in F major, Op. II</title>
+            <composer>
+               <persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
+            </composer>
+            <key pname="f" mode="major">F major</key>
+            <perfMedium>
+               <perfResList>
+                  <perfRes>Violin</perfRes>
+                  <perfRes>Viola da gamba</perfRes>
+                  <perfRes>Harpsichord</perfRes>
+               </perfResList>
+            </perfMedium>
+         </work>
+      </workList>
+      <revisionDesc>
+         <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Normalized the three imported MIDI instrument-program overrides at measure 54 (40, 41 and 42 in staves 1–3) to the existing default program 0 used elsewhere in the score. Retained the printed (Allegro.) and Allegro. variants, all notation, event IDs and the existing MIDI channels and volumes. This resolves the three instrumentation consistency notices without changing the musical reading.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Completed working-edition, DdT source, work, license, staff-role and responsibility metadata, preserving the inherited encoding date and software record. Credits follow repository correction history for Jingyu Tu and Egor Polyakov. DdT is the documented basis for this review; the editor reported uncertainty about earlier source consultation, and the file contained no annotation or historical-facsimile reference. Removed twenty-five redundant clef declarations and twenty-five redundant one-flat key declarations copied at the five page joins before measures 38, 54, 74, 104 and 166. Retained the initial definitions, all actual inline clef changes, the parent score/staff definitions, and the existing page/system markers. Restored the printed common-time symbol at the Largo in measure 161. Retained all note, rest, chord, beam, tie, slur, figured-bass and directive IDs and contents, written pitches, accidentals, durations, voice assignments and facsimile-zone geometry. The independent duration and tie audit found no rhythmic or tie-timing inconsistency in the 217 measures.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-18" resp="#resp.tu">
+            <changeDesc>
+               <p>Corrected the combined title, figured bass at measures 30 and 65, keyboard upper-staff notes at measure 26, and a keyboard upper-staff space at measure 66, as recorded in the repository history.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-09-20" resp="#resp.polyakov">
+            <changeDesc>
+               <p>Added the sonata-level score to the repository; earlier page-file work remains documented in Git history.</p>
+            </changeDesc>
+         </change>
+      </revisionDesc>
    </meiHead>
    <music>
       <facsimile>
@@ -276,7 +379,7 @@
          </surface>
       </facsimile>
       <body>
-         <mdiv xml:id="laup7fu">
+         <mdiv xml:id="laup7fu" decls="#work.buxwv265">
             <score xml:id="m1wt2avr">
                <scoreDef xml:id="n1x6ied">
                   <staffGrp xml:id="q1mi9fva">
@@ -3657,33 +3760,23 @@
                      <staffGrp xml:id="m110v7pg">
                         <staffDef xml:id="bsb00023199_00162_facs_zones_P1" n="1" lines="5">
                            <instrDef xml:id="rw0ngag" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
-                           <clef xml:id="a18d3n9a" shape="G" line="2" />
-                           <keySig xml:id="b114w3au" sig="1f" />
                            <meterSig xml:id="cevbf4m" count="4" unit="4" visible="false" />
                         </staffDef>
                         <staffDef xml:id="bsb00023199_00162_facs_zones_P2" n="2" lines="5">
                            <instrDef xml:id="ar3q309" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
-                           <clef xml:id="j64nza" shape="C" line="4" />
-                           <keySig xml:id="k3sooz4" sig="1f" />
                            <meterSig xml:id="l1ctmxel" count="4" unit="4" visible="false" />
                         </staffDef>
                         <staffDef xml:id="bsb00023199_00162_facs_zones_P3" n="3" lines="5">
                            <instrDef xml:id="ge1btwo" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
-                           <clef xml:id="pfy5tqw" shape="F" line="4" />
-                           <keySig xml:id="q18z21vu" sig="1f" />
                            <meterSig xml:id="r194pik4" count="4" unit="4" visible="false" />
                         </staffDef>
                         <staffGrp xml:id="bsb00023199_00162_facs_zones_P4" bar.thru="true">
                            <grpSym xml:id="xa9tlot" symbol="brace" />
                            <instrDef xml:id="bk1sth1" midi.channel="3" midi.instrnum="0" midi.volume="77%" />
                            <staffDef xml:id="dv3np5w" n="4" lines="5">
-                              <clef xml:id="k153lvs3" shape="G" line="2" />
-                              <keySig xml:id="l19c7pib" sig="1f" />
                               <meterSig xml:id="mfn2eb" count="4" unit="4" visible="false" />
                            </staffDef>
                            <staffDef xml:id="n148beo0" n="5" lines="5">
-                              <clef xml:id="u1yz4a5y" shape="F" line="4" />
-                              <keySig xml:id="v14ev4al" sig="1f" />
                               <meterSig xml:id="wsx7kgi" count="4" unit="4" visible="false" />
                            </staffDef>
                         </staffGrp>
@@ -5431,21 +5524,15 @@
                         <staffGrp xml:id="d1asi1yu" bar.thru="true">
                            <grpSym xml:id="e84gsad" symbol="bracket" />
                            <staffDef xml:id="bsb00023199_00163_facs_zones_P1" n="1" lines="5">
-                              <instrDef xml:id="fw65g3e" midi.channel="0" midi.instrnum="40" midi.volume="78%" />
-                              <clef xml:id="odxnq52" shape="G" line="2" />
-                              <keySig xml:id="pw6muen" sig="1f" />
+                              <instrDef xml:id="fw65g3e" midi.channel="0" midi.instrnum="0" midi.volume="78%" />
                               <meterSig xml:id="qigwyow" count="4" unit="4" visible="false" />
                            </staffDef>
                            <staffDef xml:id="bsb00023199_00163_facs_zones_P2" n="2" lines="5">
-                              <instrDef xml:id="gnn5u7k" midi.channel="3" midi.instrnum="41" midi.volume="78%" />
-                              <clef xml:id="pnu20qq" shape="C" line="3" />
-                              <keySig xml:id="qv8unum" sig="1f" />
+                              <instrDef xml:id="gnn5u7k" midi.channel="3" midi.instrnum="0" midi.volume="78%" />
                               <meterSig xml:id="rlktxpd" count="4" unit="4" visible="false" />
                            </staffDef>
                            <staffDef xml:id="bsb00023199_00163_facs_zones_P3" n="3" lines="5">
-                              <instrDef xml:id="d1ctpx7s" midi.channel="6" midi.instrnum="42" midi.volume="78%" />
-                              <clef xml:id="mge92ap" shape="F" line="4" />
-                              <keySig xml:id="n1fhbdld" sig="1f" />
+                              <instrDef xml:id="d1ctpx7s" midi.channel="6" midi.instrnum="0" midi.volume="78%" />
                               <meterSig xml:id="opxn4pr" count="4" unit="4" visible="false" />
                            </staffDef>
                         </staffGrp>
@@ -5453,13 +5540,9 @@
                            <grpSym xml:id="p3soldk" symbol="brace" />
                            <instrDef xml:id="t13vwwfn" midi.channel="10" midi.instrnum="0" midi.volume="78%" />
                            <staffDef xml:id="v17sxwpu" n="4" lines="5">
-                              <clef xml:id="c4a5twc" shape="G" line="2" />
-                              <keySig xml:id="d148mlzs" sig="1f" />
                               <meterSig xml:id="e115143q" count="4" unit="4" visible="false" />
                            </staffDef>
                            <staffDef xml:id="f1xtw02z" n="5" lines="5">
-                              <clef xml:id="m1tn3fhc" shape="F" line="4" />
-                              <keySig xml:id="n1ebcgo6" sig="1f" />
                               <meterSig xml:id="okbuurm" count="4" unit="4" visible="false" />
                            </staffDef>
                         </staffGrp>
@@ -7283,33 +7366,23 @@
                      <staffGrp xml:id="makgh96">
                         <staffDef xml:id="bsb00023199_00164_facs_zones_P1" n="1" lines="5">
                            <instrDef xml:id="r14tuo58" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
-                           <clef xml:id="apu9nqu" shape="G" line="2" />
-                           <keySig xml:id="bhf9ql9" sig="1f" />
                            <meterSig xml:id="czdc75w" count="3" unit="2" visible="false" />
                         </staffDef>
                         <staffDef xml:id="bsb00023199_00164_facs_zones_P2" n="2" lines="5">
                            <instrDef xml:id="y6ibc93" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
-                           <clef xml:id="h1moa3s" shape="C" line="3" />
-                           <keySig xml:id="ir6d0ih" sig="1f" />
                            <meterSig xml:id="j1puhwn2" count="3" unit="2" visible="false" />
                         </staffDef>
                         <staffDef xml:id="bsb00023199_00164_facs_zones_P3" n="3" lines="5">
                            <instrDef xml:id="y2q4fbw" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
-                           <clef xml:id="htm3yn8" shape="F" line="4" />
-                           <keySig xml:id="itklam" sig="1f" />
                            <meterSig xml:id="jfeg1ah" count="3" unit="2" visible="false" />
                         </staffDef>
                         <staffGrp xml:id="bsb00023199_00164_facs_zones_P4" bar.thru="true">
                            <grpSym xml:id="hqtzmo3" symbol="brace" />
                            <instrDef xml:id="lkhok8h" midi.channel="5" midi.instrnum="0" midi.volume="77%" />
                            <staffDef xml:id="ngsjno4" n="4" lines="5">
-                              <clef xml:id="uo8h1g5" shape="G" line="2" />
-                              <keySig xml:id="v1prrit" sig="1f" />
                               <meterSig xml:id="wzesu3" count="3" unit="2" visible="false" />
                            </staffDef>
                            <staffDef xml:id="xyaixdf" n="5" lines="5">
-                              <clef xml:id="eaq6yea" shape="F" line="4" />
-                              <keySig xml:id="f1fcf0cl" sig="1f" />
                               <meterSig xml:id="g16jdyc1" count="3" unit="2" visible="false" />
                            </staffDef>
                         </staffGrp>
@@ -9010,33 +9083,23 @@
                      <staffGrp xml:id="o4abubm">
                         <staffDef xml:id="bsb00023199_00165_facs_zones_P1" n="1" lines="5">
                            <instrDef xml:id="t1tcgkg7" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
-                           <clef xml:id="c1si5q7a" shape="G" line="2" />
-                           <keySig xml:id="d1p37nd0" sig="1f" />
                            <meterSig xml:id="epybj22" count="3" unit="8" visible="false" />
                         </staffDef>
                         <staffDef xml:id="bsb00023199_00165_facs_zones_P2" n="2" lines="5">
                            <instrDef xml:id="y1jl3k29" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
-                           <clef xml:id="h1pw8rei" shape="C" line="3" />
-                           <keySig xml:id="i19v0zjw" sig="1f" />
                            <meterSig xml:id="j1k9nzpx" count="3" unit="8" visible="false" />
                         </staffDef>
                         <staffDef xml:id="bsb00023199_00165_facs_zones_P3" n="3" lines="5">
                            <instrDef xml:id="m4i4sea" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
-                           <clef xml:id="v12mqva6" shape="F" line="4" />
-                           <keySig xml:id="w6pz3rf" sig="1f" />
                            <meterSig xml:id="xvco4h0" count="3" unit="8" visible="false" />
                         </staffDef>
                         <staffGrp xml:id="bsb00023199_00165_facs_zones_P4" bar.thru="true">
                            <grpSym xml:id="m1lb7u3b" symbol="brace" />
                            <instrDef xml:id="q171o7rz" midi.channel="7" midi.instrnum="0" midi.volume="77%" />
                            <staffDef xml:id="s1okqnbz" n="4" lines="5">
-                              <clef xml:id="z1bh09th" shape="G" line="2" />
-                              <keySig xml:id="a3pxbnh" sig="1f" />
                               <meterSig xml:id="b1lc5jf1" count="3" unit="8" visible="false" />
                            </staffDef>
                            <staffDef xml:id="c39a3eq" n="5" lines="5">
-                              <clef xml:id="je7l7yz" shape="F" line="4" />
-                              <keySig xml:id="ka75kgn" sig="1f" />
                               <meterSig xml:id="lphyrdk" count="3" unit="8" visible="false" />
                            </staffDef>
                         </staffGrp>
@@ -12797,7 +12860,7 @@
                   </measure>
                   <sb xml:id="gertgyt" />
                   <scoreDef xml:id="gctlnvv">
-                     <meterSig xml:id="h5sk9ro" count="4" unit="4" />
+                     <meterSig xml:id="h5sk9ro" count="4" unit="4" sym="common" />
                   </scoreDef>
                   <measure xml:id="w80vjy6" n="161" facs="#zone_cb80139d3b554764b3">
                      <harm xml:id="bsb00023199_00166_facs_zones_fb_45" staff="3" tstamp="3">
@@ -13167,33 +13230,23 @@
                      <staffGrp xml:id="g1kd7stw">
                         <staffDef xml:id="bsb00023199_00167_facs_zones_P1" n="1" lines="5">
                            <instrDef xml:id="lecuhpd" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
-                           <clef xml:id="ubworr" shape="G" line="2" />
-                           <keySig xml:id="v18p8nlp" sig="1f" />
                            <meterSig xml:id="w1hc948x" count="4" unit="4" visible="false" />
                         </staffDef>
                         <staffDef xml:id="bsb00023199_00167_facs_zones_P2" n="2" lines="5">
                            <instrDef xml:id="c108don8" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
-                           <clef xml:id="l8qwtwd" shape="C" line="3" />
-                           <keySig xml:id="mvuuddb" sig="1f" />
                            <meterSig xml:id="n1818fcz" count="4" unit="4" visible="false" />
                         </staffDef>
                         <staffDef xml:id="bsb00023199_00167_facs_zones_P3" n="3" lines="5">
                            <instrDef xml:id="t1slm2rb" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
-                           <clef xml:id="c75902" shape="F" line="4" />
-                           <keySig xml:id="d9un59m" sig="1f" />
                            <meterSig xml:id="e1ckiwiw" count="4" unit="4" visible="false" />
                         </staffDef>
                         <staffGrp xml:id="bsb00023199_00167_facs_zones_P4" bar.thru="true">
                            <grpSym xml:id="lpll8wp" symbol="brace" />
                            <instrDef xml:id="pqg112b" midi.channel="7" midi.instrnum="0" midi.volume="77%" />
                            <staffDef xml:id="r89b4zu" n="4" lines="5">
-                              <clef xml:id="yfgz7io" shape="G" line="2" />
-                              <keySig xml:id="z1xx2go7" sig="1f" />
                               <meterSig xml:id="a19s5tr1" count="4" unit="4" visible="false" />
                            </staffDef>
                            <staffDef xml:id="b1jnajxu" n="5" lines="5">
-                              <clef xml:id="io7i0d7" shape="F" line="4" />
-                              <keySig xml:id="j3sthx3" sig="1f" />
                               <meterSig xml:id="k18o55yb" count="4" unit="4" visible="false" />
                            </staffDef>
                         </staffGrp>
