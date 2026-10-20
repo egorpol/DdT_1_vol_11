@@ -39,7 +39,7 @@ The status describes the complete work-level file, not the presence or edit hist
 | Work     | Key          | First printed page | First BSB image | MEI stem                                         | Status    |
 | -------- | ------------ | -----------------: | --------------: | ------------------------------------------------ | --------- |
 | Op. I/1  | F major      |                  3 |           00013 | `op1_01_sonata_f_major`                        | corrected |
-| Op. I/2  | G major      |                 13 |           00023 | `op1_02_sonata_g_major`                        | combined  |
+| Op. I/2  | G major      |                 13 |           00023 | `op1_02_sonata_g_major`                        | corrected |
 | Op. I/3  | A minor      |                 22 |           00032 | `op1_03_sonata_a_minor`                        | corrected |
 | Op. I/4  | B-flat major |                 33 |           00043 | `op1_04_sonata_b_flat_major`                   | corrected |
 | Op. I/5  | C major      |                 44 |           00054 | `op1_05_sonata_c_major`                        | corrected |
@@ -69,14 +69,54 @@ Status terms are used as follows:
 - [`11_buxtehude_dietrich_buxtehudes_instrumentalwerke_bsb00023199/`](11_buxtehude_dietrich_buxtehudes_instrumentalwerke_bsb00023199/) preserves the page-level OMR source material from which the work-level files were assembled.
 - [`docs/mei-encoding-profile.md`](docs/mei-encoding-profile.md) documents the publication header, facsimile conventions, and validation profile.
 - [`docs/editorial-workflow.md`](docs/editorial-workflow.md) records file naming, work-level statuses, and the correction and validation workflow.
+- [`docs/validation-workflow.md`](docs/validation-workflow.md) separates shared CAMAT checks from this edition's publication rules.
+- [`docs/editorial-policy.md`](docs/editorial-policy.md) defines source relationships, correction categories and responsibility.
+- [`docs/uppsala-facsimiles.md`](docs/uppsala-facsimiles.md) describes the private scan workflow and unresolved image terms.
+- [`docs/finalization-plan.md`](docs/finalization-plan.md) gives the implementation sequence, scan-format recommendations, and release acceptance criteria.
 
-CSV files ending in `_consistency_report.csv` are working reports produced during correction. An empty report means that the automated checks found no encoded inconsistency; it does not replace comparison with the source facsimile.
+Shared `_consistency_report.csv` files beside all assembled scores are tracked in Git for student editorial work. Refresh them together with `python scripts/refresh_editorial_reports.py`; [editorial report provenance](validation/editorial-reports.json) records the tested input/report hashes, actual CAMAT revision and executed checks. Full run artifacts and report backups stay local and ignored. The earlier [pilot validation baseline](validation/pilot-baseline.json) remains a historical snapshot; neither report set is publication sign-off.
+
+## Check and inspect locally
+
+Use Python 3.11 or newer and the same environment for these commands and the notebooks. With a neighboring CAMAT checkout:
+
+```sh
+python scripts/update_camat.py --dry-run
+python scripts/update_camat.py
+python scripts/validate_corpus.py --mode review --verovio --camat-parse
+python scripts/refresh_editorial_reports.py
+python scripts/sync_camat_viewer.py
+```
+
+For a standalone clone without a neighboring CAMAT checkout, use
+`python scripts/update_camat.py --git-ref beta/0.2.5` to install the development
+validator. This requires network access and records the resolved code; it does
+not pin a final release. Viewer syncing separately needs a local CAMAT checkout,
+selected with `--checkout /path/to/camat_v2`.
+
+Install libxml2's `xmllint` separately. Open
+[`mei_corpus_checks.ipynb`](mei_corpus_checks.ipynb) for the same general + DdT
+checks and [`mei_facsimile_viewer.ipynb`](mei_facsimile_viewer.ipynb) for source
+inspection. Dependency updates and notebook syncing are explicit, separate
+operations; validation records the actual CAMAT version/revision/source hashes.
+
+The publication work list selects only Op. I/1. A separate review-only
+[editorial work list](validation/editorial-works.json) covers all assembled scores
+for shared reports; publication candidates still require explicit review. Its official IIIF Schematron warnings
+remain pending publication review. See [the tool guide](validation/README.md)
+for all options, reports, scope and release gates, and the
+[migration audit](docs/archive/local-tools/README.md) for retired local tools.
+
+Local TIFFs of the STIMU 1991 facsimile editions can be converted with
+`python scripts/convert_uppsala_scans.py`. The [scan guide](docs/uppsala-facsimiles.md)
+describes the `facsimiles/uppsala/op1` and `op2` layout, provenance and image
+selection. These local images have not been cleared for public redistribution.
 
 ## Editorial approach
 
-The encoding is intended to reproduce the notation of the printed source while correcting OMR and conversion errors. Explicit editorial interventions are recorded in the MEI rather than silently presented as source readings. Each measure is linked to a zone on the corresponding facsimile surface, allowing the encoded notation and source image to be inspected together.
+This is a corrected digital edition based on DdT 1903, retaining its staff layout and keyboard realization. Relevant historical witnesses are consulted through identified reproductions. OMR repairs, source-supported emendations, conjectural emendations and encoding notes are distinguished in the [editorial policy](docs/editorial-policy.md). Substantive departures from DdT are documented in the MEI. Each measure is linked to a zone on the corresponding facsimile surface, allowing the encoded notation and source image to be inspected together.
 
-Every complete work uses a consistent MEI 5.1 CMN publication profile. The work title, source description, responsibilities, editorial method, identifiers, revision history, and separate licensing of the MEI data and facsimile are recorded in the MEI header. Detailed implementation guidance is kept in the [MEI encoding profile](docs/mei-encoding-profile.md), rather than in this public overview.
+The MEI 5.1 CMN publication profile is applied to the pilot and is the target for finalizing the other work-level files. The work title, source description, responsibilities, editorial method, identifiers, revision history, and separate licensing of the MEI data and facsimile are recorded in the MEI header. Detailed implementation guidance is kept in the [MEI encoding profile](docs/mei-encoding-profile.md), rather than in this public overview.
 
 ## Funding
 
@@ -92,6 +132,6 @@ Until a versioned release and its preferred citation are available, cite the rep
 
 ## License
 
-The MEI data and repository materials are released under the [MIT License](LICENSE).
+The MEI data and project-authored code/documentation are released under the [MIT License](LICENSE). The unchanged official MEI schema retains its upstream Educational Community License 2.0 notice.
 
-The historical source is in the public domain. Reuse of facsimile images and metadata remains subject to the terms stated by the Bayerische Staatsbibliothek; consult the [digital source record](https://digitale-sammlungen.de/en/view/bsb00023199) before redistribution.
+Third-party facsimile images are separate from the MEI-data license. Consult the [BSB source record](https://digitale-sammlungen.de/en/view/bsb00023199) for its stated image terms. The locally held STIMU/Uppsala scans and derivatives remain excluded from Git while their redistribution terms are unconfirmed; see the [scan guide](docs/uppsala-facsimiles.md).

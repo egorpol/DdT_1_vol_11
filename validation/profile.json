@@ -1,0 +1,93 @@
+{
+  "id": "DdT_1_vol_11",
+  "profile_version": "0.1.0",
+  "schema": "schemas/mei-CMN-5.1.rng",
+  "schema_sha256": "f6440d5eb59c3e903f2a7a64ea26518646186f8449b86096106846a269eb354b",
+  "schema_uri": "https://music-encoding.org/schema/5.1/mei-CMN.rng",
+  "meiversion": "5.1+CMN",
+  "digital_license_uri": "https://spdx.org/licenses/MIT.html",
+  "public_base_url": "https://github.com/egorpol/DdT_1_vol_11/blob/main/",
+  "required_header_paths": [
+    "meiHead/fileDesc/titleStmt/title",
+    "meiHead/fileDesc/titleStmt/respStmt",
+    "meiHead/fileDesc/editionStmt/edition",
+    "meiHead/fileDesc/pubStmt/publisher",
+    "meiHead/fileDesc/pubStmt/date",
+    "meiHead/fileDesc/sourceDesc",
+    "meiHead/encodingDesc/editorialDecl",
+    "meiHead/encodingDesc/projectDesc",
+    "meiHead/workList/work",
+    "meiHead/revisionDesc/change"
+  ],
+  "event_elements": [
+    "note",
+    "chord",
+    "rest",
+    "space",
+    "mRest",
+    "mSpace",
+    "measure",
+    "layer",
+    "staff",
+    "tie",
+    "slur",
+    "harm",
+    "tempo",
+    "annot",
+    "dynam",
+    "dir",
+    "hairpin",
+    "fermata",
+    "trill",
+    "mordent",
+    "turn",
+    "arpeg",
+    "octave",
+    "pedal",
+    "beamSpan",
+    "tupletSpan"
+  ],
+  "annotation_labels": [
+    "source-supported-emendation",
+    "conjectural-emendation",
+    "source-reading",
+    "encoding-note",
+    "unresolved-reading",
+    "omr-correction"
+  ],
+  "annotation_review_checks": [
+    "source_reading",
+    "encoded_reading",
+    "rationale",
+    "responsibility",
+    "affected_events"
+  ],
+  "uppsala_sources": {
+    "1": {
+      "id": "src.uppsala.op1",
+      "rism": "B5204"
+    },
+    "2": {
+      "id": "src.uppsala.op2",
+      "rism": "B5205"
+    }
+  },
+  "base_source_id": "src.ddt1903",
+  "base_source_urn": "urn:nbn:de:bvb:12-bsb00023199-0",
+  "required_release_checks": [
+    "xml_references",
+    "relaxng",
+    "schematron",
+    "resources",
+    "input_hashes",
+    "verovio",
+    "camat_parse"
+  ],
+  "reject_schematron_warnings_on_release": true,
+  "work_review_checks": [
+    "musical_comparison",
+    "source_metadata",
+    "staff_roles",
+    "annotations"
+  ]
+}

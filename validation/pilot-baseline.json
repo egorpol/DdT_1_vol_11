@@ -1,0 +1,126 @@
+{
+  "format_version": 1,
+  "purpose": "Tested pilot validation snapshot; not a dependency pin or publication sign-off.",
+  "completed_utc": "2026-10-01T21:13:06.726196+00:00",
+  "work_key": "op1_01_sonata_f_major",
+  "input": {
+    "file": "11_buxtehude_sonatas_final/buxtehude_op1_01_sonata_f_major_corr.mei",
+    "sha256": "b5d15963b9f34ec049a5cbf041737e786b629c4a4d941d402dfbe36aa3a8648d",
+    "unchanged_during_validation": true
+  },
+  "schema": {
+    "file": "schemas/mei-CMN-5.1.rng",
+    "profile": "MEI-5.1-CMN",
+    "sha256": "f6440d5eb59c3e903f2a7a64ea26518646186f8449b86096106846a269eb354b"
+  },
+  "camat": {
+    "module_version": "0.2.4",
+    "distribution_version": "0.2.4",
+    "git_branch": "beta/0.2.5",
+    "git_commit": "d50c5dcf72090e717043cea180b864181faf8cf4",
+    "source_tree_sha256": "3b25b890cc852b45e23653f55c6625140a5a73ce25ab8077627cacfd3788b54b",
+    "working_tree_dirty": false
+  },
+  "dependency_versions": {
+    "lxml": "6.1.2",
+    "Pillow": "12.3.0",
+    "saxonche": "13.0.0",
+    "verovio": "6.3.0",
+    "music21": "10.5.0",
+    "partitura": "1.9.0"
+  },
+  "corpus_policy": {
+    "id": "DdT_1_vol_11",
+    "version": "0.1.0",
+    "profile": {
+      "file": "validation/profile.json",
+      "sha256": "fd76a38b0a6b6a35abbc889272accac6426129d342cc54156f3ed31e352e57b6"
+    },
+    "work_list": {
+      "file": "validation/works.json",
+      "sha256": "ac069da93574d9932780548424b29c823e8a4c209b8b77866da859af5fc23f62"
+    },
+    "rules": {
+      "file": "validation/rules.py",
+      "sha256": "5b2d75ecfdaf06753ba35a7d6509d0b7330e7500c241dff928e661e07b0ee171"
+    },
+    "entry_point": {
+      "file": "scripts/validate_corpus.py",
+      "sha256": "f99a29cfd8616df772dc4061d0510ebaa0a1fb1e1d9ea8b0fd9b9e3fba4e5054"
+    },
+    "git_commit_at_run": "c17be260143c6da4921ad15022426153c8f25182",
+    "working_tree_dirty_at_run": true
+  },
+  "results": {
+    "mei_conformance": "passed",
+    "consumer_diagnostics": "passed",
+    "ddt_publication_acceptance": "needs-review"
+  },
+  "findings": {
+    "total": 11,
+    "by_severity": {
+      "warning": 11
+    },
+    "by_check": {
+      "mei.sch.7ec8dc892f373e60": 10,
+      "ddt.schematron_warnings": 1
+    }
+  },
+  "checks": {
+    "xml_references": {
+      "requested": true,
+      "required": true,
+      "status": "passed",
+      "findings_count": 0
+    },
+    "musical_diagnostics": {
+      "requested": true,
+      "required": false,
+      "status": "passed",
+      "findings_count": 0
+    },
+    "relaxng": {
+      "requested": true,
+      "required": true,
+      "status": "passed",
+      "findings_count": 0
+    },
+    "schematron": {
+      "requested": true,
+      "required": true,
+      "status": "passed",
+      "findings_count": 10
+    },
+    "resources": {
+      "requested": true,
+      "required": true,
+      "status": "passed",
+      "findings_count": 0
+    },
+    "image_network": {
+      "requested": true,
+      "required": false,
+      "status": "passed",
+      "findings_count": 0
+    },
+    "verovio": {
+      "requested": true,
+      "required": false,
+      "status": "passed",
+      "findings_count": 0
+    },
+    "camat_parse": {
+      "requested": true,
+      "required": false,
+      "status": "passed",
+      "findings_count": 0
+    },
+    "input_hashes": {
+      "requested": true,
+      "required": true,
+      "status": "passed",
+      "findings_count": 0
+    }
+  },
+  "scope": "Only the declared Op. I/1 pilot was checked. Other work-level files remain unlisted."
+}

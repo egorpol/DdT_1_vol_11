@@ -20,7 +20,8 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="1.0.0">First digital edition</edition>
+            <!-- Use the actual corpus release version; retain a working designation before first release. -->
+            <edition n="0.1.0">Working digital edition</edition>
          </editionStmt>
          <pubStmt>
             <publisher>CAMAT Corpus Editions</publisher>
@@ -31,7 +32,7 @@
             </availability>
          </pubStmt>
          <sourceDesc>
-            <source type="printed-edition">
+            <source xml:id="src.ddt1903" type="printed-edition">
                <bibl>
                   <title>Dietrich Buxtehudes Instrumentalwerke: Sonaten für Violine, Gambe und Cembalo</title>
                   <title type="series">Denkmäler deutscher Tonkunst, first series, vol. 11</title>
@@ -60,6 +61,11 @@
                   </availability>
                </bibl>
             </source>
+            <!-- Add the consulted opus witness from docs/editorial-policy.md:
+                 src.uppsala.op1 (RISM A/I B5204) OR src.uppsala.op2 (B5205).
+                 Preserve the catalogue-supplied [1696] date for Op. I.
+                 A source description does not require public scan or IIIF URLs.
+                 Do not infer redistribution permission for the Uppsala scans. -->
          </sourceDesc>
       </fileDesc>
       <encodingDesc>
@@ -78,7 +84,9 @@
             </application>
          </appInfo>
          <editorialDecl>
-            <p>OMR and conversion errors were corrected against the source facsimile. The encoding is intended to reproduce the notation of the printed source; explicit editorial comments are recorded in annot elements with @type="editorial".</p>
+            <p>This is a corrected digital edition based on DdT 1903. OMR and conversion errors are corrected against its facsimile. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Historical prints consulted for comparison are identified in sourceDesc; source-supported and conjectural emendations are distinguished.</p>
+            <!-- Tailor this paragraph to the actual work and staff arrangement. -->
+            <p>The keyboard realization printed in DdT is retained as part of that edition. It is distinguished from the figured continuo bass transmitted in the historical print and must be selected explicitly when defining an analytical view.</p>
             <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
          </editorialDecl>
          <projectDesc>
