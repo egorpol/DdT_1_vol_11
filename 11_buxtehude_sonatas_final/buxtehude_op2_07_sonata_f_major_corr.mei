@@ -108,6 +108,11 @@
       <revisionDesc>
          <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
             <changeDesc>
+               <p>Rechecked the seven remaining inherited metcon=false markers at measures 9, 18, 41, 42, 45, 123 and 179 against DdT 1903 and the complete regular duration check. These are full measures, so the obsolete nonconformance markers are removed. All musical events, values, pitches, voice assignments, annotations, facsimile zones and page/system breaks are unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
                <p>Normalized the three imported MIDI instrument-program overrides at measure 54 (40, 41 and 42 in staves 1–3) to the existing default program 0 used elsewhere in the score. Retained the printed (Allegro.) and Allegro. variants, all notation, event IDs and the existing MIDI channels and volumes. This resolves the three instrumentation consistency notices without changing the musical reading.</p>
             </changeDesc>
          </change>
@@ -890,7 +895,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="k7kwrw6" />
-                  <measure xml:id="aaosg0h" metcon="false" n="9" facs="#zone_31ace13071ef411e81">
+                  <measure xml:id="aaosg0h" n="9" facs="#zone_31ace13071ef411e81">
                      <harm xml:id="fb_16" staff="3" tstamp="3">
                         <fb>
                            <f>9</f>
@@ -1455,7 +1460,7 @@
                      <fermata xml:id="ev1dr6r" staff="5" startid="#d1rd7tt9" form="norm" place="above" />
                   </measure>
                   <sb xml:id="mzm023z" />
-                  <measure xml:id="cest4og" metcon="false" n="18" facs="#zone_15b67bb578f14be897">
+                  <measure xml:id="cest4og" n="18" facs="#zone_15b67bb578f14be897">
                      <harm xml:id="fb_37" staff="3" tstamp="4">
                         <fb>
                            <f>6</f>
@@ -4138,7 +4143,7 @@
                      </staff>
                      <tie xml:id="bzj3fhq" startid="#a1a6vi5t" endid="#df3uz0g" />
                   </measure>
-                  <measure xml:id="s1fiv8ij" metcon="false" n="41" facs="#zone_917e996b5cf2438ab4">
+                  <measure xml:id="s1fiv8ij" n="41" facs="#zone_917e996b5cf2438ab4">
                      <harm xml:id="bsb00023199_00162_facs_zones_fb_7" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
@@ -4263,7 +4268,7 @@
                      <tie xml:id="tsc85rf1" startid="#d7mw9x" endid="#i7wxr2i" />
                   </measure>
                   <sb xml:id="f2yfpms" />
-                  <measure xml:id="vy8kuty" metcon="false" n="42" facs="#zone_d2f4742ea79e45b3a1">
+                  <measure xml:id="vy8kuty" n="42" facs="#zone_d2f4742ea79e45b3a1">
                      <harm xml:id="bsb00023199_00162_facs_zones_fb_9" staff="3" tstamp="1.75">
                         <fb>
                            <f>6</f>
@@ -4600,7 +4605,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="o5mzg89" metcon="false" n="45" facs="#zone_122d38be8e8d4fa697">
+                  <measure xml:id="o5mzg89" n="45" facs="#zone_122d38be8e8d4fa697">
                      <harm xml:id="bsb00023199_00162_facs_zones_fb_17" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
@@ -10285,7 +10290,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="inoqnwr" metcon="false" n="123" facs="#zone_105c0d5383a74ecdbd">
+                  <measure xml:id="inoqnwr" n="123" facs="#zone_105c0d5383a74ecdbd">
                      <harm xml:id="bsb00023199_00165_facs_zones_fb_41" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
@@ -14591,7 +14596,7 @@
                      </staff>
                      <tie xml:id="tshtevg1" startid="#zizw1vk" endid="#bhsxtbp" />
                   </measure>
-                  <measure xml:id="pscliry" metcon="false" n="179" facs="#zone_75deba9129a84f2993">
+                  <measure xml:id="pscliry" n="179" facs="#zone_75deba9129a84f2993">
                      <harm xml:id="bsb00023199_00167_facs_zones_fb_43" staff="3" tstamp="2">
                         <fb>
                            <f>♮</f>

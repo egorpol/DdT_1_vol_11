@@ -105,6 +105,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Rechecked the eight measures newly exposed by regular duration reporting for metcon=false against DdT 1903. Removed three surplus trailing eighth spaces in measures 68 and 69. Recovered the upper keyboard voice continuation in measure 41 by assigning its final upward-stem eighth chords to that voice, preserving every onset and note value. Completed source-checked subsidiary voice endings at measures 13, 15, 17, 19, 20 and 41 with hidden trailing silence. The keyboard notes continuing the continuo at measure 15 remain represented in the upper staff; the lower A3 is not lengthened. Retained all printed sounding durations, all original note IDs and the approved two dotted-quarter C4 entries and annotation at measure 17. Removed all 42 inherited metcon=false markers after the complete duration check. Source zones and page/system breaks are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-19" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Documented the editor-confirmed shared C4 notehead with independent stems in measure 17 as an encoding note. Retained both voice entries and the source's pitches and durations; recorded the engraving limitation observed with Verovio 6.3.0.</p>
@@ -451,7 +456,7 @@
                </scoreDef>
                <section xml:id="k1qi2q9l">
                   <pb xml:id="lfmz0pl" facs="#surface_057050584175" n="1" />
-                  <measure xml:id="dh34ym5" metcon="false" n="1" facs="#zone_d34d76b47b9e427380">
+                  <measure xml:id="dh34ym5" n="1" facs="#zone_d34d76b47b9e427380">
                      <tempo xml:id="tempo1" staff="1" tstamp="1" place="above">Adagio.</tempo>
                      <tempo xml:id="tempo4" staff="4" tstamp="1" place="above">Adagio.</tempo>
                      <staff xml:id="m1bv342a" n="1">
@@ -1038,7 +1043,7 @@
                      <tie xml:id="wefdsfsd" startid="#n1dzia634" endid="#r1nslb7f" />
                      <tie xml:id="wefdsfds" startid="#f1nrxndv" endid="#p15o3st0" />
                   </measure>
-                  <measure xml:id="q133r61t" metcon="false" n="9" facs="#zone_0373405394264e4686">
+                  <measure xml:id="q133r61t" n="9" facs="#zone_0373405394264e4686">
                      <harm xml:id="fb_m30" staff="3" tstamp="1">
                         <fb>
                            <f>4</f>
@@ -1474,7 +1479,7 @@
                      </staff>
                      <tie xml:id="lqqwdfdsaq" startid="#jdpctg4" endid="#v12b1fa7" curvedir="below" />
                   </measure>
-                  <measure xml:id="wopql2u" metcon="false" n="13" facs="#zone_fdb5b94e99c34ee7b6">
+                  <measure xml:id="wopql2u" n="13" facs="#zone_fdb5b94e99c34ee7b6">
                      <harm xml:id="fb_m50" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
@@ -1555,9 +1560,11 @@
                               <note xml:id="ljqnbnj" oct="4" pname="d" accid.ges="s" />
                               <note xml:id="ovk4pl6" oct="4" pname="f" accid.ges="s" />
                            </chord>
+                           <space xml:id="meter-review.op1_03.m13.x7inf4l.end.1" dur="4" />
                         </layer>
                         <layer xml:id="q5apua1" n="2">
                            <note xml:id="r15sveny" dots="1" dur="2" oct="3" pname="b" stem.dir="down" />
+                           <space xml:id="meter-review.op1_03.m13.q5apua1.end.1" dur="4" />
                         </layer>
                      </staff>
                      <staff xml:id="w1p8261p" n="5">
@@ -1580,7 +1587,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="c4rcmtq" />
-                  <measure xml:id="szwhdgf" metcon="false" n="14" facs="#zone_c22758b9e3f54117a0">
+                  <measure xml:id="szwhdgf" n="14" facs="#zone_c22758b9e3f54117a0">
                      <harm xml:id="fb_m52" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
@@ -1633,7 +1640,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="j1wbzxjs" metcon="false" n="15" facs="#zone_52988cff749543a29d">
+                  <measure xml:id="j1wbzxjs" n="15" facs="#zone_52988cff749543a29d">
                      <harm xml:id="fb_m53" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
@@ -1703,12 +1710,14 @@
                         <layer xml:id="b1qsdfd6" n="3">
                            <space xml:id="d1sdrts6s" dur="2" />
                            <note xml:id="e1fds010u" dur="4" oct="4" pname="c" stem.dir="down" />
+                           <space xml:id="meter-review.op1_03.m15.b1qsdfd6.end.1" dur="4" />
                         </layer>
                      </staff>
                      <staff xml:id="uxnok69" n="5">
                         <layer xml:id="kyx293o" n="1">
                            <rest xml:id="l1evl2rq" dur="4" />
                            <note xml:id="m14flx1x" dur="4" oct="3" pname="a" stem.dir="down" />
+                           <space xml:id="meter-review.op1_03.m15.kyx293o.end.1" dur="2" />
                         </layer>
                      </staff>
                      <tie xml:id="m1hw3z5" startid="#lvfd15k" endid="#ztngb3d" />
@@ -1843,7 +1852,7 @@
                      <tie xml:id="w16421fs" startid="#vgis35e" endid="#i5g95zf" />
                      <tie xml:id="w16fe1fs" startid="#xijv2xj" endid="#e1reyu0h" curvedir="above" />
                   </measure>
-                  <measure xml:id="yttjgek" metcon="false" n="17" facs="#zone_aaed6107e4154baf81">
+                  <measure xml:id="yttjgek" n="17" facs="#zone_aaed6107e4154baf81">
                      <harm xml:id="fb_m63" staff="3" tstamp="1">
                         <fb>
                            <f>2</f>
@@ -1922,6 +1931,7 @@
                               <note xml:id="b1y0gm7m" oct="4" pname="e" />
                            </chord>
                            <note xml:id="q15fei1p" dots="1" dur="4" oct="4" pname="c" stem.dir="down" />
+                           <space xml:id="meter-review.op1_03.m17.v1oxom8v.end.1" dur="8" />
                         </layer>
                      </staff>
                      <staff xml:id="l138zq0d" n="5">
@@ -1941,7 +1951,7 @@
                         <p>DdT, printed page 22, measure 17, upper staff of the keyboard realization: the two voices share one C4 notehead with independent upward and downward stems. Both dotted-quarter C4 voice entries are retained deliberately. Verovio 6.3.0 separates the noteheads and their augmentation dots in the present chord-and-note encoding; this is an engraving limitation, not a correction to the source reading. Related dotted-unison reports are <ref target="https://github.com/rism-digital/verovio/issues/746">Verovio issue 746</ref> and <ref target="https://github.com/rism-digital/verovio/issues/3705">issue 3705</ref>; their earlier fixes do not establish the cause of this chord-specific case.</p>
                      </annot>
                   </measure>
-                  <measure xml:id="rkahaw7" metcon="false" n="18" facs="#zone_0e84f84842564985aa">
+                  <measure xml:id="rkahaw7" n="18" facs="#zone_0e84f84842564985aa">
                      <harm xml:id="fb_m67" staff="3" tstamp="1">
                         <fb>
                            <f>7</f>
@@ -2028,7 +2038,7 @@
                      </staff>
                      <tie xml:id="dopmbao" startid="#c1fvcv3n" endid="#g14ec3ob" />
                   </measure>
-                  <measure xml:id="k1cug03t" metcon="false" n="19" facs="#zone_10e12d70d28f474a84">
+                  <measure xml:id="k1cug03t" n="19" facs="#zone_10e12d70d28f474a84">
                      <harm xml:id="fb_m69" staff="3" tstamp="1">
                         <fb>
                            <f>4</f>
@@ -2097,6 +2107,7 @@
                            <note xml:id="m3t305b" dur="4" oct="4" pname="c" stem.dir="down">
                               <accid xml:id="nud3jxs" accid="s" />
                            </note>
+                           <space xml:id="meter-review.op1_03.m19.ktnjs4c.end.1" dur="2" />
                         </layer>
                      </staff>
                      <staff xml:id="br8kbf8" n="5">
@@ -2109,7 +2120,7 @@
                      </staff>
                      <tie xml:id="u16cl3zr" startid="#tsfmfju" endid="#hiil3yu" />
                   </measure>
-                  <measure xml:id="e1fg7sa7" metcon="false" n="20" facs="#zone_8424ff31f46e4cc5a0">
+                  <measure xml:id="e1fg7sa7" n="20" facs="#zone_8424ff31f46e4cc5a0">
                      <harm xml:id="fb_m71" staff="3" tstamp="1">
                         <fb>
                            <f>♯6</f>
@@ -2198,6 +2209,7 @@
                         <layer xml:id="ypehzsq" n="3">
                            <space xml:id="aypgy40" dur="2" />
                            <note xml:id="z19hfgfo" dur="4" oct="4" pname="c" stem.dir="down" />
+                           <space xml:id="meter-review.op1_03.m20.ypehzsq.end.1" dur="4" />
                         </layer>
                      </staff>
                      <staff xml:id="dhprtra" n="5">
@@ -2216,7 +2228,7 @@
                      </staff>
                      <tie xml:id="weq8v1p" startid="#v15bp63e" endid="#ug8bda5" />
                   </measure>
-                  <measure xml:id="y17wup9y" right="dbl" metcon="false" n="21" facs="#zone_c44204ff23714b739a">
+                  <measure xml:id="y17wup9y" right="dbl" n="21" facs="#zone_c44204ff23714b739a">
                      <harm xml:id="fb_m75" staff="3" tstamp="1">
                         <fb>
                            <f>5</f>
@@ -2800,7 +2812,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="ol0hp7m" metcon="false" n="27" facs="#zone_439dfc2719ad47eba0">
+                  <measure xml:id="ol0hp7m" n="27" facs="#zone_439dfc2719ad47eba0">
                      <harm xml:id="fb_m86" staff="3" tstamp="1.5">
                         <fb>
                            <f>6</f>
@@ -2937,7 +2949,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="q1bxseqe" metcon="false" n="28" facs="#zone_5de0ef1500df424c9c">
+                  <measure xml:id="q1bxseqe" n="28" facs="#zone_5de0ef1500df424c9c">
                      <staff xml:id="z13ghg19" n="1">
                         <layer xml:id="a18vuiai" n="1">
                            <beam xml:id="b8wb5bb">
@@ -3052,7 +3064,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="tub3yv9" metcon="false" n="29" facs="#zone_2ce2f87cde82452ba0">
+                  <measure xml:id="tub3yv9" n="29" facs="#zone_2ce2f87cde82452ba0">
                      <harm xml:id="fb_m90" staff="3" tstamp="1.5">
                         <fb>
                            <f>6</f>
@@ -3213,7 +3225,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="dwucdsd" />
-                  <measure xml:id="z154af29" metcon="false" n="30" facs="#zone_2f4a12f2ba67446095">
+                  <measure xml:id="z154af29" n="30" facs="#zone_2f4a12f2ba67446095">
                      <harm xml:id="fb_m97" staff="3" tstamp="3.5">
                         <fb>
                            <f>6</f>
@@ -3689,7 +3701,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="j1ensu38" />
-                  <measure xml:id="zeqjo7x" metcon="false" n="34" facs="#zone_3391ebbfab91436caf">
+                  <measure xml:id="zeqjo7x" n="34" facs="#zone_3391ebbfab91436caf">
                      <harm xml:id="fb_4" staff="3" tstamp="3">
                         <fb>
                            <f>6</f>
@@ -4515,7 +4527,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="yezek91" metcon="false" n="41" facs="#zone_c6cb5be62ea241a9ad">
+                  <measure xml:id="yezek91" n="41" facs="#zone_c6cb5be62ea241a9ad">
                      <harm xml:id="bsb00023199_00034_facs_zones_fb_5" staff="3" tstamp="1.5">
                         <fb>
                            <f>6</f>
@@ -4649,6 +4661,18 @@
                               <note xml:id="h7xl5m8" dur="8" oct="4" pname="g" stem.dir="up" />
                               <note xml:id="i1bhrrbf" dur="8" oct="4" pname="f" stem.dir="up" accid.ges="s" />
                            </beam>
+                           <beam xml:id="vadiubd">
+                              <chord xml:id="x1ms1dg6" dur="8" stem.dir="up">
+                                 <note xml:id="wbzo4l9" oct="3" pname="b" />
+                                 <note xml:id="y1f8ens8" oct="4" pname="e" />
+                              </chord>
+                              <chord xml:id="a1hs65np" dur="8" stem.dir="up">
+                                 <note xml:id="z1ar9bwi" oct="3" pname="a" />
+                                 <note xml:id="b1dqpouy" oct="4" pname="d">
+                                    <accid xml:id="cc6mps7" accid="s" />
+                                 </note>
+                              </chord>
+                           </beam>
                         </layer>
                         <layer xml:id="l1ijj54p" n="2">
                            <beam xml:id="m1jviwgx">
@@ -4665,18 +4689,7 @@
                               <note xml:id="s1gfi2ej" dur="8" oct="4" pname="d" stem.dir="down" />
                               <note xml:id="telng64" dur="8" oct="4" pname="c" stem.dir="down" />
                            </beam>
-                           <beam xml:id="vadiubd">
-                              <chord xml:id="x1ms1dg6" dur="8" stem.dir="up">
-                                 <note xml:id="wbzo4l9" oct="3" pname="b" />
-                                 <note xml:id="y1f8ens8" oct="4" pname="e" />
-                              </chord>
-                              <chord xml:id="a1hs65np" dur="8" stem.dir="up">
-                                 <note xml:id="z1ar9bwi" oct="3" pname="a" />
-                                 <note xml:id="b1dqpouy" oct="4" pname="d">
-                                    <accid xml:id="cc6mps7" accid="s" />
-                                 </note>
-                              </chord>
-                           </beam>
+                           <space xml:id="meter-review.op1_03.m41.l1ijj54p.end.1" dur="4" />
                         </layer>
                      </staff>
                      <staff xml:id="cedgb5y" n="5">
@@ -4984,7 +4997,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="y1sjx9ag" metcon="false" n="45" facs="#zone_fe635f8f5d974b0aa9">
+                  <measure xml:id="y1sjx9ag" n="45" facs="#zone_fe635f8f5d974b0aa9">
                      <harm xml:id="fb_13" staff="3" tstamp="3.5">
                         <fb>
                            <f>6</f>
@@ -5135,7 +5148,7 @@
                      <tie xml:id="g1l84cmh" startid="#fylsfgz" endid="#m8rdtkb" />
                   </measure>
                   <sb xml:id="pxx5wd0" />
-                  <measure xml:id="fd8ei19" metcon="false" n="46" facs="#zone_8f5724c25cda4cd7b0">
+                  <measure xml:id="fd8ei19" n="46" facs="#zone_8f5724c25cda4cd7b0">
                      <harm xml:id="fb_16" staff="3" tstamp="3">
                         <fb>
                            <f>6</f>
@@ -5259,7 +5272,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="fcwfprw" metcon="false" n="47" facs="#zone_c8371b3b378f42349a">
+                  <measure xml:id="fcwfprw" n="47" facs="#zone_c8371b3b378f42349a">
                      <harm xml:id="fb_19" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
@@ -5748,7 +5761,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="o1v002xx" metcon="false" n="51" facs="#zone_115faec59c9f449ea2">
+                  <measure xml:id="o1v002xx" n="51" facs="#zone_115faec59c9f449ea2">
                      <staff xml:id="xdq7u4b" n="1">
                         <layer xml:id="y1trmbuh" n="1">
                            <beam xml:id="z1ws004">
@@ -6343,7 +6356,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="l57bejl" metcon="false" n="56" facs="#zone_555c4490094548df91">
+                  <measure xml:id="l57bejl" n="56" facs="#zone_555c4490094548df91">
                      <staff xml:id="u1ow8qez" n="1">
                         <layer xml:id="vk0b1a7" n="1">
                            <beam xml:id="w16dguic">
@@ -6683,7 +6696,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="y18g0ts0" metcon="false" n="59" facs="#zone_73bcad588c984074b2">
+                  <measure xml:id="y18g0ts0" n="59" facs="#zone_73bcad588c984074b2">
                      <staff xml:id="hxd0u6b" n="1">
                         <layer xml:id="iberugf" n="1">
                            <beam xml:id="j12jwo54">
@@ -6800,7 +6813,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="d1yls8sa" metcon="false" n="60" facs="#zone_d0f98ffa95ff4d499f">
+                  <measure xml:id="d1yls8sa" n="60" facs="#zone_d0f98ffa95ff4d499f">
                      <harm xml:id="bsb00023199_00035_facs_zones_fb_8" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
@@ -7704,7 +7717,7 @@
                      </staff>
                      <tie xml:id="bsb00023199_00035_facs_zones_z1meo8mk" startid="#bsb00023199_00035_facs_zones_y190fizx" endid="#bsb00023199_00035_facs_zones_b1fbvjrr" />
                   </measure>
-                  <measure xml:id="bsb00023199_00035_facs_zones_x53fcit" metcon="false" n="68" facs="#zone_996fd275fb7a46d3b1">
+                  <measure xml:id="bsb00023199_00035_facs_zones_x53fcit" n="68" facs="#zone_996fd275fb7a46d3b1">
                      <harm xml:id="bsb00023199_00035_facs_zones_fb_36" staff="3" tstamp="1">
                         <fb>
                            <f>5</f>
@@ -7748,7 +7761,6 @@
                            </beam>
                            <rest xml:id="bsb00023199_00035_facs_zones_w16r7nqk" dur="8" />
                            <note xml:id="bsb00023199_00035_facs_zones_x1bjywfm" dur="8" oct="5" pname="c" stem.dir="down" />
-                           <space xml:id="bsb00023199_00035_facs_zones_yr1dkuc" dur="8" />
                         </layer>
                      </staff>
                      <staff xml:id="bsb00023199_00035_facs_zones_x1rit5a6" n="2">
@@ -7764,7 +7776,6 @@
                               <note xml:id="bsb00023199_00035_facs_zones_ypshgkl" dur="8" oct="4" pname="c" stem.dir="down" />
                            </beam>
                            <note xml:id="bsb00023199_00035_facs_zones_za0ovl9" dur="4" oct="4" pname="f" stem.dir="down" />
-                           <space xml:id="bsb00023199_00035_facs_zones_begv0a" dur="8" />
                         </layer>
                      </staff>
                      <staff xml:id="bsb00023199_00035_facs_zones_kod946e" n="3">
@@ -7824,7 +7835,7 @@
                      <tie xml:id="bsb00023199_00035_facs_zones_a1kucodv" startid="#bsb00023199_00035_facs_zones_za0ovl9" endid="#bsb00023199_00035_facs_zones_f3io3ob" />
                      <tie xml:id="bsb00023199_00035_facs_zones_f13mkqe8" startid="#bsb00023199_00035_facs_zones_d1to0vw9" endid="#bsb00023199_00035_facs_zones_g6h4d1c" />
                   </measure>
-                  <measure xml:id="bsb00023199_00035_facs_zones_kcq9w67" metcon="false" n="69" facs="#zone_61a322109a2d4c379c">
+                  <measure xml:id="bsb00023199_00035_facs_zones_kcq9w67" n="69" facs="#zone_61a322109a2d4c379c">
                      <harm xml:id="bsb00023199_00035_facs_zones_fb_41" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
@@ -7855,7 +7866,6 @@
                            <note xml:id="bsb00023199_00035_facs_zones_f3io3ob" dur="4" oct="4" pname="f" stem.dir="down" />
                            <note xml:id="bsb00023199_00035_facs_zones_g1b6i8zs" dur="4" oct="4" pname="e" stem.dir="down" />
                            <note xml:id="bsb00023199_00035_facs_zones_h1rbpwsu" dur="2" oct="4" pname="f" stem.dir="down" />
-                           <space xml:id="bsb00023199_00035_facs_zones_i1sqcgof" dur="8" />
                         </layer>
                      </staff>
                      <staff xml:id="bsb00023199_00035_facs_zones_i1g7k82" n="3">
@@ -12624,7 +12634,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="awt17h6" metcon="false" n="129" facs="#zone_bfce4bd0a3054973b9">
+                  <measure xml:id="awt17h6" n="129" facs="#zone_bfce4bd0a3054973b9">
                      <staff xml:id="j17joeip" n="1">
                         <layer xml:id="k1uwtff4" n="1">
                            <beam xml:id="l20nm8f">
@@ -14224,7 +14234,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="o11k40dv" metcon="false" n="159" facs="#zone_75d623cc1eeb43a882">
+                  <measure xml:id="o11k40dv" n="159" facs="#zone_75d623cc1eeb43a882">
                      <harm xml:id="bsb00023199_00038_facs_zones_fb_31" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
@@ -16316,7 +16326,7 @@
                      <slur xml:id="u16n16pv" startid="#s4jj46m" endid="#y1hu000r" />
                   </measure>
                   <pb xml:id="srvy0y8" facs="#surface_cba3a620fff5" n="9" />
-                  <measure xml:id="u1x1fifa" metcon="false" n="194" facs="#zone_d605dd286e8845b0ae">
+                  <measure xml:id="u1x1fifa" n="194" facs="#zone_d605dd286e8845b0ae">
                      <harm xml:id="bsb00023199_00040_facs_zones_fb_1" staff="3" tstamp="1">
                         <fb>
                            <f>♯</f>
@@ -16431,7 +16441,7 @@
                      <tie xml:id="boy50yv" startid="#ailz9gk" endid="#cdsh4b" />
                      <tie xml:id="e18g9gh8" startid="#drihoob" endid="#i1pktcdc" curvedir="below" />
                   </measure>
-                  <measure xml:id="u1o3cogv" metcon="false" n="195" facs="#zone_92ee3995735746338f">
+                  <measure xml:id="u1o3cogv" n="195" facs="#zone_92ee3995735746338f">
                      <harm xml:id="bsb00023199_00040_facs_zones_fb_5" staff="3" tstamp="1">
                         <fb>
                            <f>4♯</f>
@@ -16895,7 +16905,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="bsb00023199_00040_facs_zones_d11hcjqc" metcon="false" n="200" facs="#zone_ebf82ef761374ad88b">
+                  <measure xml:id="bsb00023199_00040_facs_zones_d11hcjqc" n="200" facs="#zone_ebf82ef761374ad88b">
                      <harm xml:id="bsb00023199_00040_facs_zones_fb_16" staff="3" tstamp="1">
                         <fb>
                            <f>♯</f>
@@ -17161,7 +17171,7 @@
                      </staff>
                      <beamSpan xml:id="bsb00023199_00040_facs_zones_x1v5rdy5" startid="#bsb00023199_00040_facs_zones_w1gtvmi8" endid="#bsb00023199_00040_facs_zones_h1ifliku" />
                   </measure>
-                  <measure xml:id="bsb00023199_00040_facs_zones_y1begp3t" metcon="false" n="202" facs="#zone_354684716ae34e088f">
+                  <measure xml:id="bsb00023199_00040_facs_zones_y1begp3t" n="202" facs="#zone_354684716ae34e088f">
                      <harm xml:id="bsb00023199_00040_facs_zones_fb_26" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
@@ -17486,7 +17496,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="bsb00023199_00040_facs_zones_k17c0jbe" metcon="false" n="205" facs="#zone_f472c1c68f1f431497">
+                  <measure xml:id="bsb00023199_00040_facs_zones_k17c0jbe" n="205" facs="#zone_f472c1c68f1f431497">
                      <harm xml:id="bsb00023199_00040_facs_zones_fb_36" staff="3" tstamp="1">
                         <fb>
                            <f>♯</f>
@@ -17615,7 +17625,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="bsb00023199_00040_facs_zones_eua27d5" metcon="false" n="206" facs="#zone_478daad3ae8e410a9b">
+                  <measure xml:id="bsb00023199_00040_facs_zones_eua27d5" n="206" facs="#zone_478daad3ae8e410a9b">
                      <harm xml:id="bsb00023199_00040_facs_zones_fb_42" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
@@ -18195,7 +18205,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="bsb00023199_00040_facs_zones_l1nthmej" metcon="false" n="211" facs="#zone_17a66075ce8c480c86">
+                  <measure xml:id="bsb00023199_00040_facs_zones_l1nthmej" n="211" facs="#zone_17a66075ce8c480c86">
                      <harm xml:id="bsb00023199_00040_facs_zones_fb_55" staff="3" tstamp="1">
                         <fb>
                            <f>♯</f>
@@ -18535,7 +18545,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="g1nvhkfw" metcon="false" n="214" facs="#zone_647183efa1f14b47a8">
+                  <measure xml:id="g1nvhkfw" n="214" facs="#zone_647183efa1f14b47a8">
                      <harm xml:id="bsb00023199_00041_facs_zones_fb_2" staff="3" tstamp="1">
                         <fb>
                            <f>♯</f>
@@ -18649,7 +18659,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="h1wj2bh7" metcon="false" n="215" facs="#zone_cff27d771b3a4b1bab">
+                  <measure xml:id="h1wj2bh7" n="215" facs="#zone_cff27d771b3a4b1bab">
                      <harm xml:id="bsb00023199_00041_facs_zones_fb_5" staff="3" tstamp="4">
                         <fb>
                            <f>6</f>
@@ -19008,7 +19018,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="cfqw90" metcon="false" n="218" facs="#zone_17d47d464e934f4d84">
+                  <measure xml:id="cfqw90" n="218" facs="#zone_17d47d464e934f4d84">
                      <harm xml:id="bsb00023199_00041_facs_zones_fb_17" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
@@ -19292,7 +19302,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="zg85qw3" metcon="false" n="220" facs="#zone_a318c079ee2648c1b6">
+                  <measure xml:id="zg85qw3" n="220" facs="#zone_a318c079ee2648c1b6">
                      <harm xml:id="bsb00023199_00041_facs_zones_fb_24" staff="3" tstamp="1.5">
                         <fb>
                            <f>6</f>
@@ -19659,7 +19669,7 @@
                      </staff>
                      <tie xml:id="y1yj3p4u" startid="#xz2ukk6" endid="#z14yi3hj" />
                   </measure>
-                  <measure xml:id="jo394e1" right="single" metcon="false" n="223" facs="#zone_d3845d2e19dc453a97">
+                  <measure xml:id="jo394e1" right="single" n="223" facs="#zone_d3845d2e19dc453a97">
                      <harm xml:id="bsb00023199_00041_facs_zones_fb_28" staff="3" tstamp="1">
                         <fb>
                            <f>♯</f>
@@ -20118,7 +20128,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="y5gv0u7" metcon="false" n="227" facs="#zone_85b6747867e643b48e">
+                  <measure xml:id="y5gv0u7" n="227" facs="#zone_85b6747867e643b48e">
                      <harm xml:id="bsb00023199_00041_facs_zones_fb_40" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>
@@ -21298,7 +21308,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="r159qqnw" metcon="false" n="236" facs="#zone_1842a0490989490e97">
+                  <measure xml:id="r159qqnw" n="236" facs="#zone_1842a0490989490e97">
                      <harm xml:id="bsb00023199_00042_facs_zones_fb_30" staff="3" tstamp="1.5">
                         <fb>
                            <f>♯</f>
@@ -21857,7 +21867,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="as7qk5z" right="dbl" metcon="false" n="240" facs="#zone_c78fe2385a0648458f">
+                  <measure xml:id="as7qk5z" right="dbl" n="240" facs="#zone_c78fe2385a0648458f">
                      <harm xml:id="bsb00023199_00042_facs_zones_fb_49" staff="3" tstamp="1">
                         <fb>
                            <f>6</f>

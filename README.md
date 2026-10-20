@@ -36,25 +36,25 @@ The edition is organized primarily as complete, sonata-level MEI files. It began
 
 The status describes the complete work-level file, not the presence or edit history of its individual source pages.
 
-| Work     | Key          | First printed page | First BSB image | MEI stem                                         | Status    |
-| -------- | ------------ | -----------------: | --------------: | ------------------------------------------------ | --------- |
-| Op. I/1  | F major      |                  3 |           00013 | `op1_01_sonata_f_major`                        | corrected |
-| Op. I/2  | G major      |                 13 |           00023 | `op1_02_sonata_g_major`                        | corrected |
-| Op. I/3  | A minor      |                 22 |           00032 | `op1_03_sonata_a_minor`                        | corrected |
-| Op. I/4  | B-flat major |                 33 |           00043 | `op1_04_sonata_b_flat_major`                   | corrected |
-| Op. I/5  | C major      |                 44 |           00054 | `op1_05_sonata_c_major`                        | corrected |
-| Op. I/6  | D minor      |                 55 |           00065 | `op1_06_sonata_d_minor`                        | corrected |
-| Op. I/7  | E minor      |                 66 |           00076 | `op1_07_sonata_e_minor`                        | corrected |
-| Op. II/1 | B-flat major |                 79 |           00089 | `op2_01_sonata_b_flat_major`                   | pending   |
-| Op. II/2 | D major      |                 90 |           00100 | `op2_02_sonata_d_major`                        | corrected |
-| Op. II/3 | G minor      |                103 |           00113 | `op2_03_sonata_g_minor`                        | combined  |
-| Op. II/4 | C minor      |                116 |           00126 | `op2_04_sonata_c_minor`                        | combined  |
-| Op. II/5 | A major      |                126 |           00136 | `op2_05_sonata_a_major`                        | combined  |
-| Op. II/6 | E major      |                139 |           00149 | `op2_06_sonata_e_major`                        | corrected |
-| Op. II/7 | F major      |                150 |           00160 | `op2_07_sonata_f_major`                        | combined  |
-| App. I   | —           |                160 |           00170 | `app_01_suite_to_op1_04`                       | combined  |
-| App. II  | C major      |                164 |           00174 | `app_02_sonata_2violins_gamba_cembalo_c_major` | combined  |
-| App. III | D major      |                176 |           00186 | `app_03_sonata_gamba_violin_cembalo_d_major`   | combined  |
+| Work     | Key          | First printed page | First BSB image | MEI stem                                         | Status     |
+| -------- | ------------ | -----------------: | --------------: | ------------------------------------------------ | ---------- |
+| Op. I/1  | F major      |                  3 |           00013 | `op1_01_sonata_f_major`                        | corrected  |
+| Op. I/2  | G major      |                 13 |           00023 | `op1_02_sonata_g_major`                        | corrected  |
+| Op. I/3  | A minor      |                 22 |           00032 | `op1_03_sonata_a_minor`                        | corrected  |
+| Op. I/4  | B-flat major |                 33 |           00043 | `op1_04_sonata_b_flat_major`                   | corrected  |
+| Op. I/5  | C major      |                 44 |           00054 | `op1_05_sonata_c_major`                        | corrected  |
+| Op. I/6  | D minor      |                 55 |           00065 | `op1_06_sonata_d_minor`                        | corrected  |
+| Op. I/7  | E minor      |                 66 |           00076 | `op1_07_sonata_e_minor`                        | corrected  |
+| Op. II/1 | B-flat major |                 79 |           00089 | `op2_01_sonata_b_flat_major`                   | pending    |
+| Op. II/2 | D major      |                 90 |           00100 | `op2_02_sonata_d_major`                        | corrected  |
+| Op. II/3 | G minor      |                103 |           00113 | `op2_03_sonata_g_minor`                        | corrected  |
+| Op. II/4 | C minor      |                116 |           00126 | `op2_04_sonata_c_minor`                        | corrected  |
+| Op. II/5 | A major      |                126 |           00136 | `op2_05_sonata_a_major`                        | corrected  |
+| Op. II/6 | E major      |                139 |           00149 | `op2_06_sonata_e_major`                        | corrected  |
+| Op. II/7 | F major      |                150 |           00160 | `op2_07_sonata_f_major`                        | corrected  |
+| App. I   | —           |                160 |           00170 | `app_01_suite_to_op1_04`                       | combined   |
+| App. II  | C major      |                164 |           00174 | `app_02_sonata_2violins_gamba_cembalo_c_major` | combined   |
+| App. III | D major      |                176 |           00186 | `app_03_sonata_gamba_violin_cembalo_d_major`   | combined   |
 
 Status terms are used as follows:
 

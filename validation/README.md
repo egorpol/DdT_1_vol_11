@@ -167,10 +167,36 @@ Schema and DdT header/configuration warnings remain visible in the same file.
 Existing blank headers now receive current metadata findings; a previously empty
 report need not remain empty after the newer checks execute.
 
+Regular duration findings include measures carrying `metcon="false"`. The marker
+is retained in the finding's `context`; it no longer suppresses underfull or
+overfull layer warnings. These remain review warnings because an anacrusis or a
+subsidiary voice ending before the barline may be intentional. Read `expected`,
+`actual`, the affected voice and the source together before editing. Hidden
+`space` events contribute duration even though they draw no rest. Reports made
+before the 2026-10-20 checker correction omitted these mismatches; use the actual
+CAMAT source hash in report provenance to distinguish the runs. Validation does
+not remove the marker or alter the musical text.
+
+The 2026-10-20 source recheck covered all 16 assembled works. Of the 557 newly
+visible duration findings, 479 were resolved by checking the DdT musical text and
+repairing transcription, voice allocation or conversion padding. The remaining
+78 warnings are intentional and stay in the regular CSVs: Appendix I has 62
+voice-level findings in its twelve pickup/complementary ending measures (described
+in its MEI editorial declaration); Op. II/2 has 16 nominal-meter findings for the
+12/8 part against common-time accompaniment at measures 199–214 (documented in
+two encoding annotations). The remaining 28 `metcon="false"` markers belong to
+those passages. Full measures no longer carry inherited nonconformance markers.
+These are reviewed working-edition results, not publication sign-off or a complete
+pitch-by-pitch collation of the corpus.
+
 `editorial-reports.json` is the committed provenance for the current report set:
 CAMAT version/commit/source hash, dependency versions, schema/policy/code hashes,
 per-score input and CSV hashes, execution statuses, result categories and finding
-counts. Missing validators cannot be interpreted as a clean result. Exit code 1
+counts. After a selected-work refresh, that work's `validation_context` overrides
+the shared CAMAT, dependency, schema, source and option fields. Other work entries
+retain the shared context and their earlier results; a single-work refresh does
+not imply that the entire report set was rerun with the newer CAMAT version.
+Missing validators cannot be interpreted as a clean result. Exit code 1
 means a selected score failed required checks or a requested consumer check;
 its findings are still exported.
 Review the summary alongside an empty CSV before treating it as clean.

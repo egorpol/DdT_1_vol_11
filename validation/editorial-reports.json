@@ -1,0 +1,1755 @@
+{
+  "format_version": 1,
+  "completed_utc": "2026-10-20T16:14:46.355179+00:00",
+  "purpose": "Shared editorial findings for all assembled works; not publication sign-off.",
+  "camat": {
+    "module_version": "0.2.6",
+    "distribution_version": "0.2.6",
+    "git_branch": "main",
+    "git_commit": "542fba53a82da349fe93ed5ae9b9b459c15b84f0",
+    "source_tree_sha256": "069af7e17c647e7966407160a582cdcd49f9b16d92c69071378ab43cecb7b27a",
+    "working_tree_dirty": true
+  },
+  "dependency_versions": {
+    "lxml": "6.1.2",
+    "Pillow": "12.3.0",
+    "saxonche": "13.0.0",
+    "verovio": "6.3.0",
+    "music21": "10.5.0",
+    "partitura": "1.9.0"
+  },
+  "schema": {
+    "file": "schemas/mei-CMN-5.1.rng",
+    "sha256": "f6440d5eb59c3e903f2a7a64ea26518646186f8449b86096106846a269eb354b"
+  },
+  "sources": {
+    "validation/editorial-works.json": "d7b862360c13d5d4169fc3812c9701671a83363e259610f96ce81c2e4cfc3f75",
+    "validation/profile.json": "fd76a38b0a6b6a35abbc889272accac6426129d342cc54156f3ed31e352e57b6",
+    "validation/rules.py": "5b2d75ecfdaf06753ba35a7d6509d0b7330e7500c241dff928e661e07b0ee171",
+    "scripts/validate_corpus.py": "3c60c95aab1993a6b037e869a851913d25482fd1695ecd45dea67078a4be083e",
+    "scripts/refresh_editorial_reports.py": "9dc21e575808915eb7116d9d67c10ae02b665897a6b16482f482f5b652acfb9d"
+  },
+  "options": {
+    "check_ppq": true,
+    "parsing_backend": "verovio",
+    "check_relaxng": true,
+    "check_schematron": true,
+    "check_resources": true,
+    "check_network": true,
+    "check_verovio": true,
+    "check_camat_parse": true,
+    "verovio_render_pages": true,
+    "editorial_diagnostics": true,
+    "group_diagnostics": true
+  },
+  "works": [
+    {
+      "work_key": "op1_01_sonata_f_major",
+      "input_file": "11_buxtehude_sonatas_final/buxtehude_op1_01_sonata_f_major_corr.mei",
+      "input_sha256": "fac9d7354d058b4f1362497defb5d2db28b79c75b4a11ae74cd7bd95f7db57f3",
+      "report_file": "11_buxtehude_sonatas_final/buxtehude_op1_01_sonata_f_major_corr_consistency_report.csv",
+      "report_sha256": "f5b73e8785c3d3ab25dfbaa2c465f19046504c81a4f023c754b15c6716f90524",
+      "completion_status": "completed",
+      "mei_conformance": "passed",
+      "consumer_diagnostics": "passed",
+      "ddt_publication_acceptance": "needs-review",
+      "input_unchanged": true,
+      "findings": {
+        "warning": 11
+      },
+      "checks": {
+        "xml_references": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "musical_diagnostics": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "relaxng": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "schematron": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 10
+        },
+        "resources": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "image_network": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "verovio": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "camat_parse": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "input_hashes": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        }
+      },
+      "completed_utc": "2026-10-20T16:16:39.799061+00:00",
+      "validation_context": {
+        "camat": {
+          "module_version": "0.2.6",
+          "distribution_version": "0.2.6",
+          "git_branch": "main",
+          "git_commit": "542fba53a82da349fe93ed5ae9b9b459c15b84f0",
+          "source_tree_sha256": "069af7e17c647e7966407160a582cdcd49f9b16d92c69071378ab43cecb7b27a",
+          "working_tree_dirty": true
+        },
+        "dependency_versions": {
+          "lxml": "6.1.2",
+          "Pillow": "12.3.0",
+          "saxonche": "13.0.0",
+          "verovio": "6.3.0",
+          "music21": "10.5.0",
+          "partitura": "1.9.0"
+        },
+        "schema": {
+          "file": "schemas/mei-CMN-5.1.rng",
+          "sha256": "f6440d5eb59c3e903f2a7a64ea26518646186f8449b86096106846a269eb354b"
+        },
+        "sources": {
+          "validation/editorial-works.json": "d7b862360c13d5d4169fc3812c9701671a83363e259610f96ce81c2e4cfc3f75",
+          "validation/profile.json": "fd76a38b0a6b6a35abbc889272accac6426129d342cc54156f3ed31e352e57b6",
+          "validation/rules.py": "5b2d75ecfdaf06753ba35a7d6509d0b7330e7500c241dff928e661e07b0ee171",
+          "scripts/validate_corpus.py": "3c60c95aab1993a6b037e869a851913d25482fd1695ecd45dea67078a4be083e",
+          "scripts/refresh_editorial_reports.py": "9dc21e575808915eb7116d9d67c10ae02b665897a6b16482f482f5b652acfb9d"
+        },
+        "options": {
+          "check_ppq": true,
+          "parsing_backend": "verovio",
+          "check_relaxng": true,
+          "check_schematron": true,
+          "check_resources": true,
+          "check_network": true,
+          "check_verovio": true,
+          "check_camat_parse": true,
+          "verovio_render_pages": true,
+          "editorial_diagnostics": true,
+          "group_diagnostics": true
+        }
+      }
+    },
+    {
+      "work_key": "op1_02_sonata_g_major",
+      "input_file": "11_buxtehude_sonatas_final/buxtehude_op1_02_sonata_g_major_corr.mei",
+      "input_sha256": "05e2719286230b3ca61e23af5a6c88d680d04a39a2454a9942b97b08dbb1d8e8",
+      "report_file": "11_buxtehude_sonatas_final/buxtehude_op1_02_sonata_g_major_corr_consistency_report.csv",
+      "report_sha256": "f3a0ffc125e6d6e87c9a7b96a27b84a218c04864524ff938dd123e8fda3fc662",
+      "completion_status": "completed",
+      "mei_conformance": "passed",
+      "consumer_diagnostics": "passed",
+      "ddt_publication_acceptance": "needs-review",
+      "input_unchanged": true,
+      "findings": {
+        "warning": 10
+      },
+      "checks": {
+        "xml_references": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "musical_diagnostics": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "relaxng": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "schematron": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 9
+        },
+        "resources": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "image_network": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "verovio": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "camat_parse": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "input_hashes": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        }
+      },
+      "completed_utc": "2026-10-20T16:58:04.960061+00:00",
+      "validation_context": {
+        "camat": {
+          "module_version": "0.2.6",
+          "distribution_version": "0.2.6",
+          "git_branch": "main",
+          "git_commit": "542fba53a82da349fe93ed5ae9b9b459c15b84f0",
+          "source_tree_sha256": "069af7e17c647e7966407160a582cdcd49f9b16d92c69071378ab43cecb7b27a",
+          "working_tree_dirty": true
+        },
+        "dependency_versions": {
+          "lxml": "6.1.2",
+          "Pillow": "12.3.0",
+          "saxonche": "13.0.0",
+          "verovio": "6.3.0",
+          "music21": "10.5.0",
+          "partitura": "1.9.0"
+        },
+        "schema": {
+          "file": "schemas/mei-CMN-5.1.rng",
+          "sha256": "f6440d5eb59c3e903f2a7a64ea26518646186f8449b86096106846a269eb354b"
+        },
+        "sources": {
+          "validation/editorial-works.json": "d7b862360c13d5d4169fc3812c9701671a83363e259610f96ce81c2e4cfc3f75",
+          "validation/profile.json": "fd76a38b0a6b6a35abbc889272accac6426129d342cc54156f3ed31e352e57b6",
+          "validation/rules.py": "5b2d75ecfdaf06753ba35a7d6509d0b7330e7500c241dff928e661e07b0ee171",
+          "scripts/validate_corpus.py": "3c60c95aab1993a6b037e869a851913d25482fd1695ecd45dea67078a4be083e",
+          "scripts/refresh_editorial_reports.py": "9dc21e575808915eb7116d9d67c10ae02b665897a6b16482f482f5b652acfb9d"
+        },
+        "options": {
+          "check_ppq": true,
+          "parsing_backend": "verovio",
+          "check_relaxng": true,
+          "check_schematron": true,
+          "check_resources": true,
+          "check_network": true,
+          "check_verovio": true,
+          "check_camat_parse": true,
+          "verovio_render_pages": true,
+          "editorial_diagnostics": true,
+          "group_diagnostics": true
+        }
+      }
+    },
+    {
+      "work_key": "op1_03_sonata_a_minor",
+      "input_file": "11_buxtehude_sonatas_final/buxtehude_op1_03_sonata_a_minor_corr.mei",
+      "input_sha256": "fe9c25615376a5aabce8760b5b2bad5fbba5f486e780874cce57c7d83bfcefa4",
+      "report_file": "11_buxtehude_sonatas_final/buxtehude_op1_03_sonata_a_minor_corr_consistency_report.csv",
+      "report_sha256": "1789af984ebe429eedb6fbdae0533beaad5a7e8a5a0671ff2ee2b0b27406b251",
+      "completion_status": "completed",
+      "mei_conformance": "passed",
+      "consumer_diagnostics": "passed",
+      "ddt_publication_acceptance": "needs-review",
+      "input_unchanged": true,
+      "findings": {
+        "warning": 12
+      },
+      "checks": {
+        "xml_references": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "musical_diagnostics": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "relaxng": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "schematron": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 11
+        },
+        "resources": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "image_network": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "verovio": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "camat_parse": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "input_hashes": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        }
+      },
+      "completed_utc": "2026-10-20T16:58:27.635428+00:00",
+      "validation_context": {
+        "camat": {
+          "module_version": "0.2.6",
+          "distribution_version": "0.2.6",
+          "git_branch": "main",
+          "git_commit": "542fba53a82da349fe93ed5ae9b9b459c15b84f0",
+          "source_tree_sha256": "069af7e17c647e7966407160a582cdcd49f9b16d92c69071378ab43cecb7b27a",
+          "working_tree_dirty": true
+        },
+        "dependency_versions": {
+          "lxml": "6.1.2",
+          "Pillow": "12.3.0",
+          "saxonche": "13.0.0",
+          "verovio": "6.3.0",
+          "music21": "10.5.0",
+          "partitura": "1.9.0"
+        },
+        "schema": {
+          "file": "schemas/mei-CMN-5.1.rng",
+          "sha256": "f6440d5eb59c3e903f2a7a64ea26518646186f8449b86096106846a269eb354b"
+        },
+        "sources": {
+          "validation/editorial-works.json": "d7b862360c13d5d4169fc3812c9701671a83363e259610f96ce81c2e4cfc3f75",
+          "validation/profile.json": "fd76a38b0a6b6a35abbc889272accac6426129d342cc54156f3ed31e352e57b6",
+          "validation/rules.py": "5b2d75ecfdaf06753ba35a7d6509d0b7330e7500c241dff928e661e07b0ee171",
+          "scripts/validate_corpus.py": "3c60c95aab1993a6b037e869a851913d25482fd1695ecd45dea67078a4be083e",
+          "scripts/refresh_editorial_reports.py": "9dc21e575808915eb7116d9d67c10ae02b665897a6b16482f482f5b652acfb9d"
+        },
+        "options": {
+          "check_ppq": true,
+          "parsing_backend": "verovio",
+          "check_relaxng": true,
+          "check_schematron": true,
+          "check_resources": true,
+          "check_network": true,
+          "check_verovio": true,
+          "check_camat_parse": true,
+          "verovio_render_pages": true,
+          "editorial_diagnostics": true,
+          "group_diagnostics": true
+        }
+      }
+    },
+    {
+      "work_key": "op1_04_sonata_b_flat_major",
+      "input_file": "11_buxtehude_sonatas_final/buxtehude_op1_04_sonata_b_flat_major_corr.mei",
+      "input_sha256": "92209d5e302de3f679d618fa6ff21fb9bde288a202eed5bd99f6c71be6984408",
+      "report_file": "11_buxtehude_sonatas_final/buxtehude_op1_04_sonata_b_flat_major_corr_consistency_report.csv",
+      "report_sha256": "d3706dc6b722746aa20135aefc21515d0da6f8f1820a06bd5fb8ccf0eb22a184",
+      "completion_status": "completed",
+      "mei_conformance": "passed",
+      "consumer_diagnostics": "passed",
+      "ddt_publication_acceptance": "needs-review",
+      "input_unchanged": true,
+      "findings": {
+        "warning": 12
+      },
+      "checks": {
+        "xml_references": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "musical_diagnostics": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "relaxng": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "schematron": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 11
+        },
+        "resources": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "image_network": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "verovio": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "camat_parse": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "input_hashes": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        }
+      },
+      "completed_utc": "2026-10-20T16:38:14.653853+00:00",
+      "validation_context": {
+        "camat": {
+          "module_version": "0.2.6",
+          "distribution_version": "0.2.6",
+          "git_branch": "main",
+          "git_commit": "542fba53a82da349fe93ed5ae9b9b459c15b84f0",
+          "source_tree_sha256": "069af7e17c647e7966407160a582cdcd49f9b16d92c69071378ab43cecb7b27a",
+          "working_tree_dirty": true
+        },
+        "dependency_versions": {
+          "lxml": "6.1.2",
+          "Pillow": "12.3.0",
+          "saxonche": "13.0.0",
+          "verovio": "6.3.0",
+          "music21": "10.5.0",
+          "partitura": "1.9.0"
+        },
+        "schema": {
+          "file": "schemas/mei-CMN-5.1.rng",
+          "sha256": "f6440d5eb59c3e903f2a7a64ea26518646186f8449b86096106846a269eb354b"
+        },
+        "sources": {
+          "validation/editorial-works.json": "d7b862360c13d5d4169fc3812c9701671a83363e259610f96ce81c2e4cfc3f75",
+          "validation/profile.json": "fd76a38b0a6b6a35abbc889272accac6426129d342cc54156f3ed31e352e57b6",
+          "validation/rules.py": "5b2d75ecfdaf06753ba35a7d6509d0b7330e7500c241dff928e661e07b0ee171",
+          "scripts/validate_corpus.py": "3c60c95aab1993a6b037e869a851913d25482fd1695ecd45dea67078a4be083e",
+          "scripts/refresh_editorial_reports.py": "9dc21e575808915eb7116d9d67c10ae02b665897a6b16482f482f5b652acfb9d"
+        },
+        "options": {
+          "check_ppq": true,
+          "parsing_backend": "verovio",
+          "check_relaxng": true,
+          "check_schematron": true,
+          "check_resources": true,
+          "check_network": true,
+          "check_verovio": true,
+          "check_camat_parse": true,
+          "verovio_render_pages": true,
+          "editorial_diagnostics": true,
+          "group_diagnostics": true
+        }
+      }
+    },
+    {
+      "work_key": "op1_05_sonata_c_major",
+      "input_file": "11_buxtehude_sonatas_final/buxtehude_op1_05_sonata_c_major_corr.mei",
+      "input_sha256": "b6053a4e78f01f351602e90c096e2016091cc659ac255effc1bd131af42312eb",
+      "report_file": "11_buxtehude_sonatas_final/buxtehude_op1_05_sonata_c_major_corr_consistency_report.csv",
+      "report_sha256": "81d9189013592e086bc57a2fb26e9886e867774d9b6077767a1f04d79fa137f8",
+      "completion_status": "completed",
+      "mei_conformance": "passed",
+      "consumer_diagnostics": "passed",
+      "ddt_publication_acceptance": "needs-review",
+      "input_unchanged": true,
+      "findings": {
+        "warning": 12,
+        "info": 2
+      },
+      "checks": {
+        "xml_references": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "musical_diagnostics": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 2
+        },
+        "relaxng": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "schematron": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 11
+        },
+        "resources": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "image_network": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "verovio": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "camat_parse": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "input_hashes": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        }
+      },
+      "completed_utc": "2026-10-20T16:58:40.978714+00:00",
+      "validation_context": {
+        "camat": {
+          "module_version": "0.2.6",
+          "distribution_version": "0.2.6",
+          "git_branch": "main",
+          "git_commit": "542fba53a82da349fe93ed5ae9b9b459c15b84f0",
+          "source_tree_sha256": "069af7e17c647e7966407160a582cdcd49f9b16d92c69071378ab43cecb7b27a",
+          "working_tree_dirty": true
+        },
+        "dependency_versions": {
+          "lxml": "6.1.2",
+          "Pillow": "12.3.0",
+          "saxonche": "13.0.0",
+          "verovio": "6.3.0",
+          "music21": "10.5.0",
+          "partitura": "1.9.0"
+        },
+        "schema": {
+          "file": "schemas/mei-CMN-5.1.rng",
+          "sha256": "f6440d5eb59c3e903f2a7a64ea26518646186f8449b86096106846a269eb354b"
+        },
+        "sources": {
+          "validation/editorial-works.json": "d7b862360c13d5d4169fc3812c9701671a83363e259610f96ce81c2e4cfc3f75",
+          "validation/profile.json": "fd76a38b0a6b6a35abbc889272accac6426129d342cc54156f3ed31e352e57b6",
+          "validation/rules.py": "5b2d75ecfdaf06753ba35a7d6509d0b7330e7500c241dff928e661e07b0ee171",
+          "scripts/validate_corpus.py": "3c60c95aab1993a6b037e869a851913d25482fd1695ecd45dea67078a4be083e",
+          "scripts/refresh_editorial_reports.py": "9dc21e575808915eb7116d9d67c10ae02b665897a6b16482f482f5b652acfb9d"
+        },
+        "options": {
+          "check_ppq": true,
+          "parsing_backend": "verovio",
+          "check_relaxng": true,
+          "check_schematron": true,
+          "check_resources": true,
+          "check_network": true,
+          "check_verovio": true,
+          "check_camat_parse": true,
+          "verovio_render_pages": true,
+          "editorial_diagnostics": true,
+          "group_diagnostics": true
+        }
+      }
+    },
+    {
+      "work_key": "op1_06_sonata_d_minor",
+      "input_file": "11_buxtehude_sonatas_final/buxtehude_op1_06_sonata_d_minor_corr.mei",
+      "input_sha256": "60a02db56d7fb8c5f3ee7e48f42dc5e77b8fe859b9e967fb01d44bd031d0dbbf",
+      "report_file": "11_buxtehude_sonatas_final/buxtehude_op1_06_sonata_d_minor_corr_consistency_report.csv",
+      "report_sha256": "ebd5767821e87526776cee08f97775560b227bc2eff1c5a1ad5bc9cbf480b106",
+      "completion_status": "completed",
+      "mei_conformance": "passed",
+      "consumer_diagnostics": "passed",
+      "ddt_publication_acceptance": "needs-review",
+      "input_unchanged": true,
+      "findings": {
+        "warning": 12,
+        "info": 2
+      },
+      "checks": {
+        "xml_references": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "musical_diagnostics": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 2
+        },
+        "relaxng": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "schematron": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 11
+        },
+        "resources": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "image_network": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "verovio": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "camat_parse": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "input_hashes": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        }
+      },
+      "completed_utc": "2026-10-20T16:39:57.813072+00:00",
+      "validation_context": {
+        "camat": {
+          "module_version": "0.2.6",
+          "distribution_version": "0.2.6",
+          "git_branch": "main",
+          "git_commit": "542fba53a82da349fe93ed5ae9b9b459c15b84f0",
+          "source_tree_sha256": "069af7e17c647e7966407160a582cdcd49f9b16d92c69071378ab43cecb7b27a",
+          "working_tree_dirty": true
+        },
+        "dependency_versions": {
+          "lxml": "6.1.2",
+          "Pillow": "12.3.0",
+          "saxonche": "13.0.0",
+          "verovio": "6.3.0",
+          "music21": "10.5.0",
+          "partitura": "1.9.0"
+        },
+        "schema": {
+          "file": "schemas/mei-CMN-5.1.rng",
+          "sha256": "f6440d5eb59c3e903f2a7a64ea26518646186f8449b86096106846a269eb354b"
+        },
+        "sources": {
+          "validation/editorial-works.json": "d7b862360c13d5d4169fc3812c9701671a83363e259610f96ce81c2e4cfc3f75",
+          "validation/profile.json": "fd76a38b0a6b6a35abbc889272accac6426129d342cc54156f3ed31e352e57b6",
+          "validation/rules.py": "5b2d75ecfdaf06753ba35a7d6509d0b7330e7500c241dff928e661e07b0ee171",
+          "scripts/validate_corpus.py": "3c60c95aab1993a6b037e869a851913d25482fd1695ecd45dea67078a4be083e",
+          "scripts/refresh_editorial_reports.py": "9dc21e575808915eb7116d9d67c10ae02b665897a6b16482f482f5b652acfb9d"
+        },
+        "options": {
+          "check_ppq": true,
+          "parsing_backend": "verovio",
+          "check_relaxng": true,
+          "check_schematron": true,
+          "check_resources": true,
+          "check_network": true,
+          "check_verovio": true,
+          "check_camat_parse": true,
+          "verovio_render_pages": true,
+          "editorial_diagnostics": true,
+          "group_diagnostics": true
+        }
+      }
+    },
+    {
+      "work_key": "op1_07_sonata_e_minor",
+      "input_file": "11_buxtehude_sonatas_final/buxtehude_op1_07_sonata_e_minor_corr.mei",
+      "input_sha256": "91a91462736c60a8fc93369a313b23716e7b03da2a9258d6dde8c5425d970d4e",
+      "report_file": "11_buxtehude_sonatas_final/buxtehude_op1_07_sonata_e_minor_corr_consistency_report.csv",
+      "report_sha256": "bf84273ee833b44a05ce902e341ed60b57463d1009be5eb348687f16e865eb94",
+      "completion_status": "completed",
+      "mei_conformance": "passed",
+      "consumer_diagnostics": "passed",
+      "ddt_publication_acceptance": "needs-review",
+      "input_unchanged": true,
+      "findings": {
+        "warning": 12
+      },
+      "checks": {
+        "xml_references": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "musical_diagnostics": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "relaxng": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "schematron": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 11
+        },
+        "resources": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "image_network": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "verovio": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "camat_parse": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "input_hashes": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        }
+      },
+      "completed_utc": "2026-10-20T16:41:31.358099+00:00",
+      "validation_context": {
+        "camat": {
+          "module_version": "0.2.6",
+          "distribution_version": "0.2.6",
+          "git_branch": "main",
+          "git_commit": "542fba53a82da349fe93ed5ae9b9b459c15b84f0",
+          "source_tree_sha256": "069af7e17c647e7966407160a582cdcd49f9b16d92c69071378ab43cecb7b27a",
+          "working_tree_dirty": true
+        },
+        "dependency_versions": {
+          "lxml": "6.1.2",
+          "Pillow": "12.3.0",
+          "saxonche": "13.0.0",
+          "verovio": "6.3.0",
+          "music21": "10.5.0",
+          "partitura": "1.9.0"
+        },
+        "schema": {
+          "file": "schemas/mei-CMN-5.1.rng",
+          "sha256": "f6440d5eb59c3e903f2a7a64ea26518646186f8449b86096106846a269eb354b"
+        },
+        "sources": {
+          "validation/editorial-works.json": "d7b862360c13d5d4169fc3812c9701671a83363e259610f96ce81c2e4cfc3f75",
+          "validation/profile.json": "fd76a38b0a6b6a35abbc889272accac6426129d342cc54156f3ed31e352e57b6",
+          "validation/rules.py": "5b2d75ecfdaf06753ba35a7d6509d0b7330e7500c241dff928e661e07b0ee171",
+          "scripts/validate_corpus.py": "3c60c95aab1993a6b037e869a851913d25482fd1695ecd45dea67078a4be083e",
+          "scripts/refresh_editorial_reports.py": "9dc21e575808915eb7116d9d67c10ae02b665897a6b16482f482f5b652acfb9d"
+        },
+        "options": {
+          "check_ppq": true,
+          "parsing_backend": "verovio",
+          "check_relaxng": true,
+          "check_schematron": true,
+          "check_resources": true,
+          "check_network": true,
+          "check_verovio": true,
+          "check_camat_parse": true,
+          "verovio_render_pages": true,
+          "editorial_diagnostics": true,
+          "group_diagnostics": true
+        }
+      }
+    },
+    {
+      "work_key": "op2_02_sonata_d_major",
+      "input_file": "11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr.mei",
+      "input_sha256": "025e2389a70de43017e5301f682a1fb9ca7773f235a70f679bde01cbce5882a8",
+      "report_file": "11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr_consistency_report.csv",
+      "report_sha256": "341ce4de594e6d7aeec8301138dc1a0e7d683292f213484ab1fc7c9969109f85",
+      "completion_status": "completed",
+      "mei_conformance": "passed",
+      "consumer_diagnostics": "passed",
+      "ddt_publication_acceptance": "needs-review",
+      "input_unchanged": true,
+      "findings": {
+        "warning": 30
+      },
+      "checks": {
+        "xml_references": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "musical_diagnostics": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 16
+        },
+        "relaxng": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "schematron": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 13
+        },
+        "resources": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "image_network": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "verovio": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "camat_parse": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "input_hashes": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        }
+      },
+      "completed_utc": "2026-10-20T16:43:37.526093+00:00",
+      "validation_context": {
+        "camat": {
+          "module_version": "0.2.6",
+          "distribution_version": "0.2.6",
+          "git_branch": "main",
+          "git_commit": "542fba53a82da349fe93ed5ae9b9b459c15b84f0",
+          "source_tree_sha256": "069af7e17c647e7966407160a582cdcd49f9b16d92c69071378ab43cecb7b27a",
+          "working_tree_dirty": true
+        },
+        "dependency_versions": {
+          "lxml": "6.1.2",
+          "Pillow": "12.3.0",
+          "saxonche": "13.0.0",
+          "verovio": "6.3.0",
+          "music21": "10.5.0",
+          "partitura": "1.9.0"
+        },
+        "schema": {
+          "file": "schemas/mei-CMN-5.1.rng",
+          "sha256": "f6440d5eb59c3e903f2a7a64ea26518646186f8449b86096106846a269eb354b"
+        },
+        "sources": {
+          "validation/editorial-works.json": "d7b862360c13d5d4169fc3812c9701671a83363e259610f96ce81c2e4cfc3f75",
+          "validation/profile.json": "fd76a38b0a6b6a35abbc889272accac6426129d342cc54156f3ed31e352e57b6",
+          "validation/rules.py": "5b2d75ecfdaf06753ba35a7d6509d0b7330e7500c241dff928e661e07b0ee171",
+          "scripts/validate_corpus.py": "3c60c95aab1993a6b037e869a851913d25482fd1695ecd45dea67078a4be083e",
+          "scripts/refresh_editorial_reports.py": "9dc21e575808915eb7116d9d67c10ae02b665897a6b16482f482f5b652acfb9d"
+        },
+        "options": {
+          "check_ppq": true,
+          "parsing_backend": "verovio",
+          "check_relaxng": true,
+          "check_schematron": true,
+          "check_resources": true,
+          "check_network": true,
+          "check_verovio": true,
+          "check_camat_parse": true,
+          "verovio_render_pages": true,
+          "editorial_diagnostics": true,
+          "group_diagnostics": true
+        }
+      }
+    },
+    {
+      "work_key": "op2_03_sonata_g_minor",
+      "input_file": "11_buxtehude_sonatas_final/buxtehude_op2_03_sonata_g_minor_corr.mei",
+      "input_sha256": "108e9176fde16873cca0abef855b2e7a348dab56e0f5c3fffdb62059c37aa03c",
+      "report_file": "11_buxtehude_sonatas_final/buxtehude_op2_03_sonata_g_minor_corr_consistency_report.csv",
+      "report_sha256": "1ac4051b7e7a3cb2e337d3e99a7388ba7c5da4b98e34f39726ff13a6faa34843",
+      "completion_status": "completed",
+      "mei_conformance": "passed",
+      "consumer_diagnostics": "passed",
+      "ddt_publication_acceptance": "needs-review",
+      "input_unchanged": true,
+      "findings": {
+        "warning": 14
+      },
+      "checks": {
+        "xml_references": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "musical_diagnostics": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "relaxng": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "schematron": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 13
+        },
+        "resources": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "image_network": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "verovio": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "camat_parse": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "input_hashes": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        }
+      },
+      "completed_utc": "2026-10-20T17:02:13.935708+00:00",
+      "validation_context": {
+        "camat": {
+          "module_version": "0.2.6",
+          "distribution_version": "0.2.6",
+          "git_branch": "main",
+          "git_commit": "542fba53a82da349fe93ed5ae9b9b459c15b84f0",
+          "source_tree_sha256": "069af7e17c647e7966407160a582cdcd49f9b16d92c69071378ab43cecb7b27a",
+          "working_tree_dirty": true
+        },
+        "dependency_versions": {
+          "lxml": "6.1.2",
+          "Pillow": "12.3.0",
+          "saxonche": "13.0.0",
+          "verovio": "6.3.0",
+          "music21": "10.5.0",
+          "partitura": "1.9.0"
+        },
+        "schema": {
+          "file": "schemas/mei-CMN-5.1.rng",
+          "sha256": "f6440d5eb59c3e903f2a7a64ea26518646186f8449b86096106846a269eb354b"
+        },
+        "sources": {
+          "validation/editorial-works.json": "d7b862360c13d5d4169fc3812c9701671a83363e259610f96ce81c2e4cfc3f75",
+          "validation/profile.json": "fd76a38b0a6b6a35abbc889272accac6426129d342cc54156f3ed31e352e57b6",
+          "validation/rules.py": "5b2d75ecfdaf06753ba35a7d6509d0b7330e7500c241dff928e661e07b0ee171",
+          "scripts/validate_corpus.py": "3c60c95aab1993a6b037e869a851913d25482fd1695ecd45dea67078a4be083e",
+          "scripts/refresh_editorial_reports.py": "9dc21e575808915eb7116d9d67c10ae02b665897a6b16482f482f5b652acfb9d"
+        },
+        "options": {
+          "check_ppq": true,
+          "parsing_backend": "verovio",
+          "check_relaxng": true,
+          "check_schematron": true,
+          "check_resources": true,
+          "check_network": true,
+          "check_verovio": true,
+          "check_camat_parse": true,
+          "verovio_render_pages": true,
+          "editorial_diagnostics": true,
+          "group_diagnostics": true
+        }
+      }
+    },
+    {
+      "work_key": "op2_04_sonata_c_minor",
+      "input_file": "11_buxtehude_sonatas_final/buxtehude_op2_04_sonata_c_minor_corr.mei",
+      "input_sha256": "143a3dd504d1072b75fee735a47210498e7a12bd37d2a8a6aef7182b1ab0456a",
+      "report_file": "11_buxtehude_sonatas_final/buxtehude_op2_04_sonata_c_minor_corr_consistency_report.csv",
+      "report_sha256": "5fcc9c65c8a1fa01e6efecf128f094126bf1bfec8a0754979f5de35cbb9a58ee",
+      "completion_status": "completed",
+      "mei_conformance": "passed",
+      "consumer_diagnostics": "passed",
+      "ddt_publication_acceptance": "needs-review",
+      "input_unchanged": true,
+      "findings": {
+        "warning": 11,
+        "info": 2
+      },
+      "checks": {
+        "xml_references": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "musical_diagnostics": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 2
+        },
+        "relaxng": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "schematron": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 10
+        },
+        "resources": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "image_network": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "verovio": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "camat_parse": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "input_hashes": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        }
+      },
+      "completed_utc": "2026-10-20T16:59:16.227936+00:00",
+      "validation_context": {
+        "camat": {
+          "module_version": "0.2.6",
+          "distribution_version": "0.2.6",
+          "git_branch": "main",
+          "git_commit": "542fba53a82da349fe93ed5ae9b9b459c15b84f0",
+          "source_tree_sha256": "069af7e17c647e7966407160a582cdcd49f9b16d92c69071378ab43cecb7b27a",
+          "working_tree_dirty": true
+        },
+        "dependency_versions": {
+          "lxml": "6.1.2",
+          "Pillow": "12.3.0",
+          "saxonche": "13.0.0",
+          "verovio": "6.3.0",
+          "music21": "10.5.0",
+          "partitura": "1.9.0"
+        },
+        "schema": {
+          "file": "schemas/mei-CMN-5.1.rng",
+          "sha256": "f6440d5eb59c3e903f2a7a64ea26518646186f8449b86096106846a269eb354b"
+        },
+        "sources": {
+          "validation/editorial-works.json": "d7b862360c13d5d4169fc3812c9701671a83363e259610f96ce81c2e4cfc3f75",
+          "validation/profile.json": "fd76a38b0a6b6a35abbc889272accac6426129d342cc54156f3ed31e352e57b6",
+          "validation/rules.py": "5b2d75ecfdaf06753ba35a7d6509d0b7330e7500c241dff928e661e07b0ee171",
+          "scripts/validate_corpus.py": "3c60c95aab1993a6b037e869a851913d25482fd1695ecd45dea67078a4be083e",
+          "scripts/refresh_editorial_reports.py": "9dc21e575808915eb7116d9d67c10ae02b665897a6b16482f482f5b652acfb9d"
+        },
+        "options": {
+          "check_ppq": true,
+          "parsing_backend": "verovio",
+          "check_relaxng": true,
+          "check_schematron": true,
+          "check_resources": true,
+          "check_network": true,
+          "check_verovio": true,
+          "check_camat_parse": true,
+          "verovio_render_pages": true,
+          "editorial_diagnostics": true,
+          "group_diagnostics": true
+        }
+      }
+    },
+    {
+      "work_key": "op2_05_sonata_a_major",
+      "input_file": "11_buxtehude_sonatas_final/buxtehude_op2_05_sonata_a_major_corr.mei",
+      "input_sha256": "1b12192c4da4bbb832d496d329015cf480a4e4961dc9a1be7a2ce203538655ac",
+      "report_file": "11_buxtehude_sonatas_final/buxtehude_op2_05_sonata_a_major_corr_consistency_report.csv",
+      "report_sha256": "a0994d6904a361bcd5cecae8aff44bc148242bab8dabb791d7ddd58c27a2b580",
+      "completion_status": "completed",
+      "mei_conformance": "passed",
+      "consumer_diagnostics": "passed",
+      "ddt_publication_acceptance": "needs-review",
+      "input_unchanged": true,
+      "findings": {
+        "warning": 14,
+        "info": 2
+      },
+      "checks": {
+        "xml_references": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "musical_diagnostics": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 2
+        },
+        "relaxng": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "schematron": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 13
+        },
+        "resources": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "image_network": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "verovio": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "camat_parse": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "input_hashes": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        }
+      },
+      "completed_utc": "2026-10-20T16:53:11.658218+00:00",
+      "validation_context": {
+        "camat": {
+          "module_version": "0.2.6",
+          "distribution_version": "0.2.6",
+          "git_branch": "main",
+          "git_commit": "542fba53a82da349fe93ed5ae9b9b459c15b84f0",
+          "source_tree_sha256": "069af7e17c647e7966407160a582cdcd49f9b16d92c69071378ab43cecb7b27a",
+          "working_tree_dirty": true
+        },
+        "dependency_versions": {
+          "lxml": "6.1.2",
+          "Pillow": "12.3.0",
+          "saxonche": "13.0.0",
+          "verovio": "6.3.0",
+          "music21": "10.5.0",
+          "partitura": "1.9.0"
+        },
+        "schema": {
+          "file": "schemas/mei-CMN-5.1.rng",
+          "sha256": "f6440d5eb59c3e903f2a7a64ea26518646186f8449b86096106846a269eb354b"
+        },
+        "sources": {
+          "validation/editorial-works.json": "d7b862360c13d5d4169fc3812c9701671a83363e259610f96ce81c2e4cfc3f75",
+          "validation/profile.json": "fd76a38b0a6b6a35abbc889272accac6426129d342cc54156f3ed31e352e57b6",
+          "validation/rules.py": "5b2d75ecfdaf06753ba35a7d6509d0b7330e7500c241dff928e661e07b0ee171",
+          "scripts/validate_corpus.py": "3c60c95aab1993a6b037e869a851913d25482fd1695ecd45dea67078a4be083e",
+          "scripts/refresh_editorial_reports.py": "9dc21e575808915eb7116d9d67c10ae02b665897a6b16482f482f5b652acfb9d"
+        },
+        "options": {
+          "check_ppq": true,
+          "parsing_backend": "verovio",
+          "check_relaxng": true,
+          "check_schematron": true,
+          "check_resources": true,
+          "check_network": true,
+          "check_verovio": true,
+          "check_camat_parse": true,
+          "verovio_render_pages": true,
+          "editorial_diagnostics": true,
+          "group_diagnostics": true
+        }
+      }
+    },
+    {
+      "work_key": "op2_06_sonata_e_major",
+      "input_file": "11_buxtehude_sonatas_final/buxtehude_op2_06_sonata_e_major_corr.mei",
+      "input_sha256": "eacd7cec3c0984937a288bd6dcdad3ed40d536ababbc6263fe7d9ec90664e144",
+      "report_file": "11_buxtehude_sonatas_final/buxtehude_op2_06_sonata_e_major_corr_consistency_report.csv",
+      "report_sha256": "36b149b031ad4281951cbcb829190b38cb2cff4d8ba9c85201737613ef8746b5",
+      "completion_status": "completed",
+      "mei_conformance": "passed",
+      "consumer_diagnostics": "passed",
+      "ddt_publication_acceptance": "needs-review",
+      "input_unchanged": true,
+      "findings": {
+        "warning": 12
+      },
+      "checks": {
+        "xml_references": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "musical_diagnostics": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "relaxng": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "schematron": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 11
+        },
+        "resources": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "image_network": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "verovio": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "camat_parse": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "input_hashes": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        }
+      },
+      "completed_utc": "2026-10-20T16:54:13.735114+00:00",
+      "validation_context": {
+        "camat": {
+          "module_version": "0.2.6",
+          "distribution_version": "0.2.6",
+          "git_branch": "main",
+          "git_commit": "542fba53a82da349fe93ed5ae9b9b459c15b84f0",
+          "source_tree_sha256": "069af7e17c647e7966407160a582cdcd49f9b16d92c69071378ab43cecb7b27a",
+          "working_tree_dirty": true
+        },
+        "dependency_versions": {
+          "lxml": "6.1.2",
+          "Pillow": "12.3.0",
+          "saxonche": "13.0.0",
+          "verovio": "6.3.0",
+          "music21": "10.5.0",
+          "partitura": "1.9.0"
+        },
+        "schema": {
+          "file": "schemas/mei-CMN-5.1.rng",
+          "sha256": "f6440d5eb59c3e903f2a7a64ea26518646186f8449b86096106846a269eb354b"
+        },
+        "sources": {
+          "validation/editorial-works.json": "d7b862360c13d5d4169fc3812c9701671a83363e259610f96ce81c2e4cfc3f75",
+          "validation/profile.json": "fd76a38b0a6b6a35abbc889272accac6426129d342cc54156f3ed31e352e57b6",
+          "validation/rules.py": "5b2d75ecfdaf06753ba35a7d6509d0b7330e7500c241dff928e661e07b0ee171",
+          "scripts/validate_corpus.py": "3c60c95aab1993a6b037e869a851913d25482fd1695ecd45dea67078a4be083e",
+          "scripts/refresh_editorial_reports.py": "9dc21e575808915eb7116d9d67c10ae02b665897a6b16482f482f5b652acfb9d"
+        },
+        "options": {
+          "check_ppq": true,
+          "parsing_backend": "verovio",
+          "check_relaxng": true,
+          "check_schematron": true,
+          "check_resources": true,
+          "check_network": true,
+          "check_verovio": true,
+          "check_camat_parse": true,
+          "verovio_render_pages": true,
+          "editorial_diagnostics": true,
+          "group_diagnostics": true
+        }
+      }
+    },
+    {
+      "work_key": "op2_07_sonata_f_major",
+      "input_file": "11_buxtehude_sonatas_final/buxtehude_op2_07_sonata_f_major_corr.mei",
+      "input_sha256": "0b3847ff17820fbcec81e03bf4d0c048fafaf9910390b7635b0f9522cfb75fdf",
+      "report_file": "11_buxtehude_sonatas_final/buxtehude_op2_07_sonata_f_major_corr_consistency_report.csv",
+      "report_sha256": "9a7870b95f31959488281f9acf669a1d720dfaa1c70a1addfef79a16f0c36da7",
+      "completion_status": "completed",
+      "mei_conformance": "passed",
+      "consumer_diagnostics": "passed",
+      "ddt_publication_acceptance": "needs-review",
+      "input_unchanged": true,
+      "findings": {
+        "warning": 11,
+        "info": 2
+      },
+      "checks": {
+        "xml_references": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "musical_diagnostics": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 2
+        },
+        "relaxng": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "schematron": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 10
+        },
+        "resources": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "image_network": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "verovio": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "camat_parse": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "input_hashes": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        }
+      },
+      "completed_utc": "2026-10-20T16:59:42.173175+00:00",
+      "validation_context": {
+        "camat": {
+          "module_version": "0.2.6",
+          "distribution_version": "0.2.6",
+          "git_branch": "main",
+          "git_commit": "542fba53a82da349fe93ed5ae9b9b459c15b84f0",
+          "source_tree_sha256": "069af7e17c647e7966407160a582cdcd49f9b16d92c69071378ab43cecb7b27a",
+          "working_tree_dirty": true
+        },
+        "dependency_versions": {
+          "lxml": "6.1.2",
+          "Pillow": "12.3.0",
+          "saxonche": "13.0.0",
+          "verovio": "6.3.0",
+          "music21": "10.5.0",
+          "partitura": "1.9.0"
+        },
+        "schema": {
+          "file": "schemas/mei-CMN-5.1.rng",
+          "sha256": "f6440d5eb59c3e903f2a7a64ea26518646186f8449b86096106846a269eb354b"
+        },
+        "sources": {
+          "validation/editorial-works.json": "d7b862360c13d5d4169fc3812c9701671a83363e259610f96ce81c2e4cfc3f75",
+          "validation/profile.json": "fd76a38b0a6b6a35abbc889272accac6426129d342cc54156f3ed31e352e57b6",
+          "validation/rules.py": "5b2d75ecfdaf06753ba35a7d6509d0b7330e7500c241dff928e661e07b0ee171",
+          "scripts/validate_corpus.py": "3c60c95aab1993a6b037e869a851913d25482fd1695ecd45dea67078a4be083e",
+          "scripts/refresh_editorial_reports.py": "9dc21e575808915eb7116d9d67c10ae02b665897a6b16482f482f5b652acfb9d"
+        },
+        "options": {
+          "check_ppq": true,
+          "parsing_backend": "verovio",
+          "check_relaxng": true,
+          "check_schematron": true,
+          "check_resources": true,
+          "check_network": true,
+          "check_verovio": true,
+          "check_camat_parse": true,
+          "verovio_render_pages": true,
+          "editorial_diagnostics": true,
+          "group_diagnostics": true
+        }
+      }
+    },
+    {
+      "work_key": "app_01_suite_to_op1_04",
+      "input_file": "11_buxtehude_sonatas_final/buxtehude_app_01_suite_to_op1_04_corr.mei",
+      "input_sha256": "2d3a3663d3767a08772a90c2acded45ab4d350af2bbb6a12d1fb5be9e2c3f16a",
+      "report_file": "11_buxtehude_sonatas_final/buxtehude_app_01_suite_to_op1_04_corr_consistency_report.csv",
+      "report_sha256": "06248f67ca67dc2e4fade82869243f4236f425d27a5953879169d78a060d5de1",
+      "completion_status": "completed",
+      "mei_conformance": "passed",
+      "consumer_diagnostics": "passed",
+      "ddt_publication_acceptance": "needs-review",
+      "input_unchanged": true,
+      "findings": {
+        "warning": 67
+      },
+      "checks": {
+        "xml_references": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "musical_diagnostics": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 62
+        },
+        "relaxng": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "schematron": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 4
+        },
+        "resources": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "image_network": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "verovio": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "camat_parse": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "input_hashes": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        }
+      }
+    },
+    {
+      "work_key": "app_02_sonata_2violins_gamba_cembalo_c_major",
+      "input_file": "11_buxtehude_sonatas_final/buxtehude_app_02_sonata_2violins_gamba_cembalo_c_major_corr.mei",
+      "input_sha256": "ba423ee9c8553ed9c661790ce37469e9bc34b10f1c6a1c9081792114242b16bb",
+      "report_file": "11_buxtehude_sonatas_final/buxtehude_app_02_sonata_2violins_gamba_cembalo_c_major_corr_consistency_report.csv",
+      "report_sha256": "8b6d5b741f0d913ea082741a33d7645d190ab07af89deb262d7fb655d0e6e97e",
+      "completion_status": "completed",
+      "mei_conformance": "passed",
+      "consumer_diagnostics": "passed",
+      "ddt_publication_acceptance": "needs-review",
+      "input_unchanged": true,
+      "findings": {
+        "warning": 13
+      },
+      "checks": {
+        "xml_references": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "musical_diagnostics": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "relaxng": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "schematron": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 12
+        },
+        "resources": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "image_network": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "verovio": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "camat_parse": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "input_hashes": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        }
+      }
+    },
+    {
+      "work_key": "app_03_sonata_gamba_violin_cembalo_d_major",
+      "input_file": "11_buxtehude_sonatas_final/buxtehude_app_03_sonata_gamba_violin_cembalo_d_major_corr.mei",
+      "input_sha256": "a847abea8782ea9114357c96bb438f79a214746a1d32163ee183d417865e9b5b",
+      "report_file": "11_buxtehude_sonatas_final/buxtehude_app_03_sonata_gamba_violin_cembalo_d_major_corr_consistency_report.csv",
+      "report_sha256": "670baede841d35269d0e9f9a7ff4036f9cc50f315060aa8cc9d3a4c38534f2ee",
+      "completion_status": "completed",
+      "mei_conformance": "passed",
+      "consumer_diagnostics": "passed",
+      "ddt_publication_acceptance": "needs-review",
+      "input_unchanged": true,
+      "findings": {
+        "warning": 11
+      },
+      "checks": {
+        "xml_references": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "musical_diagnostics": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "relaxng": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "schematron": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 10
+        },
+        "resources": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "image_network": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "verovio": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "camat_parse": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "input_hashes": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        }
+      }
+    }
+  ],
+  "last_refresh": {
+    "scope": "selected-work",
+    "work_keys": [
+      "op2_03_sonata_g_minor"
+    ],
+    "retained_work_results": 15,
+    "context": "Meter recheck with regular reporting of metcon=false duration mismatches; other reports retain their own recorded results."
+  }
+}

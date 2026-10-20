@@ -54,3 +54,79 @@ reports. Local reproductions are in the ignored
 `issue_drafts/figured-bass-parentheses/` directory; the dated validation run
 retains the fresh schema and rendering evidence. No new upstream report or
 comment was submitted during this recheck.
+
+## Cross-layer keyboard ties in Op. II/4
+
+**Status: encoding repaired; upstream classification pending, 2026-10-20.**
+The existing inline tie attributes did not resolve three printed connections
+consistently in the installed Verovio 6.3.0 runtime. Explicit endpoints render
+the source readings and remove the resulting warnings. This observation alone
+does not establish an upstream bug; no issue search or report has been made for
+this case yet.
+
+**Affected passages:** [Op. II/4](../11_buxtehude_sonatas_final/buxtehude_op2_04_sonata_c_minor_corr.mei),
+keyboard upper staff 4: C4 at mm. 110–111 (DdT p. 120), C4 at mm. 148–149
+(p. 121), and B3 at mm. 164–165 (p. 122). Their endpoints have different layer
+numbers. The previous encoding produced later warnings at unrelated notes in
+mm. 141, 152 and 172. A separate, unprinted tie initial at m. 138 caused the
+warning at m. 140 and was removed as an encoding error.
+
+**Current encoding:** use `tie` elements with `@startid`, `@endid`, `@staff="4"`
+and `@curvedir="below"`; retain every tied note and its printed duration. IDs
+are `tie.op2_04.m110-111.c4`, `tie.op2_04.m148-149.c4` and
+`tie.op2_04.m164-165.b3`. Annotation `editorial.op2_04.cross-layer-ties` records
+the source evidence and encoding repair. This follows the
+[MEI tie guidance](https://music-encoding.org/guidelines/v5/attribute-classes/att.tiePresent.html),
+which permits an explicit `tie` element to specify visual information.
+
+**For the combined reassessment:** first isolate a schema-valid minimal example
+with unchanged pitches, onsets and durations, compare inline attributes and
+explicit endpoints, and search existing upstream reports. The current score
+passes validation and renders all three connections; no musical emendation is
+needed. Baseline and final evidence are retained in the ignored dated
+`validation/runs/op2-04-fresh-review-20261019T220811230078Z/` and
+`validation/runs/op2-04-final-review-20261019T221810008800Z/` directories.
+
+## Automatic repeat expansion crashes on consecutive repeat endings
+
+**Status: reproduced; score encoding repaired, 2026-10-20.** In installed
+Verovio `6.3.0-425dd7b`, Appendix I rendered normally but MIDI/timemap export
+terminated with SIGSEGV in `ExpansionMap::CreateSection` / `Object::DetachChild`.
+This also caused the CAMAT consumer check to crash. A schema-valid two-measure
+reproduction, with each measure ending in `right="rptend"` and no intervening
+explicit repeat start, has the same result. Adding an explicit start to the
+second measure is a passing diagnostic control; that control is not an edit
+to the edition's printed barlines.
+
+**Affected work:** [Appendix I](../11_buxtehude_sonatas_final/buxtehude_app_01_suite_to_op1_04_corr.mei),
+the four-dance suite on DdT pp. 160–163. Its former single section contained
+eight repeated strains, with new dance starts and the Gique's second strain
+implicitly beginning a new repeat span. The first repeat ending after such a
+start could cause automatic expansion to reuse already detached children.
+That mechanism is an inference from the backtrace, diagnostic control and
+the inspected upstream implementation, rather than a maintainer diagnosis.
+
+**Current encoding:** eight strain sections and one explicit `expansion`
+listing each strain twice, in printed order. No printed repeat bar or source
+break is changed. MIDI/timemap export now returns all 89 measures exactly
+twice, in the intended strain order; all four score pages are pixel-identical
+before and after this structural change. CAMAT parsing passes. The normal
+MEI schema, reference, rendering and musical-diagnostics checks also pass.
+
+**Issue search:** the public tracker was searched for repeat crashes and
+expansion reports on 2026-10-20. The closest inspected reports were closed
+[Verovio #1125](https://github.com/rism-digital/verovio/issues/1125), an older
+crash involving an existing expansion element; closed
+[#4258](https://github.com/rism-digital/verovio/issues/4258), requesting automatic
+MEI expansion generation; and open
+[#1300](https://github.com/rism-digital/verovio/issues/1300), broader expansion
+enhancements. None of those descriptions establishes an exact duplicate for
+this automatic-generation trigger. No development runtime was tested and no
+upstream report was submitted.
+
+**For the combined reassessment:** retain the two-measure reproduction,
+passing explicit-start control, crash logs, issue-search responses and draft
+in the ignored dated `validation/runs/app1-fresh-review-20261020T031254523884Z/repeat-expansion/`
+directory. Recheck the then-current runtime and tracker before deciding
+whether to report the automatic-generation crash. The score's explicit
+repeat plan is independently meaningful and does not suppress its repeats.
