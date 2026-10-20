@@ -1,16 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://music-encoding.org/schema/5.1/mei-all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://music-encoding.org/schema/5.1/mei-all.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1">
-   <meiHead xml:id="m1g1s3sp">
+<?xml-model href="https://music-encoding.org/schema/5.1/mei-CMN.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://music-encoding.org/schema/5.1/mei-CMN.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<mei xmlns="http://www.music-encoding.org/ns/mei" meiversion="5.1+CMN">
+   <meiHead xml:lang="en" xml:id="m1g1s3sp">
+      <altId type="repository-stem">op2_06_sonata_e_major</altId>
       <fileDesc xml:id="fkeqqin">
          <titleStmt xml:id="t1xla3tt">
-            <title>Sonata VI.</title>
-            <respStmt />
+            <title>Sonata VI in E major, Op. II</title>
+            <composer>
+               <persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
+            </composer>
+            <respStmt xml:id="resp.camat">
+               <resp>MEI encoding and sonata-level assembly</resp>
+               <corpName>CAMAT</corpName>
+            </respStmt>
+            <respStmt xml:id="resp.haering">
+               <resp>OMR correction</resp>
+               <persName>Francy Häring</persName>
+            </respStmt>
+            <respStmt xml:id="resp.polyakov">
+               <resp>OMR correction, editorial review, and metadata</resp>
+               <persName>Egor Polyakov</persName>
+            </respStmt>
          </titleStmt>
+         <editionStmt>
+            <edition n="0.1.0">Working digital edition</edition>
+         </editionStmt>
          <pubStmt xml:id="pd8bnvd">
+            <publisher>CAMAT Corpus Editions</publisher>
+            <date isodate="2026-10-20" type="last-updated">2026-10-20</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
+            <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op2_06_sonata_e_major_corr.mei</identifier>
+            <availability>
+               <useRestrict>MEI data released under the <ref target="https://spdx.org/licenses/MIT.html">MIT License</ref>.</useRestrict>
+            </availability>
          </pubStmt>
+         <sourceDesc>
+            <source type="printed-edition" xml:id="src.ddt1903">
+               <bibl>
+                  <title>Dietrich Buxtehudes Instrumentalwerke: Sonaten für Violine, Gambe und Cembalo</title>
+                  <title type="series">Denkmäler deutscher Tonkunst, first series, vol. 11</title>
+                  <composer>Dietrich Buxtehude</composer>
+                  <editor>
+                     <persName auth="GND" auth.uri="https://d-nb.info/gnd/117245674" codedval="117245674">Carl Stiehl</persName>
+                  </editor>
+                  <imprint>
+                     <pubPlace>Leipzig</pubPlace>
+                     <publisher>Breitkopf und Härtel</publisher>
+                     <date isodate="1903">1903</date>
+                  </imprint>
+                  <identifier type="URN">urn:nbn:de:bvb:12-bsb00023199-0</identifier>
+                  <identifier type="BSB-ID">991009385569707356</identifier>
+                  <identifier type="BV">BV035347306</identifier>
+                  <identifier type="OCLC">775063768</identifier>
+                  <physLoc>
+                     <repository>Hochschule für Musik und Theater München, Bibliothek</repository>
+                     <identifier type="shelfmark">N2/X 1 DDT, 11</identifier>
+                  </physLoc>
+                  <ref type="digital-facsimile" target="https://digitale-sammlungen.de/en/view/bsb00023199">BSB digital facsimile</ref>
+                  <ref type="iiif-manifest" target="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/manifest">IIIF Presentation manifest</ref>
+                  <biblScope unit="page" from="139" to="149">pp. 139-149</biblScope>
+                  <availability>
+                     <useRestrict>Digital facsimile supplied by the Bayerische Staatsbibliothek under <ref target="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</ref>.</useRestrict>
+                  </availability>
+               </bibl>
+            </source>
+            <source xml:id="src.uppsala.op2" type="historical-print">
+               <bibl>
+                  <title>VII. Suonate a due, violino et viola da gamba con cembalo ... opera secunda</title>
+                  <composer>Dieterich Buxtehude</composer>
+                  <imprint>
+                     <pubPlace>Lübeck</pubPlace>
+                     <date isodate="1696">1696</date>
+                  </imprint>
+                  <identifier type="RISM">RISM A/I B5205</identifier>
+                  <physLoc>
+                     <repository>Uppsala University Library (S-Uu), Düben Collection</repository>
+                     <identifier type="shelfmark">Uimtr 52:1–4</identifier>
+                  </physLoc>
+                  <ref type="catalogue" target="https://www2.musik.uu.se/duben/Printed%20music%20in%20the%20Duben%20Collection2024.pdf">Uppsala printed-music catalogue, p. 2; catalogue imprint Lübeck 1696</ref>
+                  <ref target="#src.stimu1991.op2">Consulted through the STIMU 1991 facsimile of the Uppsala partbooks.</ref>
+               </bibl>
+            </source>
+            <source xml:id="src.stimu1991.op2" type="facsimile-edition">
+               <bibl>
+                  <title>VII. Suonate à due, violino et violadagamba con cembalo</title>
+                  <composer>Dieterich Buxtehude</composer>
+                  <imprint>
+                     <pubPlace>Utrecht</pubPlace>
+                     <publisher>STIMU (Stichting voor Muziekhistorische Uitvoeringspraktijk)</publisher>
+                     <date isodate="1991">1991</date>
+                  </imprint>
+                  <ref target="#src.uppsala.op2">Facsimile edition of the Uppsala Op. II partbooks, with an introduction by Kerala J. Snyder. The modern title gives the historical imprint Hamburg 1696; the historical title describes printing in Hamburg and sale in Lübeck. Consulted via the supplied university-library scans.</ref>
+                  <availability>
+                     <useRestrict>Redistribution terms for the supplied library scans remain unconfirmed. A limited measure-level excerpt accompanies the critical annotation as a documentary image quotation; its attribution and intended reuse basis are recorded in the <ref target="../supplemental_material/README.md">supplemental material</ref>.</useRestrict>
+                  </availability>
+               </bibl>
+            </source>
+         </sourceDesc>
       </fileDesc>
       <encodingDesc xml:id="e79l9cg">
          <appInfo xml:id="abnyp4h">
@@ -23,12 +110,60 @@
                <p xml:id="pga1trx2">First edit by mei-friend 1.3.0.</p>
             </application>
          </appInfo>
+         <editorialDecl>
+            <p>This is a working corrected digital edition based on DdT 1903. OMR and conversion errors are corrected against the DdT facsimile. The Op. II historical print was consulted selectively through the STIMU 1991 facsimile of the Uppsala partbooks for the violin reading in measure 3; the editor confirmed that source on 2026-10-20, and the passage was rechecked directly in the supplied scan. This selected comparison does not constitute complete collation with the historical print. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
+            <p>The staff arrangement and keyboard realization printed in DdT are retained. Staff 1 is violin; staff 2 is viola da gamba; staff 3 is the figured continuo bass; staves 4 and 5 are the upper and lower staves of the printed keyboard realization. The realization is distinguished from the figured continuo bass when defining an analytical view.</p>
+            <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
+            <p>The existing E5 eighth note on beat 3 in the violin at measure 3 is retained as a source-supported emendation of the sixteenth note printed in DdT. The annotation identifies the historical witness, its STIMU 1991 carrier and the precise passage in the supplied scan.</p>
+         </editorialDecl>
+         <projectDesc>
+            <p>This edition was prepared by CAMAT Corpus Editions as part of a DFG-funded corpus for music-analysis technologies (grant PF 669/18-1).</p>
+         </projectDesc>
       </encodingDesc>
+      <workList>
+         <work xml:id="work.buxwv264">
+            <identifier type="BuxWV">BuxWV 264</identifier>
+            <title>Sonata VI in E major, Op. II</title>
+            <composer>
+               <persName auth="GND" auth.uri="https://d-nb.info/gnd/118665685" codedval="118665685">Dietrich Buxtehude</persName>
+            </composer>
+            <key pname="e" mode="major">E major</key>
+            <perfMedium>
+               <perfResList>
+                  <perfRes>Violin</perfRes>
+                  <perfRes>Viola da gamba</perfRes>
+                  <perfRes>Harpsichord</perfRes>
+               </perfResList>
+            </perfMedium>
+         </work>
+      </workList>
+      <revisionDesc>
+         <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Added a one-measure facsimile excerpt supporting the violin E5 eighth-note reading in measure 3, from the STIMU 1991 reproduction of the Op. II historical print, Violino partbook, printed p. 28. Linked the PNG from annotation ayvjvlf1 and recorded attribution, crop coordinates, source and output checksums, and the intended documentary image-quotation basis in supplemental_material. The musical encoding is unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Completed working-edition, source, work, license, staff-role and responsibility metadata, preserving the inherited encoding date, software record and existing event IDs except for three surplus events and two redundant key-signature declarations. Credits follow the correction history for Francy Häring and Egor Polyakov. Completed and moved the measure-3 annotation after the editor confirmed the original-print comparison through STIMU 1991; retained its existing E5 eighth note and rechecked the historical witness directly. Against DdT, restored a missing continuo E3 sixteenth at measure 33, corrected seven note/chord durations in measures 33, 54, 69, 86, 88 and 92, removed surplus hidden spaces at measures 33 and 96 and an unprinted violin eighth rest at measure 172, and attached the measure-46 lower-voice E4 tie to its correct starting note. Linked eleven facsimile surfaces to IIIF canvases, numbered actual page breaks and changed nine false page breaks to system breaks. Removed repeated E-major key declarations that introduced unprinted end-of-system signatures, retaining their parent score-definition IDs and all five initial key signatures. Assigned a persistent ID to the restored note and linked the music division to the work declaration. All pre-existing written pitches and accidentals, remaining note/rest/chord/beam IDs, slurs and facsimile-zone geometry were retained.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-06-28" resp="#resp.haering #resp.polyakov">
+            <changeDesc>
+               <p>Correction work and report updates recorded in the repository between 2026-06-24 and 2026-06-28, including the original measure-3 violin annotation.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-06-22" resp="#resp.polyakov">
+            <changeDesc>
+               <p>Added the sonata-level score to the repository; earlier page-file corrections remain documented in Git history.</p>
+            </changeDesc>
+         </change>
+      </revisionDesc>
    </meiHead>
    <music>
       <facsimile>
-         <surface xml:id="surface_f367277e0c41" n="1" ulx="0" uly="0" lrx="4133" lry="5494">
-            <graphic xml:id="graphic_f367277e0c41" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00149/full/4134,/0/default.jpg" width="4134" height="5495" />
+         <surface xml:id="surface_f367277e0c41" n="1" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/149">
+            <graphic xml:id="graphic_f367277e0c41" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00149/full/4134,/0/default.jpg" width="4134" height="5495" mimetype="image/jpeg" />
             <zone xml:id="zone_63d63aa3d0e043ac8f" type="measure" ulx="872" uly="895" lrx="1656" lry="2267" n="1" />
             <zone xml:id="zone_1e7d62a5554b4f0f82" type="measure" ulx="1592" uly="896" lrx="2418" lry="2276" n="2" />
             <zone xml:id="zone_e861e3f28535466bae" type="measure" ulx="2342" uly="897" lrx="3179" lry="2277" n="3" />
@@ -46,8 +181,8 @@
             <zone xml:id="zone_696108cb94724412bc" type="measure" ulx="2724" uly="3657" lrx="3415" lry="5172" n="15" />
             <zone xml:id="zone_48df11cbd41a4db68e" type="measure" ulx="3355" uly="3672" lrx="3876" lry="5176" n="16" />
          </surface>
-         <surface xml:id="surface_698c8303756f" n="2" ulx="0" uly="0" lrx="4133" lry="5522">
-            <graphic xml:id="graphic_698c8303756f" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00150/full/4134,/0/default.jpg" width="4134" height="5523" />
+         <surface xml:id="surface_698c8303756f" n="2" ulx="0" uly="0" lrx="4133" lry="5522" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/150">
+            <graphic xml:id="graphic_698c8303756f" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00150/full/4134,/0/default.jpg" width="4134" height="5523" mimetype="image/jpeg" />
             <zone xml:id="zone_ebf78b4f87bc4d5589" type="measure" ulx="292" uly="412" lrx="1228" lry="1628" n="17" />
             <zone xml:id="zone_6fe6387a86214c1495" type="measure" ulx="1149" uly="424" lrx="1982" lry="1611" n="18" />
             <zone xml:id="zone_02275c1638fd42ac93" type="measure" ulx="1905" uly="439" lrx="2564" lry="1606" n="19" />
@@ -67,8 +202,8 @@
             <zone xml:id="zone_295b8e820e8245f6bf" type="measure" ulx="2225" uly="3999" lrx="3100" lry="5265" n="33" />
             <zone xml:id="zone_45dd3e92d561478d9c" type="measure" ulx="3031" uly="4016" lrx="3913" lry="5267" n="34" />
          </surface>
-         <surface xml:id="surface_6f82951183eb" n="3" ulx="0" uly="0" lrx="4133" lry="5494">
-            <graphic xml:id="graphic_6f82951183eb" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00151/full/4134,/0/default.jpg" width="4134" height="5495" />
+         <surface xml:id="surface_6f82951183eb" n="3" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/151">
+            <graphic xml:id="graphic_6f82951183eb" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00151/full/4134,/0/default.jpg" width="4134" height="5495" mimetype="image/jpeg" />
             <zone xml:id="zone_4a42b242a6924b9ebb" type="measure" ulx="289" uly="346" lrx="1433" lry="1552" n="35" />
             <zone xml:id="zone_a78b70f1bd8c47bb92" type="measure" ulx="1357" uly="382" lrx="2265" lry="1559" n="36" />
             <zone xml:id="zone_fc00cbe0be2c4935ab" type="measure" ulx="2193" uly="379" lrx="3083" lry="1570" n="37" />
@@ -86,8 +221,8 @@
             <zone xml:id="zone_cc7a402a41b44b32ac" type="measure" ulx="2123" uly="3944" lrx="3063" lry="5234" n="49" />
             <zone xml:id="zone_8a4e93cf34f7433bb8" type="measure" ulx="2993" uly="3960" lrx="3870" lry="5218" n="50" />
          </surface>
-         <surface xml:id="surface_4989679bf776" n="4" ulx="0" uly="0" lrx="4133" lry="5522">
-            <graphic xml:id="graphic_4989679bf776" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00152/full/4134,/0/default.jpg" width="4134" height="5523" />
+         <surface xml:id="surface_4989679bf776" n="4" ulx="0" uly="0" lrx="4133" lry="5522" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/152">
+            <graphic xml:id="graphic_4989679bf776" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00152/full/4134,/0/default.jpg" width="4134" height="5523" mimetype="image/jpeg" />
             <zone xml:id="zone_7756866e053d44ad95" type="measure" ulx="279" uly="359" lrx="1439" lry="1648" n="51" />
             <zone xml:id="zone_e26034e277a449c78a" type="measure" ulx="1350" uly="370" lrx="2194" lry="1634" n="52" />
             <zone xml:id="zone_e90351dd27e44e6384" type="measure" ulx="2105" uly="386" lrx="3015" lry="1622" n="53" />
@@ -104,8 +239,8 @@
             <zone xml:id="zone_f26a46c15e8043288b" type="measure" ulx="1680" uly="4010" lrx="2814" lry="5290" n="64" />
             <zone xml:id="zone_b4ff671027194a41a5" type="measure" ulx="2746" uly="4000" lrx="3921" lry="5289" n="65" />
          </surface>
-         <surface xml:id="surface_9362a6f3616b" n="5" ulx="0" uly="0" lrx="4133" lry="5494">
-            <graphic xml:id="graphic_9362a6f3616b" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00153/full/4134,/0/default.jpg" width="4134" height="5495" />
+         <surface xml:id="surface_9362a6f3616b" n="5" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/153">
+            <graphic xml:id="graphic_9362a6f3616b" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00153/full/4134,/0/default.jpg" width="4134" height="5495" mimetype="image/jpeg" />
             <zone xml:id="zone_7eba04f619c046e8a1" type="measure" ulx="311" uly="384" lrx="1683" lry="1560" n="66" />
             <zone xml:id="zone_513041f26ce34ac282" type="measure" ulx="1617" uly="394" lrx="2818" lry="1553" n="67" />
             <zone xml:id="zone_9863033483654ccb80" type="measure" ulx="2749" uly="380" lrx="3885" lry="1555" n="68" />
@@ -125,8 +260,8 @@
             <zone xml:id="zone_2f2aa5e4933942cbbc" type="measure" ulx="2757" uly="3945" lrx="3425" lry="5272" n="82" />
             <zone xml:id="zone_7f81d223a8764a99a9" type="measure" ulx="3352" uly="3953" lrx="3915" lry="5289" n="83" />
          </surface>
-         <surface xml:id="surface_094ccb0f2e72" n="6" ulx="0" uly="0" lrx="4133" lry="5522">
-            <graphic xml:id="graphic_094ccb0f2e72" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00154/full/4134,/0/default.jpg" width="4134" height="5523" />
+         <surface xml:id="surface_094ccb0f2e72" n="6" ulx="0" uly="0" lrx="4133" lry="5522" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/154">
+            <graphic xml:id="graphic_094ccb0f2e72" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00154/full/4134,/0/default.jpg" width="4134" height="5523" mimetype="image/jpeg" />
             <zone xml:id="zone_e5774014f31a4f3ba7" type="measure" ulx="287" uly="339" lrx="1289" lry="1613" n="84" />
             <zone xml:id="zone_2a664c18b317407b93" type="measure" ulx="1204" uly="359" lrx="1923" lry="1612" n="85" />
             <zone xml:id="zone_0a81c02e79c646ef99" type="measure" ulx="1839" uly="392" lrx="2633" lry="1615" n="86" />
@@ -148,8 +283,8 @@
             <zone xml:id="zone_161a9392b1b649b990" type="measure" ulx="2536" uly="3993" lrx="3306" lry="5284" n="102" />
             <zone xml:id="zone_375f6fe6517a47b88c" type="measure" ulx="3237" uly="4010" lrx="3916" lry="5291" n="103" />
          </surface>
-         <surface xml:id="surface_b12234175eb8" n="7" ulx="0" uly="0" lrx="4133" lry="5494">
-            <graphic xml:id="graphic_b12234175eb8" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00155/full/4134,/0/default.jpg" width="4134" height="5495" />
+         <surface xml:id="surface_b12234175eb8" n="7" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/155">
+            <graphic xml:id="graphic_b12234175eb8" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00155/full/4134,/0/default.jpg" width="4134" height="5495" mimetype="image/jpeg" />
             <zone xml:id="zone_4eebf79a2bd749d78a" type="measure" ulx="317" uly="362" lrx="1396" lry="1586" n="104" />
             <zone xml:id="zone_89adcd5fa773428585" type="measure" ulx="1330" uly="359" lrx="2065" lry="1586" n="105" />
             <zone xml:id="zone_96a44afec2d846ce84" type="measure" ulx="2000" uly="353" lrx="2678" lry="1586" n="106" />
@@ -173,8 +308,8 @@
             <zone xml:id="zone_6406b19db3f6420da9" type="measure" ulx="2675" uly="3972" lrx="3341" lry="5230" n="124" />
             <zone xml:id="zone_913693eddb974bb6a0" type="measure" ulx="3275" uly="3984" lrx="3927" lry="5233" n="125" />
          </surface>
-         <surface xml:id="surface_6b656fe86ba9" n="8" ulx="0" uly="0" lrx="4133" lry="5522">
-            <graphic xml:id="graphic_6b656fe86ba9" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00156/full/4134,/0/default.jpg" width="4134" height="5523" />
+         <surface xml:id="surface_6b656fe86ba9" n="8" ulx="0" uly="0" lrx="4133" lry="5522" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/156">
+            <graphic xml:id="graphic_6b656fe86ba9" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00156/full/4134,/0/default.jpg" width="4134" height="5523" mimetype="image/jpeg" />
             <zone xml:id="zone_61dc3d8d5dd44b75a2" type="measure" ulx="290" uly="362" lrx="1300" lry="1600" n="126" />
             <zone xml:id="zone_3ae253ef55494d1b9c" type="measure" ulx="1219" uly="372" lrx="1953" lry="1600" n="127" />
             <zone xml:id="zone_959c1f6491da4555b1" type="measure" ulx="1879" uly="389" lrx="2616" lry="1612" n="128" />
@@ -197,8 +332,8 @@
             <zone xml:id="zone_1099771be2494e3ba0" type="measure" ulx="2773" uly="4013" lrx="3376" lry="5247" n="145" />
             <zone xml:id="zone_247398d8724448ed9e" type="measure" ulx="3307" uly="4007" lrx="3904" lry="5251" n="146" />
          </surface>
-         <surface xml:id="surface_ef42210c925e" n="9" ulx="0" uly="0" lrx="4133" lry="5494">
-            <graphic xml:id="graphic_ef42210c925e" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00157/full/4134,/0/default.jpg" width="4134" height="5495" />
+         <surface xml:id="surface_ef42210c925e" n="9" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/157">
+            <graphic xml:id="graphic_ef42210c925e" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00157/full/4134,/0/default.jpg" width="4134" height="5495" mimetype="image/jpeg" />
             <zone xml:id="zone_fab2ebfe3c3a4b728e" type="measure" ulx="296" uly="339" lrx="1040" lry="1573" n="147" />
             <zone xml:id="zone_1fa589d931d04b8ea2" type="measure" ulx="965" uly="349" lrx="1525" lry="1563" n="148" />
             <zone xml:id="zone_4d58194ff428410fa5" type="measure" ulx="1454" uly="358" lrx="1961" lry="1553" n="149" />
@@ -217,8 +352,8 @@
             <zone xml:id="zone_3b93c4097a7c463491" type="measure" ulx="2220" uly="3939" lrx="3069" lry="5186" n="162" />
             <zone xml:id="zone_d65f08e68cc94bdab0" type="measure" ulx="2999" uly="3949" lrx="3890" lry="5186" n="163" />
          </surface>
-         <surface xml:id="surface_d5bd154aeb2b" n="10" ulx="0" uly="0" lrx="4133" lry="5522">
-            <graphic xml:id="graphic_d5bd154aeb2b" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00158/full/4134,/0/default.jpg" width="4134" height="5523" />
+         <surface xml:id="surface_d5bd154aeb2b" n="10" ulx="0" uly="0" lrx="4133" lry="5522" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/158">
+            <graphic xml:id="graphic_d5bd154aeb2b" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00158/full/4134,/0/default.jpg" width="4134" height="5523" mimetype="image/jpeg" />
             <zone xml:id="zone_24011abe7f0a4f50be" type="measure" ulx="313" uly="347" lrx="1525" lry="1580" n="164" />
             <zone xml:id="zone_7fbc24d406a54995a7" type="measure" ulx="1440" uly="375" lrx="2311" lry="1578" n="165" />
             <zone xml:id="zone_9d5a42db7eef4ecc89" type="measure" ulx="2229" uly="389" lrx="3110" lry="1585" n="166" />
@@ -236,8 +371,8 @@
             <zone xml:id="zone_61c505b90c5443beb1" type="measure" ulx="2174" uly="4023" lrx="3128" lry="5272" n="178" />
             <zone xml:id="zone_5d91cd174cd34417b1" type="measure" ulx="3047" uly="4016" lrx="3937" lry="5294" n="179" />
          </surface>
-         <surface xml:id="surface_60b4cda817d5" n="11" ulx="0" uly="0" lrx="4133" lry="5494">
-            <graphic xml:id="graphic_60b4cda817d5" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00159/full/4134,/0/default.jpg" width="4134" height="5495" />
+         <surface xml:id="surface_60b4cda817d5" n="11" ulx="0" uly="0" lrx="4133" lry="5494" corresp="https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/159">
+            <graphic xml:id="graphic_60b4cda817d5" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00159/full/4134,/0/default.jpg" width="4134" height="5495" mimetype="image/jpeg" />
             <zone xml:id="zone_c6a6d9e04d9d4d34be" type="measure" ulx="305" uly="292" lrx="1439" lry="1544" n="180" />
             <zone xml:id="zone_988df65e35684322a2" type="measure" ulx="1358" uly="258" lrx="2258" lry="1552" n="181" />
             <zone xml:id="zone_2e6d6fc0decf42c3a5" type="measure" ulx="2178" uly="278" lrx="3087" lry="1551" n="182" />
@@ -257,7 +392,7 @@
          </surface>
       </facsimile>
       <body>
-         <mdiv xml:id="vy64gxu">
+         <mdiv xml:id="vy64gxu" decls="#work.buxwv264">
             <score xml:id="w1y771xm">
                <scoreDef xml:id="x1cfgosy">
                   <staffGrp xml:id="apkvdjq">
@@ -299,7 +434,7 @@
                   </staffGrp>
                </scoreDef>
                <section xml:id="y185awnp">
-                  <pb xml:id="zie4w8w" facs="#surface_f367277e0c41" />
+                  <pb xml:id="zie4w8w" facs="#surface_f367277e0c41" n="1" />
                   <measure xml:id="r1m6ewv5" metcon="false" n="1" facs="#zone_63d63aa3d0e043ac8f">
                      <harm xml:id="wovke" staff="3" tstamp="4">
                         <fb>
@@ -437,7 +572,6 @@
                      </harm>
                      <staff xml:id="tjt1oyu" n="1">
                         <layer xml:id="u1oht55x" n="1">
-                           <annot xml:id="ayvjvlf1" plist="#y9d8tvb" type="score">DdT writes 1/16-note; original version writes 1/8-note</annot>
                            <note xml:id="v1oqmb3d" dur="2" oct="5" pname="e" stem.dir="down" />
                            <beam xml:id="xhyegyg">
                               <note xml:id="y9d8tvb" dur="8" oct="5" pname="e" stem.dir="down" />
@@ -505,6 +639,11 @@
                      <slur xml:id="o3japvq" startid="#n1uqlvvu" endid="#qt5pg0p" />
                      <tie xml:id="xyac9td" startid="#v1p23r16" endid="#k1jk5i08" />
                      <tie xml:id="r1jwm0gt" startid="#pn905sc" endid="#s1q8qn7h" />
+                     <annot xml:id="ayvjvlf1" plist="#y9d8tvb" type="editorial" label="source-supported-emendation" source="#src.uppsala.op2" resp="#resp.haering #resp.polyakov">
+                        <p>Violin, measure 3, beat 3: DdT 1903, p. 139, prints the tied E5 as a sixteenth note. The encoding retains the existing eighth note, following the Op. II historical print of 1696 as consulted through the STIMU 1991 facsimile. The eighth note completes the 4/4 measure; the printed sixteenth would leave it short by a sixteenth.</p>
+                        <p>Witness location: Violino partbook, Sonata VI, printed p. 28, first system, third measure, beat 3. The supplied Op. II scan-0022.jpg, left-hand page, reproduces this passage through STIMU 1991. This selective comparison was confirmed by the editor on 2026-10-20 and rechecked directly in the supplied scan; it does not imply complete collation with the historical print.</p>
+                        <p><ref type="supplemental-material" target="../supplemental_material/supplemental_material_op2_06_m003_stimu1991.png">Supplemental facsimile excerpt: Op. II/6, measure 3, violin (1696 print through STIMU 1991).</ref></p>
+                     </annot>
                   </measure>
                   <measure xml:id="kqmhbv1" n="4" facs="#zone_f6eb3e3691f64d39a6">
                      <harm xml:id="qlcoj2" staff="3" tstamp="1">
@@ -940,7 +1079,7 @@
                      </staff>
                      <tie xml:id="r1i9yc52" startid="#qsys3y0" endid="#gta6jky" />
                   </measure>
-                  <pb xml:id="c13d4hov" facs="#surface_f367277e0c41" />
+                  <sb xml:id="c13d4hov" />
                   <measure xml:id="st8dxpj" n="11" facs="#zone_7657f735e3d44b1783">
                      <harm xml:id="shv2r" staff="3" tstamp="1">
                         <fb>
@@ -1436,7 +1575,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="ls9sb74" facs="#surface_698c8303756f" />
+                  <pb xml:id="ls9sb74" facs="#surface_698c8303756f" n="2" />
                   <measure xml:id="d1wr7yz" n="17" facs="#zone_ebf78b4f87bc4d5589">
                      <harm xml:id="lwovk2" staff="3" tstamp="1">
                         <fb>
@@ -2203,7 +2342,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="f1fmf1mt" facs="#surface_698c8303756f" />
+                  <sb xml:id="f1fmf1mt" />
                   <measure xml:id="v1qaz06y" n="27" facs="#zone_e3b9eabf22574825b7">
                      <harm xml:id="smvj4" staff="3" tstamp="4">
                         <fb>
@@ -2868,6 +3007,7 @@
                      <staff xml:id="ef9x0dh" n="3">
                         <layer xml:id="f12g5qi4" n="1">
                            <rest xml:id="g1nqo58u" dots="1" dur="8" />
+                           <note xml:id="note.op2_06.m33.continuo-e3" dur="16" oct="3" pname="e" stem.dir="down" />
                            <beam xml:id="hrnx484">
                               <note xml:id="ih67bwl" dots="1" dur="8" oct="3" pname="f" stem.dir="down" accid.ges="s" />
                               <note xml:id="k1pzyw7e" dur="16" oct="3" pname="f" stem.dir="down" accid.ges="s" />
@@ -2885,7 +3025,7 @@
                      <staff xml:id="x7r6auz" n="4">
                         <layer xml:id="ziz4jab" n="1">
                            <rest xml:id="axei7v1" dots="1" dur="8" />
-                           <note xml:id="b1s9084o" dur="8" oct="4" pname="g" stem.dir="up" accid.ges="s" />
+                           <note xml:id="b1s9084o" dur="16" oct="4" pname="g" stem.dir="up" accid.ges="s" />
                            <beam xml:id="bkktjca">
                               <note xml:id="d164imzj" dots="1" dur="8" oct="4" pname="a" stem.dir="up" />
                               <note xml:id="e1vbhct6" dur="16" oct="4" pname="a" stem.dir="up" />
@@ -2903,7 +3043,6 @@
                            <space xml:id="q1ytz7cw" dur="8" />
                            <space xml:id="r14fvcvd" dur="16" />
                            <note xml:id="pqq9zwo" dur="16" oct="4" pname="e" stem.dir="down" />
-                           <space xml:id="uq9nuiz" dur="16" />
                            <note xml:id="s1m4j3pn" dots="1" dur="2" oct="4" pname="e" stem.dir="down" />
                         </layer>
                      </staff>
@@ -3054,7 +3193,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="inh7phq" facs="#surface_6f82951183eb" />
+                  <pb xml:id="inh7phq" facs="#surface_6f82951183eb" n="3" />
                   <measure xml:id="aezey1b" n="35" facs="#zone_4a42b242a6924b9ebb">
                      <harm xml:id="wkvi34" staff="3" tstamp="1">
                         <fb>
@@ -4564,9 +4703,9 @@
                            </beam>
                         </layer>
                      </staff>
-                     <tie xml:id="tf9vrmq2" endid="#js7v3" staff="4" startid="#ntr7pf4" curvedir="below" />
+                     <tie xml:id="tf9vrmq2" endid="#js7v3" staff="4" startid="#zry46q5" curvedir="below" />
                   </measure>
-                  <pb xml:id="rs497xg" facs="#surface_6f82951183eb" />
+                  <sb xml:id="rs497xg" />
                   <measure xml:id="h6co4uk" n="47" facs="#zone_71a25d8353bf488082">
                      <harm xml:id="mskv" staff="3" tstamp="2">
                         <fb>
@@ -5120,7 +5259,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="b1nxvqda" facs="#surface_4989679bf776" />
+                  <pb xml:id="b1nxvqda" facs="#surface_4989679bf776" n="4" />
                   <measure xml:id="tgxp53s" n="51" facs="#zone_7756866e053d44ad95">
                      <staff xml:id="c1jccywh" n="1">
                         <layer xml:id="diq9o1h" n="1">
@@ -5584,7 +5723,7 @@
                      </staff>
                      <staff xml:id="sdjatg2" n="2">
                         <layer xml:id="t9pgnxt" n="1">
-                           <note xml:id="u1fefhvp" dur="8" oct="4" pname="e" stem.dir="down" />
+                           <note xml:id="u1fefhvp" dur="16" oct="4" pname="e" stem.dir="down" />
                            <clef xml:id="vk325ow" shape="F" line="4" />
                            <beam xml:id="wyhqic4">
                               <note xml:id="x1cd0jr4" dur="16" oct="4" pname="c" stem.dir="down" accid.ges="s" />
@@ -6153,8 +6292,7 @@
                   </measure>
                   <sb xml:id="n1bfjp1f" />
                   <scoreDef xml:id="o1tvsq0b">
-                     <keySig xml:id="pziq3n6" sig="4s" />
-                  </scoreDef>
+                     </scoreDef>
                   <measure xml:id="dk2ekv3" n="59" facs="#zone_2820fe0bab8f46dd81">
                      <harm xml:id="hsv2356" staff="3" tstamp="2">
                         <fb>
@@ -6648,10 +6786,9 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="r1aqtxa3" facs="#surface_4989679bf776" />
+                  <sb xml:id="r1aqtxa3" />
                   <scoreDef xml:id="s9c5c0y">
-                     <keySig xml:id="t17sjd3n" sig="4s" />
-                  </scoreDef>
+                     </scoreDef>
                   <measure xml:id="h51dwi1" n="63" facs="#zone_c18f696d18f748f595">
                      <harm xml:id="zsh2" staff="3" tstamp="2">
                         <fb>
@@ -7105,8 +7242,8 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="d1x3qjod" facs="#surface_9362a6f3616b" />
-                  <scoreDef xml:id="hg23" keysig="4s" />
+                  <pb xml:id="d1x3qjod" facs="#surface_9362a6f3616b" n="5" />
+                  <scoreDef xml:id="hg23" />
                   <measure xml:id="vbbw1ac" n="66" facs="#zone_7eba04f619c046e8a1">
                      <staff xml:id="e141ztnj" n="1">
                         <layer xml:id="f9ps8ki" n="1">
@@ -7413,7 +7550,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="k1gbab2v" />
-                  <scoreDef xml:id="hg232" keysig="4s" />
+                  <scoreDef xml:id="hg232" />
                   <measure xml:id="a1a2mavr" metcon="false" n="69" facs="#zone_f648beeca66b41988a">
                      <harm xml:id="smvj235" staff="3" tstamp="2">
                         <fb>
@@ -7499,7 +7636,7 @@
                      <staff xml:id="wtqb7f" n="4">
                         <layer xml:id="yq91dcb" n="1">
                            <rest xml:id="z1atbtrz" dots="1" dur="8" />
-                           <chord xml:id="ck8e46t" dur="8" stem.dir="up">
+                           <chord xml:id="ck8e46t" dur="16" stem.dir="up">
                               <note xml:id="aguioft" oct="4" pname="d" accid.ges="s" />
                               <note xml:id="d1bzpthg" oct="4" pname="f" accid.ges="s" />
                               <note xml:id="f8thc22" oct="4" pname="b" />
@@ -7874,8 +8011,8 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="g1gyl20o" facs="#surface_9362a6f3616b" />
-                  <scoreDef xml:id="hg2s3" keysig="4s" />
+                  <sb xml:id="g1gyl20o" />
+                  <scoreDef xml:id="hg2s3" />
                   <measure xml:id="w4xsckp" n="73" facs="#zone_34c7c4b61c1d40b993">
                      <staff xml:id="f1lk7mun" n="1">
                         <layer xml:id="j7jjzt6" n="1">
@@ -8233,7 +8370,7 @@
                      <tie xml:id="f1oi4taf" startid="#e1g2q06u" endid="#g1v5alce" />
                   </measure>
                   <sb xml:id="v18mvz05" />
-                  <scoreDef xml:id="hg23sfv" keysig="4s" />
+                  <scoreDef xml:id="hg23sfv" />
                   <measure xml:id="lwnvwwe" metcon="false" n="78" facs="#zone_2179b460cb54434bb5">
                      <harm xml:id="iwkvo3" staff="3" tstamp="1">
                         <fb>
@@ -8760,8 +8897,8 @@
                      <fermata xml:id="fbltd07" staff="4" startid="#f6flssq" />
                   </measure>
                   <scoreDef meter.count="6" meter.unit="8" />
-                  <pb xml:id="a4qapbg" facs="#surface_094ccb0f2e72" />
-                  <scoreDef xml:id="hg23svt" keysig="4s" />
+                  <pb xml:id="a4qapbg" facs="#surface_094ccb0f2e72" n="6" />
+                  <scoreDef xml:id="hg23svt" />
                   <scoreDef xml:id="jfg" meter.count="6" meter.unit="8" />
                   <measure xml:id="se308m3" metcon="false" n="84" facs="#zone_e5774014f31a4f3ba7">
                      <staff xml:id="b1kgdl2z" n="1">
@@ -8971,7 +9108,7 @@
                               <note xml:id="qicivtl" dur="16" oct="3" pname="b" stem.dir="down" />
                               <note xml:id="r1j2a0dg" dur="16" oct="4" pname="c" stem.dir="down" accid.ges="s" />
                               <note xml:id="txporsp" breaksec="1" dur="16" oct="3" pname="b" stem.dir="down" />
-                              <note xml:id="uqr39k0" dur="8" oct="3" pname="a" stem.dir="down">
+                              <note xml:id="uqr39k0" dur="16" oct="3" pname="a" stem.dir="down">
                                  <accid xml:id="v6gt8d9" accid="n" />
                               </note>
                            </beam>
@@ -9145,7 +9282,7 @@
                               <note xml:id="gi4kxel" dur="16" oct="3" pname="f" stem.dir="down" accid.ges="s" />
                               <note xml:id="i1kmx6ts" breaksec="1" dur="16" oct="3" pname="e" stem.dir="down" />
                               <note xml:id="j1uaw7wo" dots="1" dur="8" oct="3" pname="f" stem.dir="down" accid.ges="s" />
-                              <note xml:id="l1nk4wb9" dur="8" oct="3" pname="g" stem.dir="down" accid.ges="s" />
+                              <note xml:id="l1nk4wb9" dur="16" oct="3" pname="g" stem.dir="down" accid.ges="s" />
                            </beam>
                            <beam xml:id="n1b219mb">
                               <note xml:id="oykzvzb" dur="8" oct="3" pname="a" stem.dir="down" />
@@ -9175,7 +9312,7 @@
                            <beam xml:id="cd60l10">
                               <note xml:id="werj" dur="8" oct="4" pname="e" stem.dir="up" />
                               <note xml:id="d1vi2cqn" dots="1" dur="8" oct="4" pname="e" stem.dir="up" />
-                              <note xml:id="e1bri5n3" dur="8" oct="4" pname="d" stem.dir="up">
+                              <note xml:id="e1bri5n3" dur="16" oct="4" pname="d" stem.dir="up">
                                  <accid xml:id="f1edrehl" accid="s" />
                               </note>
                            </beam>
@@ -9210,7 +9347,7 @@
                      <tie xml:id="to52r8t1" endid="#d1vi2cqn" staff="4" startid="#werj" curvedir="above" />
                   </measure>
                   <sb xml:id="cghuhfv" />
-                  <scoreDef xml:id="hg23asvt" keysig="4s" />
+                  <scoreDef xml:id="hg23asvt" />
                   <measure xml:id="shwtq6c" metcon="false" n="89" facs="#zone_ad82ed9a2e09400fa7">
                      <harm xml:id="wevi23" staff="3" tstamp="5">
                         <fb>
@@ -9532,7 +9669,7 @@
                            <beam xml:id="sn3u4oz">
                               <note xml:id="t1ip4iud" dots="1" dur="8" oct="3" pname="e" stem.dir="down" />
                               <note xml:id="u18ielw0" dur="16" oct="3" pname="f" stem.dir="down" accid.ges="s" />
-                              <note xml:id="w1s4kajr" dur="16" oct="3" pname="g" stem.dir="down" accid.ges="s" />
+                              <note xml:id="w1s4kajr" dur="8" oct="3" pname="g" stem.dir="down" accid.ges="s" />
                            </beam>
                         </layer>
                      </staff>
@@ -9695,7 +9832,7 @@
                      <tie xml:id="nhvdzgx" startid="#mxs24la" endid="#oqnw2v3" curvedir="above" />
                   </measure>
                   <sb xml:id="dsztycd" />
-                  <scoreDef xml:id="hg23svtq" keysig="4s" />
+                  <scoreDef xml:id="hg23svtq" />
                   <measure xml:id="t1wol7zi" metcon="false" n="94" facs="#zone_62d1ac5afe274f7ba6">
                      <harm xml:id="jdsn23" staff="3" tstamp="4">
                         <fb>
@@ -9941,7 +10078,6 @@
                               <note xml:id="pep8il1" dur="8" oct="4" pname="e" stem.dir="down" />
                            </beam>
                            <space xml:id="q4hgx97" dots="1" dur="4" />
-                           <space xml:id="bsb00023199_00154_facs_zones_ksdf" dur="8" />
                         </layer>
                         <layer xml:id="rs7906k" n="2">
                            <note xml:id="sa8uf39" dur="4" oct="4" pname="b" stem.dir="up" />
@@ -10163,8 +10299,8 @@
                      <tie xml:id="p578b9c" startid="#oqhsii5" endid="#q1fvq8xv" curvedir="below" />
                      <tie xml:id="y19r6bfc" startid="#w1w5r19q" endid="#as7q9ty" curvedir="above" />
                   </measure>
-                  <pb xml:id="yhpkh5m" facs="#surface_094ccb0f2e72" />
-                  <scoreDef xml:id="hg23svt1" keysig="4s" />
+                  <sb xml:id="yhpkh5m" />
+                  <scoreDef xml:id="hg23svt1" />
                   <measure xml:id="oz00emo" metcon="false" n="99" facs="#zone_c77a2b2710ee49b1b5">
                      <harm xml:id="jdv2" staff="3" tstamp="2">
                         <fb>
@@ -10632,8 +10768,8 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="tx5tm2h" facs="#surface_b12234175eb8" />
-                  <scoreDef xml:id="hg23svwdut" keysig="4s" />
+                  <pb xml:id="tx5tm2h" facs="#surface_b12234175eb8" n="7" />
+                  <scoreDef xml:id="hg23svwdut" />
                   <measure xml:id="lvevsih" n="104" facs="#zone_4eebf79a2bd749d78a">
                      <harm xml:id="dvh2" staff="3" tstamp="5">
                         <fb>
@@ -11153,7 +11289,7 @@
                      <tie xml:id="na20ygt" startid="#md0v2ox" endid="#psv2guo" />
                   </measure>
                   <sb xml:id="c1n941g6" />
-                  <scoreDef xml:id="hg23svtnre" keysig="4s" />
+                  <scoreDef xml:id="hg23svtnre" />
                   <measure xml:id="s4cc0y" n="109" facs="#zone_91796340426e474da1">
                      <harm xml:id="bsb00023199_00155_facs_zones_jdv34" staff="3" tstamp="1">
                         <fb>
@@ -11705,7 +11841,7 @@
                      <tie xml:id="tz2d3fw2" endid="#nyhqaro2" staff="4" startid="#n4ujd7n2" />
                   </measure>
                   <sb xml:id="suyvz0d" />
-                  <scoreDef xml:id="hg23svtasc" keysig="4s" />
+                  <scoreDef xml:id="hg23svtasc" />
                   <measure xml:id="ivskhf" n="115" facs="#zone_895a9ea336f444fcb7">
                      <harm xml:id="dfj45" staff="3" tstamp="5">
                         <fb>
@@ -12102,7 +12238,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="lla1vfv" />
-                  <scoreDef xml:id="hg23svtnhew" keysig="4s" />
+                  <scoreDef xml:id="hg23svtnhew" />
                   <measure xml:id="b1kmjj1m" n="120" facs="#zone_26873eff74ad4184bc">
                      <harm xml:id="wedf8" staff="3" tstamp="1">
                         <fb>
@@ -12730,8 +12866,8 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="l1r6bzk9" facs="#surface_6b656fe86ba9" />
-                  <scoreDef xml:id="hg23svtbd" keysig="4s" />
+                  <pb xml:id="l1r6bzk9" facs="#surface_6b656fe86ba9" n="8" />
+                  <scoreDef xml:id="hg23svtbd" />
                   <measure xml:id="dwk5wsr" n="126" facs="#zone_61dc3d8d5dd44b75a2">
                      <harm xml:id="ldfj34" staff="3" tstamp="6">
                         <fb>
@@ -13180,7 +13316,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="s56ew41" />
-                  <scoreDef xml:id="hg23svtaxf" keysig="4s" />
+                  <scoreDef xml:id="hg23svtaxf" />
                   <measure xml:id="i1ewkshn" n="131" facs="#zone_06fe892902324a639a">
                      <harm xml:id="siwk" staff="3" tstamp="2">
                         <fb>
@@ -13681,7 +13817,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="yird1mh" />
-                  <scoreDef xml:id="hg23svtasv" keysig="4s" />
+                  <scoreDef xml:id="hg23svtasv" />
                   <measure xml:id="oe5o0rf" n="136" facs="#zone_9e6ee54fdedd4a82ac">
                      <harm xml:id="kv3t" staff="3" tstamp="4">
                         <fb>
@@ -14220,11 +14356,11 @@
                   <scoreDef xml:id="ly0sla11d">
                      <meterSig xml:id="mqt10axk" count="4" sym="common" unit="4" />
                   </scoreDef>
-                  <pb xml:id="k1ctx2cp" facs="#surface_6b656fe86ba9" />
+                  <sb xml:id="k1ctx2cp" />
                   <scoreDef xml:id="ly0slad">
                      <meterSig xml:id="mqt0axk" count="4" sym="common" unit="4" />
                   </scoreDef>
-                  <scoreDef xml:id="hg23svtsqw" keysig="4s" />
+                  <scoreDef xml:id="hg23svtsqw" />
                   <measure xml:id="ak3zcty" n="141" facs="#zone_3c24bb42c4714f5fbe">
                      <harm xml:id="pelv" staff="3" tstamp="3">
                         <fb>
@@ -14582,8 +14718,8 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="z1q2dpcg" facs="#surface_ef42210c925e" />
-                  <scoreDef xml:id="hg23svtasgr" keysig="4s" />
+                  <pb xml:id="z1q2dpcg" facs="#surface_ef42210c925e" n="9" />
+                  <scoreDef xml:id="hg23svtasgr" />
                   <measure xml:id="r1ul7reo" n="147" facs="#zone_fab2ebfe3c3a4b728e">
                      <harm xml:id="ek4" staff="3" tstamp="1">
                         <fb>
@@ -15020,7 +15156,7 @@
                      <fermata xml:id="dkybb8p" staff="5" startid="#b1woir41" form="inv" place="below" />
                   </measure>
                   <sb xml:id="a88j82w" />
-                  <scoreDef xml:id="hg23svtqsw" keysig="4s" />
+                  <scoreDef xml:id="hg23svtqsw" />
                   <measure xml:id="q9e36zn" n="154" facs="#zone_00ef291babd04f0592">
                      <staff xml:id="z1ny7ivs" n="1">
                         <layer xml:id="b1wdxxqf" n="1">
@@ -15177,7 +15313,7 @@
                      <fermata xml:id="n16i2b3f" staff="5" startid="#mcfewsa" form="norm" place="above" />
                   </measure>
                   <sb xml:id="vuw2wwl" />
-                  <scoreDef xml:id="hg23svtqwde" keysig="4s" />
+                  <scoreDef xml:id="hg23svtqwde" />
                   <measure xml:id="l3cmymb" n="156" facs="#zone_0845b91110274e2db3">
                      <harm xml:id="dfn4" staff="3" tstamp="1.5">
                         <fb>
@@ -15609,7 +15745,7 @@
                      <tie xml:id="tmrvmi81" endid="#kfdg1" staff="4" startid="#kfdg" curvedir="above" />
                   </measure>
                   <sb xml:id="wxx0e22" />
-                  <scoreDef xml:id="hg23svtqwc" keysig="4s" />
+                  <scoreDef xml:id="hg23svtqwc" />
                   <measure xml:id="m1u06w4c" n="160" facs="#zone_bb8629b34fec4427bc">
                      <staff xml:id="v17jma6w" n="1">
                         <layer xml:id="xw375tq" n="1">
@@ -16040,8 +16176,8 @@
                      </staff>
                      <tie xml:id="n1gd4var" startid="#l154ib2x" endid="#o94dwjg" />
                   </measure>
-                  <pb xml:id="btoxdze" facs="#surface_d5bd154aeb2b" />
-                  <scoreDef xml:id="hg23svtqwdt" keysig="4s" />
+                  <pb xml:id="btoxdze" facs="#surface_d5bd154aeb2b" n="10" />
+                  <scoreDef xml:id="hg23svtqwdt" />
                   <measure xml:id="t1yctqfi" n="164" facs="#zone_24011abe7f0a4f50be">
                      <staff xml:id="c1xkfp0n" n="1">
                         <layer xml:id="d1e6bpbt" n="1">
@@ -16461,7 +16597,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="e1ptzx2d" />
-                  <scoreDef xml:id="hg23svtqwsae" keysig="4s" />
+                  <scoreDef xml:id="hg23svtqwsae" />
                   <measure xml:id="u1b7r6oe" n="168" facs="#zone_2aef61dc9e0c47f8a2">
                      <harm xml:id="owek" staff="3" tstamp="2.5">
                         <fb>
@@ -16984,7 +17120,7 @@
                      <tie xml:id="tq1vasf1" endid="#g8kekf0" staff="4" startid="#f1aljhcq" />
                   </measure>
                   <sb xml:id="g3ubcar" />
-                  <scoreDef xml:id="hg23svtqwdut" keysig="4s" />
+                  <scoreDef xml:id="hg23svtqwdut" />
                   <measure xml:id="weti2gr" metcon="false" n="172" facs="#zone_6d3e541e13fb4e00aa">
                      <harm xml:id="jf3" staff="3" tstamp="1.5">
                         <fb>
@@ -17008,7 +17144,6 @@
                               <note xml:id="mt1l7e1" breaksec="1" dur="16" oct="4" pname="f" stem.dir="up" accid.ges="s" />
                               <note xml:id="o1ejlcrk" dur="8" oct="4" pname="g" stem.dir="up" accid.ges="s" />
                            </beam>
-                           <rest xml:id="qidsfgr" dur="8" />
                            <beam xml:id="r1gdzgas">
                               <note xml:id="s18rxxck" dur="16" oct="4" pname="a" accid="s" stem.dir="up" />
                               <note xml:id="tz1r92m" dur="16" oct="4" pname="b" stem.dir="up" />
@@ -17512,8 +17647,8 @@
                      </staff>
                      <tie xml:id="ezimq2e" startid="#ct1t3gi" endid="#fe2o4wj" />
                   </measure>
-                  <pb xml:id="e86tkco" facs="#surface_d5bd154aeb2b" />
-                  <scoreDef xml:id="hg23svtaqwuz" keysig="4s" />
+                  <sb xml:id="e86tkco" />
+                  <scoreDef xml:id="hg23svtaqwuz" />
                   <measure xml:id="u24ksa9" n="176" facs="#zone_c66851b16b4a4e4b8e">
                      <harm xml:id="kdfl346" staff="3" tstamp="2">
                         <fb>
@@ -18005,8 +18140,8 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="yb61ihz" facs="#surface_60b4cda817d5" />
-                  <scoreDef xml:id="hg23svtqwdut1" keysig="4s" />
+                  <pb xml:id="yb61ihz" facs="#surface_60b4cda817d5" n="11" />
+                  <scoreDef xml:id="hg23svtqwdut1" />
                   <measure xml:id="q1dmgaqo" n="180" facs="#zone_c6a6d9e04d9d4d34be">
                      <staff xml:id="z11p05pa" n="1">
                         <layer xml:id="a1n7n8x0" n="1">
@@ -18491,7 +18626,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="vo6s76i" />
-                  <scoreDef xml:id="hg23svtqwgzjnl" keysig="4s" />
+                  <scoreDef xml:id="hg23svtqwgzjnl" />
                   <measure xml:id="l17ftz8o" n="184" facs="#zone_53bc8ebf0fa34763a7">
                      <staff xml:id="u8wfmj" n="1">
                         <layer xml:id="w15d5x5q" n="1">
@@ -18989,7 +19124,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="kb0tm2f" />
-                  <scoreDef xml:id="hg23svtqwdc763" keysig="4s" />
+                  <scoreDef xml:id="hg23svtqwdc763" />
                   <measure xml:id="aguh315" n="188" facs="#zone_99849ee026944f598e">
                      <staff xml:id="j138qwol" n="1">
                         <layer xml:id="lpiu249" n="1">
@@ -19451,8 +19586,8 @@
                         </layer>
                      </staff>
                   </measure>
-                  <pb xml:id="z15m6tju" facs="#surface_60b4cda817d5" />
-                  <scoreDef xml:id="hg23svt12sdz" keysig="4s" />
+                  <sb xml:id="z15m6tju" />
+                  <scoreDef xml:id="hg23svt12sdz" />
                   <measure xml:id="p1jd3qnr" metcon="false" n="192" facs="#zone_9183982f76374945bb">
                      <harm xml:id="jernv" staff="3" tstamp="2.5">
                         <fb>

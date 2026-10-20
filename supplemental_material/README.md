@@ -42,3 +42,34 @@ The repository's MIT license covers its MEI data, not this source image. No
 standalone image license or general permission to redistribute the STIMU books
 or supplied scan collection is granted here. Their scan-supply terms remain
 unconfirmed; any applicable contractual terms require separate consideration.
+
+## Op. II/6, measure 3, violin
+
+![Original-print measure supporting the E5 eighth-note reading](supplemental_material_op2_06_m003_stimu1991.png)
+
+**Source:** Dieterich Buxtehude, *VII. Suonate à due, violino et violadagamba
+con cembalo*, Op. II (1696), Uppsala University Library, Düben Collection,
+`Uimtr 52:1–4`, RISM A/I B5205. Consulted through the STIMU facsimile edition
+(Utrecht, 1991; introduction by Kerala J. Snyder), supplied as university-library
+scans. The digitising institution was not named in the supplied provenance.
+
+**Location:** Violino partbook, Sonata VI, printed p. 28, first system, third
+measure; supplied `scan-0022.jpg`, left page. The crop shows the complete
+measure. On beat 3, the tied E5 has one beam, giving an eighth note; DdT 1903,
+printed p. 139, instead gives a sixteenth. The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op2_06_sonata_e_major_corr.mei#ayvjvlf1)
+explains the retained eighth-note reading and the rhythmic rationale.
+
+**Image preparation:** a direct crop at the scan's original pixel scale,
+485 × 300 pixels, saved as PNG from the supplied full-resolution JPEG access
+image. No resizing, retouching or reconstructed notation is included. The
+TIFF master was not newly read for this crop. The modern introduction and
+unrelated measures are excluded; the part, page and system context are
+identified above and in the crop manifest.
+
+**Intended reuse:** this excerpt accompanies the critical discussion of the
+specific E5 reading on the same documentary image-quotation basis recorded
+above for Op. II/2 (UrhG §§ 51 and 63, checked 2026-10-19). The scope is one
+measure, showing the printed beam and its immediate musical context. The same
+separation from the MEI-data license and the same qualifications concerning
+standalone image reuse and scan-supply terms apply.

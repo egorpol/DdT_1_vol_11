@@ -58,6 +58,63 @@
         "image_license": null,
         "note": "No MIT or BSB image license is assigned to this PNG. This intended quotation basis does not establish general scan-redistribution permission or settle any applicable scan-supply contract. See README.md."
       }
+    },
+    {
+      "file": "supplemental_material/supplemental_material_op2_06_m003_stimu1991.png",
+      "sha256": "268fbf93f5b9e579388e3efa2c22255d6bd18285345271f8cf5d3c454bad4922",
+      "bytes": 250266,
+      "media_type": "image/png",
+      "width": 485,
+      "height": 300,
+      "created_date": "2026-10-20",
+      "work_key": "op2_06_sonata_e_major",
+      "measure": 3,
+      "instrument": "violin",
+      "mei_file": "11_buxtehude_sonatas_final/buxtehude_op2_06_sonata_e_major_corr.mei",
+      "annotation_id": "ayvjvlf1",
+      "event_id": "y9d8tvb",
+      "historical_source": "src.uppsala.op2",
+      "carrier_source": "src.stimu1991.op2",
+      "caption": "Dieterich Buxtehude, Op. II (1696), Violino partbook, Sonata VI, printed p. 28, first system, third measure; Uppsala partbooks, STIMU facsimile (Utrecht, 1991; introduction by Kerala J. Snyder), supplied library scan-0022, left page.",
+      "purpose": "Document the single eighth-note beam on the tied E5 at beat 3 and its musical context, supporting the existing source-supported emendation from the sixteenth printed in DdT 1903, p. 139.",
+      "source_provenance": {
+        "local_file": "facsimiles/uppsala/op2/jpeg/scan-0022.jpg",
+        "included_in_release": false,
+        "sha256": "77b47dfe59a7475aa31eeec942adcafae724e2c2c019e795aa377da39f572384",
+        "size": [
+          6646,
+          4508
+        ],
+        "inventory": "facsimiles/uppsala/op2/inventory-jpeg.json",
+        "upstream_input": "Polyakov, Buxtehude2/2.22.tif",
+        "upstream_input_sha256": "9c9ebdbcd02bbcd22c90ebfee491115f355a5c664a11c5a6799194b47adbaad2",
+        "source_level": "JPEG access derivative; TIFF master not newly read for this crop"
+      },
+      "crop": {
+        "box_xyxy": [
+          1825,
+          240,
+          2310,
+          540
+        ],
+        "pixel_scale": "unchanged",
+        "operations": [
+          "crop",
+          "lossless PNG encoding"
+        ],
+        "software": "Version: ImageMagick 7.1.2-34 Q16-HDRI x86_64 c5d4ca8a0:20261014 https://imagemagick.org",
+        "command": "magick 'facsimiles/uppsala/op2/jpeg/scan-0022.jpg' -crop 485x300+1825+240 +repage -define png:exclude-chunks=date,time supplemental_material/supplemental_material_op2_06_m003_stimu1991.png"
+      },
+      "rights": {
+        "intended_use": "Documentary image quotation with the linked critical annotation",
+        "jurisdiction_basis": "Germany, UrhG §§ 51 and 63, checked 2026-10-19",
+        "statutory_references": [
+          "https://www.gesetze-im-internet.de/urhg/__51.html",
+          "https://www.gesetze-im-internet.de/urhg/__63.html"
+        ],
+        "image_license": null,
+        "note": "No MIT or BSB image license is assigned to this PNG. This intended quotation basis does not establish general scan-redistribution permission or settle any applicable scan-supply contract. See README.md."
+      }
     }
   ]
 }
