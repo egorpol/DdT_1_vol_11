@@ -179,6 +179,40 @@ def test_viewer_sync_preserves_options_adds_new_defaults_and_backs_up(tmp_path):
     assert 'setup_camat' not in ''.join(next(c for c in updated['cells'] if c['id'] == 'viewer-path-setup')['source'])
 
 
+def test_viewer_sync_from_a_ref_ignores_local_edits_and_strips_run_metadata(tmp_path):
+    import subprocess
+    sync = module('sync_camat_viewer')
+    checkout = tmp_path / 'camat'
+    source = checkout / 'notebooks/mei_facsimile_viewer.ipynb'
+    source.parent.mkdir(parents=True)
+    source.write_text(json.dumps(viewer_template()))
+    def git(*args):
+        return subprocess.run(['git', '-C', str(checkout), *args], check=True,
+                              capture_output=True, text=True).stdout.strip()
+    git('init', '-q')
+    git('add', '.')
+    git('-c', 'user.name=Test', '-c', 'user.email=test@example.org', 'commit', '-qm', 'viewer')
+    git('tag', 'v9.9.9')
+    local = viewer_template()
+    local['cells'][3]['source'].append('LOCAL_ONLY = True\n')
+    local['cells'][3]['metadata']['execution'] = {'iopub.status.idle': '2026-10-21T12:00:00Z'}
+    local['metadata']['widgets'] = {'application/vnd.jupyter.widget-state+json': {'state': {}}}
+    source.write_text(json.dumps(local))
+    released = tmp_path / 'released.ipynb'
+    sync.sync_viewer(checkout=checkout, output=released, ref='v9.9.9')
+    assert 'LOCAL_ONLY' not in released.read_text()
+    provenance = json.loads(released.read_text())['metadata']['ddt_camat_sync']
+    assert (provenance['git_ref'], provenance['git_commit']) == ('v9.9.9', git('rev-parse', 'HEAD'))
+    assert 'git_status' not in provenance
+    working = json.loads(sync.sync_viewer(checkout=checkout, output=tmp_path / 'working.ipynb').read_text())
+    assert 'LOCAL_ONLY' in json.dumps(working)
+    assert 'widgets' not in working['metadata']
+    assert all('execution' not in c['metadata'] for c in working['cells'])
+    assert working['metadata']['ddt_camat_sync']['git_status'] == 'M notebooks/mei_facsimile_viewer.ipynb'
+    with pytest.raises(ValueError, match='Unknown CAMAT Git ref'):
+        sync.sync_viewer(checkout=checkout, output=tmp_path / 'other.ipynb', ref='v0.0.0')
+
+
 def test_viewer_dry_run_and_unmanaged_file_are_safe(tmp_path):
     sync = module('sync_camat_viewer')
     checkout = tmp_path / 'camat'
@@ -198,13 +232,26 @@ def test_viewer_dry_run_and_unmanaged_file_are_safe(tmp_path):
 def test_update_helper_targets_running_python_and_explicit_ref():
     import sys
     update = module('update_camat')
-    command = update.update_commands(git_ref='beta/0.2.5')[0]
+    command = update.update_commands(git_ref='v0.2.7')[0]
     assert command[0] == sys.executable
     assert '--force-reinstall' in command
     assert 'camat[notebooks,validation]' in command[-1]
-    assert command[-1].endswith('@beta/0.2.5')
+    assert command[-1].endswith('@v0.2.7')
     with pytest.raises(ValueError, match='existing local'):
         update.update_commands(git_ref='main', pull=True)
+
+
+def test_update_helper_uses_uv_pip_when_the_python_has_no_pip(monkeypatch):
+    import sys
+    update = module('update_camat')
+    monkeypatch.setattr(update.importlib.util, 'find_spec', lambda name: None)
+    monkeypatch.setattr(update.shutil, 'which', lambda name: '/opt/bin/uv')
+    command = update.update_commands(git_ref='v0.2.7')[0]
+    assert command[:5] == ['/opt/bin/uv', 'pip', 'install', '--python', sys.executable]
+    assert update.pip_command('check') == ['/opt/bin/uv', 'pip', 'check', '--python', sys.executable]
+    monkeypatch.setattr(update.shutil, 'which', lambda name: None)
+    with pytest.raises(ValueError, match='no pip module'):
+        update.pip_command('check')
 
 
 def test_local_update_refuses_to_pull_a_dirty_checkout(tmp_path, monkeypatch):

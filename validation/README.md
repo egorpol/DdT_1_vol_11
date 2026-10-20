@@ -30,23 +30,22 @@ python scripts/update_camat.py --pull
 
 This requires a clean CAMAT worktree and uses `git pull --ff-only`, then installs
 its dependencies. It does not switch branches, discard edits or create releases.
-The currently developed validation API is on `beta/0.2.5`.
+The committed reports need CAMAT 0.2.7 or newer: CAMAT 0.2.1–0.2.6 skip the
+layer-duration checks in measures marked `metcon="false"`.
 
 To install a remote Git snapshot instead of an editable checkout:
 
 ```sh
-python scripts/update_camat.py --git-ref beta/0.2.5
+python scripts/update_camat.py --git-ref v0.2.7
 ```
 
-Choose `--git-ref main` after the intended API has reached main. This explicitly
-reinstalls the resolved Git code, even when package metadata has not changed;
-it is not a continuous connection to the remote branch. Git installation needs
-no PyPI release. A PyPI update needs a matching published release. No permanent
-CAMAT pin is introduced during development. `--status` inspects the selected
-Python environment without updating it. The helper copies no validation code
-into this corpus.
+A tag such as `v0.2.7` installs that release; a branch such as `main` installs
+its current commit. This explicitly reinstalls the resolved Git code, even when
+package metadata has not changed; it is not a continuous connection to the
+remote branch. `--status` inspects the selected Python environment without
+updating it. In an environment without pip, such as a uv venv, the helper runs
+`uv pip` instead. It copies no validation code into this corpus.
 
-A release/snapshot title such as 0.2.5b2 need not match Python package metadata.
 Use the printed module/distribution versions, import path and commit rather than
 inferring a package version from a branch or commit title.
 
@@ -201,12 +200,12 @@ means a selected score failed required checks or a requested consumer check;
 its findings are still exported.
 Review the summary alongside an empty CSV before treating it as clean.
 
-CAMAT 0.2.5 reproduces a native parsing crash on Appendix I.
-Its `camat_parse_native_crash` row describes a tool execution failure; notation
-changes should follow the musical/schema findings and source evidence. All other
-passes and the DdT rules are still checked for that score. Use the batch helper
-for this work while the native parser issue remains unresolved; a direct notebook
-consumer parse can terminate its kernel.
+CAMAT 0.2.5 crashed natively while parsing Appendix I and reported this as a
+`camat_parse_native_crash` row: a tool execution failure, not a notation finding.
+CAMAT 0.2.6 and later parse the score, and the committed reports record
+`camat_parse` as passed for Appendix I. Should such a crash recur, base notation
+changes on the musical/schema findings and source evidence, and use the batch
+helper: a direct notebook consumer parse can terminate its kernel.
 
 All validations finish before shared CSVs are replaced. An interrupted or raised
 validation retains the previous report set. Previous CSVs and provenance are backed up

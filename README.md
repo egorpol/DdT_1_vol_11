@@ -89,10 +89,12 @@ python scripts/sync_camat_viewer.py
 ```
 
 For a standalone clone without a neighboring CAMAT checkout, use
-`python scripts/update_camat.py --git-ref beta/0.2.5` to install the development
-validator. This requires network access and records the resolved code; it does
-not pin a final release. Viewer syncing separately needs a local CAMAT checkout,
-selected with `--checkout /path/to/camat_v2`.
+`python scripts/update_camat.py --git-ref v0.2.7` to install CAMAT 0.2.7. Its
+duration checks also cover measures marked `metcon="false"`, as the committed
+reports do; CAMAT 0.2.1–0.2.6 skip them. This requires network access and
+records the resolved code. Viewer syncing separately needs a local CAMAT
+checkout, selected with `--checkout /path/to/camat_v2`; add `--ref v0.2.7` to
+copy the released notebook rather than the checkout's working file.
 
 Install libxml2's `xmllint` separately. Open
 [`mei_corpus_checks.ipynb`](mei_corpus_checks.ipynb) for the same general + DdT
