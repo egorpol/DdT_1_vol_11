@@ -5,6 +5,8 @@ import importlib.util
 import json
 from pathlib import Path
 
+import pytest
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -46,7 +48,31 @@ def test_site_index_lists_every_work_and_copies_the_listed_files(tmp_path):
         assert item['work_key'] in {w['key'] for w in works}
 
 
-def test_build_refuses_to_empty_the_repository(monkeypatch):
+def test_build_refuses_to_empty_the_repository_or_its_folders(monkeypatch):
     m = module()
-    monkeypatch.setattr('sys.argv', ['build_site.py', str(ROOT)])
-    assert m.main() == 1
+    def refuse(path):
+        raise AssertionError(f'would delete {path}')
+    monkeypatch.setattr(m.shutil, 'rmtree', refuse)
+    for out in (ROOT, ROOT.parent, ROOT / 'site', ROOT / '11_buxtehude_sonatas_final'):
+        monkeypatch.setattr('sys.argv', ['build_site.py', str(out)])
+        assert m.main() == 1
+
+
+def test_build_rejects_an_excerpt_that_does_not_match_its_mei_or_image():
+    m = module()
+    item = json.loads((ROOT / 'supplemental_material/manifest.json').read_text(encoding='utf-8'))['items'][0]
+    listed = json.loads((ROOT / 'validation/editorial-works.json').read_text(encoding='utf-8'))['works']
+    files = {w['key']: w['file'] for w in listed}
+    m.check_excerpt(item, files)
+    for change in ({'measure': 99999}, {'event_id': 'no-such-event'}, {'annotation_id': 'no-such-annot'},
+                   {'width': item['width'] + 1}, {'sha256': '0' * 64}, {'work_key': 'op2_02_sonata_d_major'}):
+        with pytest.raises(SystemExit):
+            m.check_excerpt({**item, **change}, files)
+
+
+def test_a_pending_entry_drops_out_once_its_work_is_listed(tmp_path, monkeypatch):
+    m = module()
+    monkeypatch.setattr(m, 'PENDING', m.PENDING + [{**m.PENDING[0], 'key': 'op1_01_sonata_f_major'}])
+    works = m.build(tmp_path / '_site')['works']
+    assert [w['id'] for w in works].count('op1_01') == 1
+    assert 'mei' in next(w for w in works if w['id'] == 'op1_01')

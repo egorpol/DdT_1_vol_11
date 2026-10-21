@@ -12,6 +12,7 @@
   --box: #64748b;
   --warn-bg: #fff4d6;
   --warn-text: #6b4a00;
+  --ok: #15803d;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
@@ -24,6 +25,7 @@
     --accent: #7fb0ec;
     --warn-bg: #3b3218;
     --warn-text: #f2d58a;
+    --ok: #4ade80;
     color-scheme: dark;
   }
 }
@@ -36,6 +38,7 @@
   --accent: #7fb0ec;
   --warn-bg: #3b3218;
   --warn-text: #f2d58a;
+  --ok: #4ade80;
   color-scheme: dark;
 }
 
@@ -102,7 +105,7 @@ h1, h2 { font-weight: 600; line-height: 1.25; }
 .work-info p { margin: 2px 0 0; color: var(--muted); font-size: 0.9rem; }
 .status { font-size: 0.8rem; font-weight: 600; padding: 0 6px; border-radius: 4px; border: 1px solid currentColor; }
 .status-corrected { color: var(--accent); }
-.status-finalized { color: #15803d; }
+.status-finalized { color: var(--ok); }
 .status-pending, .status-combined { color: var(--muted); }
 
 .panes {

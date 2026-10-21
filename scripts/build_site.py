@@ -4,8 +4,9 @@
 Copies site/ (the viewer), the assembled MEI files listed in
 validation/editorial-works.json, supplemental_material/manifest.json and the
 excerpt images it lists into OUT, and writes OUT/works.json, the index the
-viewer's work selector reads. Each excerpt is checked against its SHA-256 in
-the manifest. The facsimile pages are not copied: the viewer loads them from
+viewer's work selector reads. Each excerpt is checked against its SHA-256 and
+pixel size in the manifest, and its measure, event and note against its MEI
+file. The facsimile pages are not copied: the viewer loads them from
 the BSB IIIF server. OUT is emptied first.
 
 Standard library only.
@@ -28,8 +29,10 @@ SITE_FILES = ["index.html", "viewer.css", "viewer.js"]
 WORK_LIST = "validation/editorial-works.json"
 EXCERPTS = "supplemental_material/manifest.json"
 MEI = "{http://www.music-encoding.org/ns/mei}"
+XML_ID = "{http://www.w3.org/XML/1998/namespace}id"
 ROMAN = {1: "I", 2: "II", 3: "III", 4: "IV", 5: "V", 6: "VI", 7: "VII"}
 # Works without an assembled file; the README's work table lists the same.
+# An entry drops out once its work is in the work list.
 PENDING = [
     {
         "key": "op2_01_sonata_b_flat_major",
@@ -62,6 +65,33 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def png_size(path: Path) -> tuple[int, int]:
+    header = path.read_bytes()[:24]
+    if header[:8] != b"\x89PNG\r\n\x1a\n":
+        raise SystemExit(f"{path.relative_to(ROOT)} is not a PNG file")
+    return int.from_bytes(header[16:20], "big"), int.from_bytes(header[20:24], "big")
+
+
+def check_excerpt(item: dict, files: dict[str, str]) -> None:
+    """The excerpt's file, size, measure, event and note match the manifest."""
+    where = f"{EXCERPTS}, {item['file']}"
+    source = ROOT / item["file"]
+    if sha256(source) != item["sha256"]:
+        raise SystemExit(f"{where}: does not match its SHA-256")
+    if png_size(source) != (item["width"], item["height"]):
+        raise SystemExit(f"{where}: image is {'x'.join(map(str, png_size(source)))}, not {item['width']}x{item['height']}")
+    if files.get(item["work_key"]) != item["mei_file"]:
+        raise SystemExit(f"{where}: {item['mei_file']} is not the listed file of {item['work_key']}")
+    root = ET.parse(ROOT / item["mei_file"]).getroot()
+    measure = next((m for m in root.iter(f"{MEI}measure") if m.get("n") == str(item["measure"])), None)
+    if measure is None:
+        raise SystemExit(f"{where}: no measure {item['measure']} in {item['mei_file']}")
+    if not any(el.get(XML_ID) == item["event_id"] for el in measure.iter()):
+        raise SystemExit(f"{where}: no event {item['event_id']} in measure {item['measure']}")
+    if item.get("annotation_id") and not any(a.get(XML_ID) == item["annotation_id"] for a in root.iter(f"{MEI}annot")):
+        raise SystemExit(f"{where}: no annot {item['annotation_id']} in {item['mei_file']}")
+
+
 def copy(source: Path, out: Path, target: str) -> None:
     destination = out / target
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -88,18 +118,17 @@ def build(out: Path) -> dict:
             "source": work["file"],
             "report": work["file"].removesuffix(".mei") + "_consistency_report.csv",
         })
-    works += PENDING
+    works += [w for w in PENDING if w["key"] not in {x["key"] for x in works}]
     for work in works:
         work["id"] = short_key(work["key"])
         work["label"] = label(work["key"])
     works.sort(key=lambda w: (ORDER.index(w["id"].split("_")[0]), w["id"]))
 
     manifest = json.loads((ROOT / EXCERPTS).read_text(encoding="utf-8"))
+    files = {w["key"]: w["source"] for w in works if "mei" in w}
     for item in manifest["items"]:
-        source = ROOT / item["file"]
-        if sha256(source) != item["sha256"]:
-            raise SystemExit(f"{item['file']} does not match its SHA-256 in {EXCERPTS}")
-        copy(source, out, item["file"])
+        check_excerpt(item, files)
+        copy(ROOT / item["file"], out, item["file"])
     copy(ROOT / EXCERPTS, out, EXCERPTS)
 
     index = {"works": works}
@@ -110,7 +139,8 @@ def build(out: Path) -> dict:
 
 def main() -> int:
     out = Path(sys.argv[1] if len(sys.argv) > 1 else ROOT / "_site").resolve()
-    if out == ROOT or ROOT.is_relative_to(out):
+    # OUT is emptied: inside the repository only _site may be used.
+    if ROOT.is_relative_to(out) or (out.is_relative_to(ROOT) and not out.is_relative_to(ROOT / "_site")):
         print(f"refusing to empty {out}", file=sys.stderr)
         return 1
     if out.exists():

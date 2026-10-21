@@ -17,6 +17,8 @@ const VEROVIO_OPTIONS = {
   scale: 35, spacingLinear: 0.25, spacingNonLinear: 0.6, minLastJustification: 0,
 };
 const SETTINGS = { markNotes: 'ddt-viewer-mark-notes', measureBoxes: 'ddt-viewer-measure-boxes' };
+// The status line's opening text, shown again when a pin is dropped.
+const STATUS_HINT = document.getElementById('status').textContent;
 const XML_NS = 'http://www.w3.org/XML/1998/namespace';
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
@@ -126,12 +128,14 @@ function readModel(work, text, excerpts) {
       if (model.zones.has(zone)) model.zones.get(zone).measure = id;
     }
     if (el.localName === 'annot') annots.push(el);
-    if (id) model.ids.set(id, { name: el.localName, measure: enclosingMeasure(el) });
+    if (id) model.ids.set(id, { name: el.localName, measure: enclosingMeasure(el), end: refs(el.getAttribute('endid'))[0] });
   }
   model.annots = annots.map((el) => {
     const id = xmlId(el);
     const targets = refs(el.getAttribute('plist'));
-    const bars = [...new Set([id, ...targets].map((t) => model.ids.get(t)?.measure).filter(Boolean))]
+    // A tie or slur among the targets also brings in the measure it ends in.
+    const reached = [id, ...targets].flatMap((t) => [t, model.ids.get(t)?.end]);
+    const bars = [...new Set(reached.map((t) => model.ids.get(t)?.measure).filter(Boolean))]
       .map((m) => model.measures.get(m))
       .sort((a, b) => Number(a.n) - Number(b.n));
     bars.forEach((bar) => model.noted.add(bar.id));
@@ -199,10 +203,11 @@ function showWorkInfo(work, model) {
 }
 
 async function showWork(id) {
-  if (state.work?.id === id) return;
-  const work = index.works.find((w) => w.id === id);
+  // A new request, even for the work on show, outdates a load still running.
   const token = ++workToken;
   $('work').value = id;
+  if (state.work?.id === id) return;
+  const work = index.works.find((w) => w.id === id);
   if (!work.mei) {
     Object.assign(state, { work, model: null, page: 1, pinned: null, annot: null });
     showWorkInfo(work, null);
@@ -418,14 +423,26 @@ function noteHeading(where, labelText, data) {
   return button;
 }
 
+// "Measure 17", "Measures 16–17", "Measures 110, 148, 164"; a note spread over
+// more than four runs gives its span and count.
+function measuresLabel(bars) {
+  const runs = [];
+  for (const n of bars.map((bar) => Number(bar.n))) {
+    const run = runs.at(-1);
+    if (run && n === run[1] + 1) run[1] = n;
+    else runs.push([n, n]);
+  }
+  if (bars.length === 1) return `Measure ${bars[0].n}`;
+  if (runs.length > 4) return `Measures ${runs[0][0]}–${runs.at(-1)[1]} (${bars.length} measures)`;
+  return `Measures ${runs.map(([a, b]) => (a === b ? a : `${a}–${b}`)).join(', ')}`;
+}
+
 function renderNotes(model) {
   const list = $('annots');
   list.replaceChildren();
   for (const annot of model?.annots || []) {
     const li = document.createElement('li');
-    const first = annot.bars[0]?.n;
-    const last = annot.bars.at(-1)?.n;
-    li.append(noteHeading(first === last ? `Measure ${first}` : `Measures ${first}–${last}`, annot.label.replace(/-/g, ' '), { annot: annot.id }));
+    li.append(noteHeading(measuresLabel(annot.bars), annot.label.replace(/-/g, ' '), { annot: annot.id }));
     for (const para of annot.paras) {
       const p = document.createElement('p');
       inlineText(para, p, model);
@@ -512,6 +529,9 @@ function renderFacsimile() {
   const label = `DdT p. ${surface.printed} · BSB image ${surface.image}`;
   $('facs-full').href = surface.target;
   if (image.dataset.surface === surface.id && Number(image.dataset.width) >= width) {
+    ++facsToken;
+    page.classList.remove('is-loading');
+    showFacsError('');
     $('facs-label').textContent = label;
     drawZones(model, surface);
     applyHighlights();
@@ -540,6 +560,9 @@ function renderFacsimile() {
   }).catch(() => {
     if (token !== facsToken) return;
     page.classList.remove('is-loading');
+    image.removeAttribute('src');
+    delete image.dataset.surface;
+    $('zones').replaceChildren();
     $('facs-label').textContent = label;
     showFacsError(`The facsimile page could not be loaded from the BSB server: ${src}`);
   });
@@ -569,11 +592,17 @@ async function applyHash() {
   const known = match && index.works.some((w) => w.id === match[1]);
   await showWork(known ? match[1] : state.work?.id || index.works.find((w) => w.mei).id);
   if (location.hash && !known) setStatus(`No work “${location.hash.slice(1)}” in this edition.`);
-  if (!known || match[2] === undefined || !current()) return;
-  const n = String(Number(match[2]));
-  const id = current().byN.get(n);
-  if (id) pin(id, { hash: false });
-  else setStatus(`${state.work.label} has no measure ${n}.`);
+  if (!known || !current()) return;
+  const n = match[2] === undefined ? null : String(Number(match[2]));
+  const id = n && current().byN.get(n);
+  if (id) { pin(id, { hash: false }); return; }
+  // A link to the work alone, or to a measure it lacks, drops an earlier pin.
+  if (state.pinned) {
+    state.pinned = null;
+    applyHighlights();
+    setStatus(STATUS_HINT);
+  }
+  if (n) setStatus(`${state.work.label} has no measure ${n}.`);
 }
 
 function readSettings() {
