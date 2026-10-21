@@ -24,11 +24,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.1.0">Working digital edition</edition>
+            <edition n="0.9.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt>
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-19" type="last-updated">2026-10-19</date>
+            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_07_sonata_e_minor_corr.mei</identifier>
             <availability>
                <useRestrict>MEI data released under the <ref target="https://spdx.org/licenses/MIT.html">MIT License</ref>.</useRestrict>
@@ -105,6 +105,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Rechecked the three newly exposed measures against DdT 1903. Completed the subsidiary keyboard voice endings at measure 28 with hidden silence and normalized the hidden whole-bar silence in the empty upper keyboard staff at measure 45. At measure 59 restored the printed B4 dotted quarter and A-sharp4 eighth, removing the intervening surplus conversion quarter space. Removed inherited metcon=false markers after the complete duration check. The approved measure 38 correction and all existing annotations, source zones and page/system breaks are retained.</p>

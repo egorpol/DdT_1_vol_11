@@ -24,11 +24,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.1.0">Working digital edition</edition>
+            <edition n="0.9.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="p1qxcm78">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-20" type="last-updated">2026-10-20</date>
+            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_app_03_sonata_gamba_violin_cembalo_d_major_corr.mei</identifier>
             <availability>
@@ -73,6 +73,10 @@
                <name xml:id="nil5wfn">Verovio</name>
                <p xml:id="p137lbxl">Transcoded from MusicXML</p>
             </application>
+            <application startdate="2026-07-29T20:13:54" enddate="2026-07-29T20:13:54" version="1.4.2">
+               <name>mei-friend</name>
+               <p>Manual correction of the source pages. Date and version are those recorded in the page file for BSB image 00195.</p>
+            </application>
          </appInfo>
          <editorialDecl>
             <p>This is a working corrected digital edition based on DdT 1903, the only consulted musical source confirmed by the editor on 2026-10-20. Routine OMR and conversion repairs restore its printed reading and are summarized in revision history. Substantive departures, retained anomalies and uncertain readings are distinguished in local editorial annotations. No manuscript consultation is claimed.</p>
@@ -103,6 +107,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date and recorded the page-level mei-friend correction in appInfo. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Final targeted source check: restored the printed dot on D2 in measure 191; placed the E4 eighth at beat 2-and in measure 50 by moving its preceding hidden half space to the end of the voice. Added hidden trailing spaces to subsidiary voices after their printed entries end, preserving all sounding durations and existing onset positions. Verified the shared E4 heads with separate stems and ties in measures 41 and 49 in Verovio 6.3.0.</p>

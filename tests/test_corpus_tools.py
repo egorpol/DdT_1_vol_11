@@ -229,9 +229,10 @@ def test_viewer_dry_run_and_unmanaged_file_are_safe(tmp_path):
     assert output.read_bytes() == before
 
 
-def test_update_helper_targets_running_python_and_explicit_ref():
+def test_update_helper_targets_running_python_and_explicit_ref(monkeypatch):
     import sys
     update = module('update_camat')
+    monkeypatch.setattr(update.importlib.util, 'find_spec', lambda name: object())
     command = update.update_commands(git_ref='v0.2.7')[0]
     assert command[0] == sys.executable
     assert '--force-reinstall' in command

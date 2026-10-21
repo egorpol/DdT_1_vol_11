@@ -24,11 +24,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.1.0">Working digital edition</edition>
+            <edition n="0.9.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="pd8bnvd">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-20" type="last-updated">2026-10-20</date>
+            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op2_06_sonata_e_major_corr.mei</identifier>
             <availability>
@@ -138,6 +138,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Rechecked the sole newly exposed duration warning against DdT 1903. Removed the fixed whole-note duration from the whole-measure rest in the keyboard upper staff at measure 84, so the mRest follows the active 6/8 meter. Removed inherited metcon=false markers after full duration verification. All printed notes, rests, annotations, supplementary-material references, facsimile zones and page/system breaks are retained.</p>

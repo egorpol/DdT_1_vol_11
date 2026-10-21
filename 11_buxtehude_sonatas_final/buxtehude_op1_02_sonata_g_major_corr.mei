@@ -28,11 +28,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.1.0">Working digital edition</edition>
+            <edition n="0.9.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="p1rgkhhn">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-17" type="last-updated">2026-10-17</date>
+            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_02_sonata_g_major_corr.mei</identifier>
             <availability>
@@ -109,6 +109,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Rechecked the eleven measures newly exposed by regular duration reporting for metcon=false against DdT 1903. Restored the printed final keyboard F-sharp4 eighth at measure 25, omitted opening gamba E4 eighth at measure 84, and final keyboard A2 eighth at measure 89. Recovered the upper-voice D-sharp4 quarter at measure 108 and F-sharp4 eighth at measure 136 without changing their note values. Removed surplus conversion spaces at measures 25, 76, 111, 121 and 140 and an empty, non-notated violin timing layer at measure 66. Completed subsidiary-voice silence at measures 136 and 154, and removed all 64 inherited metcon=false flags after the full duration check. Existing source-supported and conjectural readings, annotations, event IDs, facsimile zones and page/system breaks are retained.</p>

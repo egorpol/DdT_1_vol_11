@@ -24,11 +24,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.1.0">Working digital edition</edition>
+            <edition n="0.9.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="p89mz2i">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-19" type="last-updated">2026-10-19</date>
+            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
             <date isodate="2019-02-12" type="encoding-date" xml:id="da1uat3">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_04_sonata_b_flat_major_corr.mei</identifier>
             <availability>
@@ -105,6 +105,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Rechecked every newly exposed metcon=false duration mismatch against DdT 1903. Completed the implicit triplet scaling in measures 95, 99, 102, 104, 109 and 110 without changing printed note values. Restored omitted sixteenth rests and corrected the G3 eighth in the gamba at measure 66, the D4 eighth at measure 75, the violin E-flat5 eighth at measure 123 and the keyboard D4 eighth at measure 165. At measure 123 restored the printed alto clef, removed the spurious D3 quarter and recovered the B-flat3–C4–D4–C4–B-flat3 eighths confirmed by Egor Polyakov; corrected the subsequent bass-clef misreading through measure 126. Completed subsidiary voice endings with hidden silence and removed surplus padding. Removed inherited metcon=false markers after the complete duration check. All facsimile zones, page/system breaks and existing annotations are retained.</p>

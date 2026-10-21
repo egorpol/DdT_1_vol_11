@@ -24,11 +24,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.1.0">Working digital edition</edition>
+            <edition n="0.9.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="phq39mx">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-19" type="last-updated">2026-10-19</date>
+            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op2_03_sonata_g_minor_corr.mei</identifier>
             <availability>
@@ -105,6 +105,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Rechecked all 66 measures exposed by regular metcon=false duration reporting against DdT 1903. Removed conversion padding from complete bars and completed source-checked subsidiary voice endings with hidden silence. Recovered omitted gamba notes at measures 8, 38, 50 and 57, the lower keyboard C4 quarter at measure 28 and B-flat4 eighth at measure 208, and omitted bass notes at measures 225–227. Removed the duplicated keyboard beam at measure 29 and spurious OMR voices containing C-flat2 at measure 228 and A7 at measure 232. Recovered the violin C4 eighth at measure 226 from its misplaced subsidiary voice. Restored printed note values and dots at measures 39, 101, 212, 222, 226–228, and the printed quarter rest at measure 227. The previously approved measure 170 emendation and all existing annotations, source zones and page/system breaks are retained. Removed inherited metcon=false markers after complete duration verification.</p>

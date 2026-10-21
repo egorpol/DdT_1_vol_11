@@ -128,3 +128,60 @@ passing explicit-start control, crash logs, issue-search responses and draft
 in the local, unpublished run directory of 2026-10-20. Recheck the then-current runtime and tracker before deciding
 whether to report the automatic-generation crash. The score's explicit
 repeat plan is independently meaningful and does not suppress its repeats.
+
+## Dotted unison of a chord member and a single note
+
+**Status: reproduced; not reported upstream, 2026-10-19.** In installed Verovio
+`6.3.0-425dd7b`, a dotted-quarter C4 that inherits its dot from an
+upward-stemmed C4–F4–A4 chord is drawn beside a downward-stemmed dotted-quarter
+C4 in the second voice instead of sharing its head. The same chord without dots
+and two single dotted notes both share the head. A schema-valid one-measure
+reproduction without `sameas`, hidden notes or offsets gives the same result.
+
+**Affected passage:** [Op. I/3, m. 17](../11_buxtehude_sonatas_final/buxtehude_op1_03_sonata_a_minor_corr.mei),
+keyboard upper staff; DdT printed p. 22, BSB image `00032`. DdT prints one C4
+head with stems up and down; the editor confirmed this reading. Persistent IDs
+are measure `yttjgek`, chord `p1fgsraz` with its C4 `gdetgt`, and the second
+voice's C4 `q15fei1p`.
+
+**Current encoding:** both dotted-quarter C4 entries are retained with unchanged
+pitches, durations and event IDs. Annotation
+`editorial.op1_03.m17.shared-notehead` (`encoding-note`) points to both C4 events
+and the chord. It describes the separated heads as an engraving limitation, not
+a correction to the source reading.
+
+**Issue search:** open and closed Verovio issues were searched on 2026-10-19.
+The closest are [#746](https://github.com/rism-digital/verovio/issues/746),
+dotted unisons of single notes in separate layers, fixed in 2018 (its
+single-note case works in 6.3.0), and [#3705](https://github.com/rism-digital/verovio/issues/3705),
+too many dots on unisons, closed in 2024.
+[#3838](https://github.com/rism-digital/verovio/issues/3838), repeated pitches
+with differing dots inside one chord, was closed as not planned. None reports a
+dot inherited from the chord. The development runtime was not tested and no
+report was submitted.
+
+**For the combined reassessment:** the reproduction, its controls, the DdT crop
+and an issue draft are in the ignored `issue_drafts/shared-notehead-m17/`
+directory. Recheck the then-current runtime and tracker before submitting it.
+
+## Composer missing from Verovio's generated page header
+
+**Status: closed upstream without a change, 2026-10-20; not addressed in the
+scores.** When a score has no `pgHead`, Verovio builds the first-page header
+from `meiHead`, and a composer encoded as `composer/persName` comes out blank.
+[Verovio #4512](https://github.com/rism-digital/verovio/issues/4512), opened by
+Egor Polyakov for the Webern Op. 27 edition, reports this as a regression since
+4.4.0. The maintainer closed it on 2026-10-20: header generation is meant for
+simple cases, and an edition should encode the `pgHead` it wants.
+
+**Affected works:** all 16 assembled scores. Each wraps the titleStmt composer
+in a GND-linked `persName`, and none has a `pgHead`. On 2026-10-21, page 1 of
+each score rendered with Verovio `6.3.0-425dd7b` (`breaks: encoded`) contained
+no "Buxtehude". With the `persName` in Op. I/1 replaced by plain text, the name
+appeared.
+
+**Resolution criterion:** before 1.0, either encode a `pgHead` in the first
+`scoreDef`, as the Webern Op. 27 edition does, or let the web viewer draw the
+heading. The GND-linked `persName` stays in the header either way. The
+[encoding profile](mei-encoding-profile.md) currently advises against a
+`pgHead` that only repeats the title; update it with the decision.

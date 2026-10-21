@@ -24,11 +24,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.1.0">Working digital edition</edition>
+            <edition n="0.9.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="ped2n8h">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-20" type="last-updated">2026-10-20</date>
+            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_app_01_suite_to_op1_04_corr.mei</identifier>
             <availability>
@@ -108,6 +108,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Organized the existing eight repeated strains into sections and supplied an explicit repeat expansion, retaining their complete event order and printed barlines. Verovio 6.3.0 automatic expansion of the previous single-section suite crashed in ExpansionMap::CreateSection during MIDI/timemap export. The explicit plan produces 178 measure occurrences, exactly two for each of the 89 written measures; score rendering and source boundaries are checked separately.</p>

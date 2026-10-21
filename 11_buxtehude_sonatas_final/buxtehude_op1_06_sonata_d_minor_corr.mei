@@ -24,11 +24,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.1.0">Working digital edition</edition>
+            <edition n="0.9.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="pnn4wro">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-19" type="last-updated">2026-10-19</date>
+            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_06_sonata_d_minor_corr.mei</identifier>
             <availability>
@@ -106,6 +106,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Rechecked all 20 measures exposed by regular reporting of metcon=false against DdT 1903. Removed surplus conversion spaces from 56 complete voices, including the falsely extended bars around measures 53–67. Corrected the hidden ending of the subsidiary A3-quarter voice at measure 5 to three beats; its subsequent printed A3 eighth and B3 quarter remain encoded as cross-staff notes in the complete upper keyboard voice. All sounding durations, pitches, original musical notes and rests, tuplets, annotations, facsimile zones and page/system breaks are unchanged. Removed inherited metcon=false markers after full duration verification.</p>

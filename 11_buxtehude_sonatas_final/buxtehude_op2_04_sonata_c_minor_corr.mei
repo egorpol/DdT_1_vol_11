@@ -24,12 +24,12 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="1.0.0">First digital edition</edition>
+            <edition n="0.9.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt>
             <publisher>CAMAT Corpus Editions</publisher>
             <date isodate="2026-08-31">2026-08-31</date>
-            <date isodate="2026-10-20" type="last-updated">2026-10-20</date>
+            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op2_04_sonata_c_minor_corr.mei</identifier>
             <availability>
                <useRestrict>MEI data released under the <ref target="https://spdx.org/licenses/MIT.html">MIT License</ref>.</useRestrict>
@@ -109,6 +109,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Rechecked all five newly exposed measures against DdT 1903. Restored the omitted final violin F5 eighth at measure 3. At measure 76 combined the four printed gamba beams into one continuous voice, retaining their onsets and values and removing the split-off layer and redundant initial quarter space. Completed the source-checked subsidiary keyboard voice endings at measures 1, 39 and 59 with hidden silence. Removed inherited metcon=false markers after complete duration verification. Existing annotations, sources, facsimile zones and page/system breaks are retained.</p>

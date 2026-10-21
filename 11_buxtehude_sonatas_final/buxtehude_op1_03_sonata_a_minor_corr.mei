@@ -24,11 +24,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.1.0">Working digital edition</edition>
+            <edition n="0.9.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="pn5ijuo">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-19" type="last-updated">2026-10-19</date>
+            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_03_sonata_a_minor_corr.mei</identifier>
             <availability>
@@ -105,6 +105,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Rechecked the eight measures newly exposed by regular duration reporting for metcon=false against DdT 1903. Removed three surplus trailing eighth spaces in measures 68 and 69. Recovered the upper keyboard voice continuation in measure 41 by assigning its final upward-stem eighth chords to that voice, preserving every onset and note value. Completed source-checked subsidiary voice endings at measures 13, 15, 17, 19, 20 and 41 with hidden trailing silence. The keyboard notes continuing the continuo at measure 15 remain represented in the upper staff; the lower A3 is not lengthened. Retained all printed sounding durations, all original note IDs and the approved two dotted-quarter C4 entries and annotation at measure 17. Removed all 42 inherited metcon=false markers after the complete duration check. Source zones and page/system breaks are unchanged.</p>

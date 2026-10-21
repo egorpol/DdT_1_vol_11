@@ -52,7 +52,7 @@ In this digitization, printed score pages and BSB image numbers are offset by te
 - `corrected`: the musical text and facsimile references have been reviewed and local consistency checks completed.
 - `finalized`: metadata, editorial review, validation, and publication naming are complete.
 
-Update the work table in the main README when the work-level status changes. Page-by-page edit metadata is not used for the public status.
+The work lists in `validation/` record the same terms in `editorial_status`; release mode accepts only `finalized`. Update the work table in the main README and the work lists together when the work-level status changes. Page-by-page edit metadata is not used for the public status.
 
 ## Checks
 

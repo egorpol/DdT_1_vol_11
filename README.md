@@ -12,7 +12,7 @@ The edition is organized primarily as complete, sonata-level MEI files. It began
 | Encoding            | MEI 5.1, Common Music Notation customization                 |
 | Editorial unit      | One MEI file per complete sonata or appendix work            |
 | Facsimile alignment | IIIF-linked surfaces with measure-level zones                |
-| Current state       | Active correction, metadata review, and validation           |
+| Current state       | 16 of 17 works corrected, none finalized (0.9.0 pre-release) |
 
 ## Source edition
 
@@ -52,9 +52,9 @@ The status describes the complete work-level file, not the presence or edit hist
 | Op. II/5 | A major      |                126 |           00136 | `op2_05_sonata_a_major`                        | corrected  |
 | Op. II/6 | E major      |                139 |           00149 | `op2_06_sonata_e_major`                        | corrected  |
 | Op. II/7 | F major      |                150 |           00160 | `op2_07_sonata_f_major`                        | corrected  |
-| App. I   | —           |                160 |           00170 | `app_01_suite_to_op1_04`                       | combined   |
-| App. II  | C major      |                164 |           00174 | `app_02_sonata_2violins_gamba_cembalo_c_major` | combined   |
-| App. III | D major      |                176 |           00186 | `app_03_sonata_gamba_violin_cembalo_d_major`   | combined   |
+| App. I   | —           |                160 |           00170 | `app_01_suite_to_op1_04`                       | corrected  |
+| App. II  | C major      |                164 |           00174 | `app_02_sonata_2violins_gamba_cembalo_c_major` | corrected  |
+| App. III | D major      |                176 |           00186 | `app_03_sonata_gamba_violin_cembalo_d_major`   | corrected  |
 
 Status terms are used as follows:
 
@@ -62,6 +62,10 @@ Status terms are used as follows:
 - `combined`: source-page encodings have been assembled with linked facsimile surfaces.
 - `corrected`: the musical text and facsimile references have been reviewed and local consistency checks completed.
 - `finalized`: metadata, editorial review, validation, and publication naming are complete.
+
+The 0.9.0 pre-release publishes the 16 assembled works as corrected, not finalized; the [finalization plan](docs/finalization-plan.md) lists what remains before 1.0. The work lists in [`validation/`](validation/README.md) record the same terms in `editorial_status`.
+
+The App. III stem keeps its original `violin`; the printed score and the MEI work list name the violone (BuxWV 267).
 
 ## Repository contents
 
@@ -120,15 +124,30 @@ This is a corrected digital edition based on DdT 1903, retaining its staff layou
 
 The MEI 5.1 CMN publication profile is applied to the pilot and is the target for finalizing the other work-level files. The work title, source description, responsibilities, editorial method, identifiers, revision history, and separate licensing of the MEI data and facsimile are recorded in the MEI header. Detailed implementation guidance is kept in the [MEI encoding profile](docs/mei-encoding-profile.md), rather than in this public overview.
 
+## Contributors
+
+Each MEI header records these responsibilities for its work in `titleStmt/respStmt`. MEI encoding and work-level assembly: CAMAT.
+
+| Contributor           | OMR correction              | Editorial review           |
+| --------------------- | --------------------------- | -------------------------- |
+| Lea Meret Beck        | Op. I/4, II/3, App. II      | —                          |
+| Ragna Conrads         | Op. I/5, II/4, App. III     | Op. I/5, II/4              |
+| Francy Häring         | Op. I/1, I/2, I/7, II/6     | Op. I/1, I/2               |
+| Jan-Raphael Kemnitzer | Op. I/2                     | Op. I/2                    |
+| Egor Polyakov         | all 16 assembled works      | all 16, including metadata |
+| Pia Steuck            | Op. I/5                     | —                          |
+| Jingyu Tu             | Op. I/3, II/2, II/7, App. I | Op. I/3                    |
+| You Zhou              | Op. I/6, II/5               | —                          |
+
 ## Funding
 
 Work on this corpus is funded by the German Research Foundation (DFG), programme Library and Information Services — E-Research Technologies (LIS), grant PF 669/18-1.
 
 ## Citation
 
-Until a versioned release and its preferred citation are available, cite the repository with a commit or access date and cite the underlying source edition separately:
+Until a versioned release is available, cite the repository with a commit or access date and cite the underlying source edition separately. The same metadata are in [`CITATION.cff`](CITATION.cff).
 
-> CAMAT Corpus Editions. *DdT 1, Vol. 11 — Dietrich Buxtehude: Instrumental Works*. Work-in-progress MEI corpus.
+> Polyakov, Egor, Lea Meret Beck, Ragna Conrads, Francy Häring, Jan-Raphael Kemnitzer, Pia Steuck, Jingyu Tu, and You Zhou. *DdT 1, Vol. 11 — Dietrich Buxtehude: Instrumental Works*. Corrected MEI edition. CAMAT Corpus Editions. https://github.com/egorpol/DdT_1_vol_11.
 
 > Dietrich Buxtehude. *Dietrich Buxtehudes Instrumentalwerke: Sonaten für Violine, Gambe und Cembalo*. Edited by Carl Stiehl. Leipzig: Breitkopf und Härtel, 1903. Digitized by the Bayerische Staatsbibliothek as `bsb00023199`.
 

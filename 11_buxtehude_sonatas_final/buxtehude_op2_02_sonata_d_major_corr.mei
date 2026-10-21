@@ -24,12 +24,12 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.1.0">Working digital edition</edition>
+            <edition n="0.9.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="pwz47dt">
             <publisher>CAMAT Corpus Editions</publisher>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
-            <date isodate="2026-10-19" type="last-updated">2026-10-19</date>
+            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr.mei</identifier>
             <availability>
                <useRestrict>MEI data released under the <ref target="https://spdx.org/licenses/MIT.html">MIT License</ref>.</useRestrict>
@@ -138,6 +138,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-20" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Rechecked all 18 newly exposed measures against DdT 1903. Corrected the gamba A-sharp3 to a sixteenth at measure 222 and the violin opening F-sharp4 to a half note at measure 241. At the measure 210 cadence retained the printed eighth–sixteenth–sixteenth group and final quarter outside the hidden triplet scaling, restoring four common-time beats without changing their printed values. Documented the source-confirmed 12/8 against common-time passages at measures 199–206 and 207–214 as encoding notes; their nominal-meter warnings remain visible in the regular report for review. Removed other inherited metcon=false markers after full duration verification. Existing original-print annotations, supplementary material references, facsimile zones and page/system breaks are retained.</p>
