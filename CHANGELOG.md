@@ -9,6 +9,11 @@ All notable changes to this edition are recorded here. Version numbers follow th
 - A web viewer in `site/`, ported from the Webern Op. 27 edition's: each work rendered by Verovio page by page beside its BSB facsimile page, measure zones linked both ways, links such as `#op2_02/189`, the editorial notes with their source excerpts, and two remembered display settings (mark every note target, box every measure). `scripts/build_site.py` assembles it and a GitHub Pages workflow publishes it.
 - A one-measure facsimile excerpt for Op. I/1 m. 11, violin, from the STIMU 1991 reproduction of the Op. I print, in `supplemental_material/`: it shows the beaming that makes the C-sharp4 an eighth note (DdT prints a sixteenth). The annotation links it and the viewer shows it with the note, so all three source-supported emendations now have an excerpt.
 - Three facsimile checks in the DdT validation rules (`validation/rules.py`), which CAMAT 0.2.7 runs only in its legacy publication profile: a measure zone that no measure references, a measure zone that more than one measure references, and a measure zone that extends beyond its surface. They report warnings in review mode and errors in release mode. All 16 works pass them.
+- Release mode compares each selected MEI byte for byte with its copy at the manifest's `immutable_git_ref` and at the local release tag `v<release_version>`; before, it only checked that the commit existed.
+
+### Changed
+
+- A released MEI's `identifier[@type='versioned-URI']` names the release tag (`…/blob/v1.0.0/<file>`), not a commit: a file cannot contain the commit that contains it. The commit stays in the manifest.
 
 ### Fixed
 

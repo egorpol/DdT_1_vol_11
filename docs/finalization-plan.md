@@ -32,10 +32,10 @@ The validation boundary, the shared CAMAT checks and this corpus's validator are
 
 ## Release gate and archive
 
-- [ ] Make the release-mode check compare each selected file's bytes with the blob at the declared immutable commit, not only confirm that the commit exists.
-- [ ] `python scripts/validate_corpus.py --mode release` accepts every released work: final file and URI, release version and date, immutable commit, current input hashes, persistent event IDs, sign-off and `CITATION.cff`.
+- [x] Make the release-mode check compare each selected file's bytes with the blob at the declared immutable commit and at the release tag that the versioned URI names, not only confirm that the commit exists.
+- [ ] `python scripts/validate_corpus.py --mode release` accepts every released work: final file, URI and versioned URI, release version and date, immutable commit and local release tag, current input hashes, persistent event IDs, sign-off and `CITATION.cff`.
 - [ ] Release notes with the profile version, the validation record, known limitations, and instructions for choosing analytical views and locating facsimiles.
-- [ ] Tag the release, archive it with a persistent identifier (DOI), and add the identifier to the citation metadata once it is assigned.
+- [ ] Push the release tag (created locally before the release-mode run), archive it with a persistent identifier (DOI), and add the identifier to the citation metadata once it is assigned.
 - [ ] From a fresh clone, verify the public URLs, the image references and that the checks can be rerun with the pinned CAMAT version.
 
 **Complete when:** a new user can identify the edition and its sources, rerun the required checks, open the permitted images, see every intervention and cite an immutable release.

@@ -205,8 +205,9 @@ def edition_rows(work, *, root_dir: Path, profile: dict, manifest: dict, mode: s
             add('release_date', 'Publication date must agree with the actual declared release date.')
         ref = manifest.get('immutable_git_ref')
         version_uri = find(root, 'meiHead/fileDesc/pubStmt/identifier[@type="versioned-URI"]')
-        if not ref or not re.fullmatch(r'[0-9a-f]{40}', ref) or text(version_uri) != profile['public_base_url'].split('/blob/', 1)[0] + '/blob/' + ref + '/' + work['file']:
-            add('immutable_uri', 'Release needs an explicit immutable commit URL; no guessed tags are accepted.')
+        # A commit URL would have to contain its own commit; scripts/validate_corpus.py checks the tag's bytes.
+        if not ref or not re.fullmatch(r'[0-9a-f]{40}', ref) or text(version_uri) != profile['public_base_url'].split('/blob/', 1)[0] + f'/blob/v{version}/' + work['file']:
+            add('immutable_uri', 'Release needs a 40-hex immutable commit in the manifest and a versioned URI on the release tag.')
         if work.get('editorial_status') != 'finalized' or not reviewed(work.get('review'), digest) or not all((work.get('review') or {}).get('checks', {}).get(check) is True for check in profile['work_review_checks']):
             add('editorial_review', 'Finalized status needs editor/date sign-off bound to the current input hash.')
     return rows

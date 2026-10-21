@@ -130,6 +130,50 @@ def test_input_hashes_cover_the_local_policy_pass(tmp_path, monkeypatch):
     assert corpus.corpus_exit_code(result) == 1
 
 
+def test_release_compares_selected_mei_with_the_immutable_commit(tmp_path, monkeypatch):
+    import shutil
+    import subprocess
+    corpus = module('validate_corpus')
+    # The corpus sits one level below the repository top to cover root-relative blob paths.
+    test_root = tmp_path / 'repo/corpus'
+    manifest = json.loads((ROOT / 'validation/works.json').read_text())
+    mei = manifest['works'][0]['file']
+    for name in ['validation/profile.json', 'validation/rules.py', 'schemas/mei-CMN-5.1.rng', mei]:
+        destination = test_root / name
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT / name, destination)
+    def git(*args):
+        return subprocess.run(['git', '-C', str(test_root.parent), '-c', 'user.name=Test',
+                               '-c', 'user.email=test@example.org', *args], check=True,
+                              capture_output=True, text=True).stdout.strip()
+    git('init', '-q')
+    git('add', '.')
+    git('commit', '-qm', 'final MEI')
+    fake_general(monkeypatch)
+    monkeypatch.setattr(corpus, 'edition_rows', lambda *a, **kw: [])
+    manifest['release_version'] = '9.9.9'
+    def immutable_rows(reference):
+        # The manifest is written after the commit it names, as in a real release.
+        manifest['immutable_git_ref'] = reference
+        (test_root / 'validation/works.json').write_text(json.dumps(manifest))
+        result = corpus.run_corpus_validation(root=test_root, mode='release', output_dir=tmp_path / 'run')
+        return [(row['check'], row.get('file')) for row in result.findings
+                if row['check'] in {'ddt.immutable_commit', 'ddt.immutable_content', 'ddt.release_tag'}]
+    commit, original = git('rev-parse', 'HEAD'), (test_root / mei).read_bytes()
+    assert immutable_rows(commit) == [('ddt.release_tag', None)]
+    git('add', '.')
+    git('commit', '-qm', 'manifest')
+    git('tag', '-a', '-m', 'release', 'v9.9.9')
+    assert immutable_rows(commit) == []
+    (test_root / mei).write_bytes(original + b'\n')
+    assert immutable_rows(commit) == [('ddt.immutable_content', mei)]
+    git('commit', '-qam', 'later edit')
+    git('tag', '-f', '-a', '-m', 'moved', 'v9.9.9')
+    (test_root / mei).write_bytes(original)
+    assert immutable_rows(commit) == [('ddt.release_tag', mei)]
+    assert immutable_rows('0' * 40) == [('ddt.immutable_commit', None)]
+
+
 def viewer_template():
     def cell(identifier, source):
         return {'id': identifier, 'cell_type': 'code', 'metadata': {},

@@ -115,6 +115,20 @@ def test_publication_uri_and_version(score):
     assert 'ddt.release_version' in checks(score,'release')
 
 
+def test_versioned_uri_names_the_release_tag(score):
+    root, path, tree, work = score
+    manifest = {**MANIFEST, 'release_version': '9.9.9', 'immutable_git_ref': 'a' * 40}
+    identifier = ET.SubElement(tree.getroot().find(f'.//{{{M}}}pubStmt'), f'{{{M}}}identifier', type='versioned-URI')
+    def rules(uri):
+        identifier.text = uri
+        save(path, tree)
+        return {r['check'] for r in edition_rows(work, root_dir=root, profile=PROFILE, manifest=manifest, mode='release')}
+    base = PROFILE['public_base_url'].split('/blob/', 1)[0]
+    assert 'ddt.immutable_uri' not in rules(f'{base}/blob/v9.9.9/{work["file"]}')
+    # A commit URL cannot be inside the commit it names.
+    assert 'ddt.immutable_uri' in rules(f'{base}/blob/{"a" * 40}/{work["file"]}')
+
+
 def test_facsimile_topology(score):
     _, path, tree, _ = score
     topology = {'ddt.measure_zone', 'ddt.unused_measure_zone', 'ddt.shared_measure_zone', 'ddt.zone_bounds'}

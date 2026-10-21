@@ -20,6 +20,12 @@ def _digest(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def _git_blob(root, revision, file):
+    """Bytes of a corpus-relative file at a Git revision, or None."""
+    command = subprocess.run(['git', '-C', str(root), 'cat-file', 'blob', revision + ':./' + file], capture_output=True)
+    return command.stdout if command.returncode == 0 else None
+
+
 def _checkpoint(path, record):
     temporary = path.with_name(path.name + '.' + uuid.uuid4().hex + '.tmp')
     temporary.write_text(json.dumps(record, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
@@ -115,6 +121,23 @@ def _publication_rows(plan, result):
             exists = subprocess.run(['git', '-C', str(root), 'cat-file', '-e', reference + '^{commit}'], capture_output=True)
             if exists.returncode != 0:
                 add('immutable_commit', 'Declared immutable corpus commit is not available locally for verification.')
+            else:
+                # Only the selected MEI is compared; the manifest cannot hold its own commit.
+                # The MEI names the release tag instead, so the tag must carry the same bytes.
+                tag = 'refs/tags/v' + str(manifest.get('release_version'))
+                tagged = subprocess.run(['git', '-C', str(root), 'rev-parse', '--verify', '-q', tag + '^{commit}'],
+                                        capture_output=True).returncode == 0
+                if not tagged:
+                    add('release_tag', f'Release tag {tag.removeprefix("refs/tags/")} is not available locally; tag the manifest commit before release validation.')
+                for work in plan['works']:
+                    path = root / work['file']
+                    blob = _git_blob(root, reference, work['file'])
+                    if blob is None or not path.is_file() or blob != path.read_bytes():
+                        add('immutable_content', 'Selected MEI differs from its copy at the declared immutable commit.',
+                            file=work['file'])
+                    if tagged and _git_blob(root, tag, work['file']) != blob:
+                        add('release_tag', 'The release tag carries a different MEI than the declared immutable commit.',
+                            file=work['file'])
         if not (root / 'CITATION.cff').is_file():
             add('citation', 'Release requires corpus CITATION.cff.')
         if manifest.get('release_scope') != 'mei-data-only':

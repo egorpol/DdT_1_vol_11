@@ -249,8 +249,10 @@ python -m pytest tests -q
 ```
 
 Release forces full Verovio rendering/CAMAT parsing and requires final file/URI,
-release version/date, a locally available immutable commit URL, current input
-hashes, persistent event IDs and hash-bound human sign-off. The initial supported
+release version/date, a locally available immutable commit whose MEI matches the
+working files byte for byte, a local `v<version>` tag carrying the same MEI (the
+versioned URI names the tag, since a file cannot contain its own commit), current
+input hashes, persistent event IDs and hash-bound human sign-off. The initial supported
 scope is `mei-data-only` and requires `CITATION.cff`. Sign-off must name an actual
 reviewer and date and acknowledge the profile's review checks; annotation reviews
 also confirm their reading/rationale/evidence. Automation does not fill them in.
