@@ -11,6 +11,10 @@ All notable changes to this edition are recorded here. Version numbers follow th
 
 ### Fixed
 
+- Op. I/6, m. 126: the dynamics on staves 3 and 5 now read Forte, as DdT 1903 prints them (p. 62); they were encoded as Piano. The Piano in m. 125 is unchanged.
+- App. III, m. 150: withdrew the conjectural dot on the keyboard lower-staff G2 and its annotation. DdT 1903 prints the dot (p. 182), so the encoded dotted half is the printed reading; the emendation rested on a misreading. The edition now has 21 editorial annotations: 3 source-supported emendations, 7 conjectural emendations and 11 encoding notes.
+- Op. I/1, mm. 79–80: the encoding note on the A3 tie now says it crosses a system break, not a page break.
+- The Op. II/6 m. 3 excerpt is re-cropped to 525 × 300 pixels: the old right edge cut through the head of the measure's last note, the E5 sixteenth.
 - Web viewer: in the 17 measures with a blank figured-bass figure (`<f/>`, in Op. I/1, Op. II/6, Op. II/7 and App. II), the box drawn by "Measure boxes" and "Mark all notes" stretched to the top-left corner of the page (visibly in 16 of them), because Chrome counts the empty figure text as a point at the page origin. Empty texts are now left out before the boxes are measured.
 
 ## [0.9.0] — 2026-10-21

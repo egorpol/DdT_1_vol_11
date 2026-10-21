@@ -101,7 +101,7 @@ printed p. 139, instead gives a sixteenth. The
 explains the retained eighth-note reading and the rhythmic rationale.
 
 **Image preparation:** a direct crop at the scan's original pixel scale,
-485 × 300 pixels, saved as PNG from the supplied full-resolution JPEG access
+525 × 300 pixels, saved as PNG from the supplied full-resolution JPEG access
 image. No resizing, retouching or reconstructed notation is included. The
 TIFF master was not newly read for this crop. The modern introduction and
 unrelated measures are excluded; the part, page and system context are

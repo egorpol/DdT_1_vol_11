@@ -82,7 +82,7 @@
             <p>This is a working corrected digital edition based on DdT 1903, the only consulted musical source confirmed by the editor on 2026-10-20. Routine OMR and conversion repairs restore its printed reading and are summarized in revision history. Substantive departures, retained anomalies and uncertain readings are distinguished in local editorial annotations. No manuscript consultation is claimed.</p>
             <p>The five-staff DdT arrangement is retained: viola da gamba, violone, figured continuo bass, keyboard realization upper staff, and keyboard realization lower staff. The printed Violone part is not a violin part. The inherited repository filename and local key contain violin and are retained as working identifiers; the title, catalogue identity and analytical staff roles describe the printed instrumentation.</p>
             <p>Original page and system boundaries are encoded by pb and sb. The ten surfaces use work-local numbering from 1; their DdT printed range is pp. 176–185 (BSB images 186–195). Existing source zones and break positions are preserved.</p>
-            <p>The editor approved conjectural dots on the keyboard half notes at measures 137 and 150 and confirmed simultaneous eighth-note and sustained-quarter E4 entries at measures 41 and 49 on 2026-10-20. The source readings, rationale and voice interpretation are documented in the corresponding annotations. Ordinary metrical checking is enabled. Imported playback defaults are preserved.</p>
+            <p>The editor approved a conjectural dot on the keyboard half note at measure 137 and confirmed simultaneous eighth-note and sustained-quarter E4 entries at measures 41 and 49 on 2026-10-20. The source readings, rationale and voice interpretation are documented in the corresponding annotations. Ordinary metrical checking is enabled. Imported playback defaults are preserved.</p>
             <p>Subsidiary voices are completed with hidden trailing spaces where DdT ceases to notate that voice before the barline. These spaces encode silence and do not lengthen sounding notes or supply visible source rests.</p>
          </editorialDecl>
          <projectDesc>
@@ -107,6 +107,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Withdrew the conjectural emendation at measure 150, its annotation and its mention in the editorial declaration: DdT 1903, p. 182, prints the keyboard lower-staff G2 as a dotted half note, so the encoded dot follows the print. The emendation recorded on 2026-10-20 rested on a misreading. The musical text and facsimile zones are unchanged; the emendation at measure 137 stands.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date and recorded the page-level mei-friend correction in appInfo. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -11240,9 +11245,6 @@
                            <f>6</f>
                         </fb>
                      </harm>
-                     <annot xml:id="editorial.app3.m150.keyboard-half-note" type="editorial" label="conjectural-emendation" plist="#zzr54wi" resp="#resp.polyakov">
-                        <p>DdT 1903, printed p. 182 (BSB image 192), measure 150, keyboard lower staff: G2 is printed as an undotted half note in 3/4. A dot is supplied conjecturally, as approved by the editor on 2026-10-20, to fill the measure and align the keyboard bass with the dotted half in the figured continuo. The realization itself supplies no direct source support for the missing dot.</p>
-                     </annot>
                   </measure>
                   <measure xml:id="gscm0k4" n="151" facs="#zone_71fc863d620f4675b9">
                      <staff xml:id="p1t0yqr4" n="1">
