@@ -112,6 +112,7 @@ Use the following conventions consistently:
 - Each source page is represented by one `surface` with a `graphic` and measure zones.
 - For BSB surfaces, `surface/@corresp` points to the exact IIIF Presentation canvas; `graphic/@target` points to the requested image resource.
 - Every measure points to its measure zone through `measure/@facs`.
+- Every measure zone is referenced by exactly one measure and lies within its surface's `@ulx`/`@uly`/`@lrx`/`@lry` bounds.
 - Use one numbered `pb` for the first encoded content on every surface.
 - Use `sb` for the remaining original system boundaries on that surface.
 - `surface/@n` and `pb/@n` form a work-local sequence beginning with `1`.

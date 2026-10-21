@@ -115,6 +115,19 @@ def test_publication_uri_and_version(score):
     assert 'ddt.release_version' in checks(score,'release')
 
 
+def test_facsimile_topology(score):
+    _, path, tree, _ = score
+    topology = {'ddt.measure_zone', 'ddt.unused_measure_zone', 'ddt.shared_measure_zone', 'ddt.zone_bounds'}
+    assert not topology & checks(score)
+    first, second, third = list(tree.getroot().iter(f'{{{M}}}measure'))[:3]
+    zone = next(z for z in tree.getroot().iter(f'{{{M}}}zone') if z.get(ID) == first.get('facs').removeprefix('#'))
+    second.set('facs', first.get('facs'))
+    third.attrib.pop('facs')
+    zone.set('lrx', '99999')
+    save(path, tree)
+    assert topology <= checks(score)
+
+
 def test_missing_selected_manifest_work(score):
     _, path, _, _ = score
     path.unlink()

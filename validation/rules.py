@@ -157,6 +157,29 @@ def edition_rows(work, *, root_dir: Path, profile: dict, manifest: dict, mode: s
                         add('measure_zone', 'Each measure needs exactly one primary measure-zone pointer.', element)
                     elif zone_surface[facs[0].removeprefix('#')] != active:
                         add('measure_page', 'Measure zone is not on the active primary surface.', element)
+            # CAMAT runs its zone-topology checks only in its legacy publication profile.
+            uses = Counter(p.removeprefix('#') for m in music.iter(f'{{{MEI}}}measure') for p in m.get('facs', '').split())
+            for surface in surfaces:
+                box = [surface.get(k) for k in ('ulx', 'uly', 'lrx', 'lry')]
+                graphic = surface.find('m:graphic', NS)
+                if None in box and graphic is not None:
+                    box = ['0', '0', graphic.get('width'), graphic.get('height')]
+                for zone in surface.iter(f'{{{MEI}}}zone'):
+                    if zone.get('type') != 'measure':
+                        continue
+                    count = uses[zone.get(ID)]
+                    if count == 0:
+                        add('unused_measure_zone', 'Measure zone is not referenced by any measure.', zone)
+                    elif count > 1:
+                        add('shared_measure_zone', 'Measure zone is referenced by more than one measure.', zone, actual=str(count))
+                    try:
+                        ulx, uly, lrx, lry = (float(zone.get(k)) for k in ('ulx', 'uly', 'lrx', 'lry'))
+                        left, top, right, bottom = (float(v) for v in box)
+                    except (TypeError, ValueError):
+                        continue  # CAMAT reports missing or non-numeric zone coordinates.
+                    if ulx < left or uly < top or lrx > right or lry > bottom:
+                        add('zone_bounds', 'Measure zone extends beyond its surface.', zone,
+                            actual=f'{ulx:g},{uly:g},{lrx:g},{lry:g} outside {left:g},{top:g},{right:g},{bottom:g}')
         for annotation in music.iter(f'{{{MEI}}}annot'):
             if annotation.get('type') != 'editorial':
                 continue

@@ -256,7 +256,8 @@ reviewer and date and acknowledge the profile's review checks; annotation review
 also confirm their reading/rationale/evidence. Automation does not fill them in.
 Image redistribution inventories and complete archive/citation preparation still
 require separate release work. Current topology checks cover primary surfaces,
-page sequence/numbers and measure-zone/page links; full system-band inference,
+page sequence/numbers, measure-zone/page links, unused or shared measure zones
+and measure zones outside their surface; full system-band inference,
 scan-derivative inventory and cross-work release coverage are not implemented.
 
 A review exit code of zero means required general checks passed without hard
