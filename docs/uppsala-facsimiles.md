@@ -36,17 +36,17 @@ and sale in Lübeck. This inventory does not resolve the Op. I dating question.
 
 ## Directory layout
 
-Keep the TIFF masters in their delivered directories for now. The converter
-never changes, moves or recompresses them. Keep backups outside normal Git
+Keep the TIFF masters, under their delivered filenames, in the ignored
+`facsimiles/uppsala/masters/op1/` and `op2/` folders. The converter never changes, moves or recompresses them. Keep backups outside normal Git
 history. The received files total 7,105,854,304 bytes: 42 single-frame RGB TIFFs
 for Op. I (300 dpi) and 56 for Op. II (400 dpi). Most TIFFs contain a two-page
 spread. A scan number is therefore not a printed page number.
 
 ```text
-Polyakov, Buxtehude1/              received TIFF masters, local
-Polyakov, Buxtehude2/              received TIFF masters, local
 facsimiles/uppsala/
   sources.json                    source/carrier identity and inspected front matter
+  masters/op1/                    received TIFF masters, local
+  masters/op2/                    received TIFF masters, local
   op1/
     inventory-jpeg.json           original/output hashes and conversion metadata
     jpeg/scan-0001.jpg            full-resolution access image

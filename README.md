@@ -68,11 +68,11 @@ Status terms are used as follows:
 - [`11_buxtehude_sonatas_final/`](11_buxtehude_sonatas_final/) contains the primary combined sonata- and appendix-level editions. A temporary `_corr` filename suffix indicates a file still undergoing editorial work.
 - [`11_buxtehude_dietrich_buxtehudes_instrumentalwerke_bsb00023199/`](11_buxtehude_dietrich_buxtehudes_instrumentalwerke_bsb00023199/) preserves the page-level OMR source material from which the work-level files were assembled.
 - [`docs/mei-encoding-profile.md`](docs/mei-encoding-profile.md) documents the publication header, facsimile conventions, and validation profile.
-- [`docs/editorial-workflow.md`](docs/editorial-workflow.md) records file naming, work-level statuses, and the correction and validation workflow.
-- [`docs/validation-workflow.md`](docs/validation-workflow.md) separates shared CAMAT checks from this edition's publication rules.
+- [`docs/editorial-workflow.md`](docs/editorial-workflow.md) records file naming, work-level statuses, and the correction sequence.
+- [`validation/README.md`](validation/README.md) explains the checks, reports and release gate, and separates shared CAMAT checks from this edition's publication rules.
 - [`docs/editorial-policy.md`](docs/editorial-policy.md) defines source relationships, correction categories and responsibility.
 - [`docs/uppsala-facsimiles.md`](docs/uppsala-facsimiles.md) describes the private scan workflow and unresolved image terms.
-- [`docs/finalization-plan.md`](docs/finalization-plan.md) gives the implementation sequence, scan-format recommendations, and release acceptance criteria.
+- [`docs/finalization-plan.md`](docs/finalization-plan.md) lists what remains before the 1.0 release.
 
 Shared `_consistency_report.csv` files beside all assembled scores are tracked in Git for student editorial work. Refresh them together with `python scripts/refresh_editorial_reports.py`; [editorial report provenance](validation/editorial-reports.json) records the tested input/report hashes, actual CAMAT revision and executed checks. Full run artifacts and report backups stay local and ignored. The earlier [pilot validation baseline](validation/pilot-baseline.json) remains a historical snapshot; neither report set is publication sign-off.
 

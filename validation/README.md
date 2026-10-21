@@ -267,3 +267,43 @@ new read-only corpus workflow. Original local tools and saved outputs were
 moved to ignored `docs/archive/local-tools/artifacts/`; see
 [the migration audit](../docs/archive/local-tools/README.md). They are not imported
 or executed by the new workflow.
+
+## Responsibility boundary
+
+CAMAT owns the general checks:
+
+- XML readability, unique IDs and supported local or bundle pointer resolution
+  in explicit standalone and assembly contexts, including `resp`, `source`, URI
+  lists, document fragments and `xml:base`. Remote authority documents are not
+  fetched.
+- The unchanged official MEI 5.1 CMN RELAX NG and genuine execution of the
+  embedded Schematron, with namespace preservation, XPath 2 rules, SVRL and
+  handling of missing validators and incomplete runs. An XML schema
+  declaration alone executes neither pass.
+- Supplied offline raster and SVG resources and their declared coordinate
+  bounds; optional HTTP image reachability. Facsimiles, IIIF and numeric
+  surface names are not general MEI requirements.
+- Musical diagnostics and the optional Verovio and CAMAT consumer probes, kept
+  apart from schema validity. Alternative readings and complex timing still
+  need contextual review; consumer tables do not prove event fidelity.
+- Read-only orchestration, findings, execution and provenance records and
+  input hashes. Conversion, assembly and cleanup are separate explicit calls.
+
+This corpus owns its publication policy. `validation/profile.json`,
+`validation/works.json` and `validation/rules.py` select the exact schema
+declaration and hash, header paths and MEI-data license, work, file, catalogue
+and source identity, the responsibility convention, persistent event IDs,
+per-work staff roles, primary facsimile surfaces and page numbering,
+measure-zone and page relationships, and annotation fields, evidence and
+review. BuxWV numbers, the Uppsala opus witnesses and the pilot's five-staff
+arrangement are local selections, not CAMAT defaults.
+
+The page-level OMR files are in neither work list. Their
+[README](../11_buxtehude_dietrich_buxtehudes_instrumentalwerke_bsb00023199/README.md)
+says which files are authoritative and lists known duplicate IDs and missing
+zones.
+
+For editorial requirements, see [the encoding profile](../docs/mei-encoding-profile.md)
+and [editorial policy](../docs/editorial-policy.md). An automated report cannot
+establish source-faithful pitch, rhythm, articulation, accidentals, figures or
+readings.

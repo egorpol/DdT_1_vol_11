@@ -1,6 +1,6 @@
 # Historical validation design — 2026-09-30
 
-This preserves the original assessment. Missing-feature statements describe that date. See [the current workflow](../../validation-workflow.md) for implemented behavior.
+This preserves the original assessment. Missing-feature statements describe that date. See [the tool guide](../../../validation/README.md) for implemented behavior.
 
 Implementation update, 2026-10-01: the entry point is now
 [`scripts/validate_corpus.py`](../../../scripts/validate_corpus.py), with
@@ -120,4 +120,4 @@ Shared CAMAT tests should cover schema/Schematron failures, a deliberately faili
 
 Repository tests should cover a digital license missing while an image license remains, wrong schema-version declarations, wrong opus/source mapping, missing release-event IDs, incomplete annotations, mismatched final URI/filename/version, a missing manifest work, and a broken local derivative link. Include valid conjectural emendations, appendix-specific source/role mappings, and bibliographic witnesses without public scans. Test that a disabled required pass and an empty finding list cannot together yield a release pass.
 
-The ordered implementation and facsimile preparation plan is in [finalization-plan.md](../../finalization-plan.md).
+The ordered implementation and facsimile preparation plan is in the [archived plan](../planning/finalization-plan-2026-10-01.md).

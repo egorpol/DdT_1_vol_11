@@ -83,9 +83,8 @@ which permits an explicit `tie` element to specify visual information.
 with unchanged pitches, onsets and durations, compare inline attributes and
 explicit endpoints, and search existing upstream reports. The current score
 passes validation and renders all three connections; no musical emendation is
-needed. Baseline and final evidence are retained in the ignored dated
-`validation/runs/op2-04-fresh-review-20261019T220811230078Z/` and
-`validation/runs/op2-04-final-review-20261019T221810008800Z/` directories.
+needed. Baseline and final evidence from 2026-10-19 are kept in local,
+unpublished run directories.
 
 ## Automatic repeat expansion crashes on consecutive repeat endings
 
@@ -126,7 +125,6 @@ upstream report was submitted.
 
 **For the combined reassessment:** retain the two-measure reproduction,
 passing explicit-start control, crash logs, issue-search responses and draft
-in the ignored dated `validation/runs/app1-fresh-review-20261020T031254523884Z/repeat-expansion/`
-directory. Recheck the then-current runtime and tracker before deciding
+in the local, unpublished run directory of 2026-10-20. Recheck the then-current runtime and tracker before deciding
 whether to report the automatic-generation crash. The score's explicit
 repeat plan is independently meaningful and does not suppress its repeats.
