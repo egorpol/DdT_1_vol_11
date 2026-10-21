@@ -78,6 +78,7 @@ The App. III stem keeps its original `violin`; the printed score and the MEI wor
 - [`docs/uppsala-facsimiles.md`](docs/uppsala-facsimiles.md) describes the private scan workflow and unresolved image terms.
 - [`docs/finalization-plan.md`](docs/finalization-plan.md) lists what remains before the 1.0 release.
 - [`CHANGELOG.md`](CHANGELOG.md) records the changes in each release; [`docs/release-notes/`](docs/release-notes/) holds each release's notes, validation record and known limitations.
+- [`site/`](site/) is the web viewer: each score rendered with Verovio beside its BSB facsimile page, with the editorial notes and source excerpts. `python scripts/build_site.py` assembles it in `_site/` (preview with `python -m http.server -d _site`); GitHub Pages publishes it from `main`.
 
 Shared `_consistency_report.csv` files beside all assembled scores are tracked in Git for student editorial work. Refresh them together with `python scripts/refresh_editorial_reports.py`; [editorial report provenance](validation/editorial-reports.json) records the tested input/report hashes, actual CAMAT revision and executed checks. Full run artifacts and report backups stay local and ignored. The earlier [pilot validation baseline](validation/pilot-baseline.json) remains a historical snapshot; neither report set is publication sign-off.
 

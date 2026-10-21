@@ -1,0 +1,42 @@
+# Publishes the web viewer (site/), the assembled MEI files and the source
+# excerpts listed in supplemental_material/manifest.json to GitHub Pages.
+# scripts/build_site.py copies only those files; the facsimile pages stay on
+# the BSB IIIF server.
+name: Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "11_buxtehude_sonatas_final/*.mei"
+      - "supplemental_material/**"
+      - "validation/editorial-works.json"
+      - "scripts/build_site.py"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+      - run: python3 scripts/build_site.py _site
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v5

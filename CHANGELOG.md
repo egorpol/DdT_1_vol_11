@@ -2,6 +2,12 @@
 
 All notable changes to this edition are recorded here. Version numbers follow the [encoding profile](docs/mei-encoding-profile.md#release-identity-versions-and-citation): patch releases for compatible corrections or metadata fixes that keep event IDs, minor releases for added works or coverage, and major releases for changes to event identity, segmentation or analytical interpretation. Musical corrections are listed even when the version step is small.
 
+## [Unreleased]
+
+### Added
+
+- A web viewer in `site/`, ported from the Webern Op. 27 edition's: each work rendered by Verovio page by page beside its BSB facsimile page, measure zones linked both ways, links such as `#op2_02/189`, the editorial notes with their source excerpts, and two remembered display settings (mark every note target, box every measure). `scripts/build_site.py` assembles it and a GitHub Pages workflow publishes it.
+
 ## [0.9.0] — 2026-10-21
 
 First public pre-release. The 16 assembled works are **corrected, not finalized**: their musical text and facsimile links have been reviewed against DdT 1903 and their consistency reports completed, but publication sign-off, final filenames and the release-mode gate are still open. See the [release notes](docs/release-notes/0.9.0.md) for the validation record and known limitations, and the [1.0 checklist](docs/finalization-plan.md) for what remains.
