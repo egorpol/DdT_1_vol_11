@@ -115,6 +115,63 @@
         "image_license": null,
         "note": "No MIT or BSB image license is assigned to this PNG. This intended quotation basis does not establish general scan-redistribution permission or settle any applicable scan-supply contract. See README.md."
       }
+    },
+    {
+      "file": "supplemental_material/supplemental_material_op1_01_m011_stimu1991.png",
+      "sha256": "e9c4e518d356f620de13110481d97ba6ecb26ee263ca0417c8926ed03b4f009e",
+      "bytes": 228446,
+      "media_type": "image/png",
+      "width": 572,
+      "height": 250,
+      "created_date": "2026-10-21",
+      "work_key": "op1_01_sonata_f_major",
+      "measure": 11,
+      "instrument": "violin",
+      "mei_file": "11_buxtehude_sonatas_final/buxtehude_op1_01_sonata_f_major_corr.mei",
+      "annotation_id": "editorial_00dbfb1e88e5",
+      "event_id": "jov0yhc",
+      "historical_source": "src.uppsala.op1",
+      "carrier_source": "src.stimu1991.op1",
+      "caption": "Dieterich Buxtehude, Op. I, Violino partbook, Sonata I, opening music page (signature A), third system, first bar; Uppsala partbooks, STIMU facsimile (Utrecht, 1991; introduction by Kerala J. Snyder), supplied library scan-0006, right-hand page.",
+      "purpose": "Document the single primary beam joining the C-sharp4 to the following notes, which makes it an eighth note, supporting the source-supported emendation from the sixteenth printed in DdT 1903.",
+      "source_provenance": {
+        "local_file": "facsimiles/uppsala/op1/jpeg/scan-0006.jpg",
+        "included_in_release": false,
+        "sha256": "9035ebfe2dcd196d249b514f3b333afe07a40992ce7f1b3900183d9ebb64524f",
+        "size": [
+          4978,
+          3406
+        ],
+        "inventory": "facsimiles/uppsala/op1/inventory-jpeg.json",
+        "upstream_input": "facsimiles/uppsala/masters/op1/1.6.tif",
+        "upstream_input_sha256": "8a4f0d56325d6d3b78cebb796d570cd25d90acce14993e6baa924fcf1b0a395a",
+        "source_level": "JPEG access derivative; TIFF master not newly read for this crop"
+      },
+      "crop": {
+        "box_xyxy": [
+          2785,
+          970,
+          3357,
+          1220
+        ],
+        "pixel_scale": "unchanged",
+        "operations": [
+          "crop",
+          "lossless PNG encoding"
+        ],
+        "software": "Version: ImageMagick 7.1.2-34 Q16-HDRI x86_64 c5d4ca8a0:20261014 https://imagemagick.org",
+        "command": "magick 'facsimiles/uppsala/op1/jpeg/scan-0006.jpg' -crop 572x250+2785+970 +repage -define png:exclude-chunks=date,time supplemental_material/supplemental_material_op1_01_m011_stimu1991.png"
+      },
+      "rights": {
+        "intended_use": "Documentary image quotation with the linked critical annotation",
+        "jurisdiction_basis": "Germany, UrhG §§ 51 and 63, checked 2026-10-19",
+        "statutory_references": [
+          "https://www.gesetze-im-internet.de/urhg/__51.html",
+          "https://www.gesetze-im-internet.de/urhg/__63.html"
+        ],
+        "image_license": null,
+        "note": "No MIT or BSB image license is assigned to this PNG. This intended quotation basis does not establish general scan-redistribution permission or settle any applicable scan-supply contract. See README.md."
+      }
     }
   ]
 }

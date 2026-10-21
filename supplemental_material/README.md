@@ -73,3 +73,37 @@ above for Op. II/2 (UrhG §§ 51 and 63, checked 2026-10-19). The scope is one
 measure, showing the printed beam and its immediate musical context. The same
 separation from the MEI-data license and the same qualifications concerning
 standalone image reuse and scan-supply terms apply.
+
+## Op. I/1, measure 11, violin
+
+![Original-print measure supporting the C-sharp4 eighth-note reading](supplemental_material_op1_01_m011_stimu1991.png)
+
+**Source:** Dieterich Buxtehude, *VII. Suonate à doi, Violino & Violadagamba,
+con Cembalo*, Op. I (undated; [1696] in the Uppsala catalogue), Uppsala
+University Library, Düben Collection, `Uimtr 52:1–4`, RISM A/I B5204. Consulted
+through the STIMU facsimile edition (Utrecht, 1991; introduction by Kerala J.
+Snyder), supplied as university-library scans. The digitising institution was
+not named in the supplied provenance.
+
+**Location:** Violino partbook, Sonata I, opening music page (signature A),
+third system, first bar, corresponding to combined-score m. 11; supplied
+`scan-0006.jpg`, right-hand page. The crop shows this one measure with its clef
+and key context. The C-sharp4 is joined to the following notes by a single
+primary beam, giving an eighth note, while the following D and E have
+additional beams; DdT 1903, printed p. 3, instead gives a sixteenth. The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op1_01_sonata_f_major_corr.mei#editorial_00dbfb1e88e5)
+explains the eighth-note reading.
+
+**Image preparation:** a direct crop at the scan's original pixel scale,
+572 × 250 pixels, saved as PNG from the supplied full-resolution JPEG access
+image. No resizing, retouching or reconstructed notation is included. The
+TIFF master was not newly read for this crop. The facing page and unrelated
+measures are excluded; the part, page and system context are identified above
+and in the crop manifest.
+
+**Intended reuse:** this excerpt accompanies the critical discussion of the
+specific C-sharp4 reading on the same documentary image-quotation basis
+recorded above for Op. II/2 (UrhG §§ 51 and 63, checked 2026-10-19). The scope
+is one measure, showing the printed beaming and its immediate musical context.
+The same separation from the MEI-data license and the same qualifications
+concerning standalone image reuse and scan-supply terms apply.

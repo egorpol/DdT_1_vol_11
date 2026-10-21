@@ -96,7 +96,7 @@
                   </imprint>
                   <ref type="reproduced-witness" target="#src.uppsala.op1">Facsimile reproduction of the Uppsala Op. I witness, with an introduction by Kerala J. Snyder.</ref>
                   <availability>
-                     <useRestrict>Consulted through locally held university-library scans. Public redistribution terms for these scans remain unconfirmed.</useRestrict>
+                     <useRestrict>Consulted through locally held university-library scans. Public redistribution terms for these scans remain unconfirmed. A limited measure-level excerpt accompanies the critical annotation as a documentary image quotation; its attribution and intended reuse basis are recorded in the <ref target="../supplemental_material/README.md">supplemental material</ref>.</useRestrict>
                   </availability>
                </bibl>
             </source>
@@ -143,6 +143,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Added a one-measure facsimile excerpt supporting the violin C-sharp4 eighth-note reading in measure 11, from the STIMU 1991 reproduction of the Op. I historical print, Violino partbook, Sonata I, third system. Linked the PNG from annotation editorial_00dbfb1e88e5 and recorded attribution, crop coordinates, source and output checksums, and the intended documentary image-quotation basis in supplemental_material. The musical encoding is unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -1515,6 +1520,9 @@
                            </beam>
                            <annot xml:id="editorial_00dbfb1e88e5" type="editorial" label="source-supported-emendation" plist="#jov0yhc" source="#src.uppsala.op1" resp="#resp.polyakov #resp.haering">
                               <p>DdT prints the C-sharp4 at this location as a sixteenth note; it is encoded as an eighth note, following the <ref target="#src.uppsala.op1">Op. I historical witness</ref> consulted through the <ref target="#src.stimu1991.op1">STIMU 1991 facsimile</ref>. Witness locator: Violino partbook, Sonata I, opening music page (signature A), third system, first bar (measure 11); local scan-0006.jpg, right-hand page. The witness joins this C-sharp to the following notes with a single primary beam, while the following D and E have additional beams.</p>
+                              <p>
+                                 <ref type="supplemental-material" target="../supplemental_material/supplemental_material_op1_01_m011_stimu1991.png">Supplemental facsimile excerpt: Op. I/1, measure 11, violin (Op. I print through STIMU 1991).</ref>
+                              </p>
                            </annot>
                            <beam xml:id="p1csnii3">
                               <note xml:id="qridqyf" dots="1" dur="8" oct="4" pname="e" stem.dir="up" />
