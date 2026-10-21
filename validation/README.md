@@ -46,6 +46,9 @@ remote branch. `--status` inspects the selected Python environment without
 updating it. In an environment without pip, such as a uv venv, the helper runs
 `uv pip` instead. It copies no validation code into this corpus.
 
+A fresh clone can instead install the tested versions of every dependency,
+CAMAT 0.2.7 from PyPI included, with `python -m pip install -r requirements.txt`.
+
 Use the printed module/distribution versions, import path and commit rather than
 inferring a package version from a branch or commit title.
 

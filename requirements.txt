@@ -1,0 +1,14 @@
+# Versions tested for the editorial report refresh, the validation gate and
+# tests/ on Python 3.14; they resolve on Python 3.12 or newer (numpy 2.5 needs
+# 3.12). Also needed outside pip: git and libxml2's xmllint.
+#   pip install -r requirements.txt
+camat[validation,test]==0.2.7
+verovio==6.3.0
+lxml==6.1.2
+saxonche==13.0.0
+pillow==12.3.0
+pandas==3.0.5
+numpy==2.5.2
+music21==10.5.0
+ipython==9.16.1
+pytest==9.1.1

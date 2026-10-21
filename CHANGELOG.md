@@ -2,7 +2,7 @@
 
 All notable changes to this edition are recorded here. Version numbers follow the [encoding profile](docs/mei-encoding-profile.md#release-identity-versions-and-citation): patch releases for compatible corrections or metadata fixes that keep event IDs, minor releases for added works or coverage, and major releases for changes to event identity, segmentation or analytical interpretation. Musical corrections are listed even when the version step is small.
 
-## [0.9.0] — unreleased
+## [0.9.0] — 2026-10-21
 
 First public pre-release. The 16 assembled works are **corrected, not finalized**: their musical text and facsimile links have been reviewed against DdT 1903 and their consistency reports completed, but publication sign-off, final filenames and the release-mode gate are still open. See the [release notes](docs/release-notes/0.9.0.md) for the validation record and known limitations, and the [1.0 checklist](docs/finalization-plan.md) for what remains.
 
@@ -13,7 +13,7 @@ First public pre-release. The 16 assembled works are **corrected, not finalized*
 - 22 editorial annotations at the affected events: 3 source-supported emendations, 8 conjectural emendations and 11 encoding notes, plus 2 encoding notes on the notated meter in Op. II/2.
 - Two one-measure facsimile excerpts from the STIMU 1991 reproduction of the Op. II print (Op. II/2 m. 189, Op. II/6 m. 3) in `supplemental_material/`, with their own attribution and rights note. The MIT licence does not cover them.
 - A tracked consistency report beside each score (`*_consistency_report.csv`) and its provenance in `validation/editorial-reports.json`.
-- Corpus validation: `scripts/validate_corpus.py` (CAMAT's general MEI checks plus this edition's publication rules in `validation/rules.py` and `validation/profile.json`), `scripts/refresh_editorial_reports.py`, helpers for installing CAMAT and syncing its viewer notebook, the `mei_corpus_checks.ipynb` and `mei_facsimile_viewer.ipynb` notebooks, and a test suite in `tests/`.
+- Corpus validation: `scripts/validate_corpus.py` (CAMAT's general MEI checks plus this edition's publication rules in `validation/rules.py` and `validation/profile.json`), `scripts/refresh_editorial_reports.py`, helpers for installing CAMAT and syncing its viewer notebook, the `mei_corpus_checks.ipynb` and `mei_facsimile_viewer.ipynb` notebooks, a test suite in `tests/`, and the tested dependency versions in `requirements.txt`.
 - Documentation: [editorial policy](docs/editorial-policy.md), [encoding profile](docs/mei-encoding-profile.md), [editorial workflow](docs/editorial-workflow.md), [encoding and rendering issues](docs/issues.md), [Uppsala scan guide](docs/uppsala-facsimiles.md), [1.0 checklist](docs/finalization-plan.md) and [`CITATION.cff`](CITATION.cff).
 
 ### Kept from earlier work

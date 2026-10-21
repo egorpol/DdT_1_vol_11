@@ -93,11 +93,12 @@ python scripts/refresh_editorial_reports.py
 python scripts/sync_camat_viewer.py
 ```
 
-For a standalone clone without a neighboring CAMAT checkout, use
-`python scripts/update_camat.py --git-ref v0.2.7` to install CAMAT 0.2.7. Its
+For a standalone clone without a neighboring CAMAT checkout,
+`python -m pip install -r requirements.txt` installs the tested versions
+(Python 3.12 or newer), including CAMAT 0.2.7 from PyPI; `python scripts/update_camat.py --git-ref v0.2.7`
+installs the same CAMAT from Git and records the resolved code. CAMAT 0.2.7's
 duration checks also cover measures marked `metcon="false"`, as the committed
-reports do; CAMAT 0.2.1–0.2.6 skip them. This requires network access and
-records the resolved code. Viewer syncing separately needs a local CAMAT
+reports do; CAMAT 0.2.1–0.2.6 skip them. Viewer syncing separately needs a local CAMAT
 checkout, selected with `--checkout /path/to/camat_v2`; add `--ref v0.2.7` to
 copy the released notebook rather than the checkout's working file.
 
@@ -146,9 +147,9 @@ Work on this corpus is funded by the German Research Foundation (DFG), programme
 
 ## Citation
 
-Until a versioned release is available, cite the repository with a commit or access date and cite the underlying source edition separately. The same metadata are in [`CITATION.cff`](CITATION.cff).
+Cite a versioned release, currently the 0.9.0 pre-release, and cite the underlying source edition separately. The same metadata are in [`CITATION.cff`](CITATION.cff); the [changelog](CHANGELOG.md) lists each release.
 
-> Polyakov, Egor, Lea Meret Beck, Ragna Conrads, Francy Häring, Jan-Raphael Kemnitzer, Pia Steuck, Jingyu Tu, and You Zhou. *DdT 1, Vol. 11 — Dietrich Buxtehude: Instrumental Works*. Corrected MEI edition. CAMAT Corpus Editions. https://github.com/egorpol/DdT_1_vol_11.
+> Polyakov, Egor, Lea Meret Beck, Ragna Conrads, Francy Häring, Jan-Raphael Kemnitzer, Pia Steuck, Jingyu Tu, and You Zhou. *DdT 1, Vol. 11 — Dietrich Buxtehude: Instrumental Works*. Version 0.9.0 (pre-release). CAMAT Corpus Editions, 2026. https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.9.0.
 
 > Dietrich Buxtehude. *Dietrich Buxtehudes Instrumentalwerke: Sonaten für Violine, Gambe und Cembalo*. Edited by Carl Stiehl. Leipzig: Breitkopf und Härtel, 1903. Digitized by the Bayerische Staatsbibliothek as `bsb00023199`.
 
