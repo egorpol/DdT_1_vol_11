@@ -27,7 +27,7 @@ The validation boundary, the shared CAMAT checks and this corpus's validator are
 ## Files and metadata
 
 - [ ] Remove the `_corr` suffix and set the final filenames and publication URIs together, following the `altId[@type='repository-stem']` mapping in the [editorial workflow](editorial-workflow.md#file-naming).
-- [ ] Set one edition version and release date in every header, with a revision entry for the release.
+- [ ] Set one edition version and release date in every header, with a revision entry for the release. Release mode reads the first `pubStmt/date` as the release date; Op. I/1 and Op. II/4 still open with untyped dates (2026-08-15, 2026-08-31) left from earlier draft headers.
 - [ ] Rerun the full editorial report set on the final filenames and commit its provenance.
 
 ## Release gate and archive

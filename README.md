@@ -77,6 +77,7 @@ The App. III stem keeps its original `violin`; the printed score and the MEI wor
 - [`docs/editorial-policy.md`](docs/editorial-policy.md) defines source relationships, correction categories and responsibility.
 - [`docs/uppsala-facsimiles.md`](docs/uppsala-facsimiles.md) describes the private scan workflow and unresolved image terms.
 - [`docs/finalization-plan.md`](docs/finalization-plan.md) lists what remains before the 1.0 release.
+- [`CHANGELOG.md`](CHANGELOG.md) records the changes in each release; [`docs/release-notes/`](docs/release-notes/) holds each release's notes, validation record and known limitations.
 
 Shared `_consistency_report.csv` files beside all assembled scores are tracked in Git for student editorial work. Refresh them together with `python scripts/refresh_editorial_reports.py`; [editorial report provenance](validation/editorial-reports.json) records the tested input/report hashes, actual CAMAT revision and executed checks. Full run artifacts and report backups stay local and ignored. The earlier [pilot validation baseline](validation/pilot-baseline.json) remains a historical snapshot; neither report set is publication sign-off.
 
@@ -155,4 +156,4 @@ Until a versioned release is available, cite the repository with a commit or acc
 
 The MEI data and project-authored code/documentation are released under the [MIT License](LICENSE). The unchanged official MEI schema retains its upstream Educational Community License 2.0 notice.
 
-Third-party facsimile images are separate from the MEI-data license. Consult the [BSB source record](https://digitale-sammlungen.de/en/view/bsb00023199) for its stated image terms. The locally held STIMU/Uppsala scans and derivatives remain excluded from Git while their redistribution terms are unconfirmed; see the [scan guide](docs/uppsala-facsimiles.md).
+Third-party facsimile images are separate from the MEI-data license. The [BSB source record](https://digitale-sammlungen.de/en/view/bsb00023199) offers its digitization of the 1903 print (copy held by the library of the Hochschule für Musik und Theater München) under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/), as each MEI header records. The MEI files link to these images on the BSB IIIF server; this repository does not copy them. Reusing the images themselves, for example reproducing a page, falls under that license: credit the source, use them only non-commercially, and share adaptations under the same terms. The locally held STIMU/Uppsala scans and derivatives remain excluded from Git while their redistribution terms are unconfirmed; see the [scan guide](docs/uppsala-facsimiles.md).
