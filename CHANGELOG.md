@@ -9,6 +9,10 @@ All notable changes to this edition are recorded here. Version numbers follow th
 - A web viewer in `site/`, ported from the Webern Op. 27 edition's: each work rendered by Verovio page by page beside its BSB facsimile page, measure zones linked both ways, links such as `#op2_02/189`, the editorial notes with their source excerpts, and two remembered display settings (mark every note target, box every measure). `scripts/build_site.py` assembles it and a GitHub Pages workflow publishes it.
 - A one-measure facsimile excerpt for Op. I/1 m. 11, violin, from the STIMU 1991 reproduction of the Op. I print, in `supplemental_material/`: it shows the beaming that makes the C-sharp4 an eighth note (DdT prints a sixteenth). The annotation links it and the viewer shows it with the note, so all three source-supported emendations now have an excerpt.
 
+### Fixed
+
+- Web viewer: in the 17 measures with a blank figured-bass figure (`<f/>`, in Op. I/1, Op. II/6, Op. II/7 and App. II), the box drawn by "Measure boxes" and "Mark all notes" stretched to the top-left corner of the page (visibly in 16 of them), because Chrome counts the empty figure text as a point at the page origin. Empty texts are now left out before the boxes are measured.
+
 ## [0.9.0] — 2026-10-21
 
 First public pre-release. The 16 assembled works are **corrected, not finalized**: their musical text and facsimile links have been reviewed against DdT 1903 and their consistency reports completed, but publication sign-off, final filenames and the release-mode gate are still open. See the [release notes](docs/release-notes/0.9.0.md) for the validation record and known limitations, and the [1.0 checklist](docs/finalization-plan.md) for what remains.

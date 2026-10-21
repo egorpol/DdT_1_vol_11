@@ -254,9 +254,15 @@ function staffSpace(measure) {
 }
 
 // A box behind every rendered measure (shown by the settings) and a marker
-// above each measure that has a source excerpt.
+// above each measure that has a source excerpt. An empty text, such as the one
+// Verovio writes for a blank figure (<f/>), draws nothing, but Chrome counts it
+// as a point at (0, 0) in getBBox and stretches the box to the page corner;
+// hide it first.
 function decorate() {
   const model = current();
+  for (const text of $('score').querySelectorAll('g.measure text')) {
+    if (!text.textContent.trim()) text.setAttribute('display', 'none');
+  }
   for (const g of $('score').querySelectorAll('g.measure')) {
     if (!model.measures.has(g.id)) continue;
     const box = g.getBBox();
