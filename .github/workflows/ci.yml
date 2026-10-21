@@ -1,0 +1,47 @@
+# Runs tests/ and the review-mode validation gate with the pinned
+# requirements.txt. Review mode exits 0 on "needs-review" findings and fails on
+# schema or Schematron errors, skipped required checks and DdT rule errors.
+# The gate's run.json and findings are kept as the review-gate artifact.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      # Full history, so a manifest's immutable_git_ref can be resolved.
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+      # xmllint runs CAMAT's RELAX NG pass.
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libxml2-utils
+      - run: python -m pip install -r requirements.txt
+      - name: Tests
+        run: python -m pytest -p no:cacheprovider -q tests
+      - name: Review gate
+        run: >-
+          python scripts/validate_corpus.py
+          --manifest validation/editorial-works.json --mode review
+          --output-dir "$RUNNER_TEMP/review-gate"
+      - uses: actions/upload-artifact@v7
+        if: ${{ !cancelled() }}
+        with:
+          name: review-gate
+          path: ${{ runner.temp }}/review-gate
