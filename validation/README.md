@@ -212,7 +212,8 @@ helper: a direct notebook consumer parse can terminate its kernel.
 
 All validations finish before shared CSVs are replaced. An interrupted or raised
 validation retains the previous report set. Previous CSVs and provenance are backed up
-under ignored `validation/report-backups/`; detailed new evidence is retained in
+under ignored `validation/report-backups/`, and an export that fails partway
+restores the files it replaced from that backup. Detailed new evidence is retained in
 ignored `validation/runs/editorial/`. The notebook copy cell refreshes one CSV
 only; rerun the batch command to refresh the complete provenance before committing.
 Review the CSV/provenance diff and commit them with the relevant MEI changes.

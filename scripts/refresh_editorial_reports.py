@@ -147,7 +147,8 @@ def refresh_reports(*, root=ROOT, manifest=None, output_dir=None, check_network=
     """Validate all editorial selections before replacing the shared report set.
 
     Validation errors remain in refreshed reports and return exit code 1.
-    An interrupted/raised validation leaves the previous shared report set intact.
+    An interrupted/raised validation leaves the previous shared report set intact;
+    an export failing partway restores the files it replaced from the backup.
     """
     root = Path(root).resolve()
     manifest = Path(manifest or root / 'validation/editorial-works.json').resolve()
@@ -199,8 +200,11 @@ def refresh_reports(*, root=ROOT, manifest=None, output_dir=None, check_network=
     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
     summary_path = root / 'validation/editorial-reports.json'
     backup = root / 'validation/report-backups' / stamp
+    targets = [*(p for p, _, _ in completed), summary_path]
+    if len({p.name for p in targets}) != len(targets):
+        raise RuntimeError('Two reports share a file name in the flat backup; previous shared reports retained.')
     backup.mkdir(parents=True, exist_ok=True)
-    for destination in [*(p for p, _, _ in completed), summary_path]:
+    for destination in targets:
         if destination.exists():
             shutil.copy2(destination, backup / destination.name)
     summary = {
@@ -213,9 +217,23 @@ def refresh_reports(*, root=ROOT, manifest=None, output_dir=None, check_network=
                      root / 'scripts/validate_corpus.py', root / 'scripts/refresh_editorial_reports.py']},
         'options': record['options'], 'works': [entry for _, _, entry in completed],
     }
-    for destination, staged, _ in completed:
-        shutil.copyfile(staged, destination)
-    summary_path.write_text(json.dumps(summary, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+    touched = []
+    try:
+        for destination, staged, _ in completed:
+            touched.append(destination)
+            shutil.copyfile(staged, destination)
+        touched.append(summary_path)
+        summary_path.write_text(json.dumps(summary, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+    except BaseException as error:
+        # Undo a partial export so the CSVs and their provenance stay in step.
+        for destination in touched:
+            saved = backup / destination.name
+            if saved.exists():
+                shutil.copy2(saved, destination)
+            else:
+                destination.unlink(missing_ok=True)
+        error.add_note(f'Export failed; previous shared reports restored from {backup.relative_to(root)}.')
+        raise
     print(f'Refreshed {len(completed)} tracked editorial reports. Provenance: validation/editorial-reports.json', flush=True)
     return int(failed)
 

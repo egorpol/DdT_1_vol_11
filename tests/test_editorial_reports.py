@@ -89,6 +89,48 @@ def test_raised_validation_does_not_replace_existing_shared_reports(tmp_path, mo
     assert report.read_text() == 'student working report\n'
 
 
+def test_export_failing_partway_restores_reports_and_provenance(tmp_path, monkeypatch):
+    m = module()
+    works = [{'key': key, 'file': f'{key}.mei'} for key in ('first', 'added', 'last')]
+    scores = [tmp_path / work['file'] for work in works]
+    for path in [*scores, tmp_path / 'schema.rng', tmp_path / 'profile.json',
+                 tmp_path / 'validation/editorial-works.json', tmp_path / 'validation/rules.py',
+                 tmp_path / 'scripts/validate_corpus.py', tmp_path / 'scripts/refresh_editorial_reports.py']:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text('<mei/>')
+    plan = {'works': works, 'files': scores, 'unlisted_files': [],
+            'schema': tmp_path / 'schema.rng', 'profile_path': tmp_path / 'profile.json'}
+    monkeypatch.setattr(m, 'plan_corpus_validation', lambda **kw: plan)
+    def validated(work, **kw):
+        path = tmp_path / work['file']
+        record = {'camat': {}, 'completion_status': 'completed', 'mei_conformance': 'passed',
+                  'consumer_diagnostics': 'passed', 'executions': {}, 'options': {}, 'dependency_versions': {},
+                  'ddt': {'mode': 'review', 'publication_acceptance': 'needs-review'},
+                  'inputs': [{'path': str(path), 'sha256_before': m.digest(path), 'unchanged': True}]}
+        return SimpleNamespace(record=record, findings=[], passed=True)
+    monkeypatch.setattr(m, 'validate_work', validated)
+    first, added, last = (m.report_path(tmp_path, work) for work in works)
+    summary = tmp_path / 'validation/editorial-reports.json'
+    previous = {first: 'old first\n', last: 'old last\n', summary: '{"old": true}\n'}
+    for path, text in previous.items():
+        path.write_text(text)
+    real_copyfile = m.shutil.copyfile
+    seen = []
+    def copy_then_fail(source, target, **kw):
+        if Path(target) == last and not seen:
+            seen.append((first.read_text(), added.exists()))
+            Path(target).write_text('partial')
+            raise OSError('disk full')
+        return real_copyfile(source, target, **kw)
+    monkeypatch.setattr(m.shutil, 'copyfile', copy_then_fail)
+    with pytest.raises(OSError, match='disk full') as caught:
+        m.refresh_reports(root=tmp_path)
+    assert seen == [(','.join(m.COLUMNS) + '\n', True)]  # Two reports were replaced before the failure.
+    assert {path: path.read_text() for path in previous} == previous
+    assert not added.exists()
+    assert 'restored from validation/report-backups/' in caught.value.__notes__[0]
+
+
 def test_unlisted_work_is_not_silently_omitted(tmp_path, monkeypatch):
     m = module()
     monkeypatch.setattr(m, 'plan_corpus_validation', lambda **kw: {'unlisted_files': [tmp_path / 'new.mei']})

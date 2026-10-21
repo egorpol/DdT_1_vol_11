@@ -17,6 +17,7 @@ All notable changes to this edition are recorded here. Version numbers follow th
 
 ### Fixed
 
+- `scripts/refresh_editorial_reports.py`: an export that fails partway (a full disk, an interrupt) now restores every report it had replaced, and the provenance file, from the run's backup, so the CSVs and `validation/editorial-reports.json` stay in step. Before, the CSVs copied up to the failure stayed new while the provenance stayed old.
 - Op. I/6, m. 126: the dynamics on staves 3 and 5 now read Forte, as DdT 1903 prints them (p. 62); they were encoded as Piano. The Piano in m. 125 is unchanged.
 - App. III, m. 150: withdrew the conjectural dot on the keyboard lower-staff G2 and its annotation. DdT 1903 prints the dot (p. 182), so the encoded dotted half is the printed reading; the emendation rested on a misreading. The edition now has 21 editorial annotations: 3 source-supported emendations, 7 conjectural emendations and 11 encoding notes.
 - Op. I/1, mm. 79–80: the encoding note on the A3 tie now says it crosses a system break, not a page break.
