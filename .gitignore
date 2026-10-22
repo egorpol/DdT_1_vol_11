@@ -3,6 +3,7 @@
 .agents/
 .env
 .env.*
+!.env.example
 .venv/
 venv/
 __pycache__/
@@ -19,18 +20,6 @@ __pycache__/
 /validation/notebook-backups/
 /validation/cleanup-backups/
 /validation/report-backups/
-
-# Keep the public command-line tools explicit; other local helpers are ignored.
-/scripts/*
-!/scripts/archive/
-!/scripts/archive/update_readme_progress.py
-!/scripts/validate_corpus.py
-!/scripts/refresh_editorial_reports.py
-!/scripts/check_mei_consistency.py
-!/scripts/update_camat.py
-!/scripts/sync_camat_viewer.py
-!/scripts/convert_uppsala_scans.py
-!/scripts/build_site.py
 
 # Retired local development tools, notes and contributor progress data.
 /docs/archive/local-tools/artifacts/
