@@ -18,6 +18,7 @@ All notable changes to this edition are recorded here. Version numbers follow th
 
 ### Fixed
 
+- Op. II/1, BSB image `00099` (printed p. 89): restored page-local measure 18 by separating the final two bars, which were fused in imported measure 17. All existing musical event IDs and readings are preserved; the closing fermatas and arpeggio now belong to measure 18, linked to its previously unused facsimile zone, with the printed final barline. This page remains uncorrected OMR material.
 - `mei_corpus_checks.ipynb`: the Git install example names the tested CAMAT release, `--git-ref v0.2.7`. It named the pre-release branch `beta/0.2.5`, which skips the duration checks in measures marked `metcon="false"` that the committed reports include.
 - `scripts/refresh_editorial_reports.py`: an export that fails partway (a full disk, an interrupt) now restores every report it had replaced, and the provenance file, from the run's backup, so the CSVs and `validation/editorial-reports.json` stay in step. Before, the CSVs copied up to the failure stayed new while the provenance stayed old.
 - Op. I/6, m. 126: the dynamics on staves 3 and 5 now read Forte, as DdT 1903 prints them (p. 62); they were encoded as Piano. The Piano in m. 125 is unchanged.

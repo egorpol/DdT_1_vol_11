@@ -10,6 +10,14 @@ Op. II/1 (images 00089–00099) has not been assembled yet. Its pages are still 
 
 The page files are in neither validation work list, so the corpus checks do not cover them.
 
+## Recovered final measure of Op. II/1
+
+Recovered 2026-10-22: image `00099` (printed p. 89) had 18 measure zones but only 17 encoded measures. Its last encoded measure contained both printed final bars: every nonempty layer had twelve quarter-note beats, divided at six in the source. The final measure's notes had not been deleted.
+
+The boundary was already missing in the upstream `camat_corpus` raw `bsb00023199_00099.mei` at commit `f4729c6` (2026-04-08), before facsimile integration. The separate measure annotations correctly identified 18 bars; integration allowed a one-measure mismatch and retained the unused final zone. This repository imported that result in `fca6b533` on the same day; at the recovery's starting revision, `8d721e74`, the page had no intervening edits. The available files establish that the problem predates facsimile integration, but do not distinguish an OMR error from a MusicXML-to-MEI conversion error.
+
+The repair separates page-local measures 17 and 18, preserves all existing musical event IDs and readings, moves the closing controls to measure 18, links it to `zone_947d646f5b714bc585`, and restores the printed final barline. Other OMR issues, including staff allocation, remain for correction against the source.
+
 ## Known issues in the preserved pages
 
 Rechecked 2026-10-21. The assembled scores do not share these issues.
