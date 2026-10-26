@@ -1,12 +1,12 @@
 # Release 1.0 checklist
 
-Status 2026-10-21: the 16 assembled works are corrected working files (`_corr` filenames). They are not finalized. An interim pre-release publishes them with the status "corrected, not finalized" before this list is complete. Op. II/1 has not been assembled.
+Status 2026-10-25: 16 works are corrected working files (`_corr` filenames). They are not finalized. The 0.9.0 pre-release publishes them with the status "corrected, not finalized" before this list is complete. Op. II/1 is now assembled from its proofread pages, with a new consistency report; it remains `combined` pending work-level review and is outside that release.
 
 The validation boundary, the shared CAMAT checks and this corpus's validator are in place (steps 1–3 of the [archived plan](archive/planning/finalization-plan-2026-10-01.md), with CAMAT 0.2.7). The items below are what remains before a 1.0 release. The [tool guide](../validation/README.md) describes the checks, the [encoding profile](mei-encoding-profile.md) the target header and the [editorial policy](editorial-policy.md) the intervention categories.
 
 ## Scope
 
-- [ ] Decide whether 1.0 contains the 16 assembled works or all 17, which would require assembling and correcting Op. II/1.
+- [ ] Decide whether 1.0 contains the 16 corrected works or all 17, which requires completing work-level correction and review of the newly assembled Op. II/1.
 - [ ] List every released work in `validation/works.json` with its own identities, consulted sources, page range and staff roles. Today the publication work list holds Op. I/1 only; nothing is copied from the pilot to other works.
 
 ## Editorial review, per work

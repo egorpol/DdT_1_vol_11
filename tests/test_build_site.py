@@ -32,7 +32,8 @@ def test_site_index_lists_every_work_and_copies_the_listed_files(tmp_path):
     ]
     assert json.loads((out / 'works.json').read_text(encoding='utf-8')) == index
     pending = [w for w in works if 'mei' not in w]
-    assert [(w['id'], w['status']) for w in pending] == [('op2_01', 'pending')]
+    assert pending == []
+    assert next(w for w in works if w['id'] == 'op2_01')['status'] == 'combined'
     listed = json.loads((ROOT / 'validation/editorial-works.json').read_text(encoding='utf-8'))['works']
     assert {w['key'] for w in works if 'mei' in w} == {w['key'] for w in listed}
     for work in works:

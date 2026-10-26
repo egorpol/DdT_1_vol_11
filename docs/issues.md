@@ -174,11 +174,12 @@ Egor Polyakov for the Webern Op. 27 edition, reports this as a regression since
 4.4.0. The maintainer closed it on 2026-10-20: header generation is meant for
 simple cases, and an edition should encode the `pgHead` it wants.
 
-**Affected works:** all 16 assembled scores. Each wraps the titleStmt composer
+**Affected works:** all 17 assembled scores. Each wraps the titleStmt composer
 in a GND-linked `persName`, and none has a `pgHead`. On 2026-10-21, page 1 of
-each score rendered with Verovio `6.3.0-425dd7b` (`breaks: encoded`) contained
-no "Buxtehude". With the `persName` in Op. I/1 replaced by plain text, the name
-appeared.
+each of the 16 scores then assembled, rendered with Verovio `6.3.0-425dd7b`
+(`breaks: encoded`), contained no "Buxtehude"; Op. II/1, assembled on
+2026-10-25, rendered the same way on 2026-10-26. With the `persName` in Op. I/1
+replaced by plain text, the name appeared.
 
 **Resolution criterion:** before 1.0, either encode a `pgHead` in the first
 `scoreDef`, as the Webern Op. 27 edition does, or let the web viewer draw the

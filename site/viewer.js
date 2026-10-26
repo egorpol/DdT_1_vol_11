@@ -90,7 +90,8 @@ function readModel(work, text, excerpts) {
     annots: [], noted: new Set(), excerpts: new Map(), loose: [], sources: new Map(), svg: new Map(), pageCount: 0,
   };
   const edition = doc.querySelector('editionStmt > edition');
-  model.edition = edition ? `${squash(edition.textContent)}, version ${edition.getAttribute('n')}` : '';
+  const version = edition?.getAttribute('n');
+  model.edition = edition ? squash(edition.textContent) + (version ? `, version ${version}` : '') : '';
   for (const source of doc.querySelectorAll('sourceDesc > source')) {
     const title = source.getElementsByTagName('title')[0];
     if (title) model.sources.set(xmlId(source), squash(title.textContent));

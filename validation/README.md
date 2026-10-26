@@ -147,7 +147,7 @@ old dirty checkout; preserve its working sources and complete report folder.
 python scripts/refresh_editorial_reports.py
 ```
 
-This checks all 16 assembled MEI files against the installed CAMAT and current
+This checks all 17 assembled MEI files against the installed CAMAT and current
 DdT rules. It runs XML/reference, written-duration/PPQ, extra editorial diagnostics,
 staff/term comparisons within each score, official RELAX NG and Schematron,
 offline resource checks, full Verovio rendering and CAMAT event parsing.
@@ -156,8 +156,9 @@ Each score runs in its own worker process. If the native CAMAT consumer parser
 crashes, its signal and failed attempt are retained; other checks are rerun in a
 fresh process. That score explicitly records consumer diagnostics as incomplete
 and CAMAT parsing as an execution error. The crash is included in its CSV.
-No CAMAT update or MEI rewrite occurs. Op. II/1 has no assembled file and is
-explicitly outside this report set. Adding a new assembled file requires updating
+No CAMAT update or MEI rewrite occurs. Op. II/1 joined this report set after
+assembly on 2026-10-25; it remains `combined` pending work-level review.
+Adding a new assembled file requires updating
 `editorial-works.json`; an unlisted file makes refresh stop before overwriting reports.
 
 CSV columns retain severity, category, check, file, source line, element/ID,

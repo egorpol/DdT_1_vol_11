@@ -1,7 +1,7 @@
 {
   "format_version": 1,
   "review_only": true,
-  "scope": "Editorial reports for all 16 assembled work-level scores; no publication sign-off. Op. II/1 has no assembled file yet.",
+  "scope": "Editorial reports for all 17 assembled work-level scores; no publication sign-off. Op. II/1 is combined and awaits work-level review.",
   "configuration_basis": "Existing work filenames, source-page image ranges (BSB image minus 10 equals printed page) and available workList catalogue entries. Unreviewed staff roles and witness consultation are explicit pending configuration.",
   "release_version": null,
   "release_date": null,
@@ -193,6 +193,35 @@
       },
       "configuration_note": "Catalogue identity checked against the CiNii record for Edition Guentersberg G097 (https://ci.nii.ac.jp/ncid/BD04733224). Staff roles checked against DdT p. 66 and the encoded staff definitions. The editor confirmed on 2026-10-19 that only DdT 1903 was consulted and that the two-quarter A4 correction in m. 38 should be retained and documented as conjectural.",
       "editorial_status": "corrected",
+      "review": null,
+      "annotation_reviews": {}
+    },
+    {
+      "key": "op2_01_sonata_b_flat_major",
+      "file": "11_buxtehude_sonatas_final/buxtehude_op2_01_sonata_b_flat_major_corr.mei",
+      "final_file": "11_buxtehude_sonatas_final/buxtehude_op2_01_sonata_b_flat_major.mei",
+      "kind": "sonata",
+      "opus": 2,
+      "catalogue": "BuxWV 259",
+      "consulted_sources": [
+        "src.ddt1903",
+        "src.uppsala.op2",
+        "src.stimu1991.op2"
+      ],
+      "printed_page_range": {
+        "from": "79",
+        "to": "89"
+      },
+      "primary_canvas_prefix": "https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00023199/canvas/",
+      "staff_roles": {
+        "1": "violin",
+        "2": "viola_da_gamba",
+        "3": "figured_continuo_bass",
+        "4": "keyboard_realization_upper",
+        "5": "keyboard_realization_lower"
+      },
+      "configuration_note": "Assembled 2026-10-25 from proofread BSB page files 00089-00099 at repository revision 176a2557: 203 measures, 11 surfaces and 43 systems. BuxWV 259 identity follows the existing corpus work index; staff roles follow the five-staff page encodings. Correction credits follow page-file history for Francy Häring, Jan-Raphael Kemnitzer and Egor Polyakov. DdT 1903 is the documented base source. Selective comparison on 2026-10-25 with the Uppsala Op. II print through STIMU 1991 supports the gamba E4 dotted whole at m. 114 (Viola da Gamba, Sonata I, Grave, printed p. 4, fifth staff; scan-0027, left page). A source-supported annotation and supplemental excerpt document this reading; no complete historical-print collation is claimed. Assembly preserved the musical readings, clefs and meters; subsequent editor-confirmed corrections are recorded in the MEI revision history. The m. 90 upper-keyboard lower-voice F4 is a documented conjectural eighth on the final eighth-note subdivision, departing from its apparent quarter-note form in DdT. At m. 163 the opening upper-keyboard A-flat4 is a documented conjectural dotted quarter, restoring 6/4 and the beat-3 alignment where DdT appears undotted. Inherited MusicXML ppq and dur.ppq were stripped on 2026-10-25 following the notebook workflow and the other assembled scores. Remaining findings await work-level review.",
+      "editorial_status": "combined",
       "review": null,
       "annotation_reviews": {}
     },

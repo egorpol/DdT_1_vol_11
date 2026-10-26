@@ -14,7 +14,7 @@ View it in the browser: https://egorpol.github.io/DdT_1_vol_11/
 | Encoding            | MEI 5.1, Common Music Notation customization                 |
 | Editorial unit      | One MEI file per complete sonata or appendix work            |
 | Facsimile alignment | IIIF-linked surfaces with measure-level zones                |
-| Current state       | 16 of 17 works corrected, none finalized (0.9.0 pre-release) |
+| Current state       | 16 works corrected, Op. II/1 combined, none finalized        |
 
 ## Source edition
 
@@ -47,7 +47,7 @@ The status describes the complete work-level file, not the presence or edit hist
 | Op. I/5  | C major      |                 44 |           00054 | `op1_05_sonata_c_major`                        | corrected  |
 | Op. I/6  | D minor      |                 55 |           00065 | `op1_06_sonata_d_minor`                        | corrected  |
 | Op. I/7  | E minor      |                 66 |           00076 | `op1_07_sonata_e_minor`                        | corrected  |
-| Op. II/1 | B-flat major |                 79 |           00089 | `op2_01_sonata_b_flat_major`                   | pending    |
+| Op. II/1 | B-flat major |                 79 |           00089 | `op2_01_sonata_b_flat_major`                   | combined   |
 | Op. II/2 | D major      |                 90 |           00100 | `op2_02_sonata_d_major`                        | corrected  |
 | Op. II/3 | G minor      |                103 |           00113 | `op2_03_sonata_g_minor`                        | corrected  |
 | Op. II/4 | C minor      |                116 |           00126 | `op2_04_sonata_c_minor`                        | corrected  |
@@ -66,6 +66,8 @@ Status terms are used as follows:
 - `finalized`: metadata, editorial review, validation, and publication naming are complete.
 
 The 0.9.0 pre-release publishes the 16 assembled works as corrected, not finalized; the [finalization plan](docs/finalization-plan.md) lists what remains before 1.0. The work lists in [`validation/`](validation/README.md) record the same terms in `editorial_status`.
+
+Op. II/1 was subsequently assembled from its proofread pages on 2026-10-25: 203 measures across printed pp. 79–89, with 11 linked facsimile surfaces and 43 systems. Its new consistency report is available beside the MEI; work-level review of the remaining findings is pending. It is outside the 0.9.0 release.
 
 The App. III stem keeps its original `violin`; the printed score and the MEI work list name the violone (BuxWV 267).
 
@@ -133,16 +135,16 @@ The MEI 5.1 CMN publication profile is applied to the pilot and is the target fo
 
 Each MEI header records these responsibilities for its work in `titleStmt/respStmt`. MEI encoding and work-level assembly: CAMAT.
 
-| Contributor           | OMR correction              | Editorial review           |
-| --------------------- | --------------------------- | -------------------------- |
-| Lea Meret Beck        | Op. I/4, II/3, App. II      | —                          |
-| Ragna Conrads         | Op. I/5, II/4, App. III     | Op. I/5, II/4              |
-| Francy Häring         | Op. I/1, I/2, I/7, II/6     | Op. I/1, I/2               |
-| Jan-Raphael Kemnitzer | Op. I/2                     | Op. I/2                    |
-| Egor Polyakov         | all 16 assembled works      | all 16, including metadata |
-| Pia Steuck            | Op. I/5                     | —                          |
-| Jingyu Tu             | Op. I/3, II/2, II/7, App. I | Op. I/3                    |
-| You Zhou              | Op. I/6, II/5               | —                          |
+| Contributor           | OMR correction                | Editorial review                       |
+| --------------------- | ----------------------------- | -------------------------------------- |
+| Lea Meret Beck        | Op. I/4, II/3, App. II        | —                                      |
+| Ragna Conrads         | Op. I/5, II/4, App. III       | Op. I/5, II/4                          |
+| Francy Häring         | Op. I/1, I/2, I/7, II/1, II/6 | Op. I/1, I/2                           |
+| Jan-Raphael Kemnitzer | Op. I/2, II/1                 | Op. I/2                                |
+| Egor Polyakov         | all 17 assembled works        | 16 corrected works, including metadata |
+| Pia Steuck            | Op. I/5                       | —                                      |
+| Jingyu Tu             | Op. I/3, II/2, II/7, App. I   | Op. I/3                                |
+| You Zhou              | Op. I/6, II/5                 | —                                      |
 
 ## Funding
 

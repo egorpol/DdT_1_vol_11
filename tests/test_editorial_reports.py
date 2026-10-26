@@ -21,7 +21,7 @@ def module():
 def test_editorial_list_covers_assembled_scores_without_expanding_release_scope():
     m = module()
     plan = m.plan_corpus_validation(manifest=ROOT / 'validation/editorial-works.json')
-    assert len(plan['works']) == 16
+    assert len(plan['works']) == 17
     assert not plan['unlisted_files']
     assert plan['manifest']['review_only'] is True
     release_list = json.loads((ROOT / 'validation/works.json').read_text())

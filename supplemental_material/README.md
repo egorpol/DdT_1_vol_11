@@ -2,7 +2,7 @@
 
 These limited facsimile excerpts document readings discussed in the MEI
 annotations. They are listed in the order in which the readings appear in the
-volume (DdT 1903, printed pp. 3, 97 and 139). Include this directory and its
+volume (DdT 1903, printed pp. 3, 85, 97 and 139). Include this directory and its
 attribution with the score in the final release, preserving the relative paths.
 Crop provenance and checksums are recorded in [manifest.json](manifest.json).
 
@@ -13,7 +13,8 @@ quotation accompanying the critical discussion of each specific reading under
 [UrhG § 51](https://www.gesetze-im-internet.de/urhg/__51.html), with attribution
 under [§ 63](https://www.gesetze-im-internet.de/urhg/__63.html). Each source
 image is needed to show the printed notation and its immediate musical context;
-the extent of each excerpt is restricted to one measure. This is a proposed
+the extent of each excerpt is restricted to one printed source bar, which
+may correspond to more than one measure in DdT. This is a proposed
 basis for this use, not a conclusion that small images are automatically exempt
 from rights or that every use in every jurisdiction is covered.
 
@@ -54,6 +55,44 @@ specific C-sharp4 reading on the documentary image-quotation basis recorded abov
 (UrhG §§ 51 and 63, checked 2026-10-19). The scope is one measure, showing the
 printed beaming and its immediate musical context.
 
+## Op. II/1, measure 114, viola da gamba
+
+![Original-print measure supporting the E4 dotted-whole reading](supplemental_material_op2_01_m114_stimu1991.png)
+
+**Source:** Dieterich Buxtehude, *VII. Suonate à due, violino et violadagamba
+con cembalo*, Op. II (1696), Uppsala University Library, Düben Collection,
+`Uimtr 52:1–4`, RISM A/I B5205. Consulted through the STIMU facsimile edition
+(Utrecht, 1991; introduction by Kerala J. Snyder), supplied as
+university-library scans. The digitising institution was not named in the
+supplied provenance.
+
+**Location:** Viola da Gamba part, Sonata I, Grave, printed p. 4, fifth staff
+(alto clef, C on the third line); supplied `scan-0027.jpg`, left-hand page,
+corresponding to combined-score m. 114. The historical print groups DdT
+measures 113–114 into one bar. The crop shows that complete bar between both
+barlines: half rest, C4 dotted half, D4 quarter and E4 dotted whole. The E4
+has a visible augmentation dot. Its location follows the preceding C4 dotted
+half and D4 quarter, and precedes the next D4 whole. DdT 1903, printed p. 85,
+omits the dot. The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op2_01_sonata_b_flat_major_corr.mei#editorial.op2.01.m114.e4-dot)
+documents the source-supported dotted whole, which fills the six quarter-note
+beats of 3/2. This passage was directly compared on 2026-10-25; the comparison
+does not constitute complete collation of the work with the historical print.
+
+**Image preparation:** a direct crop at the scan's original pixel scale, 460 ×
+340 pixels, saved as PNG from the supplied full-resolution JPEG access image
+after verifying its SHA-256 against the conversion inventory. The crop shows
+the entire printed bar containing E4, including both barlines and all
+preceding notation in that bar; the part, clef context, page and staff are
+identified above. No resizing, retouching or reconstructed notation is
+included. The TIFF master was not read for this crop. Coordinates, source
+checksum and upstream master provenance are recorded in the crop manifest.
+
+**Intended reuse:** this excerpt accompanies the critical discussion of the
+specific E4 augmentation dot on the documentary image-quotation basis recorded
+above. The scope is one historical-print bar, corresponding to DdT measures
+113–114, showing the E4 dot and its complete rhythmic context; no general
+scan-redistribution permission is asserted.
 ## Op. II/2, measure 189, viola da gamba
 
 ![Original-print measure supporting the E3 eighth-note reading](supplemental_material_op2_02_m189_stimu1991.png)

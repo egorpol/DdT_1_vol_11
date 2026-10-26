@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "completed_utc": "2026-10-22T11:56:53.575529+00:00",
+  "completed_utc": "2026-10-26T00:59:39.998724+00:00",
   "purpose": "Shared editorial findings for all assembled works; not publication sign-off.",
   "camat": {
     "module_version": "0.2.7",
@@ -23,7 +23,7 @@
     "sha256": "f6440d5eb59c3e903f2a7a64ea26518646186f8449b86096106846a269eb354b"
   },
   "sources": {
-    "validation/editorial-works.json": "c06816d84a7f366ec47d003b5c8ee2fac1d84a64f55b5244fce07ea9656c6150",
+    "validation/editorial-works.json": "5f31b864e978b41b412282d71ad13b7a984b54e3132addfb292cf4d4d67fa037",
     "validation/profile.json": "fd76a38b0a6b6a35abbc889272accac6426129d342cc54156f3ed31e352e57b6",
     "validation/rules.py": "6f605fe5647fee501792cfe3c5fc1f1963009f707fa290bca6ff7209be5da9f4",
     "scripts/validate_corpus.py": "d1cd1e0ebc8c7964fe13dd29c7ec43c0bc2f97f4b4ad050d136eac9231e8867f",
@@ -543,9 +543,80 @@
       }
     },
     {
+      "work_key": "op2_01_sonata_b_flat_major",
+      "input_file": "11_buxtehude_sonatas_final/buxtehude_op2_01_sonata_b_flat_major_corr.mei",
+      "input_sha256": "58c86b9f98cb96df923170d7b9e87536458947de70f78bf72064e3de472fafdd",
+      "report_file": "11_buxtehude_sonatas_final/buxtehude_op2_01_sonata_b_flat_major_corr_consistency_report.csv",
+      "report_sha256": "d691576940dc9f2e82810937b276df3747ed40b0acf5f9d8f0f5b205c0500990",
+      "completion_status": "completed",
+      "mei_conformance": "passed",
+      "consumer_diagnostics": "passed",
+      "ddt_publication_acceptance": "needs-review",
+      "input_unchanged": true,
+      "findings": {
+        "warning": 12
+      },
+      "checks": {
+        "xml_references": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "musical_diagnostics": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "relaxng": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "schematron": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 11
+        },
+        "resources": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "image_network": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "verovio": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "camat_parse": {
+          "requested": true,
+          "required": false,
+          "status": "passed",
+          "findings_count": 0
+        },
+        "input_hashes": {
+          "requested": true,
+          "required": true,
+          "status": "passed",
+          "findings_count": 0
+        }
+      }
+    },
+    {
       "work_key": "op2_02_sonata_d_major",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr.mei",
-      "input_sha256": "f8d83f60ff431da7ccb3c3d291d440f3737bea72c9bbc021a9be9742147fc226",
+      "input_sha256": "2bfed9e05bb307f95725c8d5d6d825078982bddd2ddf9257ca9b47f942763798",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr_consistency_report.csv",
       "report_sha256": "cf16216af7b902ccedd23026294c2f891c3abd77c54cd4af27e51c94685fc8ff",
       "completion_status": "completed",
@@ -974,9 +1045,9 @@
     {
       "work_key": "app_01_suite_to_op1_04",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_app_01_suite_to_op1_04_corr.mei",
-      "input_sha256": "8b056afb10404067a7780b8194b186b4042b3cf70e9649a0a2e21e4ee118e37a",
+      "input_sha256": "bdb652901e3c7c6b0c25a2046c09182b7a5b1cd00e15ef5f809cc13fd1af2fc5",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_app_01_suite_to_op1_04_corr_consistency_report.csv",
-      "report_sha256": "8fe1275aca30e3d2cad4af855e4fe1ad012c8b0c6df01675c9f392addb62c64f",
+      "report_sha256": "6f8032d222c4f440067d5407cead7ed933bd377630ac5578681b75aa79726c48",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
