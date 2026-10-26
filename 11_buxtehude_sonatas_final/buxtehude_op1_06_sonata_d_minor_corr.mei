@@ -28,7 +28,7 @@
          </editionStmt>
          <pubStmt xml:id="pnn4wro">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
+            <date isodate="2026-10-26" type="last-updated">2026-10-26</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_06_sonata_d_minor_corr.mei</identifier>
             <availability>
@@ -106,6 +106,16 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Added an explicit first-page pgHead with the edition title and Dietrich Buxtehude, following the editor's choice to include the composer in exported scores as well as the web viewer. The authority-linked composer and source metadata are retained. All musical events, their IDs, annotations, facsimile references and encoded breaks are unchanged; page counts and MIDI are unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Removed 9 redundant key-signature declarations that repeated the already active key, eliminating unprinted system-end courtesy signatures. Retained the initial key signatures and the existing score-definition containers and IDs, clefs, meters, page and system breaks. All musical events, their IDs, annotations and facsimile mappings are unchanged. Full-page rendering preserves every system-start signature and measure placement; MIDI is byte-identical.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Corrected the two dynamics at measure 126 (staves 3 and 5) from Piano to Forte after comparison with DdT 1903, p. 62. The Piano in measure 125 is unchanged. Facsimile zones and the remaining musical text are unchanged.</p>
@@ -353,6 +363,14 @@
          <mdiv xml:id="o1fwb6eq" decls="#work.buxwv257">
             <score xml:id="p5xpski">
                <scoreDef xml:id="q1onmwvo">
+                  <pgHead xml:id="pgHead.op1_06" func="first">
+                     <rend halign="center" valign="middle">
+                        <rend fontsize="x-large">Sonata VI in D minor, Op. I</rend>
+                        <lb />
+                        <lb />
+                     </rend>
+                     <rend halign="right" valign="bottom" fontsize="small">Dietrich Buxtehude</rend>
+                  </pgHead>
                   <staffGrp xml:id="t4gl6ce">
                      <staffGrp xml:id="upper3grp" bar.thru="true">
                         <grpSym xml:id="upper3bracket" symbol="bracket" />
@@ -4167,7 +4185,6 @@
                   </measure>
                   <sb xml:id="lg1lqg6" />
                   <scoreDef xml:id="m10n7z2o">
-                     <keySig xml:id="nax6cfq" sig="1f" />
                   </scoreDef>
                   <measure xml:id="bzn5xq5" n="34" facs="#zone_b6d989ee112d4d0b8c">
                      <harm xml:id="harm.op1_06.m34.s3.e1" tstamp="1" staff="3">
@@ -4521,7 +4538,6 @@
                      </staff>
                   </measure>
                   <scoreDef xml:id="m10dfz2o">
-                     <keySig xml:id="nasfs6cfq" sig="1f" />
                   </scoreDef>
                   <measure xml:id="c1m1rhlx" right="single" n="37" facs="#zone_db55d836978b4a33b1">
                      <staff xml:id="l6nykg7" n="1">
@@ -4602,7 +4618,6 @@
                   </measure>
                   <sb xml:id="j1si4270" />
                   <scoreDef xml:id="mknk7z2o">
-                     <keySig xml:id="nsdfs6cfq" sig="1f" />
                   </scoreDef>
                   <measure xml:id="zeb3n1q" n="38" facs="#zone_a98b7853491e4b37bd">
                      <harm xml:id="harm.op1_06.m38.s3.e1" tstamp="1" staff="3">
@@ -4916,7 +4931,6 @@
                   </measure>
                   <sb xml:id="dj1fh7o" />
                   <scoreDef xml:id="efggrf">
-                     <keySig xml:id="vb2rbreb2" sig="1f" />
                   </scoreDef>
                   <measure xml:id="t1pbjf5o" n="43" facs="#zone_42942f3cb1b74edf98">
                      <dir xml:id="dirCond01" place="above" staff="3" tstamp="1">Con discretione</dir>
@@ -5124,27 +5138,22 @@
                         <grpSym xml:id="grpSym_m46" symbol="bracket" />
                         <staffDef xml:id="staffDef_m46_1" n="1" lines="5">
                            <clef xml:id="clef_m46_1" shape="G" line="2" />
-                           <keySig xml:id="keySig_m46_1" sig="1f" />
                            <meterSig xml:id="meterSig_m46_1" count="4" sym="common" unit="4" />
                         </staffDef>
                         <staffDef xml:id="staffDef_m46_2" n="2" lines="5">
                            <clef xml:id="clef_m46_2" shape="C" line="3" />
-                           <keySig xml:id="keySig_m46_2" sig="1f" />
                            <meterSig xml:id="meterSig_m46_2" count="4" sym="common" unit="4" />
                         </staffDef>
                         <staffDef xml:id="staffDef_m46_3" n="3" lines="5">
                            <clef xml:id="clef_m46_3" shape="F" line="4" />
-                           <keySig xml:id="keySig_m46_3" sig="1f" />
                            <meterSig xml:id="meterSig_m46_3" count="4" sym="common" unit="4" />
                         </staffDef>
                         <staffDef xml:id="staffDef_m46_4" n="4" lines="5">
                            <clef xml:id="clef_m46_4" shape="G" line="2" />
-                           <keySig xml:id="keySig_m46_4" sig="1f" />
                            <meterSig xml:id="meterSig_m46_4" count="4" sym="common" unit="4" />
                         </staffDef>
                         <staffDef xml:id="staffDef_m46_5" n="5" lines="5">
                            <clef xml:id="clef_m46_5" shape="F" line="4" />
-                           <keySig xml:id="keySig_m46_5" sig="1f" />
                            <meterSig xml:id="meterSig_m46_5" count="4" sym="common" unit="4" />
                         </staffDef>
                      </staffGrp>

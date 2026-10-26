@@ -28,7 +28,7 @@
          </editionStmt>
          <pubStmt xml:id="p1whlas9">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
+            <date isodate="2026-10-26" type="last-updated">2026-10-26</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op2_05_sonata_a_major_corr.mei</identifier>
             <availability>
@@ -105,6 +105,16 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Added an explicit first-page pgHead with the edition title and Dietrich Buxtehude, following the editor's choice to include the composer in exported scores as well as the web viewer. The authority-linked composer and source metadata are retained. All musical events, their IDs, annotations, facsimile references and encoded breaks are unchanged; page counts and MIDI are unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Removed 6 redundant key-signature declarations that repeated the already active key, eliminating unprinted system-end courtesy signatures. Retained the initial key signatures and the existing score-definition containers and IDs, clefs, meters, page and system breaks. All musical events, their IDs, annotations and facsimile mappings are unchanged. Full-page rendering preserves every system-start signature and measure placement; MIDI is byte-identical.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date and recorded the page-level mei-friend correction in appInfo. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -385,6 +395,14 @@
          <mdiv xml:id="e1e7k8q7" decls="#work.buxwv263">
             <score xml:id="fhh2etk">
                <scoreDef xml:id="g1srfitp">
+                  <pgHead xml:id="pgHead.op2_05" func="first">
+                     <rend halign="center" valign="middle">
+                        <rend fontsize="x-large">Sonata V in A major, Op. II</rend>
+                        <lb />
+                        <lb />
+                     </rend>
+                     <rend halign="right" valign="bottom" fontsize="small">Dietrich Buxtehude</rend>
+                  </pgHead>
                   <staffGrp xml:id="j98ahw5">
                      <staffDef xml:id="P1" n="1" lines="5">
                         <label xml:id="kb6vc5n">Violino</label>
@@ -6224,7 +6242,6 @@
                   </measure>
                   <sb xml:id="p2uzlaz" />
                   <scoreDef xml:id="q1ck6agw">
-                     <keySig xml:id="rw5y40p" sig="3s" />
                   </scoreDef>
                   <measure xml:id="f55mw6n" n="75" facs="#zone_3dc16c3f5721471588">
                      <staff xml:id="oolp0yf" n="1">
@@ -6660,7 +6677,6 @@
                   </measure>
                   <sb xml:id="fez4c6r" />
                   <scoreDef xml:id="q1cdfagw">
-                     <keySig xml:id="rw5wrgp" sig="3s" />
                   </scoreDef>
                   <measure xml:id="vw4iydg" n="82" facs="#zone_3e50e5c1ef954d5387">
                      <staff xml:id="eg27cnk" n="1">
@@ -7074,7 +7090,6 @@
                   </measure>
                   <sb xml:id="b1ncf6rk" />
                   <scoreDef xml:id="q1efweagw">
-                     <keySig xml:id="rwasdfp" sig="3s" />
                   </scoreDef>
                   <measure xml:id="rpaw7pi" n="88" facs="#zone_2f4b5e5b24154d75a1">
                      <harm tstamp="1" staff="3" xml:id="op2_05.m88.harm.1">
@@ -12148,7 +12163,6 @@
                   </measure>
                   <sb xml:id="h5a4htw" />
                   <scoreDef xml:id="ijrlo06">
-                     <keySig xml:id="j1ntebgj" sig="3s" />
                   </scoreDef>
                   <measure xml:id="x8sgeu0" n="147" facs="#zone_5b06baf054d0480a86">
                      <harm tstamp="2" staff="3" xml:id="op2_05.m147.harm.1">
@@ -12668,7 +12682,6 @@
                   </measure>
                   <sb xml:id="m1ryzk4h" />
                   <scoreDef xml:id="ijderlo06">
-                     <keySig xml:id="j1nvtebgj" sig="3s" />
                   </scoreDef>
                   <measure xml:id="c1wqbpel" n="151" facs="#zone_3a03094df49541ba8c">
                      <harm tstamp="2" staff="3" xml:id="op2_05.m151.harm.1">
@@ -13174,7 +13187,6 @@
                   </measure>
                   <sb xml:id="p1j3jtvi" />
                   <scoreDef xml:id="ij6">
-                     <keySig xml:id="j1weebgj" sig="3s" />
                   </scoreDef>
                   <measure xml:id="f5pi2a6" n="155" facs="#zone_8b8db6d9266e4ccea4">
                      <harm tstamp="1" staff="3" xml:id="op2_05.m155.harm.1">

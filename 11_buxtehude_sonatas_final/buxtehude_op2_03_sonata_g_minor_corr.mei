@@ -28,7 +28,7 @@
          </editionStmt>
          <pubStmt xml:id="phq39mx">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
+            <date isodate="2026-10-26" type="last-updated">2026-10-26</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op2_03_sonata_g_minor_corr.mei</identifier>
             <availability>
@@ -105,6 +105,16 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Added an explicit first-page pgHead with the edition title and Dietrich Buxtehude, following the editor's choice to include the composer in exported scores as well as the web viewer. The authority-linked composer and source metadata are retained. All musical events, their IDs, annotations, facsimile references and encoded breaks are unchanged; page counts and MIDI are unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Removed 2 redundant key-signature declarations that repeated the already active key, eliminating unprinted system-end courtesy signatures. Retained the initial key signatures and the existing score-definition containers and IDs, clefs, meters, page and system breaks. All musical events, their IDs, annotations and facsimile mappings are unchanged. Full-page rendering preserves every system-start signature and measure placement; MIDI is byte-identical.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -400,6 +410,14 @@
          <mdiv xml:id="k1ehu1o0" decls="#work.buxwv261">
             <score xml:id="lrxekf7">
                <scoreDef xml:id="m1wdn1he">
+                  <pgHead xml:id="pgHead.op2_03" func="first">
+                     <rend halign="center" valign="middle">
+                        <rend fontsize="x-large">Sonata III in G minor, Op. II</rend>
+                        <lb />
+                        <lb />
+                     </rend>
+                     <rend halign="right" valign="bottom" fontsize="small">Dietrich Buxtehude</rend>
+                  </pgHead>
                   <staffGrp xml:id="p1hgq7k6">
                      <staffDef xml:id="P1" n="1" lines="5">
                         <label xml:id="q1090xyv">Violino.</label>
@@ -2575,7 +2593,6 @@
                   </measure>
                   <sb xml:id="lxck50o" />
                   <scoreDef xml:id="nm10gub">
-                     <keySig xml:id="obooiqd" sig="1f" />
                   </scoreDef>
                   <measure xml:id="b10lm3yv" n="17" facs="#zone_7e47640ad7cc4e7188">
                      <harm xml:id="srrtzr7" staff="3" tstamp="2">
@@ -6570,7 +6587,6 @@
                   </measure>
                   <sb xml:id="a18ngeir" />
                   <scoreDef xml:id="ba30s98">
-                     <keySig xml:id="c1wstexu" sig="1f" />
                   </scoreDef>
                   <measure xml:id="q1cdw8kw" n="49" facs="#zone_8d0ded63007748449e">
                      <staff xml:id="z12bkh80" n="1">

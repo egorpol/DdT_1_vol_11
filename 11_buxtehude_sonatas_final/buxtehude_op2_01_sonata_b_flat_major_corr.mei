@@ -28,7 +28,7 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition>Combined working edition; editorial review pending</edition>
+            <edition>Corrected working edition</edition>
          </editionStmt>
          <pubStmt>
             <publisher>CAMAT Corpus Editions</publisher>
@@ -115,7 +115,7 @@
             </application>
          </appInfo>
          <editorialDecl>
-            <p>This is a combined working edition based on DdT 1903, assembled on 2026-10-25 from the proofread page-level encodings of BSB images 00089-00099 (printed pp. 79-89) at repository revision 176a2557. OMR and conversion errors are corrected against the DdT facsimile; correction credits follow the page-file history for Francy Häring, Jan-Raphael Kemnitzer and Egor Polyakov. The Op. II historical print was consulted selectively through the STIMU 1991 facsimile of the Uppsala partbooks for the gamba E4 at measure 114 (printed p. 4, fifth staff; scan-0027, left-hand page) on 2026-10-25. This selected comparison does not constitute complete collation with the historical print. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished. Work-level editorial review and publication sign-off remain pending.</p>
+            <p>This is a working corrected digital edition based on DdT 1903, assembled on 2026-10-25 from the proofread page-level encodings of BSB images 00089-00099 (printed pp. 79-89) at repository revision 176a2557. OMR and conversion errors are corrected against the DdT facsimile; correction credits follow the page-file history for Francy Häring, Jan-Raphael Kemnitzer and Egor Polyakov. The Op. II historical print was consulted selectively through the STIMU 1991 facsimile of the Uppsala partbooks for the gamba E4 at measure 114 (printed p. 4, fifth staff; scan-0027, left-hand page) on 2026-10-25. This selected comparison does not constitute complete collation with the historical print. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
             <p>The staff arrangement and keyboard realization printed in DdT are retained. Staff 1 is violin; staff 2 is viola da gamba; staff 3 is the figured continuo bass; staves 4 and 5 are the upper and lower staves of the printed keyboard realization. The realization is distinguished from the figured continuo bass when defining an analytical view. Changes of clef, key and meter are preserved; redundant page-opening signatures are omitted to avoid added courtesy signs.</p>
             <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs. In assembly, eight within-page pb markers of the page files became system breaks, consistent with the facsimile zones, so that all 43 systems are retained; measures and zones are numbered continuously. The final measure 203 is page-local measure 18 of image 00099, separated on 2026-10-22 from the preceding bar, with which the import had fused it. Existing event IDs are retained except for cross-page collisions, which receive page-qualified IDs with their local references updated. Inherited MusicXML ppq, dur.ppq and accid.ges attributes are removed following the CAMAT page-combination workflow; written durations, written accidentals and key signatures are retained.</p>
             <p>Three departures from DdT are documented in editorial annotations. At measure 114 the gamba E4 is encoded as a dotted whole, a source-supported emendation of the undotted whole in DdT: editorial.op2.01.m114.e4-dot cites the Uppsala Op. II print through STIMU 1991 and links a supplemental facsimile excerpt. Two conjectural emendations of the keyboard realization rest on DdT alone. At measure 90 the late F4 in the lower voice of the upper keyboard staff is an eighth on the final eighth-note subdivision, not the quarter it appears to be in DdT (editorial.op2.01.m090.f4). At measure 163 the opening A-flat4 in the upper voice of the upper keyboard staff is a dotted quarter, where DdT appears undotted, restoring 6/4 and the alignment of the voices (editorial.op2.01.m163.aflat4-dot). No historical-witness support is claimed for these two readings.</p>
@@ -142,6 +142,16 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-26" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Updated the edition statement and editorial declaration to the corrected status confirmed by the editor on 2026-10-26: the edition statement reads Corrected working edition, still without an edition number until a release includes this work, and the declaration no longer says that work-level review is pending. Publication sign-off remains outside this working edition. The musical text, annotations, facsimile zones and event IDs are unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Added an explicit first-page pgHead with the edition title and Dietrich Buxtehude, following the editor's choice to include the composer in exported scores as well as the web viewer. The authority-linked composer and source metadata are retained. All musical events, their IDs, annotations, facsimile references and encoded breaks are unchanged; page counts and MIDI are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-26" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the header with the other assembled works: removed the edition number, which is set when a release includes this work; merged the 22 appInfo entries inherited from the page files into one Verovio entry and one mei-friend entry spanning the earliest and latest dates recorded in the page files; and condensed the editorial declaration, whose revision details remain in this history. Removed the inherited metcon=false marker from 96 measures in which every layer fills the meter, as the consistency report confirms. The musical text, annotations, facsimile zones and event IDs are unchanged.</p>
@@ -617,6 +627,14 @@
          <mdiv xml:id="x1sfnzfq" decls="#work.buxwv259">
             <score xml:id="yai47b">
                <scoreDef xml:id="z2sl1wv">
+                  <pgHead xml:id="pgHead.op2_01" func="first">
+                     <rend halign="center" valign="middle">
+                        <rend fontsize="x-large">Sonata I in B-flat major, Op. II</rend>
+                        <lb />
+                        <lb />
+                     </rend>
+                     <rend halign="right" valign="bottom" fontsize="small">Dietrich Buxtehude</rend>
+                  </pgHead>
                   <staffGrp xml:id="c1fw8jsg">
                      <staffGrp bar.thru="true" xml:id="op2.01.upper.staffgrp.1">
                         <grpSym symbol="bracket" xml:id="op2.01.upper.bracket.1"/>

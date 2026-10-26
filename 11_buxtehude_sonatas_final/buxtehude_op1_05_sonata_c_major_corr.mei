@@ -32,7 +32,7 @@
          </editionStmt>
          <pubStmt>
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
+            <date isodate="2026-10-26" type="last-updated">2026-10-26</date>
             <date isodate="2026-08-21" type="metadata-date">2026-08-21</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_05_sonata_c_major_corr.mei</identifier>
             <availability>
@@ -114,6 +114,16 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Added an explicit first-page pgHead with the edition title and Dietrich Buxtehude, following the editor's choice to include the composer in exported scores as well as the web viewer. The authority-linked composer and source metadata are retained. All musical events, their IDs, annotations, facsimile references and encoded breaks are unchanged; page counts and MIDI are unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Removed 1 redundant key-signature declarations that repeated the already active key, eliminating unprinted system-end courtesy signatures. Retained the initial key signatures and the existing score-definition containers and IDs, clefs, meters, page and system breaks. All musical events, their IDs, annotations and facsimile mappings are unchanged. Full-page rendering preserves every system-start signature and measure placement; MIDI is byte-identical.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -411,6 +421,14 @@
          <mdiv xml:id="mvqgxqt1" decls="#work.buxwv256">
             <score xml:id="sj9heja">
                <scoreDef xml:id="srzaqdl1" optimize="false">
+                  <pgHead xml:id="pgHead.op1_05" func="first">
+                     <rend halign="center" valign="middle">
+                        <rend fontsize="x-large">Sonata V in C major, Op. I</rend>
+                        <lb />
+                        <lb />
+                     </rend>
+                     <rend halign="right" valign="bottom" fontsize="small">Dietrich Buxtehude</rend>
+                  </pgHead>
                   <staffGrp xml:id="sunmyum1">
                      <staffGrp symbol="bracket" bar.thru="true">
                         <staffDef xml:id="soa5swb1" lines="5" n="1">
@@ -653,7 +671,6 @@
                      </harm>
                   </measure>
                   <scoreDef xml:id="s2x971a1">
-                     <keySig xml:id="kqjfi2q2" sig="0" />
                   </scoreDef>
                   <measure xml:id="mxelqtj1" facs="#zone_4bb775b2922946a8a6" n="3">
                      <staff xml:id="shhmbcs2" n="1">

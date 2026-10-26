@@ -28,7 +28,7 @@
          </editionStmt>
          <pubStmt xml:id="ped2n8h">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
+            <date isodate="2026-10-26" type="last-updated">2026-10-26</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_app_01_suite_to_op1_04_corr.mei</identifier>
             <availability>
@@ -108,6 +108,16 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Added an explicit first-page pgHead with the edition title and Dietrich Buxtehude, following the editor's choice to include the composer in exported scores as well as the web viewer. The authority-linked composer and source metadata are retained. All musical events, their IDs, annotations, facsimile references and encoded breaks are unchanged; page counts and MIDI are unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Restored the pre-existing measure-31 chord and note IDs tiyuv, suwyue and utyuzp on the B-flat3–D4 quarter-note chord moved to layer 2 in the 2026-10-25 correction. Replaced the newly assigned IDs ferfgrt, ghrh and fdghf; all musical readings, durations, voice assignments, annotations, facsimile zones and repeat expansion are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-25" resp="#resp.tu">
             <changeDesc>
                <p>Corrected four measures against DdT 1903. At measure 24 the violin B-flat4 is a dotted quarter; the eighth rest after it (s3errc2) is removed. At measure 31 split the third-beat keyboard upper-staff chord B-flat3–D4–F4 (tiyuv, with suwyue and utyuzp): F4 stays an eighth in layer 1, before G4, and B-flat3–D4 form a quarter-note chord in a new layer 2 after a half-note space. At measure 33 renumbered the two layers of staff 5 from 5 and 6 to 1 and 2. At measure 76 the two dotted-quarter keyboard upper-staff chords read D4–G4–B-flat4, not D4–F4–B-flat4, and the two continuo G2 dotted quarters are tied. Other pitches, durations and event IDs are unchanged.</p>
@@ -263,6 +273,16 @@
          <mdiv xml:id="p15uf8py" decls="#work.buxwv273.suite">
             <score xml:id="qccmwel">
                <scoreDef xml:id="ri73tjt">
+                  <pgHead xml:id="pgHead.app_01" func="first">
+                     <rend halign="center" valign="middle">
+                        <rend fontsize="x-large">Suite in B-flat major</rend>
+                        <lb />
+                        <rend fontsize="small">(Appendix I to Sonata IV, Op. I)</rend>
+                        <lb />
+                        <lb />
+                     </rend>
+                     <rend halign="right" valign="bottom" fontsize="small">Dietrich Buxtehude</rend>
+                  </pgHead>
                   <staffGrp xml:id="us7ngri">
                      <staffGrp xml:id="dfg" bar.thru="true">
                         <grpSym xml:id="upper3bracket" symbol="bracket" />
@@ -2972,9 +2992,9 @@
                            </layer>
                            <layer xml:id="fergtd" n="2">
                               <space xml:id="sdhcdi" dur="2" />
-                              <chord xml:id="ferfgrt" dur="4" stem.dir="down">
-                                 <note xml:id="ghrh" oct="3" pname="b" accid.ges="f" />
-                                 <note xml:id="fdghf" oct="4" pname="d" />
+                              <chord xml:id="tiyuv" dur="4" stem.dir="down">
+                                 <note xml:id="suwyue" oct="3" pname="b" accid.ges="f" />
+                                 <note xml:id="utyuzp" oct="4" pname="d" />
                               </chord>
                            </layer>
                         </staff>

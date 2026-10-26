@@ -6,7 +6,7 @@ One MEI file per BSB image of the DdT score, named `bsb00023199_<image-number>_f
 
 For every assembled work, the work-level file in [`../11_buxtehude_sonatas_final/`](../11_buxtehude_sonatas_final/) is authoritative. Corrections are made there. The pages of those works are kept as assembly input and provenance and are not updated with later corrections, so they can differ from the assembled score.
 
-Op. II/1 (images 00089–00099) was assembled on 2026-10-25 into `buxtehude_op2_01_sonata_b_flat_major_corr.mei`: 203 measures, 11 facsimile pages and 43 systems. Its proofread page readings are preserved; work-level review of the new consistency report remains pending. Further corrections belong in the assembled file.
+Op. II/1 (images 00089–00099) was assembled on 2026-10-25 into `buxtehude_op2_01_sonata_b_flat_major_corr.mei`: 203 measures, 11 facsimile pages and 43 systems. The assembled file incorporates the completed editor-guided work-level corrections of 2026-10-25–26 and has status `corrected`. Further corrections belong in the assembled file.
 
 The page files are in neither validation work list, so the corpus checks do not cover them.
 

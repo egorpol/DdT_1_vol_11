@@ -29,7 +29,7 @@
          <pubStmt xml:id="pwz47dt">
             <publisher>CAMAT Corpus Editions</publisher>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
-            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
+            <date isodate="2026-10-26" type="last-updated">2026-10-26</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr.mei</identifier>
             <availability>
                <useRestrict>MEI data released under the <ref target="https://spdx.org/licenses/MIT.html">MIT License</ref>.</useRestrict>
@@ -138,6 +138,21 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Added an explicit first-page pgHead with the edition title and Dietrich Buxtehude, following the editor's choice to include the composer in exported scores as well as the web viewer. The authority-linked composer and source metadata are retained. All musical events, their IDs, annotations, facsimile references and encoded breaks are unchanged; page counts and MIDI are unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Removed 24 redundant key-signature declarations that repeated the already active key, eliminating unprinted system-end courtesy signatures. Retained the initial key signatures and the existing score-definition containers and IDs, clefs, meters, page and system breaks. All musical events, their IDs, annotations and facsimile mappings are unchanged. Full-page rendering preserves every system-start signature and measure placement; MIDI is byte-identical.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Restored the existing G4 event ID s1nvzsnv at measure 218, replacing nghjnfg on the corrected sixteenth note. The supplied dotted-eighth F-sharp4 retains its new ID bhfgyy. This preserves the G4's identity across the 2026-10-22 rhythmic correction without changing either note's pitch, duration, onset or voice. All other musical content, annotations and facsimile references are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-26" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>At measure 246 set the continuo figure 3, which resolves the 4 over the A3 whole note, to tstamp 3.5, under the last quarter of the bar, as DdT 1903 prints it. Tstamp 4, set on 2026-10-22, is the closing barline of the 3/2 bar; before that the figure stood a quarter early, at tstamp 3. No other change.</p>
@@ -497,6 +512,14 @@
          <mdiv xml:id="f141mnyn" decls="#work.buxwv260">
             <score xml:id="g1qlr2ju">
                <scoreDef xml:id="hqqfax7">
+                  <pgHead xml:id="pgHead.op2_02" func="first">
+                     <rend halign="center" valign="middle">
+                        <rend fontsize="x-large">Sonata II in D major, Op. II</rend>
+                        <lb />
+                        <lb />
+                     </rend>
+                     <rend halign="right" valign="bottom" fontsize="small">Dietrich Buxtehude</rend>
+                  </pgHead>
                   <staffGrp xml:id="kyfq840">
                      <staffGrp xml:id="dfg" bar.thru="true">
                         <grpSym xml:id="upper3bracket" symbol="bracket" />
@@ -10019,7 +10042,6 @@
                   </measure>
                   <sb xml:id="z6zbhua" />
                   <scoreDef xml:id="a3cx9lb">
-                     <keySig xml:id="bv3wmy9" sig="2s" />
                   </scoreDef>
                   <measure xml:id="p13n8bdn" left="rptstart" n="155" facs="#zone_8e0a4337b79b450e87">
                      <harm xml:id="bsb00023199_00105_facs_zones_fb_11" staff="3" tstamp="1">
@@ -10411,19 +10433,14 @@
                   <scoreDef xml:id="m159keysig">
                      <staffGrp>
                         <staffDef n="1">
-                           <keySig xml:id="m159keysig1" sig="2s" />
                         </staffDef>
                         <staffDef n="2">
-                           <keySig xml:id="m159keysig2" sig="2s" />
                         </staffDef>
                         <staffDef n="3">
-                           <keySig xml:id="m159keysig3" sig="2s" />
                         </staffDef>
                         <staffDef n="4">
-                           <keySig xml:id="m159keysig4" sig="2s" />
                         </staffDef>
                         <staffDef n="5">
-                           <keySig xml:id="m159keysig5" sig="2s" />
                         </staffDef>
                      </staffGrp>
                   </scoreDef>
@@ -16392,7 +16409,6 @@
                   </measure>
                   <sb xml:id="n1jhv74y" />
                   <scoreDef>
-                     <keySig sig="2s" />
                      <staffGrp>
                         <staffDef n="1">
                            <meterSig count="4" sym="common" unit="4" />
@@ -16760,7 +16776,6 @@
                   </measure>
                   <sb xml:id="h1pbgif0" />
                   <scoreDef xml:id="m211keysig">
-                     <keySig xml:id="m211keysig_sig" sig="2s" />
                   </scoreDef>
                   <measure xml:id="x1nmdpt3" left="rptstart" metcon="false" n="211" facs="#zone_d0e346e3caa24d99af">
                      <staff xml:id="grqvlnz" n="1">
@@ -17122,7 +17137,6 @@
                   </measure>
                   <pb xml:id="e3rwx0l" facs="#surface_c356355c59d9" n="10" />
                   <scoreDef xml:id="newScoreDef215">
-                     <keySig xml:id="m215keysig" sig="2s" />
                      <meterSig count="4" sym="common" unit="4" />
                   </scoreDef>
                   <measure xml:id="w1jw19po" left="rptstart" n="215" facs="#zone_4276f1e38e2942e58e">
@@ -17436,7 +17450,7 @@
                            </beam>
                            <beam xml:id="rgthye">
                               <note xml:id="bhfgyy" dots="1" dur="8" oct="4" pname="f" stem.dir="down" accid.ges="s" />
-                              <note xml:id="nghjnfg" dur="16" oct="4" pname="g" stem.dir="down" />
+                              <note xml:id="s1nvzsnv" dur="16" oct="4" pname="g" stem.dir="down" />
                            </beam>
                            <note xml:id="t1v6d4nq" dur="4" oct="4" pname="f" stem.dir="down" accid.ges="s" />
                         </layer>
@@ -17488,7 +17502,6 @@
                   </measure>
                   <sb xml:id="ibylfas" />
                   <scoreDef xml:id="newScoreDef219">
-                     <keySig xml:id="m219keysig" sig="2s" />
                   </scoreDef>
                   <measure xml:id="y136a6ib" left="rptstart" n="219" facs="#zone_363adef56d3047f9ab">
                      <staff xml:id="h12tpb6m" n="1">
@@ -17876,7 +17889,6 @@
                   </measure>
                   <sb xml:id="f1h1hmbb" />
                   <scoreDef xml:id="newScoreDef223">
-                     <keySig xml:id="m223keysig" sig="2s" />
                   </scoreDef>
                   <measure xml:id="vtvbwri" left="rptstart" n="223" facs="#zone_52982aabdfd647e7b4">
                      <dir xml:id="hwerg" place="above" staff="1" tstamp="1"> Parte X.</dir>
@@ -18180,7 +18192,6 @@
                   </measure>
                   <sb xml:id="h1uvmfnn" />
                   <scoreDef xml:id="newScoreDef227">
-                     <keySig xml:id="m227keysig" sig="2s" />
                   </scoreDef>
                   <measure xml:id="x1rt0ura" left="rptstart" n="227" facs="#zone_78251178001f4ce482">
                      <staff xml:id="g1rvxmt6" n="1">
@@ -18537,7 +18548,6 @@
                   </measure>
                   <pb xml:id="k1lvec0m" facs="#surface_01451383812f" n="11" />
                   <scoreDef xml:id="m231meter3_2">
-                     <keySig xml:id="m231keysig" sig="2s" />
                      <meterSig xml:id="m231meter3_2_sig" count="3" unit="2" />
                      <staffGrp>
                         <staffDef n="2">
@@ -19025,7 +19035,6 @@
                   </measure>
                   <sb xml:id="kek5fw0" />
                   <scoreDef xml:id="newScoreDef240">
-                     <keySig xml:id="m240keysig" sig="2s" />
                   </scoreDef>
                   <measure xml:id="aajylae" n="240" facs="#zone_d436ccf4b00844a2b4">
                      <harm xml:id="bsb00023199_00110_facs_zones_fb_12" staff="3" tstamp="1">
@@ -19373,7 +19382,6 @@
                   </measure>
                   <sb xml:id="t18sx2bz" />
                   <scoreDef xml:id="u5cjkn3">
-                     <keySig xml:id="m247keysig" sig="2s" />
                      <meterSig xml:id="w1q7stcj" count="4" sym="common" unit="4" />
                   </scoreDef>
                   <measure xml:id="jq9bmnj" n="247" facs="#zone_8d4910a71c2f43b6ac">
@@ -19748,7 +19756,6 @@
                   </measure>
                   <sb xml:id="v1f92kci" />
                   <scoreDef xml:id="newScoreDef251">
-                     <keySig xml:id="m251keysig" sig="2s" />
                   </scoreDef>
                   <measure xml:id="l109l0ou" n="251" facs="#zone_babe1c0c035340828f">
                      <staff xml:id="u3yidu" n="1">
@@ -20245,7 +20252,6 @@
                   </measure>
                   <pb xml:id="k1ct65ij" facs="#surface_a4dc5c59669a" n="12" />
                   <scoreDef xml:id="newScoreDef255">
-                     <keySig xml:id="m255keysig" sig="2s" />
                   </scoreDef>
                   <measure xml:id="crf3za4" n="255" facs="#zone_1b5105e5b8364d3d8a">
                      <harm xml:id="bsb00023199_00111_facs_zones_fb_1" staff="3" tstamp="3.5">
@@ -20857,7 +20863,6 @@
                   </measure>
                   <sb xml:id="z1qpsxt1" />
                   <scoreDef xml:id="newScoreDef259">
-                     <keySig xml:id="m259keysig" sig="2s" />
                   </scoreDef>
                   <measure xml:id="p1si65rg" n="259" facs="#zone_7561882e58d2475594">
                      <staff xml:id="y1hqpfh0" n="1">
@@ -21287,7 +21292,6 @@
                   </measure>
                   <sb xml:id="h1hejshi" />
                   <scoreDef xml:id="newScoreDef263">
-                     <keySig xml:id="m263keysig" sig="2s" />
                   </scoreDef>
                   <measure xml:id="xn06upp" n="263" facs="#zone_4763a9d286c145ad8e">
                      <harm xml:id="bsb00023199_00111_facs_zones_fb_18" staff="3" tstamp="2">
@@ -21742,7 +21746,6 @@
                   </measure>
                   <sb xml:id="j1drl6ln" />
                   <scoreDef xml:id="newScoreDef266">
-                     <keySig xml:id="m266keysig" sig="2s" />
                   </scoreDef>
                   <measure xml:id="z1ee1rkx" n="266" facs="#zone_3493e1266c63480985">
                      <harm xml:id="bsb00023199_00111_facs_zones_fb_27" staff="3" tstamp="1">
@@ -22199,7 +22202,6 @@
                   </measure>
                   <pb xml:id="m1ar2nq1" facs="#surface_0739b02752a3" n="13" />
                   <scoreDef xml:id="newScoreDef269">
-                     <keySig xml:id="m269keysig" sig="2s" />
                   </scoreDef>
                   <measure xml:id="e11zor43" n="269" facs="#zone_99cbf7bf571244bf9b">
                      <harm xml:id="bsb00023199_00112_facs_zones_fb_1" staff="3" tstamp="3">
@@ -22645,7 +22647,6 @@
                   </measure>
                   <sb xml:id="c2rcqvi" />
                   <scoreDef xml:id="newScoreDef272">
-                     <keySig xml:id="m272keysig" sig="2s" />
                   </scoreDef>
                   <measure xml:id="s19dibn2" n="272" facs="#zone_adc6703aae9c4c3a89">
                      <harm xml:id="bsb00023199_00112_facs_zones_fb_9" staff="3" tstamp="1">
@@ -23160,7 +23161,6 @@
                   </measure>
                   <sb xml:id="j5dp8gw" />
                   <scoreDef xml:id="newScoreDef275">
-                     <keySig xml:id="m275keysig" sig="2s" />
                   </scoreDef>
                   <measure xml:id="z1ai83dh" n="275" facs="#zone_4776d072420849e2bd">
                      <harm xml:id="bsb00023199_00112_facs_zones_fb_23" staff="3" tstamp="1.5">
@@ -23616,7 +23616,6 @@
                   </measure>
                   <sb xml:id="j1oah3b3" />
                   <scoreDef xml:id="newScoreDef278">
-                     <keySig xml:id="m278keysig" sig="2s" />
                   </scoreDef>
                   <measure xml:id="z984ogd" n="278" facs="#zone_d6671f1e5e6446c2bd">
                      <harm xml:id="bsb00023199_00112_facs_zones_fb_30" staff="3" tstamp="4">

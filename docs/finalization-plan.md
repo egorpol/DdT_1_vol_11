@@ -1,12 +1,12 @@
 # Release 1.0 checklist
 
-Status 2026-10-25: 16 works are corrected working files (`_corr` filenames). They are not finalized. The 0.9.0 pre-release publishes them with the status "corrected, not finalized" before this list is complete. Op. II/1 is now assembled from its proofread pages, with a new consistency report; it remains `combined` pending work-level review and is outside that release.
+Status 2026-10-26: all 17 works are corrected working files (`_corr` filenames). They are not finalized. The 0.9.0 pre-release contains the earlier 16 corrected works. Op. II/1 was subsequently assembled and corrected with the editor in the 2026-10-25–26 session, with a current consistency report; it is outside that release.
 
 The validation boundary, the shared CAMAT checks and this corpus's validator are in place (steps 1–3 of the [archived plan](archive/planning/finalization-plan-2026-10-01.md), with CAMAT 0.2.7). The items below are what remains before a 1.0 release. The [tool guide](../validation/README.md) describes the checks, the [encoding profile](mei-encoding-profile.md) the target header and the [editorial policy](editorial-policy.md) the intervention categories.
 
 ## Scope
 
-- [ ] Decide whether 1.0 contains the 16 corrected works or all 17, which requires completing work-level correction and review of the newly assembled Op. II/1.
+- [ ] Decide whether 1.0 contains the earlier 16 works or all 17 corrected works, including Op. II/1.
 - [ ] List every released work in `validation/works.json` with its own identities, consulted sources, page range and staff roles. Today the publication work list holds Op. I/1 only; nothing is copied from the pilot to other works.
 
 ## Editorial review, per work
@@ -26,8 +26,9 @@ The validation boundary, the shared CAMAT checks and this corpus's validator are
 
 ## Files and metadata
 
+- [x] Encode an explicit first-page title and composer heading in all 17 scores, retaining the authority-linked composer metadata and supporting standalone exports (2026-10-26).
 - [ ] Remove the `_corr` suffix and set the final filenames and publication URIs together, following the `altId[@type='repository-stem']` mapping in the [editorial workflow](editorial-workflow.md#file-naming).
-- [ ] Set one edition version and release date in every header, with a revision entry for the release. Release mode reads the first `pubStmt/date` as the release date; Op. I/1 and Op. II/4 still open with untyped dates (2026-08-15, 2026-08-31) left from earlier draft headers.
+- [ ] Set one edition version and release date in every header, with a revision entry for the release. Release mode reads the first `pubStmt/date` as the release date; the current first dates record working-edition updates, so replace them with the actual release date when preparing publication.
 - [ ] Rerun the full editorial report set on the final filenames and commit its provenance.
 
 ## Release gate and archive

@@ -28,7 +28,7 @@
          </editionStmt>
          <pubStmt xml:id="pn5ijuo">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
+            <date isodate="2026-10-26" type="last-updated">2026-10-26</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_03_sonata_a_minor_corr.mei</identifier>
             <availability>
@@ -105,6 +105,16 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Added an explicit first-page pgHead with the edition title and Dietrich Buxtehude, following the editor's choice to include the composer in exported scores as well as the web viewer. The authority-linked composer and source metadata are retained. All musical events, their IDs, annotations, facsimile references and encoded breaks are unchanged; page counts and MIDI are unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-26" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Corrected the added chord member getgtd at measure 36, keyboard upper staff, beat 3, from A4 to E4 against DdT 1903, printed p. 23 (BSB image 00033). The printed chord is E4–A4–C5, confirmed by Egor Polyakov on 2026-10-26 after reviewing the source crop. This supersedes the repeated-A4 reading accepted on 2026-10-19; the 2026-10-18 correction had duplicated A4 and omitted E4. All existing event IDs, durations, voice assignments, annotations and facsimile references are retained.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -418,6 +428,14 @@
          <mdiv xml:id="h1wr690d" decls="#work.buxwv254">
             <score xml:id="icjva5h">
                <scoreDef xml:id="j8durl3">
+                  <pgHead xml:id="pgHead.op1_03" func="first">
+                     <rend halign="center" valign="middle">
+                        <rend fontsize="x-large">Sonata III in A minor, Op. I</rend>
+                        <lb />
+                        <lb />
+                     </rend>
+                     <rend halign="right" valign="bottom" fontsize="small">Dietrich Buxtehude</rend>
+                  </pgHead>
                   <staffGrp xml:id="mggfgdc">
                      <staffGrp xml:id="Pgt" bar.thru="true">
                         <staffDef xml:id="P1" n="1" lines="5">
@@ -4060,7 +4078,7 @@
                            <rest xml:id="g1g9u91v" dur="8" />
                            <chord xml:id="i59rtdc" dur="8" stem.dir="up">
                               <note xml:id="hdxo4my" oct="4" pname="a" />
-                              <note xml:id="getgtd" oct="4" pname="a" />
+                              <note xml:id="getgtd" oct="4" pname="e" />
                               <note xml:id="j16kmam6" oct="5" pname="c" />
                            </chord>
                            <rest xml:id="k1dbctde" dur="8" />

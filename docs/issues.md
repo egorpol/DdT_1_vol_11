@@ -1,12 +1,26 @@
 # Encoding and rendering issues
 
-Record upstream status, affected passages, and the current encoding here before
-the planned combined reassessment. An open report is not a reason to change the
-musical reading or to file a duplicate. Status dates refer to an actual recheck.
+Reassessed on 2026-10-26 with the pinned Verovio 6.3.0 runtime. Four edition issues are resolved: redundant key restatements, cross-layer ties, repeat playback and the composer heading. The editor accepted the two remaining engraving limitations on that date: tall figured-bass parentheses and the shared dotted C4 head. Their musical readings remain intact; this acceptance does not mean the upstream limitations are fixed. An open report is not a reason to change a source reading or file a duplicate.
+
+## Unprinted courtesy key signatures
+
+**Status: resolved in the edition, 2026-10-26.** Removed 77 redundant key
+signature declarations across eight works: 49 `keySig` elements and 28
+`scoreDef/@keysig` attributes. Each repeated the effective key already active
+on every affected staff. The initial keys are retained, as are the
+score-definition containers and their IDs, all clefs, meters and encoded breaks.
+Retaining these containers also avoids shifting Verovio MIDI meter metadata.
+
+All eight before/after comparisons preserve every system-start key signature,
+page count, measure placement and MIDI bytes. The SVG output has 345 fewer
+key-signature groups. Op. II/2 alone goes from 355 to 255 groups; its 51 systems
+still begin with the key on all five staves. No notation event, annotation or
+facsimile mapping changes. Full evidence and an illustrated comparison are in
+local `validation/runs/courtesy-key-cleanup-20261026/`.
 
 ## Parentheses around a complete figured-bass stack
 
-**Status: unresolved; rechecked 2026-10-19.** This is tracked upstream as an MEI
+**Status: accepted engraving limitation; rechecked 2026-10-26.** This is tracked upstream as an MEI
 encoding request, with a remaining limitation in Verovio's rendering of the
 available approximations.
 
@@ -36,9 +50,8 @@ validates, but the two parentheses remain beside the top and bottom figures
 instead of enclosing the stack vertically. No pitches, durations, figures, or
 source readings are changed to accommodate the renderer.
 
-**Recheck:** [Verovio 6.3.0](https://github.com/rism-digital/verovio/releases/tag/version-6.3.0)
-is the latest stable release checked; the installed runtime is
-`6.3.0-425dd7b`. The literal encoding still renders as the reported approximation.
+**Recheck:** the pinned [Verovio 6.3.0](https://github.com/rism-digital/verovio/releases/tag/version-6.3.0)
+runtime is `6.3.0-425dd7b`. The literal encoding still renders as the reported approximation.
 Literal text around `fb` validates but, in the tested renderer, shows only the
 parentheses and loses the figures. A `supplied` wrapper around `harm` validates
 but renders the figures without a group enclosure. Proposed `@enclose="paren"`
@@ -46,6 +59,13 @@ on `harm`, `fb`, or `f` is rejected by both the repository's MEI 5.1 CMN schema
 and the [current MEI development CMN schema](https://github.com/music-encoding/schema/blob/27b4bdd6c12b291f7b1f7d1dee73e6c9114f023d/dev/mei-cmn.rng)
 (build 2026-09-28); the tested renderer also draws no enclosure for those
 unsupported attributes. The Verovio development runtime was not tested.
+
+**Edition decision, 2026-10-26:** the editor chose to retain the schema-valid
+literal-parentheses reading and document its display limitation. Fresh controls
+still reproduce the approximation; `enclose="paren"` on `harm`, `fb` and `f`
+is still rejected by the pinned schema. MEI #619 and #1846 were read again and
+remain open. No `supplied` wrapper is introduced because the editorial meaning
+of the source parentheses remains unconfirmed. No viewer-only patch is applied.
 
 **Resolution criterion:** a schema-valid encoding that preserves the source
 meaning and renders one pair of parentheses spanning the complete stack. Until
@@ -57,7 +77,7 @@ comment was submitted during this recheck.
 
 ## Cross-layer keyboard ties in Op. II/4
 
-**Status: encoding repaired; upstream classification pending, 2026-10-20.**
+**Status: resolved in the edition; rechecked 2026-10-26.**
 The existing inline tie attributes did not resolve three printed connections
 consistently in the installed Verovio 6.3.0 runtime. Explicit endpoints render
 the source readings and remove the resulting warnings. This observation alone
@@ -79,6 +99,11 @@ the source evidence and encoding repair. This follows the
 [MEI tie guidance](https://music-encoding.org/guidelines/v5/attribute-classes/att.tiePresent.html),
 which permits an explicit `tie` element to specify visual information.
 
+**Recheck, 2026-10-26:** all three explicit ties render as paths. MIDI contains
+no new note attack at any of the three continuation-note onsets. Source
+notation and event IDs are unchanged. These repairs complete the edition task;
+classifying or reporting the former behavior upstream is optional follow-up.
+
 **For the combined reassessment:** first isolate a schema-valid minimal example
 with unchanged pitches, onsets and durations, compare inline attributes and
 explicit endpoints, and search existing upstream reports. The current score
@@ -88,7 +113,7 @@ unpublished run directories.
 
 ## Automatic repeat expansion crashes on consecutive repeat endings
 
-**Status: reproduced; score encoding repaired, 2026-10-20.** In installed
+**Status: resolved in the edition; playback rechecked 2026-10-26.** In installed
 Verovio `6.3.0-425dd7b`, Appendix I rendered normally but MIDI/timemap export
 terminated with SIGSEGV in `ExpansionMap::CreateSection` / `Object::DetachChild`.
 This also caused the CAMAT consumer check to crash. A schema-valid two-measure
@@ -112,6 +137,12 @@ twice, in the intended strain order; all four score pages are pixel-identical
 before and after this structural change. CAMAT parsing passes. The normal
 MEI schema, reference, rendering and musical-diagnostics checks also pass.
 
+**Recheck, 2026-10-26:** the current score exports MIDI successfully and its
+timemap contains 178 measure occurrences, exactly two for each of the 89 written
+measures. The four-page score and explicit strain order are retained. An
+upstream report about the old automatic-expansion crash is optional follow-up,
+not an unresolved correction in the edition.
+
 **Issue search:** the public tracker was searched for repeat crashes and
 expansion reports on 2026-10-20. The closest inspected reports were closed
 [Verovio #1125](https://github.com/rism-digital/verovio/issues/1125), an older
@@ -131,7 +162,7 @@ repeat plan is independently meaningful and does not suppress its repeats.
 
 ## Dotted unison of a chord member and a single note
 
-**Status: reproduced; not reported upstream, 2026-10-19.** In installed Verovio
+**Status: accepted engraving limitation; rechecked 2026-10-26.** In installed Verovio
 `6.3.0-425dd7b`, a dotted-quarter C4 that inherits its dot from an
 upward-stemmed C4–F4–A4 chord is drawn beside a downward-stemmed dotted-quarter
 C4 in the second voice instead of sharing its head. The same chord without dots
@@ -160,29 +191,38 @@ with differing dots inside one chord, was closed as not planned. None reports a
 dot inherited from the chord. The development runtime was not tested and no
 report was submitted.
 
+**Edition decision, 2026-10-26:** the editor chose to retain both dotted-quarter
+C4 entries and document the rendering limitation. Seven fresh schema-valid
+controls reproduce the result: explicit duplicate dot attributes align the
+heads but introduce a warning and extra dot positions; the tested `sameas`
+variants either leave the chord stem detached or lose the lower stem. The
+ordinary two-note control merges correctly. The existing issue draft remains
+local; no viewer-only patch or upstream submission is made by this cleanup.
+
 **For the combined reassessment:** the reproduction, its controls, the DdT crop
 and an issue draft are in the ignored `issue_drafts/shared-notehead-m17/`
 directory. Recheck the then-current runtime and tracker before submitting it.
 
 ## Composer missing from Verovio's generated page header
 
-**Status: closed upstream without a change, 2026-10-20; not addressed in the
-scores.** When a score has no `pgHead`, Verovio builds the first-page header
-from `meiHead`, and a composer encoded as `composer/persName` comes out blank.
-[Verovio #4512](https://github.com/rism-digital/verovio/issues/4512), opened by
-Egor Polyakov for the Webern Op. 27 edition, reports this as a regression since
-4.4.0. The maintainer closed it on 2026-10-20: header generation is meant for
-simple cases, and an edition should encode the `pgHead` it wants.
+**Status: resolved in all 17 scores, 2026-10-26.** The editor chose explicit MEI
+page headings so the composer appears in standalone exports as well as the web
+viewer. Every initial `scoreDef` now contains a `pgHead` with `func="first"`,
+the edition title and Dietrich Buxtehude. Long appendix titles have a smaller
+subtitle line. The metadata's GND-linked `composer/persName` remains intact.
+The viewer's former temporary flattening of that metadata is removed.
 
-**Affected works:** all 17 assembled scores. Each wraps the titleStmt composer
-in a GND-linked `persName`, and none has a `pgHead`. On 2026-10-21, page 1 of
-each of the 16 scores then assembled, rendered with Verovio `6.3.0-425dd7b`
-(`breaks: encoded`), contained no "Buxtehude"; Op. II/1, assembled on
-2026-10-25, rendered the same way on 2026-10-26. With the `persName` in Op. I/1
-replaced by plain text, the name appeared.
+All 17 candidate scores validate, render the composer on page 1, preserve their
+page counts and export byte-identical MIDI. Full-page rendering is included in
+the editorial report refresh. The [encoding profile](mei-encoding-profile.md)
+now documents this choice. The public pre-release scope and edition versions
+are unchanged.
 
-**Resolution criterion:** before 1.0, either encode a `pgHead` in the first
-`scoreDef`, as the Webern Op. 27 edition does, or let the web viewer draw the
-heading. The GND-linked `persName` stays in the header either way. The
-[encoding profile](mei-encoding-profile.md) currently advises against a
-`pgHead` that only repeats the title; update it with the decision.
+[Verovio #4512](https://github.com/rism-digital/verovio/issues/4512), re-read on
+2026-10-26, remains closed. The maintainer recommends explicit `pgHead` content
+for editions rather than relying on automatic header generation from every
+possible metadata structure. This is the approach now used here; no upstream
+renderer fix is claimed.
+
+Local evidence for the headings, accepted engraving limitations, and repaired
+tie/repeat checks is in `validation/runs/issue-resolution-20261026/`.

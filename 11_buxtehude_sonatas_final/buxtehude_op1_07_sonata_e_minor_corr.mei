@@ -28,7 +28,7 @@
          </editionStmt>
          <pubStmt>
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
+            <date isodate="2026-10-26" type="last-updated">2026-10-26</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_07_sonata_e_minor_corr.mei</identifier>
             <availability>
                <useRestrict>MEI data released under the <ref target="https://spdx.org/licenses/MIT.html">MIT License</ref>.</useRestrict>
@@ -105,6 +105,16 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Added an explicit first-page pgHead with the edition title and Dietrich Buxtehude, following the editor's choice to include the composer in exported scores as well as the web viewer. The authority-linked composer and source metadata are retained. All musical events, their IDs, annotations, facsimile references and encoded breaks are unchanged; page counts and MIDI are unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Removed 31 redundant key-signature declarations that repeated the already active key, eliminating unprinted system-end courtesy signatures. Retained the initial key signatures and the existing score-definition containers and IDs, clefs, meters, page and system breaks. All musical events, their IDs, annotations and facsimile mappings are unchanged. Full-page rendering preserves every system-start signature and measure placement; MIDI is byte-identical.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -413,6 +423,14 @@
          <mdiv xml:id="b197iny9" decls="#work.buxwv258">
             <score xml:id="c3eu9vc">
                <scoreDef xml:id="de9tx9g">
+                  <pgHead xml:id="pgHead.op1_07" func="first">
+                     <rend halign="center" valign="middle">
+                        <rend fontsize="x-large">Sonata VII in E minor, Op. I</rend>
+                        <lb />
+                        <lb />
+                     </rend>
+                     <rend halign="right" valign="bottom" fontsize="small">Dietrich Buxtehude</rend>
+                  </pgHead>
                   <staffGrp xml:id="g1hgxa15">
                      <staffGrp xml:id="upper3grp" bar.thru="true">
                         <grpSym xml:id="upper3bracket" symbol="bracket" />
@@ -6740,7 +6758,6 @@
                   </measure>
                   <sb xml:id="qpm2nk4" />
                   <scoreDef xml:id="rvc87sq">
-                     <keySig xml:id="s1t3wovt" sig="1s" />
                   </scoreDef>
                   <measure xml:id="gtmyhcb" n="53" facs="#zone_81a9e0757bd74fdb8f">
                      <harm xml:id="dnh734" staff="3" tstamp="1">
@@ -7267,7 +7284,6 @@
                   </measure>
                   <sb xml:id="t1iiwga1" />
                   <scoreDef xml:id="rvc87sq2">
-                     <keySig xml:id="s1t3wov2t" sig="1s" />
                   </scoreDef>
                   <measure xml:id="j17wrd" n="60" facs="#zone_4c66b625f9c249a99f">
                      <harm xml:id="vbn634" staff="3" tstamp="1">
@@ -7775,7 +7791,6 @@
                   </measure>
                   <sb xml:id="s4fnfyf" />
                   <scoreDef xml:id="rvc87sq3">
-                     <keySig xml:id="s1t3wov3t" sig="1s" />
                   </scoreDef>
                   <measure xml:id="i1sdmwxu" n="67" facs="#zone_87db7f0f66434ee190">
                      <harm xml:id="mbju3456" staff="3" tstamp="3">
@@ -8286,7 +8301,7 @@
                      </staff>
                   </measure>
                   <pb xml:id="ntlcrra" facs="#surface_15c25ad684df" n="5" />
-                  <scoreDef xml:id="skvi3e" keysig="1s" />
+                  <scoreDef xml:id="skvi3e" />
                   <measure xml:id="fwig5gl" n="75" facs="#zone_ebe8c62d1f9b49668f">
                      <harm xml:id="bsb00023199_00080_facs_zones_mbju34" staff="3" tstamp="1">
                         <fb>
@@ -8882,7 +8897,7 @@
                      <tie xml:id="r4ngaet" startid="#qgjx8fr" endid="#e5ussuw" />
                   </measure>
                   <sb xml:id="qtefxoh" />
-                  <scoreDef xml:id="skvi3e3" keysig="1s" />
+                  <scoreDef xml:id="skvi3e3" />
                   <measure xml:id="g1kkk5oo" n="83" facs="#zone_8959ce374b734e9bab">
                      <harm xml:id="mskfi34" staff="3" tstamp="1">
                         <fb>
@@ -9479,7 +9494,7 @@
                      <tie xml:id="ta624x" startid="#sfndho1" endid="#q1ulee7x" />
                   </measure>
                   <sb xml:id="n1fl118p" />
-                  <scoreDef xml:id="skvi3e1" keysig="1s" />
+                  <scoreDef xml:id="skvi3e1" />
                   <measure xml:id="d1aiqntz" n="91" facs="#zone_313e9aa9637c4749b0">
                      <harm xml:id="ldfo834" staff="3" tstamp="1">
                         <fb>
@@ -9947,7 +9962,7 @@
                   <scoreDef xml:id="tu4sqf7">
                      <meterSig xml:id="uqyn33x" count="4" sym="common" unit="4" />
                   </scoreDef>
-                  <scoreDef xml:id="skvi3e2" keysig="1s" />
+                  <scoreDef xml:id="skvi3e2" />
                   <measure xml:id="i1v1495v" n="98" facs="#zone_76e7eaafd855454c97">
                      <staff xml:id="rycsqmm" n="1">
                         <layer xml:id="vm3fulo" n="1">
@@ -10244,7 +10259,7 @@
                      </staff>
                   </measure>
                   <pb xml:id="c1bqsops" facs="#surface_d9c8e72e71b1" n="6" />
-                  <scoreDef xml:id="skvi3e4" keysig="1s" />
+                  <scoreDef xml:id="skvi3e4" />
                   <measure xml:id="u38678p" n="101" facs="#zone_e0bb067b50fa4c7d81">
                      <harm xml:id="sd834" staff="3" tstamp="1.5">
                         <fb>
@@ -10543,7 +10558,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="tdl0y6s" />
-                  <scoreDef xml:id="skvi3e5" keysig="1s" />
+                  <scoreDef xml:id="skvi3e5" />
                   <measure xml:id="j1vpq5mx" n="104" facs="#zone_8e019bc825bb44bfa4">
                      <staff xml:id="sp3mzxw" n="1">
                         <layer xml:id="usg57c6" n="1">
@@ -10894,7 +10909,7 @@
                      <tie xml:id="th7o3fl2" endid="#aw75xqb" staff="4" startid="#ty3vpcj" curvedir="above" />
                   </measure>
                   <sb xml:id="j1fik5cy" />
-                  <scoreDef xml:id="skvi3e6" keysig="1s" />
+                  <scoreDef xml:id="skvi3e6" />
                   <measure xml:id="z74q4la" n="107" facs="#zone_2ddbd0d98bb3498dae">
                      <harm xml:id="svb534" staff="3" tstamp="3">
                         <fb>
@@ -11201,7 +11216,7 @@
                      <tie xml:id="l1v4bnbb" startid="#kudfwl4" endid="#m9j3nmu" />
                   </measure>
                   <sb xml:id="v1831enm" />
-                  <scoreDef xml:id="skvi3e7" keysig="1s" />
+                  <scoreDef xml:id="skvi3e7" />
                   <measure xml:id="lc3a1k6" n="110" facs="#zone_14edef311b8d4dc8ab">
                      <harm xml:id="svu34" staff="3" tstamp="1">
                         <fb>
@@ -11506,7 +11521,7 @@
                      <tie xml:id="tg1ijq81" endid="#mhek1e4" staff="4" startid="#htgcfd3" />
                   </measure>
                   <pb xml:id="i6ed8iv" facs="#surface_dcc06c24380a" n="7" />
-                  <scoreDef xml:id="skvi3e8" keysig="1s" />
+                  <scoreDef xml:id="skvi3e8" />
                   <measure xml:id="a16dndg8" n="113" facs="#zone_51a2c83be6234d7095">
                      <harm xml:id="ksmv734" staff="3" tstamp="4">
                         <fb>
@@ -11828,7 +11843,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="qxfv2wb" />
-                  <scoreDef xml:id="skvi3e9" keysig="1s" />
+                  <scoreDef xml:id="skvi3e9" />
                   <measure xml:id="gibiib8" n="116" facs="#zone_c7806243d054499bba">
                      <harm xml:id="mscvu34" staff="3" tstamp="2">
                         <fb>
@@ -12218,7 +12233,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="it6hgid" />
-                  <scoreDef xml:id="skvi3e11" keysig="1s" />
+                  <scoreDef xml:id="skvi3e11" />
                   <measure xml:id="ynubg4" n="119" facs="#zone_a5565e391517455698">
                      <staff xml:id="hqmy7j4" n="1">
                         <layer xml:id="j18v0a1m" n="1">
@@ -12501,7 +12516,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="uj83nda" />
-                  <scoreDef xml:id="skvi3e12" keysig="1s" />
+                  <scoreDef xml:id="skvi3e12" />
                   <measure xml:id="ki9lfh6" n="122" facs="#zone_5219c1f09c494ba5a0">
                      <harm xml:id="ksiv34" staff="3" tstamp="4">
                         <fb>
@@ -12817,7 +12832,7 @@
                      <tie xml:id="km4pkaf" startid="#j193x5q6" endid="#onyql05" />
                   </measure>
                   <pb xml:id="srncg0w" facs="#surface_87ffbec53bbe" n="8" />
-                  <scoreDef xml:id="skvi3e13" keysig="1s" />
+                  <scoreDef xml:id="skvi3e13" />
                   <measure xml:id="kuxs0t9" n="125" facs="#zone_60eb8ef02db940dab5">
                      <staff xml:id="t15wmrx4" n="1">
                         <layer xml:id="uyiepf7" n="1">
@@ -13159,7 +13174,7 @@
                      <fermata xml:id="iy257sc" staff="5" startid="#h1cuyeo3" form="norm" place="above" />
                   </measure>
                   <sb xml:id="k1h3mr22" />
-                  <scoreDef xml:id="skvi3e14" keysig="1s" />
+                  <scoreDef xml:id="skvi3e14" />
                   <measure xml:id="a450y4g" n="131" facs="#zone_02ed437e0d5142aa9d">
                      <staff xml:id="jbwz7za" n="1">
                         <layer xml:id="l1wx6wm6" n="1">
@@ -13695,7 +13710,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="m1l3icq5" />
-                  <scoreDef xml:id="skvi3e15" keysig="1s" />
+                  <scoreDef xml:id="skvi3e15" />
                   <measure xml:id="c21uspn" n="135" facs="#zone_d92ad721b5954192ba">
                      <harm xml:id="lsov34a" staff="3" tstamp="1.5">
                         <fb>
@@ -14244,7 +14259,7 @@
                      <tie xml:id="yxobmui" startid="#w16whsdw" endid="#eul3yla" curvedir="below" />
                   </measure>
                   <sb xml:id="h1tlfrfq" />
-                  <scoreDef xml:id="skvi3e16" keysig="1s" />
+                  <scoreDef xml:id="skvi3e16" />
                   <measure xml:id="xiauqhd" n="139" facs="#zone_7d8958c3b329464a8b">
                      <harm xml:id="jsn34" staff="3" tstamp="1">
                         <fb>
@@ -14858,7 +14873,7 @@
                      </staff>
                   </measure>
                   <pb xml:id="u15dkrwp" facs="#surface_948e31a3b12e" n="9" />
-                  <scoreDef xml:id="skvi3e17" keysig="1s" />
+                  <scoreDef xml:id="skvi3e17" />
                   <measure xml:id="mf0y3ft" n="143" facs="#zone_c1166e63f6e2484081">
                      <harm xml:id="ksmvh3" staff="3" tstamp="2">
                         <fb>
@@ -15333,7 +15348,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="a12mtqye" />
-                  <scoreDef xml:id="skvi3e18" keysig="1s" />
+                  <scoreDef xml:id="skvi3e18" />
                   <measure xml:id="qjcgar4" n="146" facs="#zone_cca5370bc6af4d04a6">
                      <harm xml:id="msjv" staff="3" tstamp="3">
                         <fb>
@@ -15758,7 +15773,7 @@
                      <tie xml:id="s1soh4qg" startid="#rcx1yu5" endid="#w14qnniq" />
                   </measure>
                   <sb xml:id="i1fvssv3" />
-                  <scoreDef xml:id="skvi3e19" keysig="1s" />
+                  <scoreDef xml:id="skvi3e19" />
                   <measure xml:id="ywwr8mw" n="149" facs="#zone_ee75e1dcce4c4efbb5">
                      <harm xml:id="ki3" staff="3" tstamp="1.5">
                         <fb>
@@ -16392,7 +16407,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="j1qsmbvi" />
-                  <scoreDef xml:id="skvi3e21" keysig="1s" />
+                  <scoreDef xml:id="skvi3e21" />
                   <measure xml:id="z1npbnn4" n="153" facs="#zone_67a63d0677af44b0b8">
                      <harm xml:id="mkci83" staff="3" tstamp="1">
                         <fb>
@@ -16791,7 +16806,7 @@
                   </measure>
                   <scoreDef xml:id="weuvj343" meter.count="3" meter.unit="8" />
                   <pb xml:id="lajzfve" facs="#surface_9a0b5f1d97d7" n="10" />
-                  <scoreDef xml:id="skvi3e22" keysig="1s" />
+                  <scoreDef xml:id="skvi3e22" />
                   <measure xml:id="d1cyx40i" n="159" facs="#zone_435d0c47531a46ccac">
                      <harm xml:id="fh346" staff="3" tstamp="1">
                         <fb>
@@ -17384,7 +17399,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="h1csmwq" />
-                  <scoreDef xml:id="skvi3e23" keysig="1s" />
+                  <scoreDef xml:id="skvi3e23" />
                   <measure xml:id="x1vxnhoi" n="170" facs="#zone_b342ed603d97498ab2">
                      <harm xml:id="isk8" staff="3" tstamp="1">
                         <fb>
@@ -17946,7 +17961,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="x18t0m7z" />
-                  <scoreDef xml:id="skvi3e24" keysig="1s" />
+                  <scoreDef xml:id="skvi3e24" />
                   <measure xml:id="nd517e3" n="181" facs="#zone_3bc51c3a23914003aa">
                      <staff xml:id="w8v825e" n="1">
                         <layer xml:id="ymt8yut" n="1">
@@ -18473,7 +18488,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="a10orlks" />
-                  <scoreDef xml:id="skvi3e25" keysig="1s" />
+                  <scoreDef xml:id="skvi3e25" />
                   <measure xml:id="q1d1ygee" n="192" facs="#zone_a56c9529d0604001b3">
                      <staff xml:id="z15rae7h" n="1">
                         <layer xml:id="buxlmrz" n="1">
@@ -19071,7 +19086,7 @@
                      </staff>
                   </measure>
                   <pb xml:id="j11opxx6" facs="#surface_cafa05a2c8b3" n="11" />
-                  <scoreDef xml:id="skvi3e26" keysig="1s" />
+                  <scoreDef xml:id="skvi3e26" />
                   <scoreDef xml:id="jvu345">
                      <staffGrp xml:id="wmcj3">
                         <staffDef n="2" clef.shape="F" clef.line="4" />
@@ -19770,7 +19785,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="g1d4l1aw" />
-                  <scoreDef xml:id="skvi3e27" keysig="1s" />
+                  <scoreDef xml:id="skvi3e27" />
                   <measure xml:id="wdpn02h" n="216" facs="#zone_66deace033794bd6a4">
                      <staff xml:id="f1odgm7a" n="1">
                         <layer xml:id="h1omwnw5" n="1">
@@ -20405,7 +20420,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="djmf3hg" />
-                  <scoreDef xml:id="skvi3e28" keysig="1s" />
+                  <scoreDef xml:id="skvi3e28" />
                   <measure xml:id="t1xvjcii" n="228" facs="#zone_cef8dee022854da784">
                      <harm xml:id="hszv23" staff="3" tstamp="1">
                         <fb>
@@ -21035,7 +21050,7 @@
                      </staff>
                   </measure>
                   <sb xml:id="r619r3n" />
-                  <scoreDef xml:id="skvi3e29" keysig="1s" />
+                  <scoreDef xml:id="skvi3e29" />
                   <measure xml:id="hs44bf4" n="240" facs="#zone_d2686c043b1743e296">
                      <harm xml:id="bsb00023199_00086_facs_zones_sjvu3" staff="3" tstamp="1">
                         <fb>

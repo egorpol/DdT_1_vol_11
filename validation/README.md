@@ -157,7 +157,7 @@ crashes, its signal and failed attempt are retained; other checks are rerun in a
 fresh process. That score explicitly records consumer diagnostics as incomplete
 and CAMAT parsing as an execution error. The crash is included in its CSV.
 No CAMAT update or MEI rewrite occurs. Op. II/1 joined this report set after
-assembly on 2026-10-25; it remains `combined` pending work-level review.
+assembly on 2026-10-25 and has been `corrected` since 2026-10-26.
 Adding a new assembled file requires updating
 `editorial-works.json`; an unlisted file makes refresh stop before overwriting reports.
 

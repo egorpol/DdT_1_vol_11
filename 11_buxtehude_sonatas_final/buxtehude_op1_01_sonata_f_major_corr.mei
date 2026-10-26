@@ -29,7 +29,7 @@
          <pubStmt>
             <publisher>CAMAT Corpus Editions</publisher>
             <date isodate="2026-08-15">2026-08-15</date>
-            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
+            <date isodate="2026-10-26" type="last-updated">2026-10-26</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_01_sonata_f_major_corr.mei</identifier>
             <availability>
                <useRestrict>MEI data released under the <ref target="https://spdx.org/licenses/MIT.html">MIT License</ref>.</useRestrict>
@@ -143,6 +143,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Added an explicit first-page pgHead with the edition title and Dietrich Buxtehude, following the editor's choice to include the composer in exported scores as well as the web viewer. The authority-linked composer and source metadata are retained. All musical events, their IDs, annotations, facsimile references and encoded breaks are unchanged; page counts and MIDI are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Corrected the encoding note on the A3 tie between measures 79 and 80: it crosses a system break, not a page break (both measures are on DdT 1903, p. 7). The musical text and facsimile zones are unchanged.</p>
@@ -405,6 +410,14 @@
          <mdiv xml:id="g107b9qt" decls="#work.buxwv252">
             <score xml:id="h10vx2yr">
                <scoreDef xml:id="ihievm1">
+                  <pgHead xml:id="pgHead.op1_01" func="first">
+                     <rend halign="center" valign="middle">
+                        <rend fontsize="x-large">Sonata I in F major, Op. I</rend>
+                        <lb />
+                        <lb />
+                     </rend>
+                     <rend halign="right" valign="bottom" fontsize="small">Dietrich Buxtehude</rend>
+                  </pgHead>
                   <staffGrp xml:id="l8yuw2v">
                      <staffGrp xml:id="upper3grp" bar.thru="true">
                         <grpSym xml:id="upper3bracket" symbol="bracket" />

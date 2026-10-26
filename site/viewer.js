@@ -154,11 +154,6 @@ function readModel(work, text, excerpts) {
     if (!annot) model.loose.push({ ...item, measureId: measure });
   }
 
-  // Verovio builds the page header from meiHead but leaves a composer encoded as
-  // composer/persName blank (Verovio #4512); give it the name as plain text.
-  for (const composer of doc.querySelectorAll('meiHead composer')) {
-    if (composer.getElementsByTagName('persName').length) composer.textContent = squash(composer.textContent);
-  }
   model.text = new XMLSerializer().serializeToString(doc);
   return model;
 }

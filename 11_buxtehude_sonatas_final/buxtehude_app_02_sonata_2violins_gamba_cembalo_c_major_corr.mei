@@ -28,7 +28,7 @@
          </editionStmt>
          <pubStmt xml:id="p11ldkgb">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
+            <date isodate="2026-10-26" type="last-updated">2026-10-26</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_app_02_sonata_2violins_gamba_cembalo_c_major_corr.mei</identifier>
             <availability>
@@ -119,6 +119,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Added an explicit first-page pgHead with the edition title and Dietrich Buxtehude, following the editor's choice to include the composer in exported scores as well as the web viewer. The authority-linked composer and source metadata are retained. All musical events, their IDs, annotations, facsimile references and encoded breaks are unchanged; page counts and MIDI are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Removed two unreferenced duplicate measure zones on facsimile surface 5 (DdT p. 168): one repeated the zone of measure 60, the other that of measure 65. No measure pointed to either; the musical text and annotations are unchanged.</p>
@@ -400,6 +405,16 @@
          <mdiv xml:id="oosejds" decls="#work.buxwv266">
             <score xml:id="p12rhb8x">
                <scoreDef xml:id="q1kq07kz">
+                  <pgHead xml:id="pgHead.app_02" func="first">
+                     <rend halign="center" valign="middle">
+                        <rend fontsize="x-large">Sonata in C major</rend>
+                        <lb />
+                        <rend fontsize="small">for two violins, viola da gamba and continuo (Appendix II)</rend>
+                        <lb />
+                        <lb />
+                     </rend>
+                     <rend halign="right" valign="bottom" fontsize="small">Dietrich Buxtehude</rend>
+                  </pgHead>
                   <staffGrp xml:id="t7jp5q8">
                      <staffGrp xml:id="P1grp" bar.thru="true">
                         <grpSym xml:id="grpsym1" symbol="bracket"/>

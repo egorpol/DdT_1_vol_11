@@ -28,7 +28,7 @@
          </editionStmt>
          <pubStmt xml:id="p89mz2i">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
+            <date isodate="2026-10-26" type="last-updated">2026-10-26</date>
             <date isodate="2019-02-12" type="encoding-date" xml:id="da1uat3">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_04_sonata_b_flat_major_corr.mei</identifier>
             <availability>
@@ -105,6 +105,16 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Added an explicit first-page pgHead with the edition title and Dietrich Buxtehude, following the editor's choice to include the composer in exported scores as well as the web viewer. The authority-linked composer and source metadata are retained. All musical events, their IDs, annotations, facsimile references and encoded breaks are unchanged; page counts and MIDI are unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Removed 1 redundant key-signature declarations that repeated the already active key, eliminating unprinted system-end courtesy signatures. Retained the initial key signatures and the existing score-definition containers and IDs, clefs, meters, page and system breaks. All musical events, their IDs, annotations and facsimile mappings are unchanged. Full-page rendering preserves every system-start signature and measure placement; MIDI is byte-identical.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.9.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -334,6 +344,14 @@
          <mdiv xml:id="a1sjpitc" decls="#work.buxwv255">
             <score xml:id="b1nzxu3q">
                <scoreDef xml:id="c1r57eoe">
+                  <pgHead xml:id="pgHead.op1_04" func="first">
+                     <rend halign="center" valign="middle">
+                        <rend fontsize="x-large">Sonata IV in B-flat major, Op. I</rend>
+                        <lb />
+                        <lb />
+                     </rend>
+                     <rend halign="right" valign="bottom" fontsize="small">Dietrich Buxtehude</rend>
+                  </pgHead>
                   <staffGrp xml:id="fjwnj1r">
                      <staffGrp xml:id="upper3grp" bar.thru="true">
                         <grpSym xml:id="upper3bracket" symbol="bracket" />
@@ -3596,7 +3614,6 @@
                   </measure>
                   <sb xml:id="rebkb70" />
                   <scoreDef xml:id="s1eoew97">
-                     <keySig xml:id="t4guq0c" sig="2f" />
                   </scoreDef>
                   <measure xml:id="h1sy2ol" n="40" facs="#zone_dfe82346309749f685">
                      <harm xml:id="fb_452" staff="3" tstamp="4">

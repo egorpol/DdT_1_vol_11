@@ -50,7 +50,7 @@ The phrase “digital MEI edition” is edition information, not part of the dis
 
 This example describes an actual first release. Before that release, use a truthful working-edition designation and a documented development version, such as `0.1.0`; do not treat the template's `1.0.0` as evidence that a release has occurred. After a release, working files may retain the last published edition statement while recording subsequent work in `revisionDesc`.
 
-Verovio derives the first-page score heading from the metadata title. Add `pgHead` only when page-header content must be encoded explicitly; do not duplicate the title in both places merely to control display.
+Each assembled score encodes a `pgHead` with `func="first"` in its initial `scoreDef`, displaying the edition title and Dietrich Buxtehude. The editor chose this on 2026-10-26 so standalone score exports and the web viewer both show the composer. Keep the authority-linked `composer/persName` in `meiHead`; the page heading does not replace source or work metadata. Long appendix titles use a separate smaller subtitle line. Verovio uses this explicit heading instead of generating a second heading from `meiHead`.
 
 ## Responsibilities and revisions
 

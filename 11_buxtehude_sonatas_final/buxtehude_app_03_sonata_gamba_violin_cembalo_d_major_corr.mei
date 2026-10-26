@@ -28,7 +28,7 @@
          </editionStmt>
          <pubStmt xml:id="p1qxcm78">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-21" type="last-updated">2026-10-21</date>
+            <date isodate="2026-10-26" type="last-updated">2026-10-26</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_app_03_sonata_gamba_violin_cembalo_d_major_corr.mei</identifier>
             <availability>
@@ -107,6 +107,16 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Added an explicit first-page pgHead with the edition title and Dietrich Buxtehude, following the editor's choice to include the composer in exported scores as well as the web viewer. The authority-linked composer and source metadata are retained. All musical events, their IDs, annotations, facsimile references and encoded breaks are unchanged; page counts and MIDI are unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-26" resp="#resp.camat">
+            <changeDesc>
+               <p>Removed 3 redundant key-signature declarations that repeated the already active key, eliminating unprinted system-end courtesy signatures. Retained the initial key signatures and the existing score-definition containers and IDs, clefs, meters, page and system breaks. All musical events, their IDs, annotations and facsimile mappings are unchanged. Full-page rendering preserves every system-start signature and measure placement; MIDI is byte-identical.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-21" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Withdrew the conjectural emendation at measure 150, its annotation and its mention in the editorial declaration: DdT 1903, p. 182, prints the keyboard lower-staff G2 as a dotted half note, so the encoded dot follows the print. The emendation recorded on 2026-10-20 rested on a misreading. The musical text and facsimile zones are unchanged; the emendation at measure 137 stands.</p>
@@ -407,6 +417,16 @@
          <mdiv xml:id="y1k3232d" decls="#work.buxwv267">
             <score xml:id="z1y96440">
                <scoreDef xml:id="a1urnf0d" meter.count="2" meter.unit="2" meter.sym="cut" optimize="false">
+                  <pgHead xml:id="pgHead.app_03" func="first">
+                     <rend halign="center" valign="middle">
+                        <rend fontsize="x-large">Sonata in D major</rend>
+                        <lb />
+                        <rend fontsize="small">for viola da gamba, violone and continuo (Appendix III)</rend>
+                        <lb />
+                        <lb />
+                     </rend>
+                     <rend halign="right" valign="bottom" fontsize="small">Dietrich Buxtehude</rend>
+                  </pgHead>
                   <staffGrp xml:id="d1csdwze">
                      <staffGrp xml:id="bracketGrp1" symbol="bracket" bar.thru="true">
                         <staffDef xml:id="P1" n="1" lines="5">
@@ -10938,7 +10958,6 @@
                   </measure>
                   <sb xml:id="n1put0yk" />
                   <scoreDef xml:id="o1kwuy26">
-                     <keySig xml:id="p1tgir4u" sig="2s" />
                   </scoreDef>
                   <measure xml:id="d1m5vww8" n="145" facs="#zone_aad74edd01ea407584">
                      <staff xml:id="mmko2zy" n="1">
@@ -11295,7 +11314,6 @@
                   </measure>
                   <sb xml:id="e2g11tl" />
                   <scoreDef xml:id="o1kwfuy26">
-                     <keySig xml:id="p1tfgir4u" sig="2s" />
                   </scoreDef>
                   <measure xml:id="u1qrao6x" n="152" facs="#zone_2d8eefef52d24f62ab">
                      <staff xml:id="d1741tzz" n="1">
@@ -11676,7 +11694,6 @@
                   </measure>
                   <sb xml:id="tkmm5pt" />
                   <scoreDef xml:id="o1kwuvy26">
-                     <keySig xml:id="p1tgvir4u" sig="2s" />
                   </scoreDef>
                   <measure xml:id="j1mzm8r9" n="159" facs="#zone_56ec35c965e04cc2bc">
                      <staff xml:id="sqnores" n="1">
