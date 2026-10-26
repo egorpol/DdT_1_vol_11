@@ -9,7 +9,8 @@ outside generous role ranges, isolated octave leaps, same-letter notes with
 different accidentals struck together in different voices, figure accidentals
 that no sounding note honours, figures over silence or with doubtful text,
 tstamps past the barline, ties between different pitches, notes without pitch,
-and event IDs present in the baseline tag but missing now. Known idioms are
+gestural accidentals that neither the key, an earlier written accidental nor a
+tie implies, and event IDs present in the baseline tag but missing now. Known idioms are
 left out: octave returns, figures over a held bass, clashes between a held
 and a moving note.
 """
@@ -42,6 +43,8 @@ RANGES = {'violin': (55, 88), 'violin_1': (55, 88), 'violin_2': (55, 88),
           'keyboard_realization_upper': (45, 88), 'keyboard_realization_lower': (31, 72)}
 CONTROL = {'harm', 'dir', 'dynam', 'tempo', 'fermata', 'trill', 'mordent', 'turn', 'hairpin', 'slur', 'tie', 'arpeg'}
 FIGURE_ACCIDENTALS = {'♯': 1, '#': 1, '♭': -1, 'b': -1, '♮': 0}
+ACCIDENTALS = {'s': 1, 'f': -1, 'n': 0, 'ss': 2, 'x': 2, 'ff': -2}
+ALTER_NAMES = {-2: 'double flat', -1: 'flat', 0: 'natural', 1: 'sharp', 2: 'double sharp'}
 # Semitones of the major or perfect interval per figure; ♯/♭ on a perfect one mean augmented/diminished.
 MAJOR = {2: 2, 3: 4, 4: 5, 5: 7, 6: 9, 7: 11, 8: 12, 9: 14}
 PERFECT = {4, 5, 8}
@@ -149,6 +152,12 @@ def spelled(note):
     return note['pname'].upper() + {-2: 'bb', -1: 'b', 0: '', 1: '#', 2: 'x'}.get(note['alter'], '?') + str(note['oct'])
 
 
+def accidental_of(note, attribute):
+    """A note's @accid or @accid.ges, on the note itself or on its <accid> child."""
+    child = note.find(MEI + 'accid')
+    return note.get(attribute) or (child.get(attribute) if child is not None else None)
+
+
 def lint(work):
     rows = []
     measure_info = {m.get(ID): (m, count, unit, keys, page) for m, count, unit, keys, page in work.measures}
@@ -196,6 +205,31 @@ def lint(work):
             add('accidental_clash', measure, '+'.join(sorted({n['staff'] for n in members})), [n['id'] for n in members],
                 f'struck together at beat {float(onset * unit / 4 + 1):g}: '
                 + ', '.join(f'{spelled(n)} (staff {n["staff"]})' for n in members))
+
+    # A gestural accidental should restate what the key, a written accidental earlier in the bar
+    # (same staff and octave) or an incoming tie already gives; anything else changes the pitch unseen.
+    tied_from = {tie.get('endid', '').removeprefix('#'): tie.get('startid', '').removeprefix('#')
+                 for tie in work.root.iter(MEI + 'tie')}
+    open_ties = {}  # (staff, pname, oct) -> alter of the last note with @tie="i" or "m"
+    for key, notes in by_measure.items():
+        measure, _, _, keys, _ = measure_info[key]
+        carried = {}
+        for note in notes:
+            place = (note['staff'], note['pname'], note['oct'])
+            written, gestural = accidental_of(note['el'], 'accid'), accidental_of(note['el'], 'accid.ges')
+            if written in ACCIDENTALS:
+                carried[place] = ACCIDENTALS[written]
+            implied = {carried.get(place, keys.get(note['staff'], {}).get(note['pname'], 0))}
+            if note['el'].get('tie') in {'m', 't'} and place in open_ties:
+                implied.add(open_ties[place])
+            if tied_from.get(note['id']) in by_id:
+                implied.add(by_id[tied_from[note['id']]]['alter'])
+            if note['el'].get('tie') in {'i', 'm'}:
+                open_ties[place] = note['alter']
+            if gestural and ACCIDENTALS.get(gestural) not in implied:
+                add('accid_ges_mismatch', measure, note['staff'], [note['id']],
+                    f'{spelled(note)} from accid.ges={gestural!r}; key, written accidentals and ties give '
+                    + ' or '.join(ALTER_NAMES.get(a, '?') for a in sorted(implied)))
 
     for staff, role in work.roles.items():
         low, high = RANGES.get(role, (0, 127))
