@@ -119,6 +119,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-27" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Corrected 3 encoding errors found in the musical-lint triage: scripts/musical_lint.py flagged notation suspects, an AI model (OpenAI Codex) compared each with the DdT 1903 page image, and the editor spot-checked eight of its findings across the edition before approving the fixes. In m. 7, added 1 written accidental that DdT prints. In m. 56, staff 4, replaced the measure rest e1r218r7 with the whole-note C3 that DdT prints, keeping its ID. In m. 167, moved 1 figured-bass figure to the onset at which DdT prints it. Event IDs are retained; all other music is unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-26" resp="#resp.camat">
             <changeDesc>
                <p>Added an explicit first-page pgHead with the edition title and Dietrich Buxtehude, following the editor's choice to include the composer in exported scores as well as the web viewer. The authority-linked composer and source metadata are retained. All musical events, their IDs, annotations, facsimile references and encoded breaks are unchanged; page counts and MIDI are unchanged.</p>
@@ -952,7 +957,7 @@
                      </staff>
                      <staff xml:id="l1dyjz7w" n="2">
                         <layer xml:id="mxgawth" n="1">
-                           <note xml:id="n5uexev" dur="4" oct="4" pname="f" stem.dir="up"/>
+                           <note xml:id="n5uexev" accid="s" dur="4" oct="4" pname="f" stem.dir="up"/>
                            <note xml:id="ocroxfq" dur="4" oct="4" pname="g" stem.dir="up"/>
                            <note xml:id="p1s9vfh2" dots="1" dur="4" oct="4" pname="g" stem.dir="up"/>
                            <note xml:id="qu0i05m" dur="8" oct="4" pname="f" stem.dir="up"/>
@@ -7002,7 +7007,7 @@
                      </staff>
                      <staff xml:id="bzqx1wn" n="4">
                         <layer xml:id="cnfrcxa" n="1">
-                           <mRest xml:id="e1r218r7"/>
+                           <note xml:id="e1r218r7" dur="1" oct="3" pname="c"/>
                         </layer>
                      </staff>
                      <staff xml:id="opscd82" n="5">
@@ -15943,7 +15948,7 @@
                      <tie xml:id="t156s9w2" endid="#t84u0z6" staff="5" startid="#s13ijyyo"/>
                   </measure>
                   <measure xml:id="n1oy45p8" n="167" facs="#zone_3adbaadfdaf5447db4">
-                     <harm xml:id="bsb00023199_00184_facs_zones_thjztgi67" staff="4" tstamp="3">
+                     <harm xml:id="bsb00023199_00184_facs_zones_thjztgi67" staff="4" tstamp="2.5">
                         <fb>
                            <f>(♯)</f>
                         </fb>

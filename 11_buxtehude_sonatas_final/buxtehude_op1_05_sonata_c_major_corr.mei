@@ -114,6 +114,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-27" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Corrected 28 encoding errors found in the musical-lint triage: scripts/musical_lint.py flagged notation suspects, an AI model (OpenAI Codex) compared each with the DdT 1903 page image, and the editor spot-checked eight of its findings across the edition before approving the fixes. In m. 132, removed 1 gestural accidental (accid.ges) that the key signature, the printed accidentals and the ties do not imply. In mm. 117, 118, 124, 125, 126, 133, 136, 138, 139, 140, 141, 147, 148, 149, 153, 154, 155, 156, 162, 163, 167, 168, moved 27 figured-bass figures to the onset at which DdT prints them. Event IDs are retained; all other music is unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-26" resp="#resp.camat">
             <changeDesc>
                <p>Added an explicit first-page pgHead with the edition title and Dietrich Buxtehude, following the editor's choice to include the composer in exported scores as well as the web viewer. The authority-linked composer and source metadata are retained. All musical events, their IDs, annotations, facsimile references and encoded breaks are unchanged; page counts and MIDI are unchanged.</p>
@@ -9138,7 +9143,7 @@
                            <f>6#</f>
                         </fb>
                      </harm>
-                     <harm xml:id="b4e6oxoo" staff="3" tstamp="2.5">
+                     <harm xml:id="b4e6oxoo" staff="3" tstamp="4">
                         <fb>
                            <f>#</f>
                         </fb>
@@ -9212,12 +9217,12 @@
                      </staff>
                      <dynam xml:id="b5e6oxoo" staff="3" place="above" tstamp="1">Forte</dynam>
                      <dynam xml:id="b6e6oxoo" staff="5" place="above" tstamp="1">Forte</dynam>
-                     <harm xml:id="b7e6oxoo" staff="3" tstamp="2">
+                     <harm xml:id="b7e6oxoo" staff="3" tstamp="3">
                         <fb>
                            <f>#</f>
                         </fb>
                      </harm>
-                     <harm xml:id="b8e6oxoo" staff="3" tstamp="3">
+                     <harm xml:id="b8e6oxoo" staff="3" tstamp="4">
                         <fb>
                            <f>#</f>
                         </fb>
@@ -9701,7 +9706,7 @@
                      </staff>
                      <dynam xml:id="b16e6oxoo" staff="3" place="above" tstamp="1">Forte</dynam>
                      <dynam xml:id="b17e6oxoo" staff="5" place="above" tstamp="1">Forte</dynam>
-                     <harm xml:id="b18e6oxoo" staff="3" tstamp="1.5">
+                     <harm xml:id="b18e6oxoo" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -9806,7 +9811,7 @@
                            </beam>
                         </layer>
                      </staff>
-                     <harm xml:id="b19e6oxoo" staff="3" tstamp="1.5">
+                     <harm xml:id="b19e6oxoo" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -9912,7 +9917,7 @@
                            </beam>
                         </layer>
                      </staff>
-                     <harm xml:id="b1e6oxo1o" staff="3" tstamp="1.5">
+                     <harm xml:id="b1e6oxo1o" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -10510,7 +10515,7 @@
                                  <note xml:id="q1i3gjbm" oct="4" pname="b" />
                               </chord>
                               <chord xml:id="t8j6qqz" dur="8" stem.dir="up">
-                                 <note xml:id="rny3bp3" accid.ges="s" oct="4" pname="a"/>
+                                 <note xml:id="rny3bp3" oct="4" pname="a"/>
                                  <note xml:id="uy9g3cf" oct="5" pname="c" />
                               </chord>
                            </beam>
@@ -10615,12 +10620,12 @@
                      </staff>
                      <dynam xml:id="b1se6oxoo" staff="3" place="above" tstamp="1">Forte</dynam>
                      <dynam xml:id="b1e6oxdoo" staff="5" place="above" tstamp="1">Forte</dynam>
-                     <harm xml:id="b1e6doxoo" staff="3" tstamp="2">
+                     <harm xml:id="b1e6doxoo" staff="3" tstamp="3">
                         <fb>
                            <f>#</f>
                         </fb>
                      </harm>
-                     <harm xml:id="b1e6dsoxoo" staff="3" tstamp="2.5">
+                     <harm xml:id="b1e6dsoxoo" staff="3" tstamp="4">
                         <fb>
                            <f>#</f>
                         </fb>
@@ -10914,7 +10919,7 @@
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm xml:id="b1ess6oxoo" staff="3" tstamp="1.5">
+                     <harm xml:id="b1ess6oxoo" staff="3" tstamp="2">
                         <fb>
                            <f>#</f>
                         </fb>
@@ -11090,7 +11095,7 @@
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm xml:id="t1t6f6196" staff="3" tstamp="1.5">
+                     <harm xml:id="t1t6f6196" staff="3" tstamp="2">
                         <fb>
                            <f>#</f>
                         </fb>
@@ -11191,7 +11196,7 @@
                            </beam>
                         </layer>
                      </staff>
-                     <harm xml:id="t16tf6196" staff="3" tstamp="1.5">
+                     <harm xml:id="t16tf6196" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -11315,12 +11320,12 @@
                            </beam>
                         </layer>
                      </staff>
-                     <harm xml:id="t19tf6196" staff="3" tstamp="1.5">
+                     <harm xml:id="t19tf6196" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm xml:id="t10tf6196" staff="3" tstamp="2.5">
+                     <harm xml:id="t10tf6196" staff="3" tstamp="4">
                         <fb>
                            <f>#</f>
                         </fb>
@@ -11445,7 +11450,7 @@
                            </beam>
                         </layer>
                      </staff>
-                     <harm xml:id="t1stf6196" staff="3" tstamp="1.5">
+                     <harm xml:id="t1stf6196" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -12160,7 +12165,7 @@
                            <f>6#</f>
                         </fb>
                      </harm>
-                     <harm xml:id="t1tf6ä196" staff="3" tstamp="2.5">
+                     <harm xml:id="t1tf6ä196" staff="3" tstamp="4">
                         <fb>
                            <f>#</f>
                         </fb>
@@ -12232,12 +12237,12 @@
                            <note xml:id="r1iycpx2" dots="1" dur="4" oct="4" pname="e" stem.dir="down" />
                         </layer>
                      </staff>
-                     <harm xml:id="t1ätf6196" staff="3" tstamp="2">
+                     <harm xml:id="t1ätf6196" staff="3" tstamp="3">
                         <fb>
                            <f>#</f>
                         </fb>
                      </harm>
-                     <harm xml:id="t1äütf6196" staff="3" tstamp="2.5">
+                     <harm xml:id="t1äütf6196" staff="3" tstamp="4">
                         <fb>
                            <f>#</f>
                         </fb>
@@ -12314,7 +12319,7 @@
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm xml:id="t1tf61oj96" staff="3" tstamp="2.5">
+                     <harm xml:id="t1tf61oj96" staff="3" tstamp="4">
                         <fb>
                            <f>#</f>
                         </fb>
@@ -12695,7 +12700,7 @@
                            <f>7</f>
                         </fb>
                      </harm>
-                     <harm xml:id="t1trtgf6196" staff="3" tstamp="1.5">
+                     <harm xml:id="t1trtgf6196" staff="3" tstamp="2">
                         <fb>
                            <f>#</f>
                         </fb>
@@ -12797,7 +12802,7 @@
                            </beam>
                         </layer>
                      </staff>
-                     <harm xml:id="t1tweeff6196" staff="3" tstamp="1.5">
+                     <harm xml:id="t1tweeff6196" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -12906,7 +12911,7 @@
                            </beam>
                         </layer>
                      </staff>
-                     <harm xml:id="t1tfrtg6196" staff="3" tstamp="1.5">
+                     <harm xml:id="t1tfrtg6196" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                         </fb>
@@ -13016,7 +13021,7 @@
                            </beam>
                         </layer>
                      </staff>
-                     <harm xml:id="t1tfertgvb6196" staff="3" tstamp="1.5">
+                     <harm xml:id="t1tfertgvb6196" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                            <f>5</f>
@@ -13648,7 +13653,7 @@
                            <f>6#</f>
                         </fb>
                      </harm>
-                     <harm xml:id="u180f9wos" staff="3" tstamp="2.5">
+                     <harm xml:id="u180f9wos" staff="3" tstamp="4">
                         <fb>
                            <f>#</f>
                         </fb>
@@ -13721,12 +13726,12 @@
                            <note xml:id="jqoz5og" dots="1" dur="4" oct="3" pname="a" stem.dir="down" />
                         </layer>
                      </staff>
-                     <harm xml:id="u1vb8f9wos" staff="3" tstamp="2">
+                     <harm xml:id="u1vb8f9wos" staff="3" tstamp="3">
                         <fb>
                            <f>#</f>
                         </fb>
                      </harm>
-                     <harm xml:id="u18zf9wos" staff="3" tstamp="2.5">
+                     <harm xml:id="u18zf9wos" staff="3" tstamp="4">
                         <fb>
                            <f>#</f>
                         </fb>
@@ -14056,7 +14061,7 @@
                            <f>6</f>
                         </fb>
                      </harm>
-                     <harm xml:id="u18fz9wos" staff="3" tstamp="2.5">
+                     <harm xml:id="u18fz9wos" staff="3" tstamp="4">
                         <fb>
                            <f>#</f>
                         </fb>
@@ -14131,7 +14136,7 @@
                            <f>5</f>
                         </fb>
                      </harm>
-                     <harm xml:id="u18fpf9wos" staff="3" tstamp="1.5">
+                     <harm xml:id="u18fpf9wos" staff="3" tstamp="2">
                         <fb>
                            <f>#</f>
                         </fb>

@@ -109,6 +109,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-27" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Corrected 4 encoding errors found in the musical-lint triage: scripts/musical_lint.py flagged notation suspects, an AI model (OpenAI Codex) compared each with the DdT 1903 page image, and the editor spot-checked eight of its findings across the edition before approving the fixes. In m. 211, added 1 written accidental that DdT prints. In m. 160, staff 3, replaced the spacer q16iweck2p8 with the half-note G3 that DdT prints, keeping its ID. In mm. 10, 14, moved 2 figured-bass figures to the onset at which DdT prints them. Event IDs are retained; all other music is unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-26" resp="#resp.camat">
             <changeDesc>
                <p>Added an explicit first-page pgHead with the edition title and Dietrich Buxtehude, following the editor's choice to include the composer in exported scores as well as the web viewer. The authority-linked composer and source metadata are retained. All musical events, their IDs, annotations, facsimile references and encoded breaks are unchanged; page counts and MIDI are unchanged.</p>
@@ -941,7 +946,7 @@
                            </note>
                         </layer>
                      </staff>
-                     <harm xml:id="h1a2b3c" staff="3" tstamp="1">
+                     <harm xml:id="h1a2b3c" staff="3" tstamp="2">
                         <fb>
                            <f>6</f>
                            <f>♮</f>
@@ -1195,7 +1200,7 @@
                            <note xml:id="xhtzquy" dur="4" oct="3" pname="d" stem.dir="down" />
                         </layer>
                      </staff>
-                     <harm xml:id="hwf1a2sfb3c" staff="3" tstamp="1">
+                     <harm xml:id="hwf1a2sfb3c" staff="3" tstamp="3">
                         <fb>
                            <f>5♭</f>
                         </fb>
@@ -11406,7 +11411,7 @@
                      <staff xml:id="p15f9jg5" n="3">
                         <layer xml:id="qlo377l" n="1">
                            <note xml:id="rjm0rsl" dur="4" oct="3" pname="f" stem.dir="down" />
-                           <space xml:id="q16iweck2p8" dur="2" />
+                           <note xml:id="q16iweck2p8" dur="2" oct="3" pname="g" />
                         </layer>
                      </staff>
                      <staff xml:id="k1po56qt" n="4">
@@ -17122,7 +17127,7 @@
                      <staff xml:id="s1rugn60" n="1">
                         <layer xml:id="t176hl8u" n="1">
                            <beam xml:id="uztma3u">
-                              <note xml:id="v1s5pirp" dur="16" oct="5" pname="a" stem.dir="down" />
+                              <note xml:id="v1s5pirp" accid="f" dur="16" oct="5" pname="a" stem.dir="down" />
                               <note xml:id="w1tm91bt" dur="16" oct="5" pname="g" stem.dir="down" />
                               <note xml:id="x8njivs" dur="16" oct="5" pname="f" stem.dir="down" />
                               <note xml:id="y9rzru2" dur="16" oct="5" pname="e" stem.dir="down" />

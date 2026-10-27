@@ -138,6 +138,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-27" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Corrected 4 encoding errors found in the musical-lint triage: scripts/musical_lint.py flagged notation suspects, an AI model (OpenAI Codex) compared each with the DdT 1903 page image, and the editor spot-checked eight of its findings across the edition before approving the fixes. In mm. 26, 88, 90, 112, removed 4 gestural accidentals (accid.ges) that the key signature, the printed accidentals and the ties do not imply. Event IDs are retained; all other music is unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-26" resp="#resp.camat">
             <changeDesc>
                <p>Added an explicit first-page pgHead with the edition title and Dietrich Buxtehude, following the editor's choice to include the composer in exported scores as well as the web viewer. The authority-linked composer and source metadata are retained. All musical events, their IDs, annotations, facsimile references and encoded breaks are unchanged; page counts and MIDI are unchanged.</p>
@@ -1909,7 +1914,7 @@
                         <layer xml:id="e1yg54qv" n="1">
                            <note xml:id="f13v4v4j" dur="4" oct="4" pname="a" stem.dir="down" />
                            <note xml:id="ffdgfdgj" dur="4" dots="1" oct="4" pname="d" stem.dir="down" />
-                           <note xml:id="g1e8qno" dur="8" oct="3" pname="b" stem.dir="up" accid.ges="s" />
+                           <note xml:id="g1e8qno" dur="8" oct="3" pname="b" stem.dir="up" />
                         </layer>
                      </staff>
                      <staff xml:id="hhl9o6s" n="3">
@@ -5785,7 +5790,7 @@
                            <rest xml:id="ego2xkz" dur="4" />
                            <chord xml:id="p1a64sg" dur="4" stem.dir="up">
                               <note xml:id="ok878i9" staff="5" oct="3" pname="a" />
-                              <note xml:id="rohnuj2" oct="4" pname="d" accid.ges="s" />
+                              <note xml:id="rohnuj2" oct="4" pname="d" />
                            </chord>
                         </layer>
                      </staff>
@@ -5904,7 +5909,7 @@
                         <layer xml:id="kamhmjf" n="1">
                            <chord xml:id="vxjuacl" dur="4" stem.dir="up">
                               <note xml:id="tu4b8vx" staff="5" oct="3" pname="f" accid.ges="s" />
-                              <note xml:id="w1hb8izf" oct="4" pname="d" accid.ges="s" />
+                              <note xml:id="w1hb8izf" oct="4" pname="d" />
                            </chord>
                            <rest xml:id="livqp6c" dur="4" />
                            <chord xml:id="o15kgbw7" dur="4" stem.dir="up">
@@ -7240,7 +7245,7 @@
                               <note xml:id="nmz4wv9" dur="8" oct="3" pname="b" stem.dir="down" />
                               <note xml:id="o7idnri" dur="8" oct="4" pname="c" stem.dir="down" accid.ges="s" />
                               <note xml:id="qovor37" dur="8" oct="3" pname="b" stem.dir="down" />
-                              <note xml:id="r1ob04hl" dur="8" oct="3" pname="a" stem.dir="down" accid.ges="s" />
+                              <note xml:id="r1ob04hl" dur="8" oct="3" pname="a" stem.dir="down" />
                               <note xml:id="tnamjvh" dur="8" oct="3" pname="g" stem.dir="down">
                                  <accid xml:id="a6uje92" accid="s" />
                               </note>

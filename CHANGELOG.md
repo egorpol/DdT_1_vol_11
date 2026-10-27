@@ -34,6 +34,22 @@ All notable changes to this edition are recorded here. Version numbers follow th
 - App. I, four measures corrected by Jingyu Tu (2026-10-25). In m. 24 the violin's B-flat4 is a dotted quarter, without the eighth rest after it. In m. 31 the upper keyboard staff holds B-flat3–D4 as a quarter on beat 3, in a second voice under the F4 and G4 eighths; it was an eighth chord with the F4. In m. 76 its two dotted-quarter chords read D4–G4–B-flat4, not D4–F4–B-flat4, and the continuo's two G2s are tied. In m. 33 the two layers of staff 5 are numbered 1 and 2 instead of 5 and 6. The consistency report is refreshed.
 - The Op. II/6 m. 3 excerpt is re-cropped to 525 × 300 pixels: the old right edge cut through the head of the measure's last note, the E5 sixteenth.
 - Web viewer: in the 17 measures with a blank figured-bass figure (`<f/>`, in Op. I/1, Op. II/6, Op. II/7 and App. II), the box drawn by "Measure boxes" and "Mark all notes" stretched to the top-left corner of the page (visibly in 16 of them), because Chrome counts the empty figure text as a point at the page origin. Empty texts are now left out before the boxes are measured.
+- Musical-lint triage, first pass: `scripts/musical_lint.py` flagged notation suspects, an AI model (OpenAI Codex) compared each with the DdT 1903 page image, and the editor spot-checked eight of its findings before approving the fixes. 351 corrections in 15 works are applied, listed per work below, with the measures in each work's revision history; the cases that need another page check or a re-transcription follow separately.
+- Op. I/1, 31 corrections: 28 unfounded gestural accidentals removed, 2 unprinted written accidentals removed and 1 pitch corrected.
+- Op. I/2, 35 corrections: 20 unfounded gestural accidentals removed, 1 printed accidental added, 1 unprinted written accidental removed, 8 pitches corrected, 3 figured-bass figures moved to the printed onset, 1 figured-bass figure given its missing staff and 1 tie endpoint corrected.
+- Op. I/3, 21 corrections: 21 unfounded gestural accidentals removed.
+- Op. I/4, 16 corrections: 15 unfounded gestural accidentals removed and 1 pitch corrected.
+- Op. I/5, 28 corrections: 1 unfounded gestural accidental removed and 27 figured-bass figures moved to the printed onset.
+- Op. I/6, 19 corrections: 14 unfounded gestural accidentals removed, 3 printed accidentals added and 2 unprinted written accidentals removed.
+- Op. I/7, 54 corrections: 47 unfounded gestural accidentals removed, 1 gestural accidental corrected, 1 printed accidental added, 1 pitch corrected and 4 figured-bass figures moved to the printed onset.
+- Op. II/1, 4 corrections: 1 figured-bass figure moved to the printed onset and 3 tie endpoints corrected.
+- Op. II/2, 4 corrections: 4 unfounded gestural accidentals removed.
+- Op. II/3, 41 corrections: 23 unfounded gestural accidentals removed, 3 gestural accidentals replaced by the printed sign, 10 printed accidentals added, 1 unprinted written accidental removed, 1 written accidental corrected, 2 pitches corrected and 1 figured-bass figure moved to the printed onset.
+- Op. II/4, 4 corrections: 1 printed accidental added, a spacer in m. 160 replaced by the printed half-note G3 and 2 figured-bass figures moved to the printed onset.
+- Op. II/5, 51 corrections: 46 unfounded gestural accidentals removed, 3 printed accidentals added and 2 unprinted written accidentals removed.
+- Op. II/6, 39 corrections: 33 unfounded gestural accidentals removed, 2 gestural accidentals corrected, 1 printed accidental added, 1 written accidental corrected and 2 pitches corrected.
+- App. I, 1 correction: 1 unfounded gestural accidental removed.
+- App. II, 3 corrections: 1 printed accidental added, a measure rest in m. 56 replaced by the printed whole-note C3 and 1 figured-bass figure moved to the printed onset.
 
 ## [0.9.0] — 2026-10-21
 
