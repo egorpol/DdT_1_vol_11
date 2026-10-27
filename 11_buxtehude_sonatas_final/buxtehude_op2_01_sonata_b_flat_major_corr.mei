@@ -28,12 +28,12 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition>Corrected working edition</edition>
+            <edition n="0.10.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt>
             <publisher>CAMAT Corpus Editions</publisher>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
-            <date isodate="2026-10-26" type="last-updated">2026-10-26</date>
+            <date isodate="2026-10-27" type="last-updated">2026-10-27</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op2_01_sonata_b_flat_major_corr.mei</identifier>
             <availability>
                <useRestrict>MEI data released under the <ref target="https://spdx.org/licenses/MIT.html">MIT License</ref>.</useRestrict>
@@ -142,6 +142,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-27" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Numbered the edition statement for the 0.10.0 pre-release, the first release that includes this work: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-27" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Regenerated the gestural accidentals (accid.ges) with scripts/regenerate_accid_ges.py from CAMAT's resolution of the written notation: the key signature, printed accidentals, which hold for their staff, letter and octave to the barline, and ties. Every note without a printed accidental that sounds sharp or flat now carries one, and no other note does. The file had no values; it now has 1,894. Verovio's MIDI output and music21's MEI import take pitch only from each note's own accid or accid.ges, not from the key signature or carried accidentals, so a note without a value plays natural there. The written notation and all event IDs are unchanged.</p>

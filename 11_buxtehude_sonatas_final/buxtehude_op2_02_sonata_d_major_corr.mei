@@ -24,12 +24,12 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.9.0">Corrected working edition (pre-release)</edition>
+            <edition n="0.10.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="pwz47dt">
             <publisher>CAMAT Corpus Editions</publisher>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
-            <date isodate="2026-10-26" type="last-updated">2026-10-26</date>
+            <date isodate="2026-10-27" type="last-updated">2026-10-27</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr.mei</identifier>
             <availability>
                <useRestrict>MEI data released under the <ref target="https://spdx.org/licenses/MIT.html">MIT License</ref>.</useRestrict>
@@ -138,6 +138,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-27" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.10.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-27" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Regenerated the gestural accidentals (accid.ges) with scripts/regenerate_accid_ges.py from CAMAT's resolution of the written notation: the key signature, printed accidentals, which hold for their staff, letter and octave to the barline, and ties. Every note without a printed accidental that sounds sharp or flat now carries one, and no other note does. The file had 1,951 values and now has 1,959, 15 of them added. Verovio's MIDI output and music21's MEI import take pitch only from each note's own accid or accid.ges, not from the key signature or carried accidentals, so a note without a value plays natural there. Removed 3 gestural sharps from notes that have no printed accidental; the bar's printed sharp stands in another octave: the gamba A4 m5tzx3w in m. 171 (sharp on A3), the violin G5 g101ka3v in m. 185 (sharp on G4) and the violin A5 z1uc8q3v in m. 189 (sharp on A4). They now sound A4, G5 and A5, not A-sharp4, G-sharp5 and A-sharp5, in CAMAT and in MIDI. Removed 4 redundant natural values (accid.ges="n"), from i1wmtfid in m. 169, i6qbrqi and r1y93zva in m. 185 and g1w2y8r in m. 188; these notes sound natural without them. The written notation and all event IDs are unchanged.</p>

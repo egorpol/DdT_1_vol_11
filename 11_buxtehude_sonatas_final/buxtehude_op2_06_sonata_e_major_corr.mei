@@ -24,11 +24,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.9.0">Corrected working edition (pre-release)</edition>
+            <edition n="0.10.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="pd8bnvd">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-26" type="last-updated">2026-10-26</date>
+            <date isodate="2026-10-27" type="last-updated">2026-10-27</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op2_06_sonata_e_major_corr.mei</identifier>
             <availability>
@@ -138,6 +138,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-27" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.10.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-27" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Regenerated the gestural accidentals (accid.ges) with scripts/regenerate_accid_ges.py from CAMAT's resolution of the written notation: the key signature, printed accidentals, which hold for their staff, letter and octave to the barline, and ties. Every note without a printed accidental that sounds sharp or flat now carries one, and no other note does. The file had 3,120 values and now has 3,473, 355 of them added. Verovio's MIDI output and music21's MEI import take pitch only from each note's own accid or accid.ges, not from the key signature or carried accidentals, so a note without a value plays natural there. Removed 2 redundant natural values (accid.ges="n"), from the violin D5 r17sdeo4 and the keyboard upper-staff D4 r10btueu in m. 20, which sound natural without them. The written notation and all event IDs are unchanged.</p>
