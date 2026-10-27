@@ -79,6 +79,18 @@ The concise `encodingDesc/editorialDecl` in each published MEI must summarize th
 
 Retain DdT's printed staff arrangement and keyboard realization. In the pilot, staves 1–3 represent violin, gamba, and figured continuo bass, while staves 4–5 transmit the realization printed in the 1903 edition. This arrangement is intentional source content, not a structural error or five independent instruments. State the relationship in the header and provide a documented staff-to-role mapping for analysis. Source-faithful score labels may remain as printed; analytical labels can be maintained in a corpus manifest or derived view. Do not introduce visible labels solely to compensate for a parser limitation without an explicit editorial decision.
 
+## Sounding pitch and MIDI
+
+The written notation determines sounding pitch: the key signature, a printed accidental, which holds for its staff, letter and octave until the barline, and a tie, which carries a pitch across the barline. CAMAT resolves pitch by these rules. Verovio's MIDI output (6.3.0) and music21's MEI import (10.5.0) do not: they take a note's pitch only from its own `@accid` or `@accid.ges`, so an unmarked B4 under an F-major key signature plays B-natural there.
+
+The assembled works therefore carry `@accid.ges` values derived from CAMAT's resolution; nobody enters them by hand.
+
+- A note without a printed accidental has `accid.ges` (`s`, `f`, `ss` or `ff`) exactly when it sounds altered; every other note has none. `n` is never written, and no note carries `@accid.ges` beside a written accidental. A note with an `<accid>` child carries the value on that child, since Verovio warns when both the note and its `<accid>` child carry one.
+- `scripts/regenerate_accid_ges.py` derives the values from the file with every `accid.ges` removed, so a stale value cannot pass to a tied successor. Its default `--check` lists the notes that differ; `--write` changes only `accid.ges` attributes and leaves the rest of the file byte for byte.
+- After any notation edit in an assembled work, run `.venv/bin/python scripts/regenerate_accid_ges.py --write`; `tests/test_accid_ges.py` fails while a value is out of step.
+- A sounding pitch that departs from the written notation is an editorial decision. Encode it as a written accidental with its editorial annotation, not as a bare `accid.ges`, which the next regeneration removes.
+- The page files keep their raw OMR values; only the assembled works are regenerated.
+
 ## Event identity
 
 All notes (including chord tones), chords, rests, spaces, full-measure rest/space events, measures, layers, staves, and independently addressable control events such as ties, slurs, figured-bass events, tempo marks, and annotations must have persistent `xml:id` values in release files. Extend this set explicitly when the corpus uses additional event types. An ID is required for an event that CAMAT exposes for selection or annotation even when the MEI schema makes it optional.

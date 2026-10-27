@@ -107,6 +107,11 @@
       <revisionDesc>
          <change isodate="2026-10-27" resp="#resp.camat #resp.polyakov">
             <changeDesc>
+               <p>Regenerated the gestural accidentals (accid.ges) with scripts/regenerate_accid_ges.py from CAMAT's resolution of the written notation: the key signature, printed accidentals, which hold for their staff, letter and octave to the barline, and ties. Every note without a printed accidental that sounds sharp or flat now carries one, and no other note does. The file had 1,426 values and now has 1,523, 97 of them added. Verovio's MIDI output and music21's MEI import take pitch only from each note's own accid or accid.ges, not from the key signature or carried accidentals, so a note without a value plays natural there. The written notation and all event IDs are unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-27" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
                <p>Corrected 41 encoding errors found in the musical-lint triage: scripts/musical_lint.py flagged notation suspects, an AI model (OpenAI Codex) compared each with the DdT 1903 page image, and the editor spot-checked eight of its findings across the edition before approving the fixes. In mm. 15, 25, 32, 39, 43, 44, 47, 48, 49, 51, 55, 66, 68, 108, 111, 153, 169, removed 23 gestural accidentals (accid.ges) that the key signature, the printed accidentals and the ties do not imply. In mm. 79, 225, 230, replaced 3 gestural accidentals (accid.ges) with the written accidentals that DdT prints. In mm. 159, 199, 216, 224, 225, 228, 230, 231, 232, added 10 written accidentals that DdT prints. In m. 201, removed 1 written accidental that DdT does not print. In m. 227, corrected 1 written accidental to the sign that DdT prints. In mm. 43, 231, corrected the pitch of 2 notes to DdT's reading. In m. 84, moved 1 figured-bass figure to the onset at which DdT prints it. Event IDs are retained; all other music is unchanged.</p>
             </changeDesc>
          </change>
@@ -808,7 +813,7 @@
                            <note xml:id="nv5kihp" dur="4" oct="4" pname="g" stem.dir="up" />
                            <beam xml:id="byrsa95">
                               <note xml:id="no7g9rh1" dur="8" oct="4" pname="g" stem.dir="up" />
-                              <note xml:id="nrge3on2" dur="8" oct="4" pname="f" stem.dir="up" />
+                              <note xml:id="nrge3on2" dur="8" oct="4" pname="f" stem.dir="up" accid.ges="s" />
                            </beam>
                         </layer>
                         <layer xml:id="hcdse82" n="2">
@@ -1203,7 +1208,7 @@
                            <note xml:id="n16k6ve1" dur="4" oct="4" pname="g" stem.dir="down" />
                            <beam xml:id="blozrg11">
                               <note xml:id="n5w9u4p1" dur="8" oct="4" pname="g" stem.dir="down" />
-                              <note xml:id="nd402i6" dur="8" oct="4" pname="f" stem.dir="down" />
+                              <note xml:id="nd402i6" dur="8" oct="4" pname="f" stem.dir="down" accid.ges="s" />
                            </beam>
                         </layer>
                      </staff>
@@ -1317,14 +1322,14 @@
                      <staff xml:id="z1liz9vl" n="4">
                         <layer xml:id="bauk2hi" n="1">
                            <beam xml:id="blc5y181">
-                              <note xml:id="cntrdt" dur="8" oct="4" pname="b" stem.dir="up" />
+                              <note xml:id="cntrdt" dur="8" oct="4" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="nu1a7tr1" dur="8" oct="4" pname="a" stem.dir="up" />
                            </beam>
                            <note xml:id="e13ygark" dur="4" oct="4" pname="g" stem.dir="up" />
                            <note xml:id="nghs8pq2" dur="4" oct="4" pname="g" stem.dir="up" />
                            <beam xml:id="bi4ebc51">
                               <note xml:id="h1ljkz56" dur="8" oct="4" pname="g" stem.dir="up" />
-                              <note xml:id="ngzccgi2" dur="8" oct="4" pname="f" stem.dir="up" />
+                              <note xml:id="ngzccgi2" dur="8" oct="4" pname="f" stem.dir="up" accid.ges="s" />
                            </beam>
                         </layer>
                         <layer xml:id="musv94b" n="2">
@@ -1411,13 +1416,13 @@
                            <beam xml:id="b0lsvtb">
                               <note xml:id="nrj7qjg1" dur="16" oct="5" pname="g" stem.dir="down" />
                               <note xml:id="nxovcy51" dur="16" oct="4" pname="g" stem.dir="down" />
-                              <note xml:id="nswkhwp1" dur="16" oct="5" pname="e" stem.dir="down" />
+                              <note xml:id="nswkhwp1" dur="16" oct="5" pname="e" stem.dir="down" accid.ges="f" />
                               <note xml:id="n7wgl9n2" dur="16" oct="5" pname="d" stem.dir="down" />
                            </beam>
                            <beam xml:id="g1x6pu6p">
                               <note xml:id="hntff0s" dur="16" oct="5" pname="c" stem.dir="down" />
                               <note xml:id="i11w0knm" dur="16" oct="5" pname="f" stem.dir="down" />
-                              <note xml:id="j1gpxhvo" dur="16" oct="5" pname="e" stem.dir="down" />
+                              <note xml:id="j1gpxhvo" dur="16" oct="5" pname="e" stem.dir="down" accid.ges="f" />
                               <note xml:id="nqld6jl2" dur="16" oct="5" pname="f" stem.dir="down" />
                            </beam>
                         </layer>
@@ -1493,7 +1498,7 @@
                               <note xml:id="z1pdtxvt" dur="8" oct="3" pname="d" stem.dir="down" />
                            </beam>
                            <beam xml:id="bt7bv981">
-                              <note xml:id="a5wsx7c" dur="8" oct="3" pname="e" stem.dir="down" />
+                              <note xml:id="a5wsx7c" dur="8" oct="3" pname="e" stem.dir="down" accid.ges="f" />
                               <note xml:id="n9zz0tv2" dur="8" oct="3" pname="c" stem.dir="down" />
                            </beam>
                            <note xml:id="b14y51r" dur="4" oct="3" pname="f" stem.dir="down" />
@@ -1934,7 +1939,7 @@
                               <note xml:id="b1e9ojyq" dur="16" oct="3" pname="d" stem.dir="up" />
                               <note xml:id="c124zl45" dur="16" oct="3" pname="c" stem.dir="up" />
                               <note xml:id="d1l384c0" dur="16" oct="3" pname="d" stem.dir="up" />
-                              <note xml:id="nru5wrd1" dur="16" oct="2" pname="b" stem.dir="up" />
+                              <note xml:id="nru5wrd1" dur="16" oct="2" pname="b" stem.dir="up" accid.ges="f" />
                            </beam>
                            <beam xml:id="f2gi1n7">
                               <note xml:id="giiqcb0" dur="8" oct="3" pname="c" stem.dir="up" />
@@ -2187,8 +2192,8 @@
                               <note xml:id="dgrj9ms" accid.ges="f" dur="16" oct="4" pname="b" stem.dir="down" />
                            </beam>
                            <beam xml:id="epjh4t9">
-                              <note xml:id="f1dzl41a" dur="16" oct="4" pname="b" stem.dir="down" />
-                              <note xml:id="gbhlmkz" dur="16" oct="4" pname="b" stem.dir="down" />
+                              <note xml:id="f1dzl41a" dur="16" oct="4" pname="b" stem.dir="down" accid.ges="f" />
+                              <note xml:id="gbhlmkz" dur="16" oct="4" pname="b" stem.dir="down" accid.ges="f" />
                               <note xml:id="hh17ol6" dur="16" oct="5" pname="c" stem.dir="down" />
                               <note xml:id="i15yesaw" dur="16" oct="5" pname="d" stem.dir="down" />
                            </beam>
@@ -2284,7 +2289,7 @@
                               <note xml:id="ne1rpve" dur="8" oct="3" pname="d" stem.dir="down" />
                            </beam>
                            <beam xml:id="b1kf77kk">
-                              <note xml:id="c152886w" dur="8" oct="3" pname="e" stem.dir="down" />
+                              <note xml:id="c152886w" dur="8" oct="3" pname="e" stem.dir="down" accid.ges="f" />
                               <note xml:id="duav0tf" dur="8" oct="3" pname="c" stem.dir="down" />
                            </beam>
                            <beam xml:id="e1jyl44m">
@@ -2347,7 +2352,7 @@
                               <note xml:id="uqvj39i" dur="16" oct="5" pname="d" stem.dir="down" />
                            </beam>
                            <beam xml:id="v1by8nyb">
-                              <note xml:id="wbxgzi3" dots="1" dur="8" oct="4" pname="b" stem.dir="up" />
+                              <note xml:id="wbxgzi3" dots="1" dur="8" oct="4" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="xvxa2ce" dur="16" oct="4" pname="a" stem.dir="up" />
                            </beam>
                         </layer>
@@ -2426,7 +2431,7 @@
                               <note xml:id="p9fm6mp" dur="8" oct="4" pname="d" stem.dir="down" />
                            </beam>
                            <beam xml:id="boti3aw2">
-                              <note xml:id="ng9mv921" dur="8" oct="4" pname="e" stem.dir="down" />
+                              <note xml:id="ng9mv921" dur="8" oct="4" pname="e" stem.dir="down" accid.ges="f" />
                               <note xml:id="n5vtlxg" dur="8" oct="4" pname="c" stem.dir="down" />
                            </beam>
                            <beam xml:id="bnj3g1d">
@@ -2636,7 +2641,7 @@
                            </beam>
                            <beam xml:id="bi2oonf">
                               <note xml:id="c1vbt12k" dur="16" oct="5" pname="c" stem.dir="down" />
-                              <note xml:id="d1q8akuo" dur="16" oct="5" pname="e" stem.dir="down" />
+                              <note xml:id="d1q8akuo" dur="16" oct="5" pname="e" stem.dir="down" accid.ges="f" />
                               <note xml:id="euxg4h2" dur="16" oct="5" pname="d" stem.dir="down" />
                               <note xml:id="nshvmi61" dur="16" oct="5" pname="c" stem.dir="down" />
                            </beam>
@@ -2781,7 +2786,7 @@
                            </beam>
                            <beam xml:id="v12n6zgd">
                               <note xml:id="w1pilabl" dur="16" oct="5" pname="d" stem.dir="down" />
-                              <note xml:id="x1rwpo8o" dur="16" oct="5" pname="e" stem.dir="down" />
+                              <note xml:id="x1rwpo8o" dur="16" oct="5" pname="e" stem.dir="down" accid.ges="f" />
                               <note xml:id="y62247j" dur="16" oct="5" pname="d" stem.dir="down" />
                               <note xml:id="z1xeytx7" dur="16" oct="4" pname="g" stem.dir="down" />
                            </beam>
@@ -3618,7 +3623,7 @@
                            <beam xml:id="r1quboe2">
                               <note xml:id="s10zzzqh" dur="16" oct="2" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="u1plrso7" dur="16" oct="3" pname="d" stem.dir="up" />
-                              <note xml:id="n2h17ge1" dur="16" oct="2" pname="b" stem.dir="up" />
+                              <note xml:id="n2h17ge1" dur="16" oct="2" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="w1ayiv3l" dur="16" oct="2" pname="g" stem.dir="up" />
                            </beam>
                            <beam xml:id="x1prdh6g">
@@ -3653,7 +3658,7 @@
                               <note xml:id="x1jd8nnc" dur="8" oct="4" pname="a" stem.dir="up" />
                            </beam>
                            <note xml:id="a6hpwfw" dur="4" stem.dir="up" oct="4" pname="b" accid.ges="f" />
-                           <note xml:id="nbxlvts2" dur="4" oct="4" pname="b" stem.dir="up" />
+                           <note xml:id="nbxlvts2" dur="4" oct="4" pname="b" stem.dir="up" accid.ges="f" />
                            <beam xml:id="c14p8kwd">
                               <chord xml:id="e1a7lf17" dur="8" stem.dir="up">
                                  <note xml:id="ddnih4v" oct="4" pname="f" />
@@ -3825,7 +3830,7 @@
                         <layer xml:id="h1puvjw2" n="2">
                            <space xml:id="l1u52m9y" dur="2" />
                            <note xml:id="i1l4s459" dur="4" oct="4" pname="d" stem.dir="down" />
-                           <note xml:id="nmb0hig" dur="4" oct="4" pname="c" stem.dir="down" />
+                           <note xml:id="nmb0hig" dur="4" oct="4" pname="c" stem.dir="down" accid.ges="s" />
                         </layer>
                      </staff>
                      <staff xml:id="mlduhez" n="5">
@@ -5746,7 +5751,7 @@
                      <staff xml:id="g1hsskn0" n="4">
                         <layer xml:id="i146vk8f" n="1">
                            <beam xml:id="bwptwga1">
-                              <note xml:id="n1v3fdjj" dur="8" oct="4" pname="b" stem.dir="down" />
+                              <note xml:id="n1v3fdjj" dur="8" oct="4" pname="b" stem.dir="down" accid.ges="f" />
                               <note xml:id="n0071tz2" dur="8" oct="4" pname="a" stem.dir="down" />
                            </beam>
                            <beam xml:id="b66qjgh1">
@@ -5923,7 +5928,7 @@
                            <beam xml:id="bxwodhyc3">
                               <note xml:id="nltju65rcizb1" dur="8" oct="4" pname="g" stem.dir="up" />
                               <chord xml:id="cc8dwwb1" dur="8" stem.dir="up">
-                                 <note xml:id="nqufdjh6rn8m1" oct="4" pname="f" />
+                                 <note xml:id="nqufdjh6rn8m1" oct="4" pname="f" accid.ges="s" />
                                  <note xml:id="n11o3761" oct="4" pname="c" />
                               </chord>
                            </beam>
@@ -5978,7 +5983,7 @@
                               <note xml:id="viez2zk" dur="16" oct="4" pname="a" stem.dir="down" />
                            </beam>
                            <beam xml:id="ww374zp">
-                              <note xml:id="xvfulj4" dur="8" oct="4" pname="b" stem.dir="down" />
+                              <note xml:id="xvfulj4" dur="8" oct="4" pname="b" stem.dir="down" accid.ges="f" />
                               <note xml:id="y1tgzbo0" dur="16" oct="5" pname="c" stem.dir="down" />
                               <note xml:id="zfytmea" dur="16" oct="5" pname="c" stem.dir="down" />
                            </beam>
@@ -6009,7 +6014,7 @@
                               <note xml:id="negtiib" dur="16" oct="3" pname="a" stem.dir="up" />
                            </beam>
                            <beam xml:id="pp2pazy">
-                              <note xml:id="qm1fq9s" dur="8" oct="3" pname="b" stem.dir="up" />
+                              <note xml:id="qm1fq9s" dur="8" oct="3" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="s1xwc3kk" dur="16" oct="3" pname="g" stem.dir="up" />
                               <note xml:id="t1i7p6id" dur="16" oct="3" pname="g" stem.dir="up" />
                            </beam>
@@ -6149,7 +6154,7 @@
                               <note xml:id="nkfvmva1" dur="16" oct="5" pname="f" stem.dir="down" />
                            </beam>
                            <beam xml:id="c1ffcdk8">
-                              <note xml:id="d1odux0t" dur="8" oct="5" pname="b" stem.dir="down" />
+                              <note xml:id="d1odux0t" dur="8" oct="5" pname="b" stem.dir="down" accid.ges="f" />
                               <note xml:id="e1tz7ps0" dur="16" oct="5" pname="f" stem.dir="down" />
                               <note xml:id="f5bjzkv" dur="16" oct="5" pname="f" stem.dir="down" />
                            </beam>
@@ -6159,8 +6164,8 @@
                         <layer xml:id="f13bmuuu" n="1">
                            <beam xml:id="gegzujc">
                               <note xml:id="hzzblvb" dur="8" oct="3" pname="a" stem.dir="up" />
-                              <note xml:id="i12x4vll" dur="16" oct="3" pname="b" stem.dir="up" />
-                              <note xml:id="j1266ye4" dur="16" oct="3" pname="b" stem.dir="up" />
+                              <note xml:id="i12x4vll" dur="16" oct="3" pname="b" stem.dir="up" accid.ges="f" />
+                              <note xml:id="j1266ye4" dur="16" oct="3" pname="b" stem.dir="up" accid.ges="f" />
                            </beam>
                            <beam xml:id="k12ms5wv">
                               <note xml:id="ldw4vy8" dur="8" oct="4" pname="c" stem.dir="up" />
@@ -6168,7 +6173,7 @@
                               <note xml:id="ntklqei" dur="16" oct="3" pname="a" stem.dir="up" />
                            </beam>
                            <beam xml:id="o197l2ps">
-                              <note xml:id="pdpolzx" dur="8" oct="3" pname="b" stem.dir="up" />
+                              <note xml:id="pdpolzx" dur="8" oct="3" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="q1mb44on" dur="16" oct="3" pname="a" stem.dir="up" />
                               <note xml:id="n1mx6s11" dur="16" oct="3" pname="a" stem.dir="up" />
                            </beam>
@@ -6290,8 +6295,8 @@
                         <layer xml:id="qbkm7pe" n="1">
                            <beam xml:id="r18pagjx">
                               <note xml:id="s1orlgi7" dur="8" oct="5" pname="g" stem.dir="down" />
-                              <note xml:id="t1uwzpq5" dur="16" oct="4" pname="b" stem.dir="down" />
-                              <note xml:id="ukxloky" dur="16" oct="4" pname="b" stem.dir="down" />
+                              <note xml:id="t1uwzpq5" dur="16" oct="4" pname="b" stem.dir="down" accid.ges="f" />
+                              <note xml:id="ukxloky" dur="16" oct="4" pname="b" stem.dir="down" accid.ges="f" />
                            </beam>
                            <beam xml:id="v1udw535">
                               <note xml:id="w17f17r9" dur="8" oct="5" pname="e" stem.dir="down">
@@ -6323,8 +6328,8 @@
                            </beam>
                            <beam xml:id="mfe950o">
                               <note xml:id="nn5o6tk" dur="8" oct="3" pname="c" stem.dir="up" />
-                              <note xml:id="o12cgtbu" dur="16" oct="2" pname="b" stem.dir="up" />
-                              <note xml:id="nsiffdc" dur="16" oct="2" pname="b" stem.dir="up" />
+                              <note xml:id="o12cgtbu" dur="16" oct="2" pname="b" stem.dir="up" accid.ges="f" />
+                              <note xml:id="nsiffdc" dur="16" oct="2" pname="b" stem.dir="up" accid.ges="f" />
                            </beam>
                            <beam xml:id="p101xysb">
                               <note xml:id="q12ovmny" dur="8" oct="3" pname="f" stem.dir="down" />
@@ -6480,7 +6485,7 @@
                               <note xml:id="j1iorz1z" dur="16" oct="4" pname="a" stem.dir="down" />
                            </beam>
                            <beam xml:id="lvacpit">
-                              <note xml:id="mgjcmq3" dur="8" oct="4" pname="b" stem.dir="down" />
+                              <note xml:id="mgjcmq3" dur="8" oct="4" pname="b" stem.dir="down" accid.ges="f" />
                               <note xml:id="n8roz7" dur="16" oct="5" pname="c" stem.dir="down" />
                               <note xml:id="o1n03tbe" dur="16" oct="5" pname="c" stem.dir="down" />
                            </beam>
@@ -6494,7 +6499,7 @@
                               <note xml:id="okiev4m" dur="16" oct="3" pname="a" stem.dir="down" />
                            </beam>
                            <beam xml:id="pm2k9o9">
-                              <note xml:id="q1rawphc" dur="8" oct="3" pname="b" stem.dir="down" />
+                              <note xml:id="q1rawphc" dur="8" oct="3" pname="b" stem.dir="down" accid.ges="f" />
                               <note xml:id="r19r1dms" dur="16" oct="3" pname="g" stem.dir="down" />
                               <note xml:id="su6icn2" dur="16" oct="3" pname="g" stem.dir="down" />
                            </beam>
@@ -6543,12 +6548,12 @@
                            </beam>
                            <beam xml:id="v1hxeiz8">
                               <note xml:id="b16ka70g" dur="8" oct="4" pname="f" stem.dir="up" />
-                              <note xml:id="nfsjzcm1" dur="8" oct="4" pname="e" stem.dir="up" />
+                              <note xml:id="nfsjzcm1" dur="8" oct="4" pname="e" stem.dir="up" accid.ges="f" />
                            </beam>
                            <note xml:id="e1mx9u8m" dur="4" oct="4" pname="f" stem.dir="up" />
                            <beam xml:id="bgbrd2k1">
                               <note xml:id="g1mk4wl3" dur="8" oct="4" pname="f" stem.dir="up" />
-                              <note xml:id="ngxemnb1" dur="8" oct="4" pname="e" stem.dir="up" />
+                              <note xml:id="ngxemnb1" dur="8" oct="4" pname="e" stem.dir="up" accid.ges="f" />
                            </beam>
                         </layer>
                         <layer xml:id="sdg54" n="2">
@@ -6993,7 +6998,7 @@
                         <layer xml:id="m1pvnzq" n="1">
                            <beam xml:id="fjztg657">
                               <chord xml:id="cphxpnp2" dur="8" stem.dir="up">
-                                 <note xml:id="vmnhnbm77" oct="3" pname="b" />
+                                 <note xml:id="vmnhnbm77" oct="3" pname="b" accid.ges="f" />
                                  <note xml:id="gbcuuzu" oct="3" pname="g" staff="5" />
                               </chord>
                               <note xml:id="nc7c8gi2" oct="3" pname="a" dur="8" stem.dir="up" staff="5" />
@@ -7098,7 +7103,7 @@
                            </beam>
                            <beam xml:id="f9wuu09">
                               <note xml:id="g8i985a" dur="16" oct="4" pname="b" stem.dir="up" accid.ges="f" />
-                              <note xml:id="nfq084" dur="16" oct="4" pname="b" stem.dir="up" />
+                              <note xml:id="nfq084" dur="16" oct="4" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="i13g42lm" dur="16" oct="4" pname="a" stem.dir="up" />
                               <note xml:id="j17oy81k" dur="16" oct="4" pname="a" stem.dir="up" />
                            </beam>
@@ -7144,7 +7149,7 @@
                               <note xml:id="a54zovf" dur="16" oct="2" pname="a" stem.dir="up" />
                               <note xml:id="b1cjq3pq" dur="16" oct="2" pname="a" stem.dir="up" />
                               <note xml:id="c1iz7zx8" dur="16" oct="2" pname="b" stem.dir="up" accid.ges="f" />
-                              <note xml:id="nmsc19c1" dur="16" oct="2" pname="b" stem.dir="up" />
+                              <note xml:id="nmsc19c1" dur="16" oct="2" pname="b" stem.dir="up" accid.ges="f" />
                            </beam>
                         </layer>
                      </staff>
@@ -7535,7 +7540,7 @@
                            <beam xml:id="b1wpwi11">
                               <note xml:id="u1s80myt" dur="16" oct="4" pname="d" stem.dir="down" />
                               <note xml:id="ncy5wbc" dur="16" oct="4" pname="c" stem.dir="down" />
-                              <note xml:id="neh9k021" dur="16" oct="3" pname="b" stem.dir="down" />
+                              <note xml:id="neh9k021" dur="16" oct="3" pname="b" stem.dir="down" accid.ges="f" />
                            </beam>
                            <beam xml:id="b3dicdu1">
                               <note xml:id="nn3jbfl1" dur="32" oct="3" pname="a" stem.dir="down" />
@@ -7553,7 +7558,7 @@
                            <beam xml:id="f2j7vgw">
                               <note xml:id="gr6903d" dur="32" oct="3" pname="d" stem.dir="up" />
                               <note xml:id="hklggqc" dur="32" oct="3" pname="e" stem.dir="up" />
-                              <note xml:id="i1b0aogv" dur="32" oct="3" pname="f" stem.dir="up" />
+                              <note xml:id="i1b0aogv" dur="32" oct="3" pname="f" stem.dir="up" accid.ges="s" />
                               <note xml:id="meter-review.op2_03.m57.g3" dur="32" oct="3" pname="g" stem.dir="up" />
                               <note xml:id="j1xo9jph" dur="32" oct="3" pname="a" stem.dir="up" />
                               <note xml:id="kbg3bqg" dur="32" oct="3" pname="b" stem.dir="up" accid.ges="f" />
@@ -8366,7 +8371,7 @@
                            </beam>
                            <beam xml:id="n1jfroh1">
                               <note xml:id="o1x74e92" dur="8" oct="4" pname="d" stem.dir="up" />
-                              <note xml:id="ng2ghfo1" dur="8" oct="4" pname="e" stem.dir="up" />
+                              <note xml:id="ng2ghfo1" dur="8" oct="4" pname="e" stem.dir="up" accid.ges="f" />
                               <note xml:id="n46nyqz1" dur="8" oct="4" pname="f" stem.dir="up" />
                            </beam>
                            <note xml:id="pd7nl21" dur="8" oct="4" pname="f" stem.dir="up" />
@@ -9003,7 +9008,7 @@
                            <beam xml:id="c1hn5goj">
                               <note xml:id="dstwxxf" dur="16" oct="3" pname="c" stem.dir="up" />
                               <note xml:id="e16b9lzc" dur="16" oct="4" pname="c" stem.dir="up" />
-                              <note xml:id="n3kfaco1" dur="16" oct="3" pname="b" stem.dir="up">
+                              <note xml:id="n3kfaco1" dur="16" oct="3" pname="b" stem.dir="up" accid.ges="f">
                               </note>
                               <note xml:id="fac02tw" dur="16" oct="3" pname="a" stem.dir="up" />
                            </beam>
@@ -9033,7 +9038,7 @@
                         </layer>
                         <layer xml:id="sdlgkr" n="2">
                            <space xml:id="rghth56" dots="1" dur="2" />
-                           <note xml:id="njbirx4" dur="4" oct="4" pname="e" stem.dir="down" />
+                           <note xml:id="njbirx4" dur="4" oct="4" pname="e" stem.dir="down" accid.ges="f" />
                         </layer>
                      </staff>
                      <staff xml:id="i1whids4" n="5">
@@ -9160,7 +9165,7 @@
                            </beam>
                            <beam xml:id="fhgf56">
                               <note xml:id="fzjh67" dur="8" oct="4" pname="g" stem.dir="down" />
-                              <note xml:id="fzj678" dur="8" oct="4" pname="f" stem.dir="down" />
+                              <note xml:id="fzj678" dur="8" oct="4" pname="f" stem.dir="down" accid.ges="s" />
                            </beam>
                         </layer>
                         <layer xml:id="w1fz21qk" n="2">
@@ -10004,7 +10009,7 @@
                            </beam>
                            <beam xml:id="gxqkp8n">
                               <note xml:id="fpl7cup" dur="8" oct="4" pname="f" stem.dir="up" />
-                              <note xml:id="hn75qff" dur="16" oct="4" pname="e" stem.dir="up" />
+                              <note xml:id="hn75qff" dur="16" oct="4" pname="e" stem.dir="up" accid.ges="f" />
                               <note xml:id="ihasmx5" dur="16" oct="4" pname="f" stem.dir="up" />
                            </beam>
                         </layer>
@@ -10771,13 +10776,13 @@
                         </layer>
                         <layer xml:id="alhkz19" n="2">
                            <space xml:id="d1vmhkuw" dur="4" />
-                           <note xml:id="nhxeiyj1" dur="4" oct="4" pname="b" stem.dir="up" />
+                           <note xml:id="nhxeiyj1" dur="4" oct="4" pname="b" stem.dir="up" accid.ges="f" />
                            <space xml:id="f1yb6jpd" dur="2" />
                         </layer>
                         <layer xml:id="jpm9lgn" n="3">
                            <space xml:id="m5t6po4" dur="4" />
                            <note xml:id="kcbn8id" dur="4" oct="3" pname="b" stem.dir="down" accid.ges="f" />
-                           <note xml:id="nnhjrro1" dur="4" oct="3" pname="b" stem.dir="up" />
+                           <note xml:id="nnhjrro1" dur="4" oct="3" pname="b" stem.dir="up" accid.ges="f" />
                            <beam xml:id="e1jyw71l">
                               <note xml:id="gc9t5" dur="8" oct="3" pname="b" stem.dir="down" accid.ges="f" />
                               <note xml:id="i1uapy5" dur="8" oct="3" pname="a" stem.dir="down" />
@@ -12200,7 +12205,7 @@
                               <note xml:id="sdghzu67" dur="16" oct="5" pname="c" stem.dir="up" />
                               <note xml:id="dfh56" accid.ges="f" dur="16" oct="4" pname="b" stem.dir="up" />
                            </beam>
-                           <note xml:id="tkztj56" dur="4" oct="4" pname="a" stem.dir="up" />
+                           <note xml:id="tkztj56" dur="4" oct="4" pname="a" stem.dir="up" accid.ges="f" />
                            <note xml:id="nyza3ok2" dur="4" oct="4" pname="g" stem.dir="up" />
                         </layer>
                         <layer xml:id="gdfjfh65" n="2">
@@ -12208,7 +12213,7 @@
                               <accid xml:id="algyzam1" accid="f" />
                            </note>
                            <note xml:id="gfjgtz65" dur="8" oct="4" pname="f" stem.dir="down" />
-                           <note xml:id="n0jqhfw2" dur="4" oct="4" pname="e" stem.dir="down" />
+                           <note xml:id="n0jqhfw2" dur="4" oct="4" pname="e" stem.dir="down" accid.ges="f" />
                         </layer>
                      </staff>
                      <staff xml:id="a14siry2" n="5">
@@ -12475,7 +12480,7 @@
                               <note xml:id="fhg65" dur="16" oct="3" pname="f" stem.dir="down" />
                            </beam>
                            <beam xml:id="a1tety4w">
-                              <note xml:id="b1mis90i" dur="16" oct="3" pname="e" stem.dir="down" />
+                              <note xml:id="b1mis90i" dur="16" oct="3" pname="e" stem.dir="down" accid.ges="f" />
                               <note xml:id="c167s5wh" dur="16" oct="3" pname="f" stem.dir="down" />
                               <note xml:id="dudjy57" dur="16" oct="3" pname="g" stem.dir="down" />
                               <note xml:id="e15xhvwg" dur="16" oct="3" pname="a" stem.dir="down" />
@@ -12858,7 +12863,7 @@
                            <beam xml:id="e10graa0">
                               <note xml:id="fjrmkpu" dur="16" oct="4" pname="a" stem.dir="up" />
                               <note xml:id="g1ol7uwt" dur="16" oct="5" pname="c" stem.dir="up" />
-                              <note xml:id="nli0gt1" dur="16" oct="4" pname="b" stem.dir="up" />
+                              <note xml:id="nli0gt1" dur="16" oct="4" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="ihbzq6j" dur="16" oct="4" pname="a" stem.dir="up" />
                            </beam>
                         </layer>
@@ -13095,9 +13100,9 @@
                            <note xml:id="c1q8l9zl" dots="1" dur="4" oct="4" pname="c" stem.dir="down" />
                            <note xml:id="dd3okj2" dur="8" oct="4" pname="c" stem.dir="down" />
                            <beam xml:id="eoi4wd5">
-                              <note xml:id="f6p1gpy" dur="16" oct="3" pname="b" stem.dir="up" />
+                              <note xml:id="f6p1gpy" dur="16" oct="3" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="g1cpin2k" dur="16" oct="4" pname="c" stem.dir="up" />
-                              <note xml:id="hibox4z" dur="16" oct="3" pname="b" stem.dir="up" />
+                              <note xml:id="hibox4z" dur="16" oct="3" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="nscge7j1" dur="16" oct="4" pname="c" stem.dir="up" />
                            </beam>
                         </layer>
@@ -13186,11 +13191,11 @@
                            <beam xml:id="b1y8rs9s">
                               <note xml:id="c40d0ph" dur="8" oct="4" pname="d" stem.dir="down" />
                               <note xml:id="d16cygyc" dur="16" oct="4" pname="c" stem.dir="down" />
-                              <note xml:id="e1j042vo" dur="16" oct="3" pname="b" stem.dir="down" />
+                              <note xml:id="e1j042vo" dur="16" oct="3" pname="b" stem.dir="down" accid.ges="f" />
                            </beam>
                            <beam xml:id="fy55g52">
                               <note xml:id="g86vpqa" dur="8" oct="3" pname="a" stem.dir="up" />
-                              <note xml:id="h8ndf8p" dur="16" oct="3" pname="b" stem.dir="up" />
+                              <note xml:id="h8ndf8p" dur="16" oct="3" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="i550zus" dur="16" oct="4" pname="c" stem.dir="up" />
                            </beam>
                         </layer>
@@ -13259,7 +13264,7 @@
                      <staff xml:id="t8aj91v" n="2">
                         <layer xml:id="u12femk9" n="1">
                            <beam xml:id="vly18w9">
-                              <note xml:id="w3hr56f" dots="1" dur="8" oct="3" pname="b" stem.dir="up" />
+                              <note xml:id="w3hr56f" dots="1" dur="8" oct="3" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="x1en17ph" dur="16" oct="3" pname="a" stem.dir="up" />
                            </beam>
                            <note xml:id="y1kchahn" dur="4" oct="3" pname="g" stem.dir="up" />
@@ -13438,7 +13443,7 @@
                            </note>
                            <note xml:id="lphybjo" dur="8" oct="4" pname="f" stem.dir="down" />
                            <chord xml:id="n1jmoya5" dur="4" stem.dir="up">
-                              <note xml:id="m10zflhq" oct="4" pname="e" />
+                              <note xml:id="m10zflhq" oct="4" pname="e" accid.ges="f" />
                               <note xml:id="oiprk24" oct="4" pname="g" />
                            </chord>
                         </layer>
@@ -13485,7 +13490,7 @@
                      </staff>
                      <staff xml:id="c1c108n2" n="2">
                         <layer xml:id="dsvu58b" n="1">
-                           <note xml:id="e9ho0r8" dots="1" dur="4" oct="2" pname="b" stem.dir="up" />
+                           <note xml:id="e9ho0r8" dots="1" dur="4" oct="2" pname="b" stem.dir="up" accid.ges="f" />
                            <note xml:id="f17z9cpl" dur="8" oct="3" pname="c" stem.dir="up" />
                            <note xml:id="gb8zrmc" dur="4" oct="3" pname="d" stem.dir="down" />
                         </layer>
@@ -13872,7 +13877,7 @@
                            <beam xml:id="a12gk07w">
                               <note xml:id="bbeilmt" dur="16" oct="3" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="d1i4lmr1" dur="16" oct="4" pname="c" stem.dir="up" />
-                              <note xml:id="nq5o9l8" dur="16" oct="3" pname="b" stem.dir="up" />
+                              <note xml:id="nq5o9l8" dur="16" oct="3" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="f1hu0s7n" dur="16" oct="3" pname="a" stem.dir="up" />
                            </beam>
                            <beam xml:id="g1rnne91">
@@ -14669,12 +14674,12 @@
                            </beam>
                            <beam xml:id="pfttpdl">
                               <note xml:id="qcet5ce" dur="16" oct="3" pname="c" stem.dir="down" />
-                              <note xml:id="s199vdgt" dur="16" oct="3" pname="e" stem.dir="down" />
+                              <note xml:id="s199vdgt" dur="16" oct="3" pname="e" stem.dir="down" accid.ges="f" />
                               <note xml:id="t1p49fpk" dur="16" oct="3" pname="d" stem.dir="down" />
                               <note xml:id="u17egtzo" dur="16" oct="3" pname="f" stem.dir="down" />
                            </beam>
                            <beam xml:id="v148eghs">
-                              <note xml:id="w1vx98qy" dur="16" oct="3" pname="e" stem.dir="down" />
+                              <note xml:id="w1vx98qy" dur="16" oct="3" pname="e" stem.dir="down" accid.ges="f" />
                               <note xml:id="x1vhaetd" dur="16" oct="3" pname="f" stem.dir="down" />
                               <note xml:id="yysiew6" dur="16" oct="3" pname="g" stem.dir="down" />
                               <note xml:id="z1cvoo96" dur="16" oct="3" pname="a" stem.dir="down" />
@@ -14701,11 +14706,11 @@
 
                               </note>
                            </beam>
-                           <note xml:id="frvvnp9" dur="8" oct="4" pname="a" stem.dir="up" />
+                           <note xml:id="frvvnp9" dur="8" oct="4" pname="a" stem.dir="up" accid.ges="f" />
                            <beam xml:id="b7kiw2w1">
                               <note xml:id="nzaqr04" dur="8" oct="4" pname="g" stem.dir="up" />
                               <note xml:id="ggnb06y" dur="16" oct="4" pname="b" stem.dir="up" accid.ges="f" />
-                              <note xml:id="ngq9to31" dur="16" oct="4" pname="b" stem.dir="up" />
+                              <note xml:id="ngq9to31" dur="16" oct="4" pname="b" stem.dir="up" accid.ges="f" />
                            </beam>
                         </layer>
                         <layer xml:id="jwj1shs" n="2">
@@ -15103,7 +15108,7 @@
                            </beam>
                            <beam xml:id="g12ih1qe">
                               <note xml:id="h23ifzc" dur="16" oct="4" pname="b" stem.dir="up" accid.ges="f" />
-                              <note xml:id="np6u33x2" dur="16" oct="4" pname="b" stem.dir="up" />
+                              <note xml:id="np6u33x2" dur="16" oct="4" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="j4rq0d5" dur="16" oct="4" pname="a" stem.dir="up" />
                               <note xml:id="k1sizag0" dur="16" oct="4" pname="g" stem.dir="up" />
                            </beam>
@@ -15415,7 +15420,7 @@
                            </beam>
                            <beam xml:id="n1rdgl4m">
                               <note xml:id="k1hwyg78" dur="16" oct="5" pname="d" stem.dir="down" />
-                              <note xml:id="n1ku4rg1" dur="16" oct="5" pname="e" stem.dir="down" />
+                              <note xml:id="n1ku4rg1" dur="16" oct="5" pname="e" stem.dir="down" accid.ges="f" />
                               <note xml:id="onswif3" dur="16" oct="5" pname="d" stem.dir="down" />
                               <note xml:id="php7otv" dur="16" oct="5" pname="e" stem.dir="down" accid.ges="f" />
                            </beam>
@@ -15591,7 +15596,7 @@
                            <beam xml:id="k1iq2zzl">
                               <note xml:id="l10pfpk2" dur="16" oct="3" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="n8wltal" dur="16" oct="4" pname="c" stem.dir="up" />
-                              <note xml:id="nmx8zvg" dur="16" oct="3" pname="b" stem.dir="up" />
+                              <note xml:id="nmx8zvg" dur="16" oct="3" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="ptw7dxz" dur="16" oct="4" pname="c" stem.dir="up" />
                            </beam>
                            <beam xml:id="q4wxzhi">
@@ -15920,7 +15925,7 @@
                            <beam xml:id="omneqzf">
                               <note xml:id="p3wyam2" dur="16" oct="3" pname="a" stem.dir="up" />
                               <note xml:id="q17y5et4" dur="16" oct="4" pname="c" stem.dir="up" />
-                              <note xml:id="n409vrc1" dur="16" oct="3" pname="b" stem.dir="up" />
+                              <note xml:id="n409vrc1" dur="16" oct="3" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="nt477gv1" dur="16" oct="4" pname="d" stem.dir="up" />
                            </beam>
                         </layer>
@@ -16294,7 +16299,7 @@
                                  <accid xml:id="t1wdlkig" accid="f" />
                               </note>
                               <note xml:id="u6q0jqw" dur="16" oct="5" pname="c" stem.dir="down"/>
-                              <note xml:id="niow76n1" dur="16" oct="4" pname="b" stem.dir="down"/>
+                              <note xml:id="niow76n1" dur="16" oct="4" pname="b" stem.dir="down" accid.ges="f"/>
                               <note xml:id="w1qnblq9" breaksec="1" dur="16" oct="4" pname="a" stem.dir="down">
                                  <accid xml:id="x11ll3fg" accid="f" />
                               </note>
@@ -16390,7 +16395,7 @@
                      </staff>
                      <staff xml:id="a18wd4xg" n="2">
                         <layer xml:id="b1e3kceb" n="1">
-                           <note xml:id="cu7kgd7" dur="4" oct="3" pname="b" stem.dir="down" />
+                           <note xml:id="cu7kgd7" dur="4" oct="3" pname="b" stem.dir="down" accid.ges="f" />
                            <rest xml:id="d1aa3t07" dur="4" />
                            <rest xml:id="e3h2ump" dur="16" />
                            <beam xml:id="foa3fys">
@@ -16536,7 +16541,7 @@
                               <note xml:id="pxry9ap" dur="16" oct="5" pname="a" stem.dir="down" />
                               <note xml:id="q99tnij" dur="16" oct="5" pname="b" stem.dir="down" accid.ges="f" />
                               <note xml:id="t1c9n57h" dur="16" oct="5" pname="a" stem.dir="down" />
-                              <note xml:id="njvqvr5" dur="16" oct="5" pname="b" stem.dir="down" />
+                              <note xml:id="njvqvr5" dur="16" oct="5" pname="b" stem.dir="down" accid.ges="f" />
                            </beam>
                         </layer>
                      </staff>
@@ -16645,7 +16650,7 @@
                      <staff xml:id="d8lxdjp" n="4">
                         <layer xml:id="i7iftqz" n="2">
                            <note xml:id="jasqiyc" accid="f" dots="1" dur="4" oct="4" pname="a" stem.dir="up" />
-                           <note xml:id="kmofur1" dur="8" oct="4" pname="a" stem.dir="up" />
+                           <note xml:id="kmofur1" dur="8" oct="4" pname="a" stem.dir="up" accid.ges="f" />
                            <note xml:id="l1gdk6yd" dur="4" oct="4" pname="g" stem.dir="up" />
                         </layer>
                         <layer xml:id="moxv8ad" n="3">
@@ -17430,7 +17435,7 @@
                               <note xml:id="u119l1fn" dur="16" oct="5" pname="b" stem.dir="down" accid.ges="f" />
                               <note xml:id="wgeitt3" dur="16" oct="4" pname="b" stem.dir="down" accid.ges="f" />
                               <note xml:id="yijbw51" dur="16" oct="4" pname="g" stem.dir="down" />
-                              <note xml:id="nnvl76h" dur="16" oct="4" pname="b" stem.dir="down" />
+                              <note xml:id="nnvl76h" dur="16" oct="4" pname="b" stem.dir="down" accid.ges="f" />
                            </beam>
                         </layer>
                      </staff>
@@ -17953,7 +17958,7 @@
                            </beam>
                            <beam xml:id="ebvp1ea">
                               <note xml:id="f58utom" dur="16" oct="3" pname="c" stem.dir="down" />
-                              <note xml:id="nst0pp01" dur="16" oct="3" pname="e" stem.dir="down" />
+                              <note xml:id="nst0pp01" dur="16" oct="3" pname="e" stem.dir="down" accid.ges="f" />
                               <note xml:id="grrz68w" dur="16" oct="3" pname="f" stem.dir="down" />
                               <note xml:id="hfwczs6" dur="16" oct="3" pname="a" stem.dir="down">
                                  <accid xml:id="i1boej9k" accid="f" />
@@ -17961,7 +17966,7 @@
                            </beam>
                            <beam xml:id="be604tb1">
                               <note xml:id="j1ek89m" dur="16" oct="3" pname="g" stem.dir="down" />
-                              <note xml:id="kzq3xyb" dur="16" oct="3" pname="e" stem.dir="down" />
+                              <note xml:id="kzq3xyb" dur="16" oct="3" pname="e" stem.dir="down" accid.ges="f" />
                               <note xml:id="l1r6a4lb" dur="16" oct="3" pname="g" stem.dir="down" />
                               <note xml:id="m1llvl6h" dur="16" oct="3" pname="a" stem.dir="down">
                                  <accid xml:id="auiaa0d1" accid="n" />
@@ -17988,9 +17993,9 @@
                            <note xml:id="n1fpz4t2" dots="1" dur="4" oct="4" pname="e" stem.dir="down">
                               <accid xml:id="a85br6a" accid="f" />
                            </note>
-                           <note xml:id="nko6z8f" dur="8" oct="3" pname="b" stem.dir="down" />
+                           <note xml:id="nko6z8f" dur="8" oct="3" pname="b" stem.dir="down" accid.ges="f" />
                            <beam xml:id="b022o671">
-                              <note xml:id="ne93pat1" dots="1" dur="8" oct="3" pname="b" stem.dir="down" />
+                              <note xml:id="ne93pat1" dots="1" dur="8" oct="3" pname="b" stem.dir="down" accid.ges="f" />
                               <note xml:id="n55dgjq2" dur="16" oct="4" pname="c" stem.dir="down" />
                            </beam>
                         </layer>
@@ -18302,7 +18307,7 @@
                            <note xml:id="x1bjzopc" dots="1" dur="4" oct="4" pname="e" stem.dir="down">
                               <accid xml:id="amz8c9s1" accid="f" />
                            </note>
-                           <note xml:id="nz26ne01" dur="8" oct="3" pname="b" stem.dir="down" />
+                           <note xml:id="nz26ne01" dur="8" oct="3" pname="b" stem.dir="down" accid.ges="f" />
                            <beam xml:id="b941mwk">
                               <note xml:id="c15ud9lu" dots="1" dur="8" oct="3" pname="b" stem.dir="down" accid.ges="f" />
                               <note xml:id="e1bbu5n2" dur="16" oct="4" pname="c" stem.dir="down" />
@@ -18600,8 +18605,8 @@
                            </beam>
                            <beam xml:id="i5ckft8">
                               <note xml:id="j1oa7gp4" dur="16" oct="4" pname="g" stem.dir="up" />
-                              <note xml:id="kvnhs2w" dur="16" oct="4" pname="a" stem.dir="up" />
-                              <note xml:id="ne793j21" dur="16" oct="4" pname="b" stem.dir="up" />
+                              <note xml:id="kvnhs2w" dur="16" oct="4" pname="a" stem.dir="up" accid.ges="f" />
+                              <note xml:id="ne793j21" dur="16" oct="4" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="mzgm5ca" dur="16" oct="4" pname="a" stem.dir="up" accid.ges="f" />
                            </beam>
                            <beam xml:id="ocht899">
@@ -18939,13 +18944,13 @@
                            </beam>
                            <beam xml:id="yke33op">
                               <note xml:id="z15o1y92" dur="16" oct="5" pname="e" stem.dir="down" accid.ges="f" />
-                              <note xml:id="nbr2qhd" dur="16" oct="5" pname="e" stem.dir="down" />
+                              <note xml:id="nbr2qhd" dur="16" oct="5" pname="e" stem.dir="down" accid.ges="f" />
                               <note xml:id="b1sc251n" dur="16" oct="5" pname="f" stem.dir="down" />
                               <note xml:id="c10nvh74" dur="16" oct="5" pname="f" stem.dir="down" />
                            </beam>
                            <beam xml:id="doqrqok">
                               <note xml:id="e1m1wohg" dur="16" oct="4" pname="b" stem.dir="down" accid.ges="f" />
-                              <note xml:id="nbkvx78" dur="16" oct="4" pname="b" stem.dir="down" />
+                              <note xml:id="nbkvx78" dur="16" oct="4" pname="b" stem.dir="down" accid.ges="f" />
                               <note xml:id="gcwnm9r" dur="16" oct="5" pname="c" stem.dir="down" />
                               <note xml:id="ns1dnur2" dur="16" oct="5" pname="c" stem.dir="down" />
                            </beam>
@@ -19023,7 +19028,7 @@
                               <note xml:id="w1p20iph" dur="16" oct="5" pname="d" stem.dir="down" />
                               <note xml:id="yph1nyr" dur="16" oct="5" pname="d" stem.dir="down" />
                               <note xml:id="z1r2ytw2" dur="16" oct="4" pname="b" stem.dir="down" accid.ges="f" />
-                              <note xml:id="nfqxqd7" dur="16" oct="4" pname="b" stem.dir="down" />
+                              <note xml:id="nfqxqd7" dur="16" oct="4" pname="b" stem.dir="down" accid.ges="f" />
                            </beam>
                            <beam xml:id="ber6tu31">
                               <note xml:id="b1q6lhd0" dur="16" oct="5" pname="d" stem.dir="down" />
@@ -19031,7 +19036,7 @@
                               <note xml:id="c1v6o01w" dur="16" oct="5" pname="e" stem.dir="down">
                                  <accid xml:id="a5rn0vq1" accid="f" />
                               </note>
-                              <note xml:id="np6mpqb1" dur="16" oct="5" pname="e" stem.dir="down" />
+                              <note xml:id="np6mpqb1" dur="16" oct="5" pname="e" stem.dir="down" accid.ges="f" />
                            </beam>
                            <beam xml:id="d1j0vn7p">
                               <note xml:id="e19l55n0" dur="16" oct="4" pname="a" stem.dir="down" />
@@ -19051,7 +19056,7 @@
                            </beam>
                            <beam xml:id="p15c7y2d">
                               <note xml:id="qh4thmf" dur="16" oct="3" pname="b" stem.dir="up" accid.ges="f" />
-                              <note xml:id="nfjxg4t2" dur="16" oct="3" pname="b" stem.dir="up" />
+                              <note xml:id="nfjxg4t2" dur="16" oct="3" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="sfo1pbk" dur="16" oct="3" pname="a" stem.dir="up" />
                               <note xml:id="tff9ee1" dur="16" oct="3" pname="g" stem.dir="up" />
                            </beam>
@@ -19121,7 +19126,7 @@
                            </beam>
                            <beam xml:id="x10mjcr3">
                               <note xml:id="y1nk63gj" dur="16" oct="4" pname="b" stem.dir="down" accid.ges="f" />
-                              <note xml:id="nlcvi8u2" dur="16" oct="4" pname="b" stem.dir="down" />
+                              <note xml:id="nlcvi8u2" dur="16" oct="4" pname="b" stem.dir="down" accid.ges="f" />
                               <note xml:id="a1xf9il8" dur="16" oct="5" pname="c" stem.dir="down" />
                               <note xml:id="b1jsw88n" dur="16" oct="5" pname="c" stem.dir="down" />
                            </beam>
@@ -19276,7 +19281,7 @@
                            <rest xml:id="j1lmtvog" dur="4" />
                            <beam xml:id="bu4tzyt2">
                               <note xml:id="k11rqa6b" accid.ges="f" dur="16" oct="4" pname="b" stem.dir="down" />
-                              <note xml:id="n772ddm2" dur="16" oct="4" pname="b" stem.dir="down" />
+                              <note xml:id="n772ddm2" dur="16" oct="4" pname="b" stem.dir="down" accid.ges="f" />
                               <note xml:id="m1whwgfj" dur="16" oct="5" pname="c" stem.dir="down" />
                               <note xml:id="n19hp2x2" dur="16" oct="5" pname="c" stem.dir="down" />
                            </beam>
@@ -19297,15 +19302,15 @@
                               <note xml:id="nhtvqiq1" dur="16" oct="3" pname="e" stem.dir="down">
                                  <accid xml:id="agn4fd71" accid="f" />
                               </note>
-                              <note xml:id="nvyr5cd1" dur="16" oct="3" pname="e" stem.dir="down" />
+                              <note xml:id="nvyr5cd1" dur="16" oct="3" pname="e" stem.dir="down" accid.ges="f" />
                               <note xml:id="nsyzy9i2" dur="16" oct="3" pname="f" stem.dir="down" />
                               <note xml:id="ndydkvi2" dur="16" oct="3" pname="f" stem.dir="down" />
                            </beam>
                            <beam xml:id="btmcnbx1">
                               <note xml:id="nquqdvh1" dur="16" oct="3" pname="g" stem.dir="down" />
                               <note xml:id="nmoylxm1" dur="16" oct="3" pname="g" stem.dir="down" />
-                              <note xml:id="nknk3cj2" dur="16" oct="3" pname="e" stem.dir="down" />
-                              <note xml:id="nuupw2b1" dur="16" oct="3" pname="e" stem.dir="down" />
+                              <note xml:id="nknk3cj2" dur="16" oct="3" pname="e" stem.dir="down" accid.ges="f" />
+                              <note xml:id="nuupw2b1" dur="16" oct="3" pname="e" stem.dir="down" accid.ges="f" />
                            </beam>
                         </layer>
                      </staff>
@@ -19843,7 +19848,7 @@
                            </chord>
                            <chord xml:id="c6ivghs2" dur="4" stem.dir="up">
                               <note xml:id="bvxnfva" oct="4" pname="c" />
-                              <note xml:id="npb61ow2" oct="4" pname="e" />
+                              <note xml:id="npb61ow2" oct="4" pname="e" accid.ges="f" />
                               <note xml:id="n7k9p6b1" oct="4" pname="f" />
                            </chord>
                            <beam xml:id="bqq6qyu1">
@@ -20056,7 +20061,7 @@
                               </note>
                               <note xml:id="nrsxq8i1" oct="5" pname="c" />
                            </chord>
-                           <note xml:id="np5qt27" dur="4" oct="4" pname="a" stem.dir="up" />
+                           <note xml:id="np5qt27" dur="4" oct="4" pname="a" stem.dir="up" accid.ges="f" />
                            <note xml:id="nw8trh21" dur="4" oct="4" pname="g" stem.dir="up" />
                         </layer>
                         <layer xml:id="sdgfdg46" n="7">
@@ -21789,7 +21794,7 @@
                            <beam xml:id="k1izsruz">
                               <note xml:id="l1icm4bw" dur="8" oct="2" pname="d" stem.dir="up" />
                               <note xml:id="m126uc2u" dur="8" oct="3" pname="a" stem.dir="up" />
-                              <note xml:id="n1lztzk2" dur="8" oct="3" pname="b" stem.dir="up" />
+                              <note xml:id="n1lztzk2" dur="8" oct="3" pname="b" stem.dir="up" accid.ges="f" />
                            </beam>
                            <beam xml:id="ow93jlv">
                               <note xml:id="p1yl3wn" dur="8" oct="3" pname="g" stem.dir="down" />
@@ -22245,13 +22250,13 @@
                               <accid xml:id="asz0i32" accid="f" />
                            </note>
                            <beam xml:id="ljyojug">
-                              <note xml:id="mg2w6cw" dur="8" oct="5" pname="e" stem.dir="down" />
+                              <note xml:id="mg2w6cw" dur="8" oct="5" pname="e" stem.dir="down" accid.ges="f" />
                               <note xml:id="nh6nnp0" dur="8" oct="5" pname="f" stem.dir="down" />
                               <note xml:id="ohjidav" dur="8" oct="5" pname="c" stem.dir="down" />
                            </beam>
                            <beam xml:id="prfxlzu">
                               <note xml:id="qa2kqnq" dur="8" oct="5" pname="d" stem.dir="down" />
-                              <note xml:id="rbijru1" dur="8" oct="5" pname="e" stem.dir="down" />
+                              <note xml:id="rbijru1" dur="8" oct="5" pname="e" stem.dir="down" accid.ges="f" />
                               <note xml:id="szsnih0" dur="8" oct="5" pname="d" stem.dir="down" />
                            </beam>
                            <note xml:id="t1bpyug3" dur="4" oct="5" pname="c" stem.dir="down" />
@@ -22318,7 +22323,7 @@
                               <accid xml:id="aoftb1n2" accid="f" />
                            </note>
                            <chord xml:id="cf848s71" dots="1" dur="4" stem.dir="up">
-                              <note xml:id="ncsy1g41" oct="3" pname="e" />
+                              <note xml:id="ncsy1g41" oct="3" pname="e" accid.ges="f" />
                               <note xml:id="nx4kerv2" oct="3" pname="f" />
                            </chord>
                            <chord xml:id="c0hq8gg" dur="4" stem.dir="up">
@@ -22425,7 +22430,7 @@
                            </chord>
                            <note xml:id="w1bvlf9r" dur="8" oct="4" pname="f" stem.dir="down" />
                            <chord xml:id="yqjdmu0" dur="8" stem.dir="up">
-                              <note xml:id="x1r75wvj" oct="4" pname="e" />
+                              <note xml:id="x1r75wvj" oct="4" pname="e" accid.ges="f" />
                               <note xml:id="z1ic6jmg" oct="4" pname="g" />
                               <note xml:id="nguqhtv2" accid.ges="f" oct="3" pname="b" />
                            </chord>
@@ -22663,7 +22668,7 @@
                            <note xml:id="yc05msa" accid="f" dur="4" oct="4" pname="e" stem.dir="up" />
                            <chord xml:id="ac6uwmc" dur="8" stem.dir="up">
                               <note xml:id="z1atnlzy" oct="4" pname="c" />
-                              <note xml:id="byfssj6" oct="4" pname="e" />
+                              <note xml:id="byfssj6" oct="4" pname="e" accid.ges="f" />
                            </chord>
                         </layer>
                      </staff>
@@ -22775,7 +22780,7 @@
                            </chord>
                            <chord xml:id="o1lcr91" dur="8" stem.dir="up">
                               <note xml:id="n1ebmpps" oct="4" pname="f" />
-                              <note xml:id="p15cwsyo" oct="4" pname="a" />
+                              <note xml:id="p15cwsyo" oct="4" pname="a" accid.ges="f" />
                            </chord>
                            <chord xml:id="svwq7af" dots="1" dur="4" stem.dir="up">
                               <note xml:id="qva9vkp" oct="4" pname="e" accid.ges="f" />
