@@ -65,9 +65,7 @@ Status terms are used as follows:
 - `corrected`: the musical text and facsimile references have been reviewed and local consistency checks completed.
 - `finalized`: metadata, editorial review, validation, and publication naming are complete.
 
-The 0.9.0 pre-release publishes the 16 assembled works as corrected, not finalized; the [finalization plan](docs/finalization-plan.md) lists what remains before 1.0. The work lists in [`validation/`](validation/README.md) record the same terms in `editorial_status`.
-
-Op. II/1 was subsequently assembled from its proofread pages on 2026-10-25: 203 measures across printed pp. 79–89, with 11 linked facsimile surfaces and 43 systems. Its consistency report is available beside the MEI; work-level correction was completed with the editor in the 2026-10-25–26 session. It is outside the 0.9.0 release.
+The 0.10.0 pre-release publishes all 17 works as corrected, not finalized; whether 1.0 covers 16 or 17 works is still open. Op. II/1 (assembled 2026-10-25, corrected with the editor 2026-10-25–26) is new in 0.10.0. The [finalization plan](docs/finalization-plan.md) lists what remains before 1.0. The work lists in [`validation/`](validation/README.md) record the same terms in `editorial_status`.
 
 The App. III stem keeps its original `violin`; the printed score and the MEI work list name the violone (BuxWV 267).
 
@@ -152,9 +150,9 @@ Work on this corpus is funded by the German Research Foundation (DFG), programme
 
 ## Citation
 
-Cite a versioned release, currently the 0.9.0 pre-release, and cite the underlying source edition separately. The same metadata are in [`CITATION.cff`](CITATION.cff); the [changelog](CHANGELOG.md) lists each release.
+Cite a versioned release, currently the 0.10.0 pre-release, and cite the underlying source edition separately. The same metadata are in [`CITATION.cff`](CITATION.cff); the [changelog](CHANGELOG.md) lists each release.
 
-> Polyakov, Egor, Lea Meret Beck, Ragna Conrads, Francy Häring, Jan-Raphael Kemnitzer, Pia Steuck, Jingyu Tu, and You Zhou. *DdT 1, Vol. 11 — Dietrich Buxtehude: Instrumental Works*. Version 0.9.0 (pre-release). CAMAT Corpus Editions, 2026. https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.9.0.
+> Polyakov, Egor, Lea Meret Beck, Ragna Conrads, Francy Häring, Jan-Raphael Kemnitzer, Pia Steuck, Jingyu Tu, and You Zhou. *DdT 1, Vol. 11 — Dietrich Buxtehude: Instrumental Works*. Version 0.10.0 (pre-release). CAMAT Corpus Editions, 2026. https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.10.0.
 
 > Dietrich Buxtehude. *Dietrich Buxtehudes Instrumentalwerke: Sonaten für Violine, Gambe und Cembalo*. Edited by Carl Stiehl. Leipzig: Breitkopf und Härtel, 1903. Digitized by the Bayerische Staatsbibliothek as `bsb00023199`.
 
