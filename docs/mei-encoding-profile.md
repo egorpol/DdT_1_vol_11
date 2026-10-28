@@ -91,6 +91,16 @@ The assembled works therefore carry `@accid.ges` values derived from CAMAT's res
 - A sounding pitch that departs from the written notation is an editorial decision. Encode it as a written accidental with its editorial annotation, not as a bare `accid.ges`, which the next regeneration removes.
 - The page files keep their raw OMR values; only the assembled works are regenerated.
 
+MIDI playback instruments and channels are set from the staff roles in `validation/editorial-works.json`, not from the OMR export. Tempo words stay in the encoding; metronome numbers do not.
+
+- Each part gets a General MIDI program as `@midi.instrnum` (0-based GM number) only: `violin` / `violin_1` / `violin_2` → 40 Violin; `viola_da_gamba` → 42 Cello; `violone` → 43 Contrabass; `figured_continuo_bass`, `keyboard_realization_upper` and `keyboard_realization_lower` → 6 Harpsichord. Do not write `@midi.instrname`: MEI Schematron allows only one of the two, and Verovio 6.3.0 reads the number.
+- Parts follow score order: every staff whose role is not `keyboard_realization_*` is one part; the two realization staves are one part. Channels count 0, 1, 2 … and skip 9 (GM percussion). The realization's `<instrDef>` sits on the brace `<staffGrp>` that holds both staff definitions.
+- Verovio 6.3.0 reads instrument data only from the opening `scoreDef`, so later `scoreDef`s (as in Op. II/1 and II/7) repeat the same channel and program values.
+- Assembled works carry no `@midi.bpm` or `@midi.mspb` on any element, and no `@mm`, `@mm.unit` or `@mm.dots` on tempo marks. Tempo elements keep their words and other attributes; a player chooses the tempo. Do not add `scoreDef@midi.bpm`.
+- Figured bass and realization both sound in the data; a player may mute either layer.
+- After adding a work or changing staves, run `.venv/bin/python scripts/normalize_midi_data.py --write`; `tests/test_midi_data.py` fails while an instrument definition or a tempo value is out of step.
+- The page files keep their OMR instrument and tempo values; only the assembled works are normalized.
+
 ## Event identity
 
 All notes (including chord tones), chords, rests, spaces, full-measure rest/space events, measures, layers, staves, and independently addressable control events such as ties, slurs, figured-bass events, tempo marks, and annotations must have persistent `xml:id` values in release files. Extend this set explicitly when the corpus uses additional event types. An ID is required for an event that CAMAT exposes for selection or annotation even when the MEI schema makes it optional.

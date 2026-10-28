@@ -105,6 +105,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-28" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Set the MIDI instrument data by part with scripts/normalize_midi_data.py, from the staff roles in validation/editorial-works.json: General MIDI program 40 (Violin) for the violin, 42 (Cello) for the viola da gamba and 6 (Harpsichord) for the continuo bass and for the keyboard realization, whose two staves share the instrument definition on their brace. Each part has its own MIDI channel (0–3). All instrument definitions had program 0 (Acoustic Grand Piano) with channels from the OMR export. Removed the tempo values that the OMR had added (midi.bpm on 2 tempo marks, mm on 2); DdT prints no metronome marks, and the tempo words remain. The written notation and all event IDs are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-27" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.10.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -373,7 +378,7 @@
                         <staffDef xml:id="P1" lines="5" n="1">
                            <label xml:id="g1wug6rs">Violino.</label>
                            <labelAbbr xml:id="i1w3oz3n" />
-                           <instrDef xml:id="k1iivuwa" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
+                           <instrDef xml:id="k1iivuwa" midi.channel="0" midi.instrnum="40" midi.volume="77%" />
                            <clef xml:id="t16u9x73" line="2" shape="G" />
                            <keySig xml:id="u49hkwr" sig="2f" />
                            <meterSig xml:id="vhe5cdt" count="4" sym="common" unit="4" />
@@ -381,7 +386,7 @@
                         <staffDef xml:id="P2" lines="5" n="2">
                            <label xml:id="i1x9p5fg">Viola da gamba.</label>
                            <labelAbbr xml:id="k1bpqv82" />
-                           <instrDef xml:id="m1jtuqy6" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
+                           <instrDef xml:id="m1jtuqy6" midi.channel="1" midi.instrnum="42" midi.volume="77%" />
                            <clef xml:id="va73f51" line="3" shape="C" />
                            <keySig xml:id="w124ncli" sig="2f" />
                            <meterSig xml:id="x1p8meoc" count="4" sym="common" unit="4" />
@@ -389,7 +394,7 @@
                         <staffDef xml:id="P3" lines="5" n="3">
                            <label xml:id="l1hzjk2k">Cembalo.</label>
                            <labelAbbr xml:id="n8nb6t9" />
-                           <instrDef xml:id="p11ry6c6" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
+                           <instrDef xml:id="p11ry6c6" midi.channel="2" midi.instrnum="6" midi.volume="77%" />
                            <clef xml:id="y1dj1qgg" line="4" shape="F" />
                            <keySig xml:id="z1c7zxg4" sig="2f" />
                            <meterSig xml:id="a1tyhkbz" count="4" sym="common" unit="4" />
@@ -399,7 +404,7 @@
                         <grpSym xml:id="j53jhg8" symbol="brace" />
                         <label xml:id="jjod54h" />
                         <labelAbbr xml:id="lrzmgfg" />
-                        <instrDef xml:id="n1orpekp" midi.channel="3" midi.instrnum="0" midi.volume="77%" />
+                        <instrDef xml:id="n1orpekp" midi.channel="3" midi.instrnum="6" midi.volume="77%" />
                         <staffDef xml:id="pgauci3" lines="5" n="4">
                            <clef xml:id="w1n05odn" line="2" shape="G" />
                            <keySig xml:id="x1747w2p" sig="2f" />
@@ -426,10 +431,10 @@
                            <f>6</f>
                         </fb>
                      </harm>
-                     <tempo xml:id="t1" midi.bpm="120" mm="120" staff="1" startid="#h144gdx1">
+                     <tempo xml:id="t1" staff="1" startid="#h144gdx1">
       						Vivace.
    						</tempo>
-                     <tempo xml:id="t2" midi.bpm="120" mm="120" staff="4" startid="#w7xbsc0">
+                     <tempo xml:id="t2" staff="4" startid="#w7xbsc0">
       						Vivace.
    						</tempo>
                      <staff xml:id="f6d6cxh" n="1">

@@ -116,6 +116,11 @@
       <revisionDesc>
          <change isodate="2026-10-28" resp="#resp.camat #resp.polyakov">
             <changeDesc>
+               <p>Set the MIDI instrument data by part with scripts/normalize_midi_data.py, from the staff roles in validation/editorial-works.json: General MIDI program 40 (Violin) for the violin, 42 (Cello) for the viola da gamba and 6 (Harpsichord) for the continuo bass and for the keyboard realization, whose two staves share the instrument definition on their brace. Each part has its own MIDI channel (0–3). All instrument definitions had program 0 (Acoustic Grand Piano) with channels from the OMR export. The written notation and all event IDs are unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-28" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
                <p>Corrected 76 encoding errors left open by the first musical-lint pass (listed under Known limitations in the 0.10.0 release notes). An AI model (Anthropic Claude) compared each open passage with the DdT 1903 page image, and the editor checked its readings in all 12 corrected passages across the edition before approving the fixes. In mm. 114, 116, 117, 120, 122, 127–132, 135, 137, 142–147, 150–152, 155, 157–162 and 165–167, moved 75 figured-bass figures to the onset at which DdT prints them (pp. 48–51): 73 had been timed in quarter notes in this 6/8 section, and the second 6♯ of mm. 114 and 116 stands under the A3 sixteenth, not on the eighth before it. All 138 figures of mm. 112–168 now stand at their printed onsets. In m. 148 the gamba's eighth p15nixg3 is B3, as printed (p. 50), not C4. Event IDs are retained; all other music is unchanged.</p>
             </changeDesc>
          </change>
@@ -453,21 +458,21 @@
                      <staffGrp symbol="bracket" bar.thru="true">
                         <staffDef xml:id="soa5swb1" lines="5" n="1">
                            <label>Violino.</label>
-                           <instrDef xml:id="ixqjlnz1" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
+                           <instrDef xml:id="ixqjlnz1" midi.channel="0" midi.instrnum="40" midi.volume="77%" />
                            <clef xml:id="c0l746" line="2" shape="G" />
                            <keySig xml:id="kavg0l91" sig="0" />
                            <meterSig xml:id="mt1eq0x2" count="4" sym="common" unit="4" />
                         </staffDef>
                         <staffDef xml:id="sx15qi01" lines="5" n="2">
                            <label>Viola da gamba.</label>
-                           <instrDef xml:id="impnh9q1" midi.channel="6" midi.instrnum="0" midi.volume="77%" />
+                           <instrDef xml:id="impnh9q1" midi.channel="1" midi.instrnum="42" midi.volume="77%" />
                            <clef xml:id="c7v6tdr1" line="3" shape="C" />
                            <keySig xml:id="k8asn5d" sig="0" />
                            <meterSig xml:id="mw303jf" count="4" sym="common" unit="4" />
                         </staffDef>
                         <staffDef xml:id="s77vig31" lines="5" n="3">
                            <label>Cembalo.</label>
-                           <instrDef xml:id="is7zhzn1" midi.channel="7" midi.instrnum="0" midi.volume="77%" />
+                           <instrDef xml:id="is7zhzn1" midi.channel="2" midi.instrnum="6" midi.volume="77%" />
                            <clef xml:id="c3zrrjg" line="4" shape="F" />
                            <keySig xml:id="k7d295x1" sig="0" />
                            <meterSig xml:id="m5g5qzl2" count="4" sym="common" unit="4" />
@@ -475,7 +480,7 @@
                      </staffGrp>
                      <staffGrp xml:id="s6ae72d1" bar.thru="true">
                         <grpSym xml:id="gzdw4ix2" symbol="brace" />
-                        <instrDef xml:id="is6t36c" midi.channel="8" midi.instrnum="0" midi.volume="77%" />
+                        <instrDef xml:id="is6t36c" midi.channel="3" midi.instrnum="6" midi.volume="77%" />
                         <staffDef xml:id="sbiqh8q2" lines="5" n="4">
                            <clef xml:id="czag7zr2" line="2" shape="G" />
                            <keySig xml:id="kpplv2e1" sig="0" />

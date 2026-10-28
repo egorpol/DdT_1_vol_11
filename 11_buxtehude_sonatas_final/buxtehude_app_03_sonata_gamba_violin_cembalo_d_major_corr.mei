@@ -107,6 +107,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-28" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Set the MIDI instrument data by part with scripts/normalize_midi_data.py, from the staff roles in validation/editorial-works.json: General MIDI program 42 (Cello) for the viola da gamba, 43 (Contrabass) for the violone and 6 (Harpsichord) for the continuo bass and for the keyboard realization, whose two staves share the instrument definition on their brace. Each part has its own MIDI channel (0–3). All instrument definitions had program 0 (Acoustic Grand Piano) with channels from the OMR export. The written notation and all event IDs are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-27" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.10.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -441,25 +446,25 @@
                      <staffGrp xml:id="bracketGrp1" symbol="bracket" bar.thru="true">
                         <staffDef xml:id="P1" n="1" lines="5">
                            <label>Viola da Gamba.</label>
-                           <instrDef xml:id="ifzjkaq" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
+                           <instrDef xml:id="ifzjkaq" midi.channel="0" midi.instrnum="42" midi.volume="77%" />
                            <clef xml:id="r1gkipaj" shape="C" line="3" />
                            <keySig xml:id="s1u7iqgl" sig="2s" />
                         </staffDef>
                         <staffDef xml:id="P2" n="2" lines="5">
                            <label>Violone.</label>
-                           <instrDef xml:id="diwuqzj" midi.channel="4" midi.instrnum="0" midi.volume="77%" />
+                           <instrDef xml:id="diwuqzj" midi.channel="1" midi.instrnum="43" midi.volume="77%" />
                            <clef xml:id="m109lnvs" shape="F" line="4" />
                            <keySig xml:id="n12hygh0" sig="2s" />
                         </staffDef>
                         <staffDef xml:id="P3" n="3" lines="5">
-                           <instrDef xml:id="loa81og" midi.channel="5" midi.instrnum="0" midi.volume="77%" />
+                           <instrDef xml:id="loa81og" midi.channel="2" midi.instrnum="6" midi.volume="77%" />
                            <clef xml:id="u12hf0cg" shape="F" line="4" />
                            <keySig xml:id="vxgb4qm" sig="2s" />
                         </staffDef>
                      </staffGrp>
                      <staffGrp xml:id="P4" bar.thru="true">
                         <grpSym xml:id="e1vdsv9s" symbol="brace" />
-                        <instrDef xml:id="i15r6n4h" midi.channel="6" midi.instrnum="0" midi.volume="77%" />
+                        <instrDef xml:id="i15r6n4h" midi.channel="3" midi.instrnum="6" midi.volume="77%" />
                         <staffDef xml:id="kwm8ehx" n="4" lines="5">
                            <clef xml:id="r9tgr2t" shape="G" line="2" />
                            <keySig xml:id="sh11yy7" sig="2s" />

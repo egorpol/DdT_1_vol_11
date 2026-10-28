@@ -119,6 +119,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-28" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Set the MIDI instrument data by part with scripts/normalize_midi_data.py, from the staff roles in validation/editorial-works.json: General MIDI program 40 (Violin) for both violins, 42 (Cello) for the viola da gamba and 6 (Harpsichord) for the continuo bass and for the keyboard realization, whose two staves share the instrument definition on their brace. Each part has its own MIDI channel (0–4). All instrument definitions had program 0 (Acoustic Grand Piano) with channels from the OMR export. Removed the tempo values that the OMR had added (midi.bpm on 15 tempo marks, mm on 12); DdT prints no metronome marks, and the tempo words remain. The written notation and all event IDs are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-27" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.10.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -436,7 +441,7 @@
                         <staffDef xml:id="P1" n="1" lines="5">
                            <label xml:id="u1ff4hwt">Violino I.</label>
                            <labelAbbr xml:id="w1241n8i"/>
-                           <instrDef xml:id="y11izhy9" midi.channel="0" midi.instrnum="0" midi.volume="77%"/>
+                           <instrDef xml:id="y11izhy9" midi.channel="0" midi.instrnum="40" midi.volume="77%" />
                            <clef xml:id="h12o6l1w" shape="G" line="2"/>
                            <keySig xml:id="i1d272yn" sig="0"/>
                            <meterSig xml:id="jtjye91" count="4" sym="common" unit="4"/>
@@ -444,7 +449,7 @@
                         <staffDef xml:id="P2" n="2" lines="5">
                            <label xml:id="twcrxci">Violino II.</label>
                            <labelAbbr xml:id="vybv6fq"/>
-                           <instrDef xml:id="xewmkkp" midi.channel="12" midi.instrnum="0" midi.volume="77%"/>
+                           <instrDef xml:id="xewmkkp" midi.channel="1" midi.instrnum="40" midi.volume="77%" />
                            <clef xml:id="g1alwl8s" shape="G" line="2"/>
                            <keySig xml:id="haris5x" sig="0"/>
                            <meterSig xml:id="i126guz7" count="4" sym="common" unit="4"/>
@@ -452,7 +457,7 @@
                         <staffDef xml:id="P3" n="3" lines="5">
                            <label xml:id="gkubdhf">Viola di gamba.</label>
                            <labelAbbr xml:id="ilp6ev1"/>
-                           <instrDef xml:id="ku1p1je" midi.channel="5" midi.instrnum="0" midi.volume="77%"/>
+                           <instrDef xml:id="ku1p1je" midi.channel="2" midi.instrnum="42" midi.volume="77%" />
                            <clef xml:id="ttc3vi" shape="F" line="4"/>
                            <keySig xml:id="u1103eid" sig="0"/>
                            <meterSig xml:id="vx8ohnm" count="4" sym="common" unit="4"/>
@@ -460,7 +465,7 @@
                         <staffDef xml:id="P4" n="4" lines="5">
                            <label xml:id="s26oumz">Continuo.</label>
                            <labelAbbr xml:id="u1c6jqdg"/>
-                           <instrDef xml:id="wd42okv" midi.channel="6" midi.instrnum="0" midi.volume="77%"/>
+                           <instrDef xml:id="wd42okv" midi.channel="3" midi.instrnum="6" midi.volume="77%" />
                            <clef xml:id="f1oneb0m" shape="F" line="4"/>
                            <keySig xml:id="gkjxatg" sig="0"/>
                            <meterSig xml:id="h1gghu79" count="4" sym="common" unit="4"/>
@@ -470,7 +475,7 @@
                         <grpSym xml:id="cuddq33" symbol="brace"/>
                         <label xml:id="ctuik43"/>
                         <labelAbbr xml:id="e19bwp2c"/>
-                        <instrDef xml:id="gpzzxku" midi.channel="7" midi.instrnum="0" midi.volume="77%"/>
+                        <instrDef xml:id="gpzzxku" midi.channel="4" midi.instrnum="6" midi.volume="77%" />
                         <staffDef xml:id="i1qeebox" n="5" lines="5">
                            <clef xml:id="p11wi80h" shape="G" line="2"/>
                            <keySig xml:id="q1jo9rmj" sig="0"/>
@@ -487,10 +492,10 @@
                <section xml:id="r1eeip0q">
                   <pb xml:id="s1hr7i0t" n="1" facs="#surface_335a6dd06640"/>
                   <measure xml:id="kplvn9n" n="1" facs="#zone_7911efbba30c430fb9">
-                     <tempo xml:id="t1" staff="1" startid="#v1hedkhh" mm="120" midi.bpm="75">
+                     <tempo xml:id="t1" staff="1" startid="#v1hedkhh">
       						Adagio.
    						</tempo>
-                     <tempo xml:id="t2" staff="5" mm="120" midi.bpm="75" tstamp="1">
+                     <tempo xml:id="t2" staff="5" tstamp="1">
       						Adagio.
    						</tempo>
                      <harm xml:id="sfhd64" staff="4" tstamp="3">
@@ -1549,10 +1554,10 @@
                   </measure>
                   <sb xml:id="z14atxcj"/>
                   <measure xml:id="p7r2csd" n="16" facs="#zone_bf62e460424045aa8b">
-                     <tempo xml:id="t3" staff="1" startid="#c7o5jb3" mm="120" midi.bpm="120">
+                     <tempo xml:id="t3" staff="1" startid="#c7o5jb3">
       						Allegro.
    						</tempo>
-                     <tempo xml:id="t4" staff="5" startid="#it37iha" mm="120" midi.bpm="120">
+                     <tempo xml:id="t4" staff="5" startid="#it37iha">
       						Allegro.
    						</tempo>
                      <harm xml:id="gkhgzh56" staff="4" tstamp="4">
@@ -8049,7 +8054,7 @@
                            </note>
                         </layer>
                      </staff>
-                     <tempo xml:id="k1bbq1l9" place="above" staff="1" tstamp="1" xml:lang="it" midi.bpm="187">
+                     <tempo xml:id="k1bbq1l9" place="above" staff="1" tstamp="1" xml:lang="it">
                         <rend xml:id="l126bzug" fontweight="bold">Presto.</rend>
                      </tempo>
                      <tie xml:id="x8rw4fu" startid="#v1rzqvjq" endid="#y17gii36"/>
@@ -9790,10 +9795,10 @@
                      <fermata xml:id="z1amwjxx" staff="6" startid="#yb37j47" form="inv" place="below"/>
                   </measure>
                   <measure xml:id="bu6ntvd" n="83" facs="#zone_27f8d8e87a464badb6">
-                     <tempo xml:id="bsb00023199_00180_facs_zones_t1" staff="1" startid="#m1xsnhkl" mm="120" midi.bpm="60">
+                     <tempo xml:id="bsb00023199_00180_facs_zones_t1" staff="1" startid="#m1xsnhkl">
       						Adagio.
    						</tempo>
-                     <tempo xml:id="bsb00023199_00180_facs_zones_t2" staff="5" startid="#m1q02xhx" mm="120" midi.bpm="60">
+                     <tempo xml:id="bsb00023199_00180_facs_zones_t2" staff="5" startid="#m1q02xhx">
       						Adagio.
    						</tempo>
                      <staff xml:id="k1fbw34v" n="1">
@@ -10214,10 +10219,10 @@
                      <meterSig xml:id="u9fud8t" count="3" unit="4"/>
                   </scoreDef>
                   <measure xml:id="iupc7tg" n="89" facs="#zone_2b35c28979754d25bc">
-                     <tempo xml:id="bsb00023199_00180_facs_zones_t3" staff="1" startid="#x1rhtp9a" mm="120" midi.bpm="60">
+                     <tempo xml:id="bsb00023199_00180_facs_zones_t3" staff="1" startid="#x1rhtp9a">
       						Allegro.
    						</tempo>
-                     <tempo xml:id="bsb00023199_00180_facs_zones_t4" staff="5" startid="#q1bnuk1j" mm="120" midi.bpm="60">
+                     <tempo xml:id="bsb00023199_00180_facs_zones_t4" staff="5" startid="#q1bnuk1j">
       						Allegro.
    						</tempo>
                      <staff xml:id="rf0l6f9" n="1">
@@ -12198,10 +12203,10 @@
                   </measure>
                   <sb xml:id="f230e3t"/>
                   <measure xml:id="v41v1fl" n="121" facs="#zone_ce1c0890922b4a0fbd">
-                     <tempo xml:id="bsb00023199_00181_facs_zones_t1" staff="1" startid="#hjvai9h" mm="120" midi.bpm="75">
+                     <tempo xml:id="bsb00023199_00181_facs_zones_t1" staff="1" startid="#hjvai9h">
       						Adagio.
    						</tempo>
-                     <tempo xml:id="bsb00023199_00181_facs_zones_t2" staff="5" startid="#cp0qpq8" mm="120" midi.bpm="75">
+                     <tempo xml:id="bsb00023199_00181_facs_zones_t2" staff="5" startid="#cp0qpq8">
       						Adagio.
    						</tempo>
                      <staff xml:id="e1x407l5" n="1">
@@ -13108,10 +13113,10 @@
                   </measure>
                   <sb xml:id="b1nv90aq"/>
                   <measure xml:id="r1kfgz2z" n="134" facs="#zone_bfde5aa8abbf4bd2bb">
-                     <tempo xml:id="bsb00023199_00182_facs_zones_t1" staff="1" startid="#ei3yvyx" mm="120" midi.bpm="190">
+                     <tempo xml:id="bsb00023199_00182_facs_zones_t1" staff="1" startid="#ei3yvyx">
       						Presto.
    						</tempo>
-                     <tempo xml:id="bsb00023199_00182_facs_zones_t2" staff="5" startid="#ag43qmc" mm="120" midi.bpm="190">
+                     <tempo xml:id="bsb00023199_00182_facs_zones_t2" staff="5" startid="#ag43qmc">
       						Presto.
    						</tempo>
                      <staff xml:id="a1vchhnq" n="1">
@@ -16386,7 +16391,7 @@
                            </note>
                         </layer>
                      </staff>
-                     <tempo xml:id="o1egi4y0" place="above" staff="1" tstamp="1" xml:lang="it" midi.bpm="71">
+                     <tempo xml:id="o1egi4y0" place="above" staff="1" tstamp="1" xml:lang="it">
                         <rend xml:id="p1ik6jwm" fontweight="bold">Adagio.</rend>
                      </tempo>
                   </measure>
@@ -17204,7 +17209,7 @@
                            </note>
                         </layer>
                      </staff>
-                     <tempo xml:id="c1927goy" place="above" staff="1" tstamp="1" xml:lang="it" midi.bpm="52.5">
+                     <tempo xml:id="c1927goy" place="above" staff="1" tstamp="1" xml:lang="it">
                         <rend xml:id="d8xjyfj" fontweight="bold">Lento.</rend>
                      </tempo>
                      <dynam xml:id="f19dg9gs" place="below" staff="1" tstamp="1" val="96" vgrp="560">( f )</dynam>

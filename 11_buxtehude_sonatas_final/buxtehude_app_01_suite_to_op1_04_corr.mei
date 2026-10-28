@@ -110,6 +110,11 @@
       <revisionDesc>
          <change isodate="2026-10-28" resp="#resp.camat #resp.polyakov">
             <changeDesc>
+               <p>Set the MIDI instrument data by part with scripts/normalize_midi_data.py, from the staff roles in validation/editorial-works.json: General MIDI program 40 (Violin) for the violin, 42 (Cello) for the viola da gamba and 6 (Harpsichord) for the continuo bass and for the keyboard realization, whose two staves share the instrument definition on their brace. Each part has its own MIDI channel (0–3). All instrument definitions had program 0 (Acoustic Grand Piano) with channels from the OMR export. The written notation and all event IDs are unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-28" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
                <p>Corrected 1 encoding error left open by the first musical-lint pass (listed under Known limitations in the 0.10.0 release notes). An AI model (Anthropic Claude) compared each open passage with the DdT 1903 page image, and the editor checked its readings in all 12 corrected passages across the edition before approving the fixes. In m. 82 the violin's first note psfgnvu is B4 with its printed natural, not G4 (DdT p. 163). The natural holds for the bar, so z1m0nmtv and c1ftgyd6 sound B4, not B-flat4, in agreement with the keyboard's B4 hitivn4; the regeneration removed their gestural flats. Event IDs are retained; all other music is unchanged.</p>
             </changeDesc>
          </change>
@@ -308,20 +313,20 @@
                         <grpSym xml:id="upper3bracket" symbol="bracket" />
                         <staffDef xml:id="P1" n="1" lines="5">
                            <label xml:id="vv83si0">Violino.</label>
-                           <instrDef xml:id="z1tg2mvs" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
+                           <instrDef xml:id="z1tg2mvs" midi.channel="0" midi.instrnum="40" midi.volume="77%" />
                            <clef xml:id="i1jtdfsz" shape="G" line="2" />
                            <keySig xml:id="j1pxeqv1" sig="2f" />
                            <meterSig xml:id="k157u4xj" count="4" sym="common" unit="4" />
                         </staffDef>
                         <staffDef xml:id="P2" n="2" lines="5">
                            <label xml:id="t16pbfvw">Viola da gamba.</label>
-                           <instrDef xml:id="x4ql94d" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
+                           <instrDef xml:id="x4ql94d" midi.channel="1" midi.instrnum="42" midi.volume="77%" />
                            <clef xml:id="glppt2x" shape="F" line="4" />
                            <keySig xml:id="hnsk657" sig="2f" />
                            <meterSig xml:id="i1isr7pv" count="4" sym="common" unit="4" />
                         </staffDef>
                         <staffDef xml:id="P3" n="3" lines="5">
-                           <instrDef xml:id="t3nts2r" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
+                           <instrDef xml:id="t3nts2r" midi.channel="2" midi.instrnum="6" midi.volume="77%" />
                            <clef xml:id="c1to04l5" shape="F" line="4" />
                            <keySig xml:id="d1gd7o9t" sig="2f" />
                            <meterSig xml:id="eyz8pjg" count="4" sym="common" unit="4" />
@@ -329,7 +334,7 @@
                      </staffGrp>
                      <staffGrp xml:id="P4" bar.thru="true">
                         <grpSym xml:id="k1j37kh2" symbol="brace" />
-                        <instrDef xml:id="o2fnz2x" midi.channel="3" midi.instrnum="0" midi.volume="77%" />
+                        <instrDef xml:id="o2fnz2x" midi.channel="3" midi.instrnum="6" midi.volume="77%" />
                         <staffDef xml:id="q1ie39nm" n="4" lines="5">
                            <clef xml:id="x1783jc0" shape="G" line="2" />
                            <keySig xml:id="ybr1iuk" sig="2f" />

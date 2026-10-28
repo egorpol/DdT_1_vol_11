@@ -106,6 +106,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-28" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Set the MIDI instrument data by part with scripts/normalize_midi_data.py, from the staff roles in validation/editorial-works.json: General MIDI program 40 (Violin) for the violin, 42 (Cello) for the viola da gamba and 6 (Harpsichord) for the continuo bass and for the keyboard realization, whose two staves share the instrument definition on their brace. Each part has its own MIDI channel (0–3). All instrument definitions had program 0 (Acoustic Grand Piano) with channels from the OMR export. Removed the tempo values that the OMR had added (midi.bpm on 2 tempo marks); DdT prints no metronome marks, and the tempo words remain. The written notation and all event IDs are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-28" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>In the score definition before m. 46, which bracketed all five staves, grouped the violin, gamba and continuo staves under a bracket with barlines drawn through them, and the keyboard staves under a brace, as DdT prints them, as at the start of the work. Its bracket grpSym_m46 now spans staves 1–3. Found in the editor's spot-check. The staff definitions, the musical text and all existing IDs are unchanged.</p>
@@ -401,21 +406,21 @@
                         <grpSym xml:id="upper3bracket" symbol="bracket" />
                         <staffDef xml:id="P1" n="1" lines="5">
                            <label xml:id="u1lj59fn">Violino.</label>
-                           <instrDef xml:id="y1h2drrm" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
+                           <instrDef xml:id="y1h2drrm" midi.channel="0" midi.instrnum="40" midi.volume="77%" />
                            <clef xml:id="hstbs3a" shape="G" line="2" />
                            <keySig xml:id="i1d28301" sig="1f" />
                            <meterSig xml:id="j12klpdg" count="4" sym="common" unit="4" />
                         </staffDef>
                         <staffDef xml:id="P2" n="2" lines="5">
                            <label xml:id="ydgnq9z">Viola da gamba.</label>
-                           <instrDef xml:id="c12nar7i" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
+                           <instrDef xml:id="c12nar7i" midi.channel="1" midi.instrnum="42" midi.volume="77%" />
                            <clef xml:id="lra6gk7" shape="C" line="3" />
                            <keySig xml:id="mr9brci" sig="1f" />
                            <meterSig xml:id="nyh3i6k" count="4" sym="common" unit="4" />
                         </staffDef>
                         <staffDef xml:id="P3" n="3" lines="5">
                            <label xml:id="o13nzj7h">Cembalo.</label>
-                           <instrDef xml:id="sozn3x2" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
+                           <instrDef xml:id="sozn3x2" midi.channel="2" midi.instrnum="6" midi.volume="77%" />
                            <clef xml:id="b1qtd1hw" shape="F" line="4" />
                            <keySig xml:id="c1mwggna" sig="1f" />
                            <meterSig xml:id="d1ii4h5b" count="4" sym="common" unit="4" />
@@ -423,7 +428,7 @@
                      </staffGrp>
                      <staffGrp xml:id="P4" bar.thru="true">
                         <grpSym xml:id="wezhkkq" symbol="brace" />
-                        <instrDef xml:id="a1shez03" midi.channel="3" midi.instrnum="0" midi.volume="77%" />
+                        <instrDef xml:id="a1shez03" midi.channel="3" midi.instrnum="6" midi.volume="77%" />
                         <staffDef xml:id="c1gcyvpk" n="4" lines="5">
                            <clef xml:id="j1pgd887" shape="G" line="2" />
                            <keySig xml:id="k1d2xv6o" sig="1f" />
@@ -9111,10 +9116,10 @@
                            </note>
                         </layer>
                      </staff>
-                     <tempo xml:id="q1oylgqq" place="above" staff="1" tstamp="1" xml:lang="it" midi.bpm="71">
+                     <tempo xml:id="q1oylgqq" place="above" staff="1" tstamp="1" xml:lang="it">
                         <rend xml:id="r1xjjarx" fontweight="bold">Adagio.</rend>
                      </tempo>
-                     <tempo xml:id="q1oylgqq1" place="above" staff="4" tstamp="1" xml:lang="it" midi.bpm="71">
+                     <tempo xml:id="q1oylgqq1" place="above" staff="4" tstamp="1" xml:lang="it">
                         <rend xml:id="r1xjjarx1" fontweight="bold">Adagio.</rend>
                      </tempo>
                      <tie xml:id="b1hltfkh" startid="#a1mp40er" endid="#nwyno2b" />

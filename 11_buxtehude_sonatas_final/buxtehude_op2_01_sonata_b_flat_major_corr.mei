@@ -142,6 +142,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-28" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Set the MIDI instrument data by part with scripts/normalize_midi_data.py, from the staff roles in validation/editorial-works.json: General MIDI program 40 (Violin) for the violin, 42 (Cello) for the viola da gamba and 6 (Harpsichord) for the continuo bass and for the keyboard realization, whose two staves share the instrument definition on their brace. Each part has its own MIDI channel (0–3). All instrument definitions had program 0 (Acoustic Grand Piano) with channels from the OMR export. The instrument definitions in later score definitions (40) carry the same values. The written notation and all event IDs are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-27" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Numbered the edition statement for the 0.10.0 pre-release, the first release that includes this work: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -656,7 +661,7 @@
                         <staffDef xml:id="P1" n="1" lines="5">
                            <label xml:id="op2.01.label.1">Violino.</label>
                            <labelAbbr xml:id="op2.01.labelabbr.1"/>
-                           <instrDef xml:id="h1c0pzni" midi.channel="0" midi.instrnum="0" midi.volume="77%"/>
+                           <instrDef xml:id="h1c0pzni" midi.channel="0" midi.instrnum="40" midi.volume="77%" />
                            <clef xml:id="q2jjaoa" shape="G" line="2"/>
                            <keySig xml:id="ruwvi48" sig="2f"/>
                            <meterSig xml:id="s1i6n6m6" count="6" unit="8"/>
@@ -664,7 +669,7 @@
                         <staffDef xml:id="P2" n="2" lines="5">
                            <label xml:id="op2.01.label.2">Viola da gamba.</label>
                            <labelAbbr xml:id="op2.01.labelabbr.2"/>
-                           <instrDef xml:id="f11k4f9f" midi.channel="1" midi.instrnum="0" midi.volume="77%"/>
+                           <instrDef xml:id="f11k4f9f" midi.channel="1" midi.instrnum="42" midi.volume="77%" />
                            <clef xml:id="o1ywd25a" shape="C" line="3"/>
                            <keySig xml:id="p5ign4e" sig="2f"/>
                            <meterSig xml:id="q1deqhbw" count="6" unit="8"/>
@@ -672,7 +677,7 @@
                         <staffDef xml:id="P3" n="3" lines="5">
                            <label xml:id="op2.01.label.3">Cembalo.</label>
                            <labelAbbr xml:id="op2.01.labelabbr.3"/>
-                           <instrDef xml:id="q1qxaavx" midi.channel="2" midi.instrnum="0" midi.volume="77%"/>
+                           <instrDef xml:id="q1qxaavx" midi.channel="2" midi.instrnum="6" midi.volume="77%" />
                            <clef xml:id="z17k4wpp" shape="F" line="4"/>
                            <keySig xml:id="a1bbiui4" sig="2f"/>
                            <meterSig xml:id="bwo8hg4" count="6" unit="8"/>
@@ -680,7 +685,7 @@
                      </staffGrp>
                      <staffGrp xml:id="P4" bar.thru="true">
                         <grpSym xml:id="a131a6ta" symbol="brace"/>
-                        <instrDef xml:id="e1q87tn9" midi.channel="3" midi.instrnum="0" midi.volume="77%"/>
+                        <instrDef xml:id="e1q87tn9" midi.channel="3" midi.instrnum="6" midi.volume="77%" />
                         <staffDef xml:id="gwfsz1b" n="4" lines="5">
                            <clef xml:id="n1mavf9x" shape="G" line="2"/>
                            <keySig xml:id="owifxk0" sig="2f"/>
@@ -1797,18 +1802,18 @@
                         <staffGrp bar.thru="true" xml:id="op2.01.upper.staffgrp.2">
                            <grpSym symbol="bracket" xml:id="op2.01.upper.bracket.2"/>
                            <staffDef xml:id="page_bsb00023199_00090_facs_zones_P1" n="1" lines="5">
-                              <instrDef xml:id="qg4nd7v" midi.channel="0" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="qg4nd7v" midi.channel="0" midi.instrnum="40" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00090_facs_zones_P2" n="2" lines="5">
-                              <instrDef xml:id="b1obvy9l" midi.channel="15" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="b1obvy9l" midi.channel="1" midi.instrnum="42" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00090_facs_zones_P3" n="3" lines="5">
-                              <instrDef xml:id="knk6rr3" midi.channel="0" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="knk6rr3" midi.channel="2" midi.instrnum="6" midi.volume="77%" />
                            </staffDef>
                         </staffGrp>
                         <staffGrp xml:id="page_bsb00023199_00090_facs_zones_P4" bar.thru="true">
                            <grpSym xml:id="c19ux171" symbol="brace"/>
-                           <instrDef xml:id="gbvx6xy" midi.channel="1" midi.instrnum="0" midi.volume="77%"/>
+                           <instrDef xml:id="gbvx6xy" midi.channel="3" midi.instrnum="6" midi.volume="77%" />
                            <staffDef xml:id="i1fdz0ne" n="4" lines="5">
                            </staffDef>
                            <staffDef xml:id="s13igpbu" n="5" lines="5">
@@ -3825,18 +3830,18 @@
                         <staffGrp bar.thru="true" xml:id="op2.01.upper.staffgrp.3">
                            <grpSym symbol="bracket" xml:id="op2.01.upper.bracket.3"/>
                            <staffDef xml:id="page_bsb00023199_00091_facs_zones_P1" n="1" lines="5">
-                              <instrDef xml:id="jy1sab5" midi.channel="0" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="jy1sab5" midi.channel="0" midi.instrnum="40" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00091_facs_zones_P2" n="2" lines="5">
-                              <instrDef xml:id="h1v97dn" midi.channel="1" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="h1v97dn" midi.channel="1" midi.instrnum="42" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00091_facs_zones_P3" n="3" lines="5">
-                              <instrDef xml:id="xx1j5jm" midi.channel="2" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="xx1j5jm" midi.channel="2" midi.instrnum="6" midi.volume="77%" />
                            </staffDef>
                         </staffGrp>
                         <staffGrp xml:id="page_bsb00023199_00091_facs_zones_P4" bar.thru="true">
                            <grpSym xml:id="gjne4h6" symbol="brace"/>
-                           <instrDef xml:id="k18qqxpc" midi.channel="3" midi.instrnum="0" midi.volume="77%"/>
+                           <instrDef xml:id="k18qqxpc" midi.channel="3" midi.instrnum="6" midi.volume="77%" />
                            <staffDef xml:id="m1kcvi5a" n="4" lines="5">
                            </staffDef>
                            <staffDef xml:id="w36qpc1" n="5" lines="5">
@@ -5460,18 +5465,18 @@
                         <staffGrp bar.thru="true" xml:id="op2.01.upper.staffgrp.4">
                            <grpSym symbol="bracket" xml:id="op2.01.upper.bracket.4"/>
                            <staffDef xml:id="page_bsb00023199_00092_facs_zones_P1" n="1" lines="5">
-                              <instrDef xml:id="rqm5enx" midi.channel="0" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="rqm5enx" midi.channel="0" midi.instrnum="40" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00092_facs_zones_P2" n="2" lines="5">
-                              <instrDef xml:id="d1bkai0w" midi.channel="3" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="d1bkai0w" midi.channel="1" midi.instrnum="42" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00092_facs_zones_P3" n="3" lines="5">
-                              <instrDef xml:id="guph7eg" midi.channel="4" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="guph7eg" midi.channel="2" midi.instrnum="6" midi.volume="77%" />
                            </staffDef>
                         </staffGrp>
                         <staffGrp xml:id="page_bsb00023199_00092_facs_zones_P4" bar.thru="true">
                            <grpSym xml:id="o1x1tp9" symbol="brace"/>
-                           <instrDef xml:id="sgza912" midi.channel="5" midi.instrnum="0" midi.volume="77%"/>
+                           <instrDef xml:id="sgza912" midi.channel="3" midi.instrnum="6" midi.volume="77%" />
                            <staffDef xml:id="ujot9qt" n="4" lines="5">
                            </staffDef>
                            <staffDef xml:id="e1t90zui" n="5" lines="5">
@@ -7333,18 +7338,18 @@
                         <staffGrp bar.thru="true" xml:id="op2.01.upper.staffgrp.5">
                            <grpSym symbol="bracket" xml:id="op2.01.upper.bracket.5"/>
                            <staffDef xml:id="page_bsb00023199_00093_facs_zones_P1" n="1" lines="5">
-                              <instrDef xml:id="v5b00iw" midi.channel="0" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="v5b00iw" midi.channel="0" midi.instrnum="40" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00093_facs_zones_P2" n="2" lines="5">
-                              <instrDef xml:id="i126xh50" midi.channel="1" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="i126xh50" midi.channel="1" midi.instrnum="42" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00093_facs_zones_P3" n="3" lines="5">
-                              <instrDef xml:id="jnnhc98" midi.channel="2" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="jnnhc98" midi.channel="2" midi.instrnum="6" midi.volume="77%" />
                            </staffDef>
                         </staffGrp>
                         <staffGrp xml:id="page_bsb00023199_00093_facs_zones_P4" bar.thru="true">
                            <grpSym xml:id="p3ope2y" symbol="brace"/>
-                           <instrDef xml:id="tmkoyyf" midi.channel="3" midi.instrnum="0" midi.volume="77%"/>
+                           <instrDef xml:id="tmkoyyf" midi.channel="3" midi.instrnum="6" midi.volume="77%" />
                            <staffDef xml:id="v1xpfuj2" n="4" lines="5">
                            </staffDef>
                            <staffDef xml:id="ftc8axr" n="5" lines="5">
@@ -9547,18 +9552,18 @@
                         <staffGrp bar.thru="true" xml:id="op2.01.upper.staffgrp.6">
                            <grpSym symbol="bracket" xml:id="op2.01.upper.bracket.6"/>
                            <staffDef xml:id="page_bsb00023199_00094_facs_zones_P1" n="1" lines="5">
-                              <instrDef xml:id="sj96oi0" midi.channel="0" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="sj96oi0" midi.channel="0" midi.instrnum="40" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00094_facs_zones_P2" n="2" lines="5">
-                              <instrDef xml:id="v13pcrmw" midi.channel="1" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="v13pcrmw" midi.channel="1" midi.instrnum="42" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00094_facs_zones_P3" n="3" lines="5">
-                              <instrDef xml:id="q73341j" midi.channel="2" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="q73341j" midi.channel="2" midi.instrnum="6" midi.volume="77%" />
                            </staffDef>
                         </staffGrp>
                         <staffGrp xml:id="page_bsb00023199_00094_facs_zones_P4" bar.thru="true">
                            <grpSym xml:id="ybk8fqp" symbol="brace"/>
-                           <instrDef xml:id="c1ljxgbh" midi.channel="3" midi.instrnum="0" midi.volume="77%"/>
+                           <instrDef xml:id="c1ljxgbh" midi.channel="3" midi.instrnum="6" midi.volume="77%" />
                            <staffDef xml:id="ejxqeaf" n="4" lines="5">
                            </staffDef>
                            <staffDef xml:id="o1s8u0u" n="5" lines="5">
@@ -11321,18 +11326,18 @@
                         <staffGrp bar.thru="true" xml:id="op2.01.upper.staffgrp.7">
                            <grpSym symbol="bracket" xml:id="op2.01.upper.bracket.7"/>
                            <staffDef xml:id="page_bsb00023199_00095_facs_zones_P1" n="1" lines="5">
-                              <instrDef xml:id="z14ysv50" midi.channel="0" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="z14ysv50" midi.channel="0" midi.instrnum="40" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00095_facs_zones_P2" n="2" lines="5">
-                              <instrDef xml:id="c640wqt" midi.channel="1" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="c640wqt" midi.channel="1" midi.instrnum="42" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00095_facs_zones_P3" n="3" lines="5">
-                              <instrDef xml:id="i8ytjzh" midi.channel="2" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="i8ytjzh" midi.channel="2" midi.instrnum="6" midi.volume="77%" />
                            </staffDef>
                         </staffGrp>
                         <staffGrp xml:id="page_bsb00023199_00095_facs_zones_P4" bar.thru="true">
                            <grpSym xml:id="v14fbjj3" symbol="brace"/>
-                           <instrDef xml:id="zex1xu6" midi.channel="3" midi.instrnum="0" midi.volume="77%"/>
+                           <instrDef xml:id="zex1xu6" midi.channel="3" midi.instrnum="6" midi.volume="77%" />
                            <staffDef xml:id="b9x5wes" n="4" lines="5">
                            </staffDef>
                            <staffDef xml:id="lvtf75s" n="5" lines="5">
@@ -13085,18 +13090,18 @@
                         <staffGrp bar.thru="true" xml:id="op2.01.upper.staffgrp.8">
                            <grpSym symbol="bracket" xml:id="op2.01.upper.bracket.8"/>
                            <staffDef xml:id="page_bsb00023199_00096_facs_zones_P1" n="1" lines="5">
-                              <instrDef xml:id="x1h6ia73" midi.channel="0" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="x1h6ia73" midi.channel="0" midi.instrnum="40" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00096_facs_zones_P2" n="2" lines="5">
-                              <instrDef xml:id="w1ciydso" midi.channel="1" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="w1ciydso" midi.channel="1" midi.instrnum="42" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00096_facs_zones_P3" n="3" lines="5">
-                              <instrDef xml:id="z1sbw8pw" midi.channel="11" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="z1sbw8pw" midi.channel="2" midi.instrnum="6" midi.volume="77%" />
                            </staffDef>
                         </staffGrp>
                         <staffGrp xml:id="page_bsb00023199_00096_facs_zones_P4" bar.thru="true">
                            <grpSym xml:id="bavrgjv" symbol="brace"/>
-                           <instrDef xml:id="fe5a8jy" midi.channel="4" midi.instrnum="0" midi.volume="77%"/>
+                           <instrDef xml:id="fe5a8jy" midi.channel="3" midi.instrnum="6" midi.volume="77%" />
                            <staffDef xml:id="h1olkm7l" n="4" lines="5">
                            </staffDef>
                            <staffDef xml:id="r1bsk8ai" n="5" lines="5">
@@ -15178,18 +15183,18 @@
                         <staffGrp bar.thru="true" xml:id="op2.01.upper.staffgrp.9">
                            <grpSym symbol="bracket" xml:id="op2.01.upper.bracket.9"/>
                            <staffDef xml:id="page_bsb00023199_00097_facs_zones_P1" n="1" lines="5">
-                              <instrDef xml:id="r1o1xgrb" midi.channel="0" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="r1o1xgrb" midi.channel="0" midi.instrnum="40" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00097_facs_zones_P2" n="2" lines="5">
-                              <instrDef xml:id="u1s8m19n" midi.channel="1" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="u1s8m19n" midi.channel="1" midi.instrnum="42" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00097_facs_zones_P3" n="3" lines="5">
-                              <instrDef xml:id="djz5q1z" midi.channel="2" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="djz5q1z" midi.channel="2" midi.instrnum="6" midi.volume="77%" />
                            </staffDef>
                         </staffGrp>
                         <staffGrp xml:id="page_bsb00023199_00097_facs_zones_P4" bar.thru="true">
                            <grpSym xml:id="w1u26tiu" symbol="brace"/>
-                           <instrDef xml:id="aotqhe3" midi.channel="6" midi.instrnum="0" midi.volume="77%"/>
+                           <instrDef xml:id="aotqhe3" midi.channel="3" midi.instrnum="6" midi.volume="77%" />
                            <staffDef xml:id="c1ynojca" n="4" lines="5">
                            </staffDef>
                            <staffDef xml:id="m1aw73z" n="5" lines="5">
@@ -16910,18 +16915,18 @@
                         <staffGrp bar.thru="true" xml:id="op2.01.upper.staffgrp.10">
                            <grpSym symbol="bracket" xml:id="op2.01.upper.bracket.10"/>
                            <staffDef xml:id="page_bsb00023199_00098_facs_zones_P1" n="1" lines="5">
-                              <instrDef xml:id="z1d3qkth" midi.channel="0" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="z1d3qkth" midi.channel="0" midi.instrnum="40" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00098_facs_zones_P2" n="2" lines="5">
-                              <instrDef xml:id="n613v7t" midi.channel="1" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="n613v7t" midi.channel="1" midi.instrnum="42" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00098_facs_zones_P3" n="3" lines="5">
-                              <instrDef xml:id="p74jsdy" midi.channel="2" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="p74jsdy" midi.channel="2" midi.instrnum="6" midi.volume="77%" />
                            </staffDef>
                         </staffGrp>
                         <staffGrp xml:id="page_bsb00023199_00098_facs_zones_P4" bar.thru="true">
                            <grpSym xml:id="t1u2t4ap" symbol="brace"/>
-                           <instrDef xml:id="xbadz7h" midi.channel="3" midi.instrnum="0" midi.volume="77%"/>
+                           <instrDef xml:id="xbadz7h" midi.channel="3" midi.instrnum="6" midi.volume="77%" />
                            <staffDef xml:id="zp3m7f9" n="4" lines="5">
                            </staffDef>
                            <staffDef xml:id="j1lm12ss" n="5" lines="5">
@@ -18556,18 +18561,18 @@
                         <staffGrp bar.thru="true" xml:id="op2.01.upper.staffgrp.11">
                            <grpSym symbol="bracket" xml:id="op2.01.upper.bracket.11"/>
                            <staffDef xml:id="page_bsb00023199_00099_facs_zones_P1" n="1" lines="5">
-                              <instrDef xml:id="a1u3idqc" midi.channel="0" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="a1u3idqc" midi.channel="0" midi.instrnum="40" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00099_facs_zones_P2" n="2" lines="5">
-                              <instrDef xml:id="ebeipa7" midi.channel="1" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="ebeipa7" midi.channel="1" midi.instrnum="42" midi.volume="77%" />
                            </staffDef>
                            <staffDef xml:id="page_bsb00023199_00099_facs_zones_P3" n="3" lines="5">
-                              <instrDef xml:id="q2ewg9b" midi.channel="2" midi.instrnum="0" midi.volume="77%"/>
+                              <instrDef xml:id="q2ewg9b" midi.channel="2" midi.instrnum="6" midi.volume="77%" />
                            </staffDef>
                         </staffGrp>
                         <staffGrp xml:id="page_bsb00023199_00099_facs_zones_P4" bar.thru="true">
                            <grpSym xml:id="x1tm2sak" symbol="brace"/>
-                           <instrDef xml:id="bpr7fg" midi.channel="3" midi.instrnum="0" midi.volume="77%"/>
+                           <instrDef xml:id="bpr7fg" midi.channel="3" midi.instrnum="6" midi.volume="77%" />
                            <staffDef xml:id="d1gdsavp" n="4" lines="5">
                            </staffDef>
                            <staffDef xml:id="n3mmehg" n="5" lines="5">
