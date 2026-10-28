@@ -2,7 +2,7 @@
 
 These limited facsimile excerpts document readings discussed in the MEI
 annotations. They are listed in the order in which the readings appear in the
-volume (DdT 1903, printed pp. 3, 85, 97, 105 and 139). Include this directory and its
+volume (DdT 1903, printed pp. 3, 85, 97 and 139). Include this directory and its
 attribution with the score in the final release, preserving the relative paths.
 Crop provenance and checksums are recorded in [manifest.json](manifest.json).
 
@@ -121,46 +121,6 @@ unrelated material.
 specific E3 reading on the documentary image-quotation basis recorded above
 (UrhG §§ 51 and 63, checked 2026-10-19). The scope is one measure, showing the
 printed flag and its immediate musical context.
-
-## Op. II/3, measure 43, viola da gamba and continuo
-
-![Gamba partbook: the alto clef and measure 43 with its E-flat4](supplemental_material_op2_03_m043_gamba_stimu1991.png)
-
-![Cembalo partbook: the alto clef and the printed bar of measures 42–43 with its E-flat4](supplemental_material_op2_03_m043_continuo_stimu1991.png)
-
-**Source:** Dieterich Buxtehude, *VII. Suonate à due, violino et violadagamba
-con cembalo*, Op. II (1696), Uppsala University Library, Düben Collection,
-`Uimtr 52:1–4`, RISM A/I B5205. Reproduced through the STIMU facsimile edition
-(Utrecht, 1991; introduction by Kerala J. Snyder), supplied as university-library
-scans. The digitising institution was not named in the supplied provenance.
-
-**Location:** Viola da Gamba part, Sonata III, printed p. 12, first staff;
-supplied scan `scan-0031.jpg`, left-hand page. The first crop shows the whole-bar
-rest of combined-score m. 42, the change to the alto clef (C clef on the third line)
-with its B-flat key signature, and m. 43 up to its closing barline. Cembalo
-part, Sonata III, printed p. 9, ninth staff; supplied scan `scan-0045.jpg`,
-right-hand page. The historical print groups DdT measures 42 and 43 into one
-bar; the second crop shows that complete bar between its barlines, opening with
-the same clef change, with the figures printed above the bass. In both parts
-the m. 43 eighth on the fourth line of the alto clef carries a flat: E-flat4.
-DdT 1903, printed p. 105, prints the same clefs at the end of m. 41. The
-encoding had lost them and read these notes in bass clef, a seventh too low,
-which gave F-flat3 for this E-flat4. The
-[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op2_03_sonata_g_minor_corr.mei#editorial.op2_03.m043.alto-clefs)
-records the repair.
-
-**Image preparation:** direct crops at the scans' original pixel scale,
-992 × 284 and 929 × 265 pixels, saved as PNG from the supplied full-resolution
-JPEG access images, which match their conversion inventory. No resizing,
-retouching or reconstructed notation is included. The TIFF masters were not
-read for these crops. Each crop excludes the facing page, the neighbouring
-staves and the following bar.
-
-**Intended reuse:** these excerpts accompany the critical discussion of the
-alto-clef reading on the documentary image-quotation basis recorded above
-(UrhG §§ 51 and 63, checked 2026-10-19). The scope is at most one printed bar
-per partbook, showing the clef change and the E-flat4 in their immediate
-musical context.
 
 ## Op. II/6, measure 3, violin
 
