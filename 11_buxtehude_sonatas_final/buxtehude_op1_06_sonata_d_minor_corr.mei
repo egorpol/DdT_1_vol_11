@@ -106,6 +106,16 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-28" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>In the score definition before m. 46, which bracketed all five staves, grouped the violin, gamba and continuo staves under a bracket with barlines drawn through them, and the keyboard staves under a brace, as DdT prints them, as at the start of the work. Its bracket grpSym_m46 now spans staves 1–3. Found in the editor's spot-check. The staff definitions, the musical text and all existing IDs are unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-28" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Corrected 2 encoding errors left open by the first musical-lint pass (listed under Known limitations in the 0.10.0 release notes). An AI model (Anthropic Claude) compared each open passage with the DdT 1903 page image, and the editor checked its readings in all 12 corrected passages across the edition before approving the fixes. Added the two keyboard ties that DdT prints from m. 13 into m. 14 across the page turn (pp. 55–56): B4 gqm678d to i1u3sd4g and D5 jxetfna to txizsbq. The B4 tie curves below and the D5 tie above (curvedir), as the editor's spot-check found. Through the tie, i1u3sd4g keeps the B natural printed in m. 13, so the regenerated gestural accidentals no longer flatten it: it sounds B4, not B-flat4. The two ties have new IDs; all other music and event IDs are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-27" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.10.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -1907,6 +1917,8 @@
                            </beam>
                         </layer>
                      </staff>
+                     <tie xml:id="p68keb23" startid="#gqm678d" endid="#i1u3sd4g" curvedir="below" />
+                     <tie xml:id="fsek4j0p" startid="#jxetfna" endid="#txizsbq" curvedir="above" />
                   </measure>
                   <pb xml:id="p170fsd6" facs="#surface_21c65b861a3e" n="2" />
                   <measure xml:id="h1rijyqg" n="14" facs="#zone_0ea2e40a15814d61a6">
@@ -2031,7 +2043,7 @@
                         </layer>
                         <layer xml:id="h1lpitp8" n="2">
                            <beam xml:id="newbeam02">
-                              <note xml:id="i1u3sd4g" dur="8" oct="4" pname="b" stem.dir="down" accid.ges="f" />
+                              <note xml:id="i1u3sd4g" dur="8" oct="4" pname="b" stem.dir="down" />
                               <note xml:id="k13lgp38" dur="8" oct="4" pname="a" stem.dir="down" />
                            </beam>
                            <note xml:id="mdvt04s" dur="4" oct="4" pname="a" stem.dir="down" />
@@ -5150,27 +5162,32 @@
                   <pb xml:id="lnrr71i" facs="#surface_17d7fa7b0178" n="4" />
                   <scoreDef xml:id="scoreDef_m46">
                      <staffGrp xml:id="staffGrp_m46">
-                        <grpSym xml:id="grpSym_m46" symbol="bracket" />
-                        <staffDef xml:id="staffDef_m46_1" n="1" lines="5">
-                           <clef xml:id="clef_m46_1" shape="G" line="2" />
-                           <meterSig xml:id="meterSig_m46_1" count="4" sym="common" unit="4" />
-                        </staffDef>
-                        <staffDef xml:id="staffDef_m46_2" n="2" lines="5">
-                           <clef xml:id="clef_m46_2" shape="C" line="3" />
-                           <meterSig xml:id="meterSig_m46_2" count="4" sym="common" unit="4" />
-                        </staffDef>
-                        <staffDef xml:id="staffDef_m46_3" n="3" lines="5">
-                           <clef xml:id="clef_m46_3" shape="F" line="4" />
-                           <meterSig xml:id="meterSig_m46_3" count="4" sym="common" unit="4" />
-                        </staffDef>
-                        <staffDef xml:id="staffDef_m46_4" n="4" lines="5">
-                           <clef xml:id="clef_m46_4" shape="G" line="2" />
-                           <meterSig xml:id="meterSig_m46_4" count="4" sym="common" unit="4" />
-                        </staffDef>
-                        <staffDef xml:id="staffDef_m46_5" n="5" lines="5">
-                           <clef xml:id="clef_m46_5" shape="F" line="4" />
-                           <meterSig xml:id="meterSig_m46_5" count="4" sym="common" unit="4" />
-                        </staffDef>
+                        <staffGrp xml:id="staffGrp_m46_upper" bar.thru="true">
+                           <grpSym xml:id="grpSym_m46" symbol="bracket" />
+                           <staffDef xml:id="staffDef_m46_1" n="1" lines="5">
+                              <clef xml:id="clef_m46_1" shape="G" line="2" />
+                              <meterSig xml:id="meterSig_m46_1" count="4" sym="common" unit="4" />
+                           </staffDef>
+                           <staffDef xml:id="staffDef_m46_2" n="2" lines="5">
+                              <clef xml:id="clef_m46_2" shape="C" line="3" />
+                              <meterSig xml:id="meterSig_m46_2" count="4" sym="common" unit="4" />
+                           </staffDef>
+                           <staffDef xml:id="staffDef_m46_3" n="3" lines="5">
+                              <clef xml:id="clef_m46_3" shape="F" line="4" />
+                              <meterSig xml:id="meterSig_m46_3" count="4" sym="common" unit="4" />
+                           </staffDef>
+                        </staffGrp>
+                        <staffGrp xml:id="staffGrp_m46_keyboard" bar.thru="true">
+                           <grpSym xml:id="grpSym_m46_keyboard" symbol="brace" />
+                           <staffDef xml:id="staffDef_m46_4" n="4" lines="5">
+                              <clef xml:id="clef_m46_4" shape="G" line="2" />
+                              <meterSig xml:id="meterSig_m46_4" count="4" sym="common" unit="4" />
+                           </staffDef>
+                           <staffDef xml:id="staffDef_m46_5" n="5" lines="5">
+                              <clef xml:id="clef_m46_5" shape="F" line="4" />
+                              <meterSig xml:id="meterSig_m46_5" count="4" sym="common" unit="4" />
+                           </staffDef>
+                        </staffGrp>
                      </staffGrp>
                   </scoreDef>
                   <measure xml:id="d1sp0y8g" n="46" facs="#zone_42ab176042bd4f46bd">

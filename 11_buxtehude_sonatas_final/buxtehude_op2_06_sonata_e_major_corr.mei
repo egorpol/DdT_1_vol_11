@@ -138,6 +138,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-28" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Grouped the violin, gamba and continuo staves under a bracket with barlines drawn through them, and the keyboard staves under a brace, as DdT prints them; at the start of the work the three upper staves had stood ungrouped, with separate barlines. Found in the editor's spot-check. The staff definitions, the musical text and all existing IDs are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-27" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.10.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -434,27 +439,30 @@
                      <rend halign="right" valign="bottom" fontsize="small">Dietrich Buxtehude</rend>
                   </pgHead>
                   <staffGrp xml:id="apkvdjq">
-                     <staffDef xml:id="P1" n="1" lines="5">
-                        <label xml:id="bgf7d75">Violino.</label>
-                        <instrDef xml:id="f1gp52wp" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="o13yqj9u" shape="G" line="2" />
-                        <keySig xml:id="p103bemn" sig="4s" />
-                        <meterSig xml:id="q1dvndio" count="4" sym="common" unit="4" />
-                     </staffDef>
-                     <staffDef xml:id="P2" n="2" lines="5">
-                        <label xml:id="v1800th4">Viola da gamba.</label>
-                        <instrDef xml:id="za1e3o" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="i7tntnd" shape="C" line="3" />
-                        <keySig xml:id="j104r2ud" sig="4s" />
-                        <meterSig xml:id="kfj4luk" count="4" sym="common" unit="4" />
-                     </staffDef>
-                     <staffDef xml:id="P3" n="3" lines="5">
-                        <label xml:id="b16bmmad">Cembalo.</label>
-                        <instrDef xml:id="f1d8trc1" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="o11xm3lp" shape="F" line="4" />
-                        <keySig xml:id="pf2urhm" sig="4s" />
-                        <meterSig xml:id="q1s6x5hr" count="4" sym="common" unit="4" />
-                     </staffDef>
+                     <staffGrp xml:id="upper3grp" bar.thru="true">
+                        <grpSym xml:id="upper3bracket" symbol="bracket" />
+                        <staffDef xml:id="P1" n="1" lines="5">
+                           <label xml:id="bgf7d75">Violino.</label>
+                           <instrDef xml:id="f1gp52wp" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="o13yqj9u" shape="G" line="2" />
+                           <keySig xml:id="p103bemn" sig="4s" />
+                           <meterSig xml:id="q1dvndio" count="4" sym="common" unit="4" />
+                        </staffDef>
+                        <staffDef xml:id="P2" n="2" lines="5">
+                           <label xml:id="v1800th4">Viola da gamba.</label>
+                           <instrDef xml:id="za1e3o" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="i7tntnd" shape="C" line="3" />
+                           <keySig xml:id="j104r2ud" sig="4s" />
+                           <meterSig xml:id="kfj4luk" count="4" sym="common" unit="4" />
+                        </staffDef>
+                        <staffDef xml:id="P3" n="3" lines="5">
+                           <label xml:id="b16bmmad">Cembalo.</label>
+                           <instrDef xml:id="f1d8trc1" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="o11xm3lp" shape="F" line="4" />
+                           <keySig xml:id="pf2urhm" sig="4s" />
+                           <meterSig xml:id="q1s6x5hr" count="4" sym="common" unit="4" />
+                        </staffDef>
+                     </staffGrp>
                      <staffGrp xml:id="P4" bar.thru="true">
                         <grpSym xml:id="escw9wl" symbol="brace" />
                         <instrDef xml:id="iwokg36" midi.channel="3" midi.instrnum="0" midi.volume="77%" />

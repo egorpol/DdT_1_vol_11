@@ -109,6 +109,16 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-10-28" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Grouped the violin, gamba and continuo staves under a bracket with barlines drawn through them, and the keyboard staves under a brace, as DdT prints them; at the start of the work the three upper staves had stood ungrouped, with separate barlines. Found in the editor's spot-check. The staff definitions, the musical text and all existing IDs are unchanged.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-10-28" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Corrected 5 encoding errors left open by the first musical-lint pass (listed under Known limitations in the 0.10.0 release notes). An AI model (Anthropic Claude) compared each open passage with the DdT 1903 page image, and the editor checked its readings in all 12 corrected passages across the edition before approving the fixes. In m. 36 the gamba's sixteenth i1uobki1 is B3, not D4, and its four eighths lvdwh5e, n1mb2qzl, p8u8a9p and r1iotjds are A-sharp3, not C-sharp4, as DdT prints them (p. 15), doubling the continuo; the printed sharp stays on the first. Event IDs are retained; all other music is unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-10-27" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.10.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -343,24 +353,27 @@
                      <rend halign="right" valign="bottom" fontsize="small">Dietrich Buxtehude</rend>
                   </pgHead>
                   <staffGrp xml:id="q1tzdz4u">
-                     <staffDef xml:id="P1" n="1" lines="5">
-                        <instrDef xml:id="v1ufi0fx" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="ew912qm" shape="G" line="2" />
-                        <keySig xml:id="f1ul6lzl" sig="1s" />
-                        <meterSig xml:id="gba3y5v" count="4" sym="common" unit="4" />
-                     </staffDef>
-                     <staffDef xml:id="P2" n="2" lines="5">
-                        <instrDef xml:id="qj7bzb3" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="z125szkl" shape="C" line="3" />
-                        <keySig xml:id="a1utvwlz" sig="1s" />
-                        <meterSig xml:id="b1s7x60l" count="4" sym="common" unit="4" />
-                     </staffDef>
-                     <staffDef xml:id="P3" n="3" lines="5">
-                        <instrDef xml:id="t1djwr3" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
-                        <clef xml:id="c1lrz325" shape="F" line="4" />
-                        <keySig xml:id="d12ll4l2" sig="1s" />
-                        <meterSig xml:id="e1k8n1q6" count="4" sym="common" unit="4" />
-                     </staffDef>
+                     <staffGrp xml:id="upper3grp" bar.thru="true">
+                        <grpSym xml:id="upper3bracket" symbol="bracket" />
+                        <staffDef xml:id="P1" n="1" lines="5">
+                           <instrDef xml:id="v1ufi0fx" midi.channel="0" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="ew912qm" shape="G" line="2" />
+                           <keySig xml:id="f1ul6lzl" sig="1s" />
+                           <meterSig xml:id="gba3y5v" count="4" sym="common" unit="4" />
+                        </staffDef>
+                        <staffDef xml:id="P2" n="2" lines="5">
+                           <instrDef xml:id="qj7bzb3" midi.channel="1" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="z125szkl" shape="C" line="3" />
+                           <keySig xml:id="a1utvwlz" sig="1s" />
+                           <meterSig xml:id="b1s7x60l" count="4" sym="common" unit="4" />
+                        </staffDef>
+                        <staffDef xml:id="P3" n="3" lines="5">
+                           <instrDef xml:id="t1djwr3" midi.channel="2" midi.instrnum="0" midi.volume="77%" />
+                           <clef xml:id="c1lrz325" shape="F" line="4" />
+                           <keySig xml:id="d12ll4l2" sig="1s" />
+                           <meterSig xml:id="e1k8n1q6" count="4" sym="common" unit="4" />
+                        </staffDef>
+                     </staffGrp>
                      <staffGrp xml:id="P4" bar.thru="true">
                         <grpSym xml:id="ew7a6u6" symbol="brace" />
                         <instrDef xml:id="i1gtat77" midi.channel="3" midi.instrnum="0" midi.volume="77%" />
@@ -4941,15 +4954,15 @@
                            </beam>
                            <beam xml:id="fm7soj0">
                               <note xml:id="g1kmpj3w" dots="1" dur="8" oct="4" pname="c" stem.dir="up" accid.ges="s" />
-                              <note xml:id="i1uobki1" dur="16" oct="4" pname="d" stem.dir="up"/>
+                              <note xml:id="i1uobki1" dur="16" oct="3" pname="b" stem.dir="up"/>
                            </beam>
                            <beam xml:id="k1ws2won">
-                              <note xml:id="lvdwh5e" dur="8" oct="4" pname="c" stem.dir="up">
+                              <note xml:id="lvdwh5e" dur="8" oct="3" pname="a" stem.dir="up">
                                  <accid xml:id="m12fws2n" accid="s" />
                               </note>
-                              <note xml:id="n1mb2qzl" dur="8" oct="4" pname="c" stem.dir="up" accid.ges="s" />
-                              <note xml:id="p8u8a9p" dur="8" oct="4" pname="c" stem.dir="up" accid.ges="s" />
-                              <note xml:id="r1iotjds" dur="8" oct="4" pname="c" stem.dir="up" accid.ges="s" />
+                              <note xml:id="n1mb2qzl" dur="8" oct="3" pname="a" stem.dir="up" accid.ges="s" />
+                              <note xml:id="p8u8a9p" dur="8" oct="3" pname="a" stem.dir="up" accid.ges="s" />
+                              <note xml:id="r1iotjds" dur="8" oct="3" pname="a" stem.dir="up" accid.ges="s" />
                            </beam>
                         </layer>
                      </staff>
