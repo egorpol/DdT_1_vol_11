@@ -40,7 +40,7 @@ def test_site_index_lists_every_work_and_copies_the_listed_files(tmp_path):
         if 'mei' in work:
             assert digest(out / work['mei']) == digest(ROOT / work['source'])
             assert (ROOT / work['report']).is_file()
-    for name in ('index.html', 'viewer.css', 'viewer.js', 'player.js'):
+    for name in ('index.html', 'viewer.css', 'viewer.js', 'player.js', 'tempo-map.js'):
         assert (out / name).read_bytes() == (ROOT / 'site' / name).read_bytes()
     manifest = json.loads((out / 'supplemental_material/manifest.json').read_text(encoding='utf-8'))
     assert manifest['items']
@@ -122,3 +122,140 @@ def test_build_rejects_a_disagreeing_mei_channel(tmp_path, monkeypatch):
     monkeypatch.setattr(m.ET, 'parse', changed_parse)
     with pytest.raises(SystemExit, match=rf"{work['key']}, staff 1: midi.channel"):
         m.build(tmp_path / '_site')
+
+
+def test_tempo_guides_match_all_real_works(tmp_path):
+    works = {w['id']: w for w in module().build(tmp_path / '_site')['works']}
+    assert sum(len(w['tempo']) for w in works.values()) == 109
+    m = module()
+    for work in works.values():
+        measures = list(m.ET.parse(ROOT / work['source']).getroot().iter(f'{m.MEI}measure'))
+        assert work['tempo'][0]['measure'] == measures[0].get(m.XML_ID)
+        assert work['tempo'][0]['offset'] == 0
+        assert all(set(row) == {'measure', 'n', 'offset', 'text', 'percent'} for row in work['tempo'])
+    assert next(r for r in works['app_02']['tempo'] if r['n'] == '51')['offset'] == 3.0
+    assert next(r for r in works['op1_05']['tempo'] if r['n'] == '175')['offset'] == 2.0
+    assert works['op2_05']['tempo'][0]['text'] == ''
+    assert works['op2_05']['tempo'][0]['percent'] == 100
+    assert [r['percent'] for r in works['op1_01']['tempo']] == [85, 40, 85, 45, 60, 40, 100]
+
+
+@pytest.fixture
+def guide_copy(tmp_path, monkeypatch):
+    import csv
+    m = module()
+    work = json.loads((ROOT / m.WORK_LIST).read_text())['works'][0]
+    path = tmp_path / 'op1_01.csv'
+    path.write_bytes((m.TEMPO_GUIDES / path.name).read_bytes())
+    monkeypatch.setattr(m, 'TEMPO_GUIDES', tmp_path)
+    with path.open(newline='') as stream:
+        rows = list(csv.DictReader(stream))
+
+    def write(changed, header=None):
+        with path.open('w', newline='') as stream:
+            writer = csv.DictWriter(stream, fieldnames=header or m.TEMPO_HEADER)
+            writer.writeheader()
+            writer.writerows(changed)
+    return m, work, rows, write, path
+
+
+def test_guide_rejects_header(guide_copy):
+    m, work, rows, write, path = guide_copy
+    path.write_text(path.read_text().replace('measure_n,measure_id', 'measure_id,measure_n', 1))
+    with pytest.raises(SystemExit, match='op1_01.csv, row 1: incorrect header'):
+        m.work_tempo(work)
+
+
+@pytest.mark.parametrize('change', [{'measure_id': 'missing'}, {'measure_n': '999'}])
+def test_guide_rejects_measure(guide_copy, change):
+    m, work, rows, write, _ = guide_copy
+    rows[0].update(change)
+    write(rows)
+    with pytest.raises(SystemExit, match='row 2: measure_id or measure_n'):
+        m.work_tempo(work)
+
+
+@pytest.mark.parametrize('case', ['order', 'first_measure', 'first_beat'])
+def test_guide_rejects_order_and_first_position(guide_copy, case):
+    m, work, rows, write, _ = guide_copy
+    if case == 'order':
+        rows[1], rows[2] = rows[2], rows[1]
+    elif case == 'first_measure':
+        rows = rows[1:]
+    else:
+        rows[0]['tstamp'] = '2'
+    write(rows)
+    with pytest.raises(SystemExit, match='rows must increase and start'):
+        m.work_tempo(work)
+
+
+@pytest.mark.parametrize('stamp', ['no', 'nan', 'inf', '0', '5'])
+def test_guide_rejects_tstamp(guide_copy, stamp):
+    m, work, rows, write, _ = guide_copy
+    rows[1]['tstamp'] = stamp
+    write(rows)
+    with pytest.raises(SystemExit, match='tstamp outside the meter'):
+        m.work_tempo(work)
+
+
+def test_guide_rejects_meter(guide_copy):
+    m, work, rows, write, _ = guide_copy
+    rows[0]['meter'] = '3/4'
+    write(rows)
+    with pytest.raises(SystemExit, match='meter differs'):
+        m.work_tempo(work)
+
+
+@pytest.mark.parametrize('case', ['unknown', 'missing', 'twice', 'outside', 'empty'])
+def test_guide_rejects_tempo_ownership(guide_copy, case):
+    m, work, rows, write, _ = guide_copy
+    if case == 'unknown':
+        rows[0]['tempo_ids'] += ' missing'
+    elif case == 'missing':
+        rows[0]['tempo_ids'] = rows[0]['tempo_ids'].split()[0]
+    elif case == 'twice':
+        rows[1]['tempo_ids'] = rows[0]['tempo_ids']
+    elif case == 'outside':
+        rows[0]['tempo_ids'], rows[1]['tempo_ids'] = rows[1]['tempo_ids'], rows[0]['tempo_ids']
+        rows[0]['text'], rows[1]['text'] = rows[1]['text'], rows[0]['text']
+    else:
+        rows[1]['tempo_ids'] = rows[1]['text'] = ''
+    write(rows)
+    with pytest.raises(SystemExit, match='tempo_ids|tempo mark|tempo marks'):
+        m.work_tempo(work)
+
+
+@pytest.mark.parametrize('text', ['Wrong', ''])
+def test_guide_rejects_text(guide_copy, text):
+    m, work, rows, write, _ = guide_copy
+    rows[0]['text'] = text
+    write(rows)
+    with pytest.raises(SystemExit, match='text differs'):
+        m.work_tempo(work)
+
+
+@pytest.mark.parametrize('percent', ['24', '201', '85.5', '85.0', 'not a number'])
+def test_guide_rejects_percent(guide_copy, percent):
+    m, work, rows, write, _ = guide_copy
+    rows[0]['suggested_percent'] = percent
+    write(rows)
+    with pytest.raises(SystemExit, match='suggested_percent'):
+        m.work_tempo(work)
+
+
+def test_guide_required_for_marks_and_optional_without(guide_copy, monkeypatch):
+    m, work, _, _, path = guide_copy
+    path.unlink()
+    with pytest.raises(SystemExit, match='op1_01.csv, row 1: tempo marks require a CSV'):
+        m.work_tempo(work)
+    parse = m.ET.parse
+
+    def without_tempos(path):
+        tree = parse(path)
+        for el in tree.iter():
+            for child in list(el):
+                if child.tag == f'{m.MEI}tempo':
+                    el.remove(child)
+        return tree
+    monkeypatch.setattr(m.ET, 'parse', without_tempos)
+    assert m.work_tempo(work) == []

@@ -1,11 +1,19 @@
 /* Reusable, viewer-independent MIDI audio player (no edition or sample constants).
- * createPlayer({context, samples, onPosition(q), onEnd()}) loads the pinned
- * libraries; call it only after creating/resuming a native AudioContext in Play.
+ * createPlayer({context, samples, onPosition(q), onEnd(), onSection(index),
+ * onTempo({bpm, source, index})}) loads the pinned libraries; call it only after creating/resuming a native AudioContext in Play.
  * samples: object keyed by zero-based GM program, values {url, integrity}.
  * parseMidi(base64) returns a cacheable @tonejs/midi Midi. prepare(midi, parts)
  * loads instruments and returns an opaque score; parts are {channel, program}.
  * play(score, q, percent), pause() -> q, stop(q = 0), setTempo(percent),
- * setMuted(channels), and position (quarter notes) operate on one Transport.
+ * setMuted(channels), setVolumes({channel: level}) (0–1, independent of mute),
+ * setSections([{q, factor, index}]) (quarters, live replaceable), and position
+ * (quarter notes) operate on one Transport. Sections are in performed-time order.
+ * gains reports the last linear channel gains set (mute ? 0 : level); changes
+ * ramp over 15 ms. tempo reports {bpm, source: guide/single/midi, index}.
+ * Sections scale the first MIDI tempo; multiple MIDI tempo events override them.
+ * tempoPlan(midi, sections, percent) is pure and returns {source, points} with
+ * integer ticks, effective bpm and the host's section index (-1 without guide).
+ * onSection/onTempo run at scheduling callbacks (up to lookAhead before audio).
  * onPosition runs on animation frames and reads Transport.ticks, never wall time.
  * Note releases are also scheduled in ticks, so held notes follow live tempo.
  * The host owns cancellation of async prepare results, state, persistence,
@@ -48,7 +56,24 @@ function loadLibraries() {
   return libraries;
 }
 
-export async function createPlayer({ context, samples, onPosition, onEnd }) {
+export function tempoPlan(midi, sections = [], percent = 100) {
+  const { ppq, tempos } = midi.header;
+  const base = tempos[0]?.bpm || 120;
+  const source = tempos.length > 1 ? 'midi' : sections.length ? 'guide' : 'single';
+  const raw = source === 'midi' ? tempos.map((t) => ({ ticks: t.ticks, bpm: t.bpm, index: -1 }))
+    : source === 'guide' ? sections.map((s, i) => ({ ticks: s.q * ppq, bpm: base * s.factor, index: s.index ?? i }))
+      : [{ ticks: 0, bpm: base, index: -1 }];
+  const points = [];
+  for (const point of raw) {
+    const next = { ...point, ticks: Math.round(point.ticks), bpm: point.bpm * percent / 100 };
+    if (points.at(-1)?.ticks === next.ticks) points.pop();
+    points.push(next);
+  }
+  if (points[0].ticks > 0) points.unshift({ ticks: 0, bpm: base * percent / 100, index: -1 });
+  return { source, points };
+}
+
+export async function createPlayer({ context, samples, onPosition, onEnd, onSection = () => {}, onTempo = () => {} }) {
   const { Tone, Midi, Soundfont } = await loadLibraries();
   Tone.setContext(context);
   // Keep the scheduling horizon short; marks read the same Transport clock.
@@ -58,6 +83,14 @@ export async function createPlayer({ context, samples, onPosition, onEnd }) {
   const voices = new Set();
   let score = null;
   let muted = new Set();
+  let volumes = {};
+  let gains = {};
+  let sections = [];
+  let percent = 100;
+  let tempoEvents = [];
+  let activeTick = 0;
+  let planVersion = 0;
+  let tempo = { bpm: 0, source: 'single', index: -1 };
   let frame = 0;
   let running = false;
   let voiceId = 0;
@@ -73,6 +106,8 @@ export async function createPlayer({ context, samples, onPosition, onEnd }) {
     cancelAnimationFrame(frame);
     transport.stop();
     transport.cancel(0);
+    tempoEvents = [];
+    ++planVersion;
     silence();
   }
 
@@ -109,6 +144,47 @@ export async function createPlayer({ context, samples, onPosition, onEnd }) {
     return voice;
   }
 
+  function applyGains() {
+    if (!score) return;
+    gains = {};
+    for (const [channel, part] of score.channels) {
+      const value = muted.has(channel) ? 0 : volumes[channel] ?? 1;
+      gains[channel] = value;
+      const param = part.gain.gain;
+      const now = context.currentTime;
+      param.cancelAndHoldAtTime(now);
+      param.linearRampToValueAtTime(value, now + 0.015);
+      if (muted.has(channel)) silence(channel);
+    }
+  }
+
+  function report(point, source) {
+    tempo = { bpm: point.bpm, source, index: point.index };
+    // Update before calling the host: a synchronous live edit must see this point.
+    activeTick = point.ticks;
+    onTempo(tempo);
+    onSection(point.index);
+  }
+
+  function updatePlan(from = activeTick) {
+    if (!score) return;
+    const version = ++planVersion;
+    for (const id of tempoEvents) transport.clear(id);
+    tempoEvents = [];
+    const { source, points } = tempoPlan(score.midi, sections, percent);
+    const point = points.findLast((p) => p.ticks <= from) || points[0];
+    transport.bpm.value = point.bpm;
+    report(point, source);
+    if (!running || version !== planVersion) return;
+    for (const next of points.filter((p) => p.ticks > from)) {
+      tempoEvents.push(transport.schedule((time) => {
+        if (version !== planVersion) return;
+        transport.bpm.setValueAtTime(next.bpm, time);
+        report(next, source);
+      }, `${next.ticks}i`));
+    }
+  }
+
   const player = {
     parseMidi(base64) {
       return new Midi(Uint8Array.from(atob(base64), (c) => c.charCodeAt(0)));
@@ -125,26 +201,24 @@ export async function createPlayer({ context, samples, onPosition, onEnd }) {
       return { midi, channels, end: midi.durationTicks / midi.header.ppq };
     },
     get position() { return score ? transport.ticks / score.midi.header.ppq : 0; },
-    setTempo(percent) {
-      if (score) transport.bpm.value = score.midi.header.tempos[0].bpm * percent / 100;
-    },
-    setMuted(channels) {
-      muted = new Set(channels);
-      if (score) for (const [channel, part] of score.channels) {
-        part.gain.gain.setValueAtTime(muted.has(channel) ? 0 : 1, context.currentTime);
-        if (muted.has(channel)) silence(channel);
-      }
-    },
-    play(prepared, q, percent) {
+    get gains() { return { ...gains }; },
+    get tempo() { return { ...tempo }; },
+    setTempo(value) { percent = value; updatePlan(); },
+    setSections(value) { sections = value; updatePlan(Math.max(activeTick, transport.ticks)); },
+    setVolumes(value) { volumes = { ...value }; applyGains(); },
+    setMuted(channels) { muted = new Set(channels); applyGains(); },
+    play(prepared, q, value) {
       halt();
       score = prepared;
       const ppq = score.midi.header.ppq;
       // Tone parses only whole ticks in '<n>i'; a fraction falls back to seconds.
       const from = Math.round(q * ppq);
       transport.PPQ = ppq;
-      player.setTempo(percent);
+      percent = value;
       player.setMuted(muted);
       transport.ticks = from;
+      running = true;
+      updatePlan(from);
       for (const track of score.midi.tracks) for (const note of track.notes) {
         const end = note.ticks + note.durationTicks;
         if (end <= from) continue;
@@ -153,7 +227,6 @@ export async function createPlayer({ context, samples, onPosition, onEnd }) {
         transport.schedule((time) => { voice = startNote(part, note, time); }, `${Math.max(note.ticks, from)}i`);
         transport.schedule((time) => { voice?.stop(time); }, `${end}i`);
       }
-      running = true;
       transport.start();
       const tick = () => {
         if (!running) return;

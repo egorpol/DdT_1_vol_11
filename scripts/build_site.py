@@ -16,6 +16,8 @@ Preview: python -m http.server -d _site, then open http://localhost:8000/
 """
 from __future__ import annotations
 
+import csv
+import math
 import hashlib
 import json
 import re
@@ -31,7 +33,9 @@ except ImportError:  # Also loaded directly by tests, without a package.
     from normalize_midi_data import build_parts, REALIZATION_ROLES
 
 ROOT = Path(__file__).resolve().parent.parent
-SITE_FILES = ["index.html", "viewer.css", "viewer.js", "player.js"]
+SITE_FILES = ["index.html", "viewer.css", "viewer.js", "player.js", "tempo-map.js"]
+TEMPO_GUIDES = ROOT / "playback/tempo-guide"
+TEMPO_HEADER = "measure_n,measure_id,tstamp,text,meter,suggested_percent,basis,tempo_ids".split(",")
 WORK_LIST = "validation/editorial-works.json"
 EXCERPTS = "supplemental_material/manifest.json"
 MEI = "{http://www.music-encoding.org/ns/mei}"
@@ -132,6 +136,88 @@ def check_excerpt(item: dict, files: dict[str, str]) -> None:
         raise SystemExit(f"{where}: no annot {item['annotation_id']} in {item['mei_file']}")
 
 
+def work_tempo(work: dict) -> list[dict]:
+    """Validate the editorial playback guide against the notated document."""
+    path = TEMPO_GUIDES / f"{short_key(work['key'])}.csv"
+    root = ET.parse(ROOT / work['file']).getroot()
+    music = root.find(f'{MEI}music')
+    measures = list(music.iter(f'{MEI}measure'))
+    order = {m.get(XML_ID): i for i, m in enumerate(measures)}
+    parents = {child: parent for parent in music.iter() for child in parent}
+
+    def measure_of(el):
+        while el is not None and el.tag != f'{MEI}measure':
+            el = parents.get(el)
+        return el.get(XML_ID) if el is not None else None
+
+    marks = {t.get(XML_ID): t for t in music.iter(f'{MEI}tempo')}
+    if not path.exists():
+        if marks:
+            raise SystemExit(f"{path}, row 1: tempo marks require a CSV")
+        return []
+    meters = {}
+    count = unit = None
+    for el in music.iter():
+        if el.tag == f'{MEI}scoreDef':
+            count, unit = el.get('meter.count', count), el.get('meter.unit', unit)
+        elif el.tag == f'{MEI}meterSig':
+            count, unit = el.get('count', count), el.get('unit', unit)
+        if el.tag == f'{MEI}measure':
+            meters[el.get(XML_ID)] = (count, unit)
+        elif el.tag in (f'{MEI}scoreDef', f'{MEI}meterSig') and measure_of(el):
+            meters[measure_of(el)] = (count, unit)
+
+    def fail(row, message):
+        raise SystemExit(f"{path}, row {row}: {message}")
+
+    with path.open(encoding='utf-8', newline='') as stream:
+        reader = csv.DictReader(stream)
+        if reader.fieldnames != TEMPO_HEADER:
+            fail(1, 'incorrect header')
+        rows = list(reader)
+    result, positions, assigned = [], [], set()
+    for i, row in enumerate(rows, 2):
+        if None in row or any(value is None for value in row.values()):
+            fail(i, 'expected eight columns')
+        mid = row['measure_id']
+        if mid not in order or measures[order[mid]].get('n') != row['measure_n']:
+            fail(i, 'measure_id or measure_n differs from the MEI')
+        meter = meters[mid]
+        if row['meter'] != '/'.join(meter):
+            fail(i, 'meter differs from the MEI')
+        try:
+            stamp = float(row['tstamp'])
+            valid = math.isfinite(stamp) and 1 <= stamp < float(meter[0]) + 1
+        except (ValueError, TypeError):
+            valid = False
+        if not valid:
+            fail(i, 'tstamp outside the meter')
+        position = (order[mid], stamp)
+        if (positions and position <= positions[-1]) or (not positions and position != (0, 1)):
+            fail(i, 'rows must increase and start at the first measure, beat 1')
+        positions.append(position)
+        ids = row['tempo_ids'].split()
+        if (not ids and i != 2) or any(t not in marks or t in assigned for t in ids) or len(set(ids)) != len(ids):
+            fail(i, 'missing, unknown or repeated tempo_ids')
+        assigned.update(ids)
+        words = {' '.join(''.join(marks[t].itertext()).split()) for t in ids}
+        if bool(row['text']) != bool(ids) or (ids and set(row['text'].split(' / ')) != words):
+            fail(i, 'text differs from the tempo marks')
+        if not re.fullmatch(r'[0-9]+', row['suggested_percent']) or not 25 <= int(row['suggested_percent']) <= 200:
+            fail(i, 'suggested_percent must be an integer from 25 to 200')
+        result.append({'measure': mid, 'n': row['measure_n'], 'offset': (stamp - 1) * 4 / float(meter[1]),
+                       'text': row['text'], 'percent': int(row['suggested_percent'])})
+    for j, row in enumerate(rows):
+        end = positions[j + 1][0] if j + 1 < len(rows) else len(measures)
+        if any(not positions[j][0] <= order[measure_of(marks[t])] < end for t in row['tempo_ids'].split()):
+            fail(j + 2, 'tempo mark outside this section')
+    if assigned != set(marks):
+        fail(len(rows) + 1, 'tempo marks missing from rows')
+    if not rows:
+        fail(2, 'guide must start at the first measure, beat 1')
+    return result
+
+
 def copy(source: Path, out: Path, target: str) -> None:
     destination = out / target
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -158,6 +244,7 @@ def build(out: Path) -> dict:
             "source": work["file"],
             "report": work["file"].removesuffix(".mei") + "_consistency_report.csv",
             "parts": work_parts(work),
+            "tempo": work_tempo(work),
         })
     works += [w for w in PENDING if w["key"] not in {x["key"] for x in works}]
     for work in works:

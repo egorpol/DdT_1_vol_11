@@ -4,9 +4,12 @@
 // from its IIIF server with the measure zones from the MEI. Ported from the
 // webern_op27 viewer; works.json is written by scripts/build_site.py.
 // Playback check contract on #player: data-state (idle/loading/playing/paused/error),
-// data-position (quarter notes from Transport.ticks), data-bpm, data-muted
+// data-position (quarter notes from Transport.ticks), data-bpm (effective), data-muted
 // (JSON channel array derived from saved roles), data-midi-renders (this visit),
 // data-measure (notated @n), data-follow, and data-work (loaded work id).
+// Also data-section (guide row @n, else ''), data-tempo-source (guide/single/midi),
+// data-volumes (JSON channel: percent), data-gains (JSON last channel gains, {} before Play).
+import { mapTempoSections } from './tempo-map.js';
 
 const VEROVIO_URL = 'https://cdn.jsdelivr.net/npm/verovio@6.3.0/dist/verovio-toolkit-wasm.js';
 const VEROVIO_SRI = 'sha384-7oICD/hf52uWdE8X0lMFqe7iIspaUj3aQjeZUnBQZpxjrZcHtqlRd3C78cje2e19';
@@ -20,7 +23,7 @@ const VEROVIO_OPTIONS = {
   breaks: 'encoded', adjustPageHeight: true, footer: 'none', svgViewBox: true, condense: 'none',
   scale: 35, spacingLinear: 0.25, spacingNonLinear: 0.6, minLastJustification: 0,
 };
-const SETTINGS = { markNotes: 'ddt-viewer-mark-notes', measureBoxes: 'ddt-viewer-measure-boxes' };
+const SETTINGS = { playback: 'ddt-viewer-playback', markNotes: 'ddt-viewer-mark-notes', measureBoxes: 'ddt-viewer-measure-boxes' };
 // The status line's opening text, shown again when a pin is dropped.
 const STATUS_HINT = document.getElementById('status').textContent;
 const XML_NS = 'http://www.w3.org/XML/1998/namespace';
@@ -32,7 +35,7 @@ const refs = (value) => (value || '').split(/\s+/).filter(Boolean).map((v) => v.
 const squash = (text) => text.replace(/\s+/g, ' ').trim();
 
 const state = { work: null, model: null, page: 1, pinned: null, annot: null };
-const settings = { markNotes: false, measureBoxes: false };
+const settings = { playback: false, markNotes: false, measureBoxes: false };
 const models = new Map();
 const fetchJson = (path) => fetch(path).then((r) => {
   if (!r.ok) throw new Error(`${path}: HTTP ${r.status}`);
@@ -228,6 +231,7 @@ async function showWork(id) {
     $('prev').disabled = true;
     $('next').disabled = true;
     renderParts(work);
+    renderTempoGuide(work);
     playback.loadingWork = false;
     playerState('idle');
     renderFacsimile();
@@ -242,7 +246,7 @@ async function showWork(id) {
   playback.loadingWork = false;
   Object.assign($('player').dataset, { work: work.id });
   renderParts(work);
-  updateTempo();
+  renderTempoGuide(work);
   playerState('idle');
   showWorkInfo(work, model);
   renderNotes(model);
@@ -339,6 +343,7 @@ function applySettings() {
     el.classList.toggle('mark-notes', settings.markNotes);
     el.classList.toggle('show-boxes', settings.measureBoxes);
   }
+  $('player').hidden = !settings.playback;
   applyHighlights();
 }
 
@@ -391,10 +396,10 @@ const SAMPLE_FILES = {
   43: { url: `${SOUNDFONT_ROOT}contrabass-mp3.js`, integrity: 'sha384-FH2/7J+D4GP4PFf//V3xIswsrDkclg1glB2nz9p4p37kXcXj7gL+6Hdvmrkl/8+J' },
   6: { url: `${SOUNDFONT_ROOT}harpsichord-mp3.js`, integrity: 'sha384-veZb4kehrh8qKJzOhM1Lv+MqBFb4SDXpSyWrnlNzeNwmz8RS8RI9iG8ysX221GgO' },
 };
-const PLAYBACK_SETTINGS = { tempo: 'ddt-viewer-tempo', parts: 'ddt-viewer-parts' };
+const PLAYBACK_SETTINGS = { tempo: 'ddt-viewer-tempo', parts: 'ddt-viewer-parts', volumes: 'ddt-viewer-volumes', guide: 'ddt-viewer-tempo-guide' };
 const playback = {
   engine: null, ready: null, context: null, token: 0, state: 'idle', loadingWork: true,
-  percent: 100, roles: {}, renders: 0, q: 0, start: null, pinAtPlay: null,
+  percent: 100, roles: {}, volumes: {}, guide: {}, engineModel: null, renders: 0, q: 0, start: null, pinAtPlay: null,
   follow: false, active: new Set(), event: 0, measure: null,
 };
 
@@ -405,6 +410,12 @@ function readPlaybackSettings() {
     const roles = JSON.parse(localStorage.getItem(PLAYBACK_SETTINGS.parts) || '{}');
     if (roles && typeof roles === 'object' && !Array.isArray(roles)) playback.roles = roles;
   } catch { /* storage blocked: defaults */ }
+  for (const key of ['volumes', 'guide']) {
+    try {
+      const value = JSON.parse(localStorage.getItem(PLAYBACK_SETTINGS[key]) || '{}');
+      if (value && typeof value === 'object' && !Array.isArray(value)) playback[key] = value;
+    } catch { /* storage blocked or malformed: defaults */ }
+  }
   $('tempo').value = playback.percent;
   updateTempo();
 }
@@ -416,7 +427,7 @@ function mutedChannels() {
 function updateMute() {
   const channels = mutedChannels();
   $('player').dataset.muted = JSON.stringify(channels);
-  playback.engine?.setMuted(channels);
+  if (playback.engineModel === current()) { playback.engine?.setMuted(channels); showGains(); }
 }
 
 function renderParts(work) {
@@ -431,17 +442,150 @@ function renderParts(work) {
       updateMute();
     });
     label.append(input, ` ${part.label}`);
-    return label;
+    const slider = document.createElement('input');
+    Object.assign(slider, { type: 'range', min: 0, max: 100, step: 1, value: partVolume(part.role) });
+    slider.dataset.role = part.role;
+    slider.setAttribute('aria-label', `${part.label}, volume %`);
+    const value = document.createElement('output');
+    value.textContent = `${slider.value} %`;
+    slider.addEventListener('input', () => {
+      playback.volumes[part.role] = Number(slider.value);
+      value.textContent = `${slider.value} %`;
+      savePlayback('volumes');
+      updateVolumes();
+    });
+    const row = document.createElement('div');
+    row.className = 'part-row';
+    row.append(label, slider, value);
+    return row;
   }));
   updateMute();
+  updateVolumes();
+}
+
+function savePlayback(key) {
+  try { localStorage.setItem(PLAYBACK_SETTINGS[key], JSON.stringify(playback[key])); } catch { /* not remembered */ }
+}
+
+function partVolume(role) {
+  const v = playback.volumes[role];
+  return Number.isFinite(v) && v >= 0 && v <= 100 ? v : 100;
+}
+
+function showGains() {
+  if (playback.engine) $('player').dataset.gains = JSON.stringify(playback.engine.gains);
+}
+
+function updateVolumes() {
+  const volumes = Object.fromEntries((state.work?.parts || []).map((p) => [p.channel, partVolume(p.role)]));
+  $('player').dataset.volumes = JSON.stringify(volumes);
+  if (playback.engineModel === current()) {
+    playback.engine?.setVolumes(Object.fromEntries(Object.entries(volumes).map(([c, v]) => [c, v / 100])));
+    showGains();
+  }
+}
+
+function guideValue(work, row) {
+  const value = playback.guide[work.id]?.[row.measure];
+  return Number.isInteger(value) && value >= 25 && value <= 200 ? value : row.percent;
+}
+
+function cleanGuide() {
+  const cleaned = {};
+  for (const work of index.works) for (const row of work.tempo || []) {
+    const v = guideValue(work, row);
+    if (v !== row.percent) (cleaned[work.id] ||= {})[row.measure] = v;
+  }
+  playback.guide = cleaned;
+  savePlayback('guide');
+}
+
+function tempoSections(model) {
+  return (model.tempoPoints || []).map((p) => ({ ...p, factor: guideValue(model.work, model.work.tempo[p.index]) / 100 }));
+}
+
+function showTempo({ bpm, source, index: i }) {
+  const row = source === 'guide' ? state.work?.tempo?.[i] : null;
+  for (const [key, value] of Object.entries({ bpm, tempoSource: source, section: row?.n || '' })) {
+    if ($('player').dataset[key] !== String(value)) $('player').dataset[key] = value;
+  }
 }
 
 function updateTempo() {
-  const bpm = current()?.midi?.header.tempos[0]?.bpm;
+  const model = current(), bpm = model?.midi?.header.tempos[0]?.bpm;
+  const source = model?.midi?.header.tempos.length > 1 ? 'midi' : state.work?.tempo?.length ? 'guide' : 'single';
   $('tempo-value').textContent = `${playback.percent} %`;
-  $('tempo-base').textContent = bpm ? `100 % = ♩ ${Number(bpm.toFixed(2))}` : '100 % = encoded tempo';
-  $('player').dataset.bpm = bpm ? bpm * playback.percent / 100 : '';
-  playback.engine?.setTempo(playback.percent);
+  $('tempo-base').textContent = source === 'guide' ? '100 % = tempo guide' : source === 'midi' || !bpm ? '100 % = encoded tempo' : `100 % = ♩ ${Number(bpm.toFixed(2))}`;
+  $('guide-disabled').hidden = source !== 'midi';
+  document.querySelectorAll('#tempo-sections input, #tempo-sections button').forEach((e) => { e.disabled = source === 'midi'; });
+  if (model && playback.engineModel === model) playback.engine.setTempo(playback.percent);
+  else showTempo({ bpm: bpm ? bpm * playback.percent / 100 * (source === 'guide' ? guideValue(state.work, state.work.tempo[0]) / 100 : 1) : '', source, index: source === 'guide' ? 0 : -1 });
+}
+
+function renderTempoGuide(work) {
+  $('tempo-copy').hidden = true;
+  $('tempo-sections').replaceChildren(...(work?.tempo || []).map((row) => {
+    const line = document.createElement('div');
+    line.className = 'tempo-row';
+    const measure = document.createElement('span'), word = document.createElement('span');
+    measure.textContent = `m. ${row.n}`;
+    word.textContent = row.text;
+    const number = document.createElement('input'), slider = document.createElement('input');
+    for (const [input, type] of [[number, 'number'], [slider, 'range']]) {
+      Object.assign(input, { type, min: 25, max: 200, step: 1, value: guideValue(work, row) });
+      input.dataset.measure = row.measure;
+      input.setAttribute('aria-label', `m. ${row.n} ${row.text}, %`);
+    }
+    const reset = document.createElement('button');
+    reset.type = 'button';
+    reset.textContent = '↺';
+    reset.setAttribute('aria-label', `Reset m. ${row.n} to ${row.percent} %`);
+    reset.hidden = guideValue(work, row) === row.percent;
+    function change(value) {
+      if (!Number.isInteger(value) || value < 25 || value > 200) return;
+      number.value = slider.value = value;
+      const changes = playback.guide[work.id] ||= {};
+      if (value === row.percent) delete changes[row.measure];
+      else changes[row.measure] = value;
+      if (!Object.keys(changes).length) delete playback.guide[work.id];
+      reset.hidden = value === row.percent;
+      savePlayback('guide');
+      if (current() && playback.engineModel === current()) playback.engine.setSections(tempoSections(current()));
+      updateTempo();
+    }
+    number.addEventListener('input', () => { if (number.value !== '') change(Number(number.value)); });
+    number.addEventListener('change', () => {
+      const value = number.value === '' ? guideValue(work, row) : Number(number.value);
+      change(Math.max(25, Math.min(200, Math.round(value))));
+    });
+    slider.addEventListener('input', () => change(Number(slider.value)));
+    reset.addEventListener('click', () => change(row.percent));
+    line.append(measure, word, number, slider, reset);
+    return line;
+  }));
+  updateTempo();
+}
+
+async function copyTempoChanges() {
+  const lines = [['work_id', 'measure_n', 'measure_id', 'text', 'suggested_percent', 'your_percent']];
+  const works = new Set();
+  for (const work of index.works) for (const row of work.tempo || []) {
+    const value = guideValue(work, row);
+    if (value === row.percent) continue;
+    lines.push([work.id, row.n, row.measure, row.text, row.percent, value]);
+    works.add(work.id);
+  }
+  if (lines.length === 1) { setStatus('No changed sections to copy.'); return; }
+  const csv = lines.map((line) => line.map((v) => /[",\r\n]/.test(String(v)) ? `"${String(v).replaceAll('"', '""')}"` : v).join(',')).join('\n') + '\n';
+  try {
+    await navigator.clipboard.writeText(csv);
+    $('tempo-copy').hidden = true;
+    setStatus(`Copied ${lines.length - 1} changed sections in ${works.size} works.`);
+  } catch {
+    $('tempo-copy').value = csv;
+    $('tempo-copy').hidden = false;
+    setStatus('Clipboard unavailable. Copy the tempo changes from the read-only text field.');
+  }
 }
 
 function playerState(value) {
@@ -531,6 +675,7 @@ async function getPlayer() {
   if (!playback.ready) {
     playback.ready = import('./player.js').then(({ createPlayer }) => createPlayer({
       context: playback.context, samples: SAMPLE_FILES,
+      onTempo: (tempo) => { if (playback.engineModel === current()) showTempo(tempo); },
       onPosition: advanceCursor, onEnd: () => stopPlayback(),
     })).then((engine) => { playback.engine = engine; return engine; }).catch((error) => {
       playback.ready = null;
@@ -577,10 +722,11 @@ function cachePlayback(model, engine) {
     model.measureQ.set(measure.id, model.timemap[i].qstamp);
     model.playbackMap[i].measure = measure.id;
   }
+  model.tempoPoints = mapTempoSections(model.work.tempo || [], [...model.measures.keys()], model.playbackMap, model.measureQ);
 }
 
 async function togglePlayback() {
-  if (!current() || playback.loadingWork || playback.state === 'loading') return;
+  if (!settings.playback || !current() || playback.loadingWork || playback.state === 'loading') return;
   const newPin = state.pinned && state.pinned !== playback.pinAtPlay;
   if (playback.state === 'playing' && !newPin) {
     showPosition(playback.engine.pause());
@@ -612,8 +758,12 @@ async function togglePlayback() {
     $('player').dataset.follow = 'true';
     playerState('playing');
     resetCursor(q, resume ? playback.measure : id);
+    playback.engineModel = model;
+    engine.setSections(tempoSections(model));
+    updateVolumes();
     engine.setMuted(mutedChannels());
     engine.play(prepared, q, playback.percent);
+    showGains();
     setStatus(`Playing from m. ${model.measures.get(playback.measure)?.n}`);
   } catch (error) {
     if (token !== playback.token || model !== current()) return;
@@ -873,12 +1023,14 @@ function readSettings() {
   for (const [name, key] of Object.entries(SETTINGS)) {
     try { settings[name] = localStorage.getItem(key) === '1'; } catch { /* storage blocked: defaults */ }
   }
+  $('playback').checked = settings.playback;
   $('mark-notes').checked = settings.markNotes;
   $('measure-boxes').checked = settings.measureBoxes;
 }
 
 function changeSetting(name, value) {
   settings[name] = value;
+  if (name === 'playback' && !value) stopPlayback();
   try { localStorage.setItem(SETTINGS[name], value ? '1' : '0'); } catch { /* not remembered */ }
   applySettings();
 }
@@ -899,11 +1051,13 @@ function bindUi() {
     try { localStorage.setItem(PLAYBACK_SETTINGS.parts, JSON.stringify(playback.roles)); } catch { /* not remembered */ }
     renderParts(state.work);
   });
+  $('copy-tempo').addEventListener('click', copyTempoChanges);
+  $('playback').addEventListener('change', (e) => changeSetting('playback', e.target.checked));
   $('mark-notes').addEventListener('change', (e) => changeSetting('markNotes', e.target.checked));
   $('measure-boxes').addEventListener('change', (e) => changeSetting('measureBoxes', e.target.checked));
   document.addEventListener('keydown', (e) => {
     if (!current() || e.altKey || e.ctrlKey || e.metaKey || e.target.closest('input, select, textarea, [contenteditable]')) return;
-    if (e.code === 'Space' && !e.target.closest('button, summary')) { e.preventDefault(); togglePlayback(); }
+    if (settings.playback && e.code === 'Space' && !e.target.closest('button, summary')) { e.preventDefault(); togglePlayback(); }
     if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
       e.preventDefault();
       stopFollowing();
@@ -959,6 +1113,7 @@ async function main() {
   applySettings();
   try {
     [index, toolkit] = await Promise.all([indexReady, loadVerovio()]);
+    cleanGuide();
     toolkit.setOptions(VEROVIO_OPTIONS);
     $('verovio-version').textContent = toolkit.getVersion();
     fillWorkSelect();

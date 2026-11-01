@@ -114,8 +114,9 @@ the cut notes matter (section 6).
    most visitors read rather than listen). Then the player code and the instrument samples load, and
    `renderToMIDI()` plus `renderToTimemap()` run on the work on show; the result is cached on the work's
    model (`model.midi`, `model.timemap`), so switching works and back costs nothing.
-2. The notes are scheduled on Tone's Transport in ticks, so a tempo change sets `Transport.bpm` (100 % =
-   the encoded tempo, else Verovio's 120) during playback and audio and highlighting rescale together,
+2. The notes are scheduled on Tone's Transport in ticks. Guide boundaries and encoded MIDI tempo
+   events set `Transport.bpm` at their scheduled tick; global Tempo scales the effective speed live,
+   and audio and highlighting rescale together,
    with no MIDI re-render. The position is kept in quarter notes: `Transport.ticks` / PPQ against the
    time map's `qstamp`, one clock for sound and highlighting (Cursor's drift risk). Checked 2026-11-01
    (@tonejs/midi on the viewer's Verovio output in headless Chromium; Verovio writes PPQ 120 and one
@@ -152,8 +153,11 @@ the cut notes matter (section 6).
 
 ### 4.3 Controls
 
-A player group in the toolbar: Play/Pause, Stop (back to the start point), the position as
-"m. 37 / 186", the tempo control, and the part switches. Start point and follow behaviour, tempo control and part switches as decided in section 7.
+A Playback checkbox in Settings is off by default and remembered. While off, the entire player
+is hidden and Space keeps its normal page-scroll behaviour. Switching off stops playback and
+invalidates any pending library or sample load; switching on shows the controls without loading audio.
+The group contains Play/Pause, Stop (back to the start point), "m. 37 / 186", global Tempo,
+and exclusive Parts and Tempo guide menus.
 
 - Play starts at the pinned measure, else at the first measure of the page on show, else at the start.
   Play after Pause resumes where it paused, unless a different measure was pinned meanwhile: then it
@@ -172,9 +176,29 @@ figured_continuo_bass "Continuo"), with a final full stop dropped ("Violino." �
 ordinary staves have no label (Op. I/2 staves 1–3, the continuo of App. I and App. III). The realization is always one part named "Realization (Stiehl)" for
 its two staves, in all 17 works. Reuse `build_parts` in `scripts/normalize_midi_data.py`, which already
 makes one part per staff, with its channel, and merges the two realization staves into one. Muting acts on the part's MIDI channel; the remembered state is keyed
-by role.
+by role. Each part also has a 0–100 % volume slider (default 100 %, value shown), remembered by
+role independently of mute. Gain is linear amplitude: muted ? 0 : volume / 100. Unmuting restores
+that level, including 0 %; All on clears mutes and preserves levels. Gain changes ramp briefly.
 
-Keyboard: Space toggles play only when focus is not in a form control (the arrow keys keep turning
+The Tempo guide menu beside Parts says "Tempo guide: playback suggestions, not the edition's
+reading." and "Each section in % of ♩ = 120; Tempo scales them all." It lists each section's
+measure and tempo word, synced number and slider fields (25–200 %), and a reset to its suggestion.
+Only changes are stored, per work and measure id; resetting deletes the change. The rows scroll
+inside a capped panel with the label above them. Copy my tempo changes exports changed sections
+across every work in work/measure order as CSV; if clipboard writing fails, a read-only text field
+shows the CSV for manual copying. The separate review page and this Copy button support the editor's
+ear check of the guide files.
+
+The build embeds checked guide rows in `works.json`; the viewer never fetches CSVs. The cached
+notated-position time map places each boundary in every repeat pass, including a jump into the
+middle of an earlier section and boundaries inside bars. Seek applies the section at the start tick.
+A boundary callback schedules `bpm.setValueAtTime(bpm, time)` and records its section before notifying
+the viewer; live edits use the last callback that ran, so Tone's lookahead cannot restore the earlier
+section. Multiple encoded MIDI tempo events override the guide (fields disabled with a note).
+The global slider scales either map, with no MIDI re-render. Its note is "100 % = tempo guide",
+"100 % = encoded tempo", or the single MIDI tempo as "100 % = ♩ 120".
+
+Keyboard: Space toggles play while Playback is on, only when focus is not in a form control (the arrow keys keep turning
 pages). The player is announced through the existing `aria-live` status line ("Playing from m. 37").
 
 ### 4.4 Licences and credits
@@ -196,25 +220,37 @@ a message in the status line.
 
 ## 5. Build, tests and checks
 
-- `scripts/build_site.py`: the `parts` list; copy `site/player.js`.
-  `tests/test_build_site.py`: `parts` per work (channels unique, one realization part in all 17 works, labels non-empty, including the five staves without an MEI
-  label).
-- `scripts/check_site.py` (Playwright, headless Chromium): press Play on Op. I/1, wait 2 s, require
-  ≥ 1 `.is-playing` note and an advancing position; pin a measure on page 3, press Play and require the page
-  label and `#player-position` to follow; change the tempo while playing and require the position to
-  continue from the same measure with no MIDI re-render and to advance at the new rate; mute the
-  realization channel and check the player state. Headless Chromium runs Web Audio without an output
-  device; no sound check, only state.
+- `scripts/build_site.py`: publish `parts` and validated `tempo` per work; copy `player.js` and
+  the pure `tempo-map.js`. Validate CSV headers, measures and their order, first position, beat/meter,
+  ownership and coverage of every tempo mark, matching words, and integer suggestions in 25–200 %.
+  Missing CSVs fail for works with tempo marks; no marks and no CSV gives an empty guide. Report the
+  file and row; never rewrite guide data. `tests/test_build_site.py` checks all 109 real rows,
+  mid-bar offsets, part data and byte-identical site copies, plus rejection cases on temporary copies.
+- `tests/test_tempo_js.py` runs `node --test tests/js/` when node exists. Pure tests cover effective
+  tempo plans (single/guide/encoded, global scaling, whole ticks), ordinary and mid-bar boundaries,
+  repeat re-entry into a row measure or the middle of an earlier section, and duplicate suppression.
+- `scripts/check_site.py` (Playwright, headless Chromium): keep all step 1 checks (one clock,
+  highlights, page/scan follow, independent pin, pause/seek/stop, role mute, work-switch cancellation,
+  live Tempo without re-render). Add fresh-context hidden player/Space/lazy loading, remembered
+  Playback, switching off during a held sample load and successful retry, linear part gains and
+  mute/0 %/All on independence, volume persistence and role remapping. Check Op. I/1's m. 27 → 28
+  boundary (102 → 48 bpm), a slider edit during the boundary callback's lookahead (24 bpm), live
+  section edits, reload, Copy and Reset, and seek into Lento. Check App. II's m. 51 beat 4 and
+  App. I's repeat (Allamanda, 144 bpm at global 200 %). Open both menus at 390 px and the 11-row
+  guide at 1400×1000; require no overflow, a panel inside the viewport and no console errors.
+  Assertions read the documented `#player` data attributes, DOM controls and rendered marks.
+  Headless Chromium tests state, not the sound heard by a listener.
 - Manual check in the user's Brave and on an iPhone (Safari's silent switch and autoplay rules).
-- CI unchanged apart from the extended `check_site.py` if it already runs there (it does not today: run
-  it locally before each push of viewer changes).
+- Pages rebuilds also watch `playback/**`. The browser check still runs locally before each push of
+  viewer changes; it does not run in the Pages workflow.
 
 ## 6. Limitations to state in the viewer
 
 - Op. II/2's and II/3's repeats play once until they get an explicit `<expansion>` (section 1); App. I's play.
-- One tempo for the whole work: an Adagio and the Allegro after it play at the same quarter-note speed;
-  the tempo words are printed but not interpreted. A tempo map from the words would be an editorial
-  invention and stays out.
+- Each tempo section plays at a suggested percentage of ♩ = 120 from `playback/tempo-guide/`
+  (rule table; 38 of 109 rows still to be confirmed by the editor's ear). Readers can change each
+  suggestion and scale all sections with Tempo. These are playback suggestions, not the edition's
+  reading; the MEI carries no tempo values.
 - The figured-bass figures do not sound by themselves; the continuo plays the bass line, and the
   realization is Stiehl's 1903 right and left hand.
 - General MIDI samples, not period instruments; no ornaments beyond what the MEI encodes as notes.
@@ -229,7 +265,8 @@ a message in the status line.
 
 Second opinions (Codex and Cursor, `delegate ask --agent both`, 2026-11-01) agreed on all four
 questions below, and the editor chose as they did (2026-11-01). Questions and answers:
-`validation/runs/midi-player-plan/` (git-ignored).
+`validation/runs/midi-player-plan/` (git-ignored). The follow-up decisions below supersede the
+original tempo and part-control details.
 
 | question | both picked | risks they raised (to build in) |
 | --- | --- | --- |
@@ -246,12 +283,30 @@ jsDelivr files:
 | Player stack | **C**, js-synthesizer with a self-hosted SF2 extract: real loops, so no note stops short at any tempo | **A**, Tone.js + @tonejs/midi + smplr: the only no-build stack with a gain per channel for mute, a live `Transport.bpm` and Transport seek, all as pinned jsDelivr files | C: a mute must silence notes already sounding, not only drop new note-ons; an extract without GM 0 does not serve Webern, so the SoundFont must be configurable. A: the 3.13 s cut (5 notes at 100 %); drive the highlighting from the clock that drives the audio, or score and sound drift |
 | Sample hosting (A, B) | **self-host** in each repository: the edition controls the bytes and their continued publication | **jsDelivr pinned** to Gleitzman's commit `044fab8e` with SRI, like Verovio; no 10.4 MB copy per repository | self-host: `build_site.py` copies an explicit file list, so the samples need their own copy step. jsDelivr: override smplr's default base URL (gleitz.github.io). Both: credit CC BY 3.0 (Gleitzman) and MIT (Wen), even when nothing is copied |
 
+Follow-up decisions after listening, 2026-11-01. Questions and answers are in
+`validation/runs/midi-player-build/followup-asks/` (git-ignored).
+
+| decision | agreement | evidence folder |
+| --- | --- | --- |
+| Playback switch, off by default, remembered; switching off cancels pending loads | Codex and Cursor agreed | `validation/runs/midi-player-build/followup-asks/` |
+| Volume per part, linear 0–100 %, mute independent; All on preserves levels | Codex and Cursor agreed | `validation/runs/midi-player-build/followup-asks/` |
+| Tempo guide seeds from the rule table, with flagged rows checked by ear | Codex and Cursor agreed | `validation/runs/midi-player-build/followup-asks/` |
+| One CSV per work, checked against the MEI by the build and embedded in works.json | Codex and Cursor agreed | `validation/runs/midi-player-build/followup-asks/` |
+| Tempo guide menu beside Parts, editable sections and global Tempo scaling | Codex and Cursor agreed | `validation/runs/midi-player-build/followup-asks/` |
+| Review page plus a Copy button for the editor's ear check | Codex and Cursor agreed | `validation/runs/midi-player-build/followup-asks/` |
+
 ## 8. Implementation steps (one session each)
 
 1. **Player module and wiring in this viewer** (stack A, section 3; delegate build from this plan as the spec): `site/player.js`,
    `viewer.js` wiring, CSS, the footer credit, `build_site.py` parts, tests, `check_site.py` checks. Gates: tests, review
    gate, `check_site.py`, a cross-vendor review, the user's listening check in Brave. Hand off after the
    review, before docs.
+
+1b. **Playback switch, part volumes and tempo guide** (2026-11-01 follow-up): build-checked CSV
+   guides embedded in works.json, remembered controls, repeat-aware tempo scheduling, Copy for the
+   ear check, node tests and extended browser checks. Verify tests, static build, JS syntax, review
+   gate and full `check_site.py`; leave guide data and release notes for their own steps.
+
 2. **Docs and release notes** (README viewer section and licence line, CHANGELOG Unreleased/Added), push,
    Pages check on the live site.
 3. **Port to webern_op27.** Prerequisite: movement I's `scoreDef/@midi.bpm="40"` makes Verovio play

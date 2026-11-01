@@ -100,11 +100,11 @@ h1, h2 { font-weight: 600; line-height: 1.25; }
 .tempo input { width: 100px; max-width: 100%; accent-color: var(--playing); }
 #tempo-value { min-width: 3.5em; }
 #tempo-base { color: var(--muted); }
-.parts-menu { position: relative; }
-.parts-menu summary { cursor: pointer; }
+.parts-menu, .tempo-menu { position: relative; }
+.parts-menu summary, .tempo-menu summary { cursor: pointer; }
 .parts-panel { position: absolute; right: 0; width: min(290px, calc(100vw - 32px)); padding: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 4px 12px #0002; z-index: 3; }
 #parts-list { display: grid; gap: 5px; margin-bottom: 8px; }
-#parts-list label { cursor: pointer; }
+#parts-list label { min-width: 0; cursor: pointer; }
 #parts-list input { accent-color: var(--playing); }
 .parts-panel p { font-size: 0.8rem; color: var(--muted); margin-bottom: 0; }
 @media (max-width: 600px) {
@@ -216,3 +216,23 @@ h1, h2 { font-weight: 600; line-height: 1.25; }
 .excerpt figcaption { color: var(--muted); font-size: 0.8rem; margin-top: 4px; overflow-wrap: anywhere; }
 
 footer { color: var(--muted); font-size: 0.8rem; padding-block: 8px 24px; border-top: 1px solid var(--line); }
+
+.player[hidden] { display: none; }
+.part-row { display: grid; grid-template-columns: minmax(0, 1fr) 85px 3.5em; align-items: center; gap: 6px; }
+.part-row input[type="range"] { width: 100%; min-width: 0; }
+.part-row output { text-align: right; font-variant-numeric: tabular-nums; }
+.tempo-panel { width: min(480px, calc(100vw - 32px)); max-height: min(650px, 65vh); display: flex; flex-direction: column; gap: 8px; }
+.tempo-panel p { margin: 0; flex: none; }
+.tempo-panel .guide-label { color: var(--text); }
+#tempo-sections { overflow-y: auto; min-height: 0; }
+.tempo-row { display: grid; grid-template-columns: 3.5em minmax(0, 1fr) 4.5em 90px 2em; gap: 6px; align-items: center; padding: 5px 0; }
+.tempo-row input { min-width: 0; width: 100%; accent-color: var(--playing); }
+.tempo-row input[type="number"] { padding: 3px; }
+.tempo-row button { padding: 3px; }
+#copy-tempo { align-self: flex-start; flex: none; }
+#tempo-copy { width: 100%; min-height: 5em; flex: none; }
+@media (max-width: 600px) {
+  .tempo-row { grid-template-columns: 3.5em minmax(0, 1fr) 4.5em 2em; }
+  .tempo-row input[type="range"] { grid-column: 2 / 4; grid-row: 2; }
+  .tempo-row button { grid-column: 4; grid-row: 1; }
+}

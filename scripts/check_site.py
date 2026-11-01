@@ -65,6 +65,25 @@ def check_playback(page):
     def tempo(value):
         return page.eval_on_selector('#tempo', "(e, v) => { const p = document.getElementById('player'); const before = p.dataset.measure; e.value = v; e.dispatchEvent(new Event('input', {bubbles:true})); return [before, p.dataset.measure]; }", value)
 
+    def data(name):
+        return page.get_attribute('#player', 'data-' + name)
+
+    def level(role, value):
+        page.eval_on_selector(f'#parts-list input[type="range"][data-role="{role}"]',
+                             "(e, v) => { e.value = v; e.dispatchEvent(new Event('input', {bubbles:true})); }", value)
+
+    def guide_menu():
+        page.eval_on_selector('.tempo-menu', 'e => { e.open = true; }')
+
+    def section_field(n):
+        return page.locator(f'#tempo-sections input[type="number"][aria-label^="m. {n} "]')
+
+    def bpm(value):
+        page.wait_for_function("b => +document.getElementById('player').dataset.bpm === b", arg=value, timeout=5000)
+
+    def section(n, timeout=15000):
+        page.wait_for_function("n => document.getElementById('player').dataset.section === n", arg=str(n), timeout=timeout)
+
     def parts_menu():
         page.eval_on_selector('.parts-menu', 'e => { e.open = true; }')
 
@@ -73,10 +92,51 @@ def check_playback(page):
 
     page.set_viewport_size({'width': 1400, 'height': 1000})
     open_work('op1_01', 1)
-    tempo(100)
+    assert page.is_hidden('#player'), 'Playback must be off in a fresh context'
+    page.evaluate("() => { document.activeElement.blur(); document.addEventListener('keydown', e => { if (e.code === 'Space') document.body.dataset.spacePrevented = String(e.defaultPrevented); }, {once:true}); }")
+    page.keyboard.press('Space')
+    assert page.get_attribute('body', 'data-space-prevented') == 'false'
+    state('idle')
     # No stack or sample requests before the first Play (including phone/layout checks).
     lazy = page.evaluate(r"() => performance.getEntriesByType('resource').filter(e => /tone@|@tonejs\/midi@|smplr@|midi-js-soundfonts@|\/player.js/.test(e.name)).map(e => e.name)")
     assert not lazy, f'player fetched before Play: {lazy}'
+
+    page.check('#playback')
+    assert page.is_visible('#player')
+    tempo(100)
+
+    # Playback off also cancels a first load. Release samples, observe idle,
+    # then prove a fresh Play is usable. Reload gives the next cancellation
+    # case a fresh player instance (routing disables the browser cache).
+    off_pending = []
+    def hold_off(route):
+        off_pending.append(route)
+        page.eval_on_selector('#player', "e => { e.dataset.offHeld = 'true'; }")
+    page.route('**/midi-js-soundfonts@*/**', hold_off)
+    page.click('#play')
+    state('loading')
+    page.wait_for_function("() => document.getElementById('player').dataset.offHeld === 'true'", timeout=60000)
+    page.uncheck('#playback')
+    state('idle')
+    assert page.is_hidden('#player')
+    for route in off_pending:
+        route.continue_()
+    page.unroute('**/midi-js-soundfonts@*/**', hold_off)
+    page.wait_for_function(r"() => performance.getEntriesByType('resource').some(e => /midi-js-soundfonts@/.test(e.name) && e.responseEnd > 0)", timeout=60000)
+    elapsed(snapshot(), 1000)
+    state('idle')
+    assert page.locator('.is-playing').count() == 0
+    assert page.is_hidden('#player')
+    page.check('#playback')
+    page.click('#play')
+    state('playing')
+    assert data('work') == 'op1_01'
+    page.click('#stop')
+    page.reload()
+    page.wait_for_selector('#score svg', timeout=60000)
+    assert page.is_checked('#playback')
+    open_work('op1_01', 1)
+    print('playback: default off, Space untouched, off cancels sample load, re-enable plays')
 
     # Hold the first sample requests to exercise cancellation during loading.
     pending = []
@@ -141,8 +201,9 @@ def check_playback(page):
     slow_rate = (slow['q'] - slow_start['q']) / (slow['time'] - slow_start['time'])
     assert 0.375 <= slow_rate / normal_rate <= 0.625, (normal_rate, slow_rate)
     assert slow['renders'] == before['renders']
-    assert float(page.get_attribute('#player', 'data-bpm')) == 60
-    assert page.inner_text('#tempo-base') == '100 % = ♩ 120'
+    assert float(page.get_attribute('#player', 'data-bpm')) == 51
+    assert data('tempo-source') == 'guide'
+    assert page.inner_text('#tempo-base') == '100 % = tempo guide'
     tempo(100)
     page.click('#stop')
     state('idle')
@@ -177,26 +238,155 @@ def check_playback(page):
     assert page.evaluate('location.hash') == pinned_hash
     print('playback: page 3 -> 4, score and scan marks, independent pin, manual turn and Stop ok')
 
+    # Mute and level compose; All on must never rewrite the saved level.
+    open_work('op1_01', 1)
+    page.click('#play')
+    state('playing')
     parts_menu()
-    realization = page.locator('#parts-list input[data-role="keyboard_realization"]')
+    violin = page.locator('#parts-list input[type="checkbox"][data-role="violin"]')
+    level('violin', 40)
+    assert json.loads(data('gains'))['0'] == .4
+    violin.uncheck()
+    assert json.loads(data('gains'))['0'] == 0
+    violin.check()
+    assert json.loads(data('gains'))['0'] == .4
+    level('violin', 0)
+    violin.uncheck()
+    violin.check()
+    assert json.loads(data('gains'))['0'] == 0
+    page.click('#all-parts')
+    assert json.loads(data('gains'))['0'] == 0
+    assert json.loads(data('volumes'))['0'] == 0
+    level('figured_continuo_bass', 50)
+    page.click('#stop')
+    parts_menu()
+    realization = page.locator('#parts-list input[type="checkbox"][data-role="keyboard_realization"]')
     realization.uncheck()
     assert json.loads(page.get_attribute('#player', 'data-muted')) == [3]
     tempo(75)
     page.reload()
     page.wait_for_selector('#score svg', timeout=60000)
     parts_menu()
+    assert page.is_checked('#playback')
+    assert json.loads(data('volumes'))['0'] == 0
+    page.click('#play')
+    state('playing')
+    assert json.loads(data('gains'))['0'] == 0
+    page.click('#stop')
     assert not realization.is_checked()
     assert json.loads(page.get_attribute('#player', 'data-muted')) == [3]
     assert page.input_value('#tempo') == '75'
     tempo(100)
     open_work('app_02')
+    assert json.loads(data('volumes'))['3'] == 50
+    assert json.loads(data('volumes'))['2'] == 100
+    page.click('#play')
+    state('playing')
+    assert json.loads(data('gains'))['3'] == .5
+    assert json.loads(data('gains'))['2'] == 1
+    page.click('#stop')
     assert json.loads(page.get_attribute('#player', 'data-muted')) == [4]
     assert not realization.is_checked()
     parts_menu()
     page.click('#all-parts')
     assert json.loads(page.get_attribute('#player', 'data-muted')) == []
-    assert all(page.locator('#parts-list input').nth(i).is_checked() for i in range(5))
-    print('playback: role mute survives reload and maps realization 3 -> 4; All on ok')
+    assert all(page.locator('#parts-list input[type="checkbox"]').nth(i).is_checked() for i in range(5))
+    level('figured_continuo_bass', 100)
+    open_work('op1_01', 1)
+    parts_menu()
+    level('violin', 100)
+    print('playback: mute/volume independence, 0%, reload, role levels and All on ok')
+
+    # Seek just before Lento, then cross the guide boundary without MIDI work.
+    open_work('op1_01', 27)
+    tempo(100)
+    page.click('#play')
+    state('playing')
+    section(1)
+    bpm(102)
+    renders = snapshot()['renders']
+    section(28)
+    bpm(48)
+    assert snapshot()['renders'] == renders
+    page.click('#stop')
+
+    # Simulate a live change in the callback's lookahead window. This observer
+    # reacts to section changes, rather than the later Transport.ticks value.
+    page.evaluate("""() => {
+      const p = document.getElementById('player');
+      window.boundaryObserver = new MutationObserver(() => {
+        if (p.dataset.section !== '28') return;
+        window.boundaryObserver.disconnect();
+        const slider = document.getElementById('tempo');
+        slider.value = 50;
+        slider.dispatchEvent(new Event('input', {bubbles:true}));
+        p.dataset.boundaryObserved = 'true';
+      });
+      window.boundaryObserver.observe(p, {attributes:true, attributeFilter:['data-section']});
+    }""")
+    page.click('#play')
+    state('playing')
+    page.wait_for_function("() => document.getElementById('player').dataset.boundaryObserved === 'true'", timeout=15000)
+    section(28)
+    bpm(24)
+    assert snapshot()['renders'] == renders
+    guide_menu()
+    field = section_field(28)
+    field.fill('60')
+    bpm(36)
+    assert snapshot()['renders'] == renders
+    page.click('#stop')
+    page.reload()
+    page.wait_for_selector('#score svg', timeout=60000)
+    guide_menu()
+    assert field.input_value() == '60'
+    work = next(w for w in json.loads((SITE / 'works.json').read_text())['works'] if w['id'] == 'op1_01')
+    for row in work['tempo']:
+        assert section_field(row['n']).input_value() == str(60 if row['n'] == '28' else row['percent'])
+    page.click('#copy-tempo')
+    page.wait_for_function("() => document.getElementById('status').textContent.startsWith('Copied 1 changed sections in 1 works.')")
+    copied = page.evaluate('navigator.clipboard.readText()')
+    mid = next(r['measure'] for r in work['tempo'] if r['n'] == '28')
+    assert copied.splitlines() == ['work_id,measure_n,measure_id,text,suggested_percent,your_percent', f'op1_01,28,{mid},Lento.,40,60']
+    page.get_by_role('button', name='Reset m. 28 to 40 %', exact=True).click()
+    assert field.input_value() == '40'
+    assert page.evaluate("mid => !JSON.parse(localStorage.getItem('ddt-viewer-tempo-guide') || '{}').op1_01?.[mid]", mid)
+    page.click('#copy-tempo')
+    assert 'No changed sections to copy.' in page.inner_text('#status')
+    tempo(100)
+    open_work('op1_01', 29)
+    page.click('#play')
+    state('playing')
+    section(28)
+    bpm(48)
+    page.click('#stop')
+    print('playback: guide boundary, seek, lookahead edit, persistence, CSV Copy and Reset ok')
+
+    open_work('app_02', 51)
+    page.evaluate("""() => {
+      const p = document.getElementById('player');
+      let start = null;
+      const observer = new MutationObserver(() => {
+        if (p.dataset.state !== 'playing') return;
+        if (start === null) start = +p.dataset.position;
+        if (p.dataset.section === '51') {
+          p.dataset.boundaryStart = start;
+          p.dataset.boundaryPosition = p.dataset.position;
+          observer.disconnect();
+        }
+      });
+      observer.observe(p, {attributes:true, attributeFilter:['data-position', 'data-section']});
+    }""")
+    page.click('#play')
+    state('playing')
+    section(16)
+    bpm(102)
+    page.wait_for_function("() => document.getElementById('player').dataset.boundaryPosition !== undefined", timeout=15000)
+    start, q = float(data('boundary-start')), float(data('boundary-position'))
+    assert 2.9 <= q - start <= 3.3, (q, start)
+    bpm(54)
+    page.click('#stop')
+    print('playback: App. II m. 51 changes at beat 4')
 
     open_work('app_01', 9)
     tempo(200)
@@ -204,6 +394,8 @@ def check_playback(page):
     state('playing')
     page.wait_for_function("() => document.getElementById('player-position').textContent.startsWith('m. 1 / ') && !!document.querySelector('#score .is-playing')", timeout=15000)
     assert page.evaluate('location.hash') == '#app_01/9'
+    section(1)
+    bpm(144)
     print('playback: App. I repeats to m. 1 with mapped second-pass notes')
     open_work('op1_02')
     state('idle')
@@ -214,7 +406,15 @@ def check_playback(page):
     page.set_viewport_size({'width': 390, 'height': 844})
     parts_menu()
     page.wait_for_function('() => document.documentElement.scrollWidth <= innerWidth', timeout=5000)
-    print('playback: phone controls and expanded Parts menu fit 390px')
+    open_work('op1_06')
+    guide_menu()
+    page.wait_for_function('() => document.documentElement.scrollWidth <= innerWidth', timeout=5000)
+    assert page.locator('#tempo-sections .tempo-row').count() == 11
+    page.set_viewport_size({'width': 1400, 'height': 1000})
+    page.evaluate('scrollTo(0, 0)')
+    guide_menu()
+    page.wait_for_function("() => document.querySelector('.tempo-panel').getBoundingClientRect().bottom <= innerHeight", timeout=5000)
+    print('playback: Parts and 11-row guide fit 390px; desktop guide ends inside viewport')
 
 
 def main():
@@ -224,7 +424,7 @@ def main():
     problems, console = [], []
     with sync_playwright() as p:
         browser = p.chromium.launch()
-        context = browser.new_context(viewport={'width': 1400, 'height': 1000})
+        context = browser.new_context(viewport={'width': 1400, 'height': 1000}, permissions=['clipboard-read', 'clipboard-write'])
         page = context.new_page()
         page.on('console', lambda m: m.type == 'error' and console.append(m.text))
         page.on('pageerror', lambda e: console.append(f'pageerror: {e}'))

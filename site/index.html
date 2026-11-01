@@ -26,22 +26,34 @@
       <button type="button" id="next" aria-label="Next page">›</button>
     </div>
     <fieldset class="settings">
-      <legend class="visually-hidden">Display</legend>
+      <legend class="visually-hidden">Settings</legend>
+      <label><input type="checkbox" id="playback"> Playback</label>
       <label><input type="checkbox" id="mark-notes"> Mark all notes</label>
       <label><input type="checkbox" id="measure-boxes"> Measure boxes</label>
     </fieldset>
-    <div id="player" class="player" role="group" aria-label="MIDI playback" data-state="idle" data-position="0" data-bpm="" data-muted="[]" data-midi-renders="0" data-follow="false" data-measure="" data-work="">
+    <div id="player" hidden class="player" role="group" aria-label="MIDI playback" data-state="idle" data-position="0" data-bpm="" data-muted="[]" data-midi-renders="0" data-follow="false" data-measure="" data-work="" data-section="" data-tempo-source="single" data-volumes="{}" data-gains="{}">
       <button type="button" id="play" disabled>Play</button>
       <button type="button" id="stop" disabled>Stop</button>
       <output id="player-position" aria-label="Playback measure">–</output>
       <label class="tempo">Tempo <input id="tempo" type="range" min="25" max="200" value="100" step="1"> <output id="tempo-value" for="tempo">100 %</output></label>
       <span id="tempo-base">100 % = encoded tempo</span>
-      <details class="parts-menu">
+      <details class="parts-menu" name="player-menu">
         <summary>Parts</summary>
         <div class="parts-panel">
           <div id="parts-list"></div>
           <button type="button" id="all-parts">All on</button>
-          <p>One tempo for the whole work; II/2 and II/3 repeats play once. GM samples, not period instruments; long string notes stop after 3.13 s. Continuo plays the bass line; Realization is Stiehl’s two hands. Only ornaments encoded as notes sound. Notes held across the start point sound again from their attack.</p>
+          <p>II/2 and II/3 repeats play once. GM samples, not period instruments; long string notes stop after 3.13 s. Continuo plays the bass line; Realization is Stiehl’s two hands. Only ornaments encoded as notes sound. Notes held across the start point sound again from their attack.</p>
+        </div>
+      </details>
+      <details class="tempo-menu" name="player-menu">
+        <summary>Tempo guide</summary>
+        <div class="parts-panel tempo-panel">
+          <p class="guide-label">Tempo guide: playback suggestions, not the edition's reading.</p>
+          <p>Each section in % of ♩ = 120; Tempo scales them all.</p>
+          <p id="guide-disabled" hidden>The MIDI has its own tempo changes; the encoded tempo takes precedence.</p>
+          <div id="tempo-sections"></div>
+          <button type="button" id="copy-tempo">Copy my tempo changes</button>
+          <textarea id="tempo-copy" aria-label="Tempo changes CSV" readonly hidden></textarea>
         </div>
       </details>
     </div>
@@ -78,7 +90,7 @@
   </main>
 
   <footer>
-    <p>MEI data and viewer: MIT. Facsimile pages: Bayerische Staatsbibliothek, CC BY-NC-SA 4.0. Source excerpts: quoted with their notes and not covered by the MIT License (<a href="https://github.com/egorpol/DdT_1_vol_11/blob/main/supplemental_material/README.md">rights note</a>). Rendered in your browser with <a href="https://www.verovio.org/">Verovio</a> <span id="verovio-version"></span>. Playback with <a href="https://github.com/Tonejs/Tone.js">Tone.js</a>, <a href="https://github.com/Tonejs/Midi">@tonejs/midi</a> and <a href="https://github.com/danigb/smplr">smplr</a> (MIT); sounds: FluidR3_GM by Frank Wen (<a href="https://github.com/musescore/MuseScore/blob/main/share/sound/FluidR3Mono_License.md">MIT</a>), rendered as <a href="https://github.com/gleitz/midi-js-soundfonts">midi-js-soundfonts</a> by Benjamin Gleitzman (<a href="https://creativecommons.org/licenses/by/3.0/us/">CC BY 3.0</a>), loaded from jsDelivr when you press Play. Links: <code>#op2_02/189</code> opens Op. II/2 at measure 189; arrow keys turn pages; Space toggles playback.</p>
+    <p>MEI data and viewer: MIT. Facsimile pages: Bayerische Staatsbibliothek, CC BY-NC-SA 4.0. Source excerpts: quoted with their notes and not covered by the MIT License (<a href="https://github.com/egorpol/DdT_1_vol_11/blob/main/supplemental_material/README.md">rights note</a>). Rendered in your browser with <a href="https://www.verovio.org/">Verovio</a> <span id="verovio-version"></span>. Playback with <a href="https://github.com/Tonejs/Tone.js">Tone.js</a>, <a href="https://github.com/Tonejs/Midi">@tonejs/midi</a> and <a href="https://github.com/danigb/smplr">smplr</a> (MIT); sounds: FluidR3_GM by Frank Wen (<a href="https://github.com/musescore/MuseScore/blob/main/share/sound/FluidR3Mono_License.md">MIT</a>), rendered as <a href="https://github.com/gleitz/midi-js-soundfonts">midi-js-soundfonts</a> by Benjamin Gleitzman (<a href="https://creativecommons.org/licenses/by/3.0/us/">CC BY 3.0</a>), loaded from jsDelivr when you press Play. Links: <code>#op2_02/189</code> opens Op. II/2 at measure 189; arrow keys turn pages; Space plays and pauses while Playback is on.</p>
   </footer>
 </body>
 </html>
