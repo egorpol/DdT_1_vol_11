@@ -105,6 +105,30 @@ def check_playback(page):
     assert page.is_visible('#player')
     tempo(100)
 
+    # The figured bass starts muted (the realization doubles it); the % boxes set the same values
+    # as the sliders, on Enter, and clamp out-of-range input.
+    parts_menu()
+    assert not page.is_checked('#parts-list input[type="checkbox"][data-role="figured_continuo_bass"]')
+    assert json.loads(data('muted')) == [2]
+    assert 'doubles it' in page.inner_text('#bass-note')
+    page.fill('#tempo-number', '80')
+    page.press('#tempo-number', 'Enter')
+    assert page.input_value('#tempo') == '80'
+    page.fill('#tempo-number', '300')
+    page.press('#tempo-number', 'Enter')
+    assert page.input_value('#tempo') == '200' and page.input_value('#tempo-number') == '200'
+    tempo(100)
+    assert page.input_value('#tempo-number') == '100'
+    volume_box = page.locator('#parts-list input[type="number"][data-role="violin"]')
+    volume_box.fill('35')
+    volume_box.press('Enter')
+    assert json.loads(data('volumes'))['0'] == 35
+    assert page.input_value('#parts-list input[type="range"][data-role="violin"]') == '35'
+    level('violin', 100)
+    assert volume_box.input_value() == '100'
+    page.eval_on_selector('.parts-menu', 'e => { e.open = false; }')
+    print('playback: figured bass muted by default; tempo and volume % boxes ok')
+
     # Playback off also cancels a first load. Release samples, observe idle,
     # then prove a fresh Play is usable. Reload gives the next cancellation
     # case a fresh player instance (routing disables the browser cache).
@@ -276,6 +300,7 @@ def check_playback(page):
     assert not realization.is_checked()
     assert json.loads(page.get_attribute('#player', 'data-muted')) == [3]
     assert page.input_value('#tempo') == '75'
+    assert page.input_value('#tempo-number') == '75'
     tempo(100)
     open_work('app_02')
     assert json.loads(data('volumes'))['3'] == 50

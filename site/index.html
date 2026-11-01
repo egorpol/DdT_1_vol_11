@@ -35,14 +35,15 @@
       <button type="button" id="play" disabled>Play</button>
       <button type="button" id="stop" disabled>Stop</button>
       <output id="player-position" aria-label="Playback measure">–</output>
-      <label class="tempo">Tempo <input id="tempo" type="range" min="25" max="200" value="100" step="1"> <output id="tempo-value" for="tempo">100 %</output></label>
+      <span class="tempo"><label for="tempo">Tempo</label> <input id="tempo" type="range" min="25" max="200" value="100" step="1"> <span class="tempo-number"><input id="tempo-number" type="number" min="25" max="200" step="1" value="100" aria-label="Tempo % (type a value)"> %</span></span>
       <span id="tempo-base">100 % = encoded tempo</span>
       <details class="parts-menu" name="player-menu">
         <summary>Parts</summary>
         <div class="parts-panel">
           <div id="parts-list"></div>
+          <p id="bass-note">Cembalo (Continuo in some works) is the figured bass line. It starts off: Stiehl’s two-hand realization doubles it nearly note for note.</p>
           <button type="button" id="all-parts">All on</button>
-          <p>II/2 and II/3 repeats play once. GM samples, not period instruments; long string notes stop after 3.13 s. Continuo plays the bass line; Realization is Stiehl’s two hands. Only ornaments encoded as notes sound. Notes held across the start point sound again from their attack.</p>
+          <p>II/2 and II/3 repeats play once. GM samples, not period instruments; long string notes stop after 3.13 s. Only ornaments encoded as notes sound. Notes held across the start point sound again from their attack.</p>
         </div>
       </details>
       <details class="tempo-menu" name="player-menu">

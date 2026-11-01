@@ -156,8 +156,8 @@ the cut notes matter (section 6).
 A Playback checkbox in Settings is off by default and remembered. While off, the entire player
 is hidden and Space keeps its normal page-scroll behaviour. Switching off stops playback and
 invalidates any pending library or sample load; switching on shows the controls without loading audio.
-The group contains Play/Pause, Stop (back to the start point), "m. 37 / 186", global Tempo,
-and exclusive Parts and Tempo guide menus.
+The group contains Play/Pause, Stop (back to the start point), "m. 37 / 186", global Tempo (slider
+and a % box, 25–200), and exclusive Parts and Tempo guide menus.
 
 - Play starts at the pinned measure, else at the first measure of the page on show, else at the start.
   Play after Pause resumes where it paused, unless a different measure was pinned meanwhile: then it
@@ -176,9 +176,13 @@ figured_continuo_bass "Continuo"), with a final full stop dropped ("Violino." �
 ordinary staves have no label (Op. I/2 staves 1–3, the continuo of App. I and App. III). The realization is always one part named "Realization (Stiehl)" for
 its two staves, in all 17 works. Reuse `build_parts` in `scripts/normalize_midi_data.py`, which already
 makes one part per staff, with its channel, and merges the two realization staves into one. Muting acts on the part's MIDI channel; the remembered state is keyed
-by role. Each part also has a 0–100 % volume slider (default 100 %, value shown), remembered by
+by role. Each part also has a 0–100 % volume slider and % box (default 100 %), remembered by
 role independently of mute. Gain is linear amplitude: muted ? 0 : volume / 100. Unmuting restores
-that level, including 0 %; All on clears mutes and preserves levels. Gain changes ramp briefly.
+that level, including 0 %; All on turns every part on, the figured bass included, and preserves
+levels. Gain changes ramp briefly. The figured bass (role `figured_continuo_bass`, "Cembalo" or
+"Continuo") starts muted until the reader ticks it, with a note in the Parts menu: Stiehl's
+realization doubles it (97.2–99.8 % of its notes at the same onset and pitch, per work). The %
+boxes apply on Enter, on leaving the box or on the spin arrows, and clamp to the slider's range.
 
 The Tempo guide menu beside Parts says "Tempo guide: playback suggestions, not the edition's
 reading." and "Each section in % of ♩ = 120; Tempo scales them all." It lists each section's
@@ -272,7 +276,7 @@ original tempo and part-control details.
 | --- | --- | --- |
 | Tempo control | **percentage slider** (25–200 %, default 100 %) of the encoded tempo or of Verovio's ♩ = 120; one value, remembered; maps to `Transport.bpm` (4.1; `midiTempoAdjustment` only as fallback); same control in all three viewers | say beside the slider what 100 % means (♩ = 120, not the Allegro or Adagio of the print); compound meters (6/8, 12/8) and 3/2 still run on a quarter-note clock; 100 % keeps Webern I's encoding error, which needs its own fix |
 | Start point and follow | **Play from the pinned measure**, else the first measure of the page on show, else the start; notes coloured, the playing measure's zone outlined on the scan, score and facsimile turn with the music; a manual turn or click stops following until the next Play; a click still pins | keep the playback cursor separate from the pin (calling `pin()` per measure would overwrite the start point and the URL hash); re-apply highlights after each page replacement; scan loading must never hold up the audio clock |
-| Part switches | **one checkbox per part** in a small Parts menu, MEI labels plus "Realization (Stiehl)", all on by default, remembered by role across works | the realization's two staves are one part, so one checkbox; store the role, never the channel (channels follow score order and differ between works, e.g. App. II); show remembered "off" states clearly and offer "all on". `docs/mei-encoding-profile.md` already promises that a player can mute either continuo or realization |
+| Part switches | **one checkbox per part** in a small Parts menu, MEI labels plus "Realization (Stiehl)", all on by default (figured bass off since 2026-11-01, see below), remembered by role across works | the realization's two staves are one part, so one checkbox; store the role, never the channel (channels follow score order and differ between works, e.g. App. II); show remembered "off" states clearly and offer "all on". `docs/mei-encoding-profile.md` already promises that a player can mute either continuo or realization |
 | Where the code lives | **one self-contained `site/player.js`**, copied identically into each repo, wired from `viewer.js` | `build_site.py` copies an explicit file list (add `player.js` in every port); no edition constants inside the module; document its interface; stop playback and clear pending work before a work switch |
 
 Player stack and sample hosting (section 3), asked 2026-11-01 after the research run; the agents split, and the editor chose A and the pinned
@@ -294,6 +298,7 @@ Follow-up decisions after listening, 2026-11-01. Questions and answers are in
 | One CSV per work, checked against the MEI by the build and embedded in works.json | Codex and Cursor agreed | `validation/runs/midi-player-build/followup-asks/` |
 | Tempo guide menu beside Parts, editable sections and global Tempo scaling | Codex and Cursor agreed | `validation/runs/midi-player-build/followup-asks/` |
 | Review page plus a Copy button for the editor's ear check | Codex and Cursor agreed | `validation/runs/midi-player-build/followup-asks/` |
+| Figured bass muted by default, with a note in Parts; % boxes beside the Tempo and volume sliders | editor's request while listening (no agent ask) | `validation/runs/midi-player-build/tools/bass_doubling.py` |
 
 ## 8. Implementation steps (one session each)
 

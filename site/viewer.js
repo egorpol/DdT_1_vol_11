@@ -5,7 +5,7 @@
 // webern_op27 viewer; works.json is written by scripts/build_site.py.
 // Playback check contract on #player: data-state (idle/loading/playing/paused/error),
 // data-position (quarter notes from Transport.ticks), data-bpm (effective), data-muted
-// (JSON channel array derived from saved roles), data-midi-renders (this visit),
+// (JSON channel array from saved roles and DEFAULT_OFF), data-midi-renders (this visit),
 // data-measure (notated @n), data-follow, and data-work (loaded work id).
 // Also data-section (guide row @n, else ''), data-tempo-source (guide/single/midi),
 // data-volumes (JSON channel: percent), data-gains (JSON last channel gains, {} before Play).
@@ -397,6 +397,9 @@ const SAMPLE_FILES = {
   6: { url: `${SOUNDFONT_ROOT}harpsichord-mp3.js`, integrity: 'sha384-veZb4kehrh8qKJzOhM1Lv+MqBFb4SDXpSyWrnlNzeNwmz8RS8RI9iG8ysX221GgO' },
 };
 const PLAYBACK_SETTINGS = { tempo: 'ddt-viewer-tempo', parts: 'ddt-viewer-parts', volumes: 'ddt-viewer-volumes', guide: 'ddt-viewer-tempo-guide' };
+// Roles that start muted until the reader ticks them: Stiehl's realization doubles the figured
+// bass (97-99.8 % of its notes at the same onset and pitch in each of the 17 works).
+const DEFAULT_OFF = new Set(['figured_continuo_bass']);
 const playback = {
   engine: null, ready: null, context: null, token: 0, state: 'idle', loadingWork: true,
   percent: 100, roles: {}, volumes: {}, guide: {}, engineModel: null, renders: 0, q: 0, start: null, pinAtPlay: null,
@@ -420,8 +423,12 @@ function readPlaybackSettings() {
   updateTempo();
 }
 
+function partOn(role) {
+  return Object.hasOwn(playback.roles, role) ? playback.roles[role] !== false : !DEFAULT_OFF.has(role);
+}
+
 function mutedChannels() {
-  return (state.work?.parts || []).filter((p) => playback.roles[p.role] === false).map((p) => p.channel);
+  return (state.work?.parts || []).filter((p) => !partOn(p.role)).map((p) => p.channel);
 }
 
 function updateMute() {
@@ -434,7 +441,7 @@ function renderParts(work) {
   $('parts-list').replaceChildren(...(work?.parts || []).map((part) => {
     const label = document.createElement('label');
     const input = document.createElement('input');
-    Object.assign(input, { type: 'checkbox', checked: playback.roles[part.role] !== false });
+    Object.assign(input, { type: 'checkbox', checked: partOn(part.role) });
     input.dataset.role = part.role;
     input.addEventListener('change', () => {
       playback.roles[part.role] = input.checked;
@@ -446,14 +453,25 @@ function renderParts(work) {
     Object.assign(slider, { type: 'range', min: 0, max: 100, step: 1, value: partVolume(part.role) });
     slider.dataset.role = part.role;
     slider.setAttribute('aria-label', `${part.label}, volume %`);
-    const value = document.createElement('output');
-    value.textContent = `${slider.value} %`;
-    slider.addEventListener('input', () => {
-      playback.volumes[part.role] = Number(slider.value);
-      value.textContent = `${slider.value} %`;
+    const box = document.createElement('input');
+    Object.assign(box, { type: 'number', min: 0, max: 100, step: 1, value: slider.value });
+    box.dataset.role = part.role;
+    box.setAttribute('aria-label', `${part.label}, volume % (type a value)`);
+    function setLevel(v) {
+      playback.volumes[part.role] = v;
+      slider.value = box.value = v;
       savePlayback('volumes');
       updateVolumes();
+    }
+    slider.addEventListener('input', () => setLevel(Number(slider.value)));
+    // Applied on Enter, leaving the box or the spin arrows, never half-typed ("5" on the way to "50").
+    box.addEventListener('change', () => {
+      const v = Math.round(Number(box.value));
+      setLevel(box.value === '' || !Number.isFinite(v) ? partVolume(part.role) : Math.max(0, Math.min(100, v)));
     });
+    const value = document.createElement('span');
+    value.className = 'part-volume';
+    value.append(box, ' %');
     const row = document.createElement('div');
     row.className = 'part-row';
     row.append(label, slider, value);
@@ -514,7 +532,7 @@ function showTempo({ bpm, source, index: i }) {
 function updateTempo() {
   const model = current(), bpm = model?.midi?.header.tempos[0]?.bpm;
   const source = model?.midi?.header.tempos.length > 1 ? 'midi' : state.work?.tempo?.length ? 'guide' : 'single';
-  $('tempo-value').textContent = `${playback.percent} %`;
+  if (document.activeElement !== $('tempo-number')) $('tempo-number').value = playback.percent;
   $('tempo-base').textContent = source === 'guide' ? '100 % = tempo guide' : source === 'midi' || !bpm ? '100 % = encoded tempo' : `100 % = ♩ ${Number(bpm.toFixed(2))}`;
   $('guide-disabled').hidden = source !== 'midi';
   document.querySelectorAll('#tempo-sections input, #tempo-sections button').forEach((e) => { e.disabled = source === 'midi'; });
@@ -1041,13 +1059,21 @@ function bindUi() {
   $('next').addEventListener('click', () => { stopFollowing(); showPage(state.page + 1); });
   $('play').addEventListener('click', togglePlayback);
   $('stop').addEventListener('click', () => stopPlayback());
-  $('tempo').addEventListener('input', (e) => {
-    playback.percent = Number(e.target.value);
+  function setGlobalTempo(value) {
+    playback.percent = value;
+    $('tempo').value = $('tempo-number').value = value;
     updateTempo();
     try { localStorage.setItem(PLAYBACK_SETTINGS.tempo, playback.percent); } catch { /* not remembered */ }
+  }
+  $('tempo').addEventListener('input', (e) => setGlobalTempo(Number(e.target.value)));
+  // Applied on Enter, leaving the box or the spin arrows; out-of-range values are clamped.
+  $('tempo-number').addEventListener('change', (e) => {
+    const v = Math.round(Number(e.target.value));
+    setGlobalTempo(e.target.value === '' || !Number.isFinite(v) ? playback.percent : Math.max(25, Math.min(200, v)));
   });
   $('all-parts').addEventListener('click', () => {
-    for (const part of state.work?.parts || []) delete playback.roles[part.role];
+    // Every part on, the figured bass too; levels stay as set.
+    for (const part of state.work?.parts || []) playback.roles[part.role] = true;
     try { localStorage.setItem(PLAYBACK_SETTINGS.parts, JSON.stringify(playback.roles)); } catch { /* not remembered */ }
     renderParts(state.work);
   });

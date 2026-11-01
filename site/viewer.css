@@ -97,16 +97,18 @@ h1, h2 { font-weight: 600; line-height: 1.25; }
 .player { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; min-width: 0; max-width: 100%; font-size: 0.9rem; }
 #player-position { min-width: 7em; font-variant-numeric: tabular-nums; }
 .tempo { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
-.tempo input { width: 100px; max-width: 100%; accent-color: var(--playing); }
-#tempo-value { min-width: 3.5em; }
+.tempo input[type="range"] { width: 100px; max-width: 100%; accent-color: var(--playing); }
+.tempo-number, .part-volume { white-space: nowrap; font-variant-numeric: tabular-nums; }
+#tempo-number, .part-volume input { width: 4.2em; padding: 2px 3px; font: inherit; }
 #tempo-base { color: var(--muted); }
 .parts-menu, .tempo-menu { position: relative; }
 .parts-menu summary, .tempo-menu summary { cursor: pointer; }
-.parts-panel { position: absolute; right: 0; width: min(290px, calc(100vw - 32px)); padding: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 4px 12px #0002; z-index: 3; }
+.parts-panel { position: absolute; right: 0; width: min(350px, calc(100vw - 32px)); padding: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 4px 12px #0002; z-index: 3; }
 #parts-list { display: grid; gap: 5px; margin-bottom: 8px; }
 #parts-list label { min-width: 0; cursor: pointer; }
 #parts-list input { accent-color: var(--playing); }
 .parts-panel p { font-size: 0.8rem; color: var(--muted); margin-bottom: 0; }
+#bass-note { margin: 0 0 8px; }
 @media (max-width: 600px) {
   .parts-panel { position: static; margin-top: 6px; }
 }
@@ -218,9 +220,9 @@ h1, h2 { font-weight: 600; line-height: 1.25; }
 footer { color: var(--muted); font-size: 0.8rem; padding-block: 8px 24px; border-top: 1px solid var(--line); }
 
 .player[hidden] { display: none; }
-.part-row { display: grid; grid-template-columns: minmax(0, 1fr) 85px 3.5em; align-items: center; gap: 6px; }
+.part-row { display: grid; grid-template-columns: minmax(0, 1fr) 85px auto; align-items: center; gap: 6px; }
 .part-row input[type="range"] { width: 100%; min-width: 0; }
-.part-row output { text-align: right; font-variant-numeric: tabular-nums; }
+.part-volume { text-align: right; }
 .tempo-panel { width: min(480px, calc(100vw - 32px)); max-height: min(650px, 65vh); display: flex; flex-direction: column; gap: 8px; }
 .tempo-panel p { margin: 0; flex: none; }
 .tempo-panel .guide-label { color: var(--text); }
