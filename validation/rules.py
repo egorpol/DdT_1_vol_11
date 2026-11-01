@@ -7,7 +7,6 @@ import xml.etree.ElementTree as ET
 from collections import Counter
 from datetime import date
 from pathlib import Path
-from urllib.parse import urlsplit, unquote
 
 MEI = 'http://www.music-encoding.org/ns/mei'
 ID = '{http://www.w3.org/XML/1998/namespace}id'
