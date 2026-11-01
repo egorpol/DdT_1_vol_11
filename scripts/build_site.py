@@ -24,8 +24,14 @@ import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
+try:
+    from .normalize_midi_data import build_parts, REALIZATION_ROLES
+except ImportError:  # Also loaded directly by tests, without a package.
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from normalize_midi_data import build_parts, REALIZATION_ROLES
+
 ROOT = Path(__file__).resolve().parent.parent
-SITE_FILES = ["index.html", "viewer.css", "viewer.js"]
+SITE_FILES = ["index.html", "viewer.css", "viewer.js", "player.js"]
 WORK_LIST = "validation/editorial-works.json"
 EXCERPTS = "supplemental_material/manifest.json"
 MEI = "{http://www.music-encoding.org/ns/mei}"
@@ -43,6 +49,40 @@ PENDING = [
     },
 ]
 ORDER = ["op1", "op2", "app"]
+PART_LABELS = {
+    'violin': 'Violin', 'violin_1': 'Violin I', 'violin_2': 'Violin II',
+    'viola_da_gamba': 'Viola da gamba', 'violone': 'Violone',
+    'figured_continuo_bass': 'Continuo',
+}
+
+
+def work_parts(work: dict) -> list[dict]:
+    """Check the opening MEI instruments against the roles before publishing them."""
+    root = ET.parse(ROOT / work['file']).getroot()
+    opening = root.find(f'.//{MEI}music//{MEI}scoreDef')
+    parents = {child: parent for parent in opening.iter() for child in parent}
+    staves = {s.get('n'): s for s in opening.iter(f'{MEI}staffDef')}
+    parts, _ = build_parts(work['staff_roles'])
+    result = []
+    for part in parts:
+        realization = part['role'] in REALIZATION_ROLES
+        for n in part['staff_ns']:
+            staff = staves[n]
+            owner = parents[staff] if realization else staff
+            instr = owner.find(f'{MEI}instrDef')
+            for attr, expected in (('midi.channel', part['channel']), ('midi.instrnum', part['instrnum'])):
+                value = instr.get(attr) if instr is not None else None
+                if value != str(expected):
+                    raise SystemExit(f"{work['key']}, staff {n}: {attr} is {value!r}, expected {expected}")
+        label_el = staves[part['staff_ns'][0]].find(f'{MEI}label')
+        text = ' '.join(''.join(label_el.itertext()).split()) if label_el is not None else ''
+        text = text.removesuffix('.')
+        result.append({
+            'channel': part['channel'], 'program': part['instrnum'],
+            'role': 'keyboard_realization' if realization else part['role'],
+            'label': 'Realization (Stiehl)' if realization else text or PART_LABELS[part['role']],
+        })
+    return result
 
 
 def short_key(key: str) -> str:
@@ -117,6 +157,7 @@ def build(out: Path) -> dict:
             "mei": target,
             "source": work["file"],
             "report": work["file"].removesuffix(".mei") + "_consistency_report.csv",
+            "parts": work_parts(work),
         })
     works += [w for w in PENDING if w["key"] not in {x["key"] for x in works}]
     for work in works:

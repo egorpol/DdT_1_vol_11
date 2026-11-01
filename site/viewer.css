@@ -9,6 +9,7 @@
   --hover: #2563eb;
   --annot: #7c3aed;
   --noted: #a855f7;
+  --playing: #008477;
   --box: #64748b;
   --warn-bg: #fff4d6;
   --warn-text: #6b4a00;
@@ -23,6 +24,7 @@
     --muted: #a3a29d;
     --line: #3a3b40;
     --accent: #7fb0ec;
+    --playing: #00a894;
     --warn-bg: #3b3218;
     --warn-text: #f2d58a;
     --ok: #4ade80;
@@ -36,6 +38,7 @@
   --muted: #a3a29d;
   --line: #3a3b40;
   --accent: #7fb0ec;
+  --playing: #00a894;
   --warn-bg: #3b3218;
   --warn-text: #f2d58a;
   --ok: #4ade80;
@@ -91,6 +94,22 @@ h1, h2 { font-weight: 600; line-height: 1.25; }
 .settings { display: flex; flex-wrap: wrap; gap: 4px 14px; border: 0; margin: 0; padding: 0; font-size: 0.9rem; }
 .settings label { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
 .settings input { accent-color: var(--annot); margin: 0; }
+.player { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; min-width: 0; max-width: 100%; font-size: 0.9rem; }
+#player-position { min-width: 7em; font-variant-numeric: tabular-nums; }
+.tempo { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.tempo input { width: 100px; max-width: 100%; accent-color: var(--playing); }
+#tempo-value { min-width: 3.5em; }
+#tempo-base { color: var(--muted); }
+.parts-menu { position: relative; }
+.parts-menu summary { cursor: pointer; }
+.parts-panel { position: absolute; right: 0; width: min(290px, calc(100vw - 32px)); padding: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 4px 12px #0002; z-index: 3; }
+#parts-list { display: grid; gap: 5px; margin-bottom: 8px; }
+#parts-list label { cursor: pointer; }
+#parts-list input { accent-color: var(--playing); }
+.parts-panel p { font-size: 0.8rem; color: var(--muted); margin-bottom: 0; }
+@media (max-width: 600px) {
+  .parts-panel { position: static; margin-top: 6px; }
+}
 #status {
   flex: 1 1 18em;
   min-width: 0;
@@ -135,6 +154,8 @@ h1, h2 { font-weight: 600; line-height: 1.25; }
 .score .is-hover, .score .is-hover * { fill: var(--hover); stroke: var(--hover); }
 .score.mark-notes .is-noted, .score.mark-notes .is-noted * { fill: var(--noted); stroke: var(--noted); }
 .score .is-annot, .score .is-annot * { fill: var(--annot) !important; stroke: var(--annot) !important; }
+.score .is-playing, .score .is-playing * { fill: var(--playing) !important; stroke: var(--playing) !important; }
+.score .is-pinned .is-playing, .score .is-pinned .is-playing *, .score .is-pinned.is-playing, .score .is-pinned.is-playing * { fill: var(--active) !important; stroke: var(--active) !important; }
 
 /* Measure boxes: every measure with "Measure boxes", noted measures with "Mark all notes". */
 .score rect.measure-box { fill: none !important; stroke: none !important; pointer-events: none; }
@@ -160,6 +181,7 @@ h1, h2 { font-weight: 600; line-height: 1.25; }
 .show-boxes .zones rect { stroke: rgba(100, 116, 139, 0.75); stroke-width: 1; }
 .mark-notes .zones rect.has-note { fill: rgba(124, 58, 237, 0.08); stroke: rgba(124, 58, 237, 0.85); stroke-width: 2; }
 .zones rect:hover, .zones rect.is-hover { fill: rgba(37, 99, 235, 0.12); stroke: rgba(37, 99, 235, 0.7); stroke-width: 2; }
+.zones rect.is-playing { fill: transparent; stroke: var(--playing); stroke-width: 4; }
 .zones rect.is-pinned { fill: rgba(194, 65, 12, 0.14); stroke: rgba(194, 65, 12, 0.85); stroke-width: 3; }
 .facs-meta, .facs-credit { color: var(--muted); font-size: 0.85rem; margin: 6px 0; }
 .facs-credit { font-size: 0.8rem; }

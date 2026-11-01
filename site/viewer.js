@@ -3,6 +3,10 @@
 // the editorial notes with their source excerpts, and the BSB facsimile page
 // from its IIIF server with the measure zones from the MEI. Ported from the
 // webern_op27 viewer; works.json is written by scripts/build_site.py.
+// Playback check contract on #player: data-state (idle/loading/playing/paused/error),
+// data-position (quarter notes from Transport.ticks), data-bpm, data-muted
+// (JSON channel array derived from saved roles), data-midi-renders (this visit),
+// data-measure (notated @n), data-follow, and data-work (loaded work id).
 
 const VEROVIO_URL = 'https://cdn.jsdelivr.net/npm/verovio@6.3.0/dist/verovio-toolkit-wasm.js';
 const VEROVIO_SRI = 'sha384-7oICD/hf52uWdE8X0lMFqe7iIspaUj3aQjeZUnBQZpxjrZcHtqlRd3C78cje2e19';
@@ -202,7 +206,18 @@ async function showWork(id) {
   // A new request, even for the work on show, outdates a load still running.
   const token = ++workToken;
   $('work').value = id;
-  if (state.work?.id === id) return;
+  if (state.work?.id === id) {
+    // Returning to the displayed work also cancels an intervening work load.
+    if (playback.loadingWork) {
+      playback.loadingWork = false;
+      playerState('idle');
+      showPage(state.page);
+    }
+    return;
+  }
+  stopPlayback(true);
+  playback.loadingWork = true;
+  playerState('idle');
   const work = index.works.find((w) => w.id === id);
   if (!work.mei) {
     Object.assign(state, { work, model: null, page: 1, pinned: null, annot: null });
@@ -212,6 +227,9 @@ async function showWork(id) {
     $('page-label').textContent = '–';
     $('prev').disabled = true;
     $('next').disabled = true;
+    renderParts(work);
+    playback.loadingWork = false;
+    playerState('idle');
     renderFacsimile();
     return;
   }
@@ -221,6 +239,11 @@ async function showWork(id) {
   if (!toolkit.loadData(model.text)) throw new Error(`Verovio could not load ${work.label}.`);
   model.pageCount = toolkit.getPageCount();
   Object.assign(state, { work, model, pinned: null, annot: null });
+  playback.loadingWork = false;
+  Object.assign($('player').dataset, { work: work.id });
+  renderParts(work);
+  updateTempo();
+  playerState('idle');
   showWorkInfo(work, model);
   renderNotes(model);
   showPage(1);
@@ -239,6 +262,7 @@ function showPage(page) {
   $('prev').disabled = page <= 1;
   $('next').disabled = page >= model.pageCount;
   applyHighlights();
+  applyPlaying();
   renderFacsimile();
 }
 
@@ -322,6 +346,7 @@ function pin(measureId, { hash = true } = {}) {
   const model = current();
   const measure = model.measures.get(measureId);
   if (!measure) return;
+  stopFollowing();
   state.pinned = measureId;
   if (hash) history.replaceState(null, '', `#${model.work.id}/${measure.n}`);
   if (measure.page !== state.page) showPage(measure.page);
@@ -356,6 +381,248 @@ function inspect(target) {
   const measure = model.measures.get(info.measure);
   hover(id, info.measure);
   setStatus(measure ? `Measure ${measure.n}, ${info.name}` : info.name, id);
+}
+
+// ---------------------------------------------------------------- playback
+const SOUNDFONT_ROOT = 'https://cdn.jsdelivr.net/gh/gleitz/midi-js-soundfonts@044fab8e1456bfafc5776e86dfd6bb8697149aef/FluidR3_GM/';
+const SAMPLE_FILES = {
+  40: { url: `${SOUNDFONT_ROOT}violin-mp3.js`, integrity: 'sha384-HyplkbAwAFLDlT6JMUuvjLlS55QiD6H8Cx3A/KrGeJSUGQv62GCS5w7ML+bxsZkB' },
+  42: { url: `${SOUNDFONT_ROOT}cello-mp3.js`, integrity: 'sha384-s/2S7jd5HFpdYzig+9zoDGj/JG4Beh0iT/QCHsp5MpTJqZTyd6dkDb4/Se1QmaRh' },
+  43: { url: `${SOUNDFONT_ROOT}contrabass-mp3.js`, integrity: 'sha384-FH2/7J+D4GP4PFf//V3xIswsrDkclg1glB2nz9p4p37kXcXj7gL+6Hdvmrkl/8+J' },
+  6: { url: `${SOUNDFONT_ROOT}harpsichord-mp3.js`, integrity: 'sha384-veZb4kehrh8qKJzOhM1Lv+MqBFb4SDXpSyWrnlNzeNwmz8RS8RI9iG8ysX221GgO' },
+};
+const PLAYBACK_SETTINGS = { tempo: 'ddt-viewer-tempo', parts: 'ddt-viewer-parts' };
+const playback = {
+  engine: null, ready: null, context: null, token: 0, state: 'idle', loadingWork: true,
+  percent: 100, roles: {}, renders: 0, q: 0, start: null, pinAtPlay: null,
+  follow: false, active: new Set(), event: 0, measure: null,
+};
+
+function readPlaybackSettings() {
+  try {
+    const percent = Number(localStorage.getItem(PLAYBACK_SETTINGS.tempo));
+    if (percent >= 25 && percent <= 200) playback.percent = percent;
+    const roles = JSON.parse(localStorage.getItem(PLAYBACK_SETTINGS.parts) || '{}');
+    if (roles && typeof roles === 'object' && !Array.isArray(roles)) playback.roles = roles;
+  } catch { /* storage blocked: defaults */ }
+  $('tempo').value = playback.percent;
+  updateTempo();
+}
+
+function mutedChannels() {
+  return (state.work?.parts || []).filter((p) => playback.roles[p.role] === false).map((p) => p.channel);
+}
+
+function updateMute() {
+  const channels = mutedChannels();
+  $('player').dataset.muted = JSON.stringify(channels);
+  playback.engine?.setMuted(channels);
+}
+
+function renderParts(work) {
+  $('parts-list').replaceChildren(...(work?.parts || []).map((part) => {
+    const label = document.createElement('label');
+    const input = document.createElement('input');
+    Object.assign(input, { type: 'checkbox', checked: playback.roles[part.role] !== false });
+    input.dataset.role = part.role;
+    input.addEventListener('change', () => {
+      playback.roles[part.role] = input.checked;
+      try { localStorage.setItem(PLAYBACK_SETTINGS.parts, JSON.stringify(playback.roles)); } catch { /* not remembered */ }
+      updateMute();
+    });
+    label.append(input, ` ${part.label}`);
+    return label;
+  }));
+  updateMute();
+}
+
+function updateTempo() {
+  const bpm = current()?.midi?.header.tempos[0]?.bpm;
+  $('tempo-value').textContent = `${playback.percent} %`;
+  $('tempo-base').textContent = bpm ? `100 % = ♩ ${Number(bpm.toFixed(2))}` : '100 % = encoded tempo';
+  $('player').dataset.bpm = bpm ? bpm * playback.percent / 100 : '';
+  playback.engine?.setTempo(playback.percent);
+}
+
+function playerState(value) {
+  playback.state = value;
+  $('player').dataset.state = value;
+  $('play').textContent = value === 'loading' ? 'Loading…' : value === 'playing' ? 'Pause' : 'Play';
+  $('play').disabled = playback.loadingWork || !current() || value === 'loading';
+  $('stop').disabled = playback.loadingWork || !current() || value === 'idle';
+}
+
+function stopFollowing() {
+  playback.follow = false;
+  $('player').dataset.follow = 'false';
+}
+
+function clearPlaying() {
+  for (const root of [$('score'), $('zones')]) {
+    root.querySelectorAll('.is-playing').forEach((n) => n.classList.remove('is-playing'));
+  }
+}
+
+function applyPlaying() {
+  clearPlaying();
+  if (playback.state !== 'playing') return;
+  const model = current();
+  for (const raw of playback.active) {
+    const id = model.playingIds.get(raw);
+    if (id) svgNodes(id).forEach((n) => n.classList.add('is-playing'));
+  }
+  for (const rect of $('zones').children) rect.classList.toggle('is-playing', rect.dataset.measure === playback.measure);
+}
+
+function showPosition(q, measureId = playback.measure) {
+  playback.q = q;
+  playback.measure = measureId;
+  const measure = current()?.measures.get(measureId);
+  Object.assign($('player').dataset, { position: q, measure: measure?.n || '' });
+  const text = measure ? `m. ${measure.n} / ${current().measures.size}` : '–';
+  if ($('player-position').textContent !== text) $('player-position').textContent = text;
+}
+
+function advanceCursor(q) {
+  const model = current();
+  if (!model?.playbackMap) return;
+  let changed = false;
+  while (playback.event < model.playbackMap.length && model.playbackMap[playback.event].qstamp <= q + 1 / model.midi.header.ppq + 1e-9) {
+    const event = model.playbackMap[playback.event++];
+    for (const id of event.off) playback.active.delete(id);
+    for (const id of event.on) playback.active.add(id);
+    if (event.measure) playback.measure = event.measure;
+    changed = true;
+  }
+  showPosition(q);
+  const measure = model.measures.get(playback.measure);
+  if (playback.follow && measure && measure.page !== state.page) showPage(measure.page);
+  else if (changed) applyPlaying();
+}
+
+function resetCursor(q, measure) {
+  clearPlaying();
+  playback.active.clear();
+  playback.event = 0;
+  playback.measure = measure;
+  advanceCursor(q);
+}
+
+function stopPlayback(workSwitch = false) {
+  ++playback.token; // Pending imports/sample loads may finish, but cannot start.
+  const start = !workSwitch && playback.start;
+  playback.engine?.stop(start?.q || 0);
+  stopFollowing();
+  playerState('idle');
+  clearPlaying();
+  playback.active.clear();
+  if (workSwitch) {
+    playback.start = null;
+    playback.pinAtPlay = null;
+  }
+  showPosition(start?.q || 0, start?.id || null);
+  const measure = current()?.measures.get(start?.id);
+  if (measure && measure.page !== state.page) showPage(measure.page);
+  if (workSwitch) setStatus(STATUS_HINT);
+  else if (measure) setStatus(`Stopped at m. ${measure.n}`);
+}
+
+async function getPlayer() {
+  if (!playback.ready) {
+    playback.ready = import('./player.js').then(({ createPlayer }) => createPlayer({
+      context: playback.context, samples: SAMPLE_FILES,
+      onPosition: advanceCursor, onEnd: () => stopPlayback(),
+    })).then((engine) => { playback.engine = engine; return engine; }).catch((error) => {
+      playback.ready = null;
+      throw error;
+    });
+  }
+  return playback.ready;
+}
+
+function cachePlayback(model, engine) {
+  if (model.midi && model.timemap) return;
+  // This toolkit still holds model.text: work/token checked immediately before this call.
+  model.midi = engine.parseMidi(toolkit.renderToMIDI());
+  ++playback.renders;
+  $('player').dataset.midiRenders = playback.renders;
+  model.timemap = toolkit.renderToTimemap().sort((a, b) => a.qstamp - b.qstamp);
+  model.playingIds = new Map();
+  function notated(id) {
+    if (!id) return null;
+    if (model.playingIds.has(id)) return model.playingIds.get(id);
+    const stripped = id.replace(/-rend\d+$/, '');
+    const mapped = model.ids.has(id) ? id : model.ids.has(stripped) ? stripped : toolkit.getNotatedIdForElement(id);
+    const result = model.ids.has(mapped) ? mapped : null;
+    model.playingIds.set(id, result);
+    return result;
+  }
+  model.playbackMap = model.timemap.map((event) => {
+    const on = (event.on || []).filter((id) => notated(id));
+    const off = (event.off || []).filter((id) => notated(id));
+    return { qstamp: event.qstamp, on, off, measure: model.ids.get(notated(on[0] || ''))?.measure };
+  });
+  model.measureQ = new Map();
+  for (const measure of model.measures.values()) {
+    const ms = toolkit.getTimeForElement(measure.id);
+    // Find by the measured millisecond time; never key or equate qstamp floats.
+    let low = 0, high = model.timemap.length;
+    while (low < high) {
+      const mid = (low + high) >>> 1;
+      if (model.timemap[mid].tstamp < ms) low = mid + 1;
+      else high = mid;
+    }
+    let i = Math.min(low, model.timemap.length - 1);
+    if (i > 0 && Math.abs(model.timemap[i - 1].tstamp - ms) < Math.abs(model.timemap[i].tstamp - ms)) --i;
+    model.measureQ.set(measure.id, model.timemap[i].qstamp);
+    model.playbackMap[i].measure = measure.id;
+  }
+}
+
+async function togglePlayback() {
+  if (!current() || playback.loadingWork || playback.state === 'loading') return;
+  const newPin = state.pinned && state.pinned !== playback.pinAtPlay;
+  if (playback.state === 'playing' && !newPin) {
+    showPosition(playback.engine.pause());
+    playerState('paused');
+    clearPlaying();
+    setStatus(`Paused at m. ${current().measures.get(playback.measure)?.n}`);
+    return;
+  }
+  const model = current(), token = ++playback.token;
+  const resume = playback.state === 'paused' && !newPin;
+  // Before the first await: preserve the native user gesture on Safari as well.
+  try {
+    playback.context ||= new (window.AudioContext || window.webkitAudioContext)();
+    const resumed = playback.context.resume();
+    playback.engine?.stop();
+    playerState('loading');
+    clearPlaying();
+    const [engine] = await Promise.all([getPlayer(), resumed]);
+    if (token !== playback.token || model !== current()) return;
+    cachePlayback(model, engine);
+    updateTempo();
+    const prepared = await engine.prepare(model.midi, model.work.parts);
+    if (token !== playback.token || model !== current()) return;
+    const id = state.pinned || [...model.measures.values()].find((m) => m.page === state.page)?.id || model.measures.keys().next().value;
+    const q = resume ? playback.q : model.measureQ.get(id) || 0;
+    if (!resume) playback.start = { id, q };
+    playback.pinAtPlay = state.pinned;
+    playback.follow = true;
+    $('player').dataset.follow = 'true';
+    playerState('playing');
+    resetCursor(q, resume ? playback.measure : id);
+    engine.setMuted(mutedChannels());
+    engine.play(prepared, q, playback.percent);
+    setStatus(`Playing from m. ${model.measures.get(playback.measure)?.n}`);
+  } catch (error) {
+    if (token !== playback.token || model !== current()) return;
+    playback.engine?.stop();
+    clearPlaying();
+    playerState('error');
+    const reason = /[.!?]$/.test(error.message) ? error.message : `${error.message}.`;
+    setStatus(`Playback could not start: ${reason} Press Play to retry.`);
+  }
 }
 
 // ---------------------------------------------------------------- notes
@@ -507,6 +774,7 @@ function drawZones(model, surface) {
       if (model.noted.has(z.measure)) rect.classList.add('has-note');
       return rect;
     }));
+  applyPlaying();
 }
 
 function renderFacsimile() {
@@ -617,14 +885,30 @@ function changeSetting(name, value) {
 
 function bindUi() {
   $('work').addEventListener('change', (e) => { location.hash = `#${e.target.value}`; });
-  $('prev').addEventListener('click', () => showPage(state.page - 1));
-  $('next').addEventListener('click', () => showPage(state.page + 1));
+  $('prev').addEventListener('click', () => { stopFollowing(); showPage(state.page - 1); });
+  $('next').addEventListener('click', () => { stopFollowing(); showPage(state.page + 1); });
+  $('play').addEventListener('click', togglePlayback);
+  $('stop').addEventListener('click', () => stopPlayback());
+  $('tempo').addEventListener('input', (e) => {
+    playback.percent = Number(e.target.value);
+    updateTempo();
+    try { localStorage.setItem(PLAYBACK_SETTINGS.tempo, playback.percent); } catch { /* not remembered */ }
+  });
+  $('all-parts').addEventListener('click', () => {
+    for (const part of state.work?.parts || []) delete playback.roles[part.role];
+    try { localStorage.setItem(PLAYBACK_SETTINGS.parts, JSON.stringify(playback.roles)); } catch { /* not remembered */ }
+    renderParts(state.work);
+  });
   $('mark-notes').addEventListener('change', (e) => changeSetting('markNotes', e.target.checked));
   $('measure-boxes').addEventListener('change', (e) => changeSetting('measureBoxes', e.target.checked));
   document.addEventListener('keydown', (e) => {
-    if (!current() || e.altKey || e.ctrlKey || e.metaKey || e.target.closest('input, select, textarea')) return;
-    if (e.key === 'ArrowLeft') showPage(state.page - 1);
-    if (e.key === 'ArrowRight') showPage(state.page + 1);
+    if (!current() || e.altKey || e.ctrlKey || e.metaKey || e.target.closest('input, select, textarea, [contenteditable]')) return;
+    if (e.code === 'Space' && !e.target.closest('button, summary')) { e.preventDefault(); togglePlayback(); }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      stopFollowing();
+      showPage(state.page + (e.key === 'ArrowLeft' ? -1 : 1));
+    }
   });
   window.addEventListener('hashchange', () => applyHash().catch((e) => scoreMessage(e.message)));
 
@@ -632,6 +916,7 @@ function bindUi() {
   score.addEventListener('mouseover', (e) => inspect(e.target));
   score.addEventListener('mouseleave', () => hover(null));
   score.addEventListener('click', (e) => {
+    stopFollowing();
     const marker = e.target.closest('.excerpt-marker');
     if (marker) { openExcerpt(marker.dataset.excerpt); return; }
     const id = current() && sourceElement(e.target);
@@ -655,7 +940,10 @@ function bindUi() {
     setStatus(`Measure ${measure.n}, zone`, measure.zone);
   });
   zones.addEventListener('mouseleave', () => hover(null));
-  zones.addEventListener('click', (e) => { if (e.target.dataset?.measure) pin(e.target.dataset.measure); });
+  zones.addEventListener('click', (e) => {
+    stopFollowing();
+    if (e.target.dataset?.measure) pin(e.target.dataset.measure);
+  });
 
   let lastWidth = 0;
   new ResizeObserver(([entry]) => {
@@ -666,6 +954,7 @@ function bindUi() {
 
 async function main() {
   readSettings();
+  readPlaybackSettings();
   bindUi();
   applySettings();
   try {

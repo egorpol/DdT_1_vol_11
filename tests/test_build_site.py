@@ -40,7 +40,7 @@ def test_site_index_lists_every_work_and_copies_the_listed_files(tmp_path):
         if 'mei' in work:
             assert digest(out / work['mei']) == digest(ROOT / work['source'])
             assert (ROOT / work['report']).is_file()
-    for name in ('index.html', 'viewer.css', 'viewer.js'):
+    for name in ('index.html', 'viewer.css', 'viewer.js', 'player.js'):
         assert (out / name).read_bytes() == (ROOT / 'site' / name).read_bytes()
     manifest = json.loads((out / 'supplemental_material/manifest.json').read_text(encoding='utf-8'))
     assert manifest['items']
@@ -77,3 +77,48 @@ def test_a_pending_entry_drops_out_once_its_work_is_listed(tmp_path, monkeypatch
     works = m.build(tmp_path / '_site')['works']
     assert [w['id'] for w in works].count('op1_01') == 1
     assert 'mei' in next(w for w in works if w['id'] == 'op1_01')
+
+
+def test_parts_match_the_mei_programs_roles_and_labels(tmp_path):
+    m = module()
+    from normalize_midi_data import ROLE_PROGRAM
+    works = [w for w in m.build(tmp_path / '_site')['works'] if 'mei' in w]
+    assert sum(len(w['parts']) for w in works) == 69
+    for work in works:
+        parts = work['parts']
+        opening = m.ET.parse(ROOT / work['source']).getroot().find(f'.//{m.MEI}music//{m.MEI}scoreDef')
+        encoded = {int(i.get('midi.channel')): int(i.get('midi.instrnum')) for i in opening.iter(f'{m.MEI}instrDef')}
+        assert [p['channel'] for p in parts] == sorted(encoded)
+        assert len({p['channel'] for p in parts}) == len(parts)
+        assert {p['channel']: p['program'] for p in parts} == encoded
+        realization = [p for p in parts if p['role'] == 'keyboard_realization']
+        assert len(realization) == 1
+        assert realization[0]['label'] == 'Realization (Stiehl)'
+        for part in parts:
+            role = 'keyboard_realization_upper' if part['role'] == 'keyboard_realization' else part['role']
+            assert part['program'] == ROLE_PROGRAM[role][0]
+            assert part['label'] and not part['label'].endswith('.')
+    labels = {w['id']: [p['label'] for p in w['parts']] for w in works}
+    assert labels['op1_02'] == ['Violin', 'Viola da gamba', 'Continuo', 'Realization (Stiehl)']
+    assert labels['app_01'] == ['Violino', 'Viola da gamba', 'Continuo', 'Realization (Stiehl)']
+    assert labels['app_02'] == ['Violino I', 'Violino II', 'Viola di gamba', 'Continuo', 'Realization (Stiehl)']
+    assert labels['app_03'] == ['Viola da Gamba', 'Violone', 'Continuo', 'Realization (Stiehl)']
+    assert labels['op2_05'] == ['Violino', 'Viola da gamba', 'Cembalo', 'Realization (Stiehl)']
+    assert labels['op1_03'][1] == 'Viola da gramba'
+
+
+def test_build_rejects_a_disagreeing_mei_channel(tmp_path, monkeypatch):
+    m = module()
+    work = json.loads((ROOT / m.WORK_LIST).read_text(encoding='utf-8'))['works'][0]
+    parse = m.ET.parse
+
+    def changed_parse(path):
+        tree = parse(path)
+        if Path(path) == ROOT / work['file']:
+            instr = next(tree.getroot().iter(f'{m.MEI}instrDef'))
+            instr.set('midi.channel', '15')
+        return tree
+
+    monkeypatch.setattr(m.ET, 'parse', changed_parse)
+    with pytest.raises(SystemExit, match=rf"{work['key']}, staff 1: midi.channel"):
+        m.build(tmp_path / '_site')

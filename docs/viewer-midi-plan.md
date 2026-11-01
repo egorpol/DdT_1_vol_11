@@ -117,10 +117,12 @@ the cut notes matter (section 6).
 2. The notes are scheduled on Tone's Transport in ticks, so a tempo change sets `Transport.bpm` (100 % =
    the encoded tempo, else Verovio's 120) during playback and audio and highlighting rescale together,
    with no MIDI re-render. The position is kept in quarter notes: `Transport.ticks` / PPQ against the
-   time map's `qstamp`, one clock for sound and highlighting (Cursor's drift risk). To check in step 1:
-   ticks / PPQ equals `qstamp` for every time-map event of the 17 works, App. I with its `<expansion>`
-   included. Fallback if not: `midiTempoAdjustment` and a re-render (≤ 0.4 s), resuming at the same
-   `qstamp`.
+   time map's `qstamp`, one clock for sound and highlighting (Cursor's drift risk). Checked 2026-11-01
+   (@tonejs/midi on the viewer's Verovio output in headless Chromium; Verovio writes PPQ 120 and one
+   tempo event, ♩ = 120 at tick 0, in all 17 works): every note's ticks / PPQ is a time-map `qstamp` in
+   16 works, App. I with its `<expansion>` included; in Op. I/6, 51 notes start less than one tick before
+   theirs (tick 31239 = 260.325 against 260.333). The player therefore matches with a tolerance of one
+   tick and needs no `midiTempoAdjustment` fallback.
 3. A work switch, or `loadData` of another work, stops playback first; the toolkit holds one document.
 
 ### 4.2 Highlighting and page follow
@@ -129,8 +131,12 @@ the cut notes matter (section 6).
   PPQ) and steps an index through the cached time map sorted by `qstamp`, never by `tstamp`, whose
   milliseconds hold only at 100 %: `on` ids get the class `is-playing`, `off` ids lose it. No toolkit call
   per frame (`getElementsAtTime` costs ~0.7 ms; at 60 frames per second that would be avoidable work).
-- App. I plays from its `<expansion>`: check that the time map's `on` ids of the second pass are the
-  original note ids (or map them back), or the repeated strains will not light up.
+- App. I plays from its `<expansion>`, and the time map names the second pass's notes by copies
+  (2,441 of its 4,882 `on` ids, such as `xtb3m2h-rend2`). Each maps back to its notated id: the id
+  itself if the MEI has it, else the id without its `-rend<n>` suffix, else `getNotatedIdForElement`.
+  Checked 2026-11-01 against the MIDI pitches at each `qstamp`: 594 of the 599 second-pass events match
+  (the other 5 are ties across the repeat); `getNotatedIdForElement` alone matches 537, and for 43 ids
+  it returns an id that is in neither the MEI nor the SVG.
 - Fragments drawn after a system break carry the class `id-<xml:id>`; the existing `svgNodes(id)`
   already finds both, so a tied note continued on the next system lights up in both places.
 - Page follow: the viewer's model maps each note to its measure and each measure to its page
@@ -162,8 +168,8 @@ Data for the part switches: `scripts/build_site.py` adds per work a `parts` list
 (`channel`, `label`, `role`), read from the MEI `<instrDef midi.channel>` and the staff roles in
 `validation/editorial-works.json`; labels follow one rule: the MEI `<label>` if it is not empty,
 else a name from the role (violin "Violin", viola_da_gamba "Viola da gamba", violone "Violone",
-figured_continuo_bass "Continuo"); five ordinary staves have no label (Op. I/2 staves 1–3, the
-continuo of App. I and App. III). The realization is always one part named "Realization (Stiehl)" for
+figured_continuo_bass "Continuo"), with a final full stop dropped ("Violino." → "Violino"); five
+ordinary staves have no label (Op. I/2 staves 1–3, the continuo of App. I and App. III). The realization is always one part named "Realization (Stiehl)" for
 its two staves, in all 17 works. Reuse `build_parts` in `scripts/normalize_midi_data.py`, which already
 makes one part per staff, with its channel, and merges the two realization staves into one. Muting acts on the part's MIDI channel; the remembered state is keyed
 by role.
@@ -182,9 +188,11 @@ README line follows in step 2.
 
 Loading with SRI: Tone.js and @tonejs/midi as classic UMD scripts with `integrity`, as Verovio is loaded
 now; smplr's module (no imports) fetched with `fetch(url, {integrity})` and imported from a Blob URL;
-each sample file fetched the same way and handed to smplr as a Blob URL in `instrumentUrl` (to check in
-step 1 that smplr accepts one). An integrity failure stops the player with a message in the status
-line.
+each sample file loaded through smplr's `storage` option, whose `fetch(url)` adds that file's
+`integrity`. Tone and smplr share one native `AudioContext` (`Tone.setContext(ctx)`). Checked
+2026-11-01 in headless Chromium: the violin file loads in 136 ms that way and a wrong hash is
+rejected; a Blob URL in `instrumentUrl` loads too (160 ms). An integrity failure stops the player with
+a message in the status line.
 
 ## 5. Build, tests and checks
 
@@ -212,6 +220,10 @@ line.
 - General MIDI samples, not period instruments; no ornaments beyond what the MEI encodes as notes.
 - Each sample note lasts 3.13 s, so a longer violin, gamba or violone note stops short: 5 of the 48,066
   such notes at 100 % tempo, 36 at 75 %, 192 at 50 % (measured 2026-11-01).
+- Play from a measure, or after Pause, starts every note held across the start point again from its
+  attack: smplr 1.1.0 has no per-note sample offset. 696 of 3,568 measure starts (19.5 %) have such a
+  note (Verovio MIDI, ties merged; measured 2026-11-01). A restarted harpsichord note also restarts its
+  decay. Kept by the editor 2026-11-01 over dropping held notes (Codex and Cursor agreed).
 
 ## 7. Decisions
 
