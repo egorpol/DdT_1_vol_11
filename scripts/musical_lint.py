@@ -9,10 +9,10 @@ outside generous role ranges, isolated octave leaps, same-letter notes with
 different accidentals struck together in different voices, figure accidentals
 that no sounding note honours, figures over silence or with doubtful text,
 tstamps past the barline, ties between different pitches, notes without pitch,
-gestural accidentals that neither the key, an earlier written accidental nor a
-tie implies, and event IDs present in the baseline tag but missing now. Known idioms are
-left out: octave returns, figures over a held bass, clashes between a held
-and a moving note.
+gestural accidentals that differ from the regeneration rule (CAMAT on the
+written notation with every accid.ges stripped), and event IDs present in the
+baseline tag but missing now. Known idioms are left out: octave returns,
+figures over a held bass, clashes between a held and a moving note.
 """
 from __future__ import annotations
 
@@ -31,6 +31,9 @@ from pathlib import Path
 from camat.verovio_backend import _extract_mei_note_effective_alters
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
+from regenerate_accid_ges import check_work, format_expected, format_locations
+
 MEI = '{http://www.music-encoding.org/ns/mei}'
 ID = '{http://www.w3.org/XML/1998/namespace}id'
 STEPS = {'c': 0, 'd': 2, 'e': 4, 'f': 5, 'g': 7, 'a': 9, 'b': 11}
@@ -43,7 +46,6 @@ RANGES = {'violin': (55, 88), 'violin_1': (55, 88), 'violin_2': (55, 88),
           'keyboard_realization_upper': (45, 88), 'keyboard_realization_lower': (31, 72)}
 CONTROL = {'harm', 'dir', 'dynam', 'tempo', 'fermata', 'trill', 'mordent', 'turn', 'hairpin', 'slur', 'tie', 'arpeg'}
 FIGURE_ACCIDENTALS = {'♯': 1, '#': 1, '♭': -1, 'b': -1, '♮': 0}
-ACCIDENTALS = {'s': 1, 'f': -1, 'n': 0, 'ss': 2, 'x': 2, 'ff': -2}
 ALTER_NAMES = {-2: 'double flat', -1: 'flat', 0: 'natural', 1: 'sharp', 2: 'double sharp'}
 # Semitones of the major or perfect interval per figure; ♯/♭ on a perfect one mean augmented/diminished.
 MAJOR = {2: 2, 3: 4, 4: 5, 5: 7, 6: 9, 7: 11, 8: 12, 9: 14}
@@ -152,12 +154,6 @@ def spelled(note):
     return note['pname'].upper() + {-2: 'bb', -1: 'b', 0: '', 1: '#', 2: 'x'}.get(note['alter'], '?') + str(note['oct'])
 
 
-def accidental_of(note, attribute):
-    """A note's @accid or @accid.ges, on the note itself or on its <accid> child."""
-    child = note.find(MEI + 'accid')
-    return note.get(attribute) or (child.get(attribute) if child is not None else None)
-
-
 def lint(work):
     rows = []
     measure_info = {m.get(ID): (m, count, unit, keys, page) for m, count, unit, keys, page in work.measures}
@@ -206,30 +202,25 @@ def lint(work):
                 f'struck together at beat {float(onset * unit / 4 + 1):g}: '
                 + ', '.join(f'{spelled(n)} (staff {n["staff"]})' for n in members))
 
-    # A gestural accidental should restate what the key, a written accidental earlier in the bar
-    # (same staff and octave) or an incoming tie already gives; anything else changes the pitch unseen.
-    tied_from = {tie.get('endid', '').removeprefix('#'): tie.get('startid', '').removeprefix('#')
-                 for tie in work.root.iter(MEI + 'tie')}
-    open_ties = {}  # (staff, pname, oct) -> alter of the last note with @tie="i" or "m"
-    for key, notes in by_measure.items():
-        measure, _, _, keys, _ = measure_info[key]
-        carried = {}
-        for note in notes:
-            place = (note['staff'], note['pname'], note['oct'])
-            written, gestural = accidental_of(note['el'], 'accid'), accidental_of(note['el'], 'accid.ges')
-            if written in ACCIDENTALS:
-                carried[place] = ACCIDENTALS[written]
-            implied = {carried.get(place, keys.get(note['staff'], {}).get(note['pname'], 0))}
-            if note['el'].get('tie') in {'m', 't'} and place in open_ties:
-                implied.add(open_ties[place])
-            if tied_from.get(note['id']) in by_id:
-                implied.add(by_id[tied_from[note['id']]]['alter'])
-            if note['el'].get('tie') in {'i', 'm'}:
-                open_ties[place] = note['alter']
-            if gestural and ACCIDENTALS.get(gestural) not in implied:
-                add('accid_ges_mismatch', measure, note['staff'], [note['id']],
-                    f'{spelled(note)} from accid.ges={gestural!r}; key, written accidentals and ties give '
-                    + ' or '.join(ALTER_NAMES.get(a, '?') for a in sorted(implied)))
+    # @accid.ges must match scripts/regenerate_accid_ges.py exactly (one shared rule).
+    # Notes CAMAT leaves unresolved are not reported here; missing_pitch covers notes without pitch.
+    # Staff comes from the lint's own note record, which honours a cross-staff chord's @staff.
+    measure_of = {n.get(ID): m for m, *_ in work.measures for n in m.iter(MEI + 'note')}
+    diffs, _ = check_work({'key': work.key, 'file': str(ROOT / work.file)})
+    for decision in diffs:
+        note = by_id.get(decision['id'])
+        if note is not None:
+            measure, staff, pitch = note['measure'], note['staff'], spelled(note)
+        else:
+            measure, staff, pitch = measure_of[decision['id']], decision['staff'], decision['id']
+        current, target = format_locations(decision['locations']), format_expected(decision['keep'], decision['add'])
+        if decision['alter_full'] != decision['alter_bare']:
+            detail = (f'{pitch} sounds {ALTER_NAMES.get(decision["alter_full"], "?")}; '
+                      f'the written notation gives {ALTER_NAMES.get(decision["alter_bare"], "?")}: '
+                      f'current={current} target={target}')
+        else:
+            detail = f'{pitch}: current={current} target={target}'
+        add('accid_ges_mismatch', measure, staff, [decision['id']], detail)
 
     for staff, role in work.roles.items():
         low, high = RANGES.get(role, (0, 127))
@@ -329,7 +320,8 @@ def main():
     parser.add_argument('--manifest', default='validation/editorial-works.json')
     parser.add_argument('--baseline-tag', default='v0.9.0')
     parser.add_argument('--work', action='append', help='limit to work keys')
-    parser.add_argument('--out', default='validation/runs/musical-lint/suspects.csv')
+    parser.add_argument('--out', default='validation/runs/musical-lint/suspects.csv',
+                        help='CSV path (relative paths resolve against the repository root)')
     args = parser.parse_args()
     events = set(json.loads((ROOT / 'validation/profile.json').read_text())['event_elements'])
     rows = []
@@ -338,7 +330,9 @@ def main():
             continue
         work = Work(entry)
         rows += lint(work) + id_churn(work, args.baseline_tag, events)
-    out = ROOT / args.out
+    out = Path(args.out)
+    if not out.is_absolute():
+        out = ROOT / out
     out.parent.mkdir(parents=True, exist_ok=True)
     with out.open('w', newline='') as handle:
         writer = csv.DictWriter(handle, fieldnames=['work', 'page', 'measure', 'zone', 'staff', 'role', 'check', 'xml_ids', 'detail'])
@@ -346,7 +340,11 @@ def main():
         writer.writerows(rows)
     for (check,), number in sorted(Counter((r['check'],) for r in rows).items()):
         print(f'{number:6d}  {check}')
-    print(f'{len(rows)} suspects -> {out.relative_to(ROOT)}')
+    try:
+        shown = out.relative_to(ROOT)
+    except ValueError:
+        shown = out
+    print(f'{len(rows)} suspects -> {shown}')
 
 
 if __name__ == '__main__':
