@@ -1059,7 +1059,7 @@ function excerptFigure(item) {
   caption.append(
     `${item.caption} `,
     document.createElement('br'),
-    `${rights.intended_use || 'Image quotation'}${rights.jurisdiction_basis ? ` (${rights.jurisdiction_basis})` : ''}; not covered by the MIT License. `,
+    `${rights.intended_use || 'Image quotation'}${rights.jurisdiction_basis ? ` (${rights.jurisdiction_basis})` : ''}; not covered by the edition's licenses. `,
     link('Rights note', EXCERPT_RIGHTS),
   );
   figure.append(full, caption);

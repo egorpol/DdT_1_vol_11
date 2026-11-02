@@ -18,7 +18,8 @@ may correspond to more than one measure in DdT. This is a proposed
 basis for this use, not a conclusion that small images are automatically exempt
 from rights or that every use in every jurisdiction is covered.
 
-The repository's MIT license covers its MEI data, not these source images. No
+The repository's licenses (CC BY 4.0 for the encodings and documentation, MIT
+for the code; see [LICENSE.md](../LICENSE.md)) do not cover these source images. No
 standalone image license or general permission to redistribute the STIMU books
 or supplied scan collection is granted here. Their scan-supply terms remain
 unconfirmed; any applicable contractual terms require separate consideration.

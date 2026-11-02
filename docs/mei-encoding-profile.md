@@ -67,7 +67,7 @@ The MEI data, BSB facsimile, and Uppsala scans are separate resources and requir
 - Record the repository's MEI-data license in `pubStmt/availability`.
 - Record the facsimile provider and image-use terms inside the bibliographic source description.
 - Retain the BSB URN, local identifiers, holding institution, shelfmark, digital record, IIIF manifest, and printed page range.
-- Describe and cite the Uppsala witnesses even while their scans remain unpublished. As of this policy update, CAMAT holds scans of both opus prints, but their public redistribution terms have not been confirmed with the library. Do not apply the repository's MIT license or the BSB image license to these scans by inheritance.
+- Describe and cite the Uppsala witnesses even while their scans remain unpublished. As of this policy update, CAMAT holds scans of both opus prints, but their public redistribution terms have not been confirmed with the library. Do not apply the repository's licenses (CC BY 4.0 for the encodings, MIT for the code) or the BSB image license to these scans by inheritance.
 - Add an Uppsala image-use statement only when the actual terms are known. Pending confirmation, state that redistribution terms remain unconfirmed; do not characterize them as either openly licensed or legally prohibited.
 - An additional witness need not have a public image URL or IIIF manifest to be a valid bibliographic source. Never use a catalogue search page as a `graphic/@target` or invent an IIIF canvas URL.
 
