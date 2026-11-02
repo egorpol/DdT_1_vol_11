@@ -33,7 +33,7 @@ except ImportError:  # Also loaded directly by tests, without a package.
     from normalize_midi_data import build_parts, REALIZATION_ROLES
 
 ROOT = Path(__file__).resolve().parent.parent
-SITE_FILES = ["index.html", "viewer.css", "viewer.js", "player.js", "tempo-map.js"]
+SITE_FILES = ["index.html", "viewer.css", "viewer.js", "player.js", "tempo-map.js", "sound-choice.js"]
 TEMPO_GUIDES = ROOT / "playback/tempo-guide"
 TEMPO_HEADER = "measure_n,measure_id,tstamp,text,meter,suggested_percent,basis,tempo_ids".split(",")
 WORK_LIST = "validation/editorial-works.json"

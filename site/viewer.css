@@ -238,3 +238,16 @@ footer { color: var(--muted); font-size: 0.8rem; padding-block: 8px 24px; border
   .tempo-row input[type="range"] { grid-column: 2 / 4; grid-row: 2; }
   .tempo-row button { grid-column: 4; grid-row: 1; }
 }
+
+.sound-control { grid-column: 1 / -1; min-width: 0; }
+.sound-control label { display: inline-flex; align-items: center; gap: 6px; max-width: 100%; }
+.sound-control select { font: inherit; min-width: 0; max-width: 100%; }
+.sound-loading { margin-left: 6px; font-size: 0.8rem; color: var(--muted); }
+.sound-consent { margin: 5px 0; font-size: 0.8rem; overflow-wrap: anywhere; }
+.sound-consent button { margin-top: 4px; }
+.all-sound { padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+@media (max-width: 600px) {
+  .parts-menu[open] { flex-basis: 100%; min-width: 0; }
+  .parts-panel { max-width: 100%; }
+  .part-row { grid-template-columns: minmax(0, 1fr) 65px auto; }
+}

@@ -8,8 +8,11 @@
 // (JSON channel array from saved roles and DEFAULT_OFF), data-midi-renders (this visit),
 // data-measure (notated @n), data-follow, and data-work (loaded work id).
 // Also data-section (guide row @n, else ''), data-tempo-source (guide/single/midi),
-// data-volumes (JSON channel: percent), data-gains (JSON last channel gains, {} before Play).
+// data-volumes (JSON channel: percent), data-gains (JSON last channel gains, {} before Play),
+// data-sounds (JSON channel: sample GM program in use, {} before first Play),
+// data-sound-loading (JSON channels with an authorized sound load in progress).
 import { mapTempoSections } from './tempo-map.js';
+import { SOUND_CHOICES, ENCODED_SOUNDS, soundKey, soundProgram, needsConsent, restoredChoice, allSound } from './sound-choice.js';
 
 const VEROVIO_URL = 'https://cdn.jsdelivr.net/npm/verovio@6.3.0/dist/verovio-toolkit-wasm.js';
 const VEROVIO_SRI = 'sha384-7oICD/hf52uWdE8X0lMFqe7iIspaUj3aQjeZUnBQZpxjrZcHtqlRd3C78cje2e19';
@@ -422,18 +425,23 @@ function inspect(target) {
 // ---------------------------------------------------------------- playback
 const SOUNDFONT_ROOT = 'https://cdn.jsdelivr.net/gh/gleitz/midi-js-soundfonts@044fab8e1456bfafc5776e86dfd6bb8697149aef/FluidR3_GM/';
 const SAMPLE_FILES = {
+  0: { url: `${SOUNDFONT_ROOT}acoustic_grand_piano-mp3.js`, integrity: 'sha384-Oe49rvfDnHMSSNlo8V6a4XyotASwNvpbHFgo0IOcyk8OFIXv8byikUYK2I3ONEfa' },
+  19: { url: `${SOUNDFONT_ROOT}church_organ-mp3.js`, integrity: 'sha384-LvJh5PDp5xpmywJhQLNl67qLQfnjZf/qWPqWvyA7+KQFiLmdPUbaHDw5bSFtLYfN' },
+  48: { url: `${SOUNDFONT_ROOT}string_ensemble_1-mp3.js`, integrity: 'sha384-gyGKjZg7zK8jqU1HhewujLPlSkilkeNxF080JTNSmBVy9Zn5vQwnFesUWv6WqF0u' },
   40: { url: `${SOUNDFONT_ROOT}violin-mp3.js`, integrity: 'sha384-HyplkbAwAFLDlT6JMUuvjLlS55QiD6H8Cx3A/KrGeJSUGQv62GCS5w7ML+bxsZkB' },
   42: { url: `${SOUNDFONT_ROOT}cello-mp3.js`, integrity: 'sha384-s/2S7jd5HFpdYzig+9zoDGj/JG4Beh0iT/QCHsp5MpTJqZTyd6dkDb4/Se1QmaRh' },
   43: { url: `${SOUNDFONT_ROOT}contrabass-mp3.js`, integrity: 'sha384-FH2/7J+D4GP4PFf//V3xIswsrDkclg1glB2nz9p4p37kXcXj7gL+6Hdvmrkl/8+J' },
   6: { url: `${SOUNDFONT_ROOT}harpsichord-mp3.js`, integrity: 'sha384-veZb4kehrh8qKJzOhM1Lv+MqBFb4SDXpSyWrnlNzeNwmz8RS8RI9iG8ysX221GgO' },
 };
-const PLAYBACK_SETTINGS = { tempo: 'ddt-viewer-tempo', parts: 'ddt-viewer-parts', volumes: 'ddt-viewer-volumes', guide: 'ddt-viewer-tempo-guide' };
+const PLAYBACK_SETTINGS = { tempo: 'ddt-viewer-tempo', parts: 'ddt-viewer-parts', volumes: 'ddt-viewer-volumes', guide: 'ddt-viewer-tempo-guide', sounds: 'ddt-viewer-sounds', consent: 'ddt-viewer-sound-consent' };
 // Roles that start muted until the reader ticks them: Stiehl's realization doubles the figured
 // bass (97-99.8 % of its notes at the same onset and pitch in each of the 17 works).
 const DEFAULT_OFF = new Set(['figured_continuo_bass']);
 const playback = {
   engine: null, ready: null, context: null, token: 0, state: 'idle', loadingWork: true,
   percent: 100, roles: {}, volumes: {}, guide: {}, engineModel: null, renders: 0, q: 0, start: null, pinAtPlay: null,
+  sounds: {}, agreed: new Set(), consentStored: true, soundWork: null, accepted: {}, inUse: {}, pendingSounds: [],
+  soundJobs: new Map(), soundVersions: new Map(),
   follow: false, active: new Set(), event: 0, measure: null,
 };
 
@@ -444,12 +452,18 @@ function readPlaybackSettings() {
     const roles = JSON.parse(localStorage.getItem(PLAYBACK_SETTINGS.parts) || '{}');
     if (roles && typeof roles === 'object' && !Array.isArray(roles)) playback.roles = roles;
   } catch { /* storage blocked: defaults */ }
-  for (const key of ['volumes', 'guide']) {
+  for (const key of ['volumes', 'guide', 'sounds']) {
     try {
       const value = JSON.parse(localStorage.getItem(PLAYBACK_SETTINGS[key]) || '{}');
       if (value && typeof value === 'object' && !Array.isArray(value)) playback[key] = value;
     } catch { /* storage blocked or malformed: defaults */ }
   }
+  try {
+    const files = JSON.parse(localStorage.getItem(PLAYBACK_SETTINGS.consent) || '[]');
+    if (Array.isArray(files)) playback.agreed = new Set(files.filter((file) => typeof file === 'string'));
+    // Probe writes too: some browsers permit reads but block persistence.
+    localStorage.setItem(PLAYBACK_SETTINGS.consent, JSON.stringify([...playback.agreed]));
+  } catch { playback.consentStored = false; }
   $('tempo').value = playback.percent;
   updateTempo();
 }
@@ -468,8 +482,166 @@ function updateMute() {
   if (playback.engineModel === current()) { playback.engine?.setMuted(channels); showGains(); }
 }
 
+function initSounds(work) {
+  if (playback.soundWork === work) return;
+  playback.soundWork = work;
+  playback.pendingSounds = [];
+  playback.accepted = {};
+  playback.inUse = {};
+  playback.soundJobs.clear();
+  playback.soundVersions.clear();
+  for (const part of work?.parts || []) {
+    const choice = restoredChoice(work.parts, part, playback.sounds, playback.agreed);
+    playback.accepted[part.role] = choice.playable;
+    if (choice.pending) playback.pendingSounds.push({ parts: [part], key: choice.key, all: false });
+  }
+  $('player').dataset.sounds = '{}';
+}
+
+function showSounds() {
+  if (playback.engineModel === current() && playback.engine) {
+    $('player').dataset.sounds = JSON.stringify(playback.engine.sounds);
+  }
+  $('player').dataset.soundLoading = JSON.stringify([...playback.soundJobs.keys()]);
+  const actual = JSON.parse($('player').dataset.sounds);
+  const changed = (state.work?.parts || []).some((p) =>
+    (actual[p.channel] ?? soundProgram(p, playback.accepted[p.role])) !== p.program);
+  document.querySelector('.parts-menu summary').textContent = changed ? 'Parts (sounds changed)' : 'Parts';
+  renderSoundControls();
+}
+
+function removePending(parts) {
+  const roles = new Set(parts.map((p) => p.role));
+  for (const group of playback.pendingSounds) group.parts = group.parts.filter((p) => !roles.has(p.role));
+  playback.pendingSounds = playback.pendingSounds.filter((group) => group.parts.length);
+}
+
+function chooseSound(parts, key, all = false) {
+  removePending(parts);
+  for (const part of parts) playback.sounds[part.role] = key;
+  if (parts.some((p) => needsConsent(state.work.parts, p, key, playback.agreed))) {
+    playback.pendingSounds.push({ parts, key, all });
+  } else commitSound(parts, key);
+  savePlayback('sounds');
+  showSounds();
+}
+
+function commitSound(parts, key) {
+  for (const part of parts) {
+    playback.accepted[part.role] = key;
+    swapSound(part, key);
+  }
+}
+
+async function swapSound(part, key) {
+  // Before Play (or after Stop), the next prepare consumes the authorized choices.
+  if (!['playing', 'paused'].includes(playback.state) || playback.engineModel !== current()) return;
+  const model = current(), token = playback.token;
+  const version = (playback.soundVersions.get(part.role) || 0) + 1;
+  playback.soundVersions.set(part.role, version);
+  const program = soundProgram(part, key);
+  const previous = playback.inUse[part.role] || 'encoded';
+  playback.soundJobs.set(part.channel, version);
+  showSounds();
+  const valid = () => token === playback.token && model === current() && playback.soundVersions.get(part.role) === version;
+  try {
+    const applied = await playback.engine.setSound(part.channel, program);
+    if (applied && valid()) playback.inUse[part.role] = key;
+  } catch (error) {
+    if (!valid()) return;
+    playback.accepted[part.role] = previous;
+    // A consent prompt opened while this load ran remains a separate choice.
+    if (!playback.pendingSounds.some((group) => group.parts.includes(part))) playback.sounds[part.role] = previous;
+    savePlayback('sounds');
+    setStatus(`${SOUND_CHOICES[key]?.label || 'Encoded sound'} could not be loaded: ${error.message}`);
+  } finally {
+    if (valid()) { playback.soundJobs.delete(part.channel); showSounds(); }
+  }
+}
+
+function renderSoundControls() {
+  const parts = state.work?.parts || [];
+  for (const host of document.querySelectorAll('#parts-list .sound-control')) {
+    const all = host.dataset.role === 'all';
+    const part = parts.find((p) => p.role === host.dataset.role);
+    if (!all && !part) continue;
+    let select = host.querySelector('select');
+    if (!select) {
+      select = document.createElement('select');
+      select.dataset.role = host.dataset.role;
+      select.setAttribute('aria-label', all ? 'All parts, sound' : `${part.label}, sound`);
+      const encoded = all ? 'Encoded' : `Encoded (${ENCODED_SOUNDS[part.program]?.label || part.program})`;
+      for (const [key, label] of [['mixed', 'Mixed'], ['encoded', encoded], ...Object.entries(SOUND_CHOICES).map(([k, v]) => [k, v.label])]) {
+        const option = document.createElement('option');
+        Object.assign(option, { value: key, textContent: label, disabled: key === 'mixed', hidden: key === 'mixed' && !all });
+        select.append(option);
+      }
+      select.addEventListener('change', () => chooseSound(all ? parts : [part], select.value, all));
+      const label = document.createElement('label');
+      label.append(all ? 'All parts ' : 'Sound ', select);
+      host.append(label);
+    }
+    // Keep controls/focus stable when another channel finishes loading.
+    select.disabled = !parts.length;
+    select.value = all ? allSound(parts, playback.sounds) : soundKey(playback.sounds[part.role]);
+    const loading = host.querySelector('.sound-loading');
+    if (all ? playback.soundJobs.size : playback.soundJobs.has(part.channel)) {
+      if (!loading) {
+        const span = document.createElement('span');
+        span.className = 'sound-loading';
+        span.textContent = 'Loading…';
+        span.setAttribute('role', 'status');
+        host.append(span);
+      }
+    } else loading?.remove();
+    const group = playback.pendingSounds.find((g) => all ? g.all : !g.all && g.parts.includes(part));
+    const previous = host.querySelector('.sound-consent');
+    if (!group) { previous?.remove(); continue; }
+    if (previous?.soundGroup === group && previous.dataset.remembered === String(playback.consentStored)) continue;
+    previous?.remove();
+    const choice = SOUND_CHOICES[group.key];
+    const line = document.createElement('div');
+    line.className = 'sound-consent';
+    line.soundGroup = group;
+    line.dataset.remembered = playback.consentStored;
+    line.setAttribute('role', 'status');
+    line.append(`${choice.label} needs a ${choice.mb} MB download from jsDelivr.`);
+    if (!playback.consentStored) line.append(' Your browser will not remember this choice.');
+    const allow = document.createElement('button'), cancel = document.createElement('button');
+    Object.assign(allow, { type: 'button', textContent: 'Allow download' });
+    Object.assign(cancel, { type: 'button', textContent: 'Cancel' });
+    allow.addEventListener('click', () => {
+      playback.agreed.add(choice.file);
+      try { localStorage.setItem(PLAYBACK_SETTINGS.consent, JSON.stringify([...playback.agreed])); }
+      catch { playback.consentStored = false; }
+      // One agreement covers every pending choice for this file, including
+      // several restored rows. Each group still carries its own selected key.
+      const groups = playback.pendingSounds.filter((g) => SOUND_CHOICES[g.key].file === choice.file);
+      for (const pending of groups) {
+        const parts = [...pending.parts];
+        removePending(parts);
+        commitSound(parts, pending.key);
+      }
+      savePlayback('sounds');
+      showSounds();
+    });
+    cancel.addEventListener('click', () => {
+      for (const p of group.parts) playback.sounds[p.role] = playback.accepted[p.role];
+      removePending([...group.parts]);
+      savePlayback('sounds');
+      showSounds();
+    });
+    line.append(' ', allow, ' ', cancel);
+    host.append(line);
+  }
+}
+
 function renderParts(work) {
-  $('parts-list').replaceChildren(...(work?.parts || []).map((part) => {
+  initSounds(work);
+  const all = document.createElement('div');
+  all.className = 'sound-control all-sound';
+  all.dataset.role = 'all';
+  $('parts-list').replaceChildren(all, ...(work?.parts || []).map((part) => {
     const label = document.createElement('label');
     const input = document.createElement('input');
     Object.assign(input, { type: 'checkbox', checked: partOn(part.role) });
@@ -505,11 +677,15 @@ function renderParts(work) {
     value.append(box, ' %');
     const row = document.createElement('div');
     row.className = 'part-row';
-    row.append(label, slider, value);
+    const sound = document.createElement('div');
+    sound.className = 'sound-control';
+    sound.dataset.role = part.role;
+    row.append(label, slider, value, sound);
     return row;
   }));
   updateMute();
   updateVolumes();
+  showSounds();
 }
 
 function savePlayback(key) {
@@ -707,6 +883,10 @@ function stopPlayback(workSwitch = false) {
   ++playback.token; // Pending imports/sample loads may finish, but cannot start.
   const start = !workSwitch && playback.start;
   playback.engine?.stop(start?.q || 0);
+  playback.soundJobs.clear();
+  // Keep decoded sounds: the next work's prepare reuses each channel whose sound is unchanged.
+  if (workSwitch) { playback.engineModel = null; $('player').dataset.sounds = '{}'; }
+  showSounds();
   stopFollowing();
   playerState('idle');
   clearPlaying();
@@ -799,7 +979,18 @@ async function togglePlayback() {
     if (token !== playback.token || model !== current()) return;
     cachePlayback(model, engine);
     updateTempo();
-    const prepared = await engine.prepare(model.midi, model.work.parts);
+    let prepared;
+    // Choices may change during first-Play downloads. Reconcile before starting;
+    // pending consent always keeps the previous authorized (or encoded) program.
+    while (true) {
+      const parts = model.work.parts.map((p) => ({ ...p, sound: soundProgram(p, playback.accepted[p.role]) }));
+      playback.soundJobs = new Map(parts.map((p) => [p.channel, 0]));
+      showSounds();
+      prepared = await engine.prepare(model.midi, parts);
+      if (token !== playback.token || model !== current()) return;
+      if (parts.every((p) => p.sound === soundProgram(p, playback.accepted[p.role]))) break;
+    }
+    playback.soundJobs.clear();
     if (token !== playback.token || model !== current()) return;
     const id = state.pinned || [...model.measures.values()].find((m) => m.page === state.page)?.id || model.measures.keys().next().value;
     const q = resume ? playback.q : model.measureQ.get(id) || 0;
@@ -814,14 +1005,18 @@ async function togglePlayback() {
     updateVolumes();
     engine.setMuted(mutedChannels());
     engine.play(prepared, q, playback.percent);
+    playback.inUse = { ...playback.accepted };
     preRenderNextPage();
     showGains();
+    showSounds();
     setStatus(`Playing from m. ${model.measures.get(playback.measure)?.n}`);
   } catch (error) {
     if (token !== playback.token || model !== current()) return;
     playback.engine?.stop();
     clearPlaying();
     playerState('error');
+    playback.soundJobs.clear();
+    showSounds();
     const reason = /[.!?]$/.test(error.message) ? error.message : `${error.message}.`;
     setStatus(`Playback could not start: ${reason} Press Play to retry.`);
   }

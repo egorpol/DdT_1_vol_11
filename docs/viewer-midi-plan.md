@@ -88,13 +88,17 @@ For C, GeneralUser GS 2.0.3 (own licence, allows use in software and local copie
 FluidR3 (MIT) would be cut down to the four presets this edition uses (6, 40, 42, 43); that extract's
 size is not measured.
 
-Measured on the FluidR3 pack: every note is one 3.13 s recording (88 notes each for violin, cello,
-harpsichord); violin and cello hold full level to the end, so a longer note stops short, while the
-harpsichord has decayed to −28 dB by then. In the 17 works' MIDI (ties merged), 48,066 notes are not
-harpsichord; 5 of them outlast 3.13 s at 100 % tempo, 36 at 75 %, 192 at 50 %. smplr's looped sustain
-would cover them but is marked experimental ("can produce clicks"). File sizes (uncompressed): violin
-2.87 MB, cello 3.01 MB, contrabass 2.15 MB, harpsichord 2.33 MB; a sonata loads three, 8.2 MB, about
-5.6 MB on the wire (violin 1.90 MB with brotli from jsDelivr).
+Measured on all seven FluidR3 files (2026-11-02): every sample is 3.13 s long, 88 notes
+per file. Organ and strings sustain to the cut; piano and harpsichord have mostly decayed by then.
+In the 17 works' Verovio MIDI (ties merged, each note at its onset's tempo-guide row, first-pass
+section starts), 250 of 48,067 string notes (violin, gamba, violone) and 864 of 58,040 keyboard
+notes (continuo 195, realization 669) outlast 3.13 s at 100 % of the guide; at 50 %, 1,054 string
+and 3,259 keyboard notes do. The earlier figures (5 of 48,066 at 100 %, 36 at 75 %, 192 at 50 %)
+were measured at a flat ♩ = 120 before the guide; the same probe at that flat tempo reproduces
+5 and 192. smplr's looped sustain would cover long notes but is marked experimental
+("can produce clicks"). File sizes (uncompressed): violin 2.87 MB, cello 3.01 MB, contrabass
+2.15 MB, harpsichord 2.33 MB; a sonata loads three, 8.2 MB, about 5.6 MB on the wire
+(violin 1.90 MB with brotli from jsDelivr).
 
 **Hosting.** jsDelivr serves the Gleitzman files pinned to a commit (`044fab8e`: HTTP 200, full file,
 `Access-Control-Allow-Origin: *`; checked), so the viewers can load them like Verovio, with an SRI hash
@@ -169,6 +173,24 @@ and a % box, 25–200), and exclusive Parts and Tempo guide menus.
   and the Transport is set to that position in ticks.
 - The position line is one element, `#player-position` ("m. 37 / 186"), for readers and for
   `check_site.py`.
+
+Each Parts row has a sound select: Encoded (with its sample instrument name), Piano, Harpsichord,
+Church organ or String ensemble. All parts applies one choice to every part, or Encoded to reset;
+it shows Mixed when sounds differ. Choices are viewer settings remembered by role in
+`ddt-viewer-sounds`; the MEI and MIDI keep their encoded instruments. Parts reads
+"Parts (sounds changed)" while a non-encoded sound is in use. A file outside the current work's
+encoded set needs consent before any request: the line under the select gives its size and jsDelivr,
+with Allow download and Cancel. Cancel restores the previous sound. Agreement is remembered per
+file in `ddt-viewer-sound-consent`, or just for the visit with a warning if storage is blocked.
+All parts asks once for its file; Harpsichord never asks in this edition, since every work's
+realization uses it. Restoring a choice without consent shows the line and Play uses encoded.
+Changes during playback load in the background with Loading… beside the select; playback continues,
+later attacks use the latest selection, and old voices finish on their old sound (including attacks
+already in the 0.3 s horizon). Mute and volume act on their shared channel gain, including tails.
+Failed loads keep the previous sound and report the reason. Stale loads, Stop, a new Play and work
+switches cannot apply an obsolete swap. Replaced Soundfonts are disposed when their last voice ends;
+decodes serialize per channel, and a work switch keeps a channel's decoded sound when the next
+work uses the same one.
 
 Data for the part switches: `scripts/build_site.py` adds per work a `parts` list to `works.json`
 (`channel`, `label`, `role`), read from the MEI `<instrDef midi.channel>` and the staff roles in
@@ -297,8 +319,12 @@ stutter there.
 - The figured-bass figures do not sound by themselves; the continuo plays the bass line, and the
   realization is Stiehl's 1903 right and left hand.
 - General MIDI samples, not period instruments; no ornaments beyond what the MEI encodes as notes.
-- Each sample note lasts 3.13 s, so a longer violin, gamba or violone note stops short: 5 of the 48,066
-  such notes at 100 % tempo, 36 at 75 %, 192 at 50 % (measured 2026-11-01).
+- Every sample stops after 3.13 s, so long notes end early, most audibly on organ and strings.
+  At 100 % of the tempo guide, 250 of 48,067 string notes and 864 of 58,040 keyboard notes
+  (continuo 195, realization 669) outlast it; at 50 %, 1,054 string and 3,259 keyboard notes do
+  (Verovio MIDI, ties merged, onset's guide row, first-pass section starts; measured 2026-11-02).
+  The earlier figures (5 of 48,066 at 100 %, 36 at 75 %, 192 at 50 %) used a flat ♩ = 120
+  before the guide existed; repeating that flat-tempo probe reproduces 5 and 192.
 - Play from a measure, or after Pause, starts every note held across the start point again from its
   attack: smplr 1.1.0 has no per-note sample offset. 696 of 3,568 measure starts (19.5 %) have such a
   note (Verovio MIDI, ties merged; measured 2026-11-01). A restarted harpsichord note also restarts its
@@ -306,7 +332,13 @@ stutter there.
 - Play, Tempo and tempo-guide changes take effect about 0.3 s late, because notes are scheduled ahead
   so that page turns do not interrupt them (section 4.5); on a slow computer page turns may still
   stutter. Nothing loads before the first Play; then the libraries and the samples of the work's
-  instruments load from jsDelivr (about 5.6 MB for a sonata's three).
+  instruments load from jsDelivr (about 5.6 MB for a sonata's three). Piano needs another
+  1.7 MB (raw 2.63 MB), Church organ 1.7 MB (raw 2.80 MB), String ensemble 1.8 MB
+  (raw 2.80 MB); each asks before its own download. The browser keeps the files in its cache
+  (`max-age=31536000, immutable`); clearing the cache can require another fetch. Each Soundfont
+  decodes 88 samples of 3.13 s into AudioBuffers, tens of MB per part. The active sound and old
+  voices occupy memory until disposed; trying sounds does not retain all the decoded instruments.
+  Loading and decoding during playback can stutter on a slow computer.
 
 ## 7. Decisions
 
@@ -327,7 +359,7 @@ jsDelivr files:
 
 | question | Codex | Cursor | risks they raised (to build in) |
 | --- | --- | --- | --- |
-| Player stack | **C**, js-synthesizer with a self-hosted SF2 extract: real loops, so no note stops short at any tempo | **A**, Tone.js + @tonejs/midi + smplr: the only no-build stack with a gain per channel for mute, a live `Transport.bpm` and Transport seek, all as pinned jsDelivr files | C: a mute must silence notes already sounding, not only drop new note-ons; an extract without GM 0 does not serve Webern, so the SoundFont must be configurable. A: the 3.13 s cut (5 notes at 100 %); drive the highlighting from the clock that drives the audio, or score and sound drift |
+| Player stack | **C**, js-synthesizer with a self-hosted SF2 extract: real loops, so no note stops short at any tempo | **A**, Tone.js + @tonejs/midi + smplr: the only no-build stack with a gain per channel for mute, a live `Transport.bpm` and Transport seek, all as pinned jsDelivr files | C: a mute must silence notes already sounding, not only drop new note-ons; an extract without GM 0 does not serve Webern, so the SoundFont must be configurable. A: the 3.13 s cut (the original 5-note count used a flat ♩ = 120 before the guide; see section 3); drive the highlighting from the clock that drives the audio, or score and sound drift |
 | Sample hosting (A, B) | **self-host** in each repository: the edition controls the bytes and their continued publication | **jsDelivr pinned** to Gleitzman's commit `044fab8e` with SRI, like Verovio; no 10.4 MB copy per repository | self-host: `build_site.py` copies an explicit file list, so the samples need their own copy step. jsDelivr: override smplr's default base URL (gleitz.github.io). Both: credit CC BY 3.0 (Gleitzman) and MIT (Wen), even when nothing is copied |
 
 Follow-up decisions after listening, 2026-11-01. Questions and answers are in
@@ -341,6 +373,7 @@ Follow-up decisions after listening, 2026-11-01. Questions and answers are in
 | One CSV per work, checked against the MEI by the build and embedded in works.json | Codex and Cursor agreed | `validation/runs/midi-player-build/followup-asks/` |
 | Tempo guide menu beside Parts, editable sections and global Tempo scaling | Codex and Cursor agreed | `validation/runs/midi-player-build/followup-asks/` |
 | Review page plus a Copy button for the editor's ear check | Codex and Cursor agreed | `validation/runs/midi-player-build/followup-asks/` |
+| 2026-11-02: sound select per part and All parts (encoded, Piano, Harpsichord, Church organ, String ensemble); consent per extra sample file; background hot swap with old tails finishing | Codex and Cursor agreed on the consent and hot-swap picks; editor chose all three | build brief, 2026-11-02 |
 | Figured bass muted by default, with a note in Parts; % boxes beside the Tempo and volume sliders | editor's request while listening (no agent ask) | `validation/runs/midi-player-build/tools/bass_doubling.py` |
 
 ## 8. Implementation steps (one session each)
@@ -357,6 +390,11 @@ Follow-up decisions after listening, 2026-11-01. Questions and answers are in
 
 1c. **Page-turn timing** (2026-11-02): section 4.5, with its checks in `check_site.py` and node tests
    in `tests/js/player-timing.test.mjs`.
+
+1d. **Sound choice and consent** (2026-11-02): per-role and All parts selects; per-file consent
+   before extra requests, including restored choices; background hot swaps with shared channel gains,
+   stale-load cancellation and disposal after old voices end. Pure-rule and resource-lifecycle node
+   tests, request-counting/failure/360 px browser checks K1–K7, and corrected sample-duration figures.
 
 2. **Docs and release notes** (README viewer section and licence line, CHANGELOG Unreleased/Added), push,
    Pages check on the live site.

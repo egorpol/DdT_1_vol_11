@@ -3,11 +3,22 @@
  * onTempo({bpm, source, index})}) loads the pinned libraries; call it only after creating/resuming a native AudioContext in Play.
  * samples: object keyed by zero-based GM program, values {url, integrity}.
  * parseMidi(base64) returns a cacheable @tonejs/midi Midi. prepare(midi, parts)
- * loads instruments and returns an opaque score; parts are {channel, program}.
+ * loads instruments and returns an opaque score; parts are {channel, program, sound},
+ * where program must match the MIDI and sound is the sample GM program (default program).
  * play(score, q, percent), pause() -> q, stop(q = 0), setTempo(percent),
  * setMuted(channels), setVolumes({channel: level}) (0–1, independent of mute),
  * setSections([{q, factor, index}]) (quarters, live replaceable), and position
  * (quarter notes) operate on one Transport. Sections are in performed-time order.
+ * setSound(channel, program) -> Promise<boolean> hot swaps a prepared channel;
+ * true means applied, false means superseded/cancelled. sounds reports channel ->
+ * sample GM program in use on the playing score's channels ({} before the first play).
+ * Stop/pause/play/prepare invalidate pending swaps. prepare keeps a channel's decoded
+ * sound when the next score uses the same one; release() stops and frees every channel.
+ * Swaps leave Transport running; attacks already handed off in the 0.3 s horizon
+ * keep their old sound. Old voices finish through the same channel gain; their
+ * Soundfont is disposed on the last voice end. Loads serialize per channel, so
+ * obsolete candidates are disposed before another starts. Failed swaps keep the old
+ * sound and reject. The host must authorize every sample before prepare/setSound.
  * gains reports the last linear channel gains set (mute ? 0 : level); changes
  * ramp over 15 ms. tempo reports {bpm, source: guide/single/midi, index}.
  * Sections scale the first MIDI tempo; multiple MIDI tempo events override them.
@@ -96,13 +107,111 @@ export function dueNotifications(queue, now, version) {
   return { due: current.filter((item) => item.time <= now), pending: current.filter((item) => item.time > now) };
 }
 
+// Separate from Transport so lifecycle/race contracts can be tested with small audio doubles.
+export function createChannelSounds(context, samples, Soundfont, Scheduler, fetchSample = fetch) {
+  const channels = new Map();
+  const requests = new Map();
+  function dispose(record) {
+    if (record.retired && !record.voices.size && record.sound) {
+      record.sound.dispose();
+      record.sound = null;
+    }
+  }
+  function retire(record) { if (record) { record.retired = true; dispose(record); } }
+  function cancel(part) {
+    ++part.version;
+    // Stop an obsolete candidate's own scheduler immediately, even if its
+    // decode has not settled. smplr may then reject ready; the task handles it.
+    if (part.candidate && !part.candidate.disposed) {
+      part.candidate.sound.dispose();
+      part.candidate.disposed = true;
+    }
+  }
+  function slot(channel) {
+    if (!channels.has(channel)) {
+      const gain = context.createGain();
+      gain.connect(context.destination);
+      channels.set(channel, { channel, gain, record: null, candidate: null, version: 0, task: Promise.resolve() });
+    }
+    return channels.get(channel);
+  }
+  function fetchFile(file) {
+    // Share only an in-flight file, never decoded AudioBuffers. Buffer its bytes
+    // before creating a Soundfont: a slow obsolete download must not hold up the
+    // latest choice or allocate an instrument. Browser caching handles later loads.
+    if (!requests.has(file.url)) {
+      const request = fetchSample(file.url, { integrity: file.integrity, mode: 'cors' }).then((response) => {
+        if (!response.ok) throw new Error(`Sample HTTP ${response.status}: ${file.url}`);
+        return response.arrayBuffer();
+      });
+      requests.set(file.url, request);
+      const clear = () => { if (requests.get(file.url) === request) requests.delete(file.url); };
+      request.then(clear, clear);
+    }
+    return requests.get(file.url);
+  }
+  function select(channel, program) {
+    const part = slot(channel);
+    cancel(part);
+    const version = part.version;
+    const valid = () => channels.get(channel) === part && version === part.version;
+    if (part.record?.program === program) return Promise.resolve(true);
+    const file = samples[program];
+    if (!file?.url || !file.integrity) return Promise.reject(new Error(`No pinned sample file for GM program ${program}.`));
+    const task = fetchFile(file).then((bytes) => {
+      if (!valid()) return false;
+      // Serialize only decoding, not downloads. Thus organ can take effect
+      // while an older file response is still arriving.
+      const decode = part.task.catch(() => {}).then(async () => {
+        if (!valid()) return false;
+        const sound = new Soundfont(context, {
+          instrumentUrl: file.url, destination: part.gain,
+          scheduler: Scheduler(context, { lookaheadMs: SAMPLE_LOOK_AHEAD_MS }),
+          storage: { fetch: () => Promise.resolve(new Response(bytes)) },
+        });
+        const candidate = { sound, disposed: false };
+        part.candidate = candidate;
+        try { await sound.ready; }
+        catch (error) {
+          if (!candidate.disposed) sound.dispose();
+          if (valid()) throw error;
+          return false;
+        } finally { if (part.candidate === candidate) part.candidate = null; }
+        if (!valid()) { if (!candidate.disposed) sound.dispose(); return false; }
+        const previous = part.record;
+        part.record = { sound, program, voices: new Set(), retired: false };
+        retire(previous);
+        return true;
+      });
+      part.task = decode;
+      return decode;
+    }).catch((error) => { if (valid()) throw error; return false; });
+    return task;
+  }
+  return {
+    channels, select,
+    cancel() { for (const part of channels.values()) cancel(part); },
+    release() {
+      for (const part of channels.values()) {
+        cancel(part);
+        retire(part.record);
+        part.record = null;
+        part.gain.disconnect();
+      }
+      channels.clear();
+    },
+    ended(record, voice) { record.voices.delete(voice); dispose(record); },
+    get sounds() { return Object.fromEntries([...channels].filter(([, p]) => p.record).map(([c, p]) => [c, p.record.program])); },
+  };
+}
+
 export async function createPlayer({ context, samples, onPosition, onEnd, onSection = () => {}, onTempo = () => {} }) {
   const { Tone, Midi, Soundfont, Scheduler } = await loadLibraries();
   Tone.setContext(context);
   Tone.getContext().lookAhead = LOOK_AHEAD;
   Tone.getContext().updateInterval = UPDATE_INTERVAL;
   const transport = Tone.getTransport();
-  const instruments = new Map();
+  const instruments = createChannelSounds(context, samples, Soundfont, Scheduler);
   const voices = new Set();
   let score = null;
   let muted = new Set();
@@ -128,6 +237,7 @@ export async function createPlayer({ context, samples, onPosition, onEnd, onSect
   }
 
   function halt() {
+    instruments.cancel();
     running = false;
     startTime = Infinity;
     cancelAnimationFrame(frame);
@@ -139,37 +249,17 @@ export async function createPlayer({ context, samples, onPosition, onEnd, onSect
     silence();
   }
 
-  async function instrument(channel, program) {
-    const file = samples[program];
-    if (!file?.url || !file.integrity) throw new Error(`No pinned sample file for GM program ${program}.`);
-    const key = `${channel}:${program}`;
-    if (!instruments.has(key)) {
-      const gain = context.createGain();
-      gain.connect(context.destination);
-      const sound = new Soundfont(context, {
-        instrumentUrl: file.url, destination: gain,
-        // Per instrument: disposing a failed load cannot stop another's scheduler.
-        scheduler: Scheduler(context, { lookaheadMs: SAMPLE_LOOK_AHEAD_MS }),
-        storage: { fetch: (url) => fetch(url, { integrity: file.integrity, mode: 'cors' }) },
-      });
-      instruments.set(key, sound.ready.then(() => ({ sound, gain, channel })).catch((error) => {
-        instruments.delete(key);
-        sound.dispose();
-        gain.disconnect();
-        throw error;
-      }));
-    }
-    return instruments.get(key);
-  }
-
   function startNote(part, note, time) {
     if (muted.has(part.channel)) return null;
-    const voice = { channel: part.channel, stop: null };
-    // smplr otherwise uses the pitch as stopId: a release would also cut another
-    // voice on the same pitch (including unisons on a shared MIDI channel).
-    voice.stop = part.sound.start({ note: note.midi, velocity: note.velocity * 127, time,
+    const record = part.record;
+    let stop;
+    const voice = { channel: part.channel, stop: (time) => stop?.(time) };
+    // Unique stopIds protect unisons. Clear the stop closure on natural sample
+    // end too: a later tick release must never call a disposed old Soundfont.
+    stop = record.sound.start({ note: note.midi, velocity: note.velocity * 127, time,
       stopId: `midi-${++voiceId}`, ampRelease: 0.01,
-      onEnded: () => voices.delete(voice) });
+      onEnded: () => { stop = null; voices.delete(voice); instruments.ended(record, voice); } });
+    record.voices.add(voice);
     voices.add(voice);
     return voice;
   }
@@ -227,14 +317,15 @@ export async function createPlayer({ context, samples, onPosition, onEnd, onSect
       return new Midi(Uint8Array.from(atob(base64), (c) => c.charCodeAt(0)));
     },
     async prepare(midi, parts) {
-      const channels = new Map(await Promise.all(parts.map(async ({ channel, program }) =>
-        [channel, await instrument(channel, program)])));
+      instruments.cancel();
       for (const track of midi.tracks) {
         if (!track.notes.length) continue;
-        if (!channels.has(track.channel)) throw new Error(`No part for MIDI channel ${track.channel}.`);
         const part = parts.find((p) => p.channel === track.channel);
+        if (!part) throw new Error(`No part for MIDI channel ${track.channel}.`);
         if (part.program !== track.instrument.number) throw new Error(`MIDI program differs on channel ${track.channel}.`);
       }
+      await Promise.all(parts.map(({ channel, program, sound = program }) => instruments.select(channel, sound)));
+      const channels = new Map(parts.map(({ channel }) => [channel, instruments.channels.get(channel)]));
       return { midi, channels, end: midi.durationTicks / midi.header.ppq };
     },
     get position() {
@@ -242,6 +333,15 @@ export async function createPlayer({ context, samples, onPosition, onEnd, onSect
       const now = context.currentTime;
       return audibleTick(running, storedTick, startTime, now, transport.getTicksAtTime(now)) / score.midi.header.ppq;
     },
+    setSound(channel, program) {
+      if (!score?.channels.has(channel)) return Promise.reject(new Error(`No prepared channel ${channel}.`));
+      return instruments.select(channel, program);
+    },
+    get sounds() {
+      if (!score) return {};
+      return Object.fromEntries(Object.entries(instruments.sounds).filter(([channel]) => score.channels.has(+channel)));
+    },
+    release() { halt(); instruments.release(); score = null; },
     get gains() { return { ...gains }; },
     get tempo() { return { ...tempo }; },
     setTempo(value) { percent = value; updatePlan(); },

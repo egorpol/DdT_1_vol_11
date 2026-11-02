@@ -754,6 +754,186 @@ def check_playback(page):
     page.wait_for_function("() => document.querySelector('.tempo-panel').getBoundingClientRect().bottom <= innerHeight", timeout=5000)
     print('playback: Parts and 11-row guide fit 390px; desktop guide ends inside viewport')
 
+    # K1–K7 use a fresh browser context: storage/caches and the deliberately
+    # failed request cannot contaminate the existing timing/console checks.
+    sound_context = page.context.browser.new_context(viewport={'width': 1400, 'height': 1000})
+    sound_page = sound_context.new_page()
+    requests, sound_errors = [], []
+    sound_page.on('request', lambda request: 'midi-js-soundfonts@' in request.url and requests.append(request.url))
+    sound_page.on('pageerror', lambda error: sound_errors.append(str(error)))
+    sound_context.add_init_script("""addEventListener('DOMContentLoaded', () => {
+      window.soundStates = [];
+      new MutationObserver(records => {
+        for (const r of records) if (r.attributeName === 'data-state')
+          soundStates.push(document.getElementById('player').dataset.state);
+      }).observe(document.getElementById('player'), {attributes:true, attributeFilter:['data-state']});
+    });""")
+
+    def sound_data(key):
+        return sound_page.get_attribute('#player', 'data-' + key)
+
+    def ready_sound_page():
+        sound_page.wait_for_function("() => document.getElementById('player').dataset.work === 'op1_01' && !!document.querySelector('#score svg') && !document.getElementById('play').disabled", timeout=60000)
+        sound_page.eval_on_selector('.parts-menu', 'e => { e.open = true; }')
+
+    def sound_state(value):
+        try:
+            sound_page.wait_for_function("s => document.getElementById('player').dataset.state === s", arg=value, timeout=60000)
+        except Exception as error:
+            raise AssertionError(f'Sound check Op. I/1: expected state {value}, got {sound_data("state")}; {sound_page.inner_text("#status")}') from error
+
+    def using_sounds(expected, case):
+        try:
+            sound_page.wait_for_function("expected => { const actual = JSON.parse(document.getElementById('player').dataset.sounds); return Object.entries(expected).every(([c, p]) => actual[c] === p); }", arg=expected, timeout=60000)
+        except Exception as error:
+            raise AssertionError(f'{case}: expected channel sounds {expected}, got {sound_data("sounds")}; state={sound_data("state")}, loading={sound_data("sound-loading")}, status={sound_page.inner_text("#status")}') from error
+
+    def count_file(file):
+        return sum(url.endswith('/' + file) for url in requests)
+
+    violin_sound = '#parts-list select[data-role="violin"]'
+    all_sound = '#parts-list select[data-role="all"]'
+    piano_file = 'acoustic_grand_piano-mp3.js'
+    organ_file = 'church_organ-mp3.js'
+    strings_file = 'string_ensemble_1-mp3.js'
+    sound_work = next(w for w in json.loads((SITE / 'works.json').read_text())['works'] if w['id'] == 'op1_01')
+    encoded = {str(p['channel']): p['program'] for p in sound_work['parts']}
+    violin_channel = next(str(p['channel']) for p in sound_work['parts'] if p['role'] == 'violin')
+    try:
+        sound_page.goto(page.url.split('#')[0] + '#op1_01/1')
+        ready_sound_page()
+        sound_page.check('#playback')
+        sound_page.eval_on_selector('.parts-menu', 'e => { e.open = true; }')
+        assert sound_data('sounds') == '{}', f'K1 sounds before Play must be {{}}, got {sound_data("sounds")}'
+        sound_page.select_option(violin_sound, 'piano')
+        prompt = sound_page.locator('.sound-consent')
+        assert prompt.count() == 1 and 'Piano needs a 1.7 MB download from jsDelivr.' in prompt.inner_text(), f'K1 missing Piano size/provider prompt: {prompt.all_text_contents()}'
+        assert count_file(piano_file) == 0, f'K1 unagreed Piano made {count_file(piano_file)} requests'
+        prompt.get_by_role('button', name='Cancel', exact=True).click()
+        assert sound_page.input_value(violin_sound) == 'encoded', 'K1 Cancel did not restore Encoded'
+        assert count_file(piano_file) == 0, f'K1 Cancel fetched Piano {count_file(piano_file)} times'
+        # Leave consent open for Play as well as checking Cancel.
+        sound_page.select_option(violin_sound, 'piano')
+        sound_page.click('#play')
+        sound_state('playing')
+        using_sounds(encoded, 'K1 Play with consent open')
+        assert count_file(piano_file) == 0, f'K1 Play with open prompt fetched Piano {count_file(piano_file)} times'
+        prompt.get_by_role('button', name='Cancel', exact=True).click()
+        sound_page.select_option(violin_sound, 'piano')
+        sound_page.evaluate('soundStates.length = 0')
+        prompt.get_by_role('button', name='Allow download', exact=True).click()
+        using_sounds({violin_channel: 0}, 'K1 agreed hot swap')
+        assert count_file(piano_file) == 1, f'K1 positive control: expected 1 Piano request, got {count_file(piano_file)}'
+        assert sound_data('state') == 'playing' and sound_page.evaluate("soundStates.every(s => s === 'playing')"), f'K1 hot swap interrupted playback: {sound_page.evaluate("soundStates")}'
+        assert sound_page.inner_text('.parts-menu summary') == 'Parts (sounds changed)', 'K1 override missing from Parts summary'
+        assert sound_page.input_value(all_sound) == 'mixed', 'K1 All parts must show Mixed after violin-only override'
+        sound_page.click('#stop')
+        sound_page.reload()
+        ready_sound_page()
+        assert sound_page.input_value(violin_sound) == 'piano' and sound_page.locator('.sound-consent').count() == 0, 'K2 choice/consent not restored on reload'
+        sound_page.click('#play')
+        sound_state('playing')
+        using_sounds({violin_channel: 0}, 'K2 restored agreed choice')
+        sound_page.click('#stop')
+        print('playback K1–K2: no unagreed requests; Cancel/Play fallback, one-request live swap and reload consent')
+
+        sound_page.evaluate("() => { localStorage.setItem('ddt-viewer-sounds', JSON.stringify({violin:'piano'})); localStorage.removeItem('ddt-viewer-sound-consent'); }")
+        sound_page.reload()
+        ready_sound_page()
+        before = count_file(piano_file)
+        assert sound_page.locator('.sound-consent').count() == 1, 'K3 restored unagreed Piano needs a consent line'
+        sound_page.click('#play')
+        sound_state('playing')
+        using_sounds(encoded, 'K3 restored unagreed choice')
+        assert count_file(piano_file) == before, f'K3 restored unagreed Piano made {count_file(piano_file) - before} requests'
+        sound_page.get_by_role('button', name='Cancel', exact=True).click()
+        # K4 also covers All parts while playing, before allowing the one file.
+        sound_page.eval_on_selector('#parts-list input[type="range"][data-role="violin"]',
+                                   "e => { e.value = 37; e.dispatchEvent(new Event('input', {bubbles:true})); }")
+        muted, volumes = sound_data('muted'), sound_data('volumes')
+        before = count_file(organ_file)
+        sound_page.select_option(all_sound, 'church_organ')
+        assert sound_page.locator('.sound-consent').count() == 1, 'K4 All parts must ask once'
+        assert count_file(organ_file) == before, f'K4 All parts requested organ before Allow: {count_file(organ_file) - before}'
+        using_sounds(encoded, 'K4 pending All parts keeps old sounds')
+        sound_page.get_by_role('button', name='Allow download', exact=True).click()
+        using_sounds({c: 19 for c in encoded}, 'K4 live All parts')
+        assert sound_data('state') == 'playing', 'K4 All parts interrupted playback'
+        assert count_file(organ_file) == before + 1, f'K4 All parts expected one organ request, got {count_file(organ_file) - before}'
+        sound_page.click('#stop')
+        sound_page.click('#play')
+        sound_state('playing')
+        using_sounds({c: 19 for c in encoded}, 'K4 next Play')
+        assert sound_data('muted') == muted and sound_data('volumes') == volumes, f'K4 All parts changed mute/volume: {muted}/{volumes} -> {sound_data("muted")}/{sound_data("volumes")}'
+        assert json.loads(muted) == [2], f'K4 figured bass should still be muted on channel 2, got {muted}'
+        sound_page.select_option(all_sound, 'encoded')
+        using_sounds(encoded, 'K4 Encoded reset')
+        print('playback K3–K4: restored unagreed choice safe; All parts asks once, preserves mute/levels, resets encoded')
+
+        # Explicitly agree Piano again, and hold its response so a newer organ
+        # selection must win even when Piano finishes after that selection.
+        held_piano = []
+        def hold_piano(route):
+            held_piano.append(route)
+            sound_page.eval_on_selector('#player', "e => { e.dataset.pianoHeld = 'true'; }")
+        sound_page.route('**/' + piano_file, hold_piano)
+        sound_page.select_option(violin_sound, 'piano')
+        sound_page.get_by_role('button', name='Allow download', exact=True).click()
+        sound_page.wait_for_function("() => document.getElementById('player').dataset.pianoHeld === 'true'", timeout=60000)
+        assert held_piano, 'K5 Piano request was not held; stale-load test would be vacuous'
+        sound_page.select_option(violin_sound, 'church_organ')
+        using_sounds({violin_channel: 19}, 'K5 organ applies while older Piano is held')
+        with sound_page.expect_request_finished(predicate=lambda request: request.url.endswith('/' + piano_file), timeout=60000):
+            for route in held_piano:
+                route.continue_()
+        sound_page.unroute('**/' + piano_file, hold_piano)
+        using_sounds({violin_channel: 19}, 'K5 latest selection survives Piano finishing last')
+        assert sound_page.input_value(violin_sound) == 'church_organ', 'K5 stale Piano overwrote organ select'
+        assert sound_data('state') == 'playing', 'K5 stale swap stopped playback'
+
+        def abort_strings(route):
+            route.abort()
+        sound_page.route('**/' + strings_file, abort_strings)
+        sound_page.select_option(violin_sound, 'string_ensemble')
+        sound_page.evaluate('soundStates.length = 0')
+        sound_page.get_by_role('button', name='Allow download', exact=True).click()
+        sound_page.wait_for_function("() => document.querySelector('#parts-list select[data-role=violin]').value === 'church_organ' && document.getElementById('status').textContent.includes('String ensemble could not be loaded:')", timeout=60000)
+        using_sounds({violin_channel: 19}, 'K6 failed swap retains organ')
+        assert count_file(strings_file) == 1, f'K6 expected one aborted strings request, got {count_file(strings_file)}'
+        assert sound_data('state') == 'playing' and sound_page.evaluate("soundStates.every(s => s === 'playing')"), f'K6 failure interrupted playback: {sound_page.evaluate("soundStates")}'
+        sound_page.unroute('**/' + strings_file, abort_strings)
+        sound_page.click('#stop')
+        sound_page.set_viewport_size({'width': 360, 'height': 844})
+        sound_page.evaluate("() => { localStorage.removeItem('ddt-viewer-sound-consent'); localStorage.removeItem('ddt-viewer-sounds'); }")
+        sound_page.reload()
+        ready_sound_page()
+        assert sound_page.locator('#parts-list select').count() == len(encoded) + 1, f'K7 at 360 px expected {len(encoded) + 1} sound selects, got {sound_page.locator("#parts-list select").count()}'
+        sound_page.select_option(all_sound, 'piano')
+        assert sound_page.locator('.sound-consent').count() == 1, 'K7 phone panel must include the All parts consent line'
+        # Check the open panel and full page, including controls, at phone width.
+        overflow = sound_page.evaluate("""() => { const panel = document.querySelector('.parts-menu .parts-panel'), r = panel.getBoundingClientRect();
+          return {page: document.documentElement.scrollWidth - innerWidth, panel: panel.scrollWidth - panel.clientWidth, left:r.left, right:r.right, width:innerWidth}; }""")
+        assert overflow['page'] <= 0 and overflow['panel'] <= 0 and overflow['left'] >= 0 and overflow['right'] <= 360, f'K7 Parts overflow at 360 px: {overflow}'
+        assert not sound_errors, f'K1–K7 unexpected page errors: {sound_errors}'
+        # Block storage reads and writes: consent must still work for this visit.
+        sound_context.add_init_script("""Storage.prototype.getItem = Storage.prototype.setItem = function() { throw new Error('storage blocked for check'); };""")
+        sound_page.reload()
+        ready_sound_page()
+        sound_page.check('#playback')
+        sound_page.eval_on_selector('.parts-menu', 'e => { e.open = true; }')
+        before = count_file(piano_file)
+        sound_page.select_option(violin_sound, 'piano')
+        assert 'Your browser will not remember this choice.' in sound_page.locator('.sound-consent').inner_text(), 'K3 blocked storage must disclose visit-only consent'
+        assert count_file(piano_file) == before, 'K3 blocked storage fetched Piano without consent'
+        sound_page.get_by_role('button', name='Allow download', exact=True).click()
+        sound_page.select_option(violin_sound, 'encoded')
+        sound_page.select_option(violin_sound, 'piano')
+        assert sound_page.locator('.sound-consent').count() == 0, 'K3 blocked storage lost consent during the visit'
+        assert not sound_errors, f'K1–K7 unexpected page errors: {sound_errors}'
+        print('playback K5–K7: latest swap wins; aborted download preserves old sound/playback; Parts fits 360px')
+    finally:
+        sound_context.close()
+
 
 def main():
     server = None if os.environ.get('SITE_URL') else serve()

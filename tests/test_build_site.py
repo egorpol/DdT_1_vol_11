@@ -40,7 +40,7 @@ def test_site_index_lists_every_work_and_copies_the_listed_files(tmp_path):
         if 'mei' in work:
             assert digest(out / work['mei']) == digest(ROOT / work['source'])
             assert (ROOT / work['report']).is_file()
-    for name in ('index.html', 'viewer.css', 'viewer.js', 'player.js', 'tempo-map.js'):
+    for name in ('index.html', 'viewer.css', 'viewer.js', 'player.js', 'tempo-map.js', 'sound-choice.js'):
         assert (out / name).read_bytes() == (ROOT / 'site' / name).read_bytes()
     manifest = json.loads((out / 'supplemental_material/manifest.json').read_text(encoding='utf-8'))
     assert manifest['items']

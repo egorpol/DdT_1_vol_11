@@ -31,7 +31,7 @@
       <label><input type="checkbox" id="mark-notes"> Mark all notes</label>
       <label><input type="checkbox" id="measure-boxes"> Measure boxes</label>
     </fieldset>
-    <div id="player" hidden class="player" role="group" aria-label="MIDI playback" data-state="idle" data-position="0" data-bpm="" data-muted="[]" data-midi-renders="0" data-follow="false" data-measure="" data-work="" data-section="" data-tempo-source="single" data-volumes="{}" data-gains="{}">
+    <div id="player" hidden class="player" role="group" aria-label="MIDI playback" data-state="idle" data-position="0" data-bpm="" data-muted="[]" data-midi-renders="0" data-follow="false" data-measure="" data-work="" data-section="" data-tempo-source="single" data-volumes="{}" data-gains="{}" data-sounds="{}" data-sound-loading="[]">
       <button type="button" id="play" disabled>Play</button>
       <button type="button" id="stop" disabled>Stop</button>
       <output id="player-position" aria-label="Playback measure">–</output>
@@ -43,7 +43,7 @@
           <div id="parts-list"></div>
           <p id="bass-note">Cembalo (Continuo in some works) is the figured bass line. It starts off: Stiehl’s two-hand realization doubles it nearly note for note.</p>
           <button type="button" id="all-parts">All on</button>
-          <p>II/2 and II/3 repeats play once. GM samples, not period instruments; long string notes stop after 3.13 s. Only ornaments encoded as notes sound. Notes held across the start point sound again from their attack. Play, Tempo and guide changes take effect about 0.3 s late, because notes are scheduled ahead so that page turns do not interrupt them; on a slow computer page turns may still stutter.</p>
+          <p>II/2 and II/3 repeats play once. GM samples, not period instruments; every sample stops after 3.13 s, so long notes end early (at 100 % of the tempo guide, 250 string and 864 keyboard notes), most audibly on organ and strings. Only ornaments encoded as notes sound. Notes held across the start point sound again from their attack. Play, Tempo and guide changes take effect about 0.3 s late, because notes are scheduled ahead so that page turns do not interrupt them; on a slow computer page turns may still stutter. The first Play downloads the work’s sounds, about 5.6 MB from jsDelivr; Piano (1.7 MB), Church organ (1.7 MB) and String ensemble (1.8 MB) each ask before their own download, and the browser keeps them in its cache. Every sound is held in memory, and loading one while the music plays may stutter on a slow computer.</p>
         </div>
       </details>
       <details class="tempo-menu" name="player-menu">
