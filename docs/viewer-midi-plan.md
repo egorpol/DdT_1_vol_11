@@ -1,6 +1,8 @@
 # MIDI playback in the viewer: plan
 
-Status: plan, 2026-11-01; the editor's decisions are in section 7. Not implemented. Scope: the live viewer at
+Status: plan of 2026-11-01; the editor's decisions are in section 7. Steps 1 and 1b (section 8) are
+built, with the page-turn timing of 2026-11-02 (section 4.5); the push and the check of the live site
+remain. Scope: the live viewer at
 <https://egorpol.github.io/DdT_1_vol_11/> (`site/viewer.js`), then the sister viewers of webern_op27
 and DdT 1, vols. 29/30. All numbers below were measured on 2026-11-01 with Verovio 6.3.0 (the
 version the viewer loads) unless marked otherwise.
@@ -196,9 +198,11 @@ ear check of the guide files.
 The build embeds checked guide rows in `works.json`; the viewer never fetches CSVs. The cached
 notated-position time map places each boundary in every repeat pass, including a jump into the
 middle of an earlier section and boundaries inside bars. Seek applies the section at the start tick.
-A boundary callback schedules `bpm.setValueAtTime(bpm, time)` and records its section before notifying
-the viewer; live edits use the last callback that ran, so Tone's lookahead cannot restore the earlier
-section. Multiple encoded MIDI tempo events override the guide (fields disabled with a note).
+A boundary callback, which Tone runs up to 0.3 s before the boundary sounds (section 4.5), schedules
+`bpm.setValueAtTime(bpm, time)` and records its section at once; the viewer hears of it on the
+player's frame loop when the audio reaches the boundary. Live edits use the last callback that ran,
+so Tone's lookahead cannot restore the earlier section; an edit in the 0.3 s before a boundary
+therefore shows the next section's row up to 0.3 s early, while the sound changes on time. Multiple encoded MIDI tempo events override the guide (fields disabled with a note).
 The global slider scales either map, with no MIDI re-render. Its note is "100 % = tempo guide",
 "100 % = encoded tempo", or the single MIDI tempo as "100 % = ♩ 120".
 
@@ -222,6 +226,34 @@ each sample file loaded through smplr's `storage` option, whose `fetch(url)` add
 rejected; a Blob URL in `instrumentUrl` loads too (160 ms). An integrity failure stops the player with
 a message in the status line.
 
+### 4.5 Timing and page turns (2026-11-02)
+
+A page turn holds the page's main thread. Measured in headless Chromium, a first-visit turn took
+46–116 ms on every page of the 17 works, and 281 ms (Op. I/4) and 347 ms (Op. I/1) under a 4× CPU
+slowdown; `renderToSVG` is about half of it, the rest is inserting and decorating the page and
+turning the facsimile. With Tone's default 25 ms lookahead, and smplr queueing notes on its own 50 ms
+main-thread timer, notes due during that time started late: at Op. I/4's turn from p. 8 to p. 9,
+9 of 605 sample starts (worst 42 ms) and, under 4×, 87 of 604 (worst 319 ms). The player now:
+
+- hands notes to Web Audio 0.3 s ahead: Tone's `lookAhead` is 0.3 s, then `updateInterval` is set to
+  0.025 s (the `lookAhead` setter sets it to half the lookahead, which leaves only 0.15–0.3 s);
+- gives each smplr instrument a pass-through `Scheduler(context, {lookaheadMs: 2000})`, so a sample is
+  started when Tone hands it over instead of waiting in smplr's queue;
+- takes the audible position from `getTicksAtTime(currentTime)`, held at the start point until the
+  Transport's start time, for the marks, Pause and the end of the work (`Transport.ticks` reads 0.3 s
+  ahead, and right after a restart the previous run's position);
+- delivers tempo and section notices on its own frame loop at audio time, dropping those of a replaced
+  plan (Tone's `Draw` would drop a callback that is more than 0.25 s late);
+- renders the next page's SVG in an idle task 50 ms after each turn and after Play, so the follow turn
+  finds it cached.
+
+Measured 2026-11-02 at the same turn (probe in the git-ignored
+`validation/runs/midi-player-build/tools/page-turn/`): 0 of 608 sample starts late, and 0 of 611 under
+4×, with no `renderToSVG` inside either turn. For the reader, Play, Tempo and tempo-guide changes sound
+about 0.3 s after the action; Pause, Stop, the part switches and the volumes act at once. A computer
+slower than the 4× case can hold a turn longer than 0.3 s, so the viewer says that page turns may still
+stutter there.
+
 ## 5. Build, tests and checks
 
 - `scripts/build_site.py`: publish `parts` and validated `tempo` per work; copy `player.js` and
@@ -244,6 +276,13 @@ a message in the status line.
   guide at 1400×1000; require no overflow, a panel inside the viewport and no console errors.
   Assertions read the documented `#player` data attributes, DOM controls and rendered marks.
   Headless Chromium tests state, not the sound heard by a listener.
+- Page-turn timing (section 4.5), with a hook on `AudioBufferSourceNode.start` that records each sample
+  start against `currentTime`: a sample-start margin of at least 250 ms (10th percentile) on Op. I/1;
+  no start more than 5 ms late at Op. I/4's first-visit turn from p. 8 to p. 9, against a positive
+  control (a 1 s block must make one start more than 50 ms late); Pause and Stop cancel samples already
+  handed over; a restart after the end shows no previous-run position; tempo notices within a frame of
+  their audio time, and a live edit inside the lookahead keeps its value; the next page rendered in its
+  own task before the turn.
 - Manual check in the user's Brave and on an iPhone (Safari's silent switch and autoplay rules).
 - Pages rebuilds also watch `playback/**`. The browser check still runs locally before each push of
   viewer changes; it does not run in the Pages workflow.
@@ -264,6 +303,10 @@ a message in the status line.
   attack: smplr 1.1.0 has no per-note sample offset. 696 of 3,568 measure starts (19.5 %) have such a
   note (Verovio MIDI, ties merged; measured 2026-11-01). A restarted harpsichord note also restarts its
   decay. Kept by the editor 2026-11-01 over dropping held notes (Codex and Cursor agreed).
+- Play, Tempo and tempo-guide changes take effect about 0.3 s late, because notes are scheduled ahead
+  so that page turns do not interrupt them (section 4.5); on a slow computer page turns may still
+  stutter. Nothing loads before the first Play; then the libraries and the samples of the work's
+  instruments load from jsDelivr (about 5.6 MB for a sonata's three).
 
 ## 7. Decisions
 
@@ -311,6 +354,9 @@ Follow-up decisions after listening, 2026-11-01. Questions and answers are in
    guides embedded in works.json, remembered controls, repeat-aware tempo scheduling, Copy for the
    ear check, node tests and extended browser checks. Verify tests, static build, JS syntax, review
    gate and full `check_site.py`; leave guide data and release notes for their own steps.
+
+1c. **Page-turn timing** (2026-11-02): section 4.5, with its checks in `check_site.py` and node tests
+   in `tests/js/player-timing.test.mjs`.
 
 2. **Docs and release notes** (README viewer section and licence line, CHANGELOG Unreleased/Added), push,
    Pages check on the live site.
