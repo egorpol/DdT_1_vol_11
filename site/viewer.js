@@ -4,7 +4,7 @@
 // from its IIIF server with the measure zones from the MEI. Ported from the
 // webern_op27 viewer; works.json is written by scripts/build_site.py.
 // Playback check contract on #player: data-state (idle/loading/playing/paused/error),
-// data-position (quarter notes from Transport.ticks), data-bpm (effective), data-muted
+// data-position (audible quarter notes at AudioContext.currentTime; stored on pause/stop), data-bpm (effective), data-muted
 // (JSON channel array from saved roles and DEFAULT_OFF), data-midi-renders (this visit),
 // data-measure (notated @n), data-follow, and data-work (loaded work id).
 // Also data-section (guide row @n, else ''), data-tempo-source (guide/single/midi),
@@ -268,6 +268,37 @@ function showPage(page) {
   applyHighlights();
   applyPlaying();
   renderFacsimile();
+}
+
+let nextPageJob = null;
+function preRenderNextPage() {
+  // One job at a time, replacing an obsolete target after another turn/Play.
+  if (nextPageJob) {
+    clearTimeout(nextPageJob.delay);
+    if (nextPageJob.idle !== undefined) {
+      if (window.cancelIdleCallback) window.cancelIdleCallback(nextPageJob.idle);
+      else clearTimeout(nextPageJob.idle);
+    }
+  }
+  const model = current(), page = state.page + 1;
+  nextPageJob = null;
+  if (!model || page > model.pageCount || model.svg.has(page)) return;
+  const job = {};
+  nextPageJob = job;
+  const render = () => {
+    if (nextPageJob !== job) return;
+    nextPageJob = null;
+    // getModel awaits while current() can still be the old model. The loading
+    // guard also covers that interval: the toolkit holds just one work's data.
+    if (model === current() && !playback.loadingWork && !model.svg.has(page)) {
+      model.svg.set(page, toolkit.renderToSVG(page));
+    }
+  };
+  // Let Tone refill its horizon for two update intervals before another block.
+  // This task renders only SVG; insertion/decoration wait for the actual turn.
+  job.delay = setTimeout(() => {
+    job.idle = window.requestIdleCallback ? window.requestIdleCallback(render) : setTimeout(render, 0);
+  }, 50);
 }
 
 function svgElement(name, attributes = {}) {
@@ -658,8 +689,10 @@ function advanceCursor(q) {
   }
   showPosition(q);
   const measure = model.measures.get(playback.measure);
-  if (playback.follow && measure && measure.page !== state.page) showPage(measure.page);
-  else if (changed) applyPlaying();
+  if (playback.follow && measure && measure.page !== state.page) {
+    showPage(measure.page);
+    preRenderNextPage();
+  } else if (changed) applyPlaying();
 }
 
 function resetCursor(q, measure) {
@@ -781,6 +814,7 @@ async function togglePlayback() {
     updateVolumes();
     engine.setMuted(mutedChannels());
     engine.play(prepared, q, playback.percent);
+    preRenderNextPage();
     showGains();
     setStatus(`Playing from m. ${model.measures.get(playback.measure)?.n}`);
   } catch (error) {

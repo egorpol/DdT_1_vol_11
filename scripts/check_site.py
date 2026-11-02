@@ -29,6 +29,76 @@ STRETCHED = """() => [...document.querySelectorAll('#score rect.measure-box')].f
   return Math.max(top - y, y + h - bottom, left - x, x + w - right) > 3000;
 }).map(r => r.parentElement.id)"""
 
+# Installed before the libraries, also on reload. Measure the native sample
+# handoff (smplr does not clamp past times), not just Tone callback punctuality.
+PLAYBACK_PROBE = r"""(() => {
+  const probe = window.playbackProbe = {starts: [], transportStarts: [], renders: [], turns: []};
+  const sources = new WeakMap();
+  const start = AudioBufferSourceNode.prototype.start;
+  const stop = AudioBufferSourceNode.prototype.stop;
+  AudioBufferSourceNode.prototype.start = function(when, ...args) {
+    if (typeof when === 'number' && when > 0) {
+      probe.context = this.context;
+      const row = {when, ct: this.context.currentTime, t: performance.now(), stops: []};
+      sources.set(this, row);
+      probe.starts.push(row);
+    }
+    return start.call(this, when, ...args);
+  };
+  AudioBufferSourceNode.prototype.stop = function(when, ...args) {
+    const row = sources.get(this);
+    if (row) row.stops.push(when ?? this.context.currentTime);
+    return stop.call(this, when, ...args);
+  };
+  let tone;
+  Object.defineProperty(window, 'Tone', {configurable: true, get() { return tone; }, set(value) {
+    tone = value;
+    const transport = value.getTransport();
+    // createPlayer calls Tone.setContext afterward, creating a new Transport
+    // and bpm object. Patch prototypes so that native-context instance is seen.
+    const prototype = Object.getPrototypeOf(transport);
+    const start = prototype.start;
+    prototype.start = function(...args) {
+      probe.transportStarts.push({time: args[0] ?? this.context.now(), t: performance.now()});
+      return start.apply(this, args);
+    };
+    const schedule = prototype.schedule;
+    prototype.schedule = function(callback, ticks) {
+      return schedule.call(this, time => {
+        probe.callback = {time, ticks: parseInt(ticks, 10)};
+        try { return callback(time); } finally { probe.callback = null; }
+      }, ticks);
+    };
+    const bpmPrototype = Object.getPrototypeOf(transport.bpm);
+    const setBpm = bpmPrototype.setValueAtTime;
+    bpmPrototype.setValueAtTime = function(bpm, time, ...args) {
+      const result = setBpm.call(this, bpm, time, ...args);
+      if (probe.callback && bpm === probe.boundaryBpm) {
+        probe.boundary = {...probe.callback, ct: probe.context.currentTime};
+        // The observer runs after report() has updated scheduler-side activeTick,
+        // but before the audio boundary. It must not depend on data-section now.
+        document.getElementById('player').dataset.boundaryScheduled = String(time);
+      }
+      return result;
+    };
+  }});
+})();"""
+
+# Hook only after the wasm is ready, before a first visit to the tested pages.
+RENDER_PROBE = """() => {
+  const probe = window.playbackProbe;
+  const original = verovio.toolkit.prototype.renderToSVG;
+  verovio.toolkit.prototype.renderToSVG = function(page, ...args) {
+    const start = performance.now();
+    const svg = original.call(this, page, ...args);
+    probe.renders.push({page, start, end: performance.now(), measure: document.getElementById('player').dataset.measure});
+    return svg;
+  };
+  new MutationObserver(() => probe.turns.push({time: performance.now(),
+    label: document.getElementById('page-label').textContent}))
+    .observe(document.getElementById('page-label'), {childList:true, subtree:true, characterData:true});
+}"""
+
 
 def serve():
     handler = functools.partial(http.server.SimpleHTTPRequestHandler, directory=str(SITE))
@@ -89,6 +159,16 @@ def check_playback(page):
 
     def marks():
         page.wait_for_function("() => document.querySelectorAll('#score .is-playing').length > 0", timeout=2000)
+
+    def wait_check(expression, description, timeout=5000, arg=None):
+        try:
+            page.wait_for_function(expression, arg=arg, timeout=timeout)
+        except Exception as error:
+            observed = page.evaluate("""() => ({state: document.getElementById('player').dataset.state,
+              q: document.getElementById('player').dataset.position,
+              page: document.getElementById('page-label').textContent,
+              samples: playbackProbe.starts.length, renders: playbackProbe.renders})""")
+            raise AssertionError(f'{description}: timed out after {timeout} ms; {observed}') from error
 
     page.set_viewport_size({'width': 1400, 'height': 1000})
     open_work('op1_01', 1)
@@ -193,6 +273,15 @@ def check_playback(page):
     page.click('#play')
     state('playing')
     assert snapshot()['renders'] == cached_renders, 'returning to a work rendered MIDI again'
+    # C1: a steady first-page interval, after Play's separate pre-render task.
+    elapsed(snapshot(), 500)
+    page.evaluate('() => { playbackProbe.starts = []; }')
+    elapsed(snapshot(), 3500)
+    margins = sorted(page.evaluate('() => playbackProbe.starts.map(s => s.when - s.ct)'))
+    assert len(margins) >= 10, f'C1 Op. I/1: only {len(margins)} sample starts in 3.5 s'
+    p10 = margins[int((len(margins) - 1) * .1)]
+    assert p10 >= .25, f'C1 Op. I/1: sample-start margin p10={p10*1000:.1f} ms, min={min(margins)*1000:.1f} ms, n={len(margins)}; need >=250 ms'
+    print(f'playback C1: {len(margins)} sample starts, margin p10 {p10*1000:.1f} ms')
     first = snapshot()
     marks()
     page.wait_for_function('q => +document.getElementById("player").dataset.position > q + 0.2', arg=first['q'], timeout=2000)
@@ -214,6 +303,35 @@ def check_playback(page):
     page.keyboard.press('Space')
     state('playing')
     print('playback: Play, marks, advancing ticks, Pause and resume ok')
+
+    # C3: choose a sample at least 50 ms in the future, avoiding a vacuous check
+    # or a Playwright round trip consuming the old player's entire 25 ms horizon.
+    for button, expected in [('#play', 'paused'), ('#stop', 'idle')]:
+        wait_check('''() => {
+          const now = playbackProbe.context.currentTime;
+          const future = playbackProbe.starts.filter(s => s.when > now && !s.stops.some(w => w <= s.when));
+          return future.length > 0 && future.every(s => s.when > now + .05);
+        }''',
+                   f'C3 {expected}: need a sample >50 ms ahead before halt')
+        silence = page.evaluate("""button => {
+          const p = playbackProbe, ct = p.context.currentTime;
+          const future = p.starts.filter(s => s.when > ct);
+          const pending = future.filter(s => !s.stops.some(w => w <= s.when)).length;
+          document.querySelector(button).click();
+          return {ct, returned: p.context.currentTime, count: p.starts.length, pending,
+            future: future.map(s => ({when: s.when, stops: [...s.stops]}))};
+        }""", button)
+        state(expected)
+        assert silence['pending'] > 0, f'C3 {expected}: no uncancelled future sample existed at halt, ct={silence["ct"]}'
+        missed = [s for s in silence['future'] if not any(w <= s['when'] for w in s['stops'])]
+        assert not missed, f'C3 {expected}: future sources lacked stop(w <= when) before return: {missed}; ct={silence["ct"]}, return={silence["returned"]}'
+        elapsed(snapshot(), 500)
+        count = page.evaluate('() => playbackProbe.starts.length')
+        assert count == silence['count'], f'C3 {expected}: {count - silence["count"]} new sample starts within 0.5 s after halt'
+        page.click('#play')
+        state('playing')
+    print('playback C3: Pause and Stop synchronously cancel future sources; no starts for 0.5 s')
+    page.wait_for_function('() => +document.getElementById("player").dataset.position > .2', timeout=2000)
 
     before = snapshot()
     normal = elapsed(before, 2000)
@@ -325,6 +443,27 @@ def check_playback(page):
     # Seek just before Lento, then cross the guide boundary without MIDI work.
     open_work('op1_01', 27)
     tempo(100)
+    # C5: observe host notification time against the real scheduled audio time,
+    # and the same frame's audible position (one tick plus an observed frame).
+    page.evaluate("""() => {
+      const probe = playbackProbe, p = document.getElementById('player');
+      probe.boundaryBpm = 48;
+      delete probe.boundary;
+      let last = probe.context.currentTime, gap = 1 / 60;
+      const frame = () => {
+        const now = probe.context.currentTime;
+        gap = now - last; last = now;
+        if (!probe.notification) requestAnimationFrame(frame);
+      };
+      requestAnimationFrame(frame);
+      const observer = new MutationObserver(() => {
+        if (p.dataset.section !== '28' || !probe.boundary) return;
+        probe.notification = {...probe.boundary, ct: probe.context.currentTime,
+          q: +p.dataset.position, gap, scheduledCt: probe.boundary.ct};
+        observer.disconnect();
+      });
+      observer.observe(p, {attributes:true, attributeFilter:['data-section']});
+    }""")
     page.click('#play')
     state('playing')
     section(1)
@@ -332,28 +471,44 @@ def check_playback(page):
     renders = snapshot()['renders']
     section(28)
     bpm(48)
+    notification = page.evaluate('() => playbackProbe.notification')
+    assert notification, 'C5 Op. I/1 m. 28: no scheduling/notification observation'
+    ppq = page.evaluate('() => Tone.getTransport().PPQ')
+    lag = notification['ct'] - notification['time']
+    delta = notification['q'] - notification['ticks'] / ppq
+    allowance = notification['gap'] + 60 / (48 * ppq)
+    assert 0 <= lag <= allowance, f'C5 m. 28: host notification lag {lag*1000:.1f} ms; frame+tick allowance {allowance*1000:.1f} ms; {notification}'
+    assert -1 / ppq <= delta <= 48 / 60 * allowance, f'C5 m. 28: host position differs from boundary by {delta:.4f} quarters; {notification}'
     assert snapshot()['renders'] == renders
     page.click('#stop')
 
-    # Simulate a live change in the callback's lookahead window. This observer
-    # reacts to section changes, rather than the later Transport.ticks value.
+    # Edit after the scheduling callback, before its audio time. data-section is
+    # deliberately no longer the trigger: it now follows the audio itself.
     page.evaluate("""() => {
       const p = document.getElementById('player');
+      delete p.dataset.boundaryScheduled;
+      delete p.dataset.boundaryObserved;
+      playbackProbe.notification = null;
       window.boundaryObserver = new MutationObserver(() => {
-        if (p.dataset.section !== '28') return;
+        if (!p.dataset.boundaryScheduled) return;
         window.boundaryObserver.disconnect();
+        playbackProbe.edit = {...playbackProbe.boundary, ct: playbackProbe.context.currentTime};
         const slider = document.getElementById('tempo');
         slider.value = 50;
         slider.dispatchEvent(new Event('input', {bubbles:true}));
         p.dataset.boundaryObserved = 'true';
       });
-      window.boundaryObserver.observe(p, {attributes:true, attributeFilter:['data-section']});
+      window.boundaryObserver.observe(p, {attributes:true, attributeFilter:['data-boundary-scheduled']});
     }""")
     page.click('#play')
     state('playing')
     page.wait_for_function("() => document.getElementById('player').dataset.boundaryObserved === 'true'", timeout=15000)
     section(28)
     bpm(24)
+    edit = page.evaluate('() => playbackProbe.edit')
+    assert edit['time'] - edit['ct'] >= .05, f'C5 live edit missed scheduling/audio window: only {(edit["time"]-edit["ct"])*1000:.1f} ms left; {edit}'
+    page.wait_for_function('() => playbackProbe.context.currentTime > playbackProbe.edit.time + .1')
+    assert float(data('bpm')) == 24, f'C5 stale boundary overwrote edited 24 bpm: {data("bpm")}'
     assert snapshot()['renders'] == renders
     guide_menu()
     field = section_field(28)
@@ -428,6 +583,164 @@ def check_playback(page):
     tempo(100)
     print('playback: work switch stops and clears every playing mark')
 
+    # C4: preserve the real previous Transport history, including its old end.
+    works = {w['id']: w for w in json.loads((SITE / 'works.json').read_text())['works']}
+    root = ET.parse(SITE / works['op1_01']['mei']).getroot()
+    last_n = root.findall(f'.//{MEI}music//{MEI}measure')[-1].get('n')
+    open_work('op1_01', last_n)
+    tempo(200)
+    page.click('#play')
+    state('playing')
+    wait_check('() => document.getElementById("player").dataset.state === "idle"',
+               f'C4 Op. I/1 last measure {last_n}: playback must reach end', timeout=45000)
+    old_end = snapshot()['q']
+    open_work('op1_01', 1)
+    page.evaluate("""() => {
+      const p = document.getElementById('player'), probe = playbackProbe;
+      probe.restartPositions = [];
+      window.restartObserver = new MutationObserver(() => {
+        if (p.dataset.state !== 'playing') return;
+        const transport = Tone.getTransport(), now = probe.context.currentTime;
+        const start = probe.transportStarts.at(-1).time;
+        probe.restartPositions.push({q: +p.dataset.position, beforeStart: now < start,
+          audible: now < start ? 0 : transport.getTicksAtTime(now) / transport.PPQ});
+      });
+      window.restartObserver.observe(p, {attributes:true, attributeFilter:['data-position']});
+    }""")
+    page.click('#play')
+    state('playing')
+    restart_time = snapshot()['time']
+    wait_check('t => performance.now() >= t + 1000 && document.getElementById("player").dataset.state === "playing"',
+               'C4 Op. I/1 m. 1: must remain playing 1 s after restart', arg=restart_time)
+    positions = page.evaluate('() => { restartObserver.disconnect(); return playbackProbe.restartPositions; }')
+    assert positions and any(p['beforeStart'] for p in positions), f'C4: no observation before the new audio start: {positions}'
+    wrong = [p for p in positions if p['q'] > p['audible'] + 1 / ppq + 1e-6 or (p['beforeStart'] and p['q'] != 0) or p['q'] >= old_end]
+    assert not wrong, f'C4 restart from m. 1 exposed future/previous-run ticks (old end {old_end}): {wrong[:5]}'
+    page.click('#stop')
+    tempo(100)
+    print(f'playback C4: reached end, restarted m. 1; {len(positions)} audible position observations, old end {old_end}')
+
+    def go_page(number):
+        while True:
+            current_page = int(page.inner_text('#page-label').split('(')[1].split('/')[0])
+            if current_page == number:
+                return
+            page.click('#next' if current_page < number else '#prev')
+
+    def follow_to(number):
+        wait_check('n => document.getElementById("page-label").textContent.includes("(" + n + "/")',
+                   f'C2/C6 Op. I/4: expected follow turn to page {number}', arg=number, timeout=45000)
+
+    def fresh_turn_work():
+        # Earlier whole-site checks visited every page. Reload discards SVG/model
+        # caches, so this really is a first-visit follow turn (Op. I/4 p. 8 -> 9).
+        open_work('op1_04')
+        page.reload()
+        page.wait_for_selector('#score svg', timeout=60000)
+        page.evaluate(RENDER_PROBE)
+        go_page(8)
+        page.locator('#score g.measure').last.dispatch_event('click')
+
+    fresh_turn_work()
+    page.evaluate('() => { playbackProbe.starts = []; playbackProbe.renders = []; playbackProbe.turns = []; }')
+    page.click('#play')
+    state('playing')
+    # C6: Play pre-renders page 9, separate from Play's task, before its turn.
+    wait_check('() => playbackProbe.renders.some(r => r.page === 9)', 'C6 Play: page 9 must be pre-rendered within 2 s', timeout=2000)
+    play_render = page.evaluate('() => playbackProbe.renders.find(r => r.page === 9)')
+    play_time = page.evaluate('() => playbackProbe.transportStarts.at(-1).t')
+    assert play_render['start'] >= play_time + 49, f'C6 Play pre-render ran without 50 ms separation: {play_render}, Play at {play_time}'
+    assert play_render['measure'] == '126', f'C6 Play: page 9 rendered at its follow turn instead of during m. 126: {play_render}'
+    follow_to(9)
+    turn = page.evaluate('() => playbackProbe.turns.find(t => t.label.includes("(9/"))')
+    assert play_render['end'] <= turn['time'], f'C6 p. 9 rendered at turn instead of in advance: {play_render}, {turn}'
+    wait_check('() => playbackProbe.renders.some(r => r.page === 10)', 'C6 follow to page 9: page 10 must be pre-rendered within 2 s', timeout=2000)
+    next_render = page.evaluate('() => playbackProbe.renders.find(r => r.page === 10)')
+    assert next_render['start'] >= turn['time'] + 49, f'C6 p. 10 pre-render joined follow turn task: {next_render}, {turn}'
+    assert next_render['end'] <= turn['time'] + 2000, f'C6 p. 10 not cached within 2 s: {next_render}, {turn}'
+    elapsed(snapshot(), 1000)
+    starts = page.evaluate('t => playbackProbe.starts.filter(s => Math.abs(s.t - t) < 1000)', turn['time'])
+    assert starts, 'C2 Op. I/4 p. 8 -> 9: no sample starts around first-visit follow turn'
+    late = [s for s in starts if s['ct'] - s['when'] > .005]
+    assert not late, f'C2 Op. I/4 p. 8 -> 9: {len(late)}/{len(starts)} sample starts >5 ms late; worst {max(s["ct"]-s["when"] for s in starts)*1000:.1f} ms'
+    print(f'playback C2: first-visit Op. I/4 p. 8 -> 9, {len(starts)} starts, none >5 ms late')
+
+    # The next actual follow turn must use that cached SVG, with zero toolkit
+    # renders between Play and the turn; page 11's later idle job is separate.
+    page.locator('#score g.measure').last.dispatch_event('click')
+    second_play = page.evaluate('() => performance.now()')
+    page.click('#play')
+    state('playing')
+    follow_to(10)
+    next_turn = page.evaluate('() => playbackProbe.turns.find(t => t.label.includes("(10/"))')
+    turn_renders = page.evaluate('v => playbackProbe.renders.filter(r => r.start >= v.start && r.start <= v.end)', {'start': second_play, 'end': next_turn['time']})
+    assert not turn_renders, f'C6 cached follow p. 9 -> 10 called renderToSVG: {turn_renders}'
+    page.click('#stop')
+
+    # C2 positive control through the same native hook and the real player.
+    open_work('op1_01', 1)
+    page.click('#play')
+    state('playing')
+    elapsed(snapshot(), 1500)
+    block = page.evaluate('''() => {
+      playbackProbe.starts = [];
+      const t = performance.now();
+      while (performance.now() - t < 1000) {}
+      return t;
+    }''')
+    elapsed(snapshot(), 1000)
+    control = page.evaluate('t => playbackProbe.starts.filter(s => s.t >= t && s.t < t + 2000)', block)
+    worst = max((s['ct'] - s['when'] for s in control), default=0)
+    assert worst > .05, f'C2 positive control: 1 s busy loop produced no start >50 ms late; n={len(control)}, worst={worst*1000:.1f} ms'
+    page.click('#stop')
+    print(f'playback C2 control: 1 s block, worst sample start {worst*1000:.1f} ms late')
+
+    # C6 guard: start a work switch in the turn's observer, before the 50 ms
+    # delay. Hold getModel's fetch while current() is still the old model.
+    fresh_turn_work()
+    switching = []
+    def hold_work(route):
+        switching.append(route)
+    page.route('**/' + works['op1_01']['mei'], hold_work)
+    page.evaluate("""() => {
+      const observer = new MutationObserver(() => {
+        if (!document.getElementById('page-label').textContent.includes('(9/')) return;
+        observer.disconnect();
+        playbackProbe.switchAt = performance.now();
+        location.hash = '#op1_01';
+      });
+      observer.observe(document.getElementById('page-label'), {childList:true});
+    }""")
+    page.click('#play')
+    # The switch can already be idle by the time Playwright regains control.
+    wait_check('() => playbackProbe.switchAt !== undefined', 'C6 guard: switch must start at follow to page 9', timeout=45000)
+    wait_check('() => document.getElementById("play").disabled', 'C6 guard: work switch must enter loading')
+    page.wait_for_timeout(300)  # exercise the deferred job during the held await
+    assert switching, 'C6 work-switch guard: getModel fetch was not held'
+    during_load = page.evaluate('() => playbackProbe.renders.filter(r => r.start >= playbackProbe.switchAt)')
+    assert not during_load, f'C6 work-switch guard rendered while getModel awaited: {during_load}'
+    for route in switching:
+        route.continue_()
+    page.unroute('**/' + works['op1_01']['mei'], hold_work)
+    open_work('op1_01')
+
+    def own_measures(work_id, number):
+        expected, current_page = set(), 0
+        for element in ET.parse(SITE / works[work_id]['mei']).getroot().find(f'{MEI}music').iter():
+            if element.tag == MEI + 'pb':
+                # Encoded first pb starts page 1.
+                current_page += 1
+            elif element.tag == MEI + 'measure' and max(current_page, 1) == number:
+                expected.add(element.get('{http://www.w3.org/XML/1998/namespace}id'))
+        actual = set(page.eval_on_selector_all('#score g.measure', 'els => els.map(e => e.id)'))
+        assert actual == expected, f'C6 {work_id} page {number}: foreign/missing SVG measures; extra={sorted(actual-expected)}, missing={sorted(expected-actual)}'
+
+    for work_id in ('op1_01', 'op1_04'):
+        open_work(work_id)
+        go_page(10)
+        own_measures(work_id, 10)
+    print('playback C6: Play/turn pre-render after 50 ms, next follow cached, work-switch await guarded; both works retain own measures')
+
     page.set_viewport_size({'width': 390, 'height': 844})
     parts_menu()
     page.wait_for_function('() => document.documentElement.scrollWidth <= innerWidth', timeout=5000)
@@ -450,6 +763,7 @@ def main():
     with sync_playwright() as p:
         browser = p.chromium.launch()
         context = browser.new_context(viewport={'width': 1400, 'height': 1000}, permissions=['clipboard-read', 'clipboard-write'])
+        context.add_init_script(PLAYBACK_PROBE)
         page = context.new_page()
         page.on('console', lambda m: m.type == 'error' and console.append(m.text))
         page.on('pageerror', lambda e: console.append(f'pageerror: {e}'))

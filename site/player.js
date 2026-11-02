@@ -13,8 +13,11 @@
  * Sections scale the first MIDI tempo; multiple MIDI tempo events override them.
  * tempoPlan(midi, sections, percent) is pure and returns {source, points} with
  * integer ticks, effective bpm and the host's section index (-1 without guide).
- * onSection/onTempo run at scheduling callbacks (up to lookAhead before audio).
- * onPosition runs on animation frames and reads Transport.ticks, never wall time.
+ * onSection/onTempo run at audio time on frames (late frames never expire them);
+ * live edits report immediately. Halt/plan edits discard pending notifications.
+ * onPosition reads ticks at AudioContext.currentTime on animation frames, held
+ * at the requested start until audio starts; stopped/paused position is stored.
+ * Play/tempo/guide edits sound about 0.3 s later; pause/stop/mute/gain are immediate.
  * Note releases are also scheduled in ticks, so held notes follow live tempo.
  * The host owns cancellation of async prepare results, state, persistence,
  * notation/time-map caching, highlighting, navigation and all user messages.
@@ -26,6 +29,13 @@ const LIBRARIES = {
 };
 let libraries;
 const scripts = new Map();
+// Tone must hand notes to Web Audio ~0.275–0.3 s ahead, protecting page turns.
+// Set updateInterval AFTER lookAhead: Tone's setter sets it to half the horizon.
+const LOOK_AHEAD = 0.3;
+const UPDATE_INTERVAL = 0.025;
+// Wider than Tone's horizon: smplr dispatches immediately instead of queuing on
+// its main-thread 50 ms timer (whose default horizon would cap ours at 0.2 s).
+const SAMPLE_LOOK_AHEAD_MS = 2000;
 
 function loadScript([url, integrity]) {
   if (!scripts.has(url)) {
@@ -50,7 +60,7 @@ async function loadModule([url, integrity]) {
 function loadLibraries() {
   if (!libraries) {
     libraries = Promise.all([loadScript(LIBRARIES.tone), loadScript(LIBRARIES.midi), loadModule(LIBRARIES.smplr)])
-      .then(([, , smplr]) => ({ Tone: globalThis.Tone, Midi: globalThis.Midi, Soundfont: smplr.Soundfont }))
+      .then(([, , smplr]) => ({ Tone: globalThis.Tone, Midi: globalThis.Midi, Soundfont: smplr.Soundfont, Scheduler: smplr.Scheduler }))
       .catch((error) => { libraries = null; throw error; });
   }
   return libraries;
@@ -73,11 +83,24 @@ export function tempoPlan(midi, sections = [], percent = 100) {
   return { source, points };
 }
 
+// Tone extrapolates the previous run before a newly scheduled start, even after
+// ticks is assigned. Never expose those ticks or use them for end detection.
+export function audibleTick(running, storedTick, startTime, now, ticks) {
+  return !running || now < startTime ? storedTick : ticks;
+}
+
+// No expiry: even a background tab must deliver every current-plan boundary in
+// audio-time order when frames resume. Versions also invalidate live-edit races.
+export function dueNotifications(queue, now, version) {
+  const current = queue.filter((item) => item.version === version).sort((a, b) => a.time - b.time);
+  return { due: current.filter((item) => item.time <= now), pending: current.filter((item) => item.time > now) };
+}
+
 export async function createPlayer({ context, samples, onPosition, onEnd, onSection = () => {}, onTempo = () => {} }) {
-  const { Tone, Midi, Soundfont } = await loadLibraries();
+  const { Tone, Midi, Soundfont, Scheduler } = await loadLibraries();
   Tone.setContext(context);
-  // Keep the scheduling horizon short; marks read the same Transport clock.
-  Tone.getContext().lookAhead = 0.025;
+  Tone.getContext().lookAhead = LOOK_AHEAD;
+  Tone.getContext().updateInterval = UPDATE_INTERVAL;
   const transport = Tone.getTransport();
   const instruments = new Map();
   const voices = new Set();
@@ -90,9 +113,12 @@ export async function createPlayer({ context, samples, onPosition, onEnd, onSect
   let tempoEvents = [];
   let activeTick = 0;
   let planVersion = 0;
+  let notifications = [];
   let tempo = { bpm: 0, source: 'single', index: -1 };
   let frame = 0;
   let running = false;
+  let storedTick = 0;
+  let startTime = Infinity;
   let voiceId = 0;
 
   function silence(channel) {
@@ -103,11 +129,13 @@ export async function createPlayer({ context, samples, onPosition, onEnd, onSect
 
   function halt() {
     running = false;
+    startTime = Infinity;
     cancelAnimationFrame(frame);
     transport.stop();
     transport.cancel(0);
     tempoEvents = [];
     ++planVersion;
+    notifications = [];
     silence();
   }
 
@@ -120,6 +148,8 @@ export async function createPlayer({ context, samples, onPosition, onEnd, onSect
       gain.connect(context.destination);
       const sound = new Soundfont(context, {
         instrumentUrl: file.url, destination: gain,
+        // Per instrument: disposing a failed load cannot stop another's scheduler.
+        scheduler: Scheduler(context, { lookaheadMs: SAMPLE_LOOK_AHEAD_MS }),
         storage: { fetch: (url) => fetch(url, { integrity: file.integrity, mode: 'cors' }) },
       });
       instruments.set(key, sound.ready.then(() => ({ sound, gain, channel })).catch((error) => {
@@ -158,17 +188,24 @@ export async function createPlayer({ context, samples, onPosition, onEnd, onSect
     }
   }
 
-  function report(point, source) {
+  function notify(value, version = planVersion) {
+    onTempo(value);
+    if (version === planVersion) onSection(value.index);
+  }
+
+  function report(point, source, time) {
     tempo = { bpm: point.bpm, source, index: point.index };
-    // Update before calling the host: a synchronous live edit must see this point.
+    // Update scheduler state immediately: a live edit inside the lookahead window
+    // must see this boundary, even though the host has not heard about it yet.
     activeTick = point.ticks;
-    onTempo(tempo);
-    onSection(point.index);
+    if (time === undefined) notify(tempo);
+    else notifications.push({ time, version: planVersion, tempo });
   }
 
   function updatePlan(from = activeTick) {
     if (!score) return;
     const version = ++planVersion;
+    notifications = [];
     for (const id of tempoEvents) transport.clear(id);
     tempoEvents = [];
     const { source, points } = tempoPlan(score.midi, sections, percent);
@@ -180,7 +217,7 @@ export async function createPlayer({ context, samples, onPosition, onEnd, onSect
       tempoEvents.push(transport.schedule((time) => {
         if (version !== planVersion) return;
         transport.bpm.setValueAtTime(next.bpm, time);
-        report(next, source);
+        report(next, source, time);
       }, `${next.ticks}i`));
     }
   }
@@ -200,7 +237,11 @@ export async function createPlayer({ context, samples, onPosition, onEnd, onSect
       }
       return { midi, channels, end: midi.durationTicks / midi.header.ppq };
     },
-    get position() { return score ? transport.ticks / score.midi.header.ppq : 0; },
+    get position() {
+      if (!score) return 0;
+      const now = context.currentTime;
+      return audibleTick(running, storedTick, startTime, now, transport.getTicksAtTime(now)) / score.midi.header.ppq;
+    },
     get gains() { return { ...gains }; },
     get tempo() { return { ...tempo }; },
     setTempo(value) { percent = value; updatePlan(); },
@@ -217,6 +258,7 @@ export async function createPlayer({ context, samples, onPosition, onEnd, onSect
       percent = value;
       player.setMuted(muted);
       transport.ticks = from;
+      storedTick = from;
       running = true;
       updatePlan(from);
       for (const track of score.midi.tracks) for (const note of track.notes) {
@@ -227,12 +269,23 @@ export async function createPlayer({ context, samples, onPosition, onEnd, onSect
         transport.schedule((time) => { voice = startNote(part, note, time); }, `${Math.max(note.ticks, from)}i`);
         transport.schedule((time) => { voice?.stop(time); }, `${end}i`);
       }
-      transport.start();
+      startTime = context.currentTime + LOOK_AHEAD;
+      transport.start(startTime);
       const tick = () => {
         if (!running) return;
+        const now = context.currentTime;
         const q = player.position;
         onPosition(q);
-        if (q >= score.end) { player.stop(); onEnd(); return; }
+        // Use our frame loop instead of Tone Draw: no expiry can lose a boundary.
+        // Use the frame's audio time: a blocking host page turn must not deliver
+        // a boundary beyond the position just reported to that host.
+        const { due, pending } = dueNotifications(notifications, now, planVersion);
+        notifications = pending;
+        for (const item of due) {
+          if (running && item.version === planVersion) notify(item.tempo);
+        }
+        if (!running) return;
+        if (now >= startTime && q >= score.end) { player.stop(); onEnd(); return; }
         frame = requestAnimationFrame(tick);
       };
       frame = requestAnimationFrame(tick);
@@ -240,12 +293,14 @@ export async function createPlayer({ context, samples, onPosition, onEnd, onSect
     pause() {
       const q = player.position;
       halt();
-      transport.ticks = q * score.midi.header.ppq;
+      storedTick = q * score.midi.header.ppq;
+      transport.ticks = storedTick;
       return q;
     },
     stop(q = 0) {
       halt();
-      if (score) transport.ticks = q * score.midi.header.ppq;
+      storedTick = score ? q * score.midi.header.ppq : 0;
+      if (score) transport.ticks = storedTick;
     },
   };
   return player;
