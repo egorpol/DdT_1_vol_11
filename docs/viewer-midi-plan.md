@@ -271,7 +271,12 @@ main-thread timer, notes due during that time started late: at Op. I/4's turn fr
 - delivers tempo and section notices on its own frame loop at audio time, dropping those of a replaced
   plan (Tone's `Draw` would drop a callback that is more than 0.25 s late);
 - renders the next page's SVG in an idle task 50 ms after each turn and after Play, so the follow turn
-  finds it cached.
+  finds it cached;
+- runs each note start and tempo boundary once (`once()`, `scheduleNote()`): Tone 15.1.22's Clock can
+  process one tick in two updates (floating-point drift in `forEachTickBetween`; 2–4 ticks per 100 s
+  of Op. II/2), and a note started twice left its first voice without a release, ringing for the whole
+  3.13 s sample. Measured 2026-11-02 from Op. II/2 m. 150: 776 voices started and 776 released on the
+  fixed build, against 8 never released before.
 
 Measured 2026-11-02 at the same turn (probe in the git-ignored
 `validation/runs/midi-player-build/tools/page-turn/`): 0 of 608 sample starts late, and 0 of 611 under

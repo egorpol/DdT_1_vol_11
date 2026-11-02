@@ -107,6 +107,30 @@ export function dueNotifications(queue, now, version) {
   return { due: current.filter((item) => item.time <= now), pending: current.filter((item) => item.time > now) };
 }
 
+// Tone 15.1.22's Clock can run one tick twice: forEachTickBetween adds tick durations
+// up to the end of one update and recomputes the next update's first tick with
+// ceil(), so floating-point drift can put the same tick in both (4 of 14,168 ticks
+// in 100 s of Op. II/2). Every Transport callback with an effect must run once.
+export function once(callback) {
+  let done = false;
+  return (...args) => {
+    if (done) return;
+    done = true;
+    callback(...args);
+  };
+}
+
+// A second start would replace the voice the release refers to, so the first voice
+// rang for its whole sample. Returns false for a note that ends before `from`.
+export function scheduleNote(transport, note, from, start) {
+  const end = note.ticks + note.durationTicks;
+  if (end <= from) return false;
+  let voice = null;
+  transport.schedule(once((time) => { voice = start(time); }), `${Math.max(note.ticks, from)}i`);
+  transport.schedule((time) => { voice?.stop(time); }, `${end}i`);
+  return true;
+}
+
 // Separate from Transport so lifecycle/race contracts can be tested with small audio doubles.
 export function createChannelSounds(context, samples, Soundfont, Scheduler, fetchSample = fetch) {
   const channels = new Map();
@@ -304,11 +328,11 @@ export async function createPlayer({ context, samples, onPosition, onEnd, onSect
     report(point, source);
     if (!running || version !== planVersion) return;
     for (const next of points.filter((p) => p.ticks > from)) {
-      tempoEvents.push(transport.schedule((time) => {
+      tempoEvents.push(transport.schedule(once((time) => {
         if (version !== planVersion) return;
         transport.bpm.setValueAtTime(next.bpm, time);
         report(next, source, time);
-      }, `${next.ticks}i`));
+      }), `${next.ticks}i`));
     }
   }
 
@@ -361,13 +385,9 @@ export async function createPlayer({ context, samples, onPosition, onEnd, onSect
       storedTick = from;
       running = true;
       updatePlan(from);
-      for (const track of score.midi.tracks) for (const note of track.notes) {
-        const end = note.ticks + note.durationTicks;
-        if (end <= from) continue;
+      for (const track of score.midi.tracks) {
         const part = score.channels.get(track.channel);
-        let voice;
-        transport.schedule((time) => { voice = startNote(part, note, time); }, `${Math.max(note.ticks, from)}i`);
-        transport.schedule((time) => { voice?.stop(time); }, `${end}i`);
+        for (const note of track.notes) scheduleNote(transport, note, from, (time) => startNote(part, note, time));
       }
       startTime = context.currentTime + LOOK_AHEAD;
       transport.start(startTime);
