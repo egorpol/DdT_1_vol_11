@@ -293,7 +293,7 @@ stutter there.
   Missing CSVs fail for works with tempo marks; no marks and no CSV gives an empty guide. Report the
   file and row; never rewrite guide data. `tests/test_build_site.py` checks all 109 real rows,
   mid-bar offsets, part data and byte-identical site copies, plus rejection cases on temporary copies.
-- `tests/test_tempo_js.py` runs `node --test tests/js/` when node exists. Pure tests cover effective
+- `tests/test_tempo_js.py` runs `node --test` on each `tests/js/*.test.mjs` file when node exists (node 22 rejects a directory argument). Pure tests cover effective
   tempo plans (single/guide/encoded, global scaling, whole ticks), ordinary and mid-bar boundaries,
   repeat re-entry into a row measure or the middle of an earlier section, and duplicate suppression.
 - `scripts/check_site.py` (Playwright, headless Chromium): keep all step 1 checks (one clock,
