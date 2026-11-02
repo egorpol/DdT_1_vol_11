@@ -154,6 +154,12 @@ enhancements. None of those descriptions establishes an exact duplicate for
 this automatic-generation trigger. No development runtime was tested and no
 upstream report was submitted.
 
+**Op. II/2 and II/3 (2026-11-02):** their printed repeats had played once, because Verovio 6.3.0
+builds no expansion in a file with editorial annotations (II/2 has 3 `<annot>`, II/3 has 2). Both
+now use the same encoding as App. I: sections and one explicit `expansion`. II/2's first Arietta
+strain has a printed repeat end but no start; it repeats from the double bar at m. 150. The
+rendered pages are unchanged apart from generated IDs and empty section milestones in the SVG.
+
 **For the combined reassessment:** retain the two-measure reproduction,
 passing explicit-start control, crash logs, issue-search responses and draft
 in the local, unpublished run directory of 2026-10-20. Recheck the then-current runtime and tracker before deciding

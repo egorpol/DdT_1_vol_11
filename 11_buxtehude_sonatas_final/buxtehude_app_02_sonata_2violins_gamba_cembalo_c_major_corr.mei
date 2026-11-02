@@ -121,6 +121,11 @@
       <revisionDesc>
          <change isodate="2026-11-02" resp="#resp.polyakov #resp.camat">
             <changeDesc>
+               <p>Removed the final barlines encoded at the ends of measures 31 and 68, where DdT prints ordinary barlines at the foot of pp. 165 and 168; both had come in from the page files. No event or ID changes.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-11-02" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
                <p>Changed the licence of the MEI data from the MIT License to CC BY 4.0; the repository's code stays under the MIT License (LICENSE.md). The musical text, annotations and facsimile zones are unchanged.</p>
             </changeDesc>
          </change>
@@ -4108,7 +4113,7 @@
                         </layer>
                      </staff>
                   </measure>
-                  <measure xml:id="n14jrl9" right="end" n="31" facs="#zone_9a58e132998942fd83">
+                  <measure xml:id="n14jrl9" n="31" facs="#zone_9a58e132998942fd83">
                      <staff xml:id="wd97wi1" n="1">
                         <layer xml:id="xbu8oze" n="1">
                            <beam xml:id="ypibdr2">
@@ -8323,7 +8328,7 @@
                      </staff>
                      <tie xml:id="b151tkxy" startid="#zrvjj58" endid="#c1bls640"/>
                   </measure>
-                  <measure xml:id="r1q7s7ka" right="end" n="68" facs="#zone_a41d8e93b6c74f2a8e">
+                  <measure xml:id="r1q7s7ka" n="68" facs="#zone_a41d8e93b6c74f2a8e">
                      <harm xml:id="gjggjnghki67" staff="4" tstamp="1">
                         <fb>
                            <f>6</f>

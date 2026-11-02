@@ -580,8 +580,37 @@ def check_playback(page):
     open_work('op1_02')
     state('idle')
     assert page.locator('.is-playing').count() == 0
-    tempo(100)
+    assert page.is_hidden('#repeats-label'), 'Repeats is offered only for works with printed repeats'
     print('playback: work switch stops and clears every playing mark')
+
+    # Op. II/2 and II/3 play their printed repeats from an explicit <expansion> (wasm Verovio);
+    # Repeats off (Verovio's expandNever) plays App. I's written order once.
+    def reaches(work_id, measure):
+        wait_check("t => document.getElementById('player-position').textContent.startsWith(t)",
+                   f'{work_id}: expected m. {measure}', arg=f'm. {measure} / ', timeout=30000)
+
+    for work_id, last, back in (('op2_02', 154, 151), ('op2_03', 232, 218)):
+        open_work(work_id, last)
+        assert page.is_visible('#repeats-label') and data('repeats') == 'true', work_id
+        page.click('#play')
+        state('playing')
+        reaches(work_id, back)
+        page.click('#stop')
+    open_work('app_01', 9)
+    page.uncheck('#repeats')
+    assert data('repeats') == 'false'
+    page.click('#play')
+    state('playing')
+    reaches('app_01', 10)
+    page.click('#stop')
+    page.check('#repeats')
+    assert data('repeats') == 'true'
+    page.click('#play')
+    state('playing')
+    reaches('app_01', 1)
+    page.click('#stop')
+    tempo(100)
+    print('playback: II/2 m. 154 -> 151 and II/3 m. 232 -> 218; Repeats off takes App. I m. 9 on to m. 10')
 
     # C4: preserve the real previous Transport history, including its old end.
     works = {w['id']: w for w in json.loads((SITE / 'works.json').read_text())['works']}

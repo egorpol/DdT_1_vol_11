@@ -28,14 +28,18 @@ No percussion channel. Every work plays at Verovio's default of 120 quarter note
 MEI carries no `midi.bpm` or `mm` (DdT prints no metronome marks; decision of 2026-10-28).
 
 **Repeats.** Verovio plays repeats from an `<expansion>` element or, when there is none, from an
-expansion it builds from the repeat barlines. Measured by MIDI length with and without the repeat
-barlines (native 6.3.0): App. I has an explicit `<expansion>` (added 2026-10-26 after the automatic
-expansion crashed, reported upstream as Verovio #4533, still open) and plays every strain twice
-(322.0 s; 161.0 s without). Op. II/2 (39 repeat barlines) and II/3 (2) are not expanded: Verovio
-refuses to build an expansion in a file with editorial markup ("An expansion cannot be generated with
-editorial content"; both have 3 `<app>`), so their repeats play once until each gets an explicit
-`<expansion>` as App. I did. That is an editorial data change outside this plan (HANDOFF, later
-items). The other 14 works have no repeat barlines.
+expansion it builds from the repeat barlines. It builds none in a file with editorial markup ("An
+expansion cannot be generated with editorial content"); in this edition that markup is `<annot>`.
+The three works with printed repeats therefore carry an explicit `<expansion>`: App. I since
+2026-10-26 (the automatic expansion crashed, Verovio #4533), Op. II/2 and II/3 since 2026-11-02
+(they have 3 and 2 `<annot>`; an earlier version of this plan wrongly named `<app>`). Measured by
+MIDI length (native 6.3.0, ♩ = 120): App. I 322.0 s with its repeats, 161.0 s without; II/2 668.7 s
+(each of the Arietta's 20 four-measure strains twice, the first from the double bar at m. 150),
+508.7 s without; II/3 488.5 s (mm. 218–232 twice), 443.5 s without. A check of every double, final
+and repeat barline against the DdT pages (2026-11-02) found no repeat signs in the other 14 works;
+Op. II/5 ends with an optional "Da capo se piace." that the player does not play. The viewer's
+Repeats checkbox (on by default, remembered; shown only for these three works) sets Verovio's
+`expandNever` when off, which applies at `loadData`, so the work reloads; the score is unchanged.
 
 ## 2. How Verovio-based projects play MIDI
 
@@ -311,9 +315,10 @@ stutter there.
 
 ## 6. Limitations to state in the viewer
 
-- Op. II/2's and II/3's repeats play once until they get an explicit `<expansion>` (section 1); App. I's play.
+- Repeats (App. I, Op. II/2 and II/3) plays each repeated strain twice; off plays the written order
+  once (section 1). The optional Da capo at the end of Op. II/5 is not played.
 - Each tempo section plays at a suggested percentage of ♩ = 120 from `playback/tempo-guide/`
-  (rule table; 38 of 109 rows still to be confirmed by the editor's ear). Readers can change each
+  (rule table; the editor checked the 38 flagged rows by ear on 2026-11-02 and kept every value). Readers can change each
   suggestion and scale all sections with Tempo. These are playback suggestions, not the edition's
   reading; the MEI carries no tempo values.
 - The figured-bass figures do not sound by themselves; the continuo plays the bass line, and the

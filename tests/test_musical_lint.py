@@ -223,3 +223,32 @@ def test_out_absolute_and_relative(lint, tmp_path):
     assert code == 0, printed
     assert (tmp_path / 'relative-out.csv').is_file()
     assert printed.rstrip().endswith('relative-out.csv')
+
+
+def barline_rows(path):
+    with path.open(newline='') as handle:
+        return {(r['check'], r['measure']) for r in csv.DictReader(handle)
+                if r['check'] in {'final_barline_inside_work', 'work_end_barline'}}
+
+
+def one_note_measure(n, attributes='', control=''):
+    return (f'<measure n="{n}" xml:id="m{n}"{attributes}>'
+            f'<staff n="1"><layer n="1"><note xml:id="n{n}" dur="1" oct="4" pname="c" /></layer></staff>'
+            f'{control}</measure>')
+
+
+@pytest.mark.parametrize('measures, expected', [
+    # App. II mm. 31/68: a page-end final barline inside the work; Op. II/4: a work ending on a double bar.
+    ([one_note_measure(1, ' right="end"'), one_note_measure(2, ' right="dbl"')],
+     {('final_barline_inside_work', '1'), ('work_end_barline', '2')}),
+    # Op. II/3 m. 217: a section closing on a fermata and a final barline; App. I ends on a repeat.
+    ([one_note_measure(1, ' right="end"', '<fermata staff="1" startid="#n1" />'), one_note_measure(2, ' right="rptend"')],
+     set()),
+    ([one_note_measure(1), one_note_measure(2, ' right="end"')], set()),
+])
+def test_barline_checks(lint, tmp_path, measures, expected):
+    prepare(tmp_path, C_MAJOR, '<section>' + ''.join(measures) + '</section>')
+    out = tmp_path / 'out.csv'
+    code, printed = run_lint(lint, tmp_path, ['--manifest', 'validation/editorial-works.json', '--out', str(out)])
+    assert code == 0, printed
+    assert barline_rows(out) == expected

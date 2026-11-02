@@ -99,6 +99,9 @@ function readModel(work, text, excerpts) {
     work, ids: new Map(), measures: new Map(), byN: new Map(), pages: [], surfaces: new Map(), zones: new Map(),
     annots: [], noted: new Set(), excerpts: new Map(), loose: [], sources: new Map(), svg: new Map(), pageCount: 0,
   };
+  // Printed repeats: App. I, Op. II/2 and II/3 play them from an explicit <expansion>.
+  model.hasRepeats = doc.getElementsByTagName('expansion').length > 0
+    || !!doc.querySelector('measure[left^="rpt"], measure[right^="rpt"]');
   const edition = doc.querySelector('editionStmt > edition');
   const version = edition?.getAttribute('n');
   model.edition = edition ? squash(edition.textContent) + (version ? `, version ${version}` : '') : '';
@@ -227,6 +230,7 @@ async function showWork(id) {
   const work = index.works.find((w) => w.id === id);
   if (!work.mei) {
     Object.assign(state, { work, model: null, page: 1, pinned: null, annot: null });
+    $('repeats-label').hidden = true;
     showWorkInfo(work, null);
     scoreMessage(`${work.label} (${work.catalogue}, DdT pp. ${work.pages.from}–${work.pages.to}) has not been assembled yet.`);
     renderNotes(null);
@@ -245,6 +249,7 @@ async function showWork(id) {
   if (token !== workToken) return;
   if (!toolkit.loadData(model.text)) throw new Error(`Verovio could not load ${work.label}.`);
   model.pageCount = toolkit.getPageCount();
+  $('repeats-label').hidden = !model.hasRepeats;
   Object.assign(state, { work, model, pinned: null, annot: null });
   playback.loadingWork = false;
   Object.assign($('player').dataset, { work: work.id });
@@ -433,13 +438,13 @@ const SAMPLE_FILES = {
   43: { url: `${SOUNDFONT_ROOT}contrabass-mp3.js`, integrity: 'sha384-FH2/7J+D4GP4PFf//V3xIswsrDkclg1glB2nz9p4p37kXcXj7gL+6Hdvmrkl/8+J' },
   6: { url: `${SOUNDFONT_ROOT}harpsichord-mp3.js`, integrity: 'sha384-veZb4kehrh8qKJzOhM1Lv+MqBFb4SDXpSyWrnlNzeNwmz8RS8RI9iG8ysX221GgO' },
 };
-const PLAYBACK_SETTINGS = { tempo: 'ddt-viewer-tempo', parts: 'ddt-viewer-parts', volumes: 'ddt-viewer-volumes', guide: 'ddt-viewer-tempo-guide', sounds: 'ddt-viewer-sounds', consent: 'ddt-viewer-sound-consent' };
+const PLAYBACK_SETTINGS = { tempo: 'ddt-viewer-tempo', parts: 'ddt-viewer-parts', volumes: 'ddt-viewer-volumes', guide: 'ddt-viewer-tempo-guide', sounds: 'ddt-viewer-sounds', consent: 'ddt-viewer-sound-consent', repeats: 'ddt-viewer-repeats' };
 // Roles that start muted until the reader ticks them: Stiehl's realization doubles the figured
 // bass (97-99.8 % of its notes at the same onset and pitch in each of the 17 works).
 const DEFAULT_OFF = new Set(['figured_continuo_bass']);
 const playback = {
   engine: null, ready: null, context: null, token: 0, state: 'idle', loadingWork: true,
-  percent: 100, roles: {}, volumes: {}, guide: {}, engineModel: null, renders: 0, q: 0, start: null, pinAtPlay: null,
+  percent: 100, repeats: true, roles: {}, volumes: {}, guide: {}, engineModel: null, renders: 0, q: 0, start: null, pinAtPlay: null,
   sounds: {}, agreed: new Set(), consentStored: true, soundWork: null, accepted: {}, inUse: {}, pendingSounds: [],
   soundJobs: new Map(), soundVersions: new Map(),
   follow: false, active: new Set(), event: 0, measure: null,
@@ -451,6 +456,7 @@ function readPlaybackSettings() {
     if (percent >= 25 && percent <= 200) playback.percent = percent;
     const roles = JSON.parse(localStorage.getItem(PLAYBACK_SETTINGS.parts) || '{}');
     if (roles && typeof roles === 'object' && !Array.isArray(roles)) playback.roles = roles;
+    playback.repeats = localStorage.getItem(PLAYBACK_SETTINGS.repeats) !== '0';
   } catch { /* storage blocked: defaults */ }
   for (const key of ['volumes', 'guide', 'sounds']) {
     try {
@@ -465,6 +471,7 @@ function readPlaybackSettings() {
     localStorage.setItem(PLAYBACK_SETTINGS.consent, JSON.stringify([...playback.agreed]));
   } catch { playback.consentStored = false; }
   $('tempo').value = playback.percent;
+  $('repeats').checked = playback.repeats;
   updateTempo();
 }
 
@@ -956,6 +963,26 @@ function cachePlayback(model, engine) {
   model.tempoPoints = mapTempoSections(model.work.tempo || [], [...model.measures.keys()], model.playbackMap, model.measureQ);
 }
 
+const PLAYBACK_CACHE = ['midi', 'timemap', 'playingIds', 'playbackMap', 'measureQ', 'tempoPoints'];
+
+// Repeats off = Verovio's expandNever: MIDI and timemap play the written order once. Verovio applies
+// it at loadData, so a work with repeats reloads; the score drawing and the page cache do not change.
+function setRepeats(value) {
+  playback.repeats = value;
+  try { localStorage.setItem(PLAYBACK_SETTINGS.repeats, value ? '1' : '0'); } catch { /* not remembered */ }
+  if (!toolkit) return;
+  toolkit.setOptions({ expandNever: !value });
+  $('player').dataset.repeats = String(value);
+  const forget = (model) => { for (const key of PLAYBACK_CACHE) delete model[key]; };
+  for (const ready of models.values()) ready.then(forget, () => {});
+  const model = current();
+  if (!model?.hasRepeats || playback.loadingWork) return;
+  stopPlayback();
+  playback.engineModel = null;
+  forget(model);
+  if (!toolkit.loadData(model.text)) scoreMessage(`Verovio could not load ${model.work.label}.`);
+}
+
 async function togglePlayback() {
   if (!settings.playback || !current() || playback.loadingWork || playback.state === 'loading') return;
   const newPin = state.pinned && state.pinned !== playback.pinAtPlay;
@@ -1307,6 +1334,7 @@ function bindUi() {
     renderParts(state.work);
   });
   $('copy-tempo').addEventListener('click', copyTempoChanges);
+  $('repeats').addEventListener('change', (e) => setRepeats(e.target.checked));
   $('playback').addEventListener('change', (e) => changeSetting('playback', e.target.checked));
   $('mark-notes').addEventListener('change', (e) => changeSetting('markNotes', e.target.checked));
   $('measure-boxes').addEventListener('change', (e) => changeSetting('measureBoxes', e.target.checked));
@@ -1369,7 +1397,8 @@ async function main() {
   try {
     [index, toolkit] = await Promise.all([indexReady, loadVerovio()]);
     cleanGuide();
-    toolkit.setOptions(VEROVIO_OPTIONS);
+    toolkit.setOptions({ ...VEROVIO_OPTIONS, expandNever: !playback.repeats });
+    $('player').dataset.repeats = String(playback.repeats);
     $('verovio-version').textContent = toolkit.getVersion();
     fillWorkSelect();
     await applyHash();

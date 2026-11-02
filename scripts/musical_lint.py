@@ -9,6 +9,7 @@ outside generous role ranges, isolated octave leaps, same-letter notes with
 different accidentals struck together in different voices, figure accidentals
 that no sounding note honours, figures over silence or with doubtful text,
 tstamps past the barline, ties between different pitches, notes without pitch,
+final barlines inside a work (unless after a fermata) or missing at its end,
 gestural accidentals that differ from the regeneration rule (CAMAT on the
 written notation with every accid.ges stripped), and event IDs present in the
 baseline tag but missing now. Known idioms are left out: octave returns,
@@ -286,6 +287,17 @@ def lint(work):
                             f'figure {figure!r} over {spelled(low)} asks {letter.upper()}'
                             f'{ {-1: "b", 0: "", 1: "#"}.get(expected, "?") }; sounding: '
                             + ', '.join(f'{spelled(n)} (staff {n["staff"]})' for n in wrong))
+
+    # A final barline closes a work; inside one it closes a section only after a fermata (Op. II/3 m. 217).
+    for index, (measure, *_) in enumerate(work.measures):
+        right, last = measure.get('right') or '', index == len(work.measures) - 1
+        held = measure.find(f'.//{MEI}fermata') is not None or any(e.get('fermata') for e in measure.iter())
+        if right == 'end' and not last and not held:
+            add('final_barline_inside_work', measure, '', [measure.get(ID, '')],
+                'final barline (right="end") before the last measure, with no fermata')
+        if last and right != 'end' and not right.startswith('rpt'):
+            add('work_end_barline', measure, '', [measure.get(ID, '')],
+                f'the last measure ends with right={right or "single"!r}, not a final or repeat barline')
 
     for note, measure, staff in work.unpitched:
         add('missing_pitch', measure, staff, [note.get(ID, '')],
