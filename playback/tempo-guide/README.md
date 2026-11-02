@@ -52,5 +52,6 @@ One value departs from the rule: App. III m. 1, Adagio in 2/2, 50 % instead of 6
 32nds (6 % of the notes) stay at 8 per second.
 
 38 of the 109 rows were flagged for a check by ear (compound or half-note meters, a slow word over
-fast notes, a fast word without 16ths, the edge cases above). Until the editor has listened to them,
-every value is a seed.
+fast notes, a fast word without 16ths, the edge cases above). The editor listened to all 38 in the
+viewer on 2026-11-02 and kept every suggested value; their `basis` ends in "ear-checked 2026-11-02".
+The other 71 rows follow the rule unheard.
