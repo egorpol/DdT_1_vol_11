@@ -119,6 +119,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-03" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Emended two accidental clashes that DdT prints, where a note printed without a sign clashes with a differently inflected note of the same letter in another staff at the same moment. Each gets a bracketed editorial accidental (accid with func="edit" and enclose="brack") and an editorial annotation, labelled conjectural-emendation, that records DdT's reading and the reason: m. 77, B-flat4 at beat 1 (keyboard upper staff), [♭] on z1ns5ntb; m. 180, F-sharp4 at beat 1 (violin II), [♯] on q8j638q. The musical lint (scripts/musical_lint.py) found the clashes with CAMAT, and an AI model (OpenAI Codex) read the signs from the DdT 1903 page images in the first pass of the lint triage; on 2026-11-03 the editor decided every case, 46 across the edition, on a review page that showed the DdT crop beside the encoded and the emended bar. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). The written notes and existing event IDs are unchanged; the editorial accid elements have new IDs.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-02" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Removed the final barlines encoded at the ends of measures 31 and 68, where DdT prints ordinary barlines at the foot of pp. 165 and 168; both had come in from the page files. No event or ID changes.</p>

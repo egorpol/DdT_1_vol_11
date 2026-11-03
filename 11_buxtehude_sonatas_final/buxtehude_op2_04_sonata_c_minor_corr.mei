@@ -109,6 +109,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-03" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Emended six accidental clashes that DdT prints, where a note printed without a sign clashes with a differently inflected note of the same letter in another staff at the same moment. Each gets a bracketed editorial accidental (accid with func="edit" and enclose="brack") and an editorial annotation, labelled conjectural-emendation, that records DdT's reading and the reason: m. 78, B-natural4 at beat 4.5 (keyboard upper staff), [♮] on y1b7pz4e; m. 128, A-flat4 at beat 1 (keyboard upper staff), [♭] on n1j6mz8q; m. 205, F-natural4 at beat 4.5 (keyboard upper staff), [♮] on fywe5xo; m. 210, B-flat4 at beat 4.5 (keyboard upper staff), [♭] on a17xyxdh; m. 218, B-flat3 at beat 4.5 (keyboard upper staff), [♭] on t1nuds3o; m. 219, A-natural4 at beat 4 (keyboard upper staff), [♮] on b18ixafy. The musical lint (scripts/musical_lint.py) found the clashes with CAMAT, and an AI model (OpenAI Codex) read the signs from the DdT 1903 page images in the first pass of the lint triage; on 2026-11-03 the editor decided every case, 46 across the edition, on a review page that showed the DdT crop beside the encoded and the emended bar. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). The written notes and existing event IDs are unchanged; the editorial accid elements have new IDs.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-02" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>The closing barline of measure 227 is now a final barline (thin–thick), as DdT prints it on p. 125, instead of a double barline. No event or ID changes.</p>
@@ -9498,7 +9503,7 @@
                         </fb>
                      </harm>
                      <annot xml:id="editorial.clash.op204-m128-b1" type="editorial" label="conjectural-emendation" plist="#n1j6mz8q" resp="#resp.polyakov #resp.camat">
-                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 121 (BSB image 131), measure 128, keyboard realization, upper staff: A-natural4 at beat 1, with no accidental sign printed on the note. The encoding supplies a bracketed editorial flat on n1j6mz8q, giving A-flat4 at beat 1 in the keyboard realization, upper staff. At beat 1, the viola da gamba has A-flat4 (tied over). The continuo figure “6” “4” over E-flat3 (beat 1) names no A. The keyboard realization is the DdT editor's, not Buxtehude's. Found by the musical lint (CAMAT); Egor Polyakov decided the emendation on 2026-11-03.</p>
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 121 (BSB image 131), measure 128, keyboard realization, upper staff: A-natural4 at beat 1, with no accidental sign printed on the note. The encoding supplies a bracketed editorial flat on n1j6mz8q, giving A-flat4 at beat 1 in the keyboard realization, upper staff. At beat 1, the viola da gamba has A-flat4 (tied over). The continuo figure “6” “4” over E-flat3 (beat 1) gives the fourth, A, without an accidental: A-natural under the key signature, as DdT realizes it; the emendation follows the viola da gamba's A-flat4, tied over from measure 127, where the figure “6♭” “♭” over F-natural3 asks A-flat. The keyboard realization is the DdT editor's, not Buxtehude's. Found by the musical lint (CAMAT); Egor Polyakov decided the emendation on 2026-11-03.</p>
                      </annot>
                   </measure>
                   <measure xml:id="bjrrchk" n="129" facs="#zone_b873f57b618e4d8980">
@@ -17165,7 +17170,7 @@
                         </fb>
                      </harm>
                      <annot xml:id="editorial.clash.op204-m210-b4_5" type="editorial" label="conjectural-emendation" plist="#a17xyxdh" resp="#resp.polyakov #resp.camat">
-                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 124 (BSB image 134), measure 210, keyboard realization, upper staff: B-natural4 at beat 4.5, with no accidental sign printed on the note. The encoding supplies a bracketed editorial flat on a17xyxdh, giving B-flat4 at beat 4.5 in the keyboard realization, upper staff. At beat 4.5, the violin has B-flat5 (key signature). The continuo figure “5” over E-natural3 (beat 4.5) names no B. The keyboard realization is the DdT editor's, not Buxtehude's. Found by the musical lint (CAMAT); Egor Polyakov decided the emendation on 2026-11-03.</p>
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 124 (BSB image 134), measure 210, keyboard realization, upper staff: B-natural4 at beat 4.5, with no accidental sign printed on the note. The encoding supplies a bracketed editorial flat on a17xyxdh, giving B-flat4 at beat 4.5 in the keyboard realization, upper staff. At beat 4.5, the violin has B-flat5 (key signature). The continuo figure “5” over E-natural3 (beat 4.5) gives the fifth, B, without an accidental: B-flat under the key signature. The keyboard realization is the DdT editor's, not Buxtehude's. Found by the musical lint (CAMAT); Egor Polyakov decided the emendation on 2026-11-03.</p>
                      </annot>
                   </measure>
                   <measure xml:id="j1z0d28f" n="211" facs="#zone_8bc4789ffdc64409b0">
@@ -18309,7 +18314,7 @@
                         </fb>
                      </harm>
                      <annot xml:id="editorial.clash.op204-m219-b4" type="editorial" label="conjectural-emendation" plist="#b18ixafy" resp="#resp.polyakov #resp.camat">
-                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 125 (BSB image 135), measure 219, keyboard realization, upper staff: A-flat4 at beat 4, with no accidental sign printed on the note. The encoding supplies a bracketed editorial natural on b18ixafy, giving A-natural4 at beat 4 in the keyboard realization, upper staff. At beat 4, the violin has A-natural4 (no sign). The continuo figure “6” over C-natural3 (beat 4) names no A. The keyboard realization is the DdT editor's, not Buxtehude's. Found by the musical lint (CAMAT); Egor Polyakov decided the emendation on 2026-11-03.</p>
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 125 (BSB image 135), measure 219, keyboard realization, upper staff: A-flat4 at beat 4, with no accidental sign printed on the note. The encoding supplies a bracketed editorial natural on b18ixafy, giving A-natural4 at beat 4 in the keyboard realization, upper staff. At beat 4, the violin has A-natural4 (no sign). The continuo figure “6” over C-natural3 (beat 4) gives the sixth, A, without an accidental: A-natural under the key signature. The keyboard realization is the DdT editor's, not Buxtehude's. Found by the musical lint (CAMAT); Egor Polyakov decided the emendation on 2026-11-03.</p>
                      </annot>
                   </measure>
                   <sb xml:id="xhm308r" />

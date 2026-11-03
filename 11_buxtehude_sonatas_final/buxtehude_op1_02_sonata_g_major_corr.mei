@@ -100,7 +100,7 @@
                   </imprint>
                   <ref type="reproduced-witness" target="#src.uppsala.op1">Facsimile reproduction of the Uppsala Op. I witness, with an introduction by Kerala J. Snyder.</ref>
                   <availability>
-                     <useRestrict>Consulted through locally held university-library scans. Public redistribution terms for these scans remain unconfirmed. A limited measure-level excerpt accompanies the critical annotation as a documentary image quotation; its attribution and intended reuse basis are recorded in the <ref target="../supplemental_material/README.md">supplemental material</ref>.</useRestrict>
+                     <useRestrict>Consulted through locally held university-library scans. Public redistribution terms for these scans remain unconfirmed.</useRestrict>
                   </availability>
                </bibl>
             </source>
@@ -118,7 +118,7 @@
             </application>
          </appInfo>
          <editorialDecl>
-            <p>This is a working corrected digital edition based on DdT 1903. OMR and conversion errors are corrected against its digital facsimile. The source register records the base edition; any additional witness consultation must be documented for the readings concerned. No complete collation with historical partbooks is claimed. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
+            <p>This is a working corrected digital edition based on DdT 1903. OMR and conversion errors are corrected against its digital facsimile. The Op. I historical print was consulted selectively through the STIMU 1991 facsimile of the Uppsala partbooks for the gamba C4 at measure 65 (Violadagamba partbook, Sonata II; scan-0023, left-hand page) on 2026-11-03. Like DdT, it prints no sign before that note, so the bracketed editorial sharp there remains a conjectural emendation (editorial.clash.op102-m65-b1). This selected comparison does not constitute complete collation with the historical print. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
             <p>The staff arrangement and keyboard realization printed in DdT are retained. Staff 1 is violin; staff 2 is viola da gamba; staff 3 is the figured continuo bass; staves 4 and 5 are the upper and lower staves of the printed keyboard realization. The realization is distinguished from the figured continuo bass when defining an analytical view.</p>
             <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
          </editorialDecl>
@@ -144,6 +144,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-03" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Emended four accidental clashes that DdT prints, where a note printed without a sign clashes with a differently inflected note of the same letter in another staff at the same moment. Each gets a bracketed editorial accidental (accid with func="edit" and enclose="brack") and an editorial annotation, labelled conjectural-emendation, that records DdT's reading and the reason: m. 23, C-sharp4 at beat 2.5 (keyboard upper staff), [♯] on c1glxkgn; m. 29, F-natural3 at beat 3.5 (keyboard lower staff), [♮] on normi4e; m. 60, C-natural4 at beat 3.5 (keyboard lower staff), [♮] on j1vn8tha; m. 65, C-sharp4 at beat 1 (gamba), [♯] on mu8h33f. At m. 65 the Op. I print, consulted through the STIMU 1991 facsimile, also has no sign, so the emendation is conjectural (read by the editor from a crop of the scan); the Op. I print and its STIMU facsimile were added to the source description (copied from Op. I/1), and the editorial declaration now records this selective comparison. The musical lint (scripts/musical_lint.py) found the clashes with CAMAT, and an AI model (OpenAI Codex) read the signs from the DdT 1903 page images in the first pass of the lint triage; on 2026-11-03 the editor decided every case, 46 across the edition, on a review page that showed the DdT crop beside the encoded and the emended bar. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). The written notes and existing event IDs are unchanged; the editorial accid elements have new IDs.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-02" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Changed the licence of the MEI data from the MIT License to CC BY 4.0; the repository's code stays under the MIT License (LICENSE.md). The musical text, annotations and facsimile zones are unchanged.</p>
