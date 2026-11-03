@@ -9686,7 +9686,9 @@
                                  </note>
                               </chord>
                               <chord xml:id="ufbmkfz" dur="2" stem.dir="up">
-                                 <note xml:id="t1hufhe" oct="3" pname="a" staff="5" />
+                                 <note xml:id="t1hufhe" oct="3" pname="a" staff="5">
+                                    <accid xml:id="accid.edit.t1hufhe" accid="s" func="edit" enclose="brack" />
+                                 </note>
                                  <note xml:id="w1y4lvtr" oct="4" pname="c" accid.ges="s" />
                                  <note xml:id="y1lq3obt" oct="4" pname="f" accid.ges="s" />
                               </chord>
@@ -9702,6 +9704,9 @@
                         <fermata xml:id="z1cepn98" staff="3" startid="#x1an4jq9" form="norm" place="above" />
                         <fermata xml:id="vkcivez" staff="4" startid="#ufbmkfz" form="norm" place="above" />
                         <fermata xml:id="dx7je6b" staff="5" startid="#bhwiry8" form="inv" place="below" />
+                        <annot xml:id="editorial.clash.op202-m150-b3" type="editorial" label="conjectural-emendation" plist="#t1hufhe" resp="#resp.polyakov #resp.camat">
+                           <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 94 (BSB image 104), measure 150, keyboard realization, lower staff: A-natural3 at beat 3, with no accidental sign printed on the note. The encoding supplies a bracketed editorial sharp on t1hufhe, giving A-sharp3 at beat 3 in the keyboard realization, lower staff. At beat 3, the viola da gamba has A-sharp3 (carried in the bar). No continuo figure is in force. The keyboard realization is the DdT editor's, not Buxtehude's. Found by the musical lint (CAMAT); Egor Polyakov decided the emendation on 2026-11-03.</p>
+                        </annot>
                      </measure>
                   </section>
                   <section xml:id="op2_02.arietta.strain01" type="repeated-strain">

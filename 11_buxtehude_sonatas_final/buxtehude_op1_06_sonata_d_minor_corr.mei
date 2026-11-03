@@ -65,6 +65,41 @@
                   </availability>
                </bibl>
             </source>
+            <source xml:id="src.uppsala.op1" type="historical-print">
+               <bibl>
+                  <title>VII. Suonate a doi, violino &amp; viola da gamba, con cembalo ... opera prima</title>
+                  <composer>Dieterich Buxtehude</composer>
+                  <imprint>
+                     <pubPlace>Lübeck</pubPlace>
+                     <date isodate="1696" type="catalogue-supplied">[1696]</date>
+                  </imprint>
+                  <identifier type="RISM-A-I">B5204</identifier>
+                  <physLoc>
+                     <repository>Uppsala University Library, Düben Collection</repository>
+                     <identifier type="RISM-siglum">S-Uu</identifier>
+                     <identifier type="shelfmark">Uimtr 52:1–4</identifier>
+                  </physLoc>
+                  <ref type="catalogue" target="https://www2.musik.uu.se/duben/Printed%20music%20in%20the%20Duben%20Collection2024.pdf">Printed Music in the Düben Collection, p. 2</ref>
+                  <availability>
+                     <useRestrict>This witness was consulted through the <ref target="#src.stimu1991.op1">STIMU facsimile edition (Utrecht, 1991, introduction by Kerala J. Snyder)</ref>. TIFFs were made by the editor’s university library; public redistribution terms for the images remain unconfirmed.</useRestrict>
+                  </availability>
+               </bibl>
+            </source>
+            <source xml:id="src.stimu1991.op1" type="facsimile-edition">
+               <bibl>
+                  <title>VII. Suonate à doi, Violino &amp; Violadagamba, con Cembalo</title>
+                  <composer>Dieterich Buxtehude</composer>
+                  <imprint>
+                     <pubPlace>Utrecht</pubPlace>
+                     <publisher>STIMU (Stichting voor Muziekhistorische Uitvoeringspraktijk)</publisher>
+                     <date isodate="1991">1991</date>
+                  </imprint>
+                  <ref type="reproduced-witness" target="#src.uppsala.op1">Facsimile reproduction of the Uppsala Op. I witness, with an introduction by Kerala J. Snyder.</ref>
+                  <availability>
+                     <useRestrict>Consulted through locally held university-library scans. Public redistribution terms for these scans remain unconfirmed. A limited measure-level excerpt accompanies the critical annotation as a documentary image quotation; its attribution and intended reuse basis are recorded in the <ref target="../supplemental_material/README.md">supplemental material</ref>.</useRestrict>
+                  </availability>
+               </bibl>
+            </source>
          </sourceDesc>
       </fileDesc>
       <encodingDesc xml:id="e1ymqyhb">
@@ -106,6 +141,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-03" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Corrected 1 encoding error found by the musical lint (scripts/musical_lint.py) as an accidental clash: in m. 10 the sixteenth B2 ulsxq4v in the lower keyboard staff has the natural that DdT prints (p. 55), not a sharp, so it sounds B2, not B-sharp2, with the continuo and the violin. An AI model (OpenAI Codex) read the sign from the DdT 1903 page image, and the editor confirmed the reading before approving the fix. Event IDs are retained; all other music is unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-02" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Changed the licence of the MEI data from the MIT License to CC BY 4.0; the repository's code stays under the MIT License (LICENSE.md). The musical text, annotations and facsimile zones are unchanged.</p>
@@ -1533,7 +1573,7 @@
                               <note xml:id="s1y8vv55" dur="16" oct="3" pname="d" stem.dir="up" />
                               <note xml:id="s1ydfvv55" dur="16" oct="3" pname="c" stem.dir="up" />
                               <note xml:id="ulsxq4v" dur="16" oct="2" pname="b" stem.dir="up">
-                                 <accid xml:id="v1e4115m" accid="s" />
+                                 <accid xml:id="v1e4115m" accid="n" />
                               </note>
                            </beam>
                            <beam xml:id="wxnv430">
@@ -1826,7 +1866,9 @@
                               <note xml:id="e1pemhfa" dur="16" oct="4" pname="e" stem.dir="down" />
                               <note xml:id="f1yed53o" dur="16" oct="4" pname="d" stem.dir="down" />
                               <note xml:id="g1asdst9" dur="16" oct="4" pname="c" stem.dir="down" />
-                              <note xml:id="g1qwnxt9" dur="16" oct="3" pname="b" stem.dir="down" accid.ges="f" />
+                              <note xml:id="g1qwnxt9" dur="16" oct="3" pname="b" stem.dir="down">
+                                 <accid xml:id="accid.edit.g1qwnxt9" accid="n" func="edit" enclose="brack" />
+                              </note>
                            </beam>
                            <beam xml:id="iku8iio">
                               <note xml:id="j13mitw0" dur="8" oct="3" pname="a" stem.dir="down" />
@@ -1836,7 +1878,7 @@
                            <beam xml:id="wrfgwdfg">
                               <note xml:id="mlrma4r" dur="16" oct="4" pname="d" stem.dir="down" />
                               <note xml:id="gfasdst9" dur="16" oct="4" pname="c" stem.dir="down" />
-                              <note xml:id="g1sdfnxt9" dur="16" oct="3" pname="b" stem.dir="down" accid.ges="f" />
+                              <note xml:id="g1sdfnxt9" dur="16" oct="3" pname="b" stem.dir="down" />
                               <note xml:id="g1dffxt9" dur="16" oct="3" pname="a" stem.dir="down" />
                            </beam>
                         </layer>
@@ -1929,6 +1971,9 @@
                      </staff>
                      <tie xml:id="p68keb23" startid="#gqm678d" endid="#i1u3sd4g" curvedir="below" />
                      <tie xml:id="fsek4j0p" startid="#jxetfna" endid="#txizsbq" curvedir="above" />
+                     <annot xml:id="editorial.clash.op106-m13-b2_75" type="editorial" label="source-supported-emendation" plist="#g1qwnxt9 #g1sdfnxt9" source="#src.uppsala.op1" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 55 (BSB image 65), measure 13, viola da gamba: B-flat3 at beat 2.75, with no accidental sign printed on the note. The encoding supplies a bracketed editorial natural on g1qwnxt9, giving B-natural3 at beat 2.75 in the viola da gamba. The sign also carries to g1sdfnxt9, B-flat3 at beat 4.5 in the viola da gamba, which DdT prints without a sign, giving B-natural3. At beat 2.75, the violin has B-natural4 (written sign); the continuo has B-natural3 (written sign). At the same beat, the keyboard realization, lower staff has B-natural3 (written sign). The keyboard realization is the DdT editor's, not Buxtehude's, and supplies no independent attestation. No continuo figure is in force. <ref target="#src.uppsala.op1">The Op. I print</ref>, consulted through the <ref target="#src.stimu1991.op1">STIMU 1991 facsimile</ref>, prints naturals before both B3s, at beats 2.75 and 4.5, attesting B-natural3 at both beats. Witness locator: Violadagamba partbook, Sonata VI, Allegro: local scan-0029.jpg, left-hand page, system 1 (mm. 11–13; m. 13 follows the clef change). Found by the musical lint (CAMAT); Egor Polyakov decided the emendation on 2026-11-03.</p>
+                     </annot>
                   </measure>
                   <pb xml:id="p170fsd6" facs="#surface_21c65b861a3e" n="2" />
                   <measure xml:id="h1rijyqg" n="14" facs="#zone_0ea2e40a15814d61a6">

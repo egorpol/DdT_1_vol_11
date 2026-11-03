@@ -14476,7 +14476,9 @@
                               </chord>
                               <chord xml:id="v133uahy" dur="8" stem.dir="down">
                                  <note xml:id="tx33b6s" oct="3" pname="b" accid.ges="f" />
-                                 <note xml:id="wuvp243" oct="4" pname="e" />
+                                 <note xml:id="wuvp243" oct="4" pname="e">
+                                    <accid xml:id="accid.edit.wuvp243" accid="f" func="edit" enclose="brack" />
+                                 </note>
                               </chord>
                            </beam>
                            <chord xml:id="y18yfjoj" dur="4" stem.dir="down">
@@ -14503,6 +14505,9 @@
                            <note xml:id="k2zvi0z" dur="8" oct="3" pname="f" stem.dir="down" />
                         </layer>
                      </staff>
+                     <annot xml:id="editorial.clash.op101-m144-b2_5" type="editorial" label="conjectural-emendation" plist="#wuvp243" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 10 (BSB image 20), measure 144, keyboard realization, upper staff: E-natural4 at beat 2.5, with no accidental sign printed on the note. The encoding supplies a bracketed editorial flat on wuvp243, giving E-flat4 at beat 2.5 in the keyboard realization, upper staff. At beat 2.5, the violin has E-flat5 (written sign); the continuo has E-flat3 (written sign). At the same beat, the keyboard realization, lower staff has E-flat3 (written sign). The continuo figure “5” over E-flat3 (beat 2.5) names no E. The keyboard realization is the DdT editor's, not Buxtehude's. Found by the musical lint (CAMAT); Egor Polyakov decided the emendation on 2026-11-03.</p>
+                     </annot>
                   </measure>
                   <measure xml:id="p1htxma6" n="145" facs="#zone_d8ff991b05d64ce9ac">
                      <harm xml:id="sdfkp12" staff="3" tstamp="2.5">
@@ -16597,9 +16602,11 @@
                               <note xml:id="i5dk7bu" dur="16" oct="3" pname="g" stem.dir="down" />
                            </beam>
                            <beam xml:id="j1o2vyck">
-                              <note xml:id="k1jyfgwl" dur="16" oct="3" pname="f" stem.dir="down" />
+                              <note xml:id="k1jyfgwl" dur="16" oct="3" pname="f" stem.dir="down">
+                                 <accid xml:id="accid.edit.k1jyfgwl" accid="s" func="edit" enclose="brack" />
+                              </note>
                               <note xml:id="l4mdfw4" dur="16" oct="3" pname="g" stem.dir="down" />
-                              <note xml:id="m1k0kp19" dur="16" oct="3" pname="f" stem.dir="down" />
+                              <note xml:id="m1k0kp19" dur="16" oct="3" pname="f" stem.dir="down" accid.ges="s" />
                               <note xml:id="n14yw4kk" dur="16" oct="3" pname="g" stem.dir="down" />
                            </beam>
                         </layer>
@@ -16664,6 +16671,9 @@
                            </beam>
                         </layer>
                      </staff>
+                     <annot xml:id="editorial.clash.op101-m162-b4" type="editorial" label="conjectural-emendation" plist="#k1jyfgwl #m1k0kp19" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 11 (BSB image 21), measure 162, viola da gamba: F-natural3 at beat 4, with no accidental sign printed on the note. The encoding supplies a bracketed editorial sharp on k1jyfgwl, giving F-sharp3 at beat 4 in the viola da gamba. The sign also carries to m1k0kp19, F-natural3 at beat 4.5 in the viola da gamba, which DdT prints without a sign, giving F-sharp3. At beat 4, the continuo has F-sharp3 (carried in the bar). At the same beat, the keyboard realization, upper staff has F-sharp4 (carried in the bar); the keyboard realization, lower staff has F-sharp3 (carried in the bar). The keyboard realization is the DdT editor's, not Buxtehude's, and supplies no independent attestation. No continuo figure is in force. <ref target="#src.uppsala.op1">The Op. I print</ref>, consulted through the <ref target="#src.stimu1991.op1">STIMU 1991 facsimile</ref>, also prints no sign before either F3 at beats 4 and 4.5, so the emendation is conjectural. Witness locator: Violadagamba partbook, Sonata I, Presto: local scan-0021.jpg, right-hand page, end of system 11 (m. 161 from the bass-clef change, then m. 162’s D3 D2 and rest) and start of system 12 (rest, G3 G3 G3 F3 G3 F3 G3). Found by the musical lint (CAMAT); Egor Polyakov decided the emendation on 2026-11-03.</p>
+                     </annot>
                   </measure>
                   <sb xml:id="t1wexo9w" />
                   <measure xml:id="j1pwcc70" n="163" facs="#zone_0bef2fe80c014a6790">

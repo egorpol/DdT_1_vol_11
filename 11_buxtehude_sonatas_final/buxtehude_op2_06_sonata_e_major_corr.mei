@@ -7587,7 +7587,9 @@
                            </chord>
                            <rest xml:id="y1kinxah" dur="8" />
                            <chord xml:id="s16wfvl2a" dur="8" stem.dir="up">
-                              <note xml:id="q1krtr2lu" oct="4" pname="a" accid="n" />
+                              <note xml:id="q1krtr2lu" oct="4" pname="a">
+                                 <accid xml:id="accid.edit.q1krtr2lu" accid="s" func="edit" enclose="brack" />
+                              </note>
                               <note xml:id="tqk78e2g" oct="4" pname="f" accid.ges="s" />
                               <note xml:id="vl2ium2g" oct="4" pname="c" accid.ges="s" />
                            </chord>
@@ -7606,6 +7608,9 @@
                            <rest xml:id="lj50ltl" dur="8" />
                         </layer>
                      </staff>
+                     <annot xml:id="editorial.clash.op206-m68-b4" type="editorial" label="conjectural-emendation" plist="#q1krtr2lu" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 143 (BSB image 153), measure 68, keyboard realization, upper staff: A-natural4 at beat 4, with a natural printed on the note. The encoding supplies a bracketed editorial sharp on q1krtr2lu, giving A-sharp4 at beat 4 in the keyboard realization, upper staff. At beat 4, the violin has A-sharp4 (written sign). The continuo figure “♯” over F-sharp3 (beat 4) asks A-sharp. The keyboard realization is the DdT editor's, not Buxtehude's. Found by the musical lint (CAMAT); Egor Polyakov decided the emendation on 2026-11-03.</p>
+                     </annot>
                   </measure>
                   <sb xml:id="k1gbab2v" />
                   <scoreDef xml:id="hg232" />
