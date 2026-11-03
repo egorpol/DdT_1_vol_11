@@ -1,7 +1,8 @@
 """Headless check of the built viewer (_site): every page of every work.
 
 Usage: python check_site.py SITE_DIR SHOT_DIR [work-id ...]
-Set SITE_URL to check a deployed copy of SITE_DIR instead of serving it.
+Set SITE_URL to check a deployed copy of SITE_DIR instead of serving it, and
+BROWSER=firefox to run the checks in Playwright's Firefox instead of Chromium.
 """
 import functools
 import http.server
@@ -17,6 +18,7 @@ from playwright.sync_api import sync_playwright
 SITE = Path(sys.argv[1]).resolve()
 SHOTS = Path(sys.argv[2]).resolve()
 ONLY = set(sys.argv[3:])
+BROWSER = os.environ.get('BROWSER', 'chromium')
 MEI = '{http://www.music-encoding.org/ns/mei}'
 # Measure boxes reaching far beyond their staves (an empty <text> once pulled
 # them to the page corner): ids of the measures.
@@ -970,13 +972,16 @@ def main():
     works = json.loads((SITE / 'works.json').read_text())['works']
     problems, console = [], []
     with sync_playwright() as p:
-        browser = p.chromium.launch()
-        context = browser.new_context(viewport={'width': 1400, 'height': 1000}, permissions=['clipboard-read', 'clipboard-write'])
+        browser = getattr(p, BROWSER).launch()
+        # Firefox rejects these permission names; its headless clipboard works without them.
+        permissions = ['clipboard-read', 'clipboard-write'] if BROWSER == 'chromium' else []
+        context = browser.new_context(viewport={'width': 1400, 'height': 1000}, permissions=permissions)
         context.add_init_script(PLAYBACK_PROBE)
         page = context.new_page()
         page.on('console', lambda m: m.type == 'error' and console.append(m.text))
         page.on('pageerror', lambda e: console.append(f'pageerror: {e}'))
-        page.on('requestfailed', lambda r: console.append(f'requestfailed: {r.url} {r.failure}'))
+        page.on('requestfailed', lambda r: console.append(f'requestfailed: {r.url} {r.failure}')
+                if not (r.failure == 'NS_BINDING_ABORTED' and r.resource_type == 'image') else None)
         page.on('response', lambda r: r.status >= 400 and console.append(f'HTTP {r.status}: {r.url}'))
         page.goto(base)
         page.wait_for_selector('#score svg', timeout=60000)

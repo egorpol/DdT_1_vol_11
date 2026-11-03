@@ -229,8 +229,31 @@ export function createChannelSounds(context, samples, Soundfont, Scheduler, fetc
   };
 }
 
+// Tone's Listener wraps these AudioListener params on every context. Firefox has
+// none; standardized-audio-context fills them in only for contexts it creates, so
+// a native context fails "param must be an AudioParam". The player never pans in
+// 3D: unstarted ConstantSourceNode offsets stand in and are never heard.
+const LISTENER_PARAMS = { positionX: 0, positionY: 0, positionZ: 0, forwardX: 0, forwardY: 0, forwardZ: -1, upX: 0, upY: 1, upZ: 0 };
+
+export function fillListenerParams(context) {
+  const { listener } = context;
+  for (const [name, value] of Object.entries(LISTENER_PARAMS)) {
+    if (listener[name]) continue;
+    const { offset } = context.createConstantSource();
+    offset.value = value;
+    Object.defineProperty(listener, name, { value: offset, configurable: true });
+  }
+}
+
+// Firefox lacks cancelAndHoldAtTime; anchoring the current value is enough for 15 ms ramps.
+export function holdAt(param, time) {
+  if (typeof param.cancelAndHoldAtTime === 'function') param.cancelAndHoldAtTime(time);
+  else { param.cancelScheduledValues(time); param.setValueAtTime(param.value, time); }
+}
+
 export async function createPlayer({ context, samples, onPosition, onEnd, onSection = () => {}, onTempo = () => {} }) {
   const { Tone, Midi, Soundfont, Scheduler } = await loadLibraries();
+  fillListenerParams(context);
   Tone.setContext(context);
   Tone.getContext().lookAhead = LOOK_AHEAD;
   Tone.getContext().updateInterval = UPDATE_INTERVAL;
@@ -296,7 +319,7 @@ export async function createPlayer({ context, samples, onPosition, onEnd, onSect
       gains[channel] = value;
       const param = part.gain.gain;
       const now = context.currentTime;
-      param.cancelAndHoldAtTime(now);
+      holdAt(param, now);
       param.linearRampToValueAtTime(value, now + 0.015);
       if (muted.has(channel)) silence(channel);
     }
