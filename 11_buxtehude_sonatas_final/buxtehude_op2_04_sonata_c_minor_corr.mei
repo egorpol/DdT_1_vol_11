@@ -65,6 +65,38 @@
                   </availability>
                </bibl>
             </source>
+            <source xml:id="src.uppsala.op2" type="historical-print">
+               <bibl>
+                  <title>VII. Suonate a due, violino et viola da gamba con cembalo ... opera secunda</title>
+                  <composer>Dieterich Buxtehude</composer>
+                  <imprint>
+                     <pubPlace>Lübeck</pubPlace>
+                     <date isodate="1696">1696</date>
+                  </imprint>
+                  <identifier type="RISM">RISM A/I B5205</identifier>
+                  <physLoc>
+                     <repository>Uppsala University Library (S-Uu), Düben Collection</repository>
+                     <identifier type="shelfmark">Uimtr 52:1–4</identifier>
+                  </physLoc>
+                  <ref type="catalogue" target="https://www2.musik.uu.se/duben/Printed%20music%20in%20the%20Duben%20Collection2024.pdf">Uppsala printed-music catalogue, p. 2; catalogue imprint Lübeck 1696</ref>
+                  <ref target="#src.stimu1991.op2">Consulted through the STIMU 1991 facsimile of the Uppsala partbooks.</ref>
+               </bibl>
+            </source>
+            <source xml:id="src.stimu1991.op2" type="facsimile-edition">
+               <bibl>
+                  <title>VII. Suonate à due, violino et violadagamba con cembalo</title>
+                  <composer>Dieterich Buxtehude</composer>
+                  <imprint>
+                     <pubPlace>Utrecht</pubPlace>
+                     <publisher>STIMU (Stichting voor Muziekhistorische Uitvoeringspraktijk)</publisher>
+                     <date isodate="1991">1991</date>
+                  </imprint>
+                  <ref target="#src.uppsala.op2">Facsimile edition of the Uppsala Op. II partbooks, with an introduction by Kerala J. Snyder. The modern title gives the historical imprint Hamburg 1696; the historical title describes printing in Hamburg and sale in Lübeck. Consulted via the supplied university-library scans.</ref>
+                  <availability>
+                     <useRestrict>Redistribution terms for the supplied library scans remain unconfirmed.</useRestrict>
+                  </availability>
+               </bibl>
+            </source>
          </sourceDesc>
       </fileDesc>
       <encodingDesc>
@@ -83,7 +115,7 @@
             </application>
          </appInfo>
          <editorialDecl>
-            <p>This working corrected digital edition is based on DdT 1903. OMR and conversion errors are corrected against the DdT facsimile. DdT is the source for the encoded readings and the repairs documented in this work. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
+            <p>This working corrected digital edition is based on DdT 1903. OMR and conversion errors are corrected against the DdT facsimile. DdT is the source for the encoded readings and the repairs documented in this work. The Op. II historical print was consulted selectively through the STIMU 1991 facsimile of the Uppsala partbooks for measures 125–128 on 2026-11-03: the continuo bass and figures in the Cembalo partbook (Sonata IV, printed p. 14; scan-0048, left-hand page, staff 7) and the gamba in measures 127–128 in the Violadagamba partbook (scan-0033, right-hand page, staff 7), which agrees with DdT. In measures 125–127 the print figures a 7–6 chain where DdT prints no figure, “6”, and “6♭” over “♭”, “5”, “4”, and in measure 125 it has one A-flat3 dotted half where DdT has an A-flat2 half and an A-flat3 quarter; the edition keeps DdT's readings and records the print's in two source-reading annotations (editorial.figure.op204-m125-127, editorial.bass.op204-m125). No other part or passage was compared with the print. This selected comparison does not constitute complete collation with the historical print. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
             <p>The staff arrangement and keyboard realization printed in DdT are retained. Staff 1 is violin; staff 2 is viola da gamba; staff 3 is the figured continuo bass; staves 4 and 5 are the upper and lower staves of the printed keyboard realization. The realization is distinguished from the figured continuo bass when defining an analytical view.</p>
             <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
          </editorialDecl>
@@ -109,6 +141,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-03" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Added the Op. II print (src.uppsala.op2) and its STIMU 1991 facsimile (src.stimu1991.op2) to the source description, as in Op. II/1; no facsimile excerpt accompanies this work. Added two source-reading annotations on measures 125–127, where the encoding keeps DdT's readings: editorial.figure.op204-m125-127 records the print's 7–6 figure chain where DdT prints no figure, “6”, and “6♭” over “♭”, “5”, “4”, and editorial.bass.op204-m125 the print's A-flat3 dotted half in measure 125 where DdT has an A-flat2 half and an A-flat3 quarter. The editorial declaration records this comparison. Both came to light while the figure cited in editorial.clash.op204-m128-b1 was checked: an AI model (OpenAI Codex) read the print's continuo and gamba bars from the STIMU 1991 scans, Claude (Anthropic) checked these readings against the DdT 1903 page image and the print crops, and on 2026-11-03 the editor decided both on a review page that showed the DdT crop, the print crops and Verovio renders of the passage. The notes, the figures and all existing IDs are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-03" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Emended six accidental clashes that DdT prints, where a note printed without a sign clashes with a differently inflected note of the same letter in another staff at the same moment. Each gets a bracketed editorial accidental (accid with func="edit" and enclose="brack") and an editorial annotation, labelled conjectural-emendation, that records DdT's reading and the reason: m. 78, B-natural4 at beat 4.5 (keyboard upper staff), [♮] on y1b7pz4e; m. 128, A-flat4 at beat 1 (keyboard upper staff), [♭] on n1j6mz8q; m. 205, F-natural4 at beat 4.5 (keyboard upper staff), [♮] on fywe5xo; m. 210, B-flat4 at beat 4.5 (keyboard upper staff), [♭] on a17xyxdh; m. 218, B-flat3 at beat 4.5 (keyboard upper staff), [♭] on t1nuds3o; m. 219, A-natural4 at beat 4 (keyboard upper staff), [♮] on b18ixafy. The musical lint (scripts/musical_lint.py) found the clashes with CAMAT, and an AI model (OpenAI Codex) read the signs from the DdT 1903 page images in the first pass of the lint triage; on 2026-11-03 the editor decided every case, 46 across the edition, on a review page that showed the DdT crop beside the encoded and the emended bar. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). The written notes and existing event IDs are unchanged; the editorial accid elements have new IDs.</p>
@@ -9308,6 +9345,12 @@
                            </note>
                         </layer>
                      </staff>
+                     <annot xml:id="editorial.figure.op204-m125-127" type="editorial" label="source-reading" plist="#abc123 #abc1323 #abcf123 #abcsd23" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 121 (BSB image 131), measures 125–127, continuo figures: none over the A-flat of measure 125, “6” over G3 (measure 126), and “6♭” over “♭”, then “5”, then “4” over F3 (measure 127). The encoding keeps them. <ref target="#src.uppsala.op2">The Op. II print</ref>, consulted through the <ref target="#src.stimu1991.op2">STIMU 1991 facsimile</ref>, figures the three bass notes as a 7–6 suspension chain: “7 6” over A-flat3, “7 6” over G3, and “7 6♭” over F3 with a “♭” under the 7, without “5” or “4” (Cembalo partbook, Sonata IV: local scan-0048.jpg, left-hand page, staff 7, printed bars 1–2, each of which spans two DdT measures). Both have “6” over “4”, then “5” over “3”, in measure 128. DdT's figures follow the violin: its “6” in measure 126 names the violin's E-flat5 at beat 1, where the print's 7 would be F, and its “6♭”, “5” and “4” in measure 127 give the D-flat, C and B-flat of the violin's line. DdT's keyboard realization (the DdT editor's, not Buxtehude's) follows DdT's figures and sounds none of the print's sevenths on a beat. Why DdT departs from the print is not known; the DdT editor may have fitted the figures to the violin. The continuo figures were compared with the print only in measures 125–128. Found during the check of the figure cited for the accidental clash at measure 128 (editorial.clash.op204-m128-b1); Egor Polyakov decided to keep DdT's readings on 2026-11-03.</p>
+                     </annot>
+                     <annot xml:id="editorial.bass.op204-m125" type="editorial" label="source-reading" plist="#b15tceej #d1cx611q" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 121 (BSB image 131), measure 125, continuo bass: A-flat2 half, then A-flat3 quarter. The encoding keeps it; the lower staff of DdT's keyboard realization doubles it. <ref target="#src.uppsala.op2">The Op. II print</ref>, consulted through the <ref target="#src.stimu1991.op2">STIMU 1991 facsimile</ref>, has one A-flat3 dotted half here, figured “7 6” (Cembalo partbook, Sonata IV: local scan-0048.jpg, left-hand page, staff 7, printed bar 1). Both continue with dotted halves on G3, F3 and E-flat3 in measures 126–128. Why DdT departs from the print is not known. The continuo bass was compared with the print only in measures 125–128. Found with the figure difference in the same passage (editorial.figure.op204-m125-127); Egor Polyakov decided to keep DdT's reading on 2026-11-03.</p>
+                     </annot>
                   </measure>
                   <measure xml:id="q1li6l44" n="126" facs="#zone_9480fb614acf4bd090">
                      <staff xml:id="zqde14f" n="1">

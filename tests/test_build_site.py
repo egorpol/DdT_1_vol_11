@@ -104,7 +104,7 @@ def test_parts_match_the_mei_programs_roles_and_labels(tmp_path):
     assert labels['app_02'] == ['Violino I', 'Violino II', 'Viola di gamba', 'Continuo', 'Realization (Stiehl)']
     assert labels['app_03'] == ['Viola da Gamba', 'Violone', 'Continuo', 'Realization (Stiehl)']
     assert labels['op2_05'] == ['Violino', 'Viola da gamba', 'Cembalo', 'Realization (Stiehl)']
-    assert labels['op1_03'][1] == 'Viola da gramba'
+    assert labels['op1_03'][1] == 'Viola da gamba'
 
 
 def test_build_rejects_a_disagreeing_mei_channel(tmp_path, monkeypatch):
