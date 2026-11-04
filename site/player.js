@@ -1,7 +1,9 @@
 /* Reusable, viewer-independent MIDI audio player (no edition or sample constants).
  * createPlayer({context, samples, onPosition(q), onEnd(), onSection(index),
  * onTempo({bpm, source, index})}) loads the pinned libraries; call it only after creating/resuming a native AudioContext in Play.
- * samples: object keyed by zero-based GM program, values {url, integrity}.
+ * samples: object keyed by zero-based GM program, values {url, integrity, silent?}.
+ * Optional silent is an array of key names whose samples are left out, so smplr's
+ * nearest-key spread covers their range.
  * parseMidi(base64) returns a cacheable @tonejs/midi Midi. prepare(midi, parts)
  * loads instruments and returns an opaque score; parts are {channel, program, sound},
  * where program must match the MIDI and sound is the sample GM program (default program).
@@ -131,6 +133,18 @@ export function scheduleNote(transport, note, from, start) {
   return true;
 }
 
+// MIDI.js files have one quoted sample per line. Remove whole entries so the
+// last kept sample retains the trailing comma required by smplr 1.1.0's parser.
+export function omitSilentSamples(bytes, silent) {
+  if (!silent?.length) return bytes;
+  const keys = new Set(silent);
+  const source = new TextDecoder().decode(bytes).replace(
+    /^"([^"]+)": "[^"\r\n]*",\r?\n/gm,
+    (entry, key) => keys.has(key) ? '' : entry,
+  );
+  return new TextEncoder().encode(source).buffer;
+}
+
 // Separate from Transport so lifecycle/race contracts can be tested with small audio doubles.
 export function createChannelSounds(context, samples, Soundfont, Scheduler, fetchSample = fetch) {
   const channels = new Map();
@@ -188,10 +202,11 @@ export function createChannelSounds(context, samples, Soundfont, Scheduler, fetc
       // while an older file response is still arriving.
       const decode = part.task.catch(() => {}).then(async () => {
         if (!valid()) return false;
+        const sampleBytes = omitSilentSamples(bytes, file.silent);
         const sound = new Soundfont(context, {
           instrumentUrl: file.url, destination: part.gain,
           scheduler: Scheduler(context, { lookaheadMs: SAMPLE_LOOK_AHEAD_MS }),
-          storage: { fetch: () => Promise.resolve(new Response(bytes)) },
+          storage: { fetch: () => Promise.resolve(new Response(sampleBytes)) },
         });
         const candidate = { sound, disposed: false };
         part.candidate = candidate;

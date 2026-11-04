@@ -335,6 +335,10 @@ stutter there.
   (Verovio MIDI, ties merged, onset's guide row, first-pass section starts; measured 2026-11-02).
   The earlier figures (5 of 48,066 at 100 %, 36 at 75 %, 192 at 50 %) used a flat ♩ = 120
   before the guide existed; repeating that flat-tempo probe reproduces 5 and 192.
+- The contrabass file is silent from B♭3 up (51 of its 88 samples). The player leaves
+  those samples out, so App. III's violone plays its 135 notes from B♭3 to E4 on the A3
+  sample raised by up to seven semitones; at E4 that sample lasts 2.09 s, longer than any
+  of those notes at 100 % or 50 % of the guide (measured 2026-11-04).
 - Play from a measure, or after Pause, starts every note held across the start point again from its
   attack: smplr 1.1.0 has no per-note sample offset. 696 of 3,568 measure starts (19.5 %) have such a
   note (Verovio MIDI, ties merged; measured 2026-11-01). A restarted harpsichord note also restarts its

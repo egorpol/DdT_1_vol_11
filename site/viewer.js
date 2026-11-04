@@ -435,7 +435,8 @@ const SAMPLE_FILES = {
   48: { url: `${SOUNDFONT_ROOT}string_ensemble_1-mp3.js`, integrity: 'sha384-gyGKjZg7zK8jqU1HhewujLPlSkilkeNxF080JTNSmBVy9Zn5vQwnFesUWv6WqF0u' },
   40: { url: `${SOUNDFONT_ROOT}violin-mp3.js`, integrity: 'sha384-HyplkbAwAFLDlT6JMUuvjLlS55QiD6H8Cx3A/KrGeJSUGQv62GCS5w7ML+bxsZkB' },
   42: { url: `${SOUNDFONT_ROOT}cello-mp3.js`, integrity: 'sha384-s/2S7jd5HFpdYzig+9zoDGj/JG4Beh0iT/QCHsp5MpTJqZTyd6dkDb4/Se1QmaRh' },
-  43: { url: `${SOUNDFONT_ROOT}contrabass-mp3.js`, integrity: 'sha384-FH2/7J+D4GP4PFf//V3xIswsrDkclg1glB2nz9p4p37kXcXj7gL+6Hdvmrkl/8+J' },
+  // Silent from B♭3 up in this pinned file; the list is tied to this commit and hash.
+  43: { url: `${SOUNDFONT_ROOT}contrabass-mp3.js`, integrity: 'sha384-FH2/7J+D4GP4PFf//V3xIswsrDkclg1glB2nz9p4p37kXcXj7gL+6Hdvmrkl/8+J', silent: 'Bb3 B3 C4 Db4 D4 Eb4 E4 F4 Gb4 G4 Ab4 A4 Bb4 B4 C5 Db5 D5 Eb5 E5 F5 Gb5 G5 Ab5 A5 Bb5 B5 C6 Db6 D6 Eb6 E6 F6 Gb6 G6 Ab6 A6 Bb6 B6 C7 Db7 D7 Eb7 E7 F7 Gb7 G7 Ab7 A7 Bb7 B7 C8'.split(' ') },
   6: { url: `${SOUNDFONT_ROOT}harpsichord-mp3.js`, integrity: 'sha384-veZb4kehrh8qKJzOhM1Lv+MqBFb4SDXpSyWrnlNzeNwmz8RS8RI9iG8ysX221GgO' },
 };
 const PLAYBACK_SETTINGS = { tempo: 'ddt-viewer-tempo', parts: 'ddt-viewer-parts', volumes: 'ddt-viewer-volumes', guide: 'ddt-viewer-tempo-guide', sounds: 'ddt-viewer-sounds', consent: 'ddt-viewer-sound-consent', repeats: 'ddt-viewer-repeats' };
