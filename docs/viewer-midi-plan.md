@@ -104,6 +104,16 @@ were measured at a flat ♩ = 120 before the guide; the same probe at that flat 
 2.15 MB, harpsichord 2.33 MB; a sonata loads three, 8.2 MB, about 5.6 MB on the wire
 (violin 1.90 MB with brotli from jsDelivr).
 
+**String pitch (2026-11-04).** A colleague found the first violin "ein wenig zu tief"; the work, bars
+and browser are not yet known. Measured from each sample's start and weighted by the notes each part
+plays, the pinned violin samples average 3.5 cents flat and the harpsichord samples 8.1 cents sharp
+over the first 0.25 s, and 85 % of violin notes last less than that at the MIDI file's tempo, before
+the tempo guide. The editor compared no correction, one constant per instrument and two per-note
+tables blind on four passages. The picks were consistent with chance (2, 1, 1 and 0 of four cards),
+and a further 20 cents on both violins, confirmed in the audio, was not heard as flatter. The viewer
+therefore plays the samples uncorrected. A later correction could use smplr's per-note `detune`
+(checked in Chromium and Firefox).
+
 **Hosting.** jsDelivr serves the Gleitzman files pinned to a commit (`044fab8e`: HTTP 200, full file,
 `Access-Control-Allow-Origin: *`; checked), so the viewers can load them like Verovio, with an SRI hash
 per file, instead of copying 10.4 MB into each repository or hot-linking the unversioned
