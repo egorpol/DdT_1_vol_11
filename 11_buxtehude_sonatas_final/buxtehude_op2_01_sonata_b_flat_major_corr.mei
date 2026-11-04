@@ -142,6 +142,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-04" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Corrected 1 encoding error found by ear in the editor's listening check of the viewer's playback: in m. 110 the violin's last quarter A5 p6je047 has the flat that DdT prints (p. 85), so it sounds A-flat5 with the keyboard's A-flat4, not A5 against it. An AI model (Anthropic Claude) read the sign from the DdT 1903 page image, and the editor approved the correction before it was applied. Event IDs are retained; this correction changes no other note.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-03" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Emended one accidental clash that DdT prints, where a note printed without a sign clashes with a differently inflected note of the same letter in another staff at the same moment. It gets a bracketed editorial accidental (accid with func="edit" and enclose="brack") and an editorial annotation, labelled source-supported-emendation, that records DdT's reading and the reason: m. 24, E-natural4 at beat 2 (gamba), [♮] on j41zk5n. The Op. II print, consulted through the STIMU 1991 facsimile (viola da gamba part, Sonata I, staff 6, scan-0026, left-hand page), has the natural, so the emendation is source-supported: an AI model (OpenAI Codex) read the sign, and Anthropic Claude checked it in the crop. A one-bar facsimile excerpt of the print is linked from the annotation, with attribution, crop coordinates, checksums and reuse basis in supplemental_material; the editorial declaration now records this second selective comparison. The musical lint (scripts/musical_lint.py) found the clash with CAMAT, and an AI model (OpenAI Codex) read the signs from the DdT 1903 page images in the first pass of the lint triage; on 2026-11-03 the editor decided every case, 46 across the edition, on a review page that showed the DdT crop beside the encoded and the emended bar. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). The written notes and existing event IDs are unchanged; the editorial accid elements have new IDs.</p>
@@ -11508,7 +11513,9 @@
                         <layer xml:id="l1d67t12" n="1">
                            <note xml:id="mlxadoc" dur="2" oct="5" pname="b" stem.dir="down" accid.ges="f"/>
                            <note xml:id="o1b532h8" dots="1" dur="2" oct="5" pname="f" stem.dir="down"/>
-                           <note xml:id="p6je047" dur="4" oct="5" pname="a" stem.dir="down"/>
+                           <note xml:id="p6je047" dur="4" oct="5" pname="a" stem.dir="down">
+                              <accid xml:id="op2.01.m110.s1.aflat5.accid" accid="f"/>
+                           </note>
                         </layer>
                      </staff>
                      <staff xml:id="r1rqre6e" n="2">
