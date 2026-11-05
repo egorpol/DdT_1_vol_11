@@ -38,7 +38,7 @@ def test_editorial_list_covers_assembled_scores_without_expanding_release_scope(
     assert all(set(w['staff_roles']) == {str(n) for n in range(1, len(w['staff_roles']) + 1)}
                and all(w['staff_roles'].values()) for w in appendix)
     assert [w['consulted_sources'] for w in appendix] == [
-        ['src.ddt1903'], ['src.ddt1903', 'src.uppsala.buxwv266'], ['src.ddt1903'],
+        ['src.ddt1903'], ['src.ddt1903', 'src.uppsala.buxwv266'], ['src.ddt1903', 'src.uppsala.buxwv267'],
     ]
 
 

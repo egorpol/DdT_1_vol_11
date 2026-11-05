@@ -65,6 +65,19 @@
                   </availability>
                </bibl>
             </source>
+            <source type="manuscript" xml:id="src.uppsala.buxwv267">
+               <bibl>
+                  <title>Sonata/ à. 2/ 1 Violon/ .1. viol di gamb/ Con/ Basso Continuo/ di/ Dietrich Buxtehude.</title>
+                  <composer>Dietrich Buxtehude</composer>
+                  <date isodate="1692-09-27">27/9 1692</date>
+                  <physLoc>
+                     <repository>Uppsala University Library</repository>
+                     <identifier type="shelfmark">Instr. mus. i hskr. 13:24 (Düben Collection; catalogue form imhs 013:024)</identifier>
+                  </physLoc>
+                  <ref type="digital-catalogue" target="https://www2.musik.uu.se/duben/presentationSource1.php?Select_Dnr=2087">Düben Collection Database Catalogue, source 2087: parts copied by Andreas Düben, dated 27/9 1692</ref>
+                  <ref type="digital-facsimile" target="https://www2.musik.uu.se/duben/browsePart.php?Select_Part=01&amp;Select_Dnr=2087&amp;command=restart">Viol di gamba manuscript facsimile</ref>
+               </bibl>
+            </source>
          </sourceDesc>
       </fileDesc>
       <encodingDesc xml:id="e4ac8a8">
@@ -79,7 +92,7 @@
             </application>
          </appInfo>
          <editorialDecl>
-            <p>This is a working corrected digital edition based on DdT 1903, the only consulted musical source confirmed by the editor on 2026-10-20. Routine OMR and conversion repairs restore its printed reading and are summarized in revision history. Substantive departures, retained anomalies and uncertain readings are distinguished in local editorial annotations. No manuscript consultation is claimed.</p>
+            <p>This is a working corrected digital edition based on DdT 1903, which the editor confirmed on 2026-10-20 as the only musical source consulted up to then. Routine OMR and conversion repairs restore its printed reading and are summarized in revision history. Substantive departures, retained anomalies and uncertain readings are distinguished in local editorial annotations. The Uppsala manuscript parts Instr. mus. i hskr. 13:24 (Düben Collection) were consulted selectively through the library's online images for the gamba A3 at measure 37 (Viol di gamba part; image imhs013,024_p01_01r.jpg, staff 8, third bar) on 2026-11-05. They have a sharp before that note, so the bracketed editorial sharp there is a source-supported emendation (editorial.clash.app03-m37-b1_875). This selected comparison does not constitute complete collation with the manuscript.</p>
             <p>The five-staff DdT arrangement is retained: viola da gamba, violone, figured continuo bass, keyboard realization upper staff, and keyboard realization lower staff. The printed Violone part is not a violin part. The inherited repository filename and local key contain violin and are retained as working identifiers; the title, catalogue identity and analytical staff roles describe the printed instrumentation.</p>
             <p>Original page and system boundaries are encoded by pb and sb. The ten surfaces use work-local numbering from 1; their DdT printed range is pp. 176–185 (BSB images 186–195). Existing source zones and break positions are preserved.</p>
             <p>The editor approved a conjectural dot on the keyboard half note at measure 137 and confirmed simultaneous eighth-note and sustained-quarter E4 entries at measures 41 and 49 on 2026-10-20. The source readings, rationale and voice interpretation are documented in the corresponding annotations. Ordinary metrical checking is enabled. Imported playback defaults are preserved.</p>
@@ -107,6 +120,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-05" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Emended one clash that DdT prints in the gamba, where the A3 at beat 1.875 of m. 37 clashes with the A-sharp4 that the keyboard realization holds. The note n1j8z6zj gets a bracketed editorial sharp (accid with func="edit" and enclose="brack") and an editorial annotation, labelled source-supported-emendation, that records DdT's reading and the evidence. This is the first use of a manuscript for this work: the Uppsala parts Instr. mus. i hskr. 13:24 (Düben Collection, source 2087, copied by Andreas Düben, dated 27/9 1692) have the sharp, and a new source entry (src.uppsala.buxwv267) identifies them. A scan for held notes that clash with a note entering against them found the clash; the editor proposed A-sharp; an AI model (OpenAI Codex) read the manuscript from the library's online images, a second (Anthropic Claude) checked the crop, and on 2026-11-05 the editor decided the emendation. The annotation links the manuscript; no image of it is published here. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). The written notes and existing event IDs are unchanged; the editorial accid has a new ID.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-02" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Changed the licence of the MEI data from the MIT License to CC BY 4.0; the repository's code stays under the MIT License (LICENSE.md). The musical text, annotations and facsimile zones are unchanged.</p>
@@ -3768,7 +3786,9 @@
                            </beam>
                            <beam xml:id="l1v2ud84">
                               <note xml:id="m1sfrz5r" dots="1" dur="8" oct="3" pname="b" stem.dir="down" />
-                              <note xml:id="n1j8z6zj" dur="16" oct="3" pname="a" stem.dir="down" />
+                              <note xml:id="n1j8z6zj" dur="16" oct="3" pname="a" stem.dir="down">
+                                 <accid xml:id="accid.edit.n1j8z6zj" accid="s" func="edit" enclose="brack" />
+                              </note>
                            </beam>
                            <beam xml:id="o1rh8ndb">
                               <note xml:id="p80s55p" dur="8" oct="3" pname="b" stem.dir="down" />
@@ -3854,6 +3874,10 @@
                            <f>♯</f>
                         </fb>
                      </harm>
+                     <annot xml:id="editorial.clash.app03-m37-b1_875" type="editorial" label="source-supported-emendation" plist="#n1j8z6zj" source="#src.uppsala.buxwv267" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 178 (BSB image 188), measure 37, viola da gamba: A-natural3 at beat 1.875, with no accidental sign printed on the note. The encoding supplies a bracketed editorial sharp on n1j8z6zj, giving A-sharp3 at beat 1.875 in the viola da gamba. While the note sounds, the keyboard realization, upper staff, holds A-sharp4 (written sign) from beat 1.75. The keyboard realization is the DdT editor's, not Buxtehude's, and supplies no independent attestation. The continuo figure “♯” over F-sharp3 (beat 1.75) asks A-sharp. <ref target="#src.uppsala.buxwv267">The Uppsala manuscript parts</ref> (Düben Collection, Instr. mus. i hskr. 13:24, copied by Andreas Düben, dated 27/9 1692), consulted through the library's online images, have a sharp before this A3, attesting A-sharp3. Witness locator: Viol di gamba part, image imhs013,024_p01_01r.jpg, staff 8, third bar. Found by a scan for held notes that clash with a note entering against them; Egor Polyakov decided the emendation on 2026-11-05.</p>
+                        <p><ref type="digital-facsimile" target="https://www2.musik.uu.se/duben/browsePart.php?Select_Part=01&amp;Select_Dnr=2087&amp;command=restart">Viol di gamba part in the Düben Collection Database Catalogue (source 2087); the reading is on image imhs013,024_p01_01r.jpg.</ref></p>
+                     </annot>
                   </measure>
                   <sb xml:id="g1uq34n" />
                   <measure xml:id="wbriq1w" n="38" facs="#zone_be42714af71e4102b3">

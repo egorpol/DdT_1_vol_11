@@ -64,6 +64,41 @@
                   </availability>
                </bibl>
             </source>
+            <source xml:id="src.uppsala.op1" type="historical-print">
+               <bibl>
+                  <title>VII. Suonate a doi, violino &amp; viola da gamba, con cembalo ... opera prima</title>
+                  <composer>Dieterich Buxtehude</composer>
+                  <imprint>
+                     <pubPlace>Lübeck</pubPlace>
+                     <date isodate="1696" type="catalogue-supplied">[1696]</date>
+                  </imprint>
+                  <identifier type="RISM-A-I">B5204</identifier>
+                  <physLoc>
+                     <repository>Uppsala University Library, Düben Collection</repository>
+                     <identifier type="RISM-siglum">S-Uu</identifier>
+                     <identifier type="shelfmark">Uimtr 52:1–4</identifier>
+                  </physLoc>
+                  <ref type="catalogue" target="https://www2.musik.uu.se/duben/Printed%20music%20in%20the%20Duben%20Collection2024.pdf">Printed Music in the Düben Collection, p. 2</ref>
+                  <availability>
+                     <useRestrict>This witness was consulted through the <ref target="#src.stimu1991.op1">STIMU facsimile edition (Utrecht, 1991, introduction by Kerala J. Snyder)</ref>. TIFFs were made by the editor’s university library; public redistribution terms for the images remain unconfirmed.</useRestrict>
+                  </availability>
+               </bibl>
+            </source>
+            <source xml:id="src.stimu1991.op1" type="facsimile-edition">
+               <bibl>
+                  <title>VII. Suonate à doi, Violino &amp; Violadagamba, con Cembalo</title>
+                  <composer>Dieterich Buxtehude</composer>
+                  <imprint>
+                     <pubPlace>Utrecht</pubPlace>
+                     <publisher>STIMU (Stichting voor Muziekhistorische Uitvoeringspraktijk)</publisher>
+                     <date isodate="1991">1991</date>
+                  </imprint>
+                  <ref type="reproduced-witness" target="#src.uppsala.op1">Facsimile reproduction of the Uppsala Op. I witness, with an introduction by Kerala J. Snyder.</ref>
+                  <availability>
+                     <useRestrict>Consulted through locally held university-library scans. Public redistribution terms for these scans remain unconfirmed. A limited measure-level excerpt accompanies the critical annotation as a documentary image quotation; its attribution and intended reuse basis are recorded in the <ref target="../supplemental_material/README.md">supplemental material</ref>.</useRestrict>
+                  </availability>
+               </bibl>
+            </source>
          </sourceDesc>
       </fileDesc>
       <encodingDesc xml:id="e1jnbenj">
@@ -78,7 +113,7 @@
             </application>
          </appInfo>
          <editorialDecl>
-            <p>This is a working corrected digital edition based on DdT 1903. Only DdT 1903 was consulted for this sonata; no comparison with the Uppsala Op. I witness through the STIMU 1991 facsimile is claimed. OMR and conversion errors are corrected against the DdT facsimile. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
+            <p>This is a working corrected digital edition based on DdT 1903. The Op. I historical print was consulted selectively through the STIMU 1991 facsimile of the Uppsala partbooks for the gamba at measures 201–203 (Violadagamba partbook, Sonata VII; scan-0032, left-hand page) on 2026-11-05. It prints a bass clef before measure 201 that DdT does not have, so the clef and the five written pitches that follow from it are a source-supported emendation (editorial.clash.op107-m201-clef), documented with a supplemental facsimile excerpt. This selected comparison does not constitute complete collation with the historical print. OMR and conversion errors are corrected against the DdT facsimile. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
             <p>The staff arrangement and keyboard realization printed in DdT are retained. Staff 1 is violin; staff 2 is viola da gamba; staff 3 is the figured continuo bass; staves 4 and 5 are the upper and lower staves of the printed keyboard realization. The realization is distinguished from the figured continuo bass when defining an analytical view.</p>
             <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
             <p>The existing conjectural shortening of the first A4 in the keyboard realization at measure 38 is retained with the editor's confirmation and is documented against the printed half note. The printed A4 tie across measures 16-17 is represented by an explicit tie between notes in different layers. The parenthesized figured-bass stack in measure 250 is retained with its documented encoding approximation.</p>
@@ -105,6 +140,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-05" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Added the bass clef that the Op. I print has in the gamba before m. 201 and that DdT lacks, as a source-supported emendation with an editorial annotation that records DdT's reading and the evidence. The five notes of mm. 202–203 keep their staff positions and take the pitches of that clef: C5, C5 become D4, D4 (n19kgwat, o19sc46s) and G-sharp4, A4, B-sharp4 become A-sharp3, B3, C-sharp4 (cqeu2r4, e1xaed1e, f1k1lwft); the two printed sharps stay. A scan for held notes that clash with a note entering against them found the A4 against the A-sharp3 of the continuo and the keyboard. The editor first proposed a sharp on that note; an AI model (OpenAI Codex) read the Op. I print through the STIMU 1991 facsimile, a second (Anthropic Claude) checked the crop, and on 2026-11-05 the editor decided to follow the print. A one-bar excerpt is added to supplemental_material/, and the header lists the print and its facsimile among the sources. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). Existing event IDs are retained, the clef has a new ID, and no other note changes. The score definition before m. 204 (jvu345), which returned the gamba to the bass clef as DdT does, is removed, because that clef now stands from m. 201; without it no courtesy clef is drawn at the end of m. 203, where neither source has one.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-03" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Emended four accidental clashes that DdT prints, where a note printed without a sign clashes with a differently inflected note of the same letter in another staff at the same moment. Each gets a bracketed editorial accidental (accid with func="edit" and enclose="brack") and an editorial annotation, labelled conjectural-emendation, that records DdT's reading and the reason: m. 86, C-sharp5 at beat 3 (keyboard upper staff), [♯] on h1a6ahjl; m. 188, C-sharp4 at beat 1 (keyboard upper staff), [♯] on p1djmr03, carrying to v1p5xhok at beat 3; m. 214, C-sharp5 at beat 3 (keyboard upper staff), [♯] on qexm3l4; m. 243, D-sharp5 at beat 3 (keyboard upper staff), [♯] on l66pejv. The musical lint (scripts/musical_lint.py) found the clashes with CAMAT, and an AI model (OpenAI Codex) read the signs from the DdT 1903 page images in the first pass of the lint triage; on 2026-11-03 the editor decided every case, 46 across the edition, on a review page that showed the DdT crop beside the encoded and the emended bar. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). The written notes and existing event IDs are unchanged; the editorial accid elements have new IDs.</p>
@@ -18977,6 +19017,7 @@
                      </staff>
                      <staff xml:id="wkhy11g" n="2">
                         <layer xml:id="xzkmvrt" n="1">
+                           <clef xml:id="clef.op107.m201" shape="F" line="4" />
                            <mRest xml:id="z18ryksj" />
                         </layer>
                      </staff>
@@ -19004,6 +19045,10 @@
                            <note xml:id="pf9nmol" dur="8" oct="2" pname="a" stem.dir="up" />
                         </layer>
                      </staff>
+                     <annot xml:id="editorial.clash.op107-m201-clef" type="editorial" label="source-supported-emendation" plist="#clef.op107.m201 #n19kgwat #o19sc46s #cqeu2r4 #e1xaed1e #f1k1lwft" source="#src.uppsala.op1" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 75 (BSB image 85), measures 201–203, viola da gamba: DdT has no clef change here. Its alto clef stays in force through m. 203, and its bass clef returns only at the top of p. 76, before m. 204, so it gives C5, C5 in m. 202 and G-sharp4, A4, B-sharp4 in m. 203. <ref target="#src.uppsala.op1">The Op. I print</ref>, consulted through the <ref target="#src.stimu1991.op1">STIMU 1991 facsimile</ref>, prints a bass clef after the barline of m. 200, before the rest of m. 201, and the same notes then read D4, D4 and A-sharp3, B3, C-sharp4. The encoding adds that clef in m. 201 (clef.op107.m201) and gives the five notes the pitches they have in it (n19kgwat, o19sc46s, cqeu2r4, e1xaed1e, f1k1lwft). The notes stay on the same staff positions and the two printed sharps stay, so the omission in DdT is inferred to be the clef alone. With the bass clef the gamba runs from the C-sharp4 of m. 200 to D4, D4, A-sharp3, B3, C-sharp4 and the B3 of m. 204; in m. 203 it moves in tenths under the violin's C-sharp5, D5, E5, and its A-sharp3 doubles the continuo's A-sharp3 under the figures “6” and “5♭”. The scan had found DdT's A4 against that A-sharp3, and the editor first proposed a sharp on the A4; the print supersedes that proposal, because the note is B3. Witness locator: Violadagamba partbook, Sonata VII, scan-0032.jpg, left-hand page, staff 4, third printed bar, which covers mm. 201–203. Found by a scan for held notes that clash with a note entering against them; Egor Polyakov decided the emendation on 2026-11-05.</p>
+                        <p><ref type="supplemental-material" target="../supplemental_material/supplemental_material_op1_07_m201_stimu1991.png">Supplemental facsimile excerpt: Op. I/7, the historical-print bar holding measures 201–203, viola da gamba (Op. I print through STIMU 1991).</ref></p>
+                     </annot>
                   </measure>
                   <measure xml:id="hqjpc4a" n="202" facs="#zone_5fca37af955b4e1abb">
                      <staff xml:id="q1ssnaw6" n="1">
@@ -19019,8 +19064,8 @@
                         <layer xml:id="k1eiickd" n="1">
                            <rest xml:id="ld6vb6j" dur="8" />
                            <beam xml:id="m1nqspno">
-                              <note xml:id="n19kgwat" dur="8" oct="5" pname="c" stem.dir="down" />
-                              <note xml:id="o19sc46s" dur="8" oct="5" pname="c" stem.dir="down" />
+                              <note xml:id="n19kgwat" dur="8" oct="4" pname="d" stem.dir="down" />
+                              <note xml:id="o19sc46s" dur="8" oct="4" pname="d" stem.dir="down" />
                            </beam>
                         </layer>
                      </staff>
@@ -19079,11 +19124,11 @@
                      <staff xml:id="z16m976" n="2">
                         <layer xml:id="a1atjeev" n="1">
                            <beam xml:id="b13k0t1z">
-                              <note xml:id="cqeu2r4" dur="8" oct="4" pname="g" stem.dir="down">
+                              <note xml:id="cqeu2r4" dur="8" oct="3" pname="a" stem.dir="down">
                                  <accid xml:id="d1nygdha" accid="s" />
                               </note>
-                              <note xml:id="e1xaed1e" dur="8" oct="4" pname="a" stem.dir="down" />
-                              <note xml:id="f1k1lwft" dur="8" oct="4" pname="b" stem.dir="down">
+                              <note xml:id="e1xaed1e" dur="8" oct="3" pname="b" stem.dir="down" />
+                              <note xml:id="f1k1lwft" dur="8" oct="4" pname="c" stem.dir="down">
                                  <accid xml:id="g10i6qmi" accid="s" />
                               </note>
                            </beam>
@@ -19127,11 +19172,6 @@
                   </measure>
                   <pb xml:id="j11opxx6" facs="#surface_cafa05a2c8b3" n="11" />
                   <scoreDef xml:id="skvi3e26" />
-                  <scoreDef xml:id="jvu345">
-                     <staffGrp xml:id="wmcj3">
-                        <staffDef n="2" clef.shape="F" clef.line="4" />
-                     </staffGrp>
-                  </scoreDef>
                   <measure xml:id="bjnr2fm" n="204" facs="#zone_f6a64bbd2cdd4fdea8">
                      <harm xml:id="jsuv34" staff="3" tstamp="2">
                         <fb>

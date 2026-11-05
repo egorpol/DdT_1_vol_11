@@ -2,7 +2,7 @@
 
 These limited facsimile excerpts document readings discussed in the MEI
 annotations. They are listed in the order in which the readings appear in the
-volume (DdT 1903, printed pp. 3, 29, 55, 80, 85, 97 and 139). Include this directory and its
+volume (DdT 1903, printed pp. 3, 29, 39, 55, 75, 80, 85, 97, 112 and 139). Include this directory and its
 attribution with the score in the final release, preserving the relative paths.
 Crop provenance and checksums are recorded in [manifest.json](manifest.json).
 
@@ -94,6 +94,49 @@ above. The scope is one historical-print bar, corresponding to DdT measure
 169, showing the printed flats and their immediate musical context; no
 general scan-redistribution permission is asserted.
 
+## Op. I/4, measure 105, violin
+
+![Original-print bar supporting the E-flat5 reading](supplemental_material_op1_04_m105_stimu1991.png)
+
+**Source:** Dieterich Buxtehude, *VII. Suonate à doi, Violino & Violadagamba,
+con Cembalo*, Op. I (undated; [1696] in the Uppsala catalogue), Uppsala
+University Library, Düben Collection, `Uimtr 52:1–4`, RISM A/I B5204. Consulted
+through the STIMU facsimile edition (Utrecht, 1991; introduction by Kerala J.
+Snyder), supplied as university-library scans. The digitising institution was
+not named in the supplied provenance.
+
+**Location:** Violino partbook, Sonata IV, sixth staff, first printed bar,
+corresponding to combined-score m. 105; supplied `scan-0013.jpg`, right-hand
+page. The crop shows the complete bar with the treble clef and key signature
+at the staff start: B-flat and E-flat, as in DdT, though the print doubles the
+E-flat at the octave. The twelve notes are B-flat4, D5, E5, F5, G5, A-flat5, G5, C5, E5,
+D5, C5, B-flat4. A natural stands before the third note and a flat before the
+sixth; the target is the ninth note, an E5 with no sign. This print signs each
+note separately, so the natural does not reach it and the signature makes it
+E-flat5. The attestation is the signature together with an unsigned note,
+not a written flat. DdT 1903, printed p. 39, prints the same natural, which
+carries in its notation to this E5 (E-natural5). The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op1_04_sonata_b_flat_major_corr.mei#editorial.clash.op104-m105-b3_67)
+explains the source-supported bracketed editorial flat on the E5.
+This passage was directly compared on 2026-11-05; the comparison does not
+constitute complete collation of the work with the historical print.
+
+**Image preparation:** a direct crop at the scan's original pixel scale,
+710 × 270 pixels, saved as PNG from the supplied full-resolution JPEG access
+image after verifying its SHA-256 against the conversion inventory. The crop
+shows the entire printed bar, including the staff-start clef and key signature,
+on which the reading rests, and the closing barline at its right edge; the
+part, page and staff are identified above. No resizing,
+retouching or reconstructed notation is included. The TIFF master was not
+read for this crop. Coordinates, source checksum and upstream master
+provenance are recorded in the crop manifest.
+
+**Intended reuse:** this excerpt accompanies the critical discussion of the
+specific E5 on the documentary image-quotation basis recorded above. The scope
+is one historical-print bar, corresponding to DdT measure 105, showing the key
+signature, the printed natural and the unsigned note in their immediate musical
+context; no general scan-redistribution permission is asserted.
+
 ## Op. I/6, measure 13, viola da gamba
 
 ![Original-print measure supporting both B-natural3 readings](supplemental_material_op1_06_m013_stimu1991.png)
@@ -133,6 +176,47 @@ recorded in the crop manifest.
 specific B3 naturals on the documentary image-quotation basis recorded above.
 The scope is one historical-print bar, corresponding to DdT measure 13,
 showing both printed naturals and their immediate musical context; no general
+scan-redistribution permission is asserted.
+
+## Op. I/7, measures 201–203, viola da gamba
+
+![Original-print bar supporting the bass clef before measure 201](supplemental_material_op1_07_m201_stimu1991.png)
+
+**Source:** Dieterich Buxtehude, *VII. Suonate à doi, Violino & Violadagamba,
+con Cembalo*, Op. I (undated; [1696] in the Uppsala catalogue), Uppsala
+University Library, Düben Collection, `Uimtr 52:1–4`, RISM A/I B5204. Consulted
+through the STIMU facsimile edition (Utrecht, 1991; introduction by Kerala J.
+Snyder), supplied as university-library scans. The digitising institution was
+not named in the supplied provenance.
+
+**Location:** Violadagamba partbook, Sonata VII, Prestissimo, fourth staff,
+third printed bar, which covers combined-score mm. 201–203; supplied
+`scan-0032.jpg`, left-hand page. The crop shows a bass clef after the barline
+of m. 200, with its sharps on F3 and F2, then the rest of m. 201 with its
+figure 1, an eighth rest, D4, D4 (m. 202) and A-sharp3, B3, C-sharp4 (m. 203),
+all eighth notes, each sharp a printed ×. DdT 1903, printed p. 75, has no clef
+change here: its alto clef stays in force through m. 203, so the same staff
+positions read C5, C5 and G-sharp4, A4, B-sharp4. The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op1_07_sonata_e_minor_corr.mei#editorial.clash.op107-m201-clef)
+explains the source-supported clef and the five pitches that follow from it.
+This passage was directly compared on 2026-11-05; the comparison does not
+constitute complete collation of the work with the historical print.
+
+**Image preparation:** a direct crop at the scan's original pixel scale,
+555 × 280 pixels, saved as PNG from the supplied full-resolution JPEG access
+image after verifying its SHA-256 against the conversion inventory. The crop
+shows the entire printed bar between its two barlines; at the left edge it
+keeps the dot of the note that ends m. 200, and the notehead at the foot of the
+crop belongs to the next staff. The part, page and staff are identified above.
+No resizing,
+retouching or reconstructed notation is included. The TIFF master was not
+read for this crop. Coordinates, source checksum and upstream master
+provenance are recorded in the crop manifest.
+
+**Intended reuse:** this excerpt accompanies the critical discussion of the
+specific clef on the documentary image-quotation basis recorded above. The
+scope is one historical-print bar, corresponding to DdT measures 201–203,
+showing the printed clef and the notes it governs; no general
 scan-redistribution permission is asserted.
 
 ## Op. II/1, measure 24, viola da gamba
@@ -244,6 +328,93 @@ unrelated material.
 specific E3 reading on the documentary image-quotation basis recorded above
 (UrhG §§ 51 and 63, checked 2026-10-19). The scope is one measure, showing the
 printed flag and its immediate musical context.
+
+## Op. II/3, measure 167, viola da gamba
+
+![Original-print bar supporting the two low E-flat2 readings](supplemental_material_op2_03_m167_stimu1991.png)
+
+**Source:** Dieterich Buxtehude, *VII. Suonate à due, violino et violadagamba
+con cembalo*, Op. II (1696), Uppsala University Library, Düben Collection,
+`Uimtr 52:1–4`, RISM A/I B5205. Consulted through the STIMU facsimile edition
+(Utrecht, 1991; introduction by Kerala J. Snyder), supplied as
+university-library scans. The digitising institution was not named in the
+supplied provenance.
+
+**Location:** Viola da gamba part, Sonata III, printed p. 14, sixth staff, third
+printed bar, corresponding to combined-score m. 167; supplied `scan-0032.jpg`,
+left-hand page. The crop shows the twelve sixteenths of the bar: C3, A-flat3,
+G3, F3, E-flat3, C4, B-flat3, A-flat3, G3, E-flat2, G2, E-flat2. The targets are
+the flats before the two low Es, the tenth and twelfth notes. DdT 1903, printed
+p. 112, gives both without a sign (E-natural2). The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op2_03_sonata_g_minor_corr.mei#editorial.clash.op203-m167-b3_25)
+explains the source-supported bracketed editorial flat on the first E2, which
+carries to the second. This passage was directly compared on 2026-11-05; the
+comparison does not constitute complete collation of the work with the
+historical print.
+
+**Image preparation:** a direct crop at the scan's original pixel scale,
+825 × 345 pixels, saved as PNG from the supplied full-resolution JPEG access
+image after verifying its SHA-256 against the conversion inventory. The crop
+runs from just after the opening barline to the closing barline; the vertical
+line near its middle is a stem, not a barline. The clef and key signature stand
+at the staff start, outside the crop, and the part, page and staff are
+identified above. No resizing,
+retouching or reconstructed notation is included. The TIFF master was not
+read for this crop. Coordinates, source checksum and upstream master
+provenance are recorded in the crop manifest.
+
+**Intended reuse:** this excerpt accompanies the critical discussion of the
+two specific low E-flats on the documentary image-quotation basis recorded
+above. The scope is one historical-print bar, corresponding to DdT measure 167,
+showing the printed flats and their immediate musical context; no general
+scan-redistribution permission is asserted.
+
+## Op. II/3, measure 168, viola da gamba
+
+![Original-print bar fragment supporting the F-sharp2 reading](supplemental_material_op2_03_m168_stimu1991.png)
+
+**Source:** Dieterich Buxtehude, *VII. Suonate à due, violino et violadagamba
+con cembalo*, Op. II (1696), Uppsala University Library, Düben Collection,
+`Uimtr 52:1–4`, RISM A/I B5205. Consulted through the STIMU facsimile edition
+(Utrecht, 1991; introduction by Kerala J. Snyder), supplied as
+university-library scans. The digitising institution was not named in the
+supplied provenance.
+
+**Location:** Viola da gamba part, Sonata III, printed p. 14, seventh staff,
+first printed bar; supplied `scan-0032.jpg`, left-hand page. Measure 168 breaks
+at the end of staff 6, and this bar holds its continuation: D3, B-flat3, A3, G3,
+F-sharp3, D2, F-sharp2, D2, all sixteenths. The target is the sign before the
+F2 between the two D2s. It is flooded with ink and has run into the lowest
+staff line and the ledger line below it. It is read from its outline, which has
+the waist of the print's × (26 pixels against 28 on the × of the F3 in this
+bar), and from the gap it stands in: about 85–87 pixels from notehead centre to
+notehead centre, against 38–50 for unsigned notes and 90–98 for signed ones in
+the same print.
+An AI model first read no sign here; the editor decided the reading on
+2026-11-05 from enlarged crops. DdT 1903, printed p. 112, gives the F2 without a
+sign (F-natural2). The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op2_03_sonata_g_minor_corr.mei#editorial.clash.op203-m168-b3_5)
+explains the source-supported bracketed editorial sharp. This passage was
+directly compared on 2026-11-05; the comparison does not constitute complete
+collation of the work with the historical print.
+
+**Image preparation:** a direct crop at the scan's original pixel scale,
+525 × 390 pixels, saved as PNG from the supplied full-resolution JPEG access
+image after verifying its SHA-256 against the conversion inventory. The crop
+starts at the flat of the key signature, with the clef just outside it, and
+ends at the closing barline; the first notes of the measure, on staff 6, are
+outside it, because no single rectangle at this scale holds both parts of the
+bar without other bars. The noteheads at the top edge belong to the staff
+above. The part, page and staff are identified above. No resizing,
+retouching or reconstructed notation is included. The TIFF master was not
+read for this crop. Coordinates, source checksum and upstream master
+provenance are recorded in the crop manifest.
+
+**Intended reuse:** this excerpt accompanies the critical discussion of the
+specific F2 on the documentary image-quotation basis recorded above. The scope
+is the part of one historical-print bar on this staff, corresponding to part of
+DdT measure 168, showing the sign and its immediate musical context; no general
+scan-redistribution permission is asserted.
 
 ## Op. II/6, measure 3, violin
 
