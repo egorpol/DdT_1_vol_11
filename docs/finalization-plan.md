@@ -1,6 +1,6 @@
 # Release 1.0 checklist
 
-Status 2026-10-27: all 17 works are corrected working files (`_corr` filenames). They are not finalized. The 0.10.0 pre-release contains all 17 (0.9.0 contained the earlier 16).
+Status 2026-11-05: all 17 works are corrected working files (`_corr` filenames). They are not finalized. The 0.10.0 and 0.11.0 pre-releases contain all 17 (0.9.0 contained the earlier 16).
 
 The validation boundary, the shared CAMAT checks and this corpus's validator are in place (steps 1–3 of the [archived plan](archive/planning/finalization-plan-2026-10-01.md), with CAMAT 0.2.7). The items below are what remains before a 1.0 release. The [tool guide](../validation/README.md) describes the checks, the [encoding profile](mei-encoding-profile.md) the target header and the [editorial policy](editorial-policy.md) the intervention categories.
 
