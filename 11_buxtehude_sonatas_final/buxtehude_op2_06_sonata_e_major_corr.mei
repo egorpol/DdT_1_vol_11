@@ -24,11 +24,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.10.0">Corrected working edition (pre-release)</edition>
+            <edition n="0.11.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="pd8bnvd">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-27" type="last-updated">2026-10-27</date>
+            <date isodate="2026-11-05" type="last-updated">2026-11-05</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op2_06_sonata_e_major_corr.mei</identifier>
             <availability>
@@ -138,6 +138,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-05" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.11.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-03" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Emended one accidental clash that DdT prints, where a note clashes with a differently inflected note of the same letter in another staff at the same moment. It gets a bracketed editorial accidental (accid with func="edit" and enclose="brack") and an editorial annotation, labelled conjectural-emendation, that records DdT's reading and the reason: m. 68, A-sharp4 at beat 4 (keyboard upper staff), [♯] on q1krtr2lu, in place of the natural that DdT prints. The musical lint (scripts/musical_lint.py) found the clash with CAMAT, and an AI model (OpenAI Codex) read the signs from the DdT 1903 page images in the first pass of the lint triage; on 2026-11-03 the editor decided every case, 46 across the edition, on a review page that showed the DdT crop beside the encoded and the emended bar. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). The written notes and existing event IDs are unchanged; the editorial accid elements have new IDs.</p>

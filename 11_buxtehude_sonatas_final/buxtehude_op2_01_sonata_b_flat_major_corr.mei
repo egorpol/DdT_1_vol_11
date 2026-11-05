@@ -28,12 +28,12 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.10.0">Corrected working edition (pre-release)</edition>
+            <edition n="0.11.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt>
             <publisher>CAMAT Corpus Editions</publisher>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
-            <date isodate="2026-10-27" type="last-updated">2026-10-27</date>
+            <date isodate="2026-11-05" type="last-updated">2026-11-05</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op2_01_sonata_b_flat_major_corr.mei</identifier>
             <availability>
                <useRestrict>MEI data released under <ref target="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</ref>. The licence covers this edition's encoding and metadata, not the musical work or the printed source.</useRestrict>
@@ -142,6 +142,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-05" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.11.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-04" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Corrected 1 encoding error found by ear in the editor's listening check of the viewer's playback: in m. 110 the violin's last quarter A5 p6je047 has the flat that DdT prints (p. 85), so it sounds A-flat5 with the keyboard's A-flat4, not A5 against it. An AI model (Anthropic Claude) read the sign from the DdT 1903 page image, and the editor approved the correction before it was applied. Event IDs are retained; this correction changes no other note.</p>

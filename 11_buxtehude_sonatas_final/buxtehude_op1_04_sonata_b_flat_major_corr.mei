@@ -24,11 +24,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.10.0">Corrected working edition (pre-release)</edition>
+            <edition n="0.11.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="p89mz2i">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-27" type="last-updated">2026-10-27</date>
+            <date isodate="2026-11-05" type="last-updated">2026-11-05</date>
             <date isodate="2019-02-12" type="encoding-date" xml:id="da1uat3">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_04_sonata_b_flat_major_corr.mei</identifier>
             <availability>
@@ -140,6 +140,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-05" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.11.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-05" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Emended one clash that DdT prints in the violin, where the natural on the E5 at beat 1.67 of m. 105 carries to the E5 at beat 3.67, against the E-flat2 that the continuo and the keyboard hold. The note b1sz37ga gets a bracketed editorial flat (accid with func="edit" and enclose="brack") and an editorial annotation, labelled source-supported-emendation, that records DdT's reading and the evidence: the Op. I print, consulted through the STIMU 1991 facsimile, has no sign before this note, its key signature is B-flat and E-flat, as in DdT, and it signs each note separately. A scan for held notes that clash with a note entering against them found it. An AI model (OpenAI Codex) read the print; it took the doubled E-flat of the signature for a third flat, and a second (Anthropic Claude) measured the signature, corrected that reading and checked the crop. The editor decided the emendation on 2026-11-05. A one-bar excerpt is added to supplemental_material/, and the header lists the print and its facsimile among the sources. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). The written notes and existing event IDs are unchanged; the editorial accid has a new ID.</p>

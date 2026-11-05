@@ -24,11 +24,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.10.0">Corrected working edition (pre-release)</edition>
+            <edition n="0.11.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="p1qxcm78">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-27" type="last-updated">2026-10-27</date>
+            <date isodate="2026-11-05" type="last-updated">2026-11-05</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_app_03_sonata_gamba_violin_cembalo_d_major_corr.mei</identifier>
             <availability>
@@ -120,6 +120,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-05" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.11.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-05" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Emended one clash that DdT prints in the gamba, where the A3 at beat 1.875 of m. 37 clashes with the A-sharp4 that the keyboard realization holds. The note n1j8z6zj gets a bracketed editorial sharp (accid with func="edit" and enclose="brack") and an editorial annotation, labelled source-supported-emendation, that records DdT's reading and the evidence. This is the first use of a manuscript for this work: the Uppsala parts Instr. mus. i hskr. 13:24 (Düben Collection, source 2087, copied by Andreas Düben, dated 27/9 1692) have the sharp, and a new source entry (src.uppsala.buxwv267) identifies them. A scan for held notes that clash with a note entering against them found the clash; the editor proposed A-sharp; an AI model (OpenAI Codex) read the manuscript from the library's online images, a second (Anthropic Claude) checked the crop, and on 2026-11-05 the editor decided the emendation. The annotation links the manuscript; no image of it is published here. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). The written notes and existing event IDs are unchanged; the editorial accid has a new ID.</p>

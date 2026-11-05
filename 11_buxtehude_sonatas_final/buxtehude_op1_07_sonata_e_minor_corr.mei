@@ -24,11 +24,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.10.0">Corrected working edition (pre-release)</edition>
+            <edition n="0.11.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt>
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-27" type="last-updated">2026-10-27</date>
+            <date isodate="2026-11-05" type="last-updated">2026-11-05</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_07_sonata_e_minor_corr.mei</identifier>
             <availability>
                <useRestrict>MEI data released under <ref target="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</ref>. The licence covers this edition's encoding and metadata, not the musical work or the printed source.</useRestrict>
@@ -140,6 +140,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-05" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.11.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-05" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Added the bass clef that the Op. I print has in the gamba before m. 201 and that DdT lacks, as a source-supported emendation with an editorial annotation that records DdT's reading and the evidence. The five notes of mm. 202–203 keep their staff positions and take the pitches of that clef: C5, C5 become D4, D4 (n19kgwat, o19sc46s) and G-sharp4, A4, B-sharp4 become A-sharp3, B3, C-sharp4 (cqeu2r4, e1xaed1e, f1k1lwft); the two printed sharps stay. A scan for held notes that clash with a note entering against them found the A4 against the A-sharp3 of the continuo and the keyboard. The editor first proposed a sharp on that note; an AI model (OpenAI Codex) read the Op. I print through the STIMU 1991 facsimile, a second (Anthropic Claude) checked the crop, and on 2026-11-05 the editor decided to follow the print. A one-bar excerpt is added to supplemental_material/, and the header lists the print and its facsimile among the sources. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). Existing event IDs are retained, the clef has a new ID, and no other note changes. The score definition before m. 204 (jvu345), which returned the gamba to the bass clef as DdT does, is removed, because that clef now stands from m. 201; without it no courtesy clef is drawn at the end of m. 203, where neither source has one.</p>

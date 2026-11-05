@@ -24,11 +24,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.10.0">Corrected working edition (pre-release)</edition>
+            <edition n="0.11.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="pn5ijuo">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-10-27" type="last-updated">2026-10-27</date>
+            <date isodate="2026-11-05" type="last-updated">2026-11-05</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_03_sonata_a_minor_corr.mei</identifier>
             <availability>
@@ -140,6 +140,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-05" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.11.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-05" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Emended two clashes that DdT prints in the keyboard realization, where a note clashes with a differently inflected note of the same letter that overlaps it in time but starts apart, a pair that the musical lint does not compare. Each has an editorial annotation, labelled conjectural-emendation, that records DdT's reading and the reason. In m. 6 the upper staff's E-sharp4 mux8dwe at beat 4.5 becomes F-sharp4: the written pitch changes and the printed sharp stays, because no bracketed sign can give the F-sharp that the figure 4/2(♯) asks. In m. 13 the lower staff's F3 e1o2alwo at beat 4 gets a bracketed editorial sharp (accid with func="edit" and enclose="brack"). A scan for held notes that clash with a note entering against them found both; an AI model (OpenAI Codex) read the signs from the DdT 1903 page image, a second (Anthropic Claude) checked the crops, and on 2026-11-05 the editor decided both on a review page that showed the DdT crop beside the encoded and the emended bar. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). Existing event IDs are retained, the editorial accid has a new ID, and no other note changes.</p>
