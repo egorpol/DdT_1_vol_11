@@ -105,6 +105,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-05" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Emended one clash that DdT prints in the keyboard realization, where a note clashes with a differently inflected note of the same letter that overlaps it in time but starts apart, a pair that the musical lint does not compare. In m. 7 the upper staff's D4 l9cab1k at beat 7 gets a bracketed editorial sharp (accid with func="edit" and enclose="brack") and an editorial annotation, labelled conjectural-emendation, that records DdT's reading and the reason; DdT's sharp on the F4 of the same chord stays. A scan for held notes that clash with a note entering against them found it; an AI model (OpenAI Codex) read the signs from the DdT 1903 page image and took the pair for an ordinary chromatic line; on 2026-11-05 the editor, on a review page that showed the DdT crop beside the encoded bar, read the note as D-sharp and decided the emendation, and a second AI model (Anthropic Claude) then checked the crop. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). The written notes and existing event IDs are unchanged; the editorial accid has a new ID.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-02" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Changed the licence of the MEI data from the MIT License to CC BY 4.0; the repository's code stays under the MIT License (LICENSE.md). The musical text, annotations and facsimile zones are unchanged.</p>
@@ -1032,7 +1037,9 @@
                            <note xml:id="h1rngyw5" dur="4" oct="4" pname="f" stem.dir="up" accid.ges="s" />
                            <note xml:id="j1up7655" dur="8" oct="5" pname="c" stem.dir="up" accid.ges="s" />
                            <chord xml:id="m1chdouh" dots="1" dur="4" stem.dir="up">
-                              <note xml:id="l9cab1k" oct="4" pname="d" />
+                              <note xml:id="l9cab1k" oct="4" pname="d">
+                                 <accid xml:id="accid.edit.l9cab1k" accid="s" func="edit" enclose="brack" />
+                              </note>
                               <note xml:id="n3rhvjn" oct="4" pname="f">
                                  <accid xml:id="ofqzvzr" accid="s" />
                               </note>
@@ -1056,6 +1063,9 @@
                            <note xml:id="cfzepjg" dots="1" dur="4" oct="3" pname="g" stem.dir="down" accid.ges="s" />
                         </layer>
                      </staff>
+                     <annot xml:id="editorial.clash.op205-m7-b7" type="editorial" label="conjectural-emendation" plist="#l9cab1k" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 126 (BSB image 136), measure 7, keyboard realization, upper staff: D-natural4 at beat 7, with no accidental sign printed on the note. The encoding supplies a bracketed editorial sharp on l9cab1k, giving D-sharp4 at beat 7 in the keyboard realization, upper staff. The continuo figure “♯” over B3 (beat 7) asks D-sharp, the violin has D-sharp5 (written sign) at beat 9 while the note sounds, and both rise to E at beat 10. DdT's one sharp in this chord stands level with the F4 above, where it is redundant in A major, and the encoding keeps it there (n3rhvjn). It may have been meant for D4, but the print does not show that. The keyboard realization is the DdT editor's, not Buxtehude's. Found by a scan for held notes that clash with a note entering against them; Egor Polyakov read the note as D-sharp and decided the emendation on 2026-11-05.</p>
+                     </annot>
                   </measure>
                   <measure xml:id="k1074rgg" n="8" facs="#zone_6d2399ace6f040fa85">
                      <harm tstamp="4" staff="3" xml:id="op2_05.m8.harm.1">

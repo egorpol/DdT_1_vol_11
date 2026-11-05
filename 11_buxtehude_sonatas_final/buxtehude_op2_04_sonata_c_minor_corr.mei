@@ -141,6 +141,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-05" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Emended one clash that DdT prints in the keyboard realization, where a note clashes with a differently inflected note of the same letter that overlaps it in time but starts apart, a pair that the musical lint does not compare. In m. 59 the upper staff's B3 p176opvh at beat 2.5 gets a bracketed editorial natural (accid with func="edit" and enclose="brack") and an editorial annotation, labelled conjectural-emendation, that records DdT's reading and the reason. A scan for held notes that clash with a note entering against them found it; an AI model (OpenAI Codex) read the signs from the DdT 1903 page image, a second (Anthropic Claude) checked the crop, and on 2026-11-05 the editor decided it on a review page that showed the DdT crop beside the encoded and the emended bar. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). The written notes and existing event IDs are unchanged; the editorial accid has a new ID.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-03" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Added the Op. II print (src.uppsala.op2) and its STIMU 1991 facsimile (src.stimu1991.op2) to the source description, as in Op. II/1; no facsimile excerpt accompanies this work. Added two source-reading annotations on measures 125–127, where the encoding keeps DdT's readings: editorial.figure.op204-m125-127 records the print's 7–6 figure chain where DdT prints no figure, “6”, and “6♭” over “♭”, “5”, “4”, and editorial.bass.op204-m125 the print's A-flat3 dotted half in measure 125 where DdT has an A-flat2 half and an A-flat3 quarter. The editorial declaration records this comparison. Both came to light while the figure cited in editorial.clash.op204-m128-b1 was checked: an AI model (OpenAI Codex) read the print's continuo and gamba bars from the STIMU 1991 scans, Claude (Anthropic) checked these readings against the DdT 1903 page image and the print crops, and on 2026-11-03 the editor decided both on a review page that showed the DdT crop, the print crops and Verovio renders of the passage. The notes, the figures and all existing IDs are unchanged.</p>
@@ -4672,7 +4677,9 @@
                            </note>
                            <rest xml:id="oda41fv" dur="8" />
                            <chord xml:id="r1p0ni89" dur="8" stem.dir="up">
-                              <note xml:id="p176opvh" oct="3" pname="b" accid.ges="f" />
+                              <note xml:id="p176opvh" oct="3" pname="b">
+                                 <accid xml:id="accid.edit.p176opvh" accid="n" func="edit" enclose="brack" />
+                              </note>
                               <note xml:id="s4sthbe" oct="4" pname="g" />
                            </chord>
                            <chord xml:id="us2j25u" dots="1" dur="4" stem.dir="up">
@@ -4717,6 +4724,9 @@
                            <f>♭</f>
                         </fb>
                      </harm>
+                     <annot xml:id="editorial.clash.op204-m59-b2_5" type="editorial" label="conjectural-emendation" plist="#p176opvh" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 118 (BSB image 128), measure 59, keyboard realization, upper staff: B-flat3 at beat 2.5, flat by the key signature, with no accidental sign printed on the note. The encoding supplies a bracketed editorial natural on p176opvh, giving B-natural3 at beat 2.5 in the keyboard realization, upper staff. The continuo figure “♮” over G3 (beat 2.5) asks B-natural, and while the note sounds the viola da gamba has B-natural3 at beat 2.75 (carried in the bar). The natural that DdT prints on the keyboard's B4 at beat 1 stands in another octave and does not carry to this note, so the emendation rests on the figure. The keyboard realization is the DdT editor's, not Buxtehude's. Found by a scan for held notes that clash with a note entering against them; Egor Polyakov decided the emendation on 2026-11-05.</p>
+                     </annot>
                   </measure>
                   <measure xml:id="rofeg17" n="60" facs="#zone_01a12be8357c435daa">
                      <staff xml:id="a1790q2s" n="1">

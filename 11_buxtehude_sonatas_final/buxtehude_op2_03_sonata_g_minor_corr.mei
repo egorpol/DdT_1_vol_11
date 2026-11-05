@@ -108,6 +108,11 @@
       <revisionDesc>
          <change isodate="2026-11-05" resp="#resp.camat #resp.polyakov">
             <changeDesc>
+               <p>Emended two clashes that DdT prints in the keyboard realization, where a note clashes with a differently inflected note of the same letter that overlaps it in time but starts apart, a pair that the musical lint does not compare. In mm. 196 and 197 the upper staff's E4 at beat 1 (q1gz8fyz, pzntkjj) gets a bracketed editorial flat (accid with func="edit" and enclose="brack"), and each has an editorial annotation, labelled conjectural-emendation, that records DdT's reading and the reason. A scan for held notes that clash with a note entering against them found both; an AI model (OpenAI Codex) read the signs from the DdT 1903 page image, a second (Anthropic Claude) checked the crops, and on 2026-11-05 the editor decided both on a review page that showed the DdT crop beside the encoded and the emended bar. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). The written notes and existing event IDs are unchanged; the editorial accid elements have new IDs.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-11-05" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
                <p>Corrected 2 encoding errors found by a scan for held notes that clash with a note entering against them. In m. 18 the violin's second E-flat5 uk1gun2 loses a written flat that DdT does not print (p. 104), because the first flat in the bar already covers it; the sound does not change. In m. 183 the keyboard's A3 n1j0ux9m has the flat that DdT prints (p. 113), so it sounds A-flat3 with the violin's A-flat4, not A3 against it. An AI model (OpenAI Codex) read both places from the DdT 1903 page images, a second (Anthropic Claude) checked the crops, and the editor approved the corrections before they were applied. Event IDs are retained; the accid ID ace4oqo1 is retired, and these corrections change no other note.</p>
             </changeDesc>
          </change>
@@ -19725,7 +19730,9 @@
                               <note xml:id="o1izneuh" dur="8" oct="4" pname="g" stem.dir="up" />
                            </layer>
                            <layer xml:id="p1m3pjvj" n="2">
-                              <note xml:id="q1gz8fyz" dur="2" oct="4" pname="e" stem.dir="down" />
+                              <note xml:id="q1gz8fyz" dur="2" oct="4" pname="e" stem.dir="down">
+                                 <accid xml:id="accid.edit.q1gz8fyz" accid="f" func="edit" enclose="brack" />
+                              </note>
                               <note xml:id="r5e7166" dots="1" dur="4" oct="4" pname="f" stem.dir="down" />
                               <note xml:id="s6qi0ak" dur="8" oct="4" pname="d" stem.dir="down">
                                  <accid xml:id="tk7q28z" accid="f" />
@@ -19747,6 +19754,9 @@
                         <tie xml:id="o177v29v" startid="#m1b39yrd" endid="#qre0eop" />
                         <slur xml:id="sgy03yt1" endid="#ow1mb3m" staff="1" startid="#m1pwptpe" />
                         <tie xml:id="t6pxyh41" endid="#l14fwqeb" staff="4" startid="#j1fmzg8z" />
+                        <annot xml:id="editorial.clash.op203-m196-b1" type="editorial" label="conjectural-emendation" plist="#q1gz8fyz" resp="#resp.polyakov #resp.camat">
+                           <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 114 (BSB image 124), measure 196, keyboard realization, upper staff: E-natural4 at beat 1, with no accidental sign printed on the note. The encoding supplies a bracketed editorial flat on q1gz8fyz, giving E-flat4 at beat 1 in the keyboard realization, upper staff. While the note sounds, the violin enters on E-flat5 at beat 1.5 (written sign, carried to beats 2 and 2.5). The continuo figure “6♭” over C3 (beat 1) gives A-flat, which the viola da gamba and the keyboard realization hold, and names no E; E-flat completes the A-flat chord over C3. The keyboard realization is the DdT editor's, not Buxtehude's. Found by a scan for held notes that clash with a note entering against them; Egor Polyakov decided the emendation on 2026-11-05.</p>
+                        </annot>
                      </measure>
                      <measure xml:id="up7oqfs" n="197" facs="#zone_5eb70d98a4bd4fceba">
                         <staff xml:id="dnix80p" n="1">
@@ -19801,7 +19811,9 @@
                         <staff xml:id="m11htc1u" n="4">
                            <layer xml:id="o11zmex0" n="1">
                               <chord xml:id="q1apir8h" dur="1" stem.visible="false">
-                                 <note xml:id="pzntkjj" oct="4" pname="e" />
+                                 <note xml:id="pzntkjj" oct="4" pname="e">
+                                    <accid xml:id="accid.edit.pzntkjj" accid="f" func="edit" enclose="brack" />
+                                 </note>
                                  <note xml:id="r1oh7g9l" oct="4" pname="a">
                                     <accid xml:id="svj9xq6" accid="f" />
                                  </note>
@@ -19821,6 +19833,9 @@
                         <tie xml:id="pemclmk" startid="#n3wyjtl" endid="#beq1kk5" curvedir="below" />
                         <tie xml:id="x32n74z" startid="#ugfwa0" endid="#e1u7jxlj" />
                         <slur xml:id="sos6v411" endid="#a1sr62yw" staff="2" startid="#umsd0gk" />
+                        <annot xml:id="editorial.clash.op203-m197-b1" type="editorial" label="conjectural-emendation" plist="#pzntkjj" resp="#resp.polyakov #resp.camat">
+                           <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 114 (BSB image 124), measure 197, keyboard realization, upper staff: E-natural4 at beat 1, a whole note, with no accidental sign printed on the note. The encoding supplies a bracketed editorial flat on pzntkjj, giving E-flat4 at beat 1 in the keyboard realization, upper staff. While the note sounds, the viola da gamba has E-flat4 at beat 1.5 (written sign) and at beat 4.5 (carried in the bar). No continuo figure stands in this measure; the keyboard realization's A-flat2, C4 and A-flat4 spell an A-flat chord, which E-flat completes. The note repeats the E4 of measure 196, emended in the same way (editorial.clash.op203-m196-b1). The keyboard realization is the DdT editor's, not Buxtehude's. Found by a scan for held notes that clash with a note entering against them; Egor Polyakov decided the emendation on 2026-11-05.</p>
+                        </annot>
                      </measure>
                      <sb xml:id="atd9eja" />
                      <measure xml:id="qt4y4g1" n="198" facs="#zone_9ca136f9b4cd43cba2">

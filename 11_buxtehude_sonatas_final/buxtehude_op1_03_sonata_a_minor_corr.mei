@@ -140,6 +140,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-05" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Emended two clashes that DdT prints in the keyboard realization, where a note clashes with a differently inflected note of the same letter that overlaps it in time but starts apart, a pair that the musical lint does not compare. Each has an editorial annotation, labelled conjectural-emendation, that records DdT's reading and the reason. In m. 6 the upper staff's E-sharp4 mux8dwe at beat 4.5 becomes F-sharp4: the written pitch changes and the printed sharp stays, because no bracketed sign can give the F-sharp that the figure 4/2(♯) asks. In m. 13 the lower staff's F3 e1o2alwo at beat 4 gets a bracketed editorial sharp (accid with func="edit" and enclose="brack"). A scan for held notes that clash with a note entering against them found both; an AI model (OpenAI Codex) read the signs from the DdT 1903 page image, a second (Anthropic Claude) checked the crops, and on 2026-11-05 the editor decided both on a review page that showed the DdT crop beside the encoded and the emended bar. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). Existing event IDs are retained, the editorial accid has a new ID, and no other note changes.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-03" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Corrected the viola da gamba staff label (tn8q47z) to “Viola da gamba.”, as DdT prints it on p. 22; the OMR had read “Viola da gramba.”. The page file bsb00023199_00032_facs_zones.mei has the same correction. Added a source-reading annotation (editorial.figure.op103-m79-b4) on the continuo figure at measure 79, beat 4: DdT prints “7♭” over C-sharp3, which the encoding keeps, and the Op. I print, consulted through the STIMU 1991 facsimile, has “♭6” over “5”; the editorial declaration records this comparison. Both came to light during the accidental-clash work: an AI model (OpenAI Codex) read the print's figure from the STIMU 1991 scan, Claude (Anthropic) checked both readings against the DdT 1903 page images and the print crops, and on 2026-11-03 the editor decided both on a review page that showed the DdT crops, the print crops and Verovio renders of both readings. The notes, the figures and all existing IDs are unchanged.</p>
@@ -909,7 +914,7 @@
                               </chord>
                               <chord xml:id="jvga8el" dur="8" stem.dir="up" stem.with="above">
                                  <note xml:id="iow9e44" oct="3" pname="a" />
-                                 <note xml:id="mux8dwe" oct="4" pname="e">
+                                 <note xml:id="mux8dwe" oct="4" pname="f">
                                     <accid xml:id="n1a1tuq4" accid="s" />
                                  </note>
                               </chord>
@@ -928,6 +933,9 @@
                      </staff>
                      <tie xml:id="zkqlnb4" startid="#y1y782yf" endid="#l1c3s11y" />
                      <tie xml:id="fdgdbbefg" startid="#v1da6ijz" endid="#af4s639" curvedir="above" />
+                     <annot xml:id="editorial.clash.op103-m6-b4_5" type="editorial" label="conjectural-emendation" plist="#mux8dwe" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 22 (BSB image 32), measure 6, keyboard realization, upper staff: E-sharp4 at beat 4.5, the notehead on the bottom line with a sharp printed beside it. The encoding moves mux8dwe up a step to F-sharp4 and keeps the printed sharp; no bracketed sign can give this reading, so the emendation changes the written pitch. The continuo figure “4” “2(♯)” over E3 (beat 4.5) asks A and F-sharp: the A3 in the same chord gives the fourth, and F-sharp4 gives the sharpened second. As printed, the note clashes with the E3 that the continuo and the keyboard realization, lower staff, hold from beat 3. The keyboard realization is the DdT editor's, not Buxtehude's. Found by a scan for held notes that clash with a note entering against them; Egor Polyakov decided the emendation on 2026-11-05.</p>
+                     </annot>
                   </measure>
                   <measure xml:id="ajcv0k" n="7" facs="#zone_c8c004e7cdce4d5eae">
                      <harm xml:id="fb_m14" staff="3" tstamp="1">
@@ -1679,11 +1687,16 @@
                               <note xml:id="z1tp26ty" oct="3" pname="d">
                                  <accid xml:id="aq0el7f" accid="s" />
                               </note>
-                              <note xml:id="e1o2alwo" oct="3" pname="f" />
+                              <note xml:id="e1o2alwo" oct="3" pname="f">
+                                 <accid xml:id="accid.edit.e1o2alwo" accid="s" func="edit" enclose="brack" />
+                              </note>
                               <note xml:id="f1g7lyen" oct="3" pname="b" />
                            </chord>
                         </layer>
                      </staff>
+                     <annot xml:id="editorial.clash.op103-m13-b4" type="editorial" label="conjectural-emendation" plist="#e1o2alwo" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 22 (BSB image 32), measure 13, keyboard realization, lower staff: F-natural3 at beat 4, with no accidental sign printed on the note. The encoding supplies a bracketed editorial sharp on e1o2alwo, giving F-sharp3 at beat 4 in the keyboard realization, lower staff. The chord has D-sharp3, F3 and B3 over A2, and DdT prints a sharp on D3 only. At beat 4 the violin holds F-sharp4 (carried in the bar) and the viola da gamba D-sharp4, so the chord is the seventh chord on B, with its seventh in the bass. No continuo figure stands at beat 4. The keyboard realization is the DdT editor's, not Buxtehude's. Found by a scan for held notes that clash with a note entering against them; Egor Polyakov decided the emendation on 2026-11-05.</p>
+                     </annot>
                   </measure>
                   <sb xml:id="c4rcmtq" />
                   <measure xml:id="szwhdgf" n="14" facs="#zone_c22758b9e3f54117a0">
