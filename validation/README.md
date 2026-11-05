@@ -2,7 +2,8 @@
 
 The active tools are `scripts/validate_corpus.py`, `scripts/refresh_editorial_reports.py`,
 `mei_corpus_checks.ipynb`,
-`scripts/update_camat.py` and `scripts/sync_camat_viewer.py`. The validator imports
+`scripts/update_camat.py` and `scripts/sync_camat_viewer.py`; the
+[musical and data checks](#musical-and-data-checks) run beside them. The validator imports
 installed CAMAT's general engine, then applies this corpus's rules. It never
 installs CAMAT, pulls Git, executes a notebook or rewrites MEI during checking.
 
@@ -242,6 +243,26 @@ not overwritten: archive or rename it first.
 Syncing obtains the newest notebook saved in that checkout. Use the separate
 update helper with `--pull` first when you want the latest remote code. Updating
 the notebook and updating the installed package are distinct operations.
+
+## Musical and data checks
+
+Three scripts work on the assembled works, outside the validator:
+
+```sh
+.venv/bin/python scripts/musical_lint.py --out validation/runs/musical-lint/lint.csv
+.venv/bin/python scripts/regenerate_accid_ges.py --check
+.venv/bin/python scripts/normalize_midi_data.py --check
+```
+
+`scripts/musical_lint.py` lists musical suspects for triage. Every row is a
+suspect, not an error: check it on the printed page, and never change notation
+only to silence a row. `scripts/regenerate_accid_ges.py` derives `@accid.ges`
+from CAMAT's resolution of the written notation, because Verovio MIDI and music21
+read sounding pitch only from each note's own values. `scripts/normalize_midi_data.py`
+sets MIDI instruments and channels by staff role and removes the OMR tempo values.
+The last two only report with `--check`; `--write` edits the files in place. Rerun
+`regenerate_accid_ges.py` after changing a written accidental, and
+`normalize_midi_data.py` after adding a work or a staff.
 
 ## Release mode and compatibility
 
