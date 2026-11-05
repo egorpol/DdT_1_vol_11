@@ -141,6 +141,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-05" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Corrected 1 encoding error found by a scan for held notes that clash with a note entering against them: in m. 151 the keyboard's B3 oy66rdc has the natural that DdT prints (p. 64), so it sounds B3, not B-flat3, over the G-sharp2 bass. An AI model (OpenAI Codex) read the sign from the DdT 1903 page image, a second (Anthropic Claude) checked the crop, and the editor approved the correction before it was applied. Event IDs are retained; this correction changes no other note.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-03" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Emended one accidental clash that DdT prints, where a note printed without a sign clashes with a differently inflected note of the same letter in another staff at the same moment. It gets a bracketed editorial accidental (accid with func="edit" and enclose="brack") and an editorial annotation, labelled source-supported-emendation, that records DdT's reading and the reason: m. 13, B-natural3 at beat 2.75 (gamba), [♮] on g1qwnxt9, carrying to g1sdfnxt9 at beat 4.5. At m. 13 the Op. I print, consulted through the STIMU 1991 facsimile, has naturals before both B3s, so the emendation is source-supported (read by the editor from a crop of the scan; OpenAI Codex confirmed the reading at full resolution when it cut the excerpt); a one-bar facsimile excerpt of the print is linked from its annotation, with attribution, crop coordinates, checksums and reuse basis in supplemental_material. The Op. I print and its STIMU facsimile were added to the source description (copied from Op. I/1), and the editorial declaration now records this selective comparison in place of the statement that only DdT 1903 was consulted. The musical lint (scripts/musical_lint.py) found the clash with CAMAT, and an AI model (OpenAI Codex) read the signs from the DdT 1903 page images in the first pass of the lint triage; on 2026-11-03 the editor decided every case, 46 across the edition, on a review page that showed the DdT crop beside the encoded and the emended bar. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). The written notes and existing event IDs are unchanged; the editorial accid elements have new IDs.</p>
@@ -14538,7 +14543,9 @@
                         <layer xml:id="nzj6rqn" n="2">
                            <space xml:id="p1aot1x4" dur="4" />
                            <space xml:id="q1kxagqr" dur="8" />
-                           <note xml:id="oy66rdc" dots="1" dur="4" oct="3" pname="b" stem.dir="down" accid.ges="f" />
+                           <note xml:id="oy66rdc" dots="1" dur="4" oct="3" pname="b" stem.dir="down">
+                              <accid xml:id="op1.06.m151.s4.bnat3.accid" accid="n"/>
+                           </note>
                         </layer>
                      </staff>
                      <staff xml:id="t1fyqfkq" n="5">

@@ -105,6 +105,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-05" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Removed 1 encoded note that DdT does not print, found by the editor in the review of a scan for held notes that clash with a note entering against them: in m. 118 the keyboard's second chord held an E-flat4 dccwaqx, but DdT prints only C4, G4 and C5 (p. 40), so the chord no longer holds E-flat4 against the continuo's E3. The editor read the chord from the DdT 1903 page image, and an AI model (Anthropic Claude) confirmed it on an enlargement before the correction was applied. The ID dccwaqx is retired; all other event IDs are retained, and this correction changes no other note.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-03" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Emended one accidental clash that DdT prints, where a note clashes with a differently inflected note of the same letter in another staff at the same moment. It gets a bracketed editorial accidental (accid with func="edit" and enclose="brack") and an editorial annotation, labelled conjectural-emendation, that records DdT's reading and the reason: m. 143, B-flat2 at beat 1.5 (keyboard lower staff), [♭] on a8hcn6, in place of the natural that DdT prints. The musical lint (scripts/musical_lint.py) found the clash with CAMAT, and an AI model (OpenAI Codex) read the signs from the DdT 1903 page images in the first pass of the lint triage; on 2026-11-03 the editor decided every case, 46 across the edition, on a review page that showed the DdT crop beside the encoded and the emended bar. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). The written notes and existing event IDs are unchanged; the editorial accid elements have new IDs.</p>
@@ -10563,7 +10568,6 @@
                            </chord>
                            <chord xml:id="c16jtidm" dur="2" stem.dir="up">
                               <note xml:id="b8z57hn" oct="4" pname="c" />
-                              <note xml:id="dccwaqx" oct="4" pname="e" accid.ges="f" />
                               <note xml:id="f1p9kaxr" oct="4" pname="g" />
                               <note xml:id="gwl9397" oct="5" pname="c" />
                            </chord>

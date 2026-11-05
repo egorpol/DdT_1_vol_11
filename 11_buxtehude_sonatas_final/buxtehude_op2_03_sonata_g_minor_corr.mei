@@ -106,6 +106,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-05" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Corrected 2 encoding errors found by a scan for held notes that clash with a note entering against them. In m. 18 the violin's second E-flat5 uk1gun2 loses a written flat that DdT does not print (p. 104), because the first flat in the bar already covers it; the sound does not change. In m. 183 the keyboard's A3 n1j0ux9m has the flat that DdT prints (p. 113), so it sounds A-flat3 with the violin's A-flat4, not A3 against it. An AI model (OpenAI Codex) read both places from the DdT 1903 page images, a second (Anthropic Claude) checked the crops, and the editor approved the corrections before they were applied. Event IDs are retained; the accid ID ace4oqo1 is retired, and these corrections change no other note.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-03" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Emended eight accidental clashes that DdT prints, where a note printed without a sign clashes with a differently inflected note of the same letter in another staff at the same moment. Each gets a bracketed editorial accidental (accid with func="edit" and enclose="brack") and an editorial annotation, labelled conjectural-emendation, that records DdT's reading and the reason: m. 8, E-flat4 at beat 3.5 (keyboard upper staff), [♭] on q1mtspfh; m. 208, E-flat4 at beat 4 (keyboard upper staff), [♭] on nnyzq6w2 and E-flat3 at beat 4 (keyboard lower staff), [♭] on y1tlywr2, carrying to nrqcexq1 at beat 7 and d118akpv at beat 9; m. 218, F-natural4 at beat 12 (keyboard upper staff), [♮] on mwjhzhb; m. 222, E-flat3 at beat 10 (keyboard lower staff), [♭] on nuk1n9m1; m. 223, F-natural4 at beat 12 (keyboard upper staff), [♮] on r1rlgo46; m. 227, F-natural4 at beat 12 (keyboard upper staff), [♮] on s5ob9zq; m. 228, E-flat5 at beat 5 (keyboard upper staff), [♭] on x1wkng3p; m. 230, E-flat5 at beat 5 (keyboard upper staff), [♭] on p1uvh7pp. The encoding note editorial.op2_03.m227.keyboard-f-sharp, which recorded that DdT leaves the keyboard's F4 at m. 227, beat 12, sharp against the figure 5♭, is replaced by the conjectural emendation there. The musical lint (scripts/musical_lint.py) found the clashes with CAMAT, and AI models read the signs from the DdT 1903 page images (OpenAI Codex in the first pass of the lint triage; at m. 227 Anthropic Claude, in the second pass); on 2026-11-03 the editor decided every case, 46 across the edition, on a review page that showed the DdT crop beside the encoded and the emended bar. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py). The written notes and existing event IDs are unchanged; the editorial accid elements have new IDs.</p>
@@ -2826,9 +2831,7 @@
                                     <accid xml:id="ahuzzro1" accid="f" />
                                  </note>
                                  <note xml:id="n0apv5a" dur="16" oct="5" pname="d" stem.dir="down" />
-                                 <note xml:id="uk1gun2" dur="16" oct="5" pname="e" stem.dir="down">
-                                    <accid xml:id="ace4oqo1" accid="f" />
-                                 </note>
+                                 <note xml:id="uk1gun2" dur="16" oct="5" pname="e" stem.dir="down" accid.ges="f" />
                               </beam>
                               <beam xml:id="v12n6zgd">
                                  <note xml:id="w1pilabl" dur="16" oct="5" pname="d" stem.dir="down" />
@@ -18712,7 +18715,9 @@
                               </beam>
                            </layer>
                            <layer xml:id="mrrvxwm" n="2">
-                              <note xml:id="n1j0ux9m" dur="4" oct="3" pname="a" stem.dir="down" />
+                              <note xml:id="n1j0ux9m" dur="4" oct="3" pname="a" stem.dir="down">
+                                 <accid xml:id="op2.03.m183.s4.aflat3.accid" accid="f"/>
+                              </note>
                               <beam xml:id="b3hy3ap1">
                                  <note xml:id="o58tuth" dur="8" oct="3" pname="g" stem.dir="down" />
                                  <note xml:id="p1cb4bma" dur="16" oct="3" pname="b" stem.dir="down" accid.ges="f" />
