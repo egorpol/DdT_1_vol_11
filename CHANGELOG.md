@@ -16,6 +16,8 @@ All notable changes to this edition are recorded here. Version numbers follow th
 
 ### Fixed
 
+- App. II, m. 55: the continuo holds a C3 whole note, as DdT prints it (p. 167), not a rest. The OMR had dropped the note.
+- App. III, m. 106: the keyboard's left hand starts on A3, as DdT prints it (p. 180), not B3.
 - App. III, m. 104: the gamba's last eighth sounds C♮5, not C♯5. DdT's bracketed natural above the note was text in a `<dir>`, which does not sound; it is now a written sign (`<accid accid="n" place="above" enclose="paren"/>`). The editor decided on 2026-11-06 that every accidental DdT prints in round brackets on a note staff sounds.
 - Op. I/7, m. 62: the sharp on the gamba's D4 is drawn once, in round brackets above the note, as DdT prints it (p. 69), not a second time as a plain sharp beside it. The note still sounds D♯4.
 - Op. I/1, m. 59: the keyboard's E♭4 has the round brackets that DdT prints (p. 6).

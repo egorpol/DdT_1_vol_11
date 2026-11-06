@@ -119,6 +119,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-06" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Repaired an OMR error in the continuo in m. 55, found while preparing the comparison with the Düben parts: the bar holds a C3 whole note, as DdT prints it (printed p. 167, BSB image 177), not a whole-bar rest. The element r14shlwa changes from an mRest to a note and keeps its id.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-05" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.11.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -6971,7 +6976,7 @@
                      </staff>
                      <staff xml:id="otid9ic" n="4">
                         <layer xml:id="phllqry" n="1">
-                           <mRest xml:id="r14shlwa"/>
+                           <note xml:id="r14shlwa" dur="1" oct="3" pname="c"/>
                         </layer>
                      </staff>
                      <staff xml:id="y2s7sy4" n="5">
