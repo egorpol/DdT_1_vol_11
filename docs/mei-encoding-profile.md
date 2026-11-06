@@ -62,13 +62,14 @@ Use `revisionDesc` for significant work-level events such as assembly, completio
 
 The base edition is DdT 1903 (`xml:id="src.ddt1903"`). The Uppsala historical prints are additional witnesses for the relevant opus: `src.uppsala.op1` (RISM A/I B5204, Lübeck [1696]) and `src.uppsala.op2` (RISM A/I B5205, Lübeck 1696), both catalogued at S-Uu, `Uimtr 52:1–4`. Describe the witness actually consulted in each file; do not automatically include both opus prints in every header. The source register, reusable MEI descriptions, and citation rules are in [editorial-policy.md](editorial-policy.md).
 
-The MEI data, BSB facsimile, and Uppsala scans are separate resources and require separate rights statements:
+The MEI data, BSB facsimile, STIMU scans of the Uppsala printed witnesses, and Düben database manuscript images are separate resources and require separate rights statements:
 
 - Record the repository's MEI-data license in `pubStmt/availability`.
 - Record the facsimile provider and image-use terms inside the bibliographic source description.
 - Retain the BSB URN, local identifiers, holding institution, shelfmark, digital record, IIIF manifest, and printed page range.
-- Describe and cite the Uppsala witnesses even while their scans remain unpublished. As of this policy update, CAMAT holds scans of both opus prints, but their public redistribution terms have not been confirmed with the library. Do not apply the repository's licenses (CC BY 4.0 for the encodings, MIT for the code) or the BSB image license to these scans by inheritance.
-- Add an Uppsala image-use statement only when the actual terms are known. Pending confirmation, state that redistribution terms remain unconfirmed; do not characterize them as either openly licensed or legally prohibited.
+- Describe and cite the Uppsala printed witnesses even while their STIMU scans remain unpublished. As of this policy update, CAMAT holds scans of both opus prints, but their public redistribution terms have not been confirmed with the library. Do not apply the repository's licenses (CC BY 4.0 for the encodings, MIT for the code) or the BSB image license to these scans by inheritance.
+- Add an image-use statement for the STIMU scans of the printed witnesses only when the actual terms are known. Pending confirmation, state that redistribution terms for those scans remain unconfirmed; do not characterize them as either openly licensed or legally prohibited.
+- For a Düben manuscript whose image is published, record the library's [permission of 2026-11-06](uppsala-facsimiles.md#images-in-the-düben-database) and the credit in `availability/useRestrict` inside that source: images published in the Düben database may be published whole or in part without restrictions or fees, with “Uppsala University Library” and the shelf mark credited on every use. For App. III the credit is “Uppsala University Library, Imhs 13:24”; the header retains `Instr. mus. i hskr. 13:24` as the shelfmark. State that the edition's CC BY 4.0 and MIT licenses do not cover the image. This permission does not cover the STIMU prints or any scans of them, or the BSB images.
 - An additional witness need not have a public image URL or IIIF manifest to be a valid bibliographic source. Never use a catalogue search page as a `graphic/@target` or invent an IIIF canvas URL.
 
 ## Editorial text and source relationships

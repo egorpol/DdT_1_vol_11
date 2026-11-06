@@ -2,13 +2,14 @@
 
 These limited facsimile excerpts document readings discussed in the MEI
 annotations. They are listed in the order in which the readings appear in the
-volume (DdT 1903, printed pp. 3, 29, 39, 55, 75, 80, 85, 97, 112 and 139). Include this directory and its
+volume (DdT 1903, printed pp. 3, 29, 39, 55, 75, 80, 85, 97, 112, 139 and 178). Include this directory and its
 attribution with the score in the final release, preserving the relative paths.
 Crop provenance and checksums are recorded in [manifest.json](manifest.json).
 
 ## Reuse basis
 
-**Intended reuse basis (Germany, recorded 2026-10-19):** documentary image
+**Intended reuse basis of the eleven print excerpts (Germany, recorded
+2026-10-19):** documentary image
 quotation accompanying the critical discussion of each specific reading under
 [UrhG § 51](https://www.gesetze-im-internet.de/urhg/__51.html), with attribution
 under [§ 63](https://www.gesetze-im-internet.de/urhg/__63.html). Each source
@@ -17,6 +18,17 @@ the extent of each excerpt is restricted to one printed source bar, which
 may correspond to more than one measure in DdT. This is a proposed
 basis for this use, not a conclusion that small images are automatically exempt
 from rights or that every use in every jurisdiction is covered.
+
+**The App. III excerpt (permission of 2026-11-06):** this excerpt comes from a
+manuscript image in Uppsala University Library's Düben database, not from the
+STIMU books, and it rests on the library's permission, not on the basis above.
+The library wrote on 2026-11-06: “The images published in the Düben database
+are freely available for public use without restrictions or fees. You are
+therefore free to publish both the whole and parts of the images of these
+manuscripts as you like. A reference should include "Uppsala University
+Library" and the shelf mark, for example Imhs 13:24.” The credit is therefore
+Uppsala University Library, Imhs 13:24. The permission does not extend to the
+STIMU prints or the BSB images.
 
 The repository's licenses (CC BY 4.0 for the encodings and documentation, MIT
 for the code; see [LICENSE.md](../LICENSE.md)) do not cover these source images. No
@@ -444,3 +456,38 @@ identified above and in the crop manifest.
 specific E5 reading on the documentary image-quotation basis recorded above
 (UrhG §§ 51 and 63, checked 2026-10-19). The scope is one measure, showing the
 printed beam and its immediate musical context.
+
+## App. III, measure 37, viola da gamba
+
+![Manuscript bar supporting the A-sharp3 reading](supplemental_material_app_03_m037_imhs13_24.png)
+
+**Source:** Dieterich Buxtehude, *Sonata à 2* (BuxWV 267), manuscript parts
+copied by Andreas Düben, dated 27/9 1692, Uppsala University Library, Imhs 13:24
+(Instr. mus. i hskr. 13:24; catalogue form imhs 013:024), Düben Collection.
+Consulted through the library's online images:
+[Düben Collection Database Catalogue, source 2087](https://www2.musik.uu.se/duben/presentationSource1.php?Select_Dnr=2087).
+
+**Location:** Viol di gamba part, eighth staff, third bar, corresponding to
+combined-score m. 37; image `imhs013,024_p01_01r.jpg`. The crop shows a
+sixteenth rest; D4, C4 and B3 sixteenths; a B3 dotted eighth; an A-sharp3
+sixteenth; and B3, F4, D4 and B3 eighths. The target is the sharp before the A3,
+the fifth note. The C clef on the fourth line and the key signature stand at the
+staff start, outside the crop. The grey noteheads show through from the other
+side of the leaf. DdT 1903, printed p. 178, gives the A3 without a sign
+(A-natural3). The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_app_03_sonata_gamba_violin_cembalo_d_major_corr.mei#editorial.clash.app03-m37-b1_875)
+explains the source-supported bracketed editorial sharp. This passage was
+directly compared on 2026-11-05; the comparison does not constitute complete
+collation of the work with the manuscript.
+
+**Image preparation:** a direct crop at the image's original pixel scale,
+465 × 335 pixels, saved as PNG from the JPEG served by the Düben database, whose
+SHA-256 was checked against that URL on 2026-11-06. The crop shows the entire
+bar, with the foot of the opening barline at its left edge and the closing
+barline near its right edge. No resizing, retouching or reconstructed notation
+is included. Coordinates, source URL and checksum are recorded in the crop
+manifest.
+
+**Permission:** published with the permission of Uppsala University Library,
+quoted under [Reuse basis](#reuse-basis). Credit: Uppsala University Library,
+Imhs 13:24.

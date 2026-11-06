@@ -1,5 +1,9 @@
 # Uppsala witnesses through the STIMU 1991 facsimiles
 
+This guide concerns the locally held STIMU 1991 scans of the Op. I and Op. II
+prints. The separate permission for manuscript images in the Düben database
+is recorded below; it does not cover these STIMU scans.
+
 ## What these TIFFs contain
 
 The two supplied directories contain photographs/scans of the **STIMU facsimile
@@ -118,6 +122,30 @@ Record crop coordinates and provenance if that derivative is made. Do not
 auto-split at an assumed centre line. Historical title pages, dedications and
 musical pages can be useful evidence; musical pages alone are not the whole
 historical witness.
+
+## Images in the Düben database
+
+Uppsala University Library replied to the editor on 2026-11-06:
+
+> The images published in the Düben database are freely available for public use
+without restrictions or fees. You are therefore free to publish both the whole
+and parts of the images of these manuscripts as you like. A reference should
+include "Uppsala University Library" and the shelf mark, for example Imhs 13:24.
+
+Every use credits the library and the shelf mark. The App. III (BuxWV 267)
+excerpt, one bar of the Viol di gamba part at m. 37, is credited “Uppsala
+University Library, Imhs 13:24”. It shows the sharp before the gamba A3 that
+the edition adopts. The MEI headers retain `Instr. mus. i hskr. 13:24`; the
+catalogue prints `imhs 013:024`. The excerpt's [rights note](../supplemental_material/README.md),
+under “Reuse basis”, records its reuse basis and exclusion from the edition's
+CC BY 4.0 and MIT licenses.
+
+This permission covers images of manuscripts published in the Düben database.
+It does not cover the STIMU prints or any scans of them, or the BSB images.
+The Op. I and Op. II prints are listed in the separate catalogue of printed
+music (`Uimtr 52:1–4`), and the scans in this guide come from the STIMU books,
+not from that database. The following assessment of the STIMU scans remains
+unchanged.
 
 ## Reuse assessment as of 2026-10-01
 

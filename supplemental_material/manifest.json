@@ -636,6 +636,58 @@
         "image_license": null,
         "note": "Neither the edition's licenses (CC BY 4.0, MIT) nor the BSB image license apply to this PNG. This intended quotation basis does not establish general scan-redistribution permission or settle any applicable scan-supply contract. See README.md."
       }
+    },
+    {
+      "file": "supplemental_material/supplemental_material_app_03_m037_imhs13_24.png",
+      "sha256": "eb8d5ecc7aeae707fb98cdcd154787808b4443f5618addfe3964edd7b4c15caa",
+      "bytes": 168494,
+      "media_type": "image/png",
+      "width": 465,
+      "height": 335,
+      "created_date": "2026-11-06",
+      "work_key": "app_03_sonata_gamba_violin_cembalo_d_major",
+      "measure": 37,
+      "instrument": "viola da gamba",
+      "mei_file": "11_buxtehude_sonatas_final/buxtehude_app_03_sonata_gamba_violin_cembalo_d_major_corr.mei",
+      "annotation_id": "editorial.clash.app03-m37-b1_875",
+      "event_id": "n1j8z6zj",
+      "historical_source": "src.uppsala.buxwv267",
+      "carrier_source": null,
+      "caption": "Dieterich Buxtehude, Sonata à 2 (BuxWV 267), Viol di gamba part, copied by Andreas Düben, dated 27/9 1692, eighth staff, third bar, corresponding to combined-score m. 37. Uppsala University Library, Imhs 13:24.",
+      "purpose": "Document the sharp before the A3, supporting the source-supported emendation of DdT 1903, printed p. 178, m. 37, where the A3 has no sign (A-natural3).",
+      "source_provenance": {
+        "url": "https://www2.musik.uu.se/duben/images/imhs013,024_p01_01r.jpg",
+        "catalogue": "https://www2.musik.uu.se/duben/presentationSource1.php?Select_Dnr=2087",
+        "included_in_release": false,
+        "sha256": "a59e302efb1875dbd211d1750d1384215179b9f5838c637e2b894f5b85dbda3d",
+        "size": [
+          2730,
+          4234
+        ],
+        "source_level": "JPEG as served by the Düben database; SHA-256 checked against that URL on 2026-11-06"
+      },
+      "crop": {
+        "box_xyxy": [
+          940,
+          2445,
+          1405,
+          2780
+        ],
+        "pixel_scale": "unchanged",
+        "operations": [
+          "crop",
+          "lossless PNG encoding"
+        ],
+        "software": "Version: ImageMagick 7.1.2-35 Q16-HDRI x86_64 acaf7e418:20261031 https://imagemagick.org",
+        "command": "magick 'imhs013,024_p01_01r.jpg' -crop 465x335+940+2445 +repage -define png:exclude-chunks=date,time supplemental_material/supplemental_material_app_03_m037_imhs13_24.png"
+      },
+      "rights": {
+        "intended_use": "Published with the permission of Uppsala University Library",
+        "credit": "Uppsala University Library, Imhs 13:24",
+        "permission_date": "2026-11-06",
+        "image_license": null,
+        "note": "The library allows the images in its Düben database to be published, whole or in part, without restrictions or fees, with a reference to the library and the shelf mark. Neither the edition's licenses (CC BY 4.0, MIT) nor the BSB image license apply to this PNG. See README.md."
+      }
     }
   ]
 }

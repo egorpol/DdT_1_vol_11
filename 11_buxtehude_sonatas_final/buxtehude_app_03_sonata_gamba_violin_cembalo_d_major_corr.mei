@@ -72,10 +72,13 @@
                   <date isodate="1692-09-27">27/9 1692</date>
                   <physLoc>
                      <repository>Uppsala University Library</repository>
-                     <identifier type="shelfmark">Instr. mus. i hskr. 13:24 (Düben Collection; catalogue form imhs 013:024)</identifier>
+                     <identifier type="shelfmark">Instr. mus. i hskr. 13:24 (Düben Collection; library's short form Imhs 13:24, catalogue form imhs 013:024)</identifier>
                   </physLoc>
                   <ref type="digital-catalogue" target="https://www2.musik.uu.se/duben/presentationSource1.php?Select_Dnr=2087">Düben Collection Database Catalogue, source 2087: parts copied by Andreas Düben, dated 27/9 1692</ref>
                   <ref type="digital-facsimile" target="https://www2.musik.uu.se/duben/browsePart.php?Select_Part=01&amp;Select_Dnr=2087&amp;command=restart">Viol di gamba manuscript facsimile</ref>
+                  <availability>
+                     <useRestrict>Uppsala University Library allows the images in its Düben database to be published, whole or in part, without restrictions or fees, with a reference to the library and the shelf mark (its reply of 2026-11-06). One excerpt accompanies the critical annotation at measure 37; its credit and the permission are recorded in the <ref target="../supplemental_material/README.md">supplemental material</ref>. The licenses of this edition do not cover the image.</useRestrict>
+                  </availability>
                </bibl>
             </source>
          </sourceDesc>
@@ -120,6 +123,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-06" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Added a one-bar excerpt of the manuscript to the annotation on the gamba A3 of m. 37 (editorial.clash.app03-m37-b1_875): Viol di gamba part, image imhs013,024_p01_01r.jpg, staff 8, third bar, shown in the viewer and listed in supplemental_material/manifest.json. Uppsala University Library allowed the publication of the images in its Düben database on 2026-11-06, with a reference to the library and the shelf mark, so the record of 2026-11-05 that no image of the manuscript is published here no longer holds. The source entry src.uppsala.buxwv267 now states that permission and gives the library's short form of the shelf mark, Imhs 13:24. The notes and event IDs are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-06" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Encoded DdT's round-bracketed natural above the gamba's C5 in m. 104 (b12wzled) as a written sign: accid with place="above" and enclose="paren" (accid.paren.b12wzled). It was text only, in the dir app3.cautionary-natural.direction, now removed, so the note sounded C-sharp5; it now sounds C-natural5, as DdT prints it. The editor decided on 2026-11-06 that every accidental DdT prints in round brackets on a note staff sounds. Added the source-reading annotations editorial.sign.app03-m29 and editorial.sign.app03-m104, because the Uppsala manuscript parts have no sign on either note, and recorded the comparison in the editorial declaration. The sign at m. 29 and that note's sound are unchanged. A count of the bracketed signs on DdT's note staves found the cases; an AI model (OpenAI Codex) read the manuscript parts and a second model (Anthropic Claude) checked the crops. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py).</p>
@@ -3891,6 +3899,7 @@
                      <annot xml:id="editorial.clash.app03-m37-b1_875" type="editorial" label="source-supported-emendation" plist="#n1j8z6zj" source="#src.uppsala.buxwv267" resp="#resp.polyakov #resp.camat">
                         <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 178 (BSB image 188), measure 37, viola da gamba: A-natural3 at beat 1.875, with no accidental sign printed on the note. The encoding supplies a bracketed editorial sharp on n1j8z6zj, giving A-sharp3 at beat 1.875 in the viola da gamba. While the note sounds, the keyboard realization, upper staff, holds A-sharp4 (written sign) from beat 1.75. The keyboard realization is the DdT editor's, not Buxtehude's, and supplies no independent attestation. The continuo figure “♯” over F-sharp3 (beat 1.75) asks A-sharp. <ref target="#src.uppsala.buxwv267">The Uppsala manuscript parts</ref> (Düben Collection, Instr. mus. i hskr. 13:24, copied by Andreas Düben, dated 27/9 1692), consulted through the library's online images, have a sharp before this A3, attesting A-sharp3. Witness locator: Viol di gamba part, image imhs013,024_p01_01r.jpg, staff 8, third bar. Found by a scan for held notes that clash with a note entering against them; Egor Polyakov decided the emendation on 2026-11-05.</p>
                         <p><ref type="digital-facsimile" target="https://www2.musik.uu.se/duben/browsePart.php?Select_Part=01&amp;Select_Dnr=2087&amp;command=restart">Viol di gamba part in the Düben Collection Database Catalogue (source 2087); the reading is on image imhs013,024_p01_01r.jpg.</ref></p>
+                        <p><ref type="supplemental-material" target="../supplemental_material/supplemental_material_app_03_m037_imhs13_24.png">Supplemental facsimile excerpt: App. III, measure 37, viola da gamba (Uppsala University Library, Imhs 13:24).</ref></p>
                      </annot>
                   </measure>
                   <sb xml:id="g1uq34n" />
