@@ -92,7 +92,7 @@
             </application>
          </appInfo>
          <editorialDecl>
-            <p>This is a working corrected digital edition based on DdT 1903, which the editor confirmed on 2026-10-20 as the only musical source consulted up to then. Routine OMR and conversion repairs restore its printed reading and are summarized in revision history. Substantive departures, retained anomalies and uncertain readings are distinguished in local editorial annotations. The Uppsala manuscript parts Instr. mus. i hskr. 13:24 (Düben Collection) were consulted selectively through the library's online images for the gamba A3 at measure 37 (Viol di gamba part; image imhs013,024_p01_01r.jpg, staff 8, third bar) on 2026-11-05. They have a sharp before that note, so the bracketed editorial sharp there is a source-supported emendation (editorial.clash.app03-m37-b1_875). This selected comparison does not constitute complete collation with the manuscript.</p>
+            <p>This is a working corrected digital edition based on DdT 1903, which the editor confirmed on 2026-10-20 as the only musical source consulted up to then. Routine OMR and conversion repairs restore its printed reading and are summarized in revision history. Substantive departures, retained anomalies and uncertain readings are distinguished in local editorial annotations. The Uppsala manuscript parts Instr. mus. i hskr. 13:24 (Düben Collection) were consulted selectively through the library's online images for the gamba A3 at measure 37 (Viol di gamba part; image imhs013,024_p01_01r.jpg, staff 8, third bar) on 2026-11-05. They have a sharp before that note, so the bracketed editorial sharp there is a source-supported emendation (editorial.clash.app03-m37-b1_875). On 2026-11-06 they were consulted in the same way for measure 29 (Violon, viol di gamba and continuo parts) and measure 104 (viol di gamba, Violon and continuo parts), and the viol di gamba part also for measures 28 and 107. They have no sign on the violone's C3 or the gamba's C5, where DdT prints bracketed naturals; the edition keeps DdT's signs and records the manuscript's readings in source-reading annotations (editorial.sign.app03-m29, editorial.sign.app03-m104). This selected comparison does not constitute complete collation with the manuscript.</p>
             <p>The five-staff DdT arrangement is retained: viola da gamba, violone, figured continuo bass, keyboard realization upper staff, and keyboard realization lower staff. The printed Violone part is not a violin part. The inherited repository filename and local key contain violin and are retained as working identifiers; the title, catalogue identity and analytical staff roles describe the printed instrumentation.</p>
             <p>Original page and system boundaries are encoded by pb and sb. The ten surfaces use work-local numbering from 1; their DdT printed range is pp. 176–185 (BSB images 186–195). Existing source zones and break positions are preserved.</p>
             <p>The editor approved a conjectural dot on the keyboard half note at measure 137 and confirmed simultaneous eighth-note and sustained-quarter E4 entries at measures 41 and 49 on 2026-10-20. The source readings, rationale and voice interpretation are documented in the corresponding annotations. Ordinary metrical checking is enabled. Imported playback defaults are preserved.</p>
@@ -120,6 +120,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-06" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Encoded DdT's round-bracketed natural above the gamba's C5 in m. 104 (b12wzled) as a written sign: accid with place="above" and enclose="paren" (accid.paren.b12wzled). It was text only, in the dir app3.cautionary-natural.direction, now removed, so the note sounded C-sharp5; it now sounds C-natural5, as DdT prints it. The editor decided on 2026-11-06 that every accidental DdT prints in round brackets on a note staff sounds. Added the source-reading annotations editorial.sign.app03-m29 and editorial.sign.app03-m104, because the Uppsala manuscript parts have no sign on either note, and recorded the comparison in the editorial declaration. The sign at m. 29 and that note's sound are unchanged. A count of the bracketed signs on DdT's note staves found the cases; an AI model (OpenAI Codex) read the manuscript parts and a second model (Anthropic Claude) checked the crops. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py).</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-05" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.11.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -2999,6 +3004,10 @@
                            <f>6</f>
                         </fb>
                      </harm>
+                     <annot xml:id="editorial.sign.app03-m29" type="editorial" label="source-reading" plist="#eelv3hc #nessdwed12" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 177 (BSB image 187), measure 29, violone: a round-bracketed natural before the C3 sixteenth at beat 3, in a signature with C-sharp. The continuo figure over F-sharp2 at beat 1 is “6” over “5(♭)”, and the keyboard realization has C4 with a plain natural at beat 3. The encoding keeps all three, so the note sounds C-natural3. <ref target="#src.uppsala.buxwv267">The Uppsala manuscript parts</ref> (Düben Collection, Instr. mus. i hskr. 13:24, copied by Andreas Düben, dated 27/9 1692), consulted through the library's online images, have no sign before or above this C, so they read C-sharp3 (Violon part, image imhs013,024_p02_01r.jpg, staff 4, third bar). They do cancel the last C3 of the bar, with a flat-shaped sign, where DdT prints a plain natural. Their figure over the F2 at beat 1 is “6” over “5” with no flat (continuo part, image imhs013,024_p03_01v.jpg, staff 4, second bar, which holds mm. 28–29). The gamba part has a flat-shaped sign before the first of two C4s at the end of measure 28, and the two C4s that open measure 29 follow unsigned (Viol di gamba part, image imhs013,024_p01_01r.jpg, staff 6, third and fourth bars). Stiehl's preface does not mention this bar. An AI model (OpenAI Codex) read the manuscript parts from the images and a second model (Anthropic Claude) checked the crops. Egor Polyakov decided on 2026-11-06 that every accidental DdT prints in round brackets on a note staff sounds.</p>
+                        <p><ref type="digital-facsimile" target="https://www2.musik.uu.se/duben/browsePart.php?Select_Part=02&amp;Select_Dnr=2087&amp;command=restart">Violon part in the Düben Collection Database Catalogue (source 2087); the reading is on image imhs013,024_p02_01r.jpg.</ref></p>
+                     </annot>
                   </measure>
                   <sb xml:id="m1105lqa" />
                   <measure xml:id="c1b8nlvr" n="30" facs="#zone_beeecca169304daeb9">
@@ -8810,7 +8819,9 @@
                               <note xml:id="xth0dsi" dur="8" oct="4" pname="f" stem.dir="down" accid.ges="s" />
                               <note xml:id="z1keesp7" dur="8" oct="4" pname="g" stem.dir="down" />
                               <note xml:id="azk8g5u" dur="8" oct="4" pname="a" stem.dir="down" />
-                              <note xml:id="b12wzled" dur="8" oct="5" pname="c" stem.dir="down" accid.ges="s" />
+                              <note xml:id="b12wzled" dur="8" oct="5" pname="c" stem.dir="down">
+                                 <accid xml:id="accid.paren.b12wzled" accid="n" place="above" enclose="paren" />
+                              </note>
                            </beam>
                         </layer>
                      </staff>
@@ -8859,7 +8870,10 @@
                            <note xml:id="g1nmicza" dur="4" oct="3" pname="f" stem.dir="down" accid.ges="s" />
                         </layer>
                      </staff>
-                     <dir startid="#b12wzled" place="above" xml:id="app3.cautionary-natural.direction">(♮)</dir>
+                     <annot xml:id="editorial.sign.app03-m104" type="editorial" label="source-reading" plist="#b12wzled" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 180 (BSB image 190), measure 104, viola da gamba: a round-bracketed natural above the last eighth, C5, in a signature with C-sharp. The encoding keeps the sign as DdT prints it, so the note sounds C-natural5. <ref target="#src.uppsala.buxwv267">The Uppsala manuscript parts</ref> (Düben Collection, Instr. mus. i hskr. 13:24, copied by Andreas Düben, dated 27/9 1692), consulted through the library's online images, have no sign before or above this C, so they read C-sharp5 (Viol di gamba part, image imhs013,024_p01_01v.jpg, staff 5, first bar). Their continuo has no figure over the F3 on that beat (continuo part, image imhs013,024_p03_02r.jpg, staff 1, seventh bar, which holds mm. 103–104). The gamba part does cancel a C in measure 107, with a flat-shaped sign, where DdT prints a natural (same image and staff, fourth bar). DdT's keyboard realization has D4, A4 and D5 on beat 3, with no C, and C-sharp5 at beat 2.5. Stiehl's preface does not mention this bar. An AI model (OpenAI Codex) read the manuscript parts from the images, a second model (Anthropic Claude) checked the crops, and Egor Polyakov saw the gamba crop on a review page and decided on 2026-11-06 that every accidental DdT prints in round brackets on a note staff sounds.</p>
+                        <p><ref type="digital-facsimile" target="https://www2.musik.uu.se/duben/browsePart.php?Select_Part=01&amp;Select_Dnr=2087&amp;command=restart">Viol di gamba part in the Düben Collection Database Catalogue (source 2087); the reading is on image imhs013,024_p01_01v.jpg.</ref></p>
+                     </annot>
                   </measure>
                   <measure xml:id="k1en03rq" n="105" facs="#zone_285c0cb6b39f41f0bc">
                      <staff xml:id="t1jtx6ck" n="1">

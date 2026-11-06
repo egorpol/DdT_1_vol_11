@@ -2,6 +2,19 @@
 
 All notable changes to this edition are recorded here. Version numbers follow the [encoding profile](docs/mei-encoding-profile.md#release-identity-versions-and-citation): patch releases for compatible corrections or metadata fixes that keep event IDs, minor releases for added works or coverage, and major releases for changes to event identity, segmentation or analytical interpretation. Musical corrections are listed even when the version step is small.
 
+## [Unreleased]
+
+### Added
+
+- `source-reading` annotations on four of the six accidentals that the count of 2026-11-06 found in round brackets on DdT's note staves, where a historical source has no such sign and the edition keeps DdT's: Op. I/7 m. 62 (gamba D♯4; the Op. I print has no sign), Op. II/7 m. 167 (gamba E♭4; the Op. II print has no sign and a plain “3” in the figure, and Stiehl's preface names the place, p. VII), App. III m. 29 (violone C♮3) and m. 104 (gamba C♮5; the Düben parts have no sign on either note). An AI model (OpenAI Codex) read the sources from the scans and a second model (Anthropic Claude) checked the crops. These selective comparisons are recorded in the three editorial declarations, and Op. II/7's source description gains the Op. II print and its STIMU 1991 facsimile.
+- [`docs/editorial-policy.md`](docs/editorial-policy.md) states the rule for these accidentals: they sound, as `<accid enclose="paren">`, with `place="above"` where DdT prints them above the note.
+
+### Fixed
+
+- App. III, m. 104: the gamba's last eighth sounds C♮5, not C♯5. DdT's bracketed natural above the note was text in a `<dir>`, which does not sound; it is now a written sign (`<accid accid="n" place="above" enclose="paren"/>`). The editor decided on 2026-11-06 that every accidental DdT prints in round brackets on a note staff sounds.
+- Op. I/7, m. 62: the sharp on the gamba's D4 is drawn once, in round brackets above the note, as DdT prints it (p. 69), not a second time as a plain sharp beside it. The note still sounds D♯4.
+- Op. I/1, m. 59: the keyboard's E♭4 has the round brackets that DdT prints (p. 6).
+
 ## [0.11.0] — 2026-11-05
 
 Third public pre-release. All 17 works are **corrected, not finalized**: a review snapshot of 2026-11-05. Whether 1.0 covers 16 or 17 works is still open. See the [release notes](docs/release-notes/0.11.0.md) for the validation record and known limitations, and the [1.0 checklist](docs/finalization-plan.md) for what remains. 34 `xml:id`s present in v0.10.0 are gone, two of them notes (none of a chord or measure); the list is in the release notes. This is the first release under the licences of 2 November 2026: CC BY 4.0 for the encodings, data and documentation, MIT for the code.

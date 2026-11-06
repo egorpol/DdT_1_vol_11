@@ -65,6 +65,38 @@
                   </availability>
                </bibl>
             </source>
+            <source xml:id="src.uppsala.op2" type="historical-print">
+               <bibl>
+                  <title>VII. Suonate a due, violino et viola da gamba con cembalo ... opera secunda</title>
+                  <composer>Dieterich Buxtehude</composer>
+                  <imprint>
+                     <pubPlace>Lübeck</pubPlace>
+                     <date isodate="1696">1696</date>
+                  </imprint>
+                  <identifier type="RISM">RISM A/I B5205</identifier>
+                  <physLoc>
+                     <repository>Uppsala University Library (S-Uu), Düben Collection</repository>
+                     <identifier type="shelfmark">Uimtr 52:1–4</identifier>
+                  </physLoc>
+                  <ref type="catalogue" target="https://www2.musik.uu.se/duben/Printed%20music%20in%20the%20Duben%20Collection2024.pdf">Uppsala printed-music catalogue, p. 2; catalogue imprint Lübeck 1696</ref>
+                  <ref target="#src.stimu1991.op2">Consulted through the STIMU 1991 facsimile of the Uppsala partbooks.</ref>
+               </bibl>
+            </source>
+            <source xml:id="src.stimu1991.op2" type="facsimile-edition">
+               <bibl>
+                  <title>VII. Suonate à due, violino et violadagamba con cembalo</title>
+                  <composer>Dieterich Buxtehude</composer>
+                  <imprint>
+                     <pubPlace>Utrecht</pubPlace>
+                     <publisher>STIMU (Stichting voor Muziekhistorische Uitvoeringspraktijk)</publisher>
+                     <date isodate="1991">1991</date>
+                  </imprint>
+                  <ref target="#src.uppsala.op2">Facsimile edition of the Uppsala Op. II partbooks, with an introduction by Kerala J. Snyder. The modern title gives the historical imprint Hamburg 1696; the historical title describes printing in Hamburg and sale in Lübeck. Consulted via the supplied university-library scans.</ref>
+                  <availability>
+                     <useRestrict>Redistribution terms for the supplied library scans remain unconfirmed.</useRestrict>
+                  </availability>
+               </bibl>
+            </source>
          </sourceDesc>
       </fileDesc>
       <encodingDesc xml:id="eomicjt">
@@ -79,7 +111,7 @@
             </application>
          </appInfo>
          <editorialDecl>
-            <p>This is a working corrected digital edition based on DdT 1903. DdT is the documented source for the encoded readings and the present review. OMR and conversion errors are corrected against the DdT facsimile. No historical-print comparison is attested by an existing annotation or source reference in this work; earlier consultation has not been established with certainty. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
+            <p>This is a working corrected digital edition based on DdT 1903. DdT is the documented source for the encoded readings and the present review. OMR and conversion errors are corrected against the DdT facsimile. The Op. II historical print was consulted selectively through the STIMU 1991 facsimile of the Uppsala partbooks for measure 167 on 2026-11-06: the gamba in the Violadagamba partbook (Sonata VII, printed p. 31; scan-0040, right-hand page, staff 7), the continuo figure in the Cembalo partbook (Sonata VII, printed p. 27; scan-0054, right-hand page, staff 5) and the print's list of misprints (scan-0008, left-hand page). The print has no sign on the gamba's E4 and a plain “3” in the figure, where DdT prints a bracketed flat in each; the edition keeps DdT's signs and records the print's reading in a source-reading annotation (editorial.sign.op207-m167). No other passage was compared with the print beyond the neighbouring bars (mm. 163–168) read to place this one. This selected comparison does not constitute complete collation with the historical print. Earlier consultation has not been established with certainty. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
             <p>The staff arrangement and keyboard realization printed in DdT are retained. Staff 1 is violin; staff 2 is viola da gamba; staff 3 is the figured continuo bass; staves 4 and 5 are the upper and lower staves of the printed keyboard realization. The realization is distinguished from the figured continuo bass when defining an analytical view.</p>
             <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
             <p>DdT's parenthesized (Allegro.) at measure 18 and unparenthesized Allegro. at measure 172 are retained, as are the opening gamba direction (eingezeichnet), the printed horizontal figured-bass successions and the closing direction Il tutto ad honor d’Iddio. MIDI instrument-program assignments use the existing default program 0 consistently across page joins; no instrument-specific playback arrangement is prescribed.</p>
@@ -106,6 +138,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-06" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Added the Op. II print (src.uppsala.op2) and its STIMU 1991 facsimile (src.stimu1991.op2) to the source description, as in Op. II/4, and the source-reading annotation editorial.sign.op207-m167 on DdT's round-bracketed flat at the gamba's E4 in m. 167: the print has no sign there and a plain “3” in the figure, and Stiehl names the place in his preface (p. VII). The editorial declaration now records this selective comparison. The note and its accid are unchanged and it still sounds E-flat4. A count of the bracketed signs on DdT's note staves found the case; an AI model (OpenAI Codex) read the print and a second model (Anthropic Claude) checked the crops. The editor decided on 2026-11-06 that every accidental DdT prints in round brackets on a note staff sounds. No facsimile excerpt accompanies this work.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-05" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.11.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -13535,6 +13572,9 @@
                      <tie xml:id="ztqslo7" startid="#y3jm716" endid="#m1m8fg19" />
                      <tie xml:id="uv8szt3" startid="#tlemei5" endid="#arip4um" />
                      <tie xml:id="afqcrrr" startid="#y1y10986" endid="#c1b6fbbn" />
+                     <annot xml:id="editorial.sign.op207-m167" type="editorial" label="source-reading" plist="#waze03v #bsb00023199_00167_facs_zones_fb_7" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 157 (BSB image 167), measure 167, viola da gamba: a round-bracketed flat before the E4 quarter at beat 3. The continuo figure over C3 on that beat is “7” over “3(♭)”, and the keyboard realization has E4 there with a plain flat. The encoding keeps all three, so the note sounds E-flat4. <ref target="#src.uppsala.op2">The Op. II print</ref>, consulted through the <ref target="#src.stimu1991.op2">STIMU 1991 facsimile</ref>, has no sign before or above this E, so under its B-flat signature it reads E-natural4 (Violadagamba partbook, Sonata VII: local scan-0040.jpg, right-hand page, printed p. 31, staff 7, printed bar 2, which holds mm. 167–168). It does sign the E-flat4 of measure 164 (same page, staff 6). Its figure over the C3 is a plain “7” over “3” (Cembalo partbook, Sonata VII: local scan-0054.jpg, right-hand page, printed p. 27, staff 5, printed bar 3), and its list of misprints has no entry for this bar (local scan-0008.jpg, left-hand page). Stiehl lists the place among the doubtful cases of his preface (DdT, p. VII: page 157, system 1, bar 2): “In der Gambenstimme 3tes Viertel e, richtiger wohl es.” An AI model (OpenAI Codex) read the print from the scans and a second model (Anthropic Claude) checked the crops. Egor Polyakov decided on 2026-11-06 that every accidental DdT prints in round brackets on a note staff sounds.</p>
+                     </annot>
                   </measure>
                   <measure xml:id="t1t066ru" n="168" facs="#zone_27adc96670004a79b2">
                      <harm xml:id="bsb00023199_00167_facs_zones_fb_9" staff="3" tstamp="1">

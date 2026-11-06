@@ -113,7 +113,7 @@
             </application>
          </appInfo>
          <editorialDecl>
-            <p>This is a working corrected digital edition based on DdT 1903. The Op. I historical print was consulted selectively through the STIMU 1991 facsimile of the Uppsala partbooks for the gamba at measures 201–203 (Violadagamba partbook, Sonata VII; scan-0032, left-hand page) on 2026-11-05. It prints a bass clef before measure 201 that DdT does not have, so the clef and the five written pitches that follow from it are a source-supported emendation (editorial.clash.op107-m201-clef), documented with a supplemental facsimile excerpt. This selected comparison does not constitute complete collation with the historical print. OMR and conversion errors are corrected against the DdT facsimile. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
+            <p>This is a working corrected digital edition based on DdT 1903. The Op. I historical print was consulted selectively through the STIMU 1991 facsimile of the Uppsala partbooks for the gamba at measures 201–203 (Violadagamba partbook, Sonata VII; scan-0032, left-hand page) on 2026-11-05. It prints a bass clef before measure 201 that DdT does not have, so the clef and the five written pitches that follow from it are a source-supported emendation (editorial.clash.op107-m201-clef), documented with a supplemental facsimile excerpt. The print was consulted in the same way for measure 62, and the gamba also for measure 59, on 2026-11-06 (gamba: Violadagamba partbook, scan-0031, left-hand page, staff 3; continuo: Cembalo partbook, scan-0041, left-hand page, staff 8; violin: Violino partbook, scan-0019, left-hand page, staff 5). It has no sign on the gamba's D4 where DdT prints a bracketed sharp; the edition keeps DdT's sign and records the print's reading in a source-reading annotation (editorial.sign.op107-m62). This selected comparison does not constitute complete collation with the historical print. OMR and conversion errors are corrected against the DdT facsimile. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
             <p>The staff arrangement and keyboard realization printed in DdT are retained. Staff 1 is violin; staff 2 is viola da gamba; staff 3 is the figured continuo bass; staves 4 and 5 are the upper and lower staves of the printed keyboard realization. The realization is distinguished from the figured continuo bass when defining an analytical view.</p>
             <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
             <p>The existing conjectural shortening of the first A4 in the keyboard realization at measure 38 is retained with the editor's confirmation and is documented against the printed half note. The printed A4 tie across measures 16-17 is represented by an explicit tie between notes in different layers. The parenthesized figured-bass stack in measure 250 is retained with its documented encoding approximation.</p>
@@ -140,6 +140,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-06" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Encoded DdT's round-bracketed sharp above the gamba's D4 in m. 62 (m1tv9514) as one written sign: accid with place="above" and enclose="paren" (accid.paren.m1tv9514). The note had a plain @accid from the musical-lint fixes of 2026-10-27 beside the dir djvu34, which showed the bracketed sign as text, so the sign was drawn twice; the @accid and the dir are removed. The note still sounds D-sharp4. Added the source-reading annotation editorial.sign.op107-m62, because the Op. I print has no sign on this note, and recorded the comparison in the editorial declaration. A count of the bracketed signs on DdT's note staves found the case; an AI model (OpenAI Codex) read the print and a second model (Anthropic Claude) checked the crops. The editor decided on 2026-11-06 that every accidental DdT prints in round brackets on a note staff sounds. The gestural accidentals were regenerated (scripts/regenerate_accid_ges.py).</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-05" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.11.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -7476,9 +7481,6 @@
                      </staff>
                   </measure>
                   <measure xml:id="u1emj6aq" n="62" facs="#zone_a7fb6af34be34368b2">
-                     <dir xml:id="djvu34" staff="2" tstamp="2.5" place="above">
-                        <rend fontstyle="normal">(♯)</rend>
-                     </dir>
                      <staff xml:id="d14ht4ry" n="1">
                         <layer xml:id="edsv5r1" n="1">
                            <beam xml:id="f1bjgj7m">
@@ -7500,7 +7502,9 @@
                            <rest xml:id="j1h8k745" dur="4" />
                            <beam xml:id="k1a55mts">
                               <note xml:id="l1bi57cj" dur="8" oct="4" pname="e" stem.dir="down" />
-                              <note xml:id="m1tv9514" accid="s" dur="8" oct="4" pname="d" stem.dir="down" />
+                              <note xml:id="m1tv9514" dur="8" oct="4" pname="d" stem.dir="down">
+                                 <accid xml:id="accid.paren.m1tv9514" accid="s" place="above" enclose="paren" />
+                              </note>
                            </beam>
                            <note xml:id="neuf6n3" dur="4" oct="4" pname="e" stem.dir="down" />
                         </layer>
@@ -7548,6 +7552,9 @@
                            <note xml:id="s1mznpjz" dur="4" oct="3" pname="e" stem.dir="down" />
                         </layer>
                      </staff>
+                     <annot xml:id="editorial.sign.op107-m62" type="editorial" label="source-reading" plist="#m1tv9514" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 69 (BSB image 79), measure 62, viola da gamba: a round-bracketed sharp above the D4 eighth at beat 2.5. The encoding keeps the sign as DdT prints it, so the note sounds D-sharp4, with the plainly printed D-sharp5 of DdT's keyboard realization on that beat. <ref target="#src.uppsala.op1">The Op. I print</ref>, consulted through the <ref target="#src.stimu1991.op1">STIMU 1991 facsimile</ref>, has no sign before or above this D, so under its F-sharp signature it reads D-natural4 (Violadagamba partbook, Sonata VII: local scan-0031.jpg, left-hand page, staff 3, third printed bar, which holds mm. 60–63). It does sign such notes nearby: the A3 of measure 59 has its own sharp (same staff, second printed bar). Its continuo has no figure or sign on the E notes of this bar (Cembalo partbook, Sonata VII: local scan-0041.jpg, left-hand page, staff 8, second printed bar). Stiehl writes of Op. I: “Sehr viele Druckfehler mußten verbessert werden und sind durch Einklammerung gekennzeichnet” (DdT, p. VI), so this bracket marks his correction, not a sign of the print. An AI model (OpenAI Codex) read the print from the scans, a second model (Anthropic Claude) checked the crops, and Egor Polyakov saw the gamba crop on a review page and decided on 2026-11-06 that every accidental DdT prints in round brackets on a note staff sounds.</p>
+                     </annot>
                   </measure>
                   <measure xml:id="pdzvcjo" n="63" facs="#zone_a195f3974fc54c4992">
                      <harm xml:id="vnh364" staff="3" tstamp="2">

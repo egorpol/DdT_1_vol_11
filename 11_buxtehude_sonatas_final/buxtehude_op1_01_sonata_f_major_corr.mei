@@ -143,6 +143,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-06" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Restored the round brackets of a flat that DdT prints in m. 59 (p. 6): in the last chord of the keyboard's upper staff, DdT has a plain flat on B3 and a bracketed flat on E4, and the E4 sign (u1tu3yos) had lost its brackets. It now has enclose="paren"; the note still sounds E-flat4. A count of the bracketed signs on DdT's note staves found the case: an AI model (OpenAI Codex) triaged the candidates from the page images, and the editor marked the proposed render as correct on 2026-11-06.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-05" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.11.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -6563,7 +6568,7 @@
                                     <accid xml:id="re9bgln" accid="f" />
                                  </note>
                                  <note xml:id="tqgfrvq" oct="4" pname="e">
-                                    <accid xml:id="u1tu3yos" accid="f" />
+                                    <accid xml:id="u1tu3yos" accid="f" enclose="paren" />
                                  </note>
                               </chord>
                            </beam>
