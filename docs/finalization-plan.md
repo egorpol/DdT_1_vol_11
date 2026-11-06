@@ -12,7 +12,7 @@ The validation boundary, the shared CAMAT checks and this corpus's validator are
 ## Editorial review, per work
 
 - [ ] Review every substantive departure from DdT and classify it as an OMR repair, a source-supported or conjectural emendation, or an encoding note, citing part and page evidence. The lack of a keyboard realization in the original prints cannot by itself justify a rhythmic correction to DdT's realization.
-- [ ] Resolve or explicitly retain the interim conjecture in App. II, m. 156.
+- [x] Replace the interim conjecture in App. II, m. 156 with the manuscript’s D5 eighth followed by an eighth rest, chosen on the review page of 2026-11-06.
 - [ ] Review the three appendix works' sources, instrumentation and editorial treatment individually.
 - [ ] Decide how the official Schematron warnings on external IIIF canvas `surface/@corresp` values are treated. Release mode blocks unresolved warnings, and no waiver is configured.
 - [ ] Have a named reviewer compare the encoded music, the annotations and the facsimile, and record the hash-bound sign-off that release mode requires. An empty report does not replace this review.
@@ -21,7 +21,7 @@ The validation boundary, the shared CAMAT checks and this corpus's validator are
 
 - [ ] Keep the MEI-data licence, the BSB image terms and any Uppsala image terms separate in the headers and the documentation.
 - [ ] Uppsala witnesses (STIMU 1991 reproductions): obtain the reuse terms for the scans and their derivatives before publishing any image. See the [scan guide](uppsala-facsimiles.md). Until then the images stay local, and the MEI cites the witnesses by source, part and page.
-- [x] Record Uppsala University Library's [permission of 2026-11-06](uppsala-facsimiles.md#images-in-the-düben-database) for manuscript images published in the Düben database, with the library's name and shelf mark credited on every use (“Uppsala University Library, Imhs 13:24” for the App. III m. 37 excerpt). The excerpt's [rights note](../supplemental_material/README.md) excludes it from the edition's licenses. This permission does not cover the STIMU prints or scans of them, or the BSB images.
+- [x] Record Uppsala University Library's [permission of 2026-11-06](uppsala-facsimiles.md#images-in-the-düben-database) for manuscript images published in the Düben database, with the library's name and shelf mark credited on every use (“Uppsala University Library, Imhs 13:24” for the App. III excerpts at mm. 37, 92 and 130, and “Uppsala University Library, Imhs 13:27” for App. II m. 156). The excerpts' [rights note](../supplemental_material/README.md) excludes them from the edition's licenses. This permission does not cover the STIMU prints or scans of them, or the BSB images.
 - [ ] If images are cleared: inspect and record printed page labels in the inventories, decide on the mixed scan 4 (crop the historical title page or omit the spread), and choose the image storage (repository, separate hosting or a versioned bundle; see the archived plan's storage section).
 - [ ] The DdT/BSB surfaces remain the primary alignment. Supplementary Uppsala surfaces must not change existing DdT zones.
 

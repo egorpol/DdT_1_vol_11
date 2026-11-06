@@ -74,7 +74,13 @@
                      <identifier type="shelfmark">Instr. mus. i hskr. 13:27 (Düben Collection)</identifier>
                   </physLoc>
                   <ref type="digital-catalogue" target="https://www2.musik.uu.se/duben/presentationSource1.php?Select_Dnr=2090">Düben Collection Database Catalogue, source 2090</ref>
+                  <ref type="digital-facsimile" target="https://www2.musik.uu.se/duben/browsePart.php?Select_Part=01&amp;Select_Dnr=2090&amp;command=restart">Violino 1mo manuscript facsimile</ref>
                   <ref type="digital-facsimile" target="https://www2.musik.uu.se/duben/browsePart.php?Select_Part=02&amp;Select_Dnr=2090&amp;command=restart">Violino 2do manuscript facsimile</ref>
+                  <ref type="digital-facsimile" target="https://www2.musik.uu.se/duben/browsePart.php?Select_Part=03&amp;Select_Dnr=2090&amp;command=restart">Viola di gamba manuscript facsimile</ref>
+                  <ref type="digital-facsimile" target="https://www2.musik.uu.se/duben/browsePart.php?Select_Part=04&amp;Select_Dnr=2090&amp;command=restart">Continuo manuscript facsimile</ref>
+                  <availability>
+                     <useRestrict>Uppsala University Library allows the images in its Düben database to be published, whole or in part, without restrictions or fees, with a reference to the library and the shelf mark (its reply of 2026-11-06). One excerpt accompanies the critical annotation at measure 156, credited “Uppsala University Library, Imhs 13:27”; its credit and the permission are recorded in the <ref target="../supplemental_material/README.md">supplemental material</ref>. The licenses of this edition do not cover the image.</useRestrict>
+                  </availability>
                </bibl>
             </source>
          </sourceDesc>
@@ -91,10 +97,10 @@
             </application>
          </appInfo>
          <editorialDecl>
-            <p>This is a working corrected digital edition based on DdT 1903. Its facsimile is the basis for source-supported corrections. The inherited historical-source note at measure 156 was a copied placeholder pointing to Op. II/6 and does not establish a STIMU comparison for Appendix II. A targeted examination of the Uppsala manuscript was begun on 2026-10-20; no confident manuscript reading at measure 156, complete collation, or earlier exclusive source history is claimed. Source-supported corrections, inferred voice allocation and conjectural emendations are distinguished in editorial annotations.</p>
+            <p>This is a working corrected digital edition based on DdT 1903. OMR and conversion errors are corrected against its facsimile. The inherited historical-source note at measure 156 was a copied placeholder pointing to Op. II/6 and does not establish a STIMU comparison for Appendix II. A targeted examination of the Uppsala manuscript was begun on 2026-10-20. On 2026-11-06 the editor adopted its reading at measure 156 after selective examination; no complete collation or earlier exclusive source history is claimed. Source-supported corrections, inferred voice allocation and conjectural emendations are distinguished in editorial annotations.</p>
             <p>The six-staff DdT arrangement is retained: violin I, violin II, viola da gamba, figured continuo bass, keyboard realization upper staff, and keyboard realization lower staff. The keyboard realization is distinguished from the figured continuo bass when defining an analytical view.</p>
             <p>Original page and system boundaries are represented by pb and sb elements. The twelve surfaces and page breaks use work-local numbering beginning at 1; the printed source range is recorded in sourceDesc. Each measure points to its DdT facsimile zone. All existing break positions and zone geometry are retained.</p>
-            <p>Editorial decisions confirmed on 2026-10-20 are encoded at measures 34, 70 and 156: the final F4 at measure 34 is assigned to the subsidiary keyboard voice while the C5 quarter is retained; the initial E4 and the first tied C4 at measure 70 are dotted conjecturally; and the first eighth rest at measure 156 is omitted conjecturally while the opening D5 quarter is retained. The last reading is an interim emendation pending confident manuscript collation. All measures use ordinary metrical checking. Imported MIDI tempo presets are retained.</p>
+            <p>Editorial decisions confirmed on 2026-10-20 remain encoded at measures 34 and 70: the final F4 at measure 34 is assigned to the subsidiary keyboard voice while the C5 quarter is retained; the initial E4 and the first tied C4 at measure 70 are dotted conjecturally. At measure 156, violin II, the source-supported reading chosen on 2026-11-06 replaces the interim conjecture: the opening D5 is an eighth followed by an eighth rest and the existing sixteenth rest, as in the manuscript. Source-reading annotations at measure 56 record DdT’s added figures; the manuscript comparison at measure 180 leaves the F-sharp4 emendation conjectural. All measures use ordinary metrical checking.</p>
          </editorialDecl>
          <projectDesc>
             <p>This edition was prepared by CAMAT Corpus Editions as part of a DFG-funded corpus for music-analysis technologies (grant PF 669/18-1).</p>
@@ -119,6 +125,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-06" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Applied the editor’s choices on the review page of 2026-11-06 after Claude read the manuscript at full resolution. At m. 156, violin II, changed x12xp14b to an eighth and restored the eighth rest with the fresh ID app02.m156.violin2.rest8, replacing the interim conjecture with the manuscript reading in ayvjvlf1 and adding a one-bar excerpt credited Uppsala University Library, Imhs 13:27 under its permission of 2026-11-06. Added a source-reading annotation on the bracketed figures at m. 56 and appended the manuscript evidence at m. 180 without changing its conjectural-emendation label. Added the other three parts’ facsimile references to the manuscript source record. These are selective comparisons, not a full collation.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-06" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Repaired an OMR error in the continuo in m. 55, found while preparing the comparison with the Düben parts: the bar holds a C3 whole note, as DdT prints it (printed p. 167, BSB image 177), not a whole-bar rest. The element r14shlwa changes from an mRest to a note and keeps its id.</p>
@@ -7070,6 +7081,10 @@
                         </layer>
                      </staff>
                      <tie xml:id="o1cv4txq" startid="#n141mghj" endid="#p1ww5ko1"/>
+                     <annot xml:id="editorial.figure.app02-m56" type="editorial" label="source-reading" plist="#fdhfghrt45" resp="#resp.polyakov #resp.camat">
+                        <p>DdT 1903, printed p. 167 (BSB image 177), measure 56, continuo: bracketed figures 4 and 6 at beat 3, with C F A in the realization. DdT’s Vorbericht: “Im Original steht als Orgelpunkt nur c ohne weitere Bezeichnung, doch dürfte die Einfügung des Quart-Sexten-Accordes gerechtfertigt erscheinen.” Uppsala University Library, Imhs 13:27, Continuo, fol. 1v, fifth staff: C3 whole note, no figure. The encoding keeps DdT’s text; the figures and the chord are DdT’s addition.</p>
+                        <p><ref type="digital-facsimile" target="https://www2.musik.uu.se/duben/browsePart.php?Select_Part=04&amp;Select_Dnr=2090&amp;command=restart">Continuo part in the Düben Collection Database Catalogue (source 2090); the reading is on image imhs013,027_p04_01v.jpg.</ref></p>
+                     </annot>
                   </measure>
                   <measure xml:id="x1wlyakg" n="57" facs="#zone_f02917a6a1be4f34a9">
                      <staff xml:id="gh659qw" n="1">
@@ -14951,10 +14966,13 @@
                      </staff>
                      <staff xml:id="vlb4w8x" n="2">
                         <layer xml:id="w11dezzv" n="1">
-                           <annot xml:id="ayvjvlf1" type="editorial" label="conjectural-emendation" plist="#x12xp14b #zcdb83p #bs21fpk #e1kjipdj" resp="#resp.polyakov">
-                              <p>DdT 1903, printed p. 173 (BSB image 183), measure 156, violin II: the opening D5 quarter is followed by an eighth rest, a sixteenth rest, three B4–D5–B4 sixteenths, an E5 eighth and a final eighth rest, totaling three and a half quarter-note beats in 3/4. The first eighth rest is omitted conjecturally, retaining D5 as a quarter and the following sixteenth rest, to restore the meter and align the ensuing figures with the other parts. This interim emendation was approved by the editor on 2026-10-20; the corresponding reading in the Uppsala manuscript remains unconfirmed. The previous placeholder at this location pointed to an event in Op. II/6 and does not establish a STIMU comparison for Appendix II.</p>
+                           <annot xml:id="ayvjvlf1" type="editorial" label="source-supported-emendation" plist="#x12xp14b #app02.m156.violin2.rest8 #zcdb83p #bs21fpk #e1kjipdj" source="#src.uppsala.buxwv266" resp="#resp.polyakov #resp.camat">
+                              <p>DdT 1903, printed p. 173 (BSB image 183), measure 156, violin II: the opening D5 quarter is followed by an eighth rest, a sixteenth rest, three B4–D5–B4 sixteenths, an E5 eighth and a final eighth rest, totaling three and a half quarter-note beats in 3/4. Uppsala University Library, Imhs 13:27, Violino 2do, eleventh staff, fifth bar: D5 eighth, eighth rest, sixteenth rest, B4–D5–B4 sixteenths, E5 eighth, eighth rest, which fills the bar. The D5 carries the same flag as the E5. The encoding follows the manuscript: the D5 becomes an eighth and DdT’s eighth rest stays. This replaces the interim conjecture of 2026-10-20, which kept the D5 quarter and omitted the eighth rest; later onsets are unchanged.</p>
+                              <p><ref type="digital-facsimile" target="https://www2.musik.uu.se/duben/browsePart.php?Select_Part=02&amp;Select_Dnr=2090&amp;command=restart">Violino 2do part in the Düben Collection Database Catalogue (source 2090); the reading is on image imhs013,027_p02_01r.jpg.</ref></p>
+                              <p><ref type="supplemental-material" target="../supplemental_material/supplemental_material_app_02_m156_imhs13_27.png">Supplemental facsimile excerpt: App. II, measure 156, violin II (Uppsala University Library, Imhs 13:27).</ref></p>
                            </annot>
-                           <note xml:id="x12xp14b" dur="4" oct="5" pname="d" stem.dir="down"/>
+                           <note xml:id="x12xp14b" dur="8" oct="5" pname="d" stem.dir="down"/>
+                           <rest xml:id="app02.m156.violin2.rest8" dur="8"/>
                            <rest xml:id="zcdb83p" dur="16"/>
                            <beam xml:id="agc1jtj">
                               <note xml:id="bs21fpk" dur="16" oct="4" pname="b" stem.dir="down"/>
@@ -17580,6 +17598,7 @@
                      </staff>
                      <annot xml:id="editorial.clash.app02-m180-b1" type="editorial" label="conjectural-emendation" plist="#q8j638q" resp="#resp.polyakov #resp.camat">
                         <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 175 (BSB image 185), measure 180, violin II: F-natural4 at beat 1, with no accidental sign printed on the note. The encoding supplies a bracketed editorial sharp on q8j638q, giving F-sharp4 at beat 1 in violin II. At beat 1, the viola da gamba has F-sharp2 (tied over); the continuo has F-sharp2 (written sign). At the same beat, the keyboard realization, lower staff has F-sharp2 and F-sharp3 (written signs). The keyboard realization is the DdT editor's, not Buxtehude's, and supplies no independent attestation. The continuo figure “6♯” over F-sharp2 (beat 1) names no F. Found by the musical lint (CAMAT); Egor Polyakov decided the emendation on 2026-11-03.</p>
+                        <p>Uppsala University Library, Imhs 13:27, Violino 2do, thirteenth staff, has no sign before this F4 and no tie into it, though both F4s of measure 179 have a sharp. Its continuo also writes F2 here without a sign after the sharped F2 at the end of measure 179; the viola da gamba ties that note into measure 180, so the unsigned note is F-sharp. The manuscript therefore neither attests nor excludes F-sharp4, and the emendation stays conjectural.</p>
                      </annot>
                   </measure>
                   <measure xml:id="b1pvbkle" n="181" facs="#zone_10840fa7a8e642f7a7">

@@ -2,7 +2,7 @@
 
 These limited facsimile excerpts document readings discussed in the MEI
 annotations. They are listed in the order in which the readings appear in the
-volume (DdT 1903, printed pp. 3, 29, 39, 55, 75, 80, 85, 97, 112, 139 and 178). Include this directory and its
+volume (DdT 1903, printed pp. 3, 29, 39, 55, 75, 80, 85, 97, 112, 139, 173, 178, 180 and 181). Include this directory and its
 attribution with the score in the final release, preserving the relative paths.
 Crop provenance and checksums are recorded in [manifest.json](manifest.json).
 
@@ -19,15 +19,16 @@ may correspond to more than one measure in DdT. This is a proposed
 basis for this use, not a conclusion that small images are automatically exempt
 from rights or that every use in every jurisdiction is covered.
 
-**The App. III excerpt (permission of 2026-11-06):** this excerpt comes from a
-manuscript image in Uppsala University Library's Düben database, not from the
-STIMU books, and it rests on the library's permission, not on the basis above.
+**The App. II and App. III excerpts (permission of 2026-11-06):** these excerpts come from
+manuscript images in Uppsala University Library's Düben database, not from the
+STIMU books, and they rest on the library's permission, not on the basis above.
 The library wrote on 2026-11-06: “The images published in the Düben database
 are freely available for public use without restrictions or fees. You are
 therefore free to publish both the whole and parts of the images of these
 manuscripts as you like. A reference should include "Uppsala University
-Library" and the shelf mark, for example Imhs 13:24.” The credit is therefore
-Uppsala University Library, Imhs 13:24. The permission does not extend to the
+Library" and the shelf mark, for example Imhs 13:24.” The credits are therefore
+Uppsala University Library, Imhs 13:27 (App. II), and Uppsala University Library,
+Imhs 13:24 (App. III). The permission does not extend to the
 STIMU prints or the BSB images.
 
 The repository's licenses (CC BY 4.0 for the encodings and documentation, MIT
@@ -457,6 +458,39 @@ specific E5 reading on the documentary image-quotation basis recorded above
 (UrhG §§ 51 and 63, checked 2026-10-19). The scope is one measure, showing the
 printed beam and its immediate musical context.
 
+## App. II, measure 156, violin II
+
+![Manuscript bar supporting the opening D5 eighth and following eighth rest](supplemental_material_app_02_m156_imhs13_27.png)
+
+**Source:** Dieterich Buxtehude, *Sonata à 3* (BuxWV 266), Violino 2do
+part, Uppsala University Library, Imhs 13:27 (Düben Collection; header form
+`Instr. mus. i hskr. 13:27`, catalogue form `imhs 013:027`).
+[Düben catalogue source 2090](https://www2.musik.uu.se/duben/presentationSource1.php?Select_Dnr=2090),
+[Violino 2do facsimile](https://www2.musik.uu.se/duben/browsePart.php?Select_Part=02&Select_Dnr=2090&command=restart).
+
+**Location:** image `imhs013,027_p02_01r.jpg`, eleventh staff, fifth bar,
+corresponding to combined-score m. 156. The bar begins after the preceding F5.
+It reads D5 eighth, eighth rest, sixteenth rest, B4–D5–B4 sixteenths, E5 eighth,
+eighth rest. D5 carries the same flag as E5. The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_app_02_sonata_2violins_gamba_cembalo_c_major_corr.mei#ayvjvlf1)
+records the source-supported replacement of DdT’s D5 quarter and the withdrawal
+of the interim conjecture that omitted the eighth rest. Claude read the manuscript
+at full resolution; the editor chose on the review page of 2026-11-06.
+This selective examination is not a full collation.
+
+**Image preparation:** a direct crop at unchanged pixel scale, 234 × 210 pixels,
+saved as lossless PNG from the full-resolution JPEG served by the Düben database.
+The input SHA-256 was checked against the database’s copy on 2026-11-06.
+The crop box is `(864, 2890, 1098, 3100)` in that 2836 × 3995 image: the whole bar with both
+barlines, the foot of the preceding F5’s stem at the lower left and no adjacent staff.
+No resizing, retouching or reconstructed
+notation is included. Coordinates, checksums and preparation are in the manifest.
+
+**Credit and reuse:** Uppsala University Library, Imhs 13:27. Published under the
+library’s permission of 2026-11-06 for images in the Düben database, recorded
+under “Reuse basis” above. The edition’s CC BY 4.0 and MIT licenses do not cover
+this image.
+
 ## App. III, measure 37, viola da gamba
 
 ![Manuscript bar supporting the A-sharp3 reading](supplemental_material_app_03_m037_imhs13_24.png)
@@ -491,3 +525,72 @@ manifest.
 **Permission:** published with the permission of Uppsala University Library,
 quoted under [Reuse basis](#reuse-basis). Credit: Uppsala University Library,
 Imhs 13:24.
+
+## App. III, measure 92, viola da gamba
+
+![Manuscript bar with the seven eighths at m. 92](supplemental_material_app_03_m092_imhs13_24.png)
+
+**Source:** Dieterich Buxtehude, *Sonata à 2* (BuxWV 267), manuscript parts
+copied by Andreas Düben, dated 27/9 1692, Uppsala University Library, Imhs 13:24
+(Instr. mus. i hskr. 13:24; catalogue form `imhs 013:024`), Düben Collection.
+[Viol di gamba facsimile](https://www2.musik.uu.se/duben/browsePart.php?Select_Part=01&Select_Dnr=2087&command=restart).
+
+**Location and purpose:** Viol di gamba, fol. 1v, end of the third staff,
+image `imhs013,024_p01_01v.jpg`, corresponding to combined-score mm. 91–92.
+The crop includes the whole manuscript bar from its opening double bar through
+the closing barline, with “Allegro” below. It documents the seven eighths
+E4 F-sharp4 G4 A4 B4 A4 G4 after the rising figure of m. 91, against
+E4 G4 A4 B4 A4 G4 in DdT 1903, printed p. 180, m. 92, and E F-sharp A B A G
+in DdT’s Vorbericht. The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_app_03_sonata_gamba_violin_cembalo_d_major_corr.mei#editorial.app03.m92.vorbericht)
+keeps DdT’s notes. [DdT’s Vorbericht, p. VII (BSB image 9)](https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00009/full/4134,/0/default.jpg),
+quoted in the annotation, is linked only; no BSB image is included.
+Claude and Codex read both places independently at full resolution; the editor
+counted the seven gamba notes, saw the violon marks and chose to keep DdT.
+This selective examination is not a collation.
+
+**Image preparation:** a direct crop at unchanged pixel scale, 540 × 285 pixels,
+from the full-resolution JPEG served by the Düben database, saved as lossless PNG.
+The input SHA-256 was checked against the database’s copy on 2026-11-06. The box is
+`(2040, 745, 2580, 1030)` in the 2730 × 4234 source image. The completed PNG was inspected
+to confirm the whole bar and “Allegro” are inside. No resizing, retouching or
+reconstructed notation is included. Checksums and provenance are in the manifest.
+
+**Credit and reuse:** Uppsala University Library, Imhs 13:24. Published under
+the library’s permission of 2026-11-06 for images in the Düben database, recorded
+under [Reuse basis](#reuse-basis). The edition’s CC BY 4.0 and MIT licenses do not
+cover this image.
+
+## App. III, measure 130, violone
+
+![Manuscript bar with four marks over the last four notes](supplemental_material_app_03_m130_imhs13_24.png)
+
+**Source:** Dieterich Buxtehude, *Sonata à 2* (BuxWV 267), manuscript parts
+copied by Andreas Düben, dated 27/9 1692, Uppsala University Library, Imhs 13:24
+(Instr. mus. i hskr. 13:24; catalogue form `imhs 013:024`), Düben Collection.
+[Violon facsimile](https://www2.musik.uu.se/duben/browsePart.php?Select_Part=02&Select_Dnr=2087&command=restart).
+
+**Location and purpose:** Violon, fol. 1v, second staff, image
+`imhs013,024_p02_01v.jpg`, corresponding to combined-score m. 130.
+The crop includes the whole bar, both barlines and all four marks over the last
+four notes. It documents those heavier, less regular heads and the marks, against
+E3 G3 A3 B3 A3 G3 in DdT 1903, printed p. 181, m. 130. The last two marks read
+a and g; the first two are not securely legible, the first perhaps h. The reading
+of the last four notes and what the marks record remain open. The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_app_03_sonata_gamba_violin_cembalo_d_major_corr.mei#editorial.app03.m130.vorbericht)
+keeps DdT’s notes. The Vorbericht is quoted and linked in the annotation at m. 92.
+Claude and Codex read both places independently at full resolution; the editor
+counted the seven gamba notes, saw the violon marks and chose to keep DdT.
+This selective examination is not a collation.
+
+**Image preparation:** a direct crop at unchanged pixel scale, 295 × 295 pixels,
+from the full-resolution JPEG served by the Düben database, saved as lossless PNG.
+The input SHA-256 was checked against the database’s copy on 2026-11-06. The box is
+`(1150, 530, 1445, 825)` in the 2730 × 4234 source image. The completed PNG was inspected
+to confirm both barlines and all four marks are inside. No resizing, retouching or
+reconstructed notation is included. Checksums and provenance are in the manifest.
+
+**Credit and reuse:** Uppsala University Library, Imhs 13:24. Published under
+the library’s permission of 2026-11-06 for images in the Düben database, recorded
+under [Reuse basis](#reuse-basis). The edition’s CC BY 4.0 and MIT licenses do not
+cover this image.

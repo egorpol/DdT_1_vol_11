@@ -132,12 +132,46 @@ without restrictions or fees. You are therefore free to publish both the whole
 and parts of the images of these manuscripts as you like. A reference should
 include "Uppsala University Library" and the shelf mark, for example Imhs 13:24.
 
-Every use credits the library and the shelf mark. The App. III (BuxWV 267)
+The appendix manuscript sources are recorded separately from the STIMU prints:
+
+- App. I (BuxWV 273): Uppsala University Library, Imhs 13:25, header form
+  `Instr. mus. i hskr. 13:25`, [catalogue source 2089](https://www2.musik.uu.se/duben/presentationSource1.php?Select_Dnr=2089),
+  *Sonata a 2 ex B. Con le Suite*, parts Violino, Viola de Gamba and Organo.
+  The editor confirmed DdT as the only source consulted up to 2026-10-20.
+  The manuscript was identified on 2026-11-06 and examined selectively: its dances
+  were located and m. 83 was read in Organo and Viola de Gamba. It has not been
+  collated. Its MEI source ID is `src.uppsala.buxwv273`.
+- App. II (BuxWV 266): Uppsala University Library, Imhs 13:27, header form
+  `Instr. mus. i hskr. 13:27`, [catalogue source 2090](https://www2.musik.uu.se/duben/presentationSource1.php?Select_Dnr=2090),
+  parts Violino 1mo, Violino 2do, Viola di gamba and Continuo. Its MEI source ID is
+  `src.uppsala.buxwv266`. The source record now links all four parts. The selective
+  comparisons at mm. 56, 156 and 180 do not constitute a full collation.
+- App. III (BuxWV 267): Uppsala University Library, Imhs 13:24,
+  [catalogue source 2087](https://www2.musik.uu.se/duben/presentationSource1.php?Select_Dnr=2087),
+  MEI source ID `src.uppsala.buxwv267`; selected passages have been examined.
+
+The catalogue pages for sources 2089 and 2090 were fetched on 2026-11-06.
+The part names above follow those pages. On that date the facsimile links were
+live-checked: `browsePart.php?Select_Part=NN&Select_Dnr=2089&command=restart`
+works for NN 01–03, and the same pattern for Dnr 2090 works for NN 01–04.
+
+Every use credits the library and the shelf mark. The App. II m. 156 excerpt,
+one bar of Violino 2do, is credited “Uppsala University Library, Imhs 13:27”.
+It shows the D5 eighth and following eighth rest adopted in place of the interim
+conjecture. Its preparation and reuse basis are in the
+[rights note](../supplemental_material/README.md).
+
+The App. III (BuxWV 267)
 excerpt, one bar of the Viol di gamba part at m. 37, is credited “Uppsala
 University Library, Imhs 13:24”. It shows the sharp before the gamba A3 that
 the edition adopts. The MEI headers retain `Instr. mus. i hskr. 13:24`; the
-catalogue prints `imhs 013:024`. The excerpt's [rights note](../supplemental_material/README.md),
-under “Reuse basis”, records its reuse basis and exclusion from the edition's
+catalogue prints `imhs 013:024`. Two further excerpts document the retained DdT
+readings at m. 92 (Viol di gamba, manuscript bar corresponding to combined-score
+mm. 91–92) and m. 130 (Violon), including all four marks above the latter bar.
+They carry the same credit, “Uppsala University Library, Imhs 13:24”. The first
+two marks remain uncertain. DdT’s Vorbericht is quoted and linked, with no BSB
+image reproduced. The excerpts' [rights note](../supplemental_material/README.md),
+under “Reuse basis”, records their reuse basis and exclusion from the edition's
 CC BY 4.0 and MIT licenses.
 
 This permission covers images of manuscripts published in the Düben database.

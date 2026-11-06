@@ -65,6 +65,20 @@
                   </availability>
                </bibl>
             </source>
+            <source type="manuscript" xml:id="src.uppsala.buxwv273">
+               <bibl>
+                  <title>Sonata a 2 ex B. Con le Suite</title>
+                  <composer>Dietrich Buxtehude</composer>
+                  <physLoc>
+                     <repository>Uppsala University Library</repository>
+                     <identifier type="shelfmark">Instr. mus. i hskr. 13:25 (Düben Collection)</identifier>
+                  </physLoc>
+                  <ref type="digital-catalogue" target="https://www2.musik.uu.se/duben/presentationSource1.php?Select_Dnr=2089">Düben Collection Database Catalogue, source 2089</ref>
+                  <ref type="digital-facsimile" target="https://www2.musik.uu.se/duben/browsePart.php?Select_Part=01&amp;Select_Dnr=2089&amp;command=restart">Violino manuscript facsimile</ref>
+                  <ref type="digital-facsimile" target="https://www2.musik.uu.se/duben/browsePart.php?Select_Part=02&amp;Select_Dnr=2089&amp;command=restart">Viola de Gamba manuscript facsimile</ref>
+                  <ref type="digital-facsimile" target="https://www2.musik.uu.se/duben/browsePart.php?Select_Part=03&amp;Select_Dnr=2089&amp;command=restart">Organo manuscript facsimile</ref>
+               </bibl>
+            </source>
          </sourceDesc>
       </fileDesc>
       <encodingDesc xml:id="e1roesi5">
@@ -79,7 +93,7 @@
             </application>
          </appInfo>
          <editorialDecl>
-            <p>This is a working corrected digital edition based on DdT 1903. The editor confirmed on 2026-10-20 that DdT 1903 was the only source consulted for this suite. OMR and conversion errors are corrected against the DdT facsimile. Substantive departures from DdT are documented in editorial annotations distinguishing source-supported and conjectural emendations. No historical-manuscript or historical-print collation is claimed.</p>
+            <p>This is a working corrected digital edition based on DdT 1903. The editor confirmed on 2026-10-20 that DdT 1903 was the only source consulted for this suite up to that date. Uppsala University Library, Imhs 13:25 (Düben Collection Database Catalogue, source 2089), was identified on 2026-11-06 and has been examined selectively: its dances were located, and measure 83 was read in the Organo and Viola de Gamba parts. It has not been collated. OMR and conversion errors are corrected against the DdT facsimile. Substantive departures from DdT are documented in editorial annotations distinguishing source-supported and conjectural emendations. No historical-manuscript or historical-print collation is claimed.</p>
             <p>The staff arrangement and keyboard realization printed in DdT are retained. Staff 1 is violin; staff 2 is viola da gamba; staff 3 is the figured continuo bass; staves 4 and 5 are the upper and lower staves of the printed keyboard realization. The realization is distinguished from the figured continuo bass when defining an analytical view.</p>
             <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
             <p>This file contains the four-dance suite component of BuxWV 273, presented in DdT as Appendix I to Sonata IV, Op. I (BuxWV 255); it does not encode the complete BuxWV 273 sonata with suite. The dances are Allamanda (measures 1–18), Courant (19–52), Saraband (53–70), and Gique (71–89). Catalogue identification is distinct from the documented source consultation.</p>
@@ -108,6 +122,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-06" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Recorded the selectively examined Uppsala manuscript Imhs 13:25 as src.uppsala.buxwv273, with catalogue and facsimile references for Violino, Viola de Gamba and Organo. Claude read the manuscript at full resolution, and the editor chose on the review page of 2026-11-06 to record this consultation. The dances were located and m. 83 was read in two parts, Organo and Viola de Gamba; the source has not been collated. Updated the editorial declaration accordingly. The musical text is unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-05" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.11.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
