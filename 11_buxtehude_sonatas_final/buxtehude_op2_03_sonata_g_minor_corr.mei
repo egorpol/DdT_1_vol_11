@@ -138,6 +138,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-06" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Repaired an OMR error in the gamba in m. 89, found while comparing the Vorbericht with DdT: the last beat is a G3 eighth and two A3 sixteenths, as DdT prints it (printed p. 108, BSB image 118), not two eighths. The A3 mkg07cc is now a sixteenth and the second A3 (xvfkbv7) is new. The editor read the DdT bar on 2026-11-06.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-05" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.11.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -11271,7 +11276,8 @@
                               </beam>
                               <beam xml:id="k59h9p0">
                                  <note xml:id="lc43k5g" dur="8" oct="3" pname="g" stem.dir="up" />
-                                 <note xml:id="mkg07cc" dur="8" oct="3" pname="a" stem.dir="up" />
+                                 <note xml:id="mkg07cc" dur="16" oct="3" pname="a" stem.dir="up" />
+                                 <note xml:id="xvfkbv7" dur="16" oct="3" pname="a" stem.dir="up" />
                                  <clef xml:id="xlrgu8d" shape="F" line="4" />
                               </beam>
                            </layer>

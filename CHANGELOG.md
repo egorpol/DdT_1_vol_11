@@ -18,6 +18,9 @@ All notable changes to this edition are recorded here. Version numbers follow th
 - App. III, m. 104: the gamba's last eighth sounds C♮5, not C♯5. DdT's bracketed natural above the note was text in a `<dir>`, which does not sound; it is now a written sign (`<accid accid="n" place="above" enclose="paren"/>`). The editor decided on 2026-11-06 that every accidental DdT prints in round brackets on a note staff sounds.
 - Op. I/7, m. 62: the sharp on the gamba's D4 is drawn once, in round brackets above the note, as DdT prints it (p. 69), not a second time as a plain sharp beside it. The note still sounds D♯4.
 - Op. I/1, m. 59: the keyboard's E♭4 has the round brackets that DdT prints (p. 6).
+- Op. II/7, mm. 1–2: the gamba's A4 has the round brackets that DdT prints (p. 150), which its *Vorbericht* explains: “Im Original steht f, richtiger das eingeklammerte a.” DdT draws one pair round the three notes; each note now shows its own, with `head.mod="paren"`, because Verovio ignores `enclose` on a note. An `encoding-note` annotation records this. The notes sound as before. [`docs/editorial-policy.md`](docs/editorial-policy.md) gives the rule.
+- Op. II/3, m. 89: the gamba's last beat is a G3 eighth and two A3 sixteenths, as DdT prints it (p. 108), not two eighths. The OMR had dropped a note.
+- Op. II/4, m. 209: the last three figures read 5, 6, 6, as DdT prints them (p. 124), not 6, 5, 6.
 
 ## [0.11.0] — 2026-11-05
 

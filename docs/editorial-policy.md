@@ -113,6 +113,8 @@ A sign that the edition adds to a note DdT prints without one is an editorial ac
 
 An accidental that DdT itself prints in round brackets on a note staff is part of DdT's text, and it sounds. Encode it as an `<accid>` child with `enclose="paren"`, and add `place="above"` where DdT prints it above the note. Text in a `<dir>` does not sound, and `func="edit"` stays reserved for the edition's own signs. A DdT bracket does not settle what the sources have: Stiehl's preface says that Op. I's brackets mark corrected misprints (p. VI), but the Op. II print has the flat that DdT brackets at Op. II/4 m. 189. Where a source lacks the sign, a `source-reading` annotation records that.
 
+A note that DdT prints in round brackets is part of DdT's text in the same way, and it sounds. Encode it with `head.mod="paren"` on every note the brackets enclose, because Verovio ignores `enclose` on a note. Where DdT draws one pair round several notes, as round the gamba's A4 in Op. II/7 mm. 1–2, each note shows its own pair, and an `encoding-note` annotation records DdT's single pair.
+
 The following illustration uses the existing measure-97 chord ID and the template's generic `resp.editor`; the responsibility pointer must be replaced by the verified editor's declaration before application. It is a documentation example, not an applied correction or completed review:
 
 ```xml
