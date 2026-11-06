@@ -9,6 +9,10 @@ All notable changes to this edition are recorded here. Version numbers follow th
 - `source-reading` annotations on four of the six accidentals that the count of 2026-11-06 found in round brackets on DdT's note staves, where a historical source has no such sign and the edition keeps DdT's: Op. I/7 m. 62 (gamba D♯4; the Op. I print has no sign), Op. II/7 m. 167 (gamba E♭4; the Op. II print has no sign and a plain “3” in the figure, and Stiehl's preface names the place, p. VII), App. III m. 29 (violone C♮3) and m. 104 (gamba C♮5; the Düben parts have no sign on either note). An AI model (OpenAI Codex) read the sources from the scans and a second model (Anthropic Claude) checked the crops. These selective comparisons are recorded in the three editorial declarations, and Op. II/7's source description gains the Op. II print and its STIMU 1991 facsimile.
 - [`docs/editorial-policy.md`](docs/editorial-policy.md) states the rule for these accidentals: they sound, as `<accid enclose="paren">`, with `place="above"` where DdT prints them above the note.
 
+### Changed
+
+- The viewer's Parts menu now lists the realization as “Realization (DdT)”, and its note, the README and [`docs/viewer-midi-plan.md`](docs/viewer-midi-plan.md) say “DdT's realization” in place of “Stiehl's realization”, which was an inference from Stiehl's editorship: the volume's title page, *Vorbericht*, *Inhalt* and the heads of pp. 3, 79, 160, 164 and 176 name no realizer. The 0.11.0 entry below and that release's notes keep their sentence as published, and a dated note at the end of those notes says so. The viewer's header now gives the abbreviation DdT.
+
 ### Fixed
 
 - App. III, m. 104: the gamba's last eighth sounds C♮5, not C♯5. DdT's bracketed natural above the note was text in a `<dir>`, which does not sound; it is now a written sign (`<accid accid="n" place="above" enclose="paren"/>`). The editor decided on 2026-11-06 that every accidental DdT prints in round brackets on a note staff sounds.

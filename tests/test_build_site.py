@@ -93,17 +93,17 @@ def test_parts_match_the_mei_programs_roles_and_labels(tmp_path):
         assert {p['channel']: p['program'] for p in parts} == encoded
         realization = [p for p in parts if p['role'] == 'keyboard_realization']
         assert len(realization) == 1
-        assert realization[0]['label'] == 'Realization (Stiehl)'
+        assert realization[0]['label'] == 'Realization (DdT)'
         for part in parts:
             role = 'keyboard_realization_upper' if part['role'] == 'keyboard_realization' else part['role']
             assert part['program'] == ROLE_PROGRAM[role][0]
             assert part['label'] and not part['label'].endswith('.')
     labels = {w['id']: [p['label'] for p in w['parts']] for w in works}
-    assert labels['op1_02'] == ['Violin', 'Viola da gamba', 'Continuo', 'Realization (Stiehl)']
-    assert labels['app_01'] == ['Violino', 'Viola da gamba', 'Continuo', 'Realization (Stiehl)']
-    assert labels['app_02'] == ['Violino I', 'Violino II', 'Viola di gamba', 'Continuo', 'Realization (Stiehl)']
-    assert labels['app_03'] == ['Viola da Gamba', 'Violone', 'Continuo', 'Realization (Stiehl)']
-    assert labels['op2_05'] == ['Violino', 'Viola da gamba', 'Cembalo', 'Realization (Stiehl)']
+    assert labels['op1_02'] == ['Violin', 'Viola da gamba', 'Continuo', 'Realization (DdT)']
+    assert labels['app_01'] == ['Violino', 'Viola da gamba', 'Continuo', 'Realization (DdT)']
+    assert labels['app_02'] == ['Violino I', 'Violino II', 'Viola di gamba', 'Continuo', 'Realization (DdT)']
+    assert labels['app_03'] == ['Viola da Gamba', 'Violone', 'Continuo', 'Realization (DdT)']
+    assert labels['op2_05'] == ['Violino', 'Viola da gamba', 'Cembalo', 'Realization (DdT)']
     assert labels['op1_03'][1] == 'Viola da gamba'
 
 

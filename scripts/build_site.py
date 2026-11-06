@@ -84,7 +84,7 @@ def work_parts(work: dict) -> list[dict]:
         result.append({
             'channel': part['channel'], 'program': part['instrnum'],
             'role': 'keyboard_realization' if realization else part['role'],
-            'label': 'Realization (Stiehl)' if realization else text or PART_LABELS[part['role']],
+            'label': 'Realization (DdT)' if realization else text or PART_LABELS[part['role']],
         })
     return result
 

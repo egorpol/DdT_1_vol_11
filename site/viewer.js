@@ -440,7 +440,7 @@ const SAMPLE_FILES = {
   6: { url: `${SOUNDFONT_ROOT}harpsichord-mp3.js`, integrity: 'sha384-veZb4kehrh8qKJzOhM1Lv+MqBFb4SDXpSyWrnlNzeNwmz8RS8RI9iG8ysX221GgO' },
 };
 const PLAYBACK_SETTINGS = { tempo: 'ddt-viewer-tempo', parts: 'ddt-viewer-parts', volumes: 'ddt-viewer-volumes', guide: 'ddt-viewer-tempo-guide', sounds: 'ddt-viewer-sounds', consent: 'ddt-viewer-sound-consent', repeats: 'ddt-viewer-repeats' };
-// Roles that start muted until the reader ticks them: Stiehl's realization doubles the figured
+// Roles that start muted until the reader ticks them: DdT's realization doubles the figured
 // bass (97-99.8 % of its notes at the same onset and pitch in each of the 17 works).
 const DEFAULT_OFF = new Set(['figured_continuo_bass']);
 const playback = {
