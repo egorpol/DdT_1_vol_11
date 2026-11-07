@@ -2,13 +2,13 @@
 
 These limited facsimile excerpts document readings discussed in the MEI
 annotations. They are listed in the order in which the readings appear in the
-volume (DdT 1903, printed pp. 3, 29, 39, 55, 75, 80, 85, 97, 112, 139, 173, 178, 180 and 181). Include this directory and its
+volume (DdT 1903, printed pp. 3, 29, 39, 55, 75, 80, 85, 97, 112, 128, 139, 141, 150, 173, 178, 180 and 181). Include this directory and its
 attribution with the score in the final release, preserving the relative paths.
 Crop provenance and checksums are recorded in [manifest.json](manifest.json).
 
 ## Reuse basis
 
-**Intended reuse basis of the eleven print excerpts (Germany, recorded
+**Intended reuse basis of the fourteen print excerpts (Germany, recorded
 2026-10-19):** documentary image
 quotation accompanying the critical discussion of each specific reading under
 [UrhG § 51](https://www.gesetze-im-internet.de/urhg/__51.html), with attribution
@@ -429,6 +429,40 @@ is the part of one historical-print bar on this staff, corresponding to part of
 DdT measure 168, showing the sign and its immediate musical context; no general
 scan-redistribution permission is asserted.
 
+## Op. II/5, measure 40, violin
+
+![Original-print bar documenting the rhythm of beats 1 and 2](supplemental_material_op2_05_m040_stimu1991.png)
+
+**Source:** Dieterich Buxtehude, *VII. Suonate à due, violino et violadagamba
+con cembalo*, Op. II (1696), Uppsala University Library, Düben Collection,
+`Uimtr 52:1–4`, RISM A/I B5205. Consulted through the STIMU facsimile edition
+(Utrecht, 1991; introduction by Kerala J. Snyder), supplied as university-library
+scans. The digitising institution was not named in the supplied provenance.
+
+**Location:** Violino partbook, Sonata V, printed p. 22, sixth staff, second
+bar; supplied `scan-0019.jpg`, left page. The crop shows the complete bar. The
+F-sharp5 is a dotted eighth, which completes beat 1 with the E5 and D-sharp5
+thirty-seconds, and the five thirty-seconds of beat 2 are 3/32 short. DdT 1903,
+printed p. 128, gives the F-sharp5 as a dotted sixteenth. The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op2_05_sonata_a_major_corr.mei#editorial.op205.m40.rhythm)
+explains the edition's conjecture, a C-sharp5 eighth, and gives the repair that
+DdT's Vorbericht proposes. This passage was directly compared on 2026-11-07;
+the comparison does not constitute complete collation of the work with the
+historical print.
+
+**Image preparation:** a direct crop at the scan's original pixel scale,
+1040 × 330 pixels, saved as PNG from the supplied full-resolution JPEG access
+image after verifying its SHA-256 against the conversion inventory. The crop runs from barline to barline. No
+resizing, retouching or reconstructed notation is included. The TIFF master was
+not read for this crop. Coordinates, source checksum and upstream master
+provenance are recorded in the crop manifest.
+
+**Intended reuse:** this excerpt accompanies the critical discussion of the
+specific rhythm on the documentary image-quotation basis recorded above (UrhG
+§§ 51 and 63, checked 2026-10-19). The scope is one historical-print bar,
+showing the beams and dots and their immediate musical context; no general
+scan-redistribution permission is asserted.
+
 ## Op. II/6, measure 3, violin
 
 ![Original-print measure supporting the E5 eighth-note reading](supplemental_material_op2_06_m003_stimu1991.png)
@@ -457,6 +491,74 @@ identified above and in the crop manifest.
 specific E5 reading on the documentary image-quotation basis recorded above
 (UrhG §§ 51 and 63, checked 2026-10-19). The scope is one measure, showing the
 printed beam and its immediate musical context.
+
+## Op. II/6, measure 49, violin
+
+![Original-print bar fragment with the B4 on beat 3](supplemental_material_op2_06_m049_stimu1991.png)
+
+**Source:** Dieterich Buxtehude, *VII. Suonate à due, violino et violadagamba
+con cembalo*, Op. II (1696), Uppsala University Library, Düben Collection,
+`Uimtr 52:1–4`, RISM A/I B5205. Consulted through the STIMU facsimile edition
+(Utrecht, 1991; introduction by Kerala J. Snyder), supplied as university-library
+scans. The digitising institution was not named in the supplied provenance.
+
+**Location:** Violino partbook, Sonata VI, printed p. 29; supplied
+`scan-0022.jpg`, right page. Measure 49 breaks at the end of staff 2, and this
+crop holds its second half, at the start of staff 3: A-sharp4, F-sharp4, B4,
+C-sharp5, then B4, A-sharp4, B4, D-sharp5, all sixteenths. The target is the
+third note, B4, where DdT 1903, printed p. 141, has A-sharp4. DdT's Vorbericht
+reports the print's reading under “Original hat”. The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op2_06_sonata_e_major_corr.mei#editorial.op206.m49.vorbericht)
+records it, and the encoding keeps DdT's text. This passage was directly
+compared on 2026-11-07; the comparison does not constitute complete collation
+of the work with the historical print.
+
+**Image preparation:** a direct crop at the scan's original pixel scale,
+825 × 315 pixels, saved as PNG from the supplied full-resolution JPEG access
+image after verifying its SHA-256 against the conversion inventory. The crop starts at the clef and ends at the barline; the first half of the measure, on staff 2, is outside it. No
+resizing, retouching or reconstructed notation is included. The TIFF master was
+not read for this crop. Coordinates, source checksum and upstream master
+provenance are recorded in the crop manifest.
+
+**Intended reuse:** this excerpt accompanies the critical discussion of the
+specific B4 on the documentary image-quotation basis recorded above (UrhG §§ 51
+and 63, checked 2026-10-19). The scope is the part of one historical-print bar
+on this staff, showing the note and its immediate musical context; no general
+scan-redistribution permission is asserted.
+
+## Op. II/7, measures 1–2, viola da gamba
+
+![Original-print bar with three note signs above the staff](supplemental_material_op2_07_m001_stimu1991.png)
+
+**Source:** Dieterich Buxtehude, *VII. Suonate à due, violino et violadagamba
+con cembalo*, Op. II (1696), Uppsala University Library, Düben Collection,
+`Uimtr 52:1–4`, RISM A/I B5205. Consulted through the STIMU facsimile edition
+(Utrecht, 1991; introduction by Kerala J. Snyder), supplied as university-library
+scans. The digitising institution was not named in the supplied provenance.
+
+**Location:** Viola da gamba partbook, Sonata VII, printed p. 29, first staff,
+first bar; supplied `scan-0039.jpg`, right page. This bar holds DdT's mm. 1–2:
+F4 dotted half, F4 quarter, F4 whole, with no second note on the staff. Three
+note signs in the same rhythm stand above the staff, under the heading, without
+staff lines or ledger lines, so no pitch can be read from them. DdT 1903,
+printed p. 150, prints F4 with A4 in round brackets. The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op2_07_sonata_f_major_corr.mei#editorial.sign.op207-m1)
+records the print's reading, and the encoding keeps DdT's text. This passage
+was directly compared on 2026-11-07; the comparison does not constitute
+complete collation of the work with the historical print.
+
+**Image preparation:** a direct crop at the scan's original pixel scale,
+560 × 425 pixels, saved as PNG from the supplied full-resolution JPEG access
+image after verifying its SHA-256 against the conversion inventory. The crop holds the heading, the bar from the clef to its barline, and the tempo word below. No
+resizing, retouching or reconstructed notation is included. The TIFF master was
+not read for this crop. Coordinates, source checksum and upstream master
+provenance are recorded in the crop manifest.
+
+**Intended reuse:** this excerpt accompanies the critical discussion of the
+reading on the documentary image-quotation basis recorded above (UrhG §§ 51 and
+63, checked 2026-10-19). The scope is one historical-print bar, corresponding to
+DdT mm. 1–2, with its heading and tempo word; no general scan-redistribution
+permission is asserted.
 
 ## App. II, measure 156, violin II
 

@@ -111,7 +111,7 @@
             </application>
          </appInfo>
          <editorialDecl>
-            <p>This is a working corrected digital edition based on DdT 1903. OMR and conversion errors are corrected against the DdT facsimile. The Op. II historical print was consulted selectively through the STIMU 1991 facsimile of the Uppsala partbooks for the violin reading in measure 3; the editor confirmed that source on 2026-10-20, and the passage was rechecked directly in the supplied scan. This selected comparison does not constitute complete collation with the historical print. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
+            <p>This is a working corrected digital edition based on DdT 1903. OMR and conversion errors are corrected against the DdT facsimile. The Op. II historical print was consulted selectively through the STIMU 1991 facsimile of the Uppsala partbooks for the violin reading in measure 3; the editor confirmed that source on 2026-10-20, and the passage was rechecked directly in the supplied scan. It was consulted on 2026-11-07 for the violin in measure 49 (Violino partbook, Sonata VI, printed p. 29; scan-0022, right-hand page, end of staff 2 and start of staff 3): the print’s B4 is recorded in editorial.op206.m49.vorbericht, and DdT’s A-sharp4 is kept. These selected comparisons do not constitute complete collation with the historical print. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
             <p>The staff arrangement and keyboard realization printed in DdT are retained. Staff 1 is violin; staff 2 is viola da gamba; staff 3 is the figured continuo bass; staves 4 and 5 are the upper and lower staves of the printed keyboard realization. The realization is distinguished from the figured continuo bass when defining an analytical view.</p>
             <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
             <p>The existing E5 eighth note on beat 3 in the violin at measure 3 is retained as a source-supported emendation of the sixteenth note printed in DdT. The annotation identifies the historical witness, its STIMU 1991 carrier and the precise passage in the supplied scan.</p>
@@ -138,6 +138,16 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-07" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Added the source-reading annotation editorial.op206.m49.vorbericht on the violin’s A-sharp4 l18niogf in m. 49, beat 3, and a facsimile excerpt of the part of the bar on staff 3: the Op. II print (Violino partbook, Sonata VI, p. 29) has B4 there, as DdT’s Vorbericht reports under “Original hat”, and the four notes are sixteenths. DdT’s text is kept, and the note still sounds A-sharp4. The editorial declaration now names this comparison. An AI model (Anthropic Claude) read the print at up to 4× and a second instance read it blind, agreeing on every note and beam count. The editor chose to keep DdT’s text on the review page of 2026-11-07. No collation is claimed.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-11-07" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Reworded one annotation passage that called the keyboard realization “the DdT editor’s”: it now says “DdT’s”, because the volume’s title page, Vorbericht, Inhalt and the heads of pp. 3, 79, 160, 164 and 176 name no realizer. No notes or xml:ids change. The editor approved the wording on 2026-11-07.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-05" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.11.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -5200,6 +5210,11 @@
                            </beam>
                         </layer>
                      </staff>
+                     <annot xml:id="editorial.op206.m49.vorbericht" type="editorial" label="source-reading" plist="#l18niogf" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 141 (BSB image 151), measure 49, violin, beat 3: A-sharp4 F-sharp4 A-sharp4 C-sharp5. <ref target="#src.uppsala.op2">The Op. II print</ref>, consulted through the <ref target="#src.stimu1991.op2">STIMU 1991 facsimile</ref>, Violino partbook, Sonata VI, p. 29, third staff, first bar: A-sharp4 F-sharp4 B4 C-sharp5, all sixteenths. DdT’s Vorbericht reports that reading under “Original hat”, drawing the four notes as eighths. The encoding keeps DdT’s text.</p>
+                        <p><ref type="digital-facsimile" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00008/full/4134,/0/default.jpg">DdT 1903, Vorbericht, p. VI (BSB image 8).</ref></p>
+                        <p><ref type="supplemental-material" target="../supplemental_material/supplemental_material_op2_06_m049_stimu1991.png">Supplemental facsimile excerpt: Op. II/6, the part of measure 49 on staff 3, violin (Op. II print through STIMU 1991).</ref></p>
+                     </annot>
                   </measure>
                   <measure xml:id="t1vbrlzo" n="50" facs="#zone_8a4e93cf34f7433bb8">
                      <harm xml:id="msv" staff="3" tstamp="1">
@@ -7619,7 +7634,7 @@
                         </layer>
                      </staff>
                      <annot xml:id="editorial.clash.op206-m68-b4" type="editorial" label="conjectural-emendation" plist="#q1krtr2lu" resp="#resp.polyakov #resp.camat">
-                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 143 (BSB image 153), measure 68, keyboard realization, upper staff: A-natural4 at beat 4, with a natural printed on the note. The encoding supplies a bracketed editorial sharp on q1krtr2lu, giving A-sharp4 at beat 4 in the keyboard realization, upper staff. At beat 4, the violin has A-sharp4 (written sign). The continuo figure “♯” over F-sharp3 (beat 4) asks A-sharp. The keyboard realization is the DdT editor's, not Buxtehude's. Found by the musical lint (CAMAT); Egor Polyakov decided the emendation on 2026-11-03.</p>
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 143 (BSB image 153), measure 68, keyboard realization, upper staff: A-natural4 at beat 4, with a natural printed on the note. The encoding supplies a bracketed editorial sharp on q1krtr2lu, giving A-sharp4 at beat 4 in the keyboard realization, upper staff. At beat 4, the violin has A-sharp4 (written sign). The continuo figure “♯” over F-sharp3 (beat 4) asks A-sharp. The keyboard realization is DdT's, not Buxtehude's. Found by the musical lint (CAMAT); Egor Polyakov decided the emendation on 2026-11-03.</p>
                      </annot>
                   </measure>
                   <sb xml:id="k1gbab2v" />

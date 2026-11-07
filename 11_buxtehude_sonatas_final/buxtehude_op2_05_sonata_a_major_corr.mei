@@ -65,6 +65,38 @@
                   </availability>
                </bibl>
             </source>
+            <source xml:id="src.uppsala.op2" type="historical-print">
+               <bibl>
+                  <title>VII. Suonate a due, violino et viola da gamba con cembalo ... opera secunda</title>
+                  <composer>Dieterich Buxtehude</composer>
+                  <imprint>
+                     <pubPlace>Lübeck</pubPlace>
+                     <date isodate="1696">1696</date>
+                  </imprint>
+                  <identifier type="RISM">RISM A/I B5205</identifier>
+                  <physLoc>
+                     <repository>Uppsala University Library (S-Uu), Düben Collection</repository>
+                     <identifier type="shelfmark">Uimtr 52:1–4</identifier>
+                  </physLoc>
+                  <ref type="catalogue" target="https://www2.musik.uu.se/duben/Printed%20music%20in%20the%20Duben%20Collection2024.pdf">Uppsala printed-music catalogue, p. 2; catalogue imprint Lübeck 1696</ref>
+                  <ref target="#src.stimu1991.op2">Consulted through the STIMU 1991 facsimile of the Uppsala partbooks.</ref>
+               </bibl>
+            </source>
+            <source xml:id="src.stimu1991.op2" type="facsimile-edition">
+               <bibl>
+                  <title>VII. Suonate à due, violino et violadagamba con cembalo</title>
+                  <composer>Dieterich Buxtehude</composer>
+                  <imprint>
+                     <pubPlace>Utrecht</pubPlace>
+                     <publisher>STIMU (Stichting voor Muziekhistorische Uitvoeringspraktijk)</publisher>
+                     <date isodate="1991">1991</date>
+                  </imprint>
+                  <ref target="#src.uppsala.op2">Facsimile edition of the Uppsala Op. II partbooks, with an introduction by Kerala J. Snyder. The modern title gives the historical imprint Hamburg 1696; the historical title describes printing in Hamburg and sale in Lübeck. Consulted via the supplied university-library scans.</ref>
+                  <availability>
+                     <useRestrict>Redistribution terms for the supplied library scans remain unconfirmed.</useRestrict>
+                  </availability>
+               </bibl>
+            </source>
          </sourceDesc>
       </fileDesc>
       <encodingDesc xml:id="e1l6xgek">
@@ -79,7 +111,7 @@
             </application>
          </appInfo>
          <editorialDecl>
-            <p>This is a working corrected digital edition based on DdT 1903. DdT is the source for the encoded readings and the repairs documented in this work. OMR and conversion errors are corrected against the DdT facsimile. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
+            <p>This is a working corrected digital edition based on DdT 1903. DdT is the source for the encoded readings and the repairs documented in this work, apart from the violin’s rhythm in measure 40. OMR and conversion errors are corrected against the DdT facsimile. The Op. II historical print was consulted selectively through the STIMU 1991 facsimile of the Uppsala partbooks for the violin in measure 40 on 2026-11-07 (Violino partbook, Sonata V, printed p. 22; scan-0019, left-hand page, staff 6), and for the sextuplet sign of the next bar. The conjectural emendation is recorded in editorial.op205.m40.rhythm. This selected comparison does not constitute complete collation with the historical print. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
             <p>The staff arrangement and keyboard realization printed in DdT are retained. Staff 1 is violin; staff 2 is viola da gamba; staff 3 is the figured continuo bass; staves 4 and 5 are the upper and lower staves of the printed keyboard realization. The realization is distinguished from the figured continuo bass when defining an analytical view.</p>
             <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
          </editorialDecl>
@@ -105,6 +137,16 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-07" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Changed the violin’s rhythm in m. 40: F-sharp5 sm19jwq is a dotted eighth, as in the Op. II print (Violino partbook, Sonata V, p. 22, staff 6), where DdT prints a dotted sixteenth, and C-sharp5 y16h1qxv is an eighth, the edition’s own conjecture, where DdT and the print have a thirty-second. Beats 1 and 2 now fill the bar, so the space um023x8 that padded it is removed, and the tied E5 and the dotted F-sharp5 fall on beats 3 and 4. The pitches are unchanged. Added the conjectural-emendation annotation editorial.op205.m40.rhythm, which also gives the repair that DdT’s Vorbericht proposes, a one-bar facsimile excerpt, the print (src.uppsala.op2) and its STIMU 1991 facsimile (src.stimu1991.op2) in the source description, as in Op. II/4, and the comparison in the editorial declaration. An AI model (Anthropic Claude) read the print at up to 4× and a second instance read it blind, agreeing on every note and beam count. The editor chose this reading from three options on the review page of 2026-11-07. No collation is claimed.</p>
+            </changeDesc>
+         </change>
+         <change isodate="2026-11-07" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Reworded one annotation passage that called the keyboard realization “the DdT editor’s”: it now says “DdT’s”, because the volume’s title page, Vorbericht, Inhalt and the heads of pp. 3, 79, 160, 164 and 176 name no realizer. No notes or xml:ids change. The editor approved the wording on 2026-11-07.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-05" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.11.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -1069,7 +1111,7 @@
                         </layer>
                      </staff>
                      <annot xml:id="editorial.clash.op205-m7-b7" type="editorial" label="conjectural-emendation" plist="#l9cab1k" resp="#resp.polyakov #resp.camat">
-                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 126 (BSB image 136), measure 7, keyboard realization, upper staff: D-natural4 at beat 7, with no accidental sign printed on the note. The encoding supplies a bracketed editorial sharp on l9cab1k, giving D-sharp4 at beat 7 in the keyboard realization, upper staff. The continuo figure “♯” over B3 (beat 7) asks D-sharp, the violin has D-sharp5 (written sign) at beat 9 while the note sounds, and both rise to E at beat 10. DdT's one sharp in this chord stands level with the F4 above, where it is redundant in A major, and the encoding keeps it there (n3rhvjn). It may have been meant for D4, but the print does not show that. The keyboard realization is the DdT editor's, not Buxtehude's. Found by a scan for held notes that clash with a note entering against them; Egor Polyakov read the note as D-sharp and decided the emendation on 2026-11-05.</p>
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 126 (BSB image 136), measure 7, keyboard realization, upper staff: D-natural4 at beat 7, with no accidental sign printed on the note. The encoding supplies a bracketed editorial sharp on l9cab1k, giving D-sharp4 at beat 7 in the keyboard realization, upper staff. The continuo figure “♯” over B3 (beat 7) asks D-sharp, the violin has D-sharp5 (written sign) at beat 9 while the note sounds, and both rise to E at beat 10. DdT's one sharp in this chord stands level with the F4 above, where it is redundant in A major, and the encoding keeps it there (n3rhvjn). It may have been meant for D4, but the print does not show that. The keyboard realization is DdT's, not Buxtehude's. Found by a scan for held notes that clash with a note entering against them; Egor Polyakov read the note as D-sharp and decided the emendation on 2026-11-05.</p>
                      </annot>
                   </measure>
                   <measure xml:id="k1074rgg" n="8" facs="#zone_6d2399ace6f040fa85">
@@ -4049,14 +4091,14 @@
                      <staff xml:id="pv2o2mn" n="1">
                         <layer xml:id="q1bhhopp" n="1">
                            <beam xml:id="r10ufwfo">
-                              <note xml:id="sm19jwq" dots="1" dur="16" oct="5" pname="f" stem.dir="down" accid.ges="s" />
+                              <note xml:id="sm19jwq" dots="1" dur="8" oct="5" pname="f" stem.dir="down" accid.ges="s" />
                               <note xml:id="u8w3xjw" dur="32" oct="5" pname="e" stem.dir="down" />
                               <note xml:id="v1edcg7m" dur="32" oct="5" pname="d" stem.dir="down">
                                  <accid xml:id="w89rorl" accid="s" />
                               </note>
                            </beam>
                            <beam xml:id="x7d1jsy">
-                              <note xml:id="y16h1qxv" dur="32" oct="5" pname="c" stem.dir="up" accid.ges="s" />
+                              <note xml:id="y16h1qxv" dur="8" oct="5" pname="c" stem.dir="up" accid.ges="s" />
                               <note xml:id="ac4zgrs" dur="32" oct="4" pname="b" stem.dir="up" />
                               <note xml:id="b1qwni5s" dur="32" oct="4" pname="a" stem.dir="up">
                                  <accid xml:id="c1kn3yw3" accid="s" />
@@ -4075,7 +4117,6 @@
                               <note xml:id="rk4h6x" dots="1" dur="8" oct="5" pname="f" stem.dir="down" accid.ges="s" />
                               <note xml:id="t7pkete" dur="16" oct="5" pname="e" stem.dir="down" />
                            </beam>
-                           <space xml:id="um023x8" dots="1" dur="8" />
                         </layer>
                      </staff>
                      <staff xml:id="uyw9653" n="2">
@@ -4103,6 +4144,11 @@
                         </layer>
                      </staff>
                      <tie xml:id="jx06h7m" startid="#i1eu05r3" endid="#kef1vlk" />
+                     <annot xml:id="editorial.op205.m40.rhythm" type="editorial" label="conjectural-emendation" plist="#sm19jwq #y16h1qxv" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 128 (BSB image 138), measure 40, violin: F-sharp5 dotted sixteenth, then seven thirty-seconds from E5 to F-sharp4, 10/32 where the first two beats need 16/32. <ref target="#src.uppsala.op2">The Op. II print</ref>, consulted through the <ref target="#src.stimu1991.op2">STIMU 1991 facsimile</ref>, Violino partbook, Sonata V, p. 22, sixth staff, second bar, has the same eight pitches with F-sharp5 a dotted eighth, which completes beat 1, and five thirty-seconds on beat 2, 3/32 short. The encoding takes the print’s first beat and makes the C-sharp5 an eighth, the rhythm of beat 3 in the same bar. DdT’s Vorbericht proposes another repair (“Muß wohl richtiger heißen”): F-sharp5 dotted eighth, E5 sixteenth and six sixteenths under a 6, which also fills the two beats but moves the D-sharp5 out of the print’s first beam group. The pitches are unchanged, and the space that padded the bar is gone.</p>
+                        <p><ref type="digital-facsimile" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00008/full/4134,/0/default.jpg">DdT 1903, Vorbericht, p. VI (BSB image 8).</ref></p>
+                        <p><ref type="supplemental-material" target="../supplemental_material/supplemental_material_op2_05_m040_stimu1991.png">Supplemental facsimile excerpt: Op. II/5, measure 40, violin (Op. II print through STIMU 1991).</ref></p>
+                     </annot>
                   </measure>
                   <measure xml:id="vtpfyyq" n="41" facs="#zone_6b964790f96849668e">
                      <harm tstamp="1" staff="3" xml:id="op2_05.m41.harm.3">

@@ -6,6 +6,10 @@ All notable changes to this edition are recorded here. Version numbers follow th
 
 ### Added
 
+- Op. II/5, m. 40, violin: the first two beats now fill the bar. F-sharp5 is a dotted eighth, as in the Op. II print, where DdT prints a dotted sixteenth, and C-sharp5 is an eighth, the edition’s own conjecture; the `<space>` that padded the bar is gone, and the tied E5 and the dotted F-sharp5 fall on beats 3 and 4. The pitches are unchanged. The conjectural-emendation annotation editorial.op205.m40.rhythm also gives the different repair that DdT’s Vorbericht proposes, and a one-bar excerpt shows the print.
+- Op. II/6, m. 49, violin: added a source-reading annotation on the third note of beat 3, with an excerpt: the Op. II print has B4, as DdT’s Vorbericht reports, and DdT’s A-sharp4 is retained.
+- Op. II/7, mm. 1–2, gamba: editorial.sign.op207-m1 is now a source-reading annotation, with an excerpt. The Op. II print has F4 alone on the staff, in one bar for DdT’s two, and three note signs in the same rhythm above it, from which no pitch can be read. DdT’s text is retained: F4 and A4 both sound.
+- These three print readings were made by an AI model (Anthropic Claude), with a blind second read that agreed on every note and beam count; the editor chose each outcome on 2026-11-07. They are selective comparisons, not a collation.
 - App. III, mm. 92 and 130: retained DdT’s notes and added source-reading annotations with manuscript excerpts and a quotation and link to the Vorbericht; the violon’s last four notes and the first two of its four marks at m. 130 remain tentative.
 - App. II, m. 156, violin II: adopted the manuscript’s D5 eighth followed by an eighth rest, replacing the interim conjecture; updated ayvjvlf1 to source-supported-emendation and added a one-bar excerpt credited “Uppsala University Library, Imhs 13:27”.
 - App. II, m. 56: added a source-reading annotation on DdT’s bracketed figures 4 and 6; the manuscript has no figure, and DdT’s text is retained.
@@ -18,6 +22,7 @@ All notable changes to this edition are recorded here. Version numbers follow th
 
 ### Changed
 
+- Annotations in 16 works now call the keyboard realization “DdT’s”, not “the DdT editor’s”, for the reason given for the viewer label below: 51 sentences read “The keyboard realization is DdT's, not Buxtehude's”, and 2 brackets after “DdT's keyboard realization” drop the phrase. Text only: no notes or IDs change.
 - The viewer's Parts menu now lists the realization as “Realization (DdT)”, and its note, the README and [`docs/viewer-midi-plan.md`](docs/viewer-midi-plan.md) say “DdT's realization” in place of “Stiehl's realization”, which was an inference from Stiehl's editorship: the volume's title page, *Vorbericht*, *Inhalt* and the heads of pp. 3, 79, 160, 164 and 176 name no realizer. The 0.11.0 entry below and that release's notes keep their sentence as published, and a dated note at the end of those notes says so. The viewer's header now gives the abbreviation DdT.
 
 ### Fixed
@@ -27,7 +32,7 @@ All notable changes to this edition are recorded here. Version numbers follow th
 - App. III, m. 104: the gamba's last eighth sounds C♮5, not C♯5. DdT's bracketed natural above the note was text in a `<dir>`, which does not sound; it is now a written sign (`<accid accid="n" place="above" enclose="paren"/>`). The editor decided on 2026-11-06 that every accidental DdT prints in round brackets on a note staff sounds.
 - Op. I/7, m. 62: the sharp on the gamba's D4 is drawn once, in round brackets above the note, as DdT prints it (p. 69), not a second time as a plain sharp beside it. The note still sounds D♯4.
 - Op. I/1, m. 59: the keyboard's E♭4 has the round brackets that DdT prints (p. 6).
-- Op. II/7, mm. 1–2: the gamba's A4 has the round brackets that DdT prints (p. 150), which its *Vorbericht* explains: “Im Original steht f, richtiger das eingeklammerte a.” DdT draws one pair round the three notes; each note now shows its own, with `head.mod="paren"`, because Verovio ignores `enclose` on a note. An `encoding-note` annotation records this. The notes sound as before. [`docs/editorial-policy.md`](docs/editorial-policy.md) gives the rule.
+- Op. II/7, mm. 1–2: the gamba's A4 has the round brackets that DdT prints (p. 150), which its *Vorbericht* explains: “Im Original steht f, richtiger das eingeklammerte a.” DdT draws one pair round the three notes; each note now shows its own, with `head.mod="paren"`, because Verovio ignores `enclose` on a note. An annotation records this. The notes sound as before. [`docs/editorial-policy.md`](docs/editorial-policy.md) gives the rule.
 - Op. II/3, m. 89: the gamba's last beat is a G3 eighth and two A3 sixteenths, as DdT prints it (p. 108), not two eighths. The OMR had dropped a note.
 - Op. II/4, m. 209: the last three figures read 5, 6, 6, as DdT prints them (p. 124), not 6, 5, 6.
 
