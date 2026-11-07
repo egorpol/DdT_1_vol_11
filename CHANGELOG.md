@@ -6,6 +6,13 @@ All notable changes to this edition are recorded here. Version numbers follow th
 
 ### Added
 
+- Op. II/3, m. 47, gamba and continuo: added a source-reading annotation with an excerpt. The Op. II print has the F3 and E-flat3 that DdT’s Vorbericht reports, with a flat printed before the E, so DdT’s text agrees with the print.
+- Op. II/3, m. 51, gamba and continuo: added a source-reading annotation with two excerpts. On the last eighth DdT prints a natural, the Vorbericht says the original has E-flat, and the print has E2 with no sign. DdT’s text is retained.
+- Op. II/3, m. 86, violin: added a source-reading annotation with an excerpt: the print has E5 with no sign, as the Vorbericht reports, and DdT’s E-flat5 is retained.
+- Op. II/3, m. 89: added a source-reading annotation with an excerpt of m. 88. No part of the print has an E on the last eighth, which the Vorbericht names; the E-flat4 there is in DdT’s realization. The annotation also gives the plain E4 of the Cembalo partbook in m. 88 and says that the Vorbericht does not name its note. DdT’s text is retained.
+- Op. II/4, m. 209: added a source-reading annotation without an excerpt: all three parts of the print agree with DdT here, and the gamba’s D4 is the print’s only D on the second eighth, which the Vorbericht names.
+- Op. II/7, m. 35, violin: added a source-reading annotation with an excerpt: the print has the E-flat5 that the Vorbericht reports, with a flat printed before it, so DdT’s text agrees with the print.
+- These six readings were made by an AI model (Anthropic Claude), with a blind second read that agreed on every note; the editor chose each annotation on 2026-11-07. They are selective comparisons, not a collation. Each of the 13 entries for Op. II and the appendix works in the list on pp. VI–VII of the Vorbericht now has an annotation.
 - App. I, m. 83, continuo: added a source-reading annotation with a one-bar excerpt credited “Uppsala University Library, Imhs 13:25”. The Organo part has a second sharp above the final C3 and, at the left of the C2, a mark with the form of a 7, not certainly a figure; DdT prints neither and its text is retained. DdT’s Vorbericht entry for this bar is quoted and linked.
 - Op. II/5, m. 40, violin: the first two beats now fill the bar. F-sharp5 is a dotted eighth, as in the Op. II print, where DdT prints a dotted sixteenth, and C-sharp5 is an eighth, the edition’s own conjecture; the `<space>` that padded the bar is gone, and the tied E5 and the dotted F-sharp5 fall on beats 3 and 4. The pitches are unchanged. The conjectural-emendation annotation editorial.op205.m40.rhythm also gives the different repair that DdT’s Vorbericht proposes, and a one-bar excerpt shows the print.
 - Op. II/6, m. 49, violin: added a source-reading annotation on the third note of beat 3, with an excerpt: the Op. II print has B4, as DdT’s Vorbericht reports, and DdT’s A-sharp4 is retained.
@@ -23,6 +30,7 @@ All notable changes to this edition are recorded here. Version numbers follow th
 
 ### Changed
 
+- The README and the [editorial policy](docs/editorial-policy.md) now name DdT’s Vorbericht: it belongs to the DdT source, its list points to readings but does not attest them, and no encoded reading rests on it alone.
 - Annotations in 16 works now call the keyboard realization “DdT’s”, not “the DdT editor’s”, for the reason given for the viewer label below: 51 sentences read “The keyboard realization is DdT's, not Buxtehude's”, and 2 brackets after “DdT's keyboard realization” drop the phrase. Text only: no notes or IDs change.
 - The viewer's Parts menu now lists the realization as “Realization (DdT)”, and its note, the README and [`docs/viewer-midi-plan.md`](docs/viewer-midi-plan.md) say “DdT's realization” in place of “Stiehl's realization”, which was an inference from Stiehl's editorship: the volume's title page, *Vorbericht*, *Inhalt* and the heads of pp. 3, 79, 160, 164 and 176 name no realizer. The 0.11.0 entry below and that release's notes keep their sentence as published, and a dated note at the end of those notes says so. The viewer's header now gives the abbreviation DdT.
 

@@ -8,6 +8,8 @@ This policy was established following the pilot review and the editor's source c
 
 Use `src.ddt1903` for the 1903 DdT edition. It supplies the base score, its printed keyboard realization, and the existing BSB facsimile/measure-zone mapping. Keep its full description and separate image-use statement in `sourceDesc`.
 
+DdT's *Vorbericht* belongs to `src.ddt1903`; it is not a separate source. Its list on printed pp. VI–VII (BSB images 8–9) has 13 entries for Op. II and the appendix works, and each has an annotation that quotes the entry and links the page. Some entries report what the print or manuscript had, and others propose a repair, so the list points to a reading but does not attest one: check the historical witness, keep the Vorbericht out of `@source`, and quote and link it, never crop it. No encoded reading rests on the Vorbericht alone.
+
 Use the following additional source IDs for the historical prints. The locally supplied TIFFs reproduce the STIMU facsimile editions (Utrecht, 1991, introduction by Kerala J. Snyder), which in turn reproduce the Uppsala copies. Keep the historical witness and modern carrier distinct; see [the scan and conversion guide](uppsala-facsimiles.md). The source IDs below identify the historical witnesses:
 
 - `src.uppsala.op1`: Dieterich Buxtehude, *VII. Suonate a doi, violino & viola da gamba, con cembalo ... opera prima*. Lübeck [1696]. RISM A/I B5204. Uppsala University Library (S-Uu), Düben Collection, `Uimtr 52:1–4`.

@@ -111,7 +111,7 @@
             </application>
          </appInfo>
          <editorialDecl>
-            <p>This is a working corrected digital edition based on DdT 1903. The Op. II historical print was consulted selectively through the STIMU 1991 facsimile of the Uppsala partbooks for the two low gamba Es at measure 167 and the low gamba F at measure 168 (viola da gamba partbook, Sonata III; scan-0032, left-hand page, printed p. 14) on 2026-11-05. It prints a flat before each low E of measure 167 and a sharp, flooded with ink, before the low F of measure 168, so the bracketed editorial signs there are source-supported emendations (editorial.clash.op203-m167-b3_25, editorial.clash.op203-m168-b3_5), each documented with a supplemental facsimile excerpt. This selected comparison does not constitute complete collation with the historical print. OMR and conversion errors are corrected against the DdT facsimile. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
+            <p>This is a working corrected digital edition based on DdT 1903. The Op. II historical print was consulted selectively through the STIMU 1991 facsimile of the Uppsala partbooks for the two low gamba Es at measure 167 and the low gamba F at measure 168 (viola da gamba partbook, Sonata III; scan-0032, left-hand page, printed p. 14) on 2026-11-05. It prints a flat before each low E of measure 167 and a sharp, flooded with ink, before the low F of measure 168, so the bracketed editorial signs there are source-supported emendations (editorial.clash.op203-m167-b3_25, editorial.clash.op203-m168-b3_5), each documented with a supplemental facsimile excerpt. On 2026-11-07 the print was consulted for the bars named in DdT’s Vorbericht: measures 47 and 51 in all three parts (Violino partbook, Sonata III, printed p. 12; scan-0014, left-hand page; Viola da gamba partbook, printed p. 12; scan-0031, left-hand page; Cembalo partbook, printed p. 9; scan-0045, right-hand page), the violin in measure 86 (Violino partbook, printed p. 13; scan-0014, right-hand page), and measures 88–89 in all three parts (Violino partbook, printed p. 13; scan-0014, right-hand page; Viola da gamba partbook, printed p. 13; scan-0031, right-hand page; Cembalo partbook, printed p. 10; scan-0046, left-hand page). DdT’s text is kept, and four source-reading annotations record the print’s readings (editorial.op203.m47.vorbericht, editorial.op203.m51.vorbericht, editorial.op203.m86.vorbericht, editorial.op203.m89.vorbericht). These selected comparisons do not constitute complete collation with the historical print. OMR and conversion errors are corrected against the DdT facsimile. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
             <p>The staff arrangement and keyboard realization printed in DdT are retained. Staff 1 is violin; staff 2 is viola da gamba; staff 3 is the figured continuo bass; staves 4 and 5 are the upper and lower staves of the printed keyboard realization. The realization is distinguished from the figured continuo bass when defining an analytical view.</p>
             <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
             <p>Measures 218–232, which DdT prints between repeat signs after the fermata that closes measure 217, are encoded as a section that an explicit expansion plays twice after measures 1–217. The explicit plan is needed because Verovio 6.3.0 generates no expansion in a file with editorial annotations. No printed repeat bar, source break or event is changed by this structural encoding.</p>
@@ -138,6 +138,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-07" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Added four source-reading annotations for the entries of DdT’s Vorbericht on this sonata, as the editor chose on the review page of 2026-11-07: editorial.op203.m47.vorbericht on the F3 and E-flat3 of gamba and continuo, with an excerpt of the Cembalo partbook; editorial.op203.m51.vorbericht on the last E2 of gamba and continuo, with excerpts of both partbooks; editorial.op203.m86.vorbericht on the violin’s E-flat5, with an excerpt; and editorial.op203.m89.vorbericht on the realization’s E-flat4 in m. 89 and the continuo’s E-flat4 in m. 88, with an excerpt of m. 88. The editorial declaration now names these comparisons. DdT’s text is kept, and no notes change. An AI model (Anthropic Claude) read the print and a second instance read it blind, agreeing on every note. No collation is claimed.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-07" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Reworded 12 annotation passages that called the keyboard realization “the DdT editor’s”: they now say “DdT’s”, because the volume’s title page, Vorbericht, Inhalt and the heads of pp. 3, 79, 160, 164 and 176 name no realizer. No notes or xml:ids change. The editor approved the wording on 2026-11-07.</p>
@@ -6546,6 +6551,11 @@
                               </beam>
                            </layer>
                         </staff>
+                        <annot xml:id="editorial.op203.m47.vorbericht" type="editorial" label="source-reading" plist="#q12ovmny #rw20u79 #q1j1dlev #rcfejgi" resp="#resp.polyakov #resp.camat">
+                           <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 106 (BSB image 116), measure 47, gamba and continuo, eighths 5–6: F3 E-flat3. DdT’s Vorbericht lists the bar among its doubtful cases: “Original hat f. es.” <ref target="#src.uppsala.op2">The Op. II print</ref>, consulted through the <ref target="#src.stimu1991.op2">STIMU 1991 facsimile</ref>, has the same two notes in the Viola da gamba partbook, Sonata III, p. 12, third staff, first bar, and in the Cembalo partbook, p. 9, tenth staff, with a flat printed before the E in both. DdT’s text agrees with the print.</p>
+                           <p><ref type="digital-facsimile" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00008/full/4134,/0/default.jpg">DdT 1903, Vorbericht, p. VI (BSB image 8).</ref></p>
+                           <p><ref type="supplemental-material" target="../supplemental_material/supplemental_material_op2_03_m047_stimu1991.png">Supplemental facsimile excerpt: Op. II/3, measure 47, continuo (Op. II print through STIMU 1991).</ref></p>
+                        </annot>
                      </measure>
                      <measure xml:id="j14n6wh0" right="dbl" n="48" facs="#zone_20202aa88d6a4a74a0">
                         <harm xml:id="dfgjz67" staff="3" tstamp="1">
@@ -7178,6 +7188,12 @@
                            </layer>
                         </staff>
                         <tie xml:id="tbicgd9" endid="#e18yvhvh" staff="5" startid="#c1pwum0k" curvedir="below" />
+                        <annot xml:id="editorial.op203.m51.vorbericht" type="editorial" label="source-reading" plist="#s1yh3k91 #bmq8fka" resp="#resp.polyakov #resp.camat">
+                           <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 106 (BSB image 116), measure 51, last eighth: E2 with a natural in the gamba and the continuo. <ref target="#src.uppsala.op2">The Op. II print</ref>, consulted through the <ref target="#src.stimu1991.op2">STIMU 1991 facsimile</ref>, has E2 with no sign in both parts, under a signature of one flat (Viola da gamba partbook, Sonata III, p. 12, fourth staff, last bar; Cembalo partbook, p. 9, eleventh staff, last bar). Earlier in the bar the gamba partbook has a flat before E3, and the Cembalo partbook has none. DdT’s Vorbericht says: “Letztes Achtel im Original es.” The encoding keeps DdT’s text.</p>
+                           <p><ref type="digital-facsimile" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00008/full/4134,/0/default.jpg">DdT 1903, Vorbericht, p. VI (BSB image 8).</ref></p>
+                           <p><ref type="supplemental-material" target="../supplemental_material/supplemental_material_op2_03_m051_gamba_stimu1991.png">Supplemental facsimile excerpt: Op. II/3, measure 51, viola da gamba (Op. II print through STIMU 1991).</ref></p>
+                           <p><ref type="supplemental-material" target="../supplemental_material/supplemental_material_op2_03_m051_continuo_stimu1991.png">Supplemental facsimile excerpt: Op. II/3, measure 51, continuo (Op. II print through STIMU 1991).</ref></p>
+                        </annot>
                      </measure>
                      <measure xml:id="olx8gkt" right="dbl" n="52" facs="#zone_983471da693c48acb3">
                         <harm xml:id="dfhf56" staff="3" tstamp="1.5">
@@ -10987,6 +11003,11 @@
                               <rest xml:id="zeeitfq" dur="4" />
                            </layer>
                         </staff>
+                        <annot xml:id="editorial.op203.m86.vorbericht" type="editorial" label="source-reading" plist="#mxfrm9" resp="#resp.polyakov #resp.camat">
+                           <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 108 (BSB image 118), measure 86, violin, first beat: E-flat5, the fourth sixteenth. <ref target="#src.uppsala.op2">The Op. II print</ref>, consulted through the <ref target="#src.stimu1991.op2">STIMU 1991 facsimile</ref>, Violino partbook, Sonata III, p. 13, fifth staff, last bar: E5 with no sign, under a signature of one flat. DdT’s Vorbericht reports that reading: “Original hat e im ersten Viertel.” The encoding keeps DdT’s text.</p>
+                           <p><ref type="digital-facsimile" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00008/full/4134,/0/default.jpg">DdT 1903, Vorbericht, p. VI (BSB image 8).</ref></p>
+                           <p><ref type="supplemental-material" target="../supplemental_material/supplemental_material_op2_03_m086_stimu1991.png">Supplemental facsimile excerpt: Op. II/3, measure 86, violin (Op. II print through STIMU 1991).</ref></p>
+                        </annot>
                      </measure>
                      <measure xml:id="y11i04cq" n="87" facs="#zone_824fc9fa270946a28e">
                         <staff xml:id="h1s6a3a0" n="1">
@@ -11389,6 +11410,11 @@
                         </staff>
                         <tie xml:id="fyvnvxz" startid="#e1kev31p" endid="#rdvv8cy" />
                         <tie xml:id="tbbh32x1" endid="#e171wgmt" staff="4" startid="#o15xg8ny" />
+                        <annot xml:id="editorial.op203.m89.vorbericht" type="editorial" label="source-reading" plist="#km3gudq #n1kl441v" resp="#resp.polyakov #resp.camat">
+                           <p>DdT’s Vorbericht says of this bar: “Im Original letztes Achtel e, natürlicher wohl es.” In <ref target="#src.uppsala.op2">the Op. II print</ref>, consulted through the <ref target="#src.stimu1991.op2">STIMU 1991 facsimile</ref>, no part has an E on the last eighth of measure 89: the Viola da gamba partbook has A3 A3 (Sonata III, p. 13, fourth staff), the Cembalo partbook A3 with no figure (p. 10, seventh staff), the Violino partbook C5 (p. 13, sixth staff). The E-flat4 on that eighth is in DdT’s realization, which is not in the print. In measure 88 the Cembalo partbook has E4 with no sign on the seventh eighth (p. 10, sixth staff), where the gamba partbook prints a flat and DdT has E-flat4 in both parts. The Vorbericht does not say which note it means. The encoding keeps DdT’s text.</p>
+                           <p><ref type="digital-facsimile" target="https://api.digitale-sammlungen.de/iiif/image/v2/bsb00023199_00008/full/4134,/0/default.jpg">DdT 1903, Vorbericht, p. VI (BSB image 8).</ref></p>
+                           <p><ref type="supplemental-material" target="../supplemental_material/supplemental_material_op2_03_m088_stimu1991.png">Supplemental facsimile excerpt: Op. II/3, measure 88, continuo (Op. II print through STIMU 1991).</ref></p>
+                        </annot>
                      </measure>
                      <measure xml:id="gygqzr" n="90" facs="#zone_b32bd80a4ea34e07ac">
                         <tempo xml:id="bsb00023199_00118_facs_zones_t1" staff="1" startid="#rdvv8cy">
