@@ -19,7 +19,7 @@ may correspond to more than one measure in DdT. This is a proposed
 basis for this use, not a conclusion that small images are automatically exempt
 from rights or that every use in every jurisdiction is covered.
 
-**The App. II and App. III excerpts (permission of 2026-11-06):** these excerpts come from
+**The App. I, App. II and App. III excerpts (permission of 2026-11-06):** these excerpts come from
 manuscript images in Uppsala University Library's Düben database, not from the
 STIMU books, and they rest on the library's permission, not on the basis above.
 The library wrote on 2026-11-06: “The images published in the Düben database
@@ -27,8 +27,8 @@ are freely available for public use without restrictions or fees. You are
 therefore free to publish both the whole and parts of the images of these
 manuscripts as you like. A reference should include "Uppsala University
 Library" and the shelf mark, for example Imhs 13:24.” The credits are therefore
-Uppsala University Library, Imhs 13:27 (App. II), and Uppsala University Library,
-Imhs 13:24 (App. III). The permission does not extend to the
+Uppsala University Library, Imhs 13:25 (App. I), Uppsala University Library,
+Imhs 13:27 (App. II), and Uppsala University Library, Imhs 13:24 (App. III). The permission does not extend to the
 STIMU prints or the BSB images.
 
 The repository's licenses (CC BY 4.0 for the encodings and documentation, MIT
@@ -559,6 +559,39 @@ reading on the documentary image-quotation basis recorded above (UrhG §§ 51 an
 63, checked 2026-10-19). The scope is one historical-print bar, corresponding to
 DdT mm. 1–2, with its heading and tempo word; no general scan-redistribution
 permission is asserted.
+
+## App. I, measure 83, continuo
+
+![Manuscript bar with two sharps and a mark beside the low C](supplemental_material_app_01_m083_imhs13_25.png)
+
+**Source:** Dieterich Buxtehude, *Sonata a 2 ex B. Con le Suite* (BuxWV 273), manuscript
+parts, Uppsala University Library, Imhs 13:25 (Instr. mus. i hskr. 13:25), Düben Collection.
+[Organo facsimile](https://www2.musik.uu.se/duben/browsePart.php?Select_Part=03&Select_Dnr=2089&command=restart).
+
+**Location and purpose:** Organo, fol. 2v, tenth staff, second bar, image
+`imhs013,025_p03_02v.jpg`, corresponding to combined-score m. 83.
+The crop includes the whole bar, both barlines, the sharps above the C2 and the final
+C3, and the mark at the left of the C2; at its foot it also shows a 7 from the figures
+of the next staff. It documents those signs against DdT 1903, printed p. 163, m. 83,
+which prints the first sharp and neither of the other two. The mark has the form of a
+7 but is not certain to be a figure. The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_app_01_suite_to_op1_04_corr.mei#editorial.figure.app01-m83)
+keeps DdT’s text and quotes and links the Vorbericht.
+Codex read the bar at full resolution, and Claude checked its notes, signs, staff and
+bar against the image; the editor chose to record the mark and keep DdT.
+This selective examination is not a collation.
+
+**Image preparation:** a direct crop at unchanged pixel scale, 795 × 355 pixels,
+from the full-resolution JPEG served by the Düben database, saved as lossless PNG.
+The input SHA-256 was checked against the database’s copy on 2026-11-07. The box is
+`(470, 2915, 1265, 3270)` in the 2730 × 4066 source image. The completed PNG was inspected
+to confirm both barlines, both sharps and the mark are inside. No resizing, retouching or
+reconstructed notation is included. Checksums and provenance are in the manifest.
+
+**Credit and reuse:** Uppsala University Library, Imhs 13:25. Published under
+the library’s permission of 2026-11-06 for images in the Düben database, recorded
+under [Reuse basis](#reuse-basis). The edition’s CC BY 4.0 and MIT licenses do not
+cover this image.
 
 ## App. II, measure 156, violin II
 

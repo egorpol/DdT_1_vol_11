@@ -6,6 +6,7 @@ All notable changes to this edition are recorded here. Version numbers follow th
 
 ### Added
 
+- App. I, m. 83, continuo: added a source-reading annotation with a one-bar excerpt credited “Uppsala University Library, Imhs 13:25”. The Organo part has a second sharp above the final C3 and, at the left of the C2, a mark with the form of a 7, not certainly a figure; DdT prints neither and its text is retained. DdT’s Vorbericht entry for this bar is quoted and linked.
 - Op. II/5, m. 40, violin: the first two beats now fill the bar. F-sharp5 is a dotted eighth, as in the Op. II print, where DdT prints a dotted sixteenth, and C-sharp5 is an eighth, the edition’s own conjecture; the `<space>` that padded the bar is gone, and the tied E5 and the dotted F-sharp5 fall on beats 3 and 4. The pitches are unchanged. The conjectural-emendation annotation editorial.op205.m40.rhythm also gives the different repair that DdT’s Vorbericht proposes, and a one-bar excerpt shows the print.
 - Op. II/6, m. 49, violin: added a source-reading annotation on the third note of beat 3, with an excerpt: the Op. II print has B4, as DdT’s Vorbericht reports, and DdT’s A-sharp4 is retained.
 - Op. II/7, mm. 1–2, gamba: editorial.sign.op207-m1 is now a source-reading annotation, with an excerpt. The Op. II print has F4 alone on the staff, in one bar for DdT’s two, and three note signs in the same rhythm above it, from which no pitch can be read. DdT’s text is retained: F4 and A4 both sound.

@@ -161,6 +161,11 @@ It shows the D5 eighth and following eighth rest adopted in place of the interim
 conjecture. Its preparation and reuse basis are in the
 [rights note](../supplemental_material/README.md).
 
+The App. I m. 83 excerpt, one bar of Organo, is credited “Uppsala University
+Library, Imhs 13:25”. It shows the second sharp and the mark with the form of a 7
+that DdT does not print; DdT’s text is retained. DdT’s Vorbericht entry for this
+bar is quoted and linked, with no BSB image reproduced.
+
 The App. III (BuxWV 267)
 excerpt, one bar of the Viol di gamba part at m. 37, is credited “Uppsala
 University Library, Imhs 13:24”. It shows the sharp before the gamba A3 that
