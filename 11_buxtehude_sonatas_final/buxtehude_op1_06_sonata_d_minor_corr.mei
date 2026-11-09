@@ -141,6 +141,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-09" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Repaired OMR errors in the continuo and the keyboard’s left hand in 4 bars, as DdT prints them: m. 20 (printed p. 56, BSB image 66), left hand, beat 1: D2, not C2; m. 55 (printed p. 58, BSB image 68), left hand, beat 2: B♭3, not C4; m. 114 (printed p. 61, BSB image 71), left hand, beats 2.5, 3 and 3.5: A2 G2 A2, not G2 A2 B♭2; m. 148 (printed p. 63, BSB image 73), left hand, eighth 1: D2, not E2. In DdT the keyboard’s left hand mostly doubles the continuo; the errors were found where the two disagree, and where DdT’s own staves differ, its reading stands. An AI model (OpenAI Codex) read both staves of each bar from the page image without seeing the encoding, and the editor checked every bar against the page image on 2026-11-09. DdT is unambiguous at each of these notes, so the repairs carry no annotation.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-07" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Reworded one annotation passage that called the keyboard realization “the DdT editor’s”: it now says “DdT’s”, because the volume’s title page, Vorbericht, Inhalt and the heads of pp. 3, 79, 160, 164 and 176 name no realizer. No notes or xml:ids change. The editor approved the wording on 2026-11-07.</p>
@@ -2807,7 +2812,7 @@
                            <note xml:id="zvnrya9" dur="4" oct="4" pname="c" stem.dir="down" />
                         </layer>
                         <layer xml:id="ae2s0xd" n="6">
-                           <note xml:id="bi90lv4" dur="4" oct="2" pname="c" stem.dir="down" />
+                           <note xml:id="bi90lv4" dur="4" oct="2" pname="d" stem.dir="down" />
                            <space xml:id="c3hmz0i" dur="2" />
                            <space xml:id="d14pl77e" dur="4" />
                         </layer>
@@ -6381,7 +6386,7 @@
                               <note xml:id="crbwet4" dur="8" oct="3" pname="a" stem.dir="down" />
                            </beam>
                            <beam xml:id="d7q5eca">
-                              <note xml:id="efuls53" dur="8" oct="4" pname="c" stem.dir="down" />
+                              <note xml:id="efuls53" dur="8" oct="3" pname="b" stem.dir="down" accid.ges="f" />
                               <note xml:id="fv3tndi" dur="8" oct="3" pname="a" stem.dir="down" />
                            </beam>
                            <beam xml:id="ghi2yw1">
@@ -11599,11 +11604,11 @@
                               <note xml:id="g1735g2c" dur="8" oct="3" pname="d" stem.dir="up" />
                               <note xml:id="h10hxegy" dur="8" oct="3" pname="c" stem.dir="up" />
                               <note xml:id="i9l7nm" dur="8" oct="2" pname="b" stem.dir="up" accid.ges="f" />
-                              <note xml:id="ke5blzm" dur="8" oct="2" pname="g" stem.dir="up" />
+                              <note xml:id="ke5blzm" dur="8" oct="2" pname="a" stem.dir="up" />
                            </beam>
                            <beam>
-                              <note xml:id="l1jlxkvx" dur="8" oct="2" pname="a" stem.dir="up" />
-                              <note xml:id="l1jlvx" dur="8" oct="2" pname="b" stem.dir="up" accid.ges="f" />
+                              <note xml:id="l1jlxkvx" dur="8" oct="2" pname="g" stem.dir="up" />
+                              <note xml:id="l1jlvx" dur="8" oct="2" pname="a" stem.dir="up" />
                            </beam>
                         </layer>
                      </staff>
@@ -14157,7 +14162,7 @@
                      </staff>
                      <staff xml:id="ql09wlf" n="5">
                         <layer xml:id="mftirx6" n="1">
-                           <note xml:id="nrbf77m" dur="8" oct="2" pname="e" stem.dir="up" />
+                           <note xml:id="nrbf77m" dur="8" oct="2" pname="d" stem.dir="up" />
                            <rest xml:id="pbwht5z" dur="8" />
                            <note xml:id="qm5tqnu" dur="8" oct="3" pname="d" stem.dir="down" />
                            <beam xml:id="s2d7n3w">

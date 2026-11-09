@@ -138,6 +138,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-09" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Repaired OMR errors in the continuo and the keyboard’s left hand in 3 bars, as DdT prints them: m. 3 (printed p. 139, BSB image 149), left hand, beat 2: C♯3, not G♯2; m. 34 (printed p. 140, BSB image 150), left hand, beat 1.75: G♯3, not A3; m. 176 (printed p. 148, BSB image 158), left hand, beat 2: G♯3, not A3. In DdT the keyboard’s left hand mostly doubles the continuo; the errors were found where the two disagree, and where DdT’s own staves differ, its reading stands. An AI model (OpenAI Codex) read both staves of each bar from the page image without seeing the encoding, and the editor checked every bar against the page image on 2026-11-09. DdT is unambiguous at each of these notes, so the repairs carry no annotation.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-07" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Added the source-reading annotation editorial.op206.m49.vorbericht on the violin’s A-sharp4 l18niogf in m. 49, beat 3, and a facsimile excerpt of the part of the bar on staff 3: the Op. II print (Violino partbook, Sonata VI, p. 29) has B4 there, as DdT’s Vorbericht reports under “Original hat”, and the four notes are sixteenths. DdT’s text is kept, and the note still sounds A-sharp4. The editorial declaration now names this comparison. An AI model (Anthropic Claude) read the print at up to 4× and a second instance read it blind, agreeing on every note and beam count. The editor chose to keep DdT’s text on the review page of 2026-11-07. No collation is claimed.</p>
@@ -705,7 +710,7 @@
                      <staff xml:id="j1s92zwg" n="5">
                         <layer xml:id="zx18i6x" n="1">
                            <note xml:id="a17dwbxq" dur="4" oct="3" pname="e" stem.dir="down" />
-                           <note xml:id="b1ghuux1" dur="4" oct="2" pname="g" stem.dir="up" accid.ges="s" />
+                           <note xml:id="b1ghuux1" dur="4" oct="3" pname="c" stem.dir="up" accid.ges="s" />
                            <note xml:id="d1fh91ww" dur="4" oct="2" pname="g" stem.dir="up" accid.ges="s" />
                            <note xml:id="f1jr9qcl" dur="4" oct="2" pname="a" accid="s" stem.dir="up" />
                         </layer>
@@ -3258,7 +3263,7 @@
                         <layer xml:id="v4pu1it" n="1">
                            <beam xml:id="w10va9zm">
                               <note xml:id="x1tc20lo" dur="8" dots="1" oct="3" pname="g" stem.dir="down" accid.ges="s" />
-                              <note xml:id="zv111dm" dur="16" oct="3" pname="a" stem.dir="down" />
+                              <note xml:id="zv111dm" dur="16" oct="3" pname="g" stem.dir="down" accid.ges="s" />
                            </beam>
                            <beam xml:id="a2s79b8">
                               <note xml:id="b2wwas1" dots="1" dur="8" oct="3" pname="f" stem.dir="down" accid.ges="s" />
@@ -17836,7 +17841,7 @@
                               <note xml:id="x15fks7b" dur="8" oct="3" pname="f" stem.dir="down" accid.ges="s" />
                            </beam>
                            <beam xml:id="z406hpg">
-                              <note xml:id="ad9zm7a" dur="8" oct="3" pname="a" stem.dir="down" />
+                              <note xml:id="ad9zm7a" dur="8" oct="3" pname="g" stem.dir="down" accid.ges="s" />
                               <note xml:id="b1f1y1ha" dur="8" oct="3" pname="e" stem.dir="down" />
                            </beam>
                            <beam xml:id="c1oxjy6b">

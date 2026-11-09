@@ -143,6 +143,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-09" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Repaired OMR errors in the continuo and the keyboard’s left hand in 4 bars, as DdT prints them: m. 69 (printed p. 6, BSB image 16), left hand, beat 1.75: C3, not D3; m. 91 (printed p. 8, BSB image 18), continuo, eighth 5: C3, not D3; m. 110 (printed p. 8, BSB image 18), continuo, eighth 5: C3, not D3; m. 151 (printed p. 11, BSB image 21), left hand, beat 2.75: A2, not G2. In DdT the keyboard’s left hand mostly doubles the continuo; the errors were found where the two disagree, and where DdT’s own staves differ, its reading stands. An AI model (OpenAI Codex) read both staves of each bar from the page image without seeing the encoding, and the editor checked every bar against the page image on 2026-11-09. DdT is unambiguous at each of these notes, so the repairs carry no annotation.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-07" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Reworded 2 annotation passages that called the keyboard realization “the DdT editor’s”: they now say “DdT’s”, because the volume’s title page, Vorbericht, Inhalt and the heads of pp. 3, 79, 160, 164 and 176 name no realizer. No notes or xml:ids change. The editor approved the wording on 2026-11-07.</p>
@@ -7771,7 +7776,7 @@
                         <layer xml:id="p1cpwsi6" n="1">
                            <beam xml:id="q117smtr">
                               <note xml:id="rr9b9qt" dots="1" dur="8" oct="3" pname="e" stem.dir="down" />
-                              <note xml:id="sef2lyo" dur="16" oct="3" pname="d" stem.dir="down" />
+                              <note xml:id="sef2lyo" dur="16" oct="3" pname="c" stem.dir="down" />
                            </beam>
                            <note xml:id="thji153" dur="4" oct="3" pname="f" stem.dir="down" />
                            <beam xml:id="urn7n7m">
@@ -9606,7 +9611,7 @@
                            <note xml:id="aihw7rc" dur="8" oct="2" pname="f" stem.dir="up" />
                            <beam xml:id="b1bj8bp4">
                               <note xml:id="c5nwg93" dur="8" oct="3" pname="c" stem.dir="down" />
-                              <note xml:id="d1xks3jx" dur="16" oct="3" pname="d" stem.dir="down" />
+                              <note xml:id="d1xks3jx" dur="16" oct="3" pname="c" stem.dir="down" />
                               <note xml:id="n2yyro5" dur="16" oct="3" pname="d" stem.dir="down" />
                               <note xml:id="e1wdvzb0" dur="8" oct="3" pname="e" stem.dir="down" />
                            </beam>
@@ -11503,7 +11508,7 @@
                            </beam>
                            <beam xml:id="fggfv5f">
                               <note xml:id="g1gsbct0" dur="8" oct="3" pname="c" stem.dir="up" />
-                              <note xml:id="hq2abhg" dur="16" oct="3" pname="d" stem.dir="up" />
+                              <note xml:id="hq2abhg" dur="16" oct="3" pname="c" stem.dir="up" />
                               <note xml:id="ipethsh" breaksec="1" dur="16" oct="2" pname="b" stem.dir="up" accid.ges="f" />
                               <note xml:id="kqs5ope" dur="8" oct="2" pname="a" stem.dir="up" />
                            </beam>
@@ -15344,7 +15349,7 @@
                            </beam>
                            <beam xml:id="l1th9tcq">
                               <note xml:id="m1c8cay2" dots="1" dur="8" oct="2" pname="a" stem.dir="up" />
-                              <note xml:id="n1fs0i67" dur="16" oct="2" pname="g" stem.dir="up" />
+                              <note xml:id="n1fs0i67" dur="16" oct="2" pname="a" stem.dir="up" />
                            </beam>
                            <note xml:id="o1wol1ud" dur="4" oct="2" pname="b" stem.dir="up" accid.ges="f" />
                            <rest xml:id="q1g6kwsl" dur="8" />

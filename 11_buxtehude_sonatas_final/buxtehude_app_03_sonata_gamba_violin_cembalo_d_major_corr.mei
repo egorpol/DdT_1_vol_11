@@ -123,6 +123,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-09" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Repaired an OMR error in the continuo and the keyboard’s left hand in 1 bar, as DdT prints them: m. 46 (printed p. 178, BSB image 188), left hand, beat 1.5: A2, not B2. In DdT the keyboard’s left hand mostly doubles the continuo; the error was found where the two disagree, and where DdT’s own staves differ, its reading stands. An AI model (OpenAI Codex) read both staves of each bar from the page image without seeing the encoding, and the editor checked the bar against the page image on 2026-11-09. DdT is unambiguous at this note, so the repair carries no annotation.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-07" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Reworded one annotation passage that called the keyboard realization “the DdT editor’s”: it now says “DdT’s”, because the volume’s title page, Vorbericht, Inhalt and the heads of pp. 3, 79, 160, 164 and 176 name no realizer. No notes or xml:ids change. The editor approved the wording on 2026-11-07.</p>
@@ -4824,7 +4829,7 @@
                            <note xml:id="b14cx7vh" dur="4" oct="2" pname="g" stem.dir="up">
                               <accid xml:id="c1sbcsq5" accid="s" />
                            </note>
-                           <note xml:id="dbg5arr" dur="4" oct="2" pname="b" stem.dir="up" />
+                           <note xml:id="dbg5arr" dur="4" oct="2" pname="a" stem.dir="up" />
                            <note xml:id="e1bvhlgp" dur="4" oct="2" pname="f" stem.dir="up" accid.ges="s" />
                            <note xml:id="gggyz0a" dur="4" oct="2" pname="g" stem.dir="up" accid.ges="s" />
                         </layer>

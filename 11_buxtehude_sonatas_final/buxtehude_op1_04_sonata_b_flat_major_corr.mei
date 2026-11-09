@@ -140,6 +140,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-09" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Repaired OMR errors in the continuo and the keyboard’s left hand in 4 bars, as DdT prints them: m. 86 (printed p. 38, BSB image 48), continuo, beat 1: E♭3, not F3; m. 93 (printed p. 38, BSB image 48), left hand, beat 4: A2, not B♭2; m. 107 (printed p. 39, BSB image 49), left hand, beat 2: G3 B♭3, not F3 A3; m. 144 (printed p. 42, BSB image 52), continuo, beat 1: G3, not A3. In DdT the keyboard’s left hand mostly doubles the continuo; the errors were found where the two disagree, and where DdT’s own staves differ, its reading stands. An AI model (OpenAI Codex) read both staves of each bar from the page image without seeing the encoding, and the editor checked every bar against the page image on 2026-11-09. DdT is unambiguous at each of these notes, so the repairs carry no annotation.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-07" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Reworded one annotation passage that called the keyboard realization “the DdT editor’s”: it now says “DdT’s”, because the volume’s title page, Vorbericht, Inhalt and the heads of pp. 3, 79, 160, 164 and 176 name no realizer. No notes or xml:ids change. The editor approved the wording on 2026-11-07.</p>
@@ -7722,7 +7727,7 @@
                      </staff>
                      <staff xml:id="k1dz085b" n="3">
                         <layer xml:id="l1io39cw" n="1">
-                           <note xml:id="macnuvo" dur="4" oct="3" pname="f" stem.dir="down" />
+                           <note xml:id="macnuvo" dur="4" oct="3" pname="e" stem.dir="down" accid.ges="f" />
                            <note xml:id="ncy4ojq2" dur="4" oct="3" pname="g" stem.dir="down" />
                            <note xml:id="n1rawozm" dur="4" oct="3" pname="f" stem.dir="down" />
                            <note xml:id="omielkx" dur="4" oct="2" pname="a" stem.dir="up" />
@@ -8372,7 +8377,7 @@
                               <note xml:id="h1q0s4sz" oct="3" pname="f" />
                               <note xml:id="jmcuuv4" oct="3" pname="a" />
                            </chord>
-                           <note xml:id="ku6q3xz" dur="4" oct="2" pname="b" stem.dir="down" accid.ges="f" />
+                           <note xml:id="ku6q3xz" dur="4" oct="2" pname="a" stem.dir="down" />
                         </layer>
                         <layer xml:id="n2tkbv2" n="6">
                            <space xml:id="qeylhn0" dur="2" />
@@ -9736,8 +9741,8 @@
                               <note xml:id="z7xldx6" oct="3" pname="b" accid.ges="f" />
                            </chord>
                            <chord xml:id="cb3rink" dur="4" stem.dir="down">
-                              <note xml:id="b1ci7v5v" oct="3" pname="f" />
-                              <note xml:id="d16ug2i4" oct="3" pname="a" />
+                              <note xml:id="b1ci7v5v" oct="3" pname="g" />
+                              <note xml:id="d16ug2i4" oct="3" pname="b" accid.ges="f" />
                            </chord>
                            <chord xml:id="cvspjqr1" dur="4" stem.dir="down">
                               <note xml:id="nc0jru81" oct="3" pname="a" />
@@ -13330,7 +13335,7 @@
                      <staff xml:id="ddxu95n" n="3">
                         <layer xml:id="enl1n8h" n="1">
                            <beam xml:id="f1wry9b2">
-                              <note xml:id="g1h0jflb" dur="8" oct="3" pname="a" stem.dir="down" />
+                              <note xml:id="g1h0jflb" dur="8" oct="3" pname="g" stem.dir="down" />
                               <note xml:id="hicff2y" dur="16" oct="3" pname="f" stem.dir="down" />
                               <note xml:id="i179prg0" dur="16" oct="3" pname="e" stem.dir="down" accid.ges="f" />
                            </beam>

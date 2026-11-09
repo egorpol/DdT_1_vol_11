@@ -137,6 +137,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-09" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Repaired OMR errors in the continuo and the keyboard’s left hand in 2 bars, as DdT prints them: m. 14 (printed p. 126, BSB image 136), continuo: B3 A3 G♯3 E3 E4, not E3 D3 C♯3 A2 A3 (transcribed as if in bass clef, though the C clef from m. 11 is encoded); m. 126 (printed p. 132, BSB image 142), left hand, beat 3: A2, not G♯2. In DdT the keyboard’s left hand mostly doubles the continuo; the errors were found where the two disagree, and where DdT’s own staves differ, its reading stands. An AI model (OpenAI Codex) read both staves of each bar from the page image without seeing the encoding, and the editor checked every bar against the page image on 2026-11-09. DdT is unambiguous at each of these notes, so the repairs carry no annotation.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-07" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Changed the violin’s rhythm in m. 40: F-sharp5 sm19jwq is a dotted eighth, as in the Op. II print (Violino partbook, Sonata V, p. 22, staff 6), where DdT prints a dotted sixteenth, and C-sharp5 y16h1qxv is an eighth, the edition’s own conjecture, where DdT and the print have a thirty-second. Beats 1 and 2 now fill the bar, so the space um023x8 that padded it is removed, and the tied E5 and the dotted F-sharp5 fall on beats 3 and 4. The pitches are unchanged. Added the conjectural-emendation annotation editorial.op205.m40.rhythm, which also gives the repair that DdT’s Vorbericht proposes, a one-bar facsimile excerpt, the print (src.uppsala.op2) and its STIMU 1991 facsimile (src.stimu1991.op2) in the source description, as in Op. II/4, and the comparison in the editorial declaration. An AI model (Anthropic Claude) read the print at up to 4× and a second instance read it blind, agreeing on every note and beam count. The editor chose this reading from three options on the review page of 2026-11-07. No collation is claimed.</p>
@@ -1761,11 +1766,11 @@
                      </staff>
                      <staff xml:id="zgt4dx3" n="3">
                         <layer xml:id="a1now4hp" n="1">
-                           <note xml:id="o191nqf" dots="1" dur="4" oct="3" pname="e" stem.dir="down" />
-                           <note xml:id="p1e2ojuz" dots="1" dur="4" oct="3" pname="d" stem.dir="down" />
-                           <note xml:id="qn71cyu" dots="1" dur="4" oct="3" pname="c" stem.dir="up" accid.ges="s" />
-                           <note xml:id="sy4aa09" dur="4" oct="2" pname="a" stem.dir="up" />
-                           <note xml:id="t298lqi" dur="8" oct="3" pname="a" stem.dir="down" />
+                           <note xml:id="o191nqf" dots="1" dur="4" oct="3" pname="b" stem.dir="down" />
+                           <note xml:id="p1e2ojuz" dots="1" dur="4" oct="3" pname="a" stem.dir="down" />
+                           <note xml:id="qn71cyu" dots="1" dur="4" oct="3" pname="g" stem.dir="up" accid.ges="s" />
+                           <note xml:id="sy4aa09" dur="4" oct="3" pname="e" stem.dir="up" />
+                           <note xml:id="t298lqi" dur="8" oct="4" pname="e" stem.dir="down" />
                         </layer>
                      </staff>
                      <staff xml:id="l1f5fj78" n="4">
@@ -10191,7 +10196,7 @@
                         <layer xml:id="w5mryzd" n="1">
                            <note xml:id="xp1zsqz" dur="4" oct="2" pname="a" stem.dir="up" />
                            <note xml:id="y1l9l2vx" dur="4" oct="2" pname="b" stem.dir="up" />
-                           <note xml:id="a1o7zht1" dur="4" oct="2" pname="g" stem.dir="up" accid.ges="s" />
+                           <note xml:id="a1o7zht1" dur="4" oct="2" pname="a" stem.dir="up" />
                            <rest xml:id="c1c6fmpr" dur="4" />
                         </layer>
                      </staff>
