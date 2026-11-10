@@ -2,7 +2,9 @@
 
 All notable changes to this edition are recorded here. Version numbers follow the [encoding profile](docs/mei-encoding-profile.md#release-identity-versions-and-citation): patch releases for compatible corrections or metadata fixes that keep event IDs, minor releases for added works or coverage, and major releases for changes to event identity, segmentation or analytical interpretation. Musical corrections are listed even when the version step is small.
 
-## [Unreleased]
+## [0.12.0] — 2026-11-10
+
+Fourth public pre-release. All 17 works are **corrected, not finalized**: a review snapshot of 2026-11-10. Whether 1.0 covers 16 or 17 works is still open. See the [release notes](docs/release-notes/0.12.0.md) for the validation record and known limitations, among them the staves that the comparison of continuo and left hand cannot reach, and the [1.0 checklist](docs/finalization-plan.md) for what remains. 4 `xml:id`s present in v0.11.0 are gone (two `dir`, two `space`; none of a note, rest, chord or measure), and in App. II m. 55 the id `r14shlwa` changes from a measure rest to a note; the list is in the release notes.
 
 ### Added
 
@@ -30,6 +32,8 @@ All notable changes to this edition are recorded here. Version numbers follow th
 
 ### Changed
 
+- All 17 MEI headers now read `<edition n="0.12.0">Corrected working edition (pre-release)</edition>`, the last-updated date is 2026-11-10, and each `revisionDesc` gets a top `<change isodate="2026-11-10">` entry. The consistency reports and `validation/editorial-reports.json` are refreshed. The musical text, annotations and facsimile zones are unchanged by this step.
+- The README's definition of `corrected` now says that the review is not exhaustive and that transcription errors can remain, and its editorial approach says that an error the checks have not found is a departure from DdT with no record. The 0.11.0 release notes get a dated note: their status paragraph says too much, and three of their sections were copied by mistake from the 0.10.0 notes.
 - The README and the [editorial policy](docs/editorial-policy.md) now name DdT’s Vorbericht: it belongs to the DdT source, its list points to readings but does not attest them, and no encoded reading rests on it alone.
 - Annotations in 16 works now call the keyboard realization “DdT’s”, not “the DdT editor’s”, for the reason given for the viewer label below: 51 sentences read “The keyboard realization is DdT's, not Buxtehude's”, and 2 brackets after “DdT's keyboard realization” drop the phrase. Text only: no notes or IDs change.
 - The viewer's Parts menu now lists the realization as “Realization (DdT)”, and its note, the README and [`docs/viewer-midi-plan.md`](docs/viewer-midi-plan.md) say “DdT's realization” in place of “Stiehl's realization”, which was an inference from Stiehl's editorship: the volume's title page, *Vorbericht*, *Inhalt* and the heads of pp. 3, 79, 160, 164 and 176 name no realizer. The 0.11.0 entry below and that release's notes keep their sentence as published, and a dated note at the end of those notes says so. The viewer's header now gives the abbreviation DdT.
@@ -170,6 +174,7 @@ First public pre-release. The 16 assembled works are **corrected, not finalized*
 
 - The page-level OMR files from musiconn.scoresearch in `11_buxtehude_dietrich_buxtehudes_instrumentalwerke_bsb00023199/`, from which the work-level files were assembled. They are source material, not part of the edition text.
 
+[0.12.0]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.12.0
 [0.11.0]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.11.0
 [0.10.0]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.10.0
 [0.9.0]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.9.0

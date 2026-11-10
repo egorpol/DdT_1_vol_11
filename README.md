@@ -62,10 +62,10 @@ Status terms are used as follows:
 
 - `pending`: no complete work-level MEI has been assembled.
 - `combined`: source-page encodings have been assembled with linked facsimile surfaces.
-- `corrected`: the musical text and facsimile references have been reviewed and local consistency checks completed.
+- `corrected`: the musical text and facsimile references have been reviewed against DdT and local consistency checks completed. The review is not exhaustive, and transcription errors can remain; the [release notes](docs/release-notes/0.12.0.md#known-limitations) say which staves the checks reach.
 - `finalized`: metadata, editorial review, validation, and publication naming are complete.
 
-The 0.11.0 pre-release publishes all 17 works as corrected, not finalized; whether 1.0 covers 16 or 17 works is still open. Op. II/1 (assembled 2026-10-25, corrected with the editor 2026-10-25–26) joined the corpus in 0.10.0. The [finalization plan](docs/finalization-plan.md) lists what remains before 1.0. The work lists in [`validation/`](validation/README.md) record the same terms in `editorial_status`.
+The 0.12.0 pre-release publishes all 17 works as corrected, not finalized; whether 1.0 covers 16 or 17 works is still open. Op. II/1 (assembled 2026-10-25, corrected with the editor 2026-10-25–26) joined the corpus in 0.10.0. The [finalization plan](docs/finalization-plan.md) lists what remains before 1.0. The work lists in [`validation/`](validation/README.md) record the same terms in `editorial_status`.
 
 The App. III stem keeps its original `violin`; the printed score and the MEI work list name the violone (BuxWV 267).
 
@@ -135,7 +135,7 @@ selection. These local images have not been cleared for public redistribution.
 
 ## Editorial approach
 
-This is a corrected digital edition based on DdT 1903, retaining its staff layout and keyboard realization. Relevant historical witnesses are consulted through identified reproductions. DdT's own *Vorbericht* (pp. VI–VII) lists doubtful passages; each entry was checked against the sources consulted and has an annotation that quotes it and links the page. OMR repairs, source-supported emendations, conjectural emendations, source readings and encoding notes are distinguished in the [editorial policy](docs/editorial-policy.md). Substantive departures from DdT are documented in the MEI, and the editorial accidentals that resolve clashes DdT prints stand in square brackets, with an annotation for each decision that gives DdT's reading and the reason. Each measure is linked to a zone on the corresponding facsimile surface, allowing the encoded notation and source image to be inspected together.
+This is a corrected digital edition based on DdT 1903, retaining its staff layout and keyboard realization. Relevant historical witnesses are consulted through identified reproductions. DdT's own *Vorbericht* (pp. VI–VII) lists doubtful passages; each entry was checked against the sources consulted and has an annotation that quotes it and links the page. OMR repairs, source-supported emendations, conjectural emendations, source readings and encoding notes are distinguished in the [editorial policy](docs/editorial-policy.md). The edition's own departures from DdT are documented in the MEI, and the editorial accidentals that resolve clashes DdT prints stand in square brackets, with an annotation for each decision that gives DdT's reading and the reason. A transcription error that the checks have not found is a departure with no record. Each measure is linked to a zone on the corresponding facsimile surface, allowing the encoded notation and source image to be inspected together.
 
 The MEI 5.1 CMN publication profile is applied to the pilot and is the target for finalizing the other work-level files. The work title, source description, responsibilities, editorial method, identifiers, revision history, and separate licensing of the MEI data and facsimile are recorded in the MEI header. Detailed implementation guidance is kept in the [MEI encoding profile](docs/mei-encoding-profile.md), rather than in this public overview.
 
@@ -160,9 +160,9 @@ Work on this corpus is funded by the German Research Foundation (DFG), programme
 
 ## Citation
 
-Cite a versioned release, currently the 0.11.0 pre-release, and cite the underlying source edition separately. The same metadata are in [`CITATION.cff`](CITATION.cff); the [changelog](CHANGELOG.md) lists each release.
+Cite a versioned release, currently the 0.12.0 pre-release, and cite the underlying source edition separately. The same metadata are in [`CITATION.cff`](CITATION.cff); the [changelog](CHANGELOG.md) lists each release.
 
-> Polyakov, Egor, Lea Meret Beck, Ragna Conrads, Francy Häring, Jan-Raphael Kemnitzer, Pia Steuck, Jingyu Tu, and You Zhou. *DdT 1, Vol. 11 — Dietrich Buxtehude: Instrumental Works*. Version 0.11.0 (pre-release). CAMAT Corpus Editions, 2026. https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.11.0.
+> Polyakov, Egor, Lea Meret Beck, Ragna Conrads, Francy Häring, Jan-Raphael Kemnitzer, Pia Steuck, Jingyu Tu, and You Zhou. *DdT 1, Vol. 11 — Dietrich Buxtehude: Instrumental Works*. Version 0.12.0 (pre-release). CAMAT Corpus Editions, 2026. https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.12.0.
 
 > Dietrich Buxtehude. *Dietrich Buxtehudes Instrumentalwerke: Sonaten für Violine, Gambe und Cembalo*. Edited by Carl Stiehl. Leipzig: Breitkopf und Härtel, 1903. Digitized by the Bayerische Staatsbibliothek as `bsb00023199`.
 
