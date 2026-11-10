@@ -28,11 +28,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.11.0">Corrected working edition (pre-release)</edition>
+            <edition n="0.12.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="p1rgkhhn">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-11-05" type="last-updated">2026-11-05</date>
+            <date isodate="2026-11-10" type="last-updated">2026-11-10</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_02_sonata_g_major_corr.mei</identifier>
             <availability>
@@ -144,6 +144,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-10" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.12.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-09" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Repaired OMR errors in the continuo and the keyboard’s left hand in 7 bars, as DdT prints them: m. 15 (printed p. 14, BSB image 24), left hand, beat 3.5: E3, not D3; m. 17 (printed p. 14, BSB image 24), left hand, beats 1.5, 2, 3 and 4: G2 A2 B2 C3, not C3 C3 D3 E3; m. 50 (printed p. 16, BSB image 26), continuo, beat 3.5: B2, not C3; m. 60 (printed p. 16, BSB image 26), left hand, beat 2: D4, not C♯4; m. 101 (printed p. 18, BSB image 28), continuo, eighth 1: D♯3, not F♯3 (the natural DdT prints on the D3 on eighth 3 is now encoded); m. 121 (printed p. 19, BSB image 29), left hand, beat 2.5: E3, not G3; m. 128 (printed p. 20, BSB image 30), left hand, beat 3: G2, not B2. In DdT the keyboard’s left hand mostly doubles the continuo; the errors were found where the two disagree, and where DdT’s own staves differ, its reading stands. An AI model (OpenAI Codex) read both staves of each bar from the page image without seeing the encoding, and the editor checked every bar against the page image on 2026-11-09. DdT is unambiguous at each of these notes, so the repairs carry no annotation.</p>

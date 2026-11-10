@@ -24,11 +24,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.11.0">Corrected working edition (pre-release)</edition>
+            <edition n="0.12.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="phq39mx">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-11-05" type="last-updated">2026-11-05</date>
+            <date isodate="2026-11-10" type="last-updated">2026-11-10</date>
             <date isodate="2019-02-12" type="encoding-date">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op2_03_sonata_g_minor_corr.mei</identifier>
             <availability>
@@ -138,6 +138,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-10" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.12.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-09" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Repaired OMR errors in the continuo and the keyboard’s left hand in 10 bars, as DdT prints them: m. 9 (printed p. 103, BSB image 113), left hand, beat 3: C3, not B♭2; m. 25 (printed p. 104, BSB image 114), continuo, beat 2: two eighths B♭2 A2, not one A2 quarter; m. 44 (printed p. 105, BSB image 115), continuo, beat 3: two eighths B♭3 F♯3, not one F♯3 quarter; m. 64 (printed p. 107, BSB image 117), left hand, beat 2.5: D2, not C2; m. 138 (printed p. 111, BSB image 121), left hand, beat 2.5: E3, not D3; m. 144 (printed p. 111, BSB image 121), left hand, beat 2.5: C3, not B♭2; m. 162 (printed p. 112, BSB image 122), left hand, beat 2.5: E3, not G2; m. 168 (printed p. 112, BSB image 122), left hand, beat 2.5: C3, not B♭2; m. 205 (printed p. 114, BSB image 124), left hand, eighth 6: the missing F3 eighth before the B♭3 (the B♭3 now starts on eighth 7, and the space that padded the bar is gone); m. 207 (printed p. 114, BSB image 124), left hand, eighth 12: E♭3, not D♭3. In DdT the keyboard’s left hand mostly doubles the continuo; the errors were found where the two disagree, and where DdT’s own staves differ, its reading stands. An AI model (OpenAI Codex) read both staves of each bar from the page image without seeing the encoding, and the editor checked every bar against the page image on 2026-11-09. DdT is unambiguous at each of these notes, so the repairs carry no annotation.</p>

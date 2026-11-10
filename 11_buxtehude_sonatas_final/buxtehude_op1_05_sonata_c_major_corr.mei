@@ -28,11 +28,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.11.0">Corrected working edition (pre-release)</edition>
+            <edition n="0.12.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt>
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-11-05" type="last-updated">2026-11-05</date>
+            <date isodate="2026-11-10" type="last-updated">2026-11-10</date>
             <date isodate="2026-08-21" type="metadata-date">2026-08-21</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_05_sonata_c_major_corr.mei</identifier>
             <availability>
@@ -114,6 +114,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-10" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.12.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-09" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Repaired OMR errors in the continuo and the keyboard’s left hand in 2 bars, as DdT prints them: m. 48 (printed p. 46, BSB image 56), left hand, beat 1: E3, not F3; m. 190 (printed p. 52, BSB image 62), left hand, beat 4.5: D3, not C3. In DdT the keyboard’s left hand mostly doubles the continuo; the errors were found where the two disagree, and where DdT’s own staves differ, its reading stands. An AI model (OpenAI Codex) read both staves of each bar from the page image without seeing the encoding, and the editor checked every bar against the page image on 2026-11-09. DdT is unambiguous at each of these notes, so the repairs carry no annotation.</p>

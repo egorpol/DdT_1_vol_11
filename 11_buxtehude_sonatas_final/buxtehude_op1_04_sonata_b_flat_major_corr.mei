@@ -24,11 +24,11 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.11.0">Corrected working edition (pre-release)</edition>
+            <edition n="0.12.0">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="p89mz2i">
             <publisher>CAMAT Corpus Editions</publisher>
-            <date isodate="2026-11-05" type="last-updated">2026-11-05</date>
+            <date isodate="2026-11-10" type="last-updated">2026-11-10</date>
             <date isodate="2019-02-12" type="encoding-date" xml:id="da1uat3">2019-02-12</date>
             <identifier type="URI">https://github.com/egorpol/DdT_1_vol_11/blob/main/11_buxtehude_sonatas_final/buxtehude_op1_04_sonata_b_flat_major_corr.mei</identifier>
             <availability>
@@ -140,6 +140,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-10" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.12.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-09" resp="#resp.camat #resp.polyakov">
             <changeDesc>
                <p>Repaired OMR errors in the continuo and the keyboard’s left hand in 4 bars, as DdT prints them: m. 86 (printed p. 38, BSB image 48), continuo, beat 1: E♭3, not F3; m. 93 (printed p. 38, BSB image 48), left hand, beat 4: A2, not B♭2; m. 107 (printed p. 39, BSB image 49), left hand, beat 2: G3 B♭3, not F3 A3; m. 144 (printed p. 42, BSB image 52), continuo, beat 1: G3, not A3. In DdT the keyboard’s left hand mostly doubles the continuo; the errors were found where the two disagree, and where DdT’s own staves differ, its reading stands. An AI model (OpenAI Codex) read both staves of each bar from the page image without seeing the encoding, and the editor checked every bar against the page image on 2026-11-09. DdT is unambiguous at each of these notes, so the repairs carry no annotation.</p>
