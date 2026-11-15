@@ -123,6 +123,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-15" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Removed the duplicate tie tie.app3.m58.d4 at m. 58 (printed p. 179, BSB image 189), the keyboard’s right hand, D4 of the chord on beat 1 tied to the lower voice’s D4 on beat 2: it joined the same two notes as f11m0sdf77d, which remains and now also names staff 4 and the downward curve. Rendering and MIDI in Verovio 6.3.0 are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-10" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.12.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -6269,7 +6274,7 @@
                      <fermata xml:id="z1mok2qz" staff="3" startid="#y1fqfrq7" form="norm" place="above" />
                      <fermata xml:id="ohcq0py" staff="4" startid="#n70b9zt" form="norm" place="above" />
                      <fermata xml:id="f11m077d" staff="5" startid="#ewbjm5a" form="norm" place="above" />
-                     <tie xml:id="f11m0sdf77d" startid="#j12dei0n" endid="#vjguyqs" />
+                     <tie xml:id="f11m0sdf77d" startid="#j12dei0n" endid="#vjguyqs" staff="4" curvedir="below" />
                      <harm xml:id="n3acisjr12" staff="3" tstamp="1.25">
                         <fb>
                            <f>(7)</f>
@@ -6285,7 +6290,6 @@
                            <f>3</f>
                         </fb>
                      </harm>
-                     <tie xml:id="tie.app3.m58.d4" startid="#j12dei0n" endid="#vjguyqs" staff="4" curvedir="below" />
                   </measure>
                   <sb xml:id="s1vpzfhm" />
                   <measure xml:id="iq7xq0h" n="59" facs="#zone_a4ebd2da102c4a7595">

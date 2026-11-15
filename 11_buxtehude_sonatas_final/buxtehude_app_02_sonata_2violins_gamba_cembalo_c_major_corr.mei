@@ -125,6 +125,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-15" resp="#resp.camat #resp.polyakov">
+            <changeDesc>
+               <p>Removed the duplicate tie tpyyp5x1 at m. 179 (printed p. 175, BSB image 185), viola da gamba, F♯2 tied into m. 180: it joined the same two notes as sd0qax6, which remains and now also names staff 3. Rendering and MIDI in Verovio 6.3.0 are unchanged.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-10" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.12.0 pre-release: a corrected working edition, not finalized. Updated the last-updated date. The musical text, annotations and facsimile zones are unchanged.</p>
@@ -17500,8 +17505,7 @@
                            </chord>
                         </layer>
                      </staff>
-                     <tie xml:id="sd0qax6" startid="#q1pbi228" endid="#eyy70v5"/>
-                     <tie xml:id="tpyyp5x1" endid="#eyy70v5" staff="3" startid="#q1pbi228"/>
+                     <tie xml:id="sd0qax6" startid="#q1pbi228" endid="#eyy70v5" staff="3"/>
                   </measure>
                   <measure xml:id="h9n33dv" n="180" facs="#zone_cd7d5f1f22284f6ead">
                      <harm xml:id="fhfg6t" staff="4" tstamp="1">

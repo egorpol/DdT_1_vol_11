@@ -2,6 +2,12 @@
 
 All notable changes to this edition are recorded here. Version numbers follow the [encoding profile](docs/mei-encoding-profile.md#release-identity-versions-and-citation): patch releases for compatible corrections or metadata fixes that keep event IDs, minor releases for added works or coverage, and major releases for changes to event identity, segmentation or analytical interpretation. Musical corrections are listed even when the version step is small.
 
+## [Unreleased]
+
+### Fixed
+
+- App. II, m. 179 (viola da gamba), App. III, m. 58, and Op. I/6, m. 152 (the keyboard's right hand in both): each had one tie encoded twice between the same two notes, and the second copy is removed. Where that copy named a staff or a curve direction, the tie that remains now carries it. Rendering and MIDI in Verovio 6.3.0 are unchanged. Removed `xml:id`s, with the tie that remains: `tpyyp5x1` (`sd0qax6`), `tie.app3.m58.d4` (`f11m0sdf77d`), `q9wrrfk` (`q9vedfk`); nothing in this repository referred to them.
+
 ## [0.12.0] — 2026-11-10
 
 Fourth public pre-release. All 17 works are **corrected, not finalized**: a review snapshot of 2026-11-10. Whether 1.0 covers 16 or 17 works is still open. See the [release notes](docs/release-notes/0.12.0.md) for the validation record and known limitations, among them the staves that the comparison of continuo and left hand cannot reach, and the [1.0 checklist](docs/finalization-plan.md) for what remains. 4 `xml:id`s present in v0.11.0 are gone (two `dir`, two `space`; none of a note, rest, chord or measure), and in App. II m. 55 the id `r14shlwa` changes from a measure rest to a note; the list is in the release notes.
