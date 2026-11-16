@@ -4,10 +4,19 @@ All notable changes to this edition are recorded here. Version numbers follow th
 
 ## [Unreleased]
 
+## [0.12.2] — 2026-11-16
+
+Sixth public pre-release, a patch to 0.12.1 with the same 17 works, still **corrected, not finalized**. It adds one bracketed editorial natural in Op. II/7, gives two Op. II/2 annotations their category label and adds a record of the work reviews of October 2026; see the [release notes](docs/release-notes/0.12.2.md). No `xml:id` of v0.12.1 is gone or names a different element. Two are new, the sign `accid.edit.ntgjyu` and its annotation `editorial.clash.op207-m26-b4_75`. Measure IDs, numbers, zones and facsimile links match v0.12.1 in all 17 works.
+
 ### Added
 
 - [`docs/render-review-2026-10-18.md`](docs/render-review-2026-10-18.md) and its folder record the work reviews with Verovio renderings of 2026-10-18 to 2026-10-20, reconstructed in November 2026.
-- Op. II/7, m. 26, keyboard realization: a bracketed editorial natural on the upper staff's B3 at beat 4.75 (`ntgjyu`), with the conjectural-emendation annotation `editorial.clash.op207-m26-b4_75`. DdT prints the note without a sign; its natural two notes earlier in the same voice stands on the lower staff, so CAMAT 0.2.7 read the note as B-natural3 and 0.2.10 reads it as B-flat3, against the gamba's printed B-natural3 and DdT's figure 3(♮). The Op. II print figures the bass with 4 and a natural (Cembalo partbook, p. 25). The note sounds B-natural3 as before; the sign makes the reading independent of the CAMAT version.
+- Op. II/7, m. 26, keyboard realization: a bracketed editorial natural on the upper staff's B3 at beat 4.75 (`ntgjyu`), with the conjectural-emendation annotation `editorial.clash.op207-m26-b4_75`. DdT prints the note without a sign; the natural that DdT prints on the B3 at beat 3.25, in the same voice, stands on the lower staff, so CAMAT 0.2.7 read the note as B-natural3 and 0.2.10 reads it as B-flat3, against the gamba's printed B-natural3 and DdT's figure 3(♮). The Op. II print figures the bass with 4 and a natural (Cembalo partbook, p. 25). The note sounds B-natural3 as before; the sign makes the reading independent of the CAMAT version.
+
+### Changed
+
+- Op. II/2: the two annotations on the notated meter, `annot.op2_02.m199-206.meter-encoding` and `annot.op2_02.m207-214.meter-encoding`, now read `type="editorial" label="encoding-note"` instead of `type="encoding-note"`, as the [editorial policy](docs/editorial-policy.md#correction-categories) asks. Their text, targets and IDs are unchanged, and the viewer shows the same category. All 101 annotations in the corpus now carry a label.
+- All 17 MEI headers now read `<edition n="0.12.2">Corrected working edition (pre-release)</edition>`, and each `revisionDesc` gets a top `<change isodate="2026-11-16">` entry; the last-updated date stays 2026-11-16. Op. II/2's `revisionDesc` also records the relabelling above. The consistency reports and `validation/editorial-reports.json` are refreshed. The musical text, annotations and facsimile zones are unchanged by this step.
 
 ## [0.12.1] — 2026-11-16
 
@@ -194,6 +203,7 @@ First public pre-release. The 16 assembled works are **corrected, not finalized*
 
 - The page-level OMR files from musiconn.scoresearch in `11_buxtehude_dietrich_buxtehudes_instrumentalwerke_bsb00023199/`, from which the work-level files were assembled. They are source material, not part of the edition text.
 
+[0.12.2]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.12.2
 [0.12.1]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.12.1
 [0.12.0]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.12.0
 [0.11.0]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.11.0
