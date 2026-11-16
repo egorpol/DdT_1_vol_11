@@ -2,6 +2,12 @@
 
 All notable changes to this edition are recorded here. Version numbers follow the [encoding profile](docs/mei-encoding-profile.md#release-identity-versions-and-citation): patch releases for compatible corrections or metadata fixes that keep event IDs, minor releases for added works or coverage, and major releases for changes to event identity, segmentation or analytical interpretation. Musical corrections are listed even when the version step is small.
 
+## [Unreleased]
+
+### Added
+
+- Op. II/7, m. 26, keyboard realization: a bracketed editorial natural on the upper staff's B3 at beat 4.75 (`ntgjyu`), with the conjectural-emendation annotation `editorial.clash.op207-m26-b4_75`. DdT prints the note without a sign; its natural two notes earlier in the same voice stands on the lower staff, so CAMAT 0.2.7 read the note as B-natural3 and 0.2.10 reads it as B-flat3, against the gamba's printed B-natural3 and DdT's figure 3(♮). The Op. II print figures the bass with 4 and a natural (Cembalo partbook, p. 25). The note sounds B-natural3 as before; the sign makes the reading independent of the CAMAT version.
+
 ## [0.12.1] — 2026-11-16
 
 Fifth public pre-release, a patch to 0.12.0 with the same 17 works, still **corrected, not finalized**. It removes three ties that were encoded twice; see the [release notes](docs/release-notes/0.12.1.md). The three `xml:id`s gone since v0.12.0 are those of the removed copies, listed below; each of the three ties remains under the id of the other copy. No other id is gone or new, none names a different element, and measure IDs, numbers, zones and facsimile links match v0.12.0 in all 17 works.
