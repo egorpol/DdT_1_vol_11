@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "completed_utc": "2026-11-16T03:37:32.923078+00:00",
+  "completed_utc": "2026-11-16T06:30:00.825269+00:00",
   "purpose": "Shared editorial findings for all assembled works; not publication sign-off.",
   "camat": {
     "module_version": "0.2.7",
@@ -35,7 +35,7 @@
     "check_relaxng": true,
     "check_schematron": true,
     "check_resources": true,
-    "check_network": false,
+    "check_network": true,
     "check_verovio": true,
     "check_camat_parse": true,
     "verovio_render_pages": true,
@@ -46,9 +46,9 @@
     {
       "work_key": "op1_01_sonata_f_major",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_op1_01_sonata_f_major_corr.mei",
-      "input_sha256": "5bd012d31005247d9626635f22a4f20dcf7d949a39136092ef2a136ee171560a",
+      "input_sha256": "d42c5362b80ecb6885233dedd7557f5482808457c249e4e5095900ee5e31af9e",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_op1_01_sonata_f_major_corr_consistency_report.csv",
-      "report_sha256": "fcd9a97963d0554c6f5ec66b94bafdacabb2e2e45d273800aae45d4a6a73a230",
+      "report_sha256": "e86d84d4df9b15f9eae8bd0d0de6b9c6cb4c47670dbc48bd6590d0af33928521",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -89,10 +89,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": false,
+          "requested": true,
           "required": false,
-          "status": "skipped",
-          "reason": "Not requested."
+          "status": "passed",
+          "findings_count": 0
         },
         "verovio": {
           "requested": true,
@@ -117,9 +117,9 @@
     {
       "work_key": "op1_02_sonata_g_major",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_op1_02_sonata_g_major_corr.mei",
-      "input_sha256": "340cad2117214141fa3f3aa9b8d3fb22ebc5f7486b6c609e9867f14708ef3fbb",
+      "input_sha256": "5fe64abddcf6bd4404f34ae14e06fa28f551be216f7805528925528076668bf8",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_op1_02_sonata_g_major_corr_consistency_report.csv",
-      "report_sha256": "3b7efe4cf8be42817047d50983c9a589ab4aa624056961b5b12bfe7106ae00b4",
+      "report_sha256": "cc5c86dcee16087b1e77a30db7c41b321e1ceb34f9b3874487a278b5749bd527",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -160,10 +160,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": false,
+          "requested": true,
           "required": false,
-          "status": "skipped",
-          "reason": "Not requested."
+          "status": "passed",
+          "findings_count": 0
         },
         "verovio": {
           "requested": true,
@@ -188,9 +188,9 @@
     {
       "work_key": "op1_03_sonata_a_minor",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_op1_03_sonata_a_minor_corr.mei",
-      "input_sha256": "d76733e4499b1afaeb82cb32dead1972b8361991ebe70dadecbd4375a6415bae",
+      "input_sha256": "8fb66485ceb82887bb818cb310fd67690edeb86f1b2173441ef8349a1809be2d",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_op1_03_sonata_a_minor_corr_consistency_report.csv",
-      "report_sha256": "c484e23c41b4d839e5666fd06f11496e705722516e49d31612a6fee38e88837a",
+      "report_sha256": "9cd0015c3488c030dc17c2a5c591c1f00d1edc659f85d4aa4b8f7b91bb3c9e83",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -231,10 +231,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": false,
+          "requested": true,
           "required": false,
-          "status": "skipped",
-          "reason": "Not requested."
+          "status": "passed",
+          "findings_count": 0
         },
         "verovio": {
           "requested": true,
@@ -259,9 +259,9 @@
     {
       "work_key": "op1_04_sonata_b_flat_major",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_op1_04_sonata_b_flat_major_corr.mei",
-      "input_sha256": "39fe093907d2d68327bff29cc6dba916a63a9cead52d9d20291d1381cd937316",
+      "input_sha256": "5943e940a8bacaba215a77cc3d38de128bfb0c2579847031d8551451bf926416",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_op1_04_sonata_b_flat_major_corr_consistency_report.csv",
-      "report_sha256": "6886f3004d79a3bb2b342da230459c62b53824634637e974ea6701c8f7bcdad7",
+      "report_sha256": "5b9fb90648db368432097cc4d2a4c6c646331fad1f8a801f819e974f4499962c",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -302,10 +302,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": false,
+          "requested": true,
           "required": false,
-          "status": "skipped",
-          "reason": "Not requested."
+          "status": "passed",
+          "findings_count": 0
         },
         "verovio": {
           "requested": true,
@@ -330,9 +330,9 @@
     {
       "work_key": "op1_05_sonata_c_major",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_op1_05_sonata_c_major_corr.mei",
-      "input_sha256": "dae51a9e1dcedf021fa79cd511c3be4e81c9ab78a8a82a8270217aa0d92440aa",
+      "input_sha256": "46e6ae7523a164c2d15f7a369ffcfcb1e411687437dd8acfff671b260ffbe778",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_op1_05_sonata_c_major_corr_consistency_report.csv",
-      "report_sha256": "f061807234794031002e3a63be735a5c65a6cd3b63df7719f4d42b92eff159e4",
+      "report_sha256": "3169229ba16c9ebd900a6254339e550ad2edd35f66578995fedc61683ce66564",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -374,10 +374,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": false,
+          "requested": true,
           "required": false,
-          "status": "skipped",
-          "reason": "Not requested."
+          "status": "passed",
+          "findings_count": 0
         },
         "verovio": {
           "requested": true,
@@ -402,9 +402,9 @@
     {
       "work_key": "op1_06_sonata_d_minor",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_op1_06_sonata_d_minor_corr.mei",
-      "input_sha256": "668d336760ea7f9b25b5dbf8b2caae85c4dec2583e22d8ccb88dacd6db90045d",
+      "input_sha256": "c70470ba12d4360dd7b29c9bc9f298b9e4cfc948d742ab74b362dbf7026fc3db",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_op1_06_sonata_d_minor_corr_consistency_report.csv",
-      "report_sha256": "5db18641b756c33dd9e84c11a537af76906ca8a8f64ebf6991eca9203cd19649",
+      "report_sha256": "692f1d52fc326b6bc7314c93d5bb2f76c0e54da6873b3349f4ef0d4efe983851",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -446,10 +446,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": false,
+          "requested": true,
           "required": false,
-          "status": "skipped",
-          "reason": "Not requested."
+          "status": "passed",
+          "findings_count": 0
         },
         "verovio": {
           "requested": true,
@@ -474,9 +474,9 @@
     {
       "work_key": "op1_07_sonata_e_minor",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_op1_07_sonata_e_minor_corr.mei",
-      "input_sha256": "2b7e7dcde8d1c2147304b3f0706ba959109492ec80cd4ba28a66faec27a44b76",
+      "input_sha256": "1de87e7e55292324db7cfa9a3f92c34fe46fb756a854a6a505d87f4de013a68e",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_op1_07_sonata_e_minor_corr_consistency_report.csv",
-      "report_sha256": "42cab5d429301dbb2a39e1954c5dfff138bc6b37c87457eae6d0accab8193cea",
+      "report_sha256": "31621529beb07af96893bddab05cf167d934721c0f30d7f49ed469456416551f",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -517,10 +517,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": false,
+          "requested": true,
           "required": false,
-          "status": "skipped",
-          "reason": "Not requested."
+          "status": "passed",
+          "findings_count": 0
         },
         "verovio": {
           "requested": true,
@@ -545,9 +545,9 @@
     {
       "work_key": "op2_01_sonata_b_flat_major",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_op2_01_sonata_b_flat_major_corr.mei",
-      "input_sha256": "f06f3cd9a32e3deb9d4c810578eea386bcf279a2d64b0b8466d70c3003af755f",
+      "input_sha256": "d34e8754bdf02ecf4e7797ece301fd04c8e40f0945faccc0b3010f78710db118",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_op2_01_sonata_b_flat_major_corr_consistency_report.csv",
-      "report_sha256": "0ac20f48807ddd53f5eef88aa9b53076257fd3a758a6775ea63445c00f0871d2",
+      "report_sha256": "0679079f9dd50bc6f7b689bc2218e8ca010f000b667ee6126cc95270bbfede7e",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -588,10 +588,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": false,
+          "requested": true,
           "required": false,
-          "status": "skipped",
-          "reason": "Not requested."
+          "status": "passed",
+          "findings_count": 0
         },
         "verovio": {
           "requested": true,
@@ -616,9 +616,9 @@
     {
       "work_key": "op2_02_sonata_d_major",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr.mei",
-      "input_sha256": "ce1f7fdaa0edf8fcad43f4827382f026bef5428b9d759a253f3841ef6310e58f",
+      "input_sha256": "e990ce62027d433305f6b406a0262b3513b5b4af562b4458eca9dbc3d350f904",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr_consistency_report.csv",
-      "report_sha256": "5360d69698baa95f4e968bea8a9dd90d9787fbab351b8a57cc8c65ddaf184954",
+      "report_sha256": "d35ee4ae49fe48b2bb1c75a60766d3e9d42e7d261ef918b76c4340a65e04b5af",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -659,10 +659,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": false,
+          "requested": true,
           "required": false,
-          "status": "skipped",
-          "reason": "Not requested."
+          "status": "passed",
+          "findings_count": 0
         },
         "verovio": {
           "requested": true,
@@ -687,9 +687,9 @@
     {
       "work_key": "op2_03_sonata_g_minor",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_op2_03_sonata_g_minor_corr.mei",
-      "input_sha256": "2ff6bab15a214dfbee5157d9137c4a670c4f7bac41e1fd00566ca9fc402a2576",
+      "input_sha256": "6de93294503337251d62a9a993af4addcd21a5099b20daf95e37a2efb9eb1846",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_op2_03_sonata_g_minor_corr_consistency_report.csv",
-      "report_sha256": "092f82960675b36023b140a3733c7934b3c94070eb0feb69ebb0b5f2a42d71f0",
+      "report_sha256": "d766b548664f067ac0ff09b3ebee09a51b222179c35c83deca7814ed75b42b50",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -730,10 +730,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": false,
+          "requested": true,
           "required": false,
-          "status": "skipped",
-          "reason": "Not requested."
+          "status": "passed",
+          "findings_count": 0
         },
         "verovio": {
           "requested": true,
@@ -758,9 +758,9 @@
     {
       "work_key": "op2_04_sonata_c_minor",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_op2_04_sonata_c_minor_corr.mei",
-      "input_sha256": "7a3f65e20dc4baf78edbf824008ab3f2814f255ae1533207c12208a219a8d8f4",
+      "input_sha256": "6e5c0a4549a96892912e035c6920f896e465c91060ba3ca1efc5bdc2fa393be3",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_op2_04_sonata_c_minor_corr_consistency_report.csv",
-      "report_sha256": "5bf47c5d5f212c1345f90361ad2aeb793b6d8cf68cbacc23ce8d86db56e34199",
+      "report_sha256": "994899c967ec0d966def89586d52e8f331d3c5ecccc7d3429b42b2592819e00a",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -802,10 +802,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": false,
+          "requested": true,
           "required": false,
-          "status": "skipped",
-          "reason": "Not requested."
+          "status": "passed",
+          "findings_count": 0
         },
         "verovio": {
           "requested": true,
@@ -830,9 +830,9 @@
     {
       "work_key": "op2_05_sonata_a_major",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_op2_05_sonata_a_major_corr.mei",
-      "input_sha256": "9839beb2d3d873f8c50e222fe8bc49596afdc918a1a2ca6aca72483debcd8fb9",
+      "input_sha256": "495e177cd216f4fa3e6c866d40d81dc3037da7ac15dd694410da50be0164a6ca",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_op2_05_sonata_a_major_corr_consistency_report.csv",
-      "report_sha256": "1f305efb81c9390ab4346f6d0213ea488542fd8c3c6563f8ce9091cd05bf5708",
+      "report_sha256": "673ef95d02791eff0aa6448882057af4f28c5cdd49ac356ff91d0b2636bec903",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -874,10 +874,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": false,
+          "requested": true,
           "required": false,
-          "status": "skipped",
-          "reason": "Not requested."
+          "status": "passed",
+          "findings_count": 0
         },
         "verovio": {
           "requested": true,
@@ -902,9 +902,9 @@
     {
       "work_key": "op2_06_sonata_e_major",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_op2_06_sonata_e_major_corr.mei",
-      "input_sha256": "55da3e01d0af4db8b6f07039c1ad38da08e376630995303614d4468131c11a0b",
+      "input_sha256": "bf6ff7352a0f555516ad6e5ab25d675ed674d45613767f7abbeb25f3436d87b9",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_op2_06_sonata_e_major_corr_consistency_report.csv",
-      "report_sha256": "188cf11d879b507786ac31e55600e609c77d7642e78b305d98c92535e1675c7b",
+      "report_sha256": "218159d2f95534d0e13423a7651dbe7e9ba39b85a3fc4d182d5b794601ed3d83",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -945,10 +945,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": false,
+          "requested": true,
           "required": false,
-          "status": "skipped",
-          "reason": "Not requested."
+          "status": "passed",
+          "findings_count": 0
         },
         "verovio": {
           "requested": true,
@@ -973,9 +973,9 @@
     {
       "work_key": "op2_07_sonata_f_major",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_op2_07_sonata_f_major_corr.mei",
-      "input_sha256": "0dffff5c0c0a4f6a66ceb3ee65382e3d9780a9af248f50c0a9858d12bfef7497",
+      "input_sha256": "3f0af18ea10b71f82f3055cf6cfb556b579a52d5ff593455204acb62303bcac9",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_op2_07_sonata_f_major_corr_consistency_report.csv",
-      "report_sha256": "ee286e30d2e7aa6f7a45e9eaa5e19f4ec76d0bac5f1f0f5b003eca66c378d28e",
+      "report_sha256": "edf88e2535e6b55356196e6a1c8d0bfb03ffec710ab9bd67439567c72b183b1e",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -1017,10 +1017,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": false,
+          "requested": true,
           "required": false,
-          "status": "skipped",
-          "reason": "Not requested."
+          "status": "passed",
+          "findings_count": 0
         },
         "verovio": {
           "requested": true,
@@ -1045,9 +1045,9 @@
     {
       "work_key": "app_01_suite_to_op1_04",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_app_01_suite_to_op1_04_corr.mei",
-      "input_sha256": "91463cc94e47d4c81d32117241016607d761b465b72d3b0036d6d5a97dd286fe",
+      "input_sha256": "23e1b9090b9d755c1e1c44958572046b3905961c2ea8a85dd27ae331c3855e53",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_app_01_suite_to_op1_04_corr_consistency_report.csv",
-      "report_sha256": "6e92568b7e0168968fce60d6c79f2c88ad5caec9d2a6138991f7a6dc76adc62d",
+      "report_sha256": "3bff9d3f17e859565ed10c33b70b138b6d7ebf5f82b9a8adf5baa32f6d62f2ea",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -1088,10 +1088,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": false,
+          "requested": true,
           "required": false,
-          "status": "skipped",
-          "reason": "Not requested."
+          "status": "passed",
+          "findings_count": 0
         },
         "verovio": {
           "requested": true,
@@ -1116,9 +1116,9 @@
     {
       "work_key": "app_02_sonata_2violins_gamba_cembalo_c_major",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_app_02_sonata_2violins_gamba_cembalo_c_major_corr.mei",
-      "input_sha256": "cf0dc580a4332385074a7241122a3b81a985fc054f60f6fed08b690f6c9cce03",
+      "input_sha256": "1dc2582b9baf06a6777558ab184d62bb7d71a53c62324dbe78d0ed02e9c8c5f1",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_app_02_sonata_2violins_gamba_cembalo_c_major_corr_consistency_report.csv",
-      "report_sha256": "ee875bc42fe62dcecfac54be689f0a1d681889ab879b10243d12c6e9a04c8b26",
+      "report_sha256": "2f81e4c24b1f6254afab732e16bb8b308cdc6b6f19bc3dc5f1dccf38c87dfc1a",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -1159,10 +1159,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": false,
+          "requested": true,
           "required": false,
-          "status": "skipped",
-          "reason": "Not requested."
+          "status": "passed",
+          "findings_count": 0
         },
         "verovio": {
           "requested": true,
@@ -1187,9 +1187,9 @@
     {
       "work_key": "app_03_sonata_gamba_violin_cembalo_d_major",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_app_03_sonata_gamba_violin_cembalo_d_major_corr.mei",
-      "input_sha256": "bb61797ff018086c78b06c5f3832925f6e46dc982e85f7ae24214e93e484a3b3",
+      "input_sha256": "5936132dba84de942290ce990a1b47bad3435225b3139c578a15a7865d3f1e18",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_app_03_sonata_gamba_violin_cembalo_d_major_corr_consistency_report.csv",
-      "report_sha256": "3faad9645eef725889178c2ab46f72f1b1a8ec6301776e560c7406299ac66f0f",
+      "report_sha256": "b787295d00ee4bb1ef7d4070b38b6042e35414ae558aabebaad2aff48d228978",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -1230,10 +1230,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": false,
+          "requested": true,
           "required": false,
-          "status": "skipped",
-          "reason": "Not requested."
+          "status": "passed",
+          "findings_count": 0
         },
         "verovio": {
           "requested": true,

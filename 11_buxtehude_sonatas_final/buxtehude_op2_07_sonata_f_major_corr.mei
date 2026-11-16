@@ -24,7 +24,7 @@
             </respStmt>
          </titleStmt>
          <editionStmt>
-            <edition n="0.12.1">Corrected working edition (pre-release)</edition>
+            <edition n="0.12.2">Corrected working edition (pre-release)</edition>
          </editionStmt>
          <pubStmt xml:id="p1kyq0q4">
             <publisher>CAMAT Corpus Editions</publisher>
@@ -138,9 +138,14 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-16" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Aligned the edition statement with the 0.12.2 pre-release: a corrected working edition, not finalized. The musical text, annotations and facsimile zones are unchanged by this step.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-16" resp="#resp.camat #resp.polyakov">
             <changeDesc>
-               <p>Emended one note of DdT's keyboard realization in m. 26: the upper staff's B3 ntgjyu at beat 4.75, printed without a sign, gets a bracketed editorial natural (accid with func="edit" and enclose="brack") and an editorial annotation, labelled conjectural-emendation, that records DdT's reading and the reason (editorial.clash.op207-m26-b4_75). The natural that DdT prints two notes earlier in the same voice stands on the lower staff, so the note's pitch depended on whether an accidental holds for its staff or follows the voice: CAMAT 0.2.7 resolved it as B-natural3, CAMAT 0.2.10 as B-flat3, against the gamba's printed B-natural3 and DdT's figure 3(♮) at the same moment. The note sounded B-natural3 before this change and still does; the sign makes the reading explicit. On 2026-11-16 the editor decided the emendation on a review page that showed the DdT crop, the Op. II print's continuo figures and renders of both readings; an AI model (Anthropic Claude) read the crops. The editorial declaration now names the print consultation. The gestural accidentals need no change (scripts/regenerate_accid_ges.py --check). The written notes and existing event IDs are unchanged; the editorial accid has a new ID.</p>
+               <p>Emended one note of DdT's keyboard realization in m. 26: the upper staff's B3 ntgjyu at beat 4.75, printed without a sign, gets a bracketed editorial natural (accid with func="edit" and enclose="brack") and an editorial annotation, labelled conjectural-emendation, that records DdT's reading and the reason (editorial.clash.op207-m26-b4_75). The natural that DdT prints on the B3 at beat 3.25, in the same voice, stands on the lower staff, so the note's pitch depended on whether an accidental holds for its staff or follows the voice: CAMAT 0.2.7 resolved it as B-natural3, CAMAT 0.2.10 as B-flat3, against the gamba's printed B-natural3 and DdT's figure 3(♮) at the same moment. The note sounded B-natural3 before this change and still does; the sign makes the reading explicit. On 2026-11-16 the editor decided the emendation on a review page that showed the DdT crop, the Op. II print's continuo figures and renders of both readings; an AI model (Anthropic Claude) read the crops. The editorial declaration now names the print consultation. The gestural accidentals need no change (scripts/regenerate_accid_ges.py --check). The written notes and existing event IDs are unchanged; the editorial accid has a new ID.</p>
             </changeDesc>
          </change>
          <change isodate="2026-11-16" resp="#resp.polyakov #resp.camat">
