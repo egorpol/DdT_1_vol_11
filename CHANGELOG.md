@@ -6,6 +6,7 @@ All notable changes to this edition are recorded here. Version numbers follow th
 
 ### Added
 
+- [`docs/render-review-2026-10-18.md`](docs/render-review-2026-10-18.md) and its folder record the work reviews with Verovio renderings of 2026-10-18 to 2026-10-20, reconstructed in November 2026.
 - Op. II/7, m. 26, keyboard realization: a bracketed editorial natural on the upper staff's B3 at beat 4.75 (`ntgjyu`), with the conjectural-emendation annotation `editorial.clash.op207-m26-b4_75`. DdT prints the note without a sign; its natural two notes earlier in the same voice stands on the lower staff, so CAMAT 0.2.7 read the note as B-natural3 and 0.2.10 reads it as B-flat3, against the gamba's printed B-natural3 and DdT's figure 3(♮). The Op. II print figures the bass with 4 and a natural (Cembalo partbook, p. 25). The note sounds B-natural3 as before; the sign makes the reading independent of the CAMAT version.
 
 ## [0.12.1] — 2026-11-16
