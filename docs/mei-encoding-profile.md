@@ -106,7 +106,7 @@ MIDI playback instruments and channels are set from the staff roles in `validati
 
 All notes (including chord tones), chords, rests, spaces, full-measure rest/space events, measures, layers, staves, and independently addressable control events such as ties, slurs, figured-bass events, tempo marks, and annotations must have persistent `xml:id` values in release files. Extend this set explicitly when the corpus uses additional event types. An ID is required for an event that CAMAT exposes for selection or annotation even when the MEI schema makes it optional.
 
-Preserve existing IDs across correction, formatting, and release renaming. IDs are unique within each XML document; the cross-corpus address is the stable file identifier plus `#xml-id`. A bare `#id` in a finalized file must resolve in that file. Cross-page fragments may be tolerated during assembly, but a similarly named ID in a different standalone release file does not resolve a broken local reference.
+Preserve existing IDs across correction, formatting, and release renaming. One exception: when a control event was encoded twice between the same endpoints, a release may remove the duplicate; its notes name the removed id and the id that remains. IDs are unique within each XML document; the cross-corpus address is the stable file identifier plus `#xml-id`. A bare `#id` in a finalized file must resolve in that file. Cross-page fragments may be tolerated during assembly, but a similarly named ID in a different standalone release file does not resolve a broken local reference.
 
 ## Work declarations
 

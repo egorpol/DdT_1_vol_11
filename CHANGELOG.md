@@ -2,11 +2,18 @@
 
 All notable changes to this edition are recorded here. Version numbers follow the [encoding profile](docs/mei-encoding-profile.md#release-identity-versions-and-citation): patch releases for compatible corrections or metadata fixes that keep event IDs, minor releases for added works or coverage, and major releases for changes to event identity, segmentation or analytical interpretation. Musical corrections are listed even when the version step is small.
 
-## [Unreleased]
+## [0.12.1] — 2026-11-16
+
+Fifth public pre-release, a patch to 0.12.0 with the same 17 works, still **corrected, not finalized**. It removes three ties that were encoded twice; see the [release notes](docs/release-notes/0.12.1.md). The three `xml:id`s gone since v0.12.0 are those of the removed copies, listed below; each of the three ties remains under the id of the other copy. No other id is gone or new, none names a different element, and measure IDs, numbers, zones and facsimile links match v0.12.0 in all 17 works.
 
 ### Fixed
 
-- App. II, m. 179 (viola da gamba), App. III, m. 58, and Op. I/6, m. 152 (the keyboard's right hand in both): each had one tie encoded twice between the same two notes, and the second copy is removed. Where that copy named a staff or a curve direction, the tie that remains now carries it. Rendering and MIDI in Verovio 6.3.0 are unchanged. Removed `xml:id`s, with the tie that remains: `tpyyp5x1` (`sd0qax6`), `tie.app3.m58.d4` (`f11m0sdf77d`), `q9wrrfk` (`q9vedfk`); nothing in this repository referred to them.
+- App. II, m. 179 (viola da gamba), App. III, m. 58, and Op. I/6, m. 152 (the keyboard's right hand in both): each had one tie encoded twice between the same two notes, and the second copy is removed. Where that copy named a staff or a curve direction, the tie that remains now carries it. Verovio 6.3.0 drew each second copy exactly over the first, so the pages look the same, and its MIDI is unchanged. Removed `xml:id`s, with the tie that remains: `tpyyp5x1` (`sd0qax6`), `tie.app3.m58.d4` (`f11m0sdf77d`), `q9wrrfk` (`q9vedfk`); nothing in this repository referred to them.
+
+### Changed
+
+- All 17 MEI headers now read `<edition n="0.12.1">Corrected working edition (pre-release)</edition>`, the last-updated date is 2026-11-16, and each `revisionDesc` gets a top `<change isodate="2026-11-16">` entry. The consistency reports and `validation/editorial-reports.json` are refreshed. The musical text, annotations and facsimile zones are unchanged by this step.
+- The encoding profile's Event identity section names one exception to id preservation: a control event encoded twice between the same endpoints may lose its duplicate, with both ids named in the release notes.
 
 ## [0.12.0] — 2026-11-10
 
@@ -180,6 +187,7 @@ First public pre-release. The 16 assembled works are **corrected, not finalized*
 
 - The page-level OMR files from musiconn.scoresearch in `11_buxtehude_dietrich_buxtehudes_instrumentalwerke_bsb00023199/`, from which the work-level files were assembled. They are source material, not part of the edition text.
 
+[0.12.1]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.12.1
 [0.12.0]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.12.0
 [0.11.0]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.11.0
 [0.10.0]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.10.0
