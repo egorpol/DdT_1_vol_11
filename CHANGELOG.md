@@ -13,6 +13,7 @@ All notable changes to this edition are recorded here. Version numbers follow th
 ### Changed
 
 - The [editorial policy](docs/editorial-policy.md#sources-and-their-roles) and the README: the Op. II print's own list of misprints belongs to the witness `src.uppsala.op2`. An entry that is legible and fits its bar attests the corrected reading; where DdT already has that reading, nothing is added. Op. II/2's header records the comparison of its two gamba entries for Sonata II. Op. II/5's header records the entry for m. 31, and Op. II/1's header records the gamba entry for printed p. 4, fourth staff, which asks for a natural before the 25th note of a staff that holds 18 notes; it is not applied, and the music is unchanged.
+- The excerpts' [rights note](supplemental_material/README.md) covers the four new Op. II excerpts (II/2 m. 170 in the partbook and in the list of misprints, II/2 m. 268 and II/5 m. 31 in the list), and the rights note, `LICENSE.md` and the README name single entries of the list of misprints beside the excerpts of one printed bar or less, without a count.
 
 ### Fixed
 

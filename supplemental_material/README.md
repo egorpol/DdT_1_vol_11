@@ -2,13 +2,13 @@
 
 These limited facsimile excerpts document readings discussed in the MEI
 annotations. They are listed in the order in which the readings appear in the
-volume (DdT 1903, printed pp. 3, 29, 39, 55, 75, 80, 85, 97, 106, 108, 112, 128, 139, 141, 150, 151, 163, 173, 178, 180 and 181). Include this directory and its
+volume (DdT 1903, printed pp. 3, 29, 39, 55, 75, 80, 85, 96, 97, 101, 106, 108, 112, 127, 128, 139, 141, 150, 151, 163, 173, 178, 180 and 181). Include this directory and its
 attribution with the score in the final release, preserving the relative paths.
 Crop provenance and checksums are recorded in [manifest.json](manifest.json).
 
 ## Reuse basis
 
-**Intended reuse basis of the twenty print excerpts (Germany, recorded
+**Intended reuse basis of the print excerpts (Germany, recorded
 2026-10-19):** documentary image
 quotation accompanying the critical discussion of each specific reading under
 [UrhG § 51](https://www.gesetze-im-internet.de/urhg/__51.html), with attribution
@@ -18,6 +18,13 @@ the extent of each excerpt is restricted to one printed source bar, which
 may correspond to more than one measure in DdT. This is a proposed
 basis for this use, not a conclusion that small images are automatically exempt
 from rights or that every use in every jurisdiction is covered.
+
+**Extension recorded 2026-11-18:** the same basis is used for single entries
+of the Op. II print's own list of misprints (excerpts first published
+2026-11-18). Each such excerpt shows the one entry that concerns the reading,
+with the sonata heading above it where needed, because the entry's printed
+music examples, numbers or fractions are the evidence that the note discusses;
+each section below says why the image, rather than a transcription, is needed.
 
 **The App. I, App. II and App. III excerpts (permission of 2026-11-06):** these excerpts come from
 manuscript images in Uppsala University Library's Düben database, not from the
@@ -313,6 +320,86 @@ specific E4 augmentation dot on the documentary image-quotation basis recorded
 above. The scope is one historical-print bar, corresponding to DdT measures
 113–114, showing the E4 dot and its complete rhythmic context; no general
 scan-redistribution permission is asserted.
+
+## Op. II/2, measure 170, viola da gamba
+
+![Original-print bar with the F-sharp4-G4-F-sharp4 figure on beat 4 of m. 170](supplemental_material_op2_02_m170_gamba_stimu1991.png)
+
+**Source:** Dieterich Buxtehude, *VII. Suonate à due, violino et violadagamba
+con cembalo*, Op. II (1696), Uppsala University Library, Düben Collection,
+`Uimtr 52:1–4`, RISM A/I B5205. Consulted through the STIMU facsimile edition
+(Utrecht, 1991; introduction by Kerala J. Snyder), supplied as
+university-library scans. The digitising institution was not named in the
+supplied provenance.
+
+**Location:** Viola da gamba partbook, Sonata II, printed p. 8, fourth staff;
+supplied `scan-0029.jpg`, left page. The crop runs from the soprano clef that
+the print sets in m. 169 (before its beat 4) to the repeat sign after m. 170;
+the print draws no barline between mm. 169 and 170, so the crop stays within
+one printed bar. After the clef it shows the sixteenth rest and A4-G-sharp4-A4
+of m. 169, beat 4; then m. 170: B4 quarter, sixteenth rest and
+C-sharp5-B4-C-sharp5, D5 quarter, and on beat 4 the sixteenth rest and
+F-sharp4-G4-F-sharp4 that the note discusses. The stem of the middle note
+carries a second blob on the line below, where the corrected E4 stands;
+whether that is a later retouch in this copy is not settled. DdT 1903,
+printed p. 96, gives A4-G4-A4 under the treble clef that it sets at the end
+of m. 169. The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr.mei#editorial.op202.m170.errata)
+explains the emendation to F-sharp4-E4-F-sharp4 from the print's list of
+misprints (next section). The crops were reviewed on 2026-11-17; the comparison
+does not constitute complete collation of the work with the historical print.
+
+**Image preparation:** a direct crop at the scan's original pixel scale,
+1020 × 340 pixels, saved as PNG from the supplied full-resolution JPEG access
+image after verifying its SHA-256 against the conversion inventory. The crop
+runs from the soprano clef to the repeat sign; the part, page and staff are
+identified above. No resizing, retouching or reconstructed notation is
+included. The TIFF master was not read for this crop. Coordinates, source
+checksum and upstream master provenance are recorded in the crop manifest.
+
+**Intended reuse:** this excerpt accompanies the critical discussion of the
+specific reading on the documentary image-quotation basis recorded above
+(UrhG §§ 51 and 63, checked 2026-10-19). The scope is part of one
+historical-print bar; no general scan-redistribution permission is asserted.
+
+## Op. II/2, measure 170, list of misprints
+
+![Entry from the print's list of misprints for Sonata II, Fol. 8](supplemental_material_op2_02_m170_errata_stimu1991.png)
+
+**Source:** Dieterich Buxtehude, *VII. Suonate à due, violino et violadagamba
+con cembalo*, Op. II (1696), Uppsala University Library, Düben Collection,
+`Uimtr 52:1–4`, RISM A/I B5205. Consulted through the STIMU facsimile edition
+(Utrecht, 1991; introduction by Kerala J. Snyder), supplied as
+university-library scans. The digitising institution was not named in the
+supplied provenance.
+
+**Location:** The print's own list of misprints, headed “Folgende Druckfehler
+…”, after the dedication; supplied `scan-0007.jpg`, right page; in the list's
+Viola da gamba section. The crop shows the subheading “Sonata II.” and the
+whole entry “Fol. 8. In der vierdten Zeil/ stehen [example] müssen [example]
+seyn.”, with its two small music examples: the printed figure
+F-sharp4-G4-F-sharp4 and the corrected F-sharp4-E4-F-sharp4, each after a
+sixteenth rest. The entry names the partbook's p. 8, fourth staff (previous section).
+DdT 1903, printed p. 96. The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr.mei#editorial.op202.m170.errata)
+explains the emendation attested by those examples.
+
+**Image preparation:** a direct crop at the scan's original pixel scale,
+1680 × 290 pixels, saved as PNG from the supplied full-resolution JPEG access
+image after verifying its SHA-256 against the conversion inventory. The crop
+shows the sonata subheading and the whole entry with its two music examples;
+the list context is identified above. No resizing, retouching or reconstructed
+notation is included. The TIFF master was not read for this crop. Coordinates,
+source checksum and upstream master provenance are recorded in the crop
+manifest.
+
+**Intended reuse:** this excerpt accompanies the critical discussion of the
+specific reading on the documentary image-quotation basis recorded above
+(UrhG §§ 51 and 63, checked 2026-10-19). The scope is one entry of the print's
+list of misprints with its sonata subheading; the entry's evidence is its two
+printed music examples, which a text-line transcription would not show; no
+general scan-redistribution permission is asserted.
+
 ## Op. II/2, measure 189, viola da gamba
 
 ![Original-print measure supporting the E3 eighth-note reading](supplemental_material_op2_02_m189_stimu1991.png)
@@ -341,6 +428,43 @@ unrelated material.
 specific E3 reading on the documentary image-quotation basis recorded above
 (UrhG §§ 51 and 63, checked 2026-10-19). The scope is one measure, showing the
 printed flag and its immediate musical context.
+
+## Op. II/2, measure 268, list of misprints
+
+![Entry from the print's list of misprints for the 21st note](supplemental_material_op2_02_m268_errata_stimu1991.png)
+
+**Source:** Dieterich Buxtehude, *VII. Suonate à due, violino et violadagamba
+con cembalo*, Op. II (1696), Uppsala University Library, Düben Collection,
+`Uimtr 52:1–4`, RISM A/I B5205. Consulted through the STIMU facsimile edition
+(Utrecht, 1991; introduction by Kerala J. Snyder), supplied as
+university-library scans. The digitising institution was not named in the
+supplied provenance.
+
+**Location:** The print's own list of misprints, after the dedication; supplied
+`scan-0007.jpg`, right page; in the list's Viola da gamba section, Sonata II.
+One line, the entry only: “Fol. 10. In der achten Zeil/ muß die 21. Note
+[fraction] mit [fraction] Pause seyn.” It names the partbook's p. 10, eighth
+staff (supplied `scan-0030.jpg`, left page); counting notes but not rests, the
+21st note is the D3 of m. 268. The two fractions are printed small and neither
+can be read with confidence. DdT 1903, printed p. 101, has D3 eighth, eighth
+rest, quarter rest, half rest, as the partbook does; the
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr.mei#editorial.op202.m268.errata)
+records why that reading is kept.
+
+**Image preparation:** a direct crop at the scan's original pixel scale,
+1600 × 74 pixels, saved as PNG from the supplied full-resolution JPEG access
+image after verifying its SHA-256 against the conversion inventory. The crop
+shows the entry only; the list context is identified above. No resizing,
+retouching or reconstructed notation is included. The TIFF master was not
+read for this crop. Coordinates, source checksum and upstream master
+provenance are recorded in the crop manifest.
+
+**Intended reuse:** this excerpt accompanies the critical discussion of the
+specific reading on the documentary image-quotation basis recorded above
+(UrhG §§ 51 and 63, checked 2026-10-19). The scope is one entry of the print's
+list of misprints; the two fractions cannot be read with confidence, so a
+transcription would assert a reading the edition does not make; the image lets
+readers judge them; no general scan-redistribution permission is asserted.
 
 ## Op. II/3, measure 47, continuo
 
@@ -597,6 +721,44 @@ specific F2 on the documentary image-quotation basis recorded above. The scope
 is the part of one historical-print bar on this staff, corresponding to part of
 DdT measure 168, showing the sign and its immediate musical context; no general
 scan-redistribution permission is asserted.
+
+## Op. II/5, measure 31, list of misprints
+
+![Entry from the print's list of misprints for Fol 22 notes 15 and 16](supplemental_material_op2_05_m031_errata_stimu1991.png)
+
+**Source:** Dieterich Buxtehude, *VII. Suonate à due, violino et violadagamba
+con cembalo*, Op. II (1696), Uppsala University Library, Düben Collection,
+`Uimtr 52:1–4`, RISM A/I B5205. Consulted through the STIMU facsimile edition
+(Utrecht, 1991; introduction by Kerala J. Snyder), supplied as
+university-library scans. The digitising institution was not named in the
+supplied provenance.
+
+**Location:** The print's own list of misprints, after the dedication; supplied
+`scan-0007.jpg`, right page; in the list's Violino section, Sonata V. One line,
+the entry only: “Fol 22. In der ersten Zeil/ müssen die 15 und 16. Noten 64
+Theile seyn.” It names the Violino partbook's p. 22, first staff (supplied
+`scan-0019.jpg`, left page), which opens at m. 30; counting notes but not
+rests, notes 15 and 16 are the B4 and C-sharp5 sixteenths of m. 31. DdT 1903,
+printed p. 127. Two sixty-fourths would leave the 4/4 bar short, so the
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op2_05_sonata_a_major_corr.mei#editorial.op205.m31.errata)
+keeps DdT's reading, which is also the print's. The editor confirmed the
+number 64 from this image on 2026-11-15.
+
+**Image preparation:** a direct crop at the scan's original pixel scale,
+1670 × 82 pixels, saved as PNG from the supplied full-resolution JPEG access
+image after verifying its SHA-256 against the conversion inventory. The crop
+shows the entry only; the list context is identified above. No resizing,
+retouching or reconstructed notation is included. The TIFF master was not
+read for this crop. Coordinates, source checksum and upstream master
+provenance are recorded in the crop manifest.
+
+**Intended reuse:** this excerpt accompanies the critical discussion of the
+specific reading on the documentary image-quotation basis recorded above
+(UrhG §§ 51 and 63, checked 2026-10-19). The scope is one entry of the print's
+list of misprints; the printed number “64”, which the editor confirmed from
+this image, is the reading the annotation finds does not fit the bar; the
+image lets readers check it; no general scan-redistribution permission is
+asserted.
 
 ## Op. II/5, measure 40, violin
 
