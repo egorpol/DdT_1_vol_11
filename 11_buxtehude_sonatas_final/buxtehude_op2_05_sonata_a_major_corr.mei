@@ -114,6 +114,7 @@
             <p>This is a working corrected digital edition based on DdT 1903. DdT is the source for the encoded readings and the repairs documented in this work, apart from the violin’s rhythm in measure 40. OMR and conversion errors are corrected against the DdT facsimile. The Op. II historical print was consulted selectively through the STIMU 1991 facsimile of the Uppsala partbooks for the violin in measure 40 on 2026-11-07 (Violino partbook, Sonata V, printed p. 22; scan-0019, left-hand page, staff 6), and for the sextuplet sign of the next bar. The conjectural emendation is recorded in editorial.op205.m40.rhythm. This selected comparison does not constitute complete collation with the historical print. Substantive departures from DdT are documented in editorial annotations recording the source reading, encoded reading, evidence or conjectural reasoning, and responsible editor. Source-supported and conjectural emendations are distinguished.</p>
             <p>The staff arrangement and keyboard realization printed in DdT are retained. Staff 1 is violin; staff 2 is viola da gamba; staff 3 is the figured continuo bass; staves 4 and 5 are the upper and lower staves of the printed keyboard realization. The realization is distinguished from the figured continuo bass when defining an analytical view.</p>
             <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
+            <p>The Op. II print’s own list of misprints (supplied scan-0007, right-hand page) belongs to the Op. II witness. Its entry for the Violino partbook, Sonata V, printed p. 22, first staff (scan-0019, left-hand page), asks for the 15th and 16th notes on that staff, the B4 and C-sharp5 sixteenths in measure 31, to be sixty-fourths. The entry was compared with this work on 2026-11-15. It is legible but does not fit the 4/4 bar; DdT’s reading, which is also the partbook’s, is kept, and the source-reading annotation editorial.op205.m31.errata records the entry and links a supplemental facsimile excerpt.</p>
          </editorialDecl>
          <projectDesc>
             <p>This edition was prepared by CAMAT Corpus Editions as part of a DFG-funded corpus for music-analysis technologies (grant PF 669/18-1).</p>
@@ -137,6 +138,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-18" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Added the source-reading annotation editorial.op205.m31.errata at measure 31, violin, with a supplemental facsimile excerpt: the Op. II print’s own list of misprints asks for the B4 and C-sharp5 sixteenths (d14w7cew, ftdxvt6) to be sixty-fourths, which does not fit the bar, so DdT’s reading, which is also the print’s, is kept. Added a paragraph on the entry to the editorial declaration. No notes change; event IDs are retained.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-17" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Added the tie that DdT prints in the violin at measure 30 (printed p. 127, BSB image 137) from the C-sharp6 quarter to the C-sharp6 sixteenth after it (tie.op2_05.m30.cs6, from x1oaq90v to b1kw31lq); the encoding had no tie or slur there. No other music changes.</p>
@@ -3490,6 +3496,11 @@
                      <tie xml:id="p497a7p" startid="#op6zihk" endid="#b6oagza" />
                      <tie xml:id="o1be49va" startid="#m1o5l7a5" endid="#s13861sk" />
                      <tie xml:id="qr80ple" startid="#p1ipnix4" endid="#i1djh75y" />
+                     <annot xml:id="editorial.op205.m31.errata" type="editorial" label="source-reading" plist="#d14w7cew #ftdxvt6" resp="#resp.polyakov #resp.camat">
+                        <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 127 (BSB image 137), measure 31, violin: sixteen sixteenths in four beamed groups; the fourth and fifth notes are B4 and C-sharp5. <ref target="#src.uppsala.op2">The Op. II print</ref>, consulted through the <ref target="#src.stimu1991.op2">STIMU 1991 facsimile of the Uppsala partbooks</ref>, also prints the bar in sixteenths, with the same B4 and C-sharp5 as its fourth and fifth notes, in the Violino partbook, Sonata V, printed p. 22, first staff (supplied scan-0019.jpg, left-hand page), a staff that opens at measure 30. The print’s own list of misprints (supplied scan-0007.jpg, right-hand page) has an entry for this staff that asks for notes 15 and 16 to be sixty-fourths: “Fol 22. In der ersten Zeil/ müssen die 15 und 16. Noten 64 Theile seyn.” Counting notes but not rests from the first note on the staff, as the list’s other entries count, notes 15 and 16 are this B4 and C-sharp5. Counting the tied C-sharp6 pair in measure 30 as one note moves the count on by one note, to the C-sharp5 and the A4 after it, also sixteenths.</p>
+                        <p>Two sixty-fourths in place of either pair of sixteenths would leave the 4/4 bar short by the value of a dotted sixteenth, and the list has no other entry for this staff; no sixty-fourth note occurs anywhere in the encoded Op. II sonatas. The entry is legible but does not fit the bar it names, so it does not change the encoding: DdT’s reading, which is also the print’s, is kept. An AI model (OpenAI Codex) read the partbook and the list from the scans, a second model (Anthropic Claude) checked the crops and counted the notes in the encoding, and Egor Polyakov reviewed the crops and confirmed the number 64 on 2026-11-15 and decided on 2026-11-18 to keep DdT’s reading and record the entry.</p>
+                        <p><ref type="supplemental-material" target="../supplemental_material/supplemental_material_op2_05_m031_errata_stimu1991.png">Supplemental facsimile excerpt: the Op. II print’s list of misprints, Violino, Sonata V, entry for p. 22, first staff (1696 print through STIMU 1991).</ref></p>
+                     </annot>
                   </measure>
                   <measure xml:id="yqjaxze" n="32" facs="#zone_977d54c24338482d89">
                      <harm tstamp="1" staff="3" xml:id="op2_05.m32.harm.1">
