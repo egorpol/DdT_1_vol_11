@@ -4,6 +4,19 @@ All notable changes to this edition are recorded here. Version numbers follow th
 
 ## [Unreleased]
 
+### Added
+
+- Op. II/2, m. 170, viola da gamba, beat 4: F-sharp4-E4-F-sharp4 replaces DdT's A4-G4-A4 (`c16y69rk`, `e1ymhnn0`, `g2cgan1`). The Op. II partbook prints F-sharp4-G4-F-sharp4, and the print's own list of misprints corrects it to F-sharp4-E4-F-sharp4; DdT's notes stand on the corrected staff positions, but under DdT's treble clef they sound a third higher. The source-supported-emendation annotation `editorial.op202.m170.errata` links two excerpts, the partbook's bar and the list's entry. The keyboard realization is unchanged.
+- Op. II/2, m. 268, viola da gamba: the `unresolved-reading` annotation `editorial.op202.m268.errata`, with an excerpt of the list's entry for the D3, whose note and rest values cannot be read with confidence. DdT's reading, which is also the print's, is kept; the one reading that would change the bar gives D3 quarter, quarter rest, half rest. It is the edition's first unresolved reading: the validator reports it as a warning in review mode and as an error in release mode, so a release review must settle it.
+
+### Changed
+
+- The [editorial policy](docs/editorial-policy.md#sources-and-their-roles) and the README: the Op. II print's own list of misprints belongs to the witness `src.uppsala.op2`. An entry that is legible and fits its bar attests the corrected reading; where DdT already has that reading, nothing is added. Op. II/2's header records the comparison of its two gamba entries for Sonata II.
+
+### Fixed
+
+- Op. II/5, m. 30, violin: the tie that DdT prints from the C-sharp6 quarter to the C-sharp6 sixteenth after it is added (`tie.op2_05.m30.cs6`); the encoding had no tie or slur there.
+
 ## [0.12.2] — 2026-11-16
 
 Sixth public pre-release, a patch to 0.12.1 with the same 17 works, still **corrected, not finalized**. It adds one bracketed editorial natural in Op. II/7, gives two Op. II/2 annotations their category label and adds a record of the work reviews of October 2026; see the [release notes](docs/release-notes/0.12.2.md). No `xml:id` of v0.12.1 is gone or names a different element. Two are new, the sign `accid.edit.ntgjyu` and its annotation `editorial.clash.op207-m26-b4_75`. Measure IDs, numbers, zones and facsimile links match v0.12.1 in all 17 works.

@@ -115,6 +115,7 @@
             <p>The staff arrangement and keyboard realization printed in DdT are retained. Staff 1 is violin; staff 2 is viola da gamba; staff 3 is the figured continuo bass; staves 4 and 5 are the upper and lower staves of the printed keyboard realization. The realization is distinguished from the figured continuo bass when defining an analytical view.</p>
             <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
             <p>The existing E3 eighth note in the viola da gamba at measure 189 is retained as a source-supported emendation of the quarter note printed in DdT. Its annotation identifies the Op. II witness of 1696, the STIMU 1991 carrier, and the precise passage in the supplied scan.</p>
+            <p>The Op. II print’s own list of misprints, which follows the dedication (supplied scan-0007, right-hand page), belongs to the Op. II witness. On 2026-11-16 its two viola da gamba entries for Sonata II were compared with this work and with the bars they name in the Viola da gamba partbook (printed pp. 8 and 10; scan-0029 and scan-0030, left-hand pages). At measure 170 the list attests F-sharp4-E4-F-sharp4 where DdT has A4-G4-A4, and the encoding adopts that reading as a source-supported emendation (editorial.op202.m170.errata). At measure 268 the note and rest values in the entry cannot be read with confidence; DdT’s reading, which is also the partbook’s, is kept, and an unresolved-reading annotation records the entry (editorial.op202.m268.errata). Both annotations link supplemental facsimile excerpts.</p>
             <p>The twenty repeated four-measure strains of the Arietta (measures 151–230) are encoded as sections, with an explicit expansion that plays each strain twice in written order; measures 1–150 and 231–281 are sections played once. DdT closes the first strain with a repeat sign but opens it after a plain double bar at measure 150, so that strain repeats from measure 151. The explicit plan is needed because Verovio 6.3.0 generates no expansion in a file with editorial annotations. No printed repeat bar, source break or event is changed by this structural encoding.</p>
          </editorialDecl>
          <projectDesc>
@@ -139,6 +140,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-17" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Emended the viola da gamba at measure 170, beat 4, from DdT’s A4-G4-A4 to F-sharp4-E4-F-sharp4 (c16y69rk, e1ymhnn0, g2cgan1), the reading that the Op. II print’s own list of misprints gives, and regenerated their gestural accidentals; the source-supported-emendation annotation editorial.op202.m170.errata records it with two supplemental facsimile excerpts. Added the unresolved-reading annotation editorial.op202.m268.errata at measure 268, where the list’s entry for the gamba’s D3 cannot be read with confidence; the notes there are unchanged. Added a paragraph on the list to the editorial declaration. Event IDs are retained.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-16" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Aligned the edition statement with the 0.12.2 pre-release: a corrected working edition, not finalized. The musical text, annotations and facsimile zones are unchanged by this step.</p>
@@ -11636,14 +11642,14 @@
                               </note>
                               <rest xml:id="asxe2qn" dur="16" />
                               <beam xml:id="b1phr2n1">
-                                 <note xml:id="c16y69rk" dur="16" oct="4" pname="a" stem.dir="up">
-                                    <accid xml:id="d6wvvl4" />
+                                 <note xml:id="c16y69rk" dur="16" oct="4" pname="f" stem.dir="up">
+                                    <accid xml:id="d6wvvl4" accid.ges="s" />
                                  </note>
-                                 <note xml:id="e1ymhnn0" dur="16" oct="4" pname="g" stem.dir="up">
+                                 <note xml:id="e1ymhnn0" dur="16" oct="4" pname="e" stem.dir="up">
                                     <accid xml:id="f6zzel8" />
                                  </note>
-                                 <note xml:id="g2cgan1" dur="16" oct="4" pname="a" stem.dir="up">
-                                    <accid xml:id="h1hu1ok1" />
+                                 <note xml:id="g2cgan1" dur="16" oct="4" pname="f" stem.dir="up">
+                                    <accid xml:id="h1hu1ok1" accid.ges="s" />
                                  </note>
                                  <clef xml:id="s1bm9ioj" shape="C" line="3" />
                               </beam>
@@ -11707,6 +11713,12 @@
                               </note>
                            </layer>
                         </staff>
+                        <annot xml:id="editorial.op202.m170.errata" type="editorial" label="source-supported-emendation" plist="#c16y69rk #e1ymhnn0 #g2cgan1" resp="#resp.polyakov #resp.camat" source="#src.uppsala.op2">
+                           <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 96 (BSB image 106), measure 170, viola da gamba, beat 4: a sixteenth rest and A4-G4-A4 in sixteenths, under the treble clef that DdT sets at the end of measure 169. The encoding gives F-sharp4-E4-F-sharp4, the reading of <ref target="#src.uppsala.op2">the Op. II print</ref> as corrected by the print’s own list of misprints, both consulted through the <ref target="#src.stimu1991.op2">STIMU 1991 facsimile of the Uppsala partbooks</ref>. The Viola da gamba partbook, Sonata II, printed p. 8, fourth staff (supplied scan-0029.jpg, left-hand page), prints F-sharp4-G4-F-sharp4 after the sixteenth rest, under the soprano clef that it sets in measure 169; the stem of the middle note also carries a second blob on the line below, where the corrected E4 stands, and whether that is a later retouch in this copy is not settled. The list of misprints after the dedication (supplied scan-0007.jpg, right-hand page) gives the printed figure and its correction as two music examples: “Fol. 8. In der vierdten Zeil/ stehen [example] müssen [example] seyn.” The second example keeps the rest and the outer notes and puts the middle note a step lower: F-sharp4-E4-F-sharp4.</p>
+                           <p>DdT’s three notes stand on the staff positions of the list’s corrected figure, but under DdT’s treble clef they sound a third higher. The gamba’s earlier sixteenth figures in measures 169–170 (G-sharp4-F-sharp4-G-sharp4, A4-G-sharp4-A4, C-sharp5-B4-C-sharp5) turn to the lower neighbour, as the corrected figure does. The keyboard realization is unchanged. An AI model (OpenAI Codex) read the partbook and the list from the scans, a second model (Anthropic Claude) checked the crops and measured the note heads against the staff lines, and Egor Polyakov reviewed the crops on 2026-11-17 and decided the emendation.</p>
+                           <p><ref type="supplemental-material" target="../supplemental_material/supplemental_material_op2_02_m170_gamba_stimu1991.png">Supplemental facsimile excerpt: Op. II/2, measures 169 (from the soprano clef) and 170, viola da gamba (1696 print through STIMU 1991).</ref></p>
+                           <p><ref type="supplemental-material" target="../supplemental_material/supplemental_material_op2_02_m170_errata_stimu1991.png">Supplemental facsimile excerpt: the Op. II print’s list of misprints, Viola da gamba, Sonata II, entry for p. 8, fourth staff (1696 print through STIMU 1991).</ref></p>
+                        </annot>
                      </measure>
                   </section>
                   <section xml:id="op2_02.arietta.strain06" type="repeated-strain">
@@ -22331,6 +22343,11 @@
                               </beam>
                            </layer>
                         </staff>
+                        <annot xml:id="editorial.op202.m268.errata" type="editorial" label="unresolved-reading" plist="#k192qgsg #lgpwwxx #mnzli4u #nfkq2j0" resp="#resp.polyakov #resp.camat">
+                           <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 101 (BSB image 111), measure 268, viola da gamba: D3 eighth, eighth rest, quarter rest, half rest; the gamba then rests through measure 269. <ref target="#src.uppsala.op2">The Op. II print</ref>, consulted through the <ref target="#src.stimu1991.op2">STIMU 1991 facsimile of the Uppsala partbooks</ref>, has the same bar in the Viola da gamba partbook, Sonata II, printed p. 10, eighth staff (supplied scan-0030.jpg, left-hand page); in this copy a hand “x” stands above the D3. The print’s own list of misprints (supplied scan-0007.jpg, right-hand page) has an entry for this staff: “Fol. 10. In der achten Zeil/ muß die 21. Note [fraction] mit [fraction] Pause seyn.” Counting notes but not rests from the first note on the staff, as the list’s other entries count, the 21st note is this D3. The two fractions are printed small, and neither can be read with confidence: the first denominator looks like a 4 and the second nearer an 8, but an eighth is possible for both.</p>
+                           <p>Only one reading fills the 4/4 bar and changes it: a quarter note with a quarter rest, giving D3 quarter, quarter rest, half rest, with the eighth rest gone. A quarter with an eighth rest would overfill the bar, an eighth with a quarter rest would leave it short, and an eighth with an eighth rest restates the print. A D3 quarter would sound for an eighth against the bass’s passing C-sharp3 and the realization’s E4-A4-E5. DdT’s reading, which is also the print’s, is kept until the list’s fractions can be read. An AI model (OpenAI Codex) read the partbook and the list from the scans, a second model (Anthropic Claude) checked the crops and compared the fractions with a one-eighth printed elsewhere in the list, and Egor Polyakov reviewed the crops on 2026-11-17, could not read either fraction, and decided to keep DdT’s reading.</p>
+                           <p><ref type="supplemental-material" target="../supplemental_material/supplemental_material_op2_02_m268_errata_stimu1991.png">Supplemental facsimile excerpt: the Op. II print’s list of misprints, Viola da gamba, Sonata II, entry for p. 10, eighth staff (1696 print through STIMU 1991).</ref></p>
+                        </annot>
                      </measure>
                      <pb xml:id="m1ar2nq1" facs="#surface_0739b02752a3" n="13" />
                      <scoreDef xml:id="newScoreDef269">

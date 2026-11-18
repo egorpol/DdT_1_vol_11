@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "completed_utc": "2026-11-16T06:30:00.825269+00:00",
+  "completed_utc": "2026-11-17T19:02:46.347366+00:00",
   "purpose": "Shared editorial findings for all assembled works; not publication sign-off.",
   "camat": {
     "module_version": "0.2.7",
@@ -35,7 +35,7 @@
     "check_relaxng": true,
     "check_schematron": true,
     "check_resources": true,
-    "check_network": true,
+    "check_network": false,
     "check_verovio": true,
     "check_camat_parse": true,
     "verovio_render_pages": true,
@@ -89,10 +89,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": true,
+          "requested": false,
           "required": false,
-          "status": "passed",
-          "findings_count": 0
+          "status": "skipped",
+          "reason": "Not requested."
         },
         "verovio": {
           "requested": true,
@@ -160,10 +160,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": true,
+          "requested": false,
           "required": false,
-          "status": "passed",
-          "findings_count": 0
+          "status": "skipped",
+          "reason": "Not requested."
         },
         "verovio": {
           "requested": true,
@@ -231,10 +231,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": true,
+          "requested": false,
           "required": false,
-          "status": "passed",
-          "findings_count": 0
+          "status": "skipped",
+          "reason": "Not requested."
         },
         "verovio": {
           "requested": true,
@@ -302,10 +302,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": true,
+          "requested": false,
           "required": false,
-          "status": "passed",
-          "findings_count": 0
+          "status": "skipped",
+          "reason": "Not requested."
         },
         "verovio": {
           "requested": true,
@@ -374,10 +374,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": true,
+          "requested": false,
           "required": false,
-          "status": "passed",
-          "findings_count": 0
+          "status": "skipped",
+          "reason": "Not requested."
         },
         "verovio": {
           "requested": true,
@@ -446,10 +446,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": true,
+          "requested": false,
           "required": false,
-          "status": "passed",
-          "findings_count": 0
+          "status": "skipped",
+          "reason": "Not requested."
         },
         "verovio": {
           "requested": true,
@@ -517,10 +517,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": true,
+          "requested": false,
           "required": false,
-          "status": "passed",
-          "findings_count": 0
+          "status": "skipped",
+          "reason": "Not requested."
         },
         "verovio": {
           "requested": true,
@@ -588,10 +588,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": true,
+          "requested": false,
           "required": false,
-          "status": "passed",
-          "findings_count": 0
+          "status": "skipped",
+          "reason": "Not requested."
         },
         "verovio": {
           "requested": true,
@@ -616,16 +616,16 @@
     {
       "work_key": "op2_02_sonata_d_major",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr.mei",
-      "input_sha256": "e990ce62027d433305f6b406a0262b3513b5b4af562b4458eca9dbc3d350f904",
+      "input_sha256": "0965e15329a13ba5b6c529c3c618eff2b3108b03c6b00ed4b49fa7d2ff7d08be",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr_consistency_report.csv",
-      "report_sha256": "d35ee4ae49fe48b2bb1c75a60766d3e9d42e7d261ef918b76c4340a65e04b5af",
+      "report_sha256": "62175c19792740000816f0543f40fe00dfa3f73af22eee66d0b48c07121389ad",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
       "ddt_publication_acceptance": "needs-review",
       "input_unchanged": true,
       "findings": {
-        "warning": 30
+        "warning": 31
       },
       "checks": {
         "xml_references": {
@@ -659,10 +659,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": true,
+          "requested": false,
           "required": false,
-          "status": "passed",
-          "findings_count": 0
+          "status": "skipped",
+          "reason": "Not requested."
         },
         "verovio": {
           "requested": true,
@@ -730,10 +730,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": true,
+          "requested": false,
           "required": false,
-          "status": "passed",
-          "findings_count": 0
+          "status": "skipped",
+          "reason": "Not requested."
         },
         "verovio": {
           "requested": true,
@@ -802,10 +802,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": true,
+          "requested": false,
           "required": false,
-          "status": "passed",
-          "findings_count": 0
+          "status": "skipped",
+          "reason": "Not requested."
         },
         "verovio": {
           "requested": true,
@@ -830,9 +830,9 @@
     {
       "work_key": "op2_05_sonata_a_major",
       "input_file": "11_buxtehude_sonatas_final/buxtehude_op2_05_sonata_a_major_corr.mei",
-      "input_sha256": "495e177cd216f4fa3e6c866d40d81dc3037da7ac15dd694410da50be0164a6ca",
+      "input_sha256": "c48efabe9b804eac828f22e5ffc631f72c7df5f7d0b4c9113d0023178785c09c",
       "report_file": "11_buxtehude_sonatas_final/buxtehude_op2_05_sonata_a_major_corr_consistency_report.csv",
-      "report_sha256": "673ef95d02791eff0aa6448882057af4f28c5cdd49ac356ff91d0b2636bec903",
+      "report_sha256": "527109e4057100d2737c4941447d68f6e7cbc05cc3f6c32c58f62e0254b6da69",
       "completion_status": "completed",
       "mei_conformance": "passed",
       "consumer_diagnostics": "passed",
@@ -874,10 +874,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": true,
+          "requested": false,
           "required": false,
-          "status": "passed",
-          "findings_count": 0
+          "status": "skipped",
+          "reason": "Not requested."
         },
         "verovio": {
           "requested": true,
@@ -945,10 +945,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": true,
+          "requested": false,
           "required": false,
-          "status": "passed",
-          "findings_count": 0
+          "status": "skipped",
+          "reason": "Not requested."
         },
         "verovio": {
           "requested": true,
@@ -1017,10 +1017,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": true,
+          "requested": false,
           "required": false,
-          "status": "passed",
-          "findings_count": 0
+          "status": "skipped",
+          "reason": "Not requested."
         },
         "verovio": {
           "requested": true,
@@ -1088,10 +1088,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": true,
+          "requested": false,
           "required": false,
-          "status": "passed",
-          "findings_count": 0
+          "status": "skipped",
+          "reason": "Not requested."
         },
         "verovio": {
           "requested": true,
@@ -1159,10 +1159,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": true,
+          "requested": false,
           "required": false,
-          "status": "passed",
-          "findings_count": 0
+          "status": "skipped",
+          "reason": "Not requested."
         },
         "verovio": {
           "requested": true,
@@ -1230,10 +1230,10 @@
           "findings_count": 0
         },
         "image_network": {
-          "requested": true,
+          "requested": false,
           "required": false,
-          "status": "passed",
-          "findings_count": 0
+          "status": "skipped",
+          "reason": "Not requested."
         },
         "verovio": {
           "requested": true,
