@@ -116,6 +116,7 @@
             <p>Original page and system boundaries are represented by pb and sb elements. Surface and page-break numbers form a work-local sequence beginning with 1; the printed page range is recorded in sourceDesc. Each measure points to a measure zone on the corresponding facsimile surface using @facs.</p>
             <p>The existing E3 eighth note in the viola da gamba at measure 189 is retained as a source-supported emendation of the quarter note printed in DdT. Its annotation identifies the Op. II witness of 1696, the STIMU 1991 carrier, and the precise passage in the supplied scan.</p>
             <p>The Op. II print’s own list of misprints, which follows the dedication (supplied scan-0007, right-hand page), belongs to the Op. II witness. On 2026-11-16 its two viola da gamba entries for Sonata II were compared with this work and with the bars they name in the Viola da gamba partbook (printed pp. 8 and 10; scan-0029 and scan-0030, left-hand pages). At measure 170 the list attests F-sharp4-E4-F-sharp4 where DdT has A4-G4-A4, and the encoding adopts that reading as a source-supported emendation (editorial.op202.m170.errata). At measure 268 the note and rest values in the entry cannot be read with confidence; DdT’s reading, which is also the partbook’s, is kept, and an unresolved-reading annotation records the entry (editorial.op202.m268.errata). Both annotations link supplemental facsimile excerpts.</p>
+            <p>On 2026-11-18 the list’s Cembalo entry for printed p. 7, fifth staff (scan-0044, right-hand page), was compared with this work. At measure 144 DdT’s A2 is kept, and the source-reading annotation editorial.op202.m144.errata records the entry reviewed on 2026-11-19. On 2026-11-19 the list’s Violino entry for printed p. 10, seventh staff (scan-0013, left-hand page), was checked against the partbook and this work. At measure 267 the violin adopts the list’s B-flat4 as a source-supported emendation (editorial.op202.m267.errata). A separate conjectural emendation supplies a flat in DdT’s realization at beat 3.5 (editorial.clash.op202-m267-b3_5). The annotations on the two list entries link supplemental facsimile excerpts.</p>
             <p>The twenty repeated four-measure strains of the Arietta (measures 151–230) are encoded as sections, with an explicit expansion that plays each strain twice in written order; measures 1–150 and 231–281 are sections played once. DdT closes the first strain with a repeat sign but opens it after a plain double bar at measure 150, so that strain repeats from measure 151. The explicit plan is needed because Verovio 6.3.0 generates no expansion in a file with editorial annotations. No printed repeat bar, source break or event is changed by this structural encoding.</p>
          </editorialDecl>
          <projectDesc>
@@ -140,6 +141,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-19" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Added the source-reading annotation editorial.op202.m144.errata at measure 144, continuo, where DdT’s A2 (gptnajt) is kept. At measure 267 added a bracketed editorial flat to the violin’s B4 at beat 3.25 (xpxkhgu), as attested by the Op. II print’s list of misprints, and conjecturally added a bracketed editorial flat to the B4 of DdT’s realization at beat 3.5 (knprbad). The annotations editorial.op202.m267.errata and editorial.clash.op202-m267-b3_5 record the respective emendations. The annotations on the list entries at measures 144 and 267 link supplemental facsimile excerpts. Added a paragraph on the entries to the editorial declaration. No other music changes.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-17" resp="#resp.polyakov #resp.camat">
             <changeDesc>
                <p>Emended the viola da gamba at measure 170, beat 4, from DdT’s A4-G4-A4 to F-sharp4-E4-F-sharp4 (c16y69rk, e1ymhnn0, g2cgan1), the reading that the Op. II print’s own list of misprints gives, and regenerated their gestural accidentals; the source-supported-emendation annotation editorial.op202.m170.errata records it with two supplemental facsimile excerpts. Added the unresolved-reading annotation editorial.op202.m268.errata at measure 268, where the list’s entry for the gamba’s D3 cannot be read with confidence; the notes there are unchanged. Added a paragraph on the list to the editorial declaration. Event IDs are retained.</p>
@@ -9189,6 +9195,11 @@
                         <tie xml:id="j1bb5mlf" startid="#i663rer" endid="#k1qlf45i" />
                         <tie xml:id="j1fdgghf" startid="#w17y3f9m" endid="#l1raqxrp" />
                         <tie xml:id="jhhyrhf" startid="#u16k9cvb" endid="#b1ye5778" />
+                        <annot xml:id="editorial.op202.m144.errata" type="editorial" label="source-reading" plist="#gptnajt" resp="#resp.polyakov #resp.camat">
+                           <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 94 (BSB image 104), measure 144, continuo: an A2 minim with figures 4 and 3 in succession. It is note 6 on the fifth staff of <ref target="#src.uppsala.op2">the Op. II print</ref>, Cembalo partbook, Sonata II, printed p. 7 (supplied scan-0044.jpg, right-hand page), consulted through the <ref target="#src.stimu1991.op2">STIMU 1991 facsimile of the Uppsala partbooks</ref>. The print’s list of misprints (supplied scan-0008.jpg, left-hand page) reads “Fol. 7. In der fünfften Zeil muß vor der sechsten Note ein b stehen.” In this copy a pen added a flat between notes 5 and 6 and a question mark under note 6.</p>
+                           <p>DdT’s preceding G-sharp2 is figured 7-flat and 5-flat as a diminished seventh. The requested flat would give A-flat2 and go against the resolution to A. DdT’s A2 is kept. An AI model (OpenAI Codex) read the partbook and list from the scans. Egor Polyakov reviewed the crops on 2026-11-19, confirmed the question mark and decided to keep DdT’s reading.</p>
+                           <p><ref type="supplemental-material" target="../supplemental_material/supplemental_material_op2_02_m144_errata_stimu1991.png">Supplemental facsimile excerpt: the Op. II print’s list of misprints, Cembalo, Sonata II, entry for p. 7, fifth staff (1696 print through STIMU 1991).</ref></p>
+                        </annot>
                      </measure>
                      <sb xml:id="n18mk7l3" />
                      <measure xml:id="d1mxu24a" n="145" facs="#zone_b68aff50cba3426ebf">
@@ -22106,7 +22117,9 @@
                               </beam>
                               <beam xml:id="v215vcs">
                                  <note xml:id="w12h58mz" dur="16" oct="5" pname="b" stem.dir="down" />
-                                 <note xml:id="xpxkhgu" dur="16" oct="4" pname="b" stem.dir="down" />
+                                 <note xml:id="xpxkhgu" dur="16" oct="4" pname="b" stem.dir="down">
+                                    <accid xml:id="accid.edit.xpxkhgu" accid="f" func="edit" enclose="brack"/>
+                                 </note>
                                  <note xml:id="y8oqxdk" dur="16" oct="5" pname="e" stem.dir="down" />
                                  <note xml:id="zrd2sns" dur="16" oct="5" pname="d" stem.dir="down" />
                               </beam>
@@ -22180,7 +22193,9 @@
                               <beam xml:id="ofsdci">
                                  <note xml:id="ibbds33" dur="8" oct="4" pname="b" stem.dir="up" />
                                  <chord xml:id="l1mn427p" dur="8" stem.dir="up">
-                                    <note xml:id="knprbad" oct="4" pname="b" />
+                                    <note xml:id="knprbad" oct="4" pname="b">
+                                       <accid xml:id="accid.edit.knprbad" accid="f" func="edit" enclose="brack"/>
+                                    </note>
                                     <note xml:id="mxprfmg" oct="5" pname="e" />
                                  </chord>
                               </beam>
@@ -22220,6 +22235,14 @@
                               </beam>
                            </layer>
                         </staff>
+                        <annot xml:id="editorial.op202.m267.errata" type="editorial" label="source-supported-emendation" plist="#xpxkhgu" resp="#resp.polyakov #resp.camat" source="#src.uppsala.op2">
+                           <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 101 (BSB image 111), measure 267, violin: an unsigned B4 sixteenth at beat 3.25. Counting from the first note on the staff, it is note 26 in <ref target="#src.uppsala.op2">the Op. II print</ref>, Violino partbook, Sonata II, printed p. 10, seventh staff (supplied scan-0013.jpg, left-hand page), consulted through the <ref target="#src.stimu1991.op2">STIMU 1991 facsimile of the Uppsala partbooks</ref>. The partbook itself prints an unsigned B4. The print’s list of misprints (supplied scan-0007.jpg, right-hand page) reads “Fol. 10. In der siebenden Zeil/ muß die 26. Note gestrichen b seyn.” In German pitch names “gestrichen b” names b′ (B-flat4), and B-natural would be “h”. The list uses “b” six more times, each for a flat, and never uses “h” as a note name. As at measure 170, the list entry supplies the attestation. The encoding gives B-flat4 with a bracketed editorial flat on xpxkhgu.</p>
+                           <p>At beat 3.5 the violin’s E5, the bass’s E3 and DdT’s realization, with the flat added to its B4, form the diminished triad E–G–B-flat, into which the violin’s B-flat4 leads (see editorial.clash.op202-m267-b3_5). An AI model (Anthropic Claude) prepared the crops, counted the notes on the partbook staff to locate note 26 and compared the letter with the list’s other uses of “b”. Egor Polyakov reviewed the crops of the list, the partbook and DdT and decided the emendation on 2026-11-19.</p>
+                           <p><ref type="supplemental-material" target="../supplemental_material/supplemental_material_op2_02_m267_errata_stimu1991.png">Supplemental facsimile excerpt: the Op. II print’s list of misprints, Violino, Sonata II, entry for p. 10, seventh staff (1696 print through STIMU 1991).</ref></p>
+                        </annot>
+                        <annot xml:id="editorial.clash.op202-m267-b3_5" type="editorial" label="conjectural-emendation" plist="#knprbad" resp="#resp.polyakov #resp.camat">
+                           <p><ref target="#src.ddt1903">DdT 1903</ref>, printed p. 101 (BSB image 111), measure 267, keyboard realization, upper staff: the chord at beat 3.5 has G4, B4 and E5, with no accidental sign on the B4. The encoding supplies a bracketed editorial flat on knprbad. Over the bass’s E3 at beat 3.5 the chord then gives the diminished triad E–G–B-flat that follows the violin’s B-flat4. For one sixteenth, from beat 3.25 to 3.5, the realization’s B-natural4 eighth (ibbds33), which begins on beat 3, still sounds against the violin’s B-flat4 in the same octave. The eighth is kept because flattening it would make B-flat4 strike against the violin’s B-natural5 at beat 3. DdT’s continuo figures and those in <ref target="#src.uppsala.op2">the Op. II print</ref>, Cembalo partbook, Sonata II, printed p. 8, second staff (supplied scan-0045.jpg, left-hand page, <ref target="#src.stimu1991.op2">STIMU 1991 facsimile</ref>), leave beat 3 unfigured. The keyboard realization is DdT’s, not Buxtehude’s. An AI model (Anthropic Claude) checked the Cembalo partbook’s figures for this bar against DdT’s. Egor Polyakov decided the emendation on 2026-11-19.</p>
+                        </annot>
                      </measure>
                      <measure xml:id="g1dv6wpy" n="268" facs="#zone_543b8e91531f456b9b">
                         <harm xml:id="bsb00023199_00111_facs_zones_fb_39" staff="3" tstamp="1.5">

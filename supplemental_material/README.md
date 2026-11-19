@@ -2,7 +2,7 @@
 
 These limited facsimile excerpts document readings discussed in the MEI
 annotations. They are listed in the order in which the readings appear in the
-volume (DdT 1903, printed pp. 3, 29, 39, 55, 75, 80, 85, 96, 97, 101, 106, 108, 112, 127, 128, 139, 141, 150, 151, 163, 173, 178, 180 and 181). Include this directory and its
+volume (DdT 1903, printed pp. 3, 29, 39, 55, 75, 80, 85, 87, 94, 96, 97, 101, 106, 108, 112, 127, 128, 139, 141, 150, 151, 163, 173, 178, 180 and 181). Include this directory and its
 attribution with the score in the final release, preserving the relative paths.
 Crop provenance and checksums are recorded in [manifest.json](manifest.json).
 
@@ -321,6 +321,68 @@ above. The scope is one historical-print bar, corresponding to DdT measures
 113–114, showing the E4 dot and its complete rhythmic context; no general
 scan-redistribution permission is asserted.
 
+## Op. II/1, measure 158, list of misprints
+
+![Entry from the print's list of misprints showing the figures for Fol. 5, note 4](supplemental_material_op2_01_m158_errata_stimu1991.png)
+
+**Source:** Dieterich Buxtehude, *VII. Suonate à due, violino et violadagamba
+con cembalo*, Op. II (1696), Uppsala University Library, Düben Collection,
+`Uimtr 52:1–4`, RISM A/I B5205. Consulted through the STIMU facsimile edition
+(Utrecht, 1991, with an introduction by Kerala J. Snyder), supplied as
+university-library scans. The digitising institution was not named in the
+supplied provenance.
+
+**Location:** The print's list of misprints after the dedication, Cembalo
+section, Sonata I, supplied `scan-0008.jpg`, left-hand page. The line refers
+to note 4 on printed p. 5, first staff of the Cembalo partbook (supplied
+`scan-0043.jpg`, right-hand page), the E-flat3 minim in measure 158 of DdT 1903,
+printed p. 87 (BSB image 97). The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op2_01_sonata_b_flat_major_corr.mei#editorial.op201.m158.errata)
+records the entry and explains why DdT's figures 5/3 and 6/4 are kept.
+
+**Image preparation:** a direct crop at the scan's original pixel scale,
+1745 × 77 pixels, saved as PNG from the supplied JPEG access image after
+verifying its SHA-256 against the conversion inventory. The crop is limited
+to the entry's line. The TIFF master was not read for this crop. The crop
+manifest gives the coordinates, source checksum and upstream master provenance.
+
+**Intended reuse:** the excerpt accompanies the critical discussion on the
+documentary image-quotation basis recorded above. The image lets readers
+inspect the position of the stacked figures and the form of the sign read as
+“x” above the 3. A transcription would have to choose how to represent that
+sign and would lose the printed detail on which the reading depends.
+
+## Op. II/2, measure 144, list of misprints
+
+![Entry from the print's list of misprints with a b after ein](supplemental_material_op2_02_m144_errata_stimu1991.png)
+
+**Source:** Dieterich Buxtehude, *VII. Suonate à due, violino et violadagamba
+con cembalo*, Op. II (1696), Uppsala University Library, Düben Collection,
+`Uimtr 52:1–4`, RISM A/I B5205. Consulted through the STIMU facsimile edition
+(Utrecht, 1991, with an introduction by Kerala J. Snyder), supplied as
+university-library scans. The digitising institution was not named in the
+supplied provenance.
+
+**Location:** The print's list of misprints after the dedication, Cembalo
+section, Sonata II, supplied `scan-0008.jpg`, left-hand page. The entry asks
+for a flat before note 6 on printed p. 7, fifth staff of the Cembalo partbook
+(supplied `scan-0044.jpg`, right-hand page), the A2 minim in measure 144 of DdT
+1903, printed p. 94 (BSB image 104). The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr.mei#editorial.op202.m144.errata)
+records the entry and explains why DdT's A2 is kept.
+
+**Image preparation:** a direct crop at the scan's original pixel scale,
+1650 × 85 pixels, saved as PNG from the supplied JPEG access image after
+verifying its SHA-256 against the conversion inventory. The crop is limited
+to the entry's line. The TIFF master was not read for this crop. The crop
+manifest gives the coordinates, source checksum and upstream master provenance.
+
+**Intended reuse:** the excerpt accompanies the critical discussion on the
+documentary image-quotation basis recorded above. The image shows the sign
+after “ein” as a separate glyph on the text line, with an upright stem and
+a rounded bowl to its right. A transcription as “b” would lose the form that
+lets readers check the reading.
+
 ## Op. II/2, measure 170, viola da gamba
 
 ![Original-print bar with the F-sharp4-G4-F-sharp4 figure on beat 4 of m. 170](supplemental_material_op2_02_m170_gamba_stimu1991.png)
@@ -428,6 +490,36 @@ unrelated material.
 specific E3 reading on the documentary image-quotation basis recorded above
 (UrhG §§ 51 and 63, checked 2026-10-19). The scope is one measure, showing the
 printed flag and its immediate musical context.
+
+## Op. II/2, measure 267, list of misprints
+
+![Entry from the print's list of misprints for Fol. 10 with the letter b in gestrichen b](supplemental_material_op2_02_m267_errata_stimu1991.png)
+
+**Source:** Dieterich Buxtehude, *VII. Suonate à due, violino et violadagamba
+con cembalo*, Op. II (1696), Uppsala University Library, Düben Collection,
+`Uimtr 52:1–4`, RISM A/I B5205. Consulted through the STIMU facsimile edition
+(Utrecht, 1991, with an introduction by Kerala J. Snyder), supplied as
+university-library scans. The digitising institution was not named in the
+supplied provenance.
+
+**Location:** The print's list of misprints after the dedication, Violino
+section, Sonata II, supplied `scan-0007.jpg`, right-hand page. The entry
+specifies “gestrichen b” for note 26 on printed p. 10, seventh staff of the
+Violino partbook (supplied `scan-0013.jpg`, left-hand page), the B4 sixteenth
+at beat 3.25 of measure 267 in DdT 1903, printed p. 101 (BSB image 111). The
+[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr.mei#editorial.op202.m267.errata)
+cites the entry as evidence for the bracketed editorial flat on that note.
+
+**Image preparation:** a direct crop at the scan's original pixel scale,
+1620 × 82 pixels, saved as PNG from the supplied JPEG access image after
+verifying its SHA-256 against the conversion inventory. The crop is limited
+to the entry's line. The TIFF master was not read for this crop. The crop
+manifest gives the coordinates, source checksum and upstream master provenance.
+
+**Intended reuse:** the excerpt accompanies the critical discussion on the
+documentary image-quotation basis recorded above. The closed bowl of the
+Fraktur “b” distinguishes it from the descending “h” earlier in “gestrichen”.
+The image lets readers check the letter form that a transcription would lose.
 
 ## Op. II/2, measure 268, list of misprints
 
