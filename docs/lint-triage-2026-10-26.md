@@ -2,9 +2,9 @@
 
 On 2026-10-26 an AI model (OpenAI Codex) compared each suspect that
 `scripts/musical_lint.py` listed in the assembled works with the DdT 1903 page
-image and gave one verdict per suspect. The editor spot-checked eight verdicts
-and then approved a fix list built from them. The resulting 351 corrections in
-15 works were applied in commit
+image and gave one verdict per suspect. A fix list built from the verdicts gave
+351 corrections in 15 works. Before approving it, the editor compared each
+correction with the page image. The corrections were applied in commit
 [`78347338`](https://github.com/egorpol/DdT_1_vol_11/commit/78347338aed5f03c6def984d8a85405a92508d73)
 and released in 0.10.0. This file and the folder
 [`lint-triage-2026-10-26/`](lint-triage-2026-10-26/) are the durable record of
@@ -47,8 +47,12 @@ row id):
 
 ## From verdicts to corrections
 
-- Before approving the fix list, the editor spot-checked eight verdicts (commit
-  message of `78347338`; release notes 0.10.0). No file records which eight.
+- Before approving the fix list, the editor compared each of the 351 corrections
+  with the DdT 1903 page image. No list of the check was kept; the editor's
+  statement of 2026-11-19 is its record. The commit message of `78347338`, the
+  0.10.0 and 0.11.0 notes and the works' revision entries of 2026-10-27 say, as
+  this file did until 2026-11-19, that the editor spot-checked eight verdicts,
+  which understates the check.
 - A local script built the fix list from two sources: the `proposed_fix` of every
   `encoding_error` row, from both runs, and the readings the model added after
   `ALSO:` in a row's `note`. All 482 main-run `encoding_error` rows feed the list.
@@ -60,7 +64,7 @@ row id):
   octave) and m. 149 (a tie's end).
 - Items that needed a page check or a new transcription were held back. The
   0.10.0 release notes list them under "Passages still awaiting a page check or
-  re-transcription". The second pass took them up (CHANGELOG, Unreleased;
+  re-transcription". The second pass took them up (CHANGELOG, 0.11.0;
   [`lint-spot-check-2026-10-28.md`](lint-spot-check-2026-10-28.md)).
 - 351 is `total` in `apply-summary.json`. The applier counts one correction per
   changed element and class, in 15 works. By class:
@@ -99,7 +103,12 @@ Not included:
 
 ## Limits
 
-- The verdicts are one model's classifications from cropped page images. Apart
-  from the editor's eight spot-checks, no person checked them.
+- The verdicts are one model's classifications from cropped page images. The
+  editor compared the 351 corrections with the page image; the record names no
+  person's check of the verdicts that led to no correction.
+- The editor's check did not catch every error. The correction in Op. II/3
+  m. 43 read the bar in the OMR's wrong clef; the second pass (`92384f5b`,
+  0.11.0) restored the alto clef and replaced it, along with the corrections in
+  mm. 231–232.
 - A verdict count is not a count of corrections. Neither count measures the
   accuracy of the edition.
