@@ -143,6 +143,11 @@
          </work>
       </workList>
       <revisionDesc>
+         <change isodate="2026-11-20" resp="#resp.polyakov #resp.camat">
+            <changeDesc>
+               <p>Removed stray whitespace that the OMR left in two attribute values: in m. 63 (printed p. 6, BSB image 16), the violin's E♭5 sixteenth njfovys1 has accid "f", not "f " with a trailing space, on which music21 10.5.0 rejected the file; Verovio already sounded the flat that DdT prints. In m. 38 (printed p. 5, BSB image 15), the keyboard's left-hand whole-bar rest has xml:id "wl394", not " wl394"; nothing refers to it. No sounding pitch or rhythm changes.</p>
+            </changeDesc>
+         </change>
          <change isodate="2026-11-19" resp="#resp.polyakov">
             <changeDesc>
                <p>Corrected the revision entry of 2026-10-27 on the musical-lint triage: it says that the editor spot-checked eight of the model's findings across the edition, which understates the check. Before approving the fixes, the editor compared each of this work's 31 corrections with the DdT 1903 page image. No list of the check was kept; the editor's statement of 2026-11-19 is its record. The musical text is unchanged.</p>
@@ -3886,7 +3891,7 @@
                      </staff>
                      <staff xml:id="b1iv8jbj" n="5">
                         <layer xml:id="f1pyx62e" n="1">
-                           <mRest xml:id=" wl394" dur="1"> </mRest>
+                           <mRest xml:id="wl394" dur="1"> </mRest>
                         </layer>
                      </staff>
                      <tie xml:id="i1v2m9cg" startid="#g1lz4vcr" endid="#k142uvwp" />
@@ -7042,7 +7047,7 @@
                            </beam>
                            <beam xml:id="uo45ejs">
                               <note xml:id="v15bexrd" dur="16" oct="5" pname="d" stem.dir="down" />
-                              <note xml:id="njfovys1" dur="16" oct="5" pname="e" stem.dir="down" accid="f " />
+                              <note xml:id="njfovys1" dur="16" oct="5" pname="e" stem.dir="down" accid="f" />
                               <note xml:id="w1b9ujwm" dur="16" oct="5" pname="f" stem.dir="down" />
                               <note xml:id="xzucr3i" dur="16" oct="5" pname="g" stem.dir="down">
                               </note>
