@@ -4,6 +4,10 @@ All notable changes to this edition are recorded here. Version numbers follow th
 
 ## [Unreleased]
 
+### Changed
+
+- Op. II/2, m. 268, viola da gamba: reclassified `editorial.op202.m268.errata` from `unresolved-reading` to `source-reading`, clearing the edition's only `ddt.unresolved_reading` finding. High-magnification comparison of `scan-0030.jpg` (m. 268 vs. the printed eighth note and eighth rest in m. 281 on the same page) and `scan-0007.jpg`/`scan-0008.jpg` showed that the 1696 partbook originally printed `D3` quarter, quarter rest and half rest, an early hand in the Uppsala copy inked in the flag and eighth rest, and both errata fractions read `1/8`, matching the reading DdT 1903 already prints. Updated Op. II/2's `editorialDecl` and `revisionDesc`, `docs/editorial-policy.md`, `supplemental_material/manifest.json`, `supplemental_material/README.md`, and the tracked editorial validation reports. No music, pitch, rhythm or `xml:id` changed.
+
 ## [0.13.0] — 2026-11-20
 
 Seventh public pre-release, a minor step from 0.12.2 with the same 17 works, still **corrected, not finalized**. It compares the entries of the Op. II print's own list of misprints that are filed under Sonatas I, II, V and VI, adopts two of them in Op. II/2, records five that it does not apply and adds a tie in Op. II/5; see the [release notes](docs/release-notes/0.13.0.md). Two `xml:id`s of v0.12.2 change by their whitespace, `" wl394"` and `" p8f9s6jn"` (under Fixed), which makes this a minor step. No other id is gone and none names a different element; ten are new, and measure IDs, numbers, zones and facsimile links match v0.12.2 in all 17 works.

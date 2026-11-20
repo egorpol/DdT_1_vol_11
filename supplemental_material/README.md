@@ -535,13 +535,15 @@ supplied provenance.
 **Location:** The print's own list of misprints, after the dedication; supplied
 `scan-0007.jpg`, right page; in the list's Viola da gamba section, Sonata II.
 One line, the entry only: “Fol. 10. In der achten Zeil/ muß die 21. Note
-[fraction] mit [fraction] Pause seyn.” It names the partbook's p. 10, eighth
+1/8 mit 1/8 Pause seyn.” It names the partbook's p. 10, eighth
 staff (supplied `scan-0030.jpg`, left page); counting notes but not rests, the
-21st note is the D3 of m. 268. The two fractions are printed small and neither
-can be read with confidence. DdT 1903, printed p. 101, has D3 eighth, eighth
-rest, quarter rest, half rest, as the partbook does; the
-[MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr.mei#editorial.op202.m268.errata)
-records why that reading is kept.
+21st note is the D3 of m. 268. The partbook originally printed D3 quarter,
+quarter rest and half rest, which an early hand in the Uppsala copy amended in
+ink with a flag and eighth rest following this entry; DdT 1903, printed p. 101,
+already prints the corrected reading (D3 eighth, eighth rest, quarter rest,
+half rest). The [MEI annotation](../11_buxtehude_sonatas_final/buxtehude_op2_02_sonata_d_major_corr.mei#editorial.op202.m268.errata)
+(`source-reading`, reclassified from `unresolved-reading` on 2026-11-20)
+documents the entry and why the encoding is unchanged.
 
 **Image preparation:** a direct crop at the scan's original pixel scale,
 1600 × 74 pixels, saved as PNG from the supplied full-resolution JPEG access
@@ -554,9 +556,10 @@ provenance are recorded in the crop manifest.
 **Intended reuse:** this excerpt accompanies the critical discussion of the
 specific reading on the documentary image-quotation basis recorded above
 (UrhG §§ 51 and 63, checked 2026-10-19). The scope is one entry of the print's
-list of misprints; the two fractions cannot be read with confidence, so a
-transcription would assert a reading the edition does not make; the image lets
-readers judge them; no general scan-redistribution permission is asserted.
+list of misprints; the two 1/8 fractions are printed very small and heavily
+inked (and were initially left unresolved before comparison with other
+fractions in the list), so the image lets readers verify the small printed
+glyphs directly; no general scan-redistribution permission is asserted.
 
 ## Op. II/3, measure 47, continuo
 
