@@ -4,13 +4,17 @@ All notable changes to this edition are recorded here. Version numbers follow th
 
 ## [Unreleased]
 
+## [0.13.0] — 2026-11-20
+
+Seventh public pre-release, a minor step from 0.12.2 with the same 17 works, still **corrected, not finalized**. It compares the entries of the Op. II print's own list of misprints that are filed under Sonatas I, II, V and VI, adopts two of them in Op. II/2, records five that it does not apply and adds a tie in Op. II/5; see the [release notes](docs/release-notes/0.13.0.md). Two `xml:id`s of v0.12.2 change by their whitespace, `" wl394"` and `" p8f9s6jn"` (under Fixed), which makes this a minor step. No other id is gone and none names a different element; ten are new, and measure IDs, numbers, zones and facsimile links match v0.12.2 in all 17 works.
+
 ### Added
 
 - Op. II/1, m. 158, continuo: the `source-reading` annotation `editorial.op201.m158.errata` records the list entry for the E-flat3 minim (`ha5tbjj`) and links an excerpt of the line with its stacked figures. DdT's figures 5/3 (`jdfkkhfd`) and 6/4 (`jdfkkfu8er3`) are kept.
 - Op. II/2, m. 144, continuo: the `source-reading` annotation `editorial.op202.m144.errata` links the list entry asking for a flat before the A2 minim (`gptnajt`). DdT's A2 is kept as the resolution of the diminished seventh on G-sharp2.
 - Op. II/2, m. 170, viola da gamba, beat 4: F-sharp4-E4-F-sharp4 replaces DdT's A4-G4-A4 (`c16y69rk`, `e1ymhnn0`, `g2cgan1`). The Op. II partbook prints F-sharp4-G4-F-sharp4, and the print's own list of misprints corrects it to F-sharp4-E4-F-sharp4; DdT's notes stand on the corrected staff positions, but under DdT's treble clef they sound a third higher. The source-supported-emendation annotation `editorial.op202.m170.errata` links two excerpts, the partbook's bar and the list's entry. The keyboard realization is unchanged.
 - Op. II/2, m. 267, violin and keyboard realization: the `source-supported-emendation` annotation `editorial.op202.m267.errata` cites the list's B-flat4 and links its entry. The violin's B4 at beat 3.25 (`xpxkhgu`) takes a bracketed flat (`accid.edit.xpxkhgu`). A second bracketed flat (`accid.edit.knprbad`) makes the B4 of DdT's realization at beat 3.5 (`knprbad`) B-flat4. The `conjectural-emendation` annotation `editorial.clash.op202-m267-b3_5` records that change and the retained B-natural4 eighth (`ibbds33`).
-- Op. II/2, m. 268, viola da gamba: the `unresolved-reading` annotation `editorial.op202.m268.errata`, with an excerpt of the list's entry for the D3, whose note and rest values cannot be read with confidence. DdT's reading, which is also the print's, is kept; the one reading that would change the bar gives D3 quarter, quarter rest, half rest. It is the edition's first unresolved reading: the validator reports it as a warning in review mode and as an error in release mode, so a release review must settle it.
+- Op. II/2, m. 268, viola da gamba: the `unresolved-reading` annotation `editorial.op202.m268.errata`, with an excerpt of the list's entry for the D3, whose note and rest values cannot be read with confidence. DdT's reading, which is also the print's, is kept; the one reading that fills the bar and changes it gives D3 quarter, quarter rest, half rest. It is the edition's first unresolved reading: the validator reports it as a warning in review mode and as an error in release mode, so a release review must settle it.
 - Op. II/5, m. 31, violin: the `source-reading` annotation `editorial.op205.m31.errata`, with an excerpt of the list's entry that asks for notes 15 and 16 on the partbook's staff, the B4 and C-sharp5 sixteenths (`d14w7cew`, `ftdxvt6`), to be sixty-fourths. Two sixty-fourths would leave the 4/4 bar short by a dotted sixteenth, so the entry does not fit its bar; DdT's reading, which is also the print's, is kept.
 
 ### Changed
@@ -19,6 +23,7 @@ All notable changes to this edition are recorded here. Version numbers follow th
 - The excerpts' [rights note](supplemental_material/README.md) covers the seven new Op. II excerpts (II/2 m. 170 in the partbook and in the list of misprints, and the list entries for II/1 m. 158, II/2 mm. 144, 267 and 268, and II/5 m. 31). The rights note, `LICENSE.md` and the README name single entries of the list of misprints beside the excerpts of one printed bar or less, without a count.
 - The five Op. I headers with an excerpt describe it as of one printed bar or less, the extent in the [rights note](supplemental_material/README.md), instead of measure-level.
 - The record of the first musical-lint triage pass (0.10.0) now says that, before approving the fixes, the editor compared each of the 351 corrections with the DdT 1903 page image. The records had said that the editor spot-checked eight of the model's findings, which understated the check. No list of the check was kept; the editor's statement of 2026-11-19 is its record. [`docs/lint-triage-2026-10-26.md`](docs/lint-triage-2026-10-26.md) is corrected and adds that the check did not catch every error (Op. II/3 m. 43), and each of the 15 works gets a revision entry that corrects its entry of 2026-10-27. The 0.10.0 entry below and the 0.10.0 and 0.11.0 release notes keep their sentence as published, and a dated note at the end of those notes says so.
+- All 17 MEI headers now read `<edition n="0.13.0">Corrected working edition (pre-release)</edition>`, the last-updated date is 2026-11-20, and each `revisionDesc` gets a top `<change isodate="2026-11-20">` entry.
 
 ### Fixed
 
@@ -225,6 +230,7 @@ First public pre-release. The 16 assembled works are **corrected, not finalized*
 
 - The page-level OMR files from musiconn.scoresearch in `11_buxtehude_dietrich_buxtehudes_instrumentalwerke_bsb00023199/`, from which the work-level files were assembled. They are source material, not part of the edition text.
 
+[0.13.0]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.13.0
 [0.12.2]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.12.2
 [0.12.1]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.12.1
 [0.12.0]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.12.0
