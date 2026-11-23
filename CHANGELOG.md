@@ -4,11 +4,16 @@ All notable changes to this edition are recorded here. Version numbers follow th
 
 ## [Unreleased]
 
+## [0.13.1] — 2026-11-23
+
+Eighth public pre-release, a patch to 0.13.0 with the same 17 works, still **corrected, not finalized**. It settles the reading at Op. II/2 m. 268, the one annotation of 0.13.0 labelled `unresolved-reading`, as a source reading, and records the comparison of the entries of the Op. II print's list of misprints that are filed under Sonata VII; neither changes the music. The entries filed under Sonatas III and IV and eight further places in the prints have not yet been examined; see the [release notes](docs/release-notes/0.13.1.md). No `xml:id` of v0.13.0 is gone, none is new, and none names a different element. Measure IDs, numbers, zones and facsimile links match v0.13.0 in all 17 works.
+
 ### Changed
 
 - Op. II/2, m. 268, viola da gamba: reclassified `editorial.op202.m268.errata` from `unresolved-reading` to `source-reading`, clearing the edition's only `ddt.unresolved_reading` finding. High-magnification comparison of `scan-0030.jpg` (m. 268 vs. the printed eighth note and eighth rest in m. 281 on the same page) and `scan-0007.jpg`/`scan-0008.jpg` showed that the 1696 partbook originally printed `D3` quarter, quarter rest and half rest, an early hand in the Uppsala copy inked in the flag and eighth rest, and both errata fractions read `1/8`, matching the reading DdT 1903 already prints. Updated Op. II/2's `editorialDecl` and `revisionDesc`, `docs/editorial-policy.md`, `supplemental_material/manifest.json`, `supplemental_material/README.md`, and the tracked editorial validation reports. No music, pitch, rhythm or `xml:id` changed.
 - The [editorial policy](docs/editorial-policy.md#sources-and-their-roles): the entries of the Op. II print's list of misprints that are filed under Sonata VII are compared with the encoding. DdT already has the corrected reading in all six, so no music changes. Op. II/7's header records the comparison; it had said that no other passage was compared with the print beyond the neighbouring bars of m. 167. The entries filed under Sonatas III and IV are still to be compared.
 - The [editorial policy](docs/editorial-policy.md#sources-and-their-roles) now names Op. II/2 m. 268 as the one entry of the list that keeps an annotation although DdT already has the corrected reading, and gives its two reasons: its fractions are too small to read at page scale, and 0.13.0 recorded it as `unresolved-reading`. The exception as first worded with the reclassification above also covered entries where the Uppsala copy shows hand ink and nothing is added.
+- All 17 MEI headers now read `<edition n="0.13.1">Corrected working edition (pre-release)</edition>`, the last-updated date is 2026-11-23, and each `revisionDesc` gets a top `<change isodate="2026-11-23">` entry.
 
 ## [0.13.0] — 2026-11-20
 
@@ -236,6 +241,7 @@ First public pre-release. The 16 assembled works are **corrected, not finalized*
 
 - The page-level OMR files from musiconn.scoresearch in `11_buxtehude_dietrich_buxtehudes_instrumentalwerke_bsb00023199/`, from which the work-level files were assembled. They are source material, not part of the edition text.
 
+[0.13.1]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.13.1
 [0.13.0]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.13.0
 [0.12.2]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.12.2
 [0.12.1]: https://github.com/egorpol/DdT_1_vol_11/releases/tag/v0.12.1
