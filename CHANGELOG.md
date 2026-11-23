@@ -7,6 +7,7 @@ All notable changes to this edition are recorded here. Version numbers follow th
 ### Changed
 
 - Op. II/2, m. 268, viola da gamba: reclassified `editorial.op202.m268.errata` from `unresolved-reading` to `source-reading`, clearing the edition's only `ddt.unresolved_reading` finding. High-magnification comparison of `scan-0030.jpg` (m. 268 vs. the printed eighth note and eighth rest in m. 281 on the same page) and `scan-0007.jpg`/`scan-0008.jpg` showed that the 1696 partbook originally printed `D3` quarter, quarter rest and half rest, an early hand in the Uppsala copy inked in the flag and eighth rest, and both errata fractions read `1/8`, matching the reading DdT 1903 already prints. Updated Op. II/2's `editorialDecl` and `revisionDesc`, `docs/editorial-policy.md`, `supplemental_material/manifest.json`, `supplemental_material/README.md`, and the tracked editorial validation reports. No music, pitch, rhythm or `xml:id` changed.
+- The [editorial policy](docs/editorial-policy.md#sources-and-their-roles): the entries of the Op. II print's list of misprints that are filed under Sonata VII are compared with the encoding. DdT already has the corrected reading in all six, so no music changes. Op. II/7's header records the comparison; it had said that no other passage was compared with the print beyond the neighbouring bars of m. 167. The entries filed under Sonatas III and IV are still to be compared.
 
 ## [0.13.0] — 2026-11-20
 
